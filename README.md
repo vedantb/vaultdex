@@ -76,3 +76,7 @@ pokemon-tcg-app/
 - Prices shown are TCGPlayer **market** values in USD, cached on your collection rows and refreshable on demand.
 - The optional Pokémon TCG API key (Settings → gear icon) is stored only in the browser's localStorage and sent as an `X-Api-Key` header.
 - Fan project — not affiliated with Nintendo, Creatures Inc., or GAME FREAK inc.
+
+## Contributing
+
+`main` is protected: changes land via pull request with the `lint-and-syntax` and `smoke` checks green (no required approvals — solo project). Direct pushes are reserved for the repo owner and the weekly catalog-refresh automation.
