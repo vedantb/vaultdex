@@ -31,6 +31,7 @@ import re
 import subprocess
 import sys
 import time
+import unicodedata
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "data", "tcgdex")
@@ -45,6 +46,13 @@ DAILY_CAP = 16000
 # Collection: ours "CC001", theirs original print numbers; My First
 # Battle: PkmnPrices carries no numbers at all).
 NAME_MATCH = {"cel25cc", "mfb"}
+
+# Per-card overrides for one-offs: our card id -> (PkmnPrices set id,
+# PkmnPrices exact card name). Used when the card lives in a different
+# PkmnPrices set than its siblings.
+CARD_OVERRIDES = {
+    "mep-Museum": (550, "Pikachu at the Museum"),  # Jumbo Cards, not ME promos
+}
 
 # Per-set manual name aliases (normalized form): ours -> theirs.
 NAME_ALIASES = {
@@ -160,7 +168,11 @@ def pkmn(args):
 
 
 def norm_name(s):
-    return re.sub(r"[^a-z0-9]+", "", clean_name(s).lower())
+    # NFKD folds accents (café->cafe, pokémon->pokemon) so names match
+    # across sources regardless of diacritics
+    s = unicodedata.normalize("NFKD", clean_name(s).lower())
+    s = "".join(ch for ch in s if not unicodedata.combining(ch))
+    return re.sub(r"[^a-z0-9]+", "", s)
 
 
 def names_compatible(a, b):
@@ -261,9 +273,23 @@ def main():
         print(f"  no PkmnPrices mapping for {sid} ({by_set[sid][0]['set_name']}) — skipping")
 
     fixed = skipped = 0
-    backoff = 0
     fixes = {}  # sid -> [(card_id, image_url)]
     stop = False
+    def fetch_with_backoff(ppid, delay):
+        """Fetch a PkmnPrices set with patient 429 backoff; None if it won't clear."""
+        backoff = 0
+        while backoff < 6:
+            try:
+                return fetch_set_cards(ppid, delay)
+            except RuntimeError as e:
+                if "429" not in str(e):
+                    raise
+                backoff += 1
+                print(f"429 ({backoff}/6) — sleeping 300s")
+                time.sleep(300)
+        print("rate limit would not clear, stopping cleanly")
+        return None
+
     for sid, clist in sorted(by_set.items()):
         if stop:
             break
@@ -275,31 +301,42 @@ def main():
             print("daily cap reached, stopping cleanly")
             break
         # One paged pull per set (cached), then match locally by number+name.
-        pp_cards = None
-        while backoff < 6:
-            try:
-                pp_cards = fetch_set_cards(ppid, args.delay)
-                break
-            except RuntimeError as e:
-                if "429" not in str(e):
-                    raise
-                backoff += 1
-                wait = 300
-                print(f"429 ({backoff}/6) — sleeping {wait}s")
-                time.sleep(wait)
+        pp_cards = fetch_with_backoff(ppid, args.delay)
         if pp_cards is None:
-            print("rate limit would not clear, stopping cleanly")
             break
         # index by normalized number for exact matching (plus a name index
         # for the few sets whose numbering doesn't align with PkmnPrices)
         by_num = {}
         by_exact_name = {}
         for it in pp_cards:
-            by_num.setdefault(norm_num(it.get("number")), []).append(it)
+            keys = {norm_num(it.get("number"))}
+            # "SVP 175" -> also index "175"; "(#23)" in the name -> "23"
+            keys.add(re.sub(r"^[A-Z]+", "", norm_num(it.get("number"))))
+            m = re.search(r"\(#([0-9A-Z]+)\)", str(it.get("name") or "").upper())
+            if m:
+                keys.add(norm_num(m.group(1)))
+            for k in keys:
+                by_num.setdefault(k, []).append(it)
             by_exact_name.setdefault(norm_name(it.get("name")), []).append(it)
         for c in clist:
             hit = None
-            if sid in NAME_MATCH:
+            # one-off: card lives in a different PkmnPrices set than siblings
+            override = CARD_OVERRIDES.get(c["id"])
+            if override:
+                opp_id, opp_name = override
+                if ledger_today() >= DAILY_CAP:
+                    print("daily cap reached, stopping cleanly")
+                    stop = True
+                    break
+                opp_cards = fetch_with_backoff(opp_id, args.delay)
+                if opp_cards is None:
+                    stop = True
+                    break
+                for it in opp_cards:
+                    if norm_name(it.get("name")) == norm_name(opp_name):
+                        hit = it
+                        break
+            elif sid in NAME_MATCH:
                 want_name = NAME_ALIASES.get(sid, {}).get(norm_name(c["name"]),
                                                           norm_name(c["name"]))
                 for it in by_exact_name.get(want_name, []):
