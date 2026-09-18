@@ -1,5 +1,7 @@
 # VaultDex — Pokémon TCG Collection Manager
 
+![CI](https://github.com/vedantb/vaultdex/actions/workflows/ci.yml/badge.svg)
+
 A standalone web app for tracking your Pokémon TCG collection, with live market values. Vanilla HTML/CSS/JS — no build step, no framework. Deploy it by dragging the folder onto Netlify or Vercel.
 
 ## Features

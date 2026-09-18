@@ -4,12 +4,12 @@
 # Zero-build vanilla JS, so there is no compiler to catch mistakes before they
 # deploy. This workflow is the deploy gate: every push to main (and every PR)
 # must pass ESLint (recommended rules only), the vitest unit tests for the
-# pure helpers, plain syntax checks for the JS and Python sources, and the
-# signed-out smoke tests below. See eslint.config.mjs for the lint scope.
+# pure helpers, the Python unit tests for the pipeline helpers, plain syntax
+# checks for the JS and Python sources, and the signed-out smoke tests below.
+# See eslint.config.mjs for the lint scope.
 #
 # What is NOT checked here (deliberate, per the code-quality review):
 #   - data/        huge generated JSON catalog — never linted
-#   - scripts/     Python pipeline — syntax-checked only, no pytest
 #   - js/vendor/   third-party bundle — skipped by eslint, syntax-checked
 #   - no secrets in CI — smoke tests stay signed-out
 name: CI
@@ -51,6 +51,9 @@ jobs:
 
       - name: Python syntax check (scripts)
         run: python3 -m compileall -q scripts
+
+      - name: Python unit tests (pipeline helpers)
+        run: python3 -m unittest discover -s scripts/tests
 
   smoke:
     # Playwright smoke tests (chromium only), signed-out, against a local

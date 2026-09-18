@@ -1,0 +1,261 @@
+"""VaultDex pipeline unit tests (stdlib unittest — zero new dependencies).
+
+Covers the tricky, historically fragile bits of the weekly catalog
+pipeline: the credit ledger (shared by the enricher and the price
+backfill, guarding the paid 20,000/day Pro cap), atomic JSON writes,
+card-number/name normalization used for matching, price extraction
+(USD preferred, EUR fallback), and TCGdex's flaky double-encoded JSON.
+
+The scripts are imported as modules with CACHE pointed at a temp dir,
+so no test touches the real data/ tree or the network.
+"""
+import importlib.util
+import json
+import os
+import sys
+import tempfile
+import unittest
+from datetime import datetime, timedelta, timezone
+
+SCRIPTS = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+
+def load(name):
+    modname = "vd_" + name.replace("-", "_")
+    spec = importlib.util.spec_from_file_location(
+        modname, os.path.join(SCRIPTS, name + ".py"))
+    mod = importlib.util.module_from_spec(spec)
+    sys.modules[modname] = mod
+    spec.loader.exec_module(mod)
+    return mod
+
+
+enrich = load("ja-pkmn-enrich")
+backfill = load("ja-price-backfill")
+snapshot = load("snapshot-tcgdex")
+
+
+class TmpCacheTestCase(unittest.TestCase):
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self._old = {}
+        for mod in (enrich, backfill):
+            self._old[mod] = mod.CACHE
+            mod.CACHE = self.tmp.name
+
+    def tearDown(self):
+        for mod, cache in self._old.items():
+            mod.CACHE = cache
+        self.tmp.cleanup()
+
+    def cache_file(self, name, obj):
+        p = os.path.join(self.tmp.name, name)
+        with open(p, "w", encoding="utf-8") as f:
+            json.dump(obj, f)
+        return p
+
+
+class AtomicWriteTests(TmpCacheTestCase):
+    def test_roundtrip(self):
+        p = os.path.join(self.tmp.name, "x.json")
+        enrich.atomic_write_json(p, {"a": [1, 2, 3]}, indent=1)
+        self.assertEqual(json.load(open(p)), {"a": [1, 2, 3]})
+
+    def test_no_tmp_residue(self):
+        p = os.path.join(self.tmp.name, "x.json")
+        enrich.atomic_write_json(p, {"a": 1})
+        self.assertFalse(os.path.exists(p + ".tmp"))
+
+    def test_overwrite_is_clean(self):
+        p = os.path.join(self.tmp.name, "x.json")
+        enrich.atomic_write_json(p, {"a": 1})
+        enrich.atomic_write_json(p, {"a": 2, "b": "longer value here"})
+        self.assertEqual(json.load(open(p))["a"], 2)
+
+
+class LedgerTests(TmpCacheTestCase):
+    def test_missing_ledger_is_empty(self):
+        self.assertEqual(enrich.load_ledger(), {})
+        self.assertEqual(enrich.spent_today({}), 0)
+
+    def test_corrupt_ledger_is_a_cache_miss(self):
+        p = os.path.join(self.tmp.name, "credit-ledger.json")
+        with open(p, "w") as f:
+            f.write("{not json!!!")
+        self.assertEqual(enrich.load_ledger(), {})
+
+    def test_add_spend_accumulates(self):
+        ledger = {}
+        enrich.add_spend(ledger, 100)
+        enrich.add_spend(ledger, 50)
+        self.assertEqual(enrich.spent_today(ledger), 150)
+        # …and survives a reload from disk
+        self.assertEqual(enrich.spent_today(enrich.load_ledger()), 150)
+
+    def test_add_spend_never_loses_disk_counts(self):
+        # Another process wrote 200 under the lock; our in-memory copy is
+        # stale at 150. The merge keeps the max, then adds.
+        today = enrich.utc_today()
+        self.cache_file("credit-ledger.json", {today: 200})
+        ledger = {today: 150}
+        enrich.add_spend(ledger, 10)
+        self.assertEqual(ledger[today], 210)
+
+    def test_spent_today_ignores_other_days(self):
+        yesterday = (datetime.now(timezone.utc) - timedelta(days=1)).strftime("%Y-%m-%d")
+        ledger = {yesterday: 9999}
+        self.assertEqual(enrich.spent_today(ledger), 0)
+
+
+class NormNumTests(unittest.TestCase):
+    def test_enrich_strips_leading_zeros(self):
+        self.assertEqual(enrich.norm_num("001"), "1")
+        self.assertEqual(enrich.norm_num("092"), "92")
+
+    def test_enrich_strips_printed_total_suffix(self):
+        self.assertEqual(enrich.norm_num("092/083"), "92")
+
+    def test_enrich_keeps_non_numeric_tails(self):
+        self.assertEqual(enrich.norm_num("TG03"), "TG03")
+        self.assertEqual(enrich.norm_num("001a"), "1a")
+
+    def test_backfill_matches_enrich(self):
+        for s in ["001", "092", "25", "TG03", "001/102"]:
+            self.assertEqual(backfill.norm_num(s), enrich.norm_num(s),
+                             "norm_num diverged for %r" % s)
+
+
+class CleanNameTests(unittest.TestCase):
+    def test_strips_number_suffix(self):
+        self.assertEqual(enrich.clean_name("Pikachu - 092/083"), "Pikachu")
+
+    def test_strips_promo_suffix(self):
+        self.assertEqual(enrich.clean_name("Pikachu - 227/S-P"), "Pikachu")
+
+    def test_leaves_plain_names_alone(self):
+        self.assertEqual(enrich.clean_name("Charizard ex"), "Charizard ex")
+
+    def test_handles_empty(self):
+        self.assertEqual(enrich.clean_name(""), "")
+        self.assertEqual(enrich.clean_name(None), "")
+
+
+class ExtractPricesTests(unittest.TestCase):
+    def payload(self, *rows):
+        return {"prices": [
+            {"condition": c, "variant": v, "market_price": p, "currency": cur}
+            for (c, v, p, cur) in rows
+        ]}
+
+    def test_usd_preferred_over_eur(self):
+        card = self.payload(
+            ("Near Mint", "Normal", 1.23, "EUR"),
+            ("Near Mint", "Normal", 1.50, "USD"),
+        )
+        prices, currency = backfill.extract_prices(card)
+        self.assertEqual(prices["normal"]["marketPrice"], 1.5)
+        self.assertEqual(currency, "USD")
+
+    def test_eur_fallback_when_no_usd(self):
+        card = self.payload(("Near Mint", "Holofoil", 2.0, "EUR"))
+        prices, currency = backfill.extract_prices(card)
+        self.assertEqual(currency, "EUR")
+        self.assertEqual(prices["holofoil"]["marketPrice"], 2.0)
+
+    def test_ignores_non_near_mint_and_non_numeric(self):
+        card = self.payload(
+            ("Lightly Played", "Normal", 99.0, "USD"),
+            ("Near Mint", "Normal", "n/a", "USD"),
+            ("Near Mint", "Normal", 3.0, "USD"),
+        )
+        prices, currency = backfill.extract_prices(card)
+        self.assertEqual(prices, {"normal": {"marketPrice": 3.0}})
+        self.assertEqual(currency, "USD")
+
+    def test_empty_payload(self):
+        self.assertEqual(backfill.extract_prices({}), ({}, "USD"))
+        self.assertEqual(backfill.extract_prices({"prices": []}), ({}, "USD"))
+
+
+class NormVariantTests(unittest.TestCase):
+    def test_reverse_holo(self):
+        self.assertEqual(backfill.norm_variant("Reverse Holofoil"), "reverseHolofoil")
+
+    def test_holo(self):
+        self.assertEqual(backfill.norm_variant("Holo Rare"), "holofoil")
+
+    def test_normal_fallback(self):
+        self.assertEqual(backfill.norm_variant("Normal"), "normal")
+        self.assertEqual(backfill.norm_variant(""), "normal")
+        self.assertEqual(backfill.norm_variant(None), "normal")
+
+
+class PricedRecentlyTests(unittest.TestCase):
+    def card(self, days_ago=None):
+        if days_ago is None:
+            return {}
+        ts = (datetime.now(timezone.utc) - timedelta(days=days_ago)).isoformat()
+        return {"pricing": {"pricedAt": ts}}
+
+    def test_recent(self):
+        self.assertTrue(backfill.priced_recently(self.card(2), 6))
+
+    def test_stale(self):
+        self.assertFalse(backfill.priced_recently(self.card(10), 6))
+
+    def test_missing_or_garbage_is_not_recent(self):
+        self.assertFalse(backfill.priced_recently({}, 6))
+        self.assertFalse(backfill.priced_recently(
+            {"pricing": {"pricedAt": "garbage"}}, 6))
+
+
+class PpidLookupTests(TmpCacheTestCase):
+    def test_rebuilds_lookup_from_manifest_and_cache(self):
+        self.cache_file("manifest.json", {"sets": [
+            {"ourId": "M6", "ppSetId": "pp-1"},
+            {"ourId": "M6a", "ppSetId": "pp-2"},  # no cache file: skipped
+        ]})
+        self.cache_file("cards-pp-1.json", {"cards": [
+            {"id": 101, "number": "001"},
+            {"id": 102, "number": "092/083"},
+        ]})
+        lookup = backfill.build_ppid_lookup()
+        self.assertEqual(lookup[("M6", "1")], 101)
+        self.assertEqual(lookup[("M6", "92")], 102)
+        self.assertNotIn(("M6a", "1"), lookup)
+
+    def test_corrupt_cache_file_is_skipped(self):
+        self.cache_file("manifest.json", {"sets": [
+            {"ourId": "M6", "ppSetId": "pp-1"},
+        ]})
+        p = os.path.join(self.tmp.name, "cards-pp-1.json")
+        with open(p, "w") as f:
+            f.write("{{{nope")
+        self.assertEqual(backfill.build_ppid_lookup(), {})
+
+    def test_missing_manifest_is_empty(self):
+        self.assertEqual(backfill.build_ppid_lookup(), {})
+
+
+class DeepUnwrapTests(unittest.TestCase):
+    def test_unwraps_double_encoded_string(self):
+        self.assertEqual(snapshot.deep_unwrap('{"a": 1}'), {"a": 1})
+
+    def test_unwraps_nested(self):
+        # TCGdex shape: an object encoded as a string, nested in a dict,
+        # with another encoded string one level deeper.
+        inner = json.dumps({"y": json.dumps([1, 2])})
+        self.assertEqual(snapshot.deep_unwrap({"x": inner}), {"x": {"y": [1, 2]}})
+
+    def test_leaves_plain_strings_alone(self):
+        self.assertEqual(snapshot.deep_unwrap("hello"), "hello")
+        # Looks like JSON but isn't parseable: left alone, never crashes
+        self.assertEqual(snapshot.deep_unwrap("{oops"), "{oops")
+
+    def test_leaves_non_strings_alone(self):
+        self.assertEqual(snapshot.deep_unwrap(42), 42)
+        self.assertIsNone(snapshot.deep_unwrap(None))
+
+
+if __name__ == "__main__":
+    unittest.main()

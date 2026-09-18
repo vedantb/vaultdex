@@ -16,6 +16,48 @@
     return (vs.length ? vs[0].key : "normal");
   }
 
+  /* ---- pure helpers (extracted for unit testing; behavior-identical) ---- */
+
+  /* addItem clamps every quantity into [1, 99]. */
+  function clampQuantity(q) {
+    return Math.max(1, Math.min(99, q || 1));
+  }
+
+  /* Japanese set ids are stored appId-style ("ja-M4") so pricing can
+   * always tell Japanese printings apart — even for ids like neo1
+   * that exist in both languages. */
+  function rowSetId(card) {
+    var setLang = (card.set && card.set.lang) || "en";
+    var setId = (card.set && card.set.id) || null;
+    if (setId && setLang === "ja" && !App.util.isJa(setId)) setId = "ja-" + setId;
+    return { setId: setId, setLang: setLang };
+  }
+
+  /* Incremental refresh: only rows whose own price is missing or older
+   * than 24h. A full pass over thousands of rows would take over an hour. */
+  var PRICE_REFRESH_MS = 24 * 60 * 60 * 1000;
+  function needsPriceRefresh(row, nowMs) {
+    var t = row.price_updated_at ? Date.parse(row.price_updated_at) : 0;
+    return !t || t < nowMs - PRICE_REFRESH_MS;
+  }
+
+  /* Mover history (Feature 4): NULL prev_price means "no mover data" — a
+   * row that was never refreshed, or whose price never moved, shows no
+   * mover data rather than a fake zero. Only when the row had a real
+   * price before AND the new price differs do we record the old price
+   * as prev_price. Returns the update object, or null when the new
+   * price isn't a real number. */
+  function moverUpdate(row, newPrice, priceSource, now) {
+    if (typeof newPrice !== "number") return null;
+    var update = { market_price: newPrice, price_source: priceSource, price_updated_at: now };
+    var oldPrice = row.market_price;
+    if (typeof oldPrice === "number" && newPrice !== oldPrice) {
+      update.prev_price = oldPrice;
+      update.prev_price_at = row.price_updated_at || null;
+    }
+    return update;
+  }
+
   /* Legacy catalog price for a freshly added card. Used only when the
    * PkmnPrices proxy isn't configured or can't match the printing. */
   function legacyMarket(card, variant) {
@@ -33,12 +75,9 @@
     var priceSource = null;
     var pkmnId = (pkmn && pkmn.pkmnId) || null;
     var label = variant;
-    /* Japanese set ids are stored appId-style ("ja-M4") so pricing can
-     * always tell Japanese printings apart — even for ids like neo1
-     * that exist in both languages. */
-    var setLang = (card.set && card.set.lang) || "en";
-    var setId = (card.set && card.set.id) || null;
-    if (setId && setLang === "ja" && !App.util.isJa(setId)) setId = "ja-" + setId;
+    var ids = rowSetId(card);
+    var setLang = ids.setLang;
+    var setId = ids.setId;
     /* Grading (Feature 5): { company, grade } or null. A graded and an
      * ungraded copy of the same card+variant are distinct rows. */
     var gradingCompany = (grading && grading.company) || null;
@@ -174,7 +213,7 @@
     var u = needUser();
     if (!u) return false;
     variant = variant || defaultVariant(card);
-    quantity = Math.max(1, Math.min(99, quantity || 1));
+    quantity = clampQuantity(quantity);
     var pkmnId = (pkmn && pkmn.pkmnId) || null;
 
     var lookup = App.sb
@@ -423,11 +462,8 @@
 
     /* Incremental: only rows whose own price is missing or older than 24h.
      * A full pass over thousands of rows would take over an hour. */
-    var cutoff = Date.now() - 24 * 60 * 60 * 1000;
-    var items = all.filter(function (row) {
-      var t = row.price_updated_at ? Date.parse(row.price_updated_at) : 0;
-      return !t || t < cutoff;
-    });
+    var nowMs = Date.now();
+    var items = all.filter(function (row) { return needsPriceRefresh(row, nowMs); });
     if (!items.length) return { updated: 0, at: new Date().toISOString() };
 
     var updated = 0;
@@ -454,18 +490,7 @@
             p = await App.pkmn.priceForRow(row);
           }
           if (p && typeof p.price === "number") {
-            var update = { market_price: p.price, price_source: src, price_updated_at: now };
-            /* Mover history (Feature 4): NULL prev_price means "no mover
-             * data" — a row that was never refreshed, or whose price never
-             * moved, shows no mover data rather than a fake zero. Only when
-             * the row had a real price before AND the new price differs do
-             * we record the old price as prev_price. Unchanged prices and
-             * first-time prices leave prev_price/prev_price_at untouched. */
-            var oldPrice = row.market_price;
-            if (typeof oldPrice === "number" && p.price !== oldPrice) {
-              update.prev_price = oldPrice;
-              update.prev_price_at = row.price_updated_at || null;
-            }
+            var update = moverUpdate(row, p.price, src, now);
             var up = await App.sb
               .from("collection_items")
               .update(update)
@@ -574,6 +599,13 @@
     backfillPkmnIds: backfillPkmnIds,
     migrateLegacyCatalogIds: migrateLegacyCatalogIds,
     defaultVariant: defaultVariant,
-    needUser: needUser
+    needUser: needUser,
+    /* Pure helpers, exported for unit tests. */
+    clampQuantity: clampQuantity,
+    rowSetId: rowSetId,
+    needsPriceRefresh: needsPriceRefresh,
+    moverUpdate: moverUpdate,
+    fetchAllPages: fetchAllPages,
+    legacyMarket: legacyMarket
   };
 })();
