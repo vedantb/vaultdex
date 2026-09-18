@@ -233,21 +233,21 @@ def main():
             print("daily cap reached, stopping cleanly")
             break
         # One paged pull per set (cached), then match locally by number+name.
-        try:
-            pp_cards = fetch_set_cards(ppid, args.delay)
-        except RuntimeError as e:
-            if "429" in str(e) and backoff < 3:
-                backoff += 1
-                print("429 — sleeping 65s")
-                time.sleep(65)
-                try:
-                    pp_cards = fetch_set_cards(ppid, args.delay)
-                except RuntimeError:
-                    print("still rate-limited, stopping cleanly")
-                    break
-            else:
-                print("still rate-limited, stopping cleanly")
+        pp_cards = None
+        while backoff < 6:
+            try:
+                pp_cards = fetch_set_cards(ppid, args.delay)
                 break
+            except RuntimeError as e:
+                if "429" not in str(e):
+                    raise
+                backoff += 1
+                wait = 300
+                print(f"429 ({backoff}/6) — sleeping {wait}s")
+                time.sleep(wait)
+        if pp_cards is None:
+            print("rate limit would not clear, stopping cleanly")
+            break
         # index by normalized number for exact matching
         by_num = {}
         for it in pp_cards:
