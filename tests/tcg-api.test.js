@@ -89,3 +89,97 @@ describe("printVariantForLabel", () => {
     }
   });
 });
+
+describe("printVariants (foil-collision fix, 2026-09-18)", () => {
+  const { printVariants } = window.App.tcg;
+  const vileplume = {
+    variants_detailed: [
+      { type: "holo", foil: null },
+      { type: "reverse", foil: null },
+      { type: "holo", foil: "cosmos" },
+    ],
+  };
+
+  test("Vileplume me02-003: three boxes, three distinct vlabels", () => {
+    const boxes = printVariants(vileplume);
+    expect(boxes.map((b) => b.label)).toEqual(["Holo", "Reverse Holo", "Cosmos Holo"]);
+    const vlabels = boxes.map((b) => b.vlabel);
+    expect(new Set(vlabels).size).toBe(3);
+  });
+
+  test("foil holo carries PkmnPrices match hints", () => {
+    const box = printVariants(vileplume)[2];
+    expect(box.pkmnLabel).toBe("cosmos holo");
+    expect(box.priceVariant).toBe("holofoil");
+    expect(box.key).toBe("holo:cosmos");
+  });
+
+  test("normal + foil no longer collapses onto Normal", () => {
+    const boxes = printVariants({
+      variants_detailed: [
+        { type: "normal", foil: null },
+        { type: "normal", foil: "galaxy" },
+      ],
+    });
+    expect(boxes.map((b) => b.label)).toEqual(["Normal", "Galaxy Foil"]);
+    expect(new Set(boxes.map((b) => b.vlabel)).size).toBe(2);
+  });
+
+  test("reverse foils keep their existing labels", () => {
+    const boxes = printVariants({
+      variants_detailed: [
+        { type: "reverse", foil: "pokeball" },
+        { type: "reverse", foil: "masterball" },
+        { type: "reverse", foil: null },
+      ],
+    });
+    expect(boxes.map((b) => b.label)).toEqual(["Poké Ball", "Masterball", "Reverse Holo"]);
+  });
+
+  test("hyphenated foils read naturally", () => {
+    const boxes = printVariants({ variants_detailed: [{ type: "holo", foil: "cracked-ice" }] });
+    expect(boxes[0].label).toBe("Cracked Ice Holo");
+    expect(boxes[0].vlabel).toBe("crackediceholo");
+  });
+
+  test("printVariantForLabel maps the new foil labels", () => {
+    expect(printVariantForLabel("Cosmos Holo")).toEqual({
+      pkmnLabel: "cosmos holo",
+      priceVariant: "holofoil",
+    });
+    expect(printVariantForLabel("Galaxy Foil")).toEqual({
+      pkmnLabel: "galaxy foil",
+      priceVariant: "normal",
+    });
+    // Existing labels are untouched.
+    expect(printVariantForLabel("Holo")).toEqual({ pkmnLabel: null, priceVariant: "holofoil" });
+    expect(printVariantForLabel("Normal")).toEqual({ pkmnLabel: null, priceVariant: "normal" });
+  });
+});
+
+describe("printVariants dedupe (2026-09-18)", () => {
+  const { printVariants } = window.App.tcg;
+
+  test("identical TCGdex entries collapse to one checkbox", () => {
+    const boxes = printVariants({
+      variants_detailed: [
+        { type: "holo", foil: null },
+        { type: "holo", foil: null },
+        { type: "holo", foil: null },
+        { type: "holo", foil: null },
+      ],
+    });
+    expect(boxes.map((b) => b.label)).toEqual(["Holo"]);
+  });
+
+  test("distinct printings are all kept", () => {
+    const boxes = printVariants({
+      variants_detailed: [
+        { type: "holo", foil: null },
+        { type: "reverse", foil: null },
+        { type: "holo", foil: "cosmos" },
+      ],
+    });
+    expect(boxes.length).toBe(3);
+  });
+});

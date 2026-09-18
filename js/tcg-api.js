@@ -613,16 +613,51 @@
    * matching: "pokeball" -> "poke ball" matches "(Poke Ball)". */
   var FOIL_PKMN_LABELS = { pokeball: "poke ball", energy: "energy symbol pattern" };
 
+  /* Foil printings outside the reverse slot: TCGdex marks them as
+   * {type:"holo", foil:"cosmos"} (or type "normal"/"metal" + foil). They
+   * used to collapse onto the plain "Holo"/"Normal" checkbox — same vlabel —
+   * so checking one box checked the other (e.g. Vileplume me02-003, 1st and
+   * 3rd boxes; 748 cards catalog-wide). Each foil now gets its own label:
+   * "Cosmos Holo" for holo printings, "<Foil> Foil" otherwise. */
+  var FOIL_WORDS = {
+    cosmos: "Cosmos",
+    galaxy: "Galaxy",
+    starlight: "Starlight",
+    "cracked-ice": "Cracked Ice",
+    energy: "Energy",
+    mirror: "Mirror",
+    league: "League",
+    gold: "Gold",
+    tinsel: "Tinsel",
+    rainbow: "Rainbow"
+  };
+  function foilWords(foil) {
+    if (FOIL_WORDS[foil]) return FOIL_WORDS[foil];
+    return String(foil || "").split("-").map(function (w) {
+      return w.charAt(0).toUpperCase() + w.slice(1);
+    }).join(" ");
+  }
+
   /* One checkbox per actual printing, from TCGdex variants_detailed (free,
    * no API credits — and present in the local snapshot). Each entry:
    * { key, label, vlabel, pkmnLabel, priceVariant }. */
   function printVariants(card) {
     var vd = card && card.variants_detailed;
     if (!Array.isArray(vd) || !vd.length) return [];
-    return vd.map(function (v) {
+    /* Dedupe identical (type, foil) entries: TCGdex repeats them for some
+     * cards (e.g. base1 holos list {type:"holo",foil:null} four times for
+     * the edition variants). Identical entries would render identical
+     * checkboxes sharing one vlabel — the same "checking one checks the
+     * other" bug as the foil collapse. */
+    var seen = {};
+    var out = [];
+    vd.forEach(function (v) {
       var type = String((v && v.type) || "").toLowerCase();
       var foil = String((v && v.foil) || "").toLowerCase();
-      var r = { key: foil ? type + ":" + foil : type };
+      var key = foil ? type + ":" + foil : type;
+      if (seen[key]) return;
+      seen[key] = true;
+      var r = { key: key };
       if (type === "reverse" && foil) {
         r.label = FOIL_LABELS[foil] || (foil.charAt(0).toUpperCase() + foil.slice(1));
         r.pkmnLabel = FOIL_PKMN_LABELS[foil] || null;
@@ -632,17 +667,30 @@
         r.pkmnLabel = "reverse holo";
         r.priceVariant = "reverseHolofoil";
       } else if (type === "holo") {
-        r.label = "Holo";
-        r.pkmnLabel = null;
-        r.priceVariant = "holofoil";
+        if (foil) {
+          r.label = foilWords(foil) + " Holo";
+          r.pkmnLabel = foilWords(foil).toLowerCase() + " holo";
+          r.priceVariant = "holofoil";
+        } else {
+          r.label = "Holo";
+          r.pkmnLabel = null;
+          r.priceVariant = "holofoil";
+        }
       } else {
-        r.label = "Normal";
-        r.pkmnLabel = null;
-        r.priceVariant = "normal";
+        if (foil) {
+          r.label = foilWords(foil) + " Foil";
+          r.pkmnLabel = foilWords(foil).toLowerCase() + " foil";
+          r.priceVariant = "normal";
+        } else {
+          r.label = "Normal";
+          r.pkmnLabel = null;
+          r.priceVariant = "normal";
+        }
       }
       r.vlabel = normVLabel(r.label);
-      return r;
+      out.push(r);
     });
+    return out;
   }
 
   /* Map a collection row's variant label to its PkmnPrices match hints. */
@@ -652,6 +700,17 @@
     if (v === "energy") return { pkmnLabel: "energy symbol pattern", priceVariant: "reverseHolofoil" };
     if (v === "reverse") return { pkmnLabel: "reverse holo", priceVariant: "reverseHolofoil" };
     if (v === "holo") return { pkmnLabel: null, priceVariant: "holofoil" };
+    /* Foil printings from printVariants ("<Foil> Holo" / "<Foil> Foil").
+     * pkmnLabel matches a PkmnPrices record parenthetical when one exists
+     * (e.g. "(Cosmos Holo)"); otherwise findVariantPrice falls back to the
+     * base record and prices the holofoil/normal finish. */
+    for (var slug in FOIL_WORDS) {
+      var words = FOIL_WORDS[slug];
+      if (v === normVLabel(words + " Holo"))
+        return { pkmnLabel: words.toLowerCase() + " holo", priceVariant: "holofoil" };
+      if (v === normVLabel(words + " Foil"))
+        return { pkmnLabel: words.toLowerCase() + " foil", priceVariant: "normal" };
+    }
     return { pkmnLabel: null, priceVariant: "normal" };
   }
 
