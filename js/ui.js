@@ -156,6 +156,7 @@
     return (
       '<article class="card-tile' + (opts.cls ? " " + opts.cls : "") + '"' +
         (opts.dataId ? ' data-id="' + esc(opts.dataId) + '"' : "") +
+        (opts.dataLang ? ' data-lang="' + esc(opts.dataLang) + '"' : "") +
         (opts.dataRow ? ' data-row="' + esc(opts.dataRow) + '"' : "") +
         (opts.dataCard ? ' data-card="' + esc(opts.dataCard) + '"' : "") +
         (opts.activatable === false ? "" :

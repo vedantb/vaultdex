@@ -20,6 +20,10 @@
     var market = App.tcg.marketOf(card);
     return App.ui.tileHtml(card, {
       dataId: card.id,
+      /* Search results mix English and Japanese cards; the modal needs the
+       * language to resolve the card (Red's Pikachu SM-P-270 only exists
+       * in the Japanese catalog — opening it as "en" 404s). */
+      dataLang: (card.set && card.set.lang) || "en",
       setHtml: App.esc((card.set && card.set.name) || ""),
       priceHtml:
         '<span class="price-badge">' + App.ui.money(market, card.priceCurrency) + "</span>" +
@@ -29,7 +33,7 @@
 
   function bindTiles(root) {
     root.querySelectorAll(".card-tile").forEach(function (tile) {
-      function open() { App.openCardModal(tile.getAttribute("data-id")); }
+      function open() { App.openCardModal(tile.getAttribute("data-id"), tile.getAttribute("data-lang") || "en"); }
       tile.addEventListener("click", open);
       tile.addEventListener("keydown", function (e) {
         if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(); }
