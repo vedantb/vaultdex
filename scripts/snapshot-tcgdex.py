@@ -46,6 +46,7 @@ Be nice to the free API: default 4 req/s with backoff on 429.
 import argparse
 import http.client
 import json
+import os
 import subprocess
 import sys
 import time
@@ -450,6 +451,36 @@ def snapshot_index():
     return len(arr)
 
 
+def preserve_backfilled_images(payload, rel):
+    """Merge backfilled imageSmall/imageLarge (scripts/en-image-backfill.py,
+    scripts/ja-pkmn-enrich.py) into a fresh snapshot payload.
+
+    Cards TCGdex still carries no image for keep their backfilled images;
+    when TCGdex now provides a canonical image it wins and the backfilled
+    fields are dropped so they can't shadow it.
+    """
+    old_imgs = {}
+    try:
+        with open(os.path.join(OUT, rel), encoding="utf-8") as f:
+            old_payload = json.load(f)
+        for c in old_payload.get("cards") or []:
+            if c.get("imageSmall") or c.get("imageLarge"):
+                old_imgs[c.get("id")] = (c.get("imageSmall"), c.get("imageLarge"))
+    except Exception:  # noqa: BLE001 — no previous snapshot, nothing to keep
+        return payload
+    for d in payload.get("cards") or []:
+        if d.get("image"):
+            d.pop("imageSmall", None)
+            d.pop("imageLarge", None)
+        elif d.get("id") in old_imgs:
+            small, large = old_imgs[d["id"]]
+            if small:
+                d["imageSmall"] = small
+            if large:
+                d["imageLarge"] = large
+    return payload
+
+
 def snapshot_set(set_id):
     s = polite("/sets/" + set_id)
     summaries = s.get("cards") or []
@@ -493,6 +524,7 @@ def snapshot_set(set_id):
     if LANG == "ja":
         apply_ja_display(payload["set"])
     rel = "sets/%s.json" % set_id if LANG == "en" else "sets/ja/%s.json" % set_id
+    payload = preserve_backfilled_images(payload, rel)
     write(rel, payload)
     return len(cards)
 

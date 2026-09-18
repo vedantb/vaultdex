@@ -33,6 +33,7 @@ def load(name):
 enrich = load("ja-pkmn-enrich")
 backfill = load("ja-price-backfill")
 snapshot = load("snapshot-tcgdex")
+en_backfill = load("en-image-backfill")
 
 
 class TmpCacheTestCase(unittest.TestCase):
@@ -255,6 +256,74 @@ class DeepUnwrapTests(unittest.TestCase):
     def test_leaves_non_strings_alone(self):
         self.assertEqual(snapshot.deep_unwrap(42), 42)
         self.assertIsNone(snapshot.deep_unwrap(None))
+
+
+class EnBackfillMatcherTests(unittest.TestCase):
+    def test_norm_num_strips_zeros_inside_digit_runs(self):
+        self.assertEqual(en_backfill.norm_num("085"), "85")
+        self.assertEqual(en_backfill.norm_num("BW05"), "BW5")
+        self.assertEqual(en_backfill.norm_num("BW005"), "BW5")
+        self.assertEqual(en_backfill.norm_num("TG25"), "TG25")
+        self.assertEqual(en_backfill.norm_num("SVP 175"), "SVP175")
+
+    def test_norm_name_folds_accents(self):
+        self.assertEqual(en_backfill.norm_name("Café Master"), "cafemaster")
+        self.assertEqual(en_backfill.norm_name("Cafe Master"), "cafemaster")
+        self.assertEqual(en_backfill.norm_name("Pokémon Catcher"), "pokemoncatcher")
+
+    def test_names_compatible(self):
+        n = en_backfill.names_compatible
+        self.assertTrue(n("Espeon ex - 175", "Espeon ex"))
+        self.assertTrue(n("Poke Ball (Noivern)", "Poké Ball"))
+        # single-char containment must not match
+        self.assertFalse(n("Greninja ex", "N"))
+        self.assertFalse(n("Pikachu", "Charizard"))
+
+
+class PreserveBackfilledImagesTests(unittest.TestCase):
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self._old_out = snapshot.OUT
+        snapshot.OUT = self.tmp.name
+        os.makedirs(os.path.join(self.tmp.name, "sets"), exist_ok=True)
+        old = {"cards": [
+            {"id": "s-1", "image": None,
+             "imageSmall": "https://images.pkmnprices.com/a.webp",
+             "imageLarge": "https://images.pkmnprices.com/a.webp"},
+            {"id": "s-2", "image": None,
+             "imageSmall": "https://images.pkmnprices.com/b.webp",
+             "imageLarge": "https://images.pkmnprices.com/b.webp"},
+        ]}
+        with open(os.path.join(self.tmp.name, "sets", "s.json"), "w") as f:
+            json.dump(old, f)
+
+    def tearDown(self):
+        snapshot.OUT = self._old_out
+        self.tmp.cleanup()
+
+    def test_keeps_backfill_when_still_imageless(self):
+        fresh = {"cards": [{"id": "s-1", "image": None}]}
+        out = snapshot.preserve_backfilled_images(fresh, "sets/s.json")
+        c = out["cards"][0]
+        self.assertEqual(c["imageSmall"], "https://images.pkmnprices.com/a.webp")
+
+    def test_drops_backfill_when_canonical_image_arrives(self):
+        fresh = {"cards": [{"id": "s-2", "image": "https://t/x.jpg",
+                            "imageSmall": "stale", "imageLarge": "stale"}]}
+        out = snapshot.preserve_backfilled_images(fresh, "sets/s.json")
+        c = out["cards"][0]
+        self.assertNotIn("imageSmall", c)
+        self.assertNotIn("imageLarge", c)
+
+    def test_new_card_without_old_snapshot_entry_untouched(self):
+        fresh = {"cards": [{"id": "s-9", "image": None}]}
+        out = snapshot.preserve_backfilled_images(fresh, "sets/s.json")
+        self.assertNotIn("imageSmall", out["cards"][0])
+
+    def test_missing_old_file_is_noop(self):
+        fresh = {"cards": [{"id": "s-1", "image": None}]}
+        out = snapshot.preserve_backfilled_images(fresh, "sets/nope.json")
+        self.assertNotIn("imageSmall", out["cards"][0])
 
 
 if __name__ == "__main__":
