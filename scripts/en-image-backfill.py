@@ -208,13 +208,8 @@ def main():
     print(f"{len(cards)} imageless cards across {len(by_set)} sets "
           f"(ledger today: {ledger_today()})")
 
-    # resolve PkmnPrices set ids (informational count only; OVERRIDES carries
-    # the real mappings, so a 429 here must not abort the run)
-    try:
-        data = pkmn(["sets", "--language", "English"])
-        print(f"PkmnPrices English sets: {len(data.get('data') or [])}")
-    except RuntimeError as e:
-        print(f"warning: could not fetch PkmnPrices sets ({e}) — continuing with OVERRIDES")
+    # OVERRIDES carries the set mappings; the sets-list endpoint is only
+    # informational and costs a rate-limited request, so it is skipped.
 
     resolved = dict(OVERRIDES)
     for sid in by_set:
