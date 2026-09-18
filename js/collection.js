@@ -67,6 +67,19 @@
     return typeof m === "number" ? m : null;
   }
 
+  /* Row identity for addItem's duplicate check: (normalized variant label,
+   * pkmn_id). Two printings can share one PkmnPrices record (Holo and Cosmos
+   * Holo both price off the base record when the provider carries no cosmos
+   * listing), and one printing can be stored under different label spellings
+   * ("Holo" vs "holofoil"). Pure so it can be unit-tested. */
+  function findMatchingRow(rows, variant, pkmnId) {
+    var wantV = App.tcg.normVLabel(variant);
+    var wantP = pkmnId || null;
+    return (rows || []).find(function (r) {
+      return App.tcg.normVLabel(r.variant) === wantV && (r.pkmn_id || null) === wantP;
+    }) || null;
+  }
+
   /* pkmn: optional { pkmnId, label } for a PkmnPrices print variant
    * (per-variant set-page checkboxes). Prices directly against that exact
    * record; the row keeps the variant's human label. */
@@ -218,7 +231,7 @@
 
     var lookup = App.sb
       .from("collection_items")
-      .select("id,quantity")
+      .select("id,quantity,variant,pkmn_id")
       .eq("user_id", u.id)
       .eq("card_id", card.id);
     var gCompany = (grading && grading.company) || null;
@@ -227,17 +240,23 @@
     // NULL-safe: pre-migration rows have NULL grading columns.
     lookup = gCompany === null ? lookup.is("grading_company", null) : lookup.eq("grading_company", gCompany);
     lookup = gGrade === null ? lookup.is("grade", null) : lookup.eq("grade", gGrade);
-    var ex = pkmnId
-      ? await lookup.eq("pkmn_id", pkmnId).maybeSingle()
-      : await lookup.eq("variant", variant).is("pkmn_id", null).maybeSingle();
-    if (ex.error) throw ex.error;
+    var found = await lookup;
+    if (found.error) throw found.error;
+    /* Row identity is (normalized variant label, pkmn_id): two printings can
+     * share one PkmnPrices record — e.g. Holo and Cosmos Holo both price off
+     * the base record when the provider carries no cosmos listing — and the
+     * same printing can be stored under different label spellings ("Holo"
+     * vs "holofoil"). Matching on pkmn_id alone merged distinct printings,
+     * so checking Holo made Cosmos Holo uncheckable (it just bumped the
+     * Holo row's quantity). */
+    var ex = findMatchingRow(found.data, variant, pkmnId);
 
     var addedPriceSource = null;
-    if (ex.data) {
+    if (ex) {
       var up = await App.sb
         .from("collection_items")
-        .update({ quantity: ex.data.quantity + quantity })
-        .eq("id", ex.data.id);
+        .update({ quantity: ex.quantity + quantity })
+        .eq("id", ex.id);
       if (up.error) throw up.error;
     } else {
       var newRow = await rowFromCard(u, card, variant, quantity, pkmn, grading);
@@ -606,6 +625,7 @@
     needsPriceRefresh: needsPriceRefresh,
     moverUpdate: moverUpdate,
     fetchAllPages: fetchAllPages,
-    legacyMarket: legacyMarket
+    legacyMarket: legacyMarket,
+    findMatchingRow: findMatchingRow
   };
 })();

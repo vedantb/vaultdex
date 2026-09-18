@@ -7,14 +7,17 @@
  */
 import { describe, test, expect, beforeEach } from "vitest";
 import "../js/util.js";
+import "../js/tcg-api.js"; // real normVLabel for findMatchingRow tests
 import "../js/collection.js";
 
 const C = window.App.collection;
+const realNormVLabel = window.App.tcg.normVLabel;
 
 beforeEach(() => {
   window.App.tcg = {
     variantsOf: () => [],
     marketOf: () => null,
+    normVLabel: realNormVLabel,
   };
 });
 
@@ -195,5 +198,36 @@ describe("defaultVariant", () => {
 
   test("falls back to normal", () => {
     expect(C.defaultVariant({})).toBe("normal");
+  });
+});
+
+describe("findMatchingRow (2026-09-18)", () => {
+  const F = () => window.App.collection.findMatchingRow;
+
+  test("distinct printings sharing one PkmnPrices record stay separate", () => {
+    // Holo and Cosmos Holo both price off the base record (provider has no
+    // cosmos listing) — same pkmn_id, different printings, must NOT merge.
+    const rows = [{ id: 1, variant: "Holo", pkmn_id: 24638, quantity: 1 }];
+    expect(F()(rows, "Cosmos Holo", 24638)).toBeNull();
+    expect(F()(rows, "Holo", 24638)).toEqual(rows[0]);
+  });
+
+  test("same printing under different label spellings still merges", () => {
+    const rows = [{ id: 1, variant: "Holo", pkmn_id: 24638, quantity: 1 }];
+    expect(F()(rows, "Holofoil", 24638)).toEqual(rows[0]);
+    expect(F()(rows, "holo", 24638)).toEqual(rows[0]);
+  });
+
+  test("pkmn_id null only matches pkmn_id null", () => {
+    const rows = [{ id: 1, variant: "Holo", pkmn_id: 24638, quantity: 1 }];
+    expect(F()(rows, "Holo", null)).toBeNull();
+    const nullRows = [{ id: 2, variant: "Holo", pkmn_id: null, quantity: 1 }];
+    expect(F()(nullRows, "Holo", null)).toEqual(nullRows[0]);
+    expect(F()(nullRows, "Holo", 24638)).toBeNull();
+  });
+
+  test("empty rows -> null", () => {
+    expect(F()([], "Holo", 24638)).toBeNull();
+    expect(F()(null, "Holo", 24638)).toBeNull();
   });
 });
