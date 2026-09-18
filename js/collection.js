@@ -262,7 +262,7 @@
     if (!u) return;
     try {
       if (localStorage.getItem(LEGACY_FLAG)) return;
-    } catch (e) { /* no storage: run each boot, harmless */ }
+    } catch { /* no storage: run each boot, harmless */ }
     var res;
     try {
       res = await App.sb.from("collection_items").select("id,card_id").eq("user_id", u.id);
@@ -280,7 +280,7 @@
       return !!LEGACY_SET_IDS[sid];
     });
     if (!rows.length) {
-      try { localStorage.setItem(LEGACY_FLAG, "1"); } catch (e) {}
+      try { localStorage.setItem(LEGACY_FLAG, "1"); } catch { /* ignored */ }
       return;
     }
     var ok = true;
@@ -304,7 +304,7 @@
       }
     }
     if (ok) {
-      try { localStorage.setItem(LEGACY_FLAG, "1"); } catch (e) {}
+      try { localStorage.setItem(LEGACY_FLAG, "1"); } catch { /* ignored */ }
     }
   }
 
@@ -374,7 +374,7 @@
     try {
       var lookup = await App.sb.from("collection_items").select("card_id").eq("id", id).eq("user_id", u.id).maybeSingle();
       if (lookup.data) cardId = lookup.data.card_id;
-    } catch (e) { /* best effort; views fall back to a full refresh */ }
+    } catch { /* best effort; views fall back to a full refresh */ }
     var res = await App.sb
       .from("collection_items")
       .delete()
@@ -497,7 +497,7 @@
       await new Promise(function (r) { setTimeout(r, 1200); }); // gentle pacing: the Pro plan budgets 20k credits/day, not a per-minute tier — keep requests spread out
     }
     // Fresh prices = fresh history point for the value-over-time chart.
-    try { await recordValueSnapshot(); } catch (e) { /* already warned inside */ }
+    try { await recordValueSnapshot(); } catch { /* already warned inside */ }
     return { updated: updated, at: now };
   }
 
@@ -538,7 +538,7 @@
   }
 
   async function valueHistory() {
-    var ownerId = "";
+    var ownerId;
     if (App.auth.user && App.auth.isOwner && App.auth.isOwner()) {
       ownerId = App.auth.user.id;
     } else {

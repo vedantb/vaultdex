@@ -52,7 +52,6 @@
     var owned = {}; // cardId -> [{ id, vlabel }] (this set)
     var setInfo = null;
     var toggling = {}; // cardId|vlabel -> true while a toggle is in flight
-    var currentCards = [];
     // App-level set ids prefix Japanese sets with "ja-". Collection rows
     // store set_id in exactly this appId style ("ja-M4"), so the page URL
     // id matches rows directly — for both languages.
@@ -121,7 +120,7 @@
     async function loadProgress() {
       if (App.setProgress) {
         try { spMap = await App.setProgress.getOwnedBySet(); }
-        catch (e) { /* fallback counting from `owned` keeps working */ }
+        catch { /* fallback counting from `owned` keeps working */ }
       }
       updateProgress();
     }
@@ -239,7 +238,6 @@
 
     /* Shared tile: App.ui.tileHtml (js/ui.js). */
     function renderGrid(cards) {
-      currentCards = cards;
       gridWrap.innerHTML = '<div class="card-grid">' + cards.map(function (c) {
         var market = App.tcg.marketOf(c);
         return App.ui.tileHtml(c, {
@@ -290,7 +288,7 @@
       var details;
       try {
         details = await App.tcg.getDetails(ids, 6, setLang);
-      } catch (e) { return; }
+      } catch { return; }
       if (forPage !== page) return;
       details.forEach(function (d) {
         if (!d) return;
@@ -361,7 +359,7 @@
         if (missing.length && App.collection.backfillPkmnIds) {
           App.collection.backfillPkmnIds(missing).catch(function () { /* per-row errors already logged */ });
         }
-      } catch (e) {
+      } catch {
         // owned state stays empty; checkboxes still work (toggle will surface errors)
       }
     }
@@ -380,7 +378,7 @@
         } else {
           await loadOwned();
         }
-      } catch (e) { /* keep last known owned state */ }
+      } catch { /* keep last known owned state */ }
       gridWrap.querySelectorAll(".card-tile").forEach(paintTile);
       await loadProgress();
     }
@@ -430,7 +428,7 @@
             '<div class="meta">' + App.esc(setInfo.series || "") + (setInfo.releaseDate ? " · Released " + App.esc(setInfo.releaseDate) : "") + " · " + (setInfo.total || setInfo.printedTotal || "?") + " cards</div>" +
             '<div class="meta">Tap a tile for details — check a box to add that print to your collection.</div></div>' +
           "</div>";
-      } catch (e) {
+      } catch {
         headEl.innerHTML = '<div class="set-header"><div><h2>Set</h2><div class="meta">Details unavailable.</div></div></div>';
       }
     }
@@ -472,12 +470,12 @@
           o.textContent = r;
           sel.appendChild(o);
         });
-      } catch (e) { /* keep "All rarities" */ }
+      } catch { /* keep "All rarities" */ }
     }
 
     // One active subscription per set page: drop the previous render's so
     // stale closures don't refetch for a page that's gone.
-    if (App._setViewUnsub) { try { App._setViewUnsub(); } catch (e) {} App._setViewUnsub = null; }
+    if (App._setViewUnsub) { try { App._setViewUnsub(); } catch { /* ignored */ } App._setViewUnsub = null; }
     App._setViewUnsub = App.on("collection:changed", function (ev) {
       refreshOwned(ev && ev.cardId);
     });

@@ -41,7 +41,7 @@
         ctrl = new AbortController();
         timer = setTimeout(function () { ctrl.abort(); }, ms);
       }
-    } catch (e) { /* very old browser: fetch without a timeout */ }
+    } catch { /* very old browser: fetch without a timeout */ }
     var o = {};
     if (opts) {
       for (var k in opts) {

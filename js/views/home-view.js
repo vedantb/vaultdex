@@ -331,7 +331,7 @@
       }
       var readOnly = !App.auth.isOwner();
       // Seed today's history point (owner only), then read the series.
-      if (!readOnly) { try { await App.collection.recordValueSnapshot(); } catch (e) {} }
+      if (!readOnly) { try { await App.collection.recordValueSnapshot(); } catch { /* ignored */ } }
       var items = [];
       try {
         items = readOnly ? await App.collection.listPublic() : await App.collection.list();
@@ -349,15 +349,15 @@
         });
         return;
       }
-      var history = [];
-      try { history = await App.collection.valueHistory(); } catch (e) { history = []; }
+      var history;
+      try { history = await App.collection.valueHistory(); } catch { history = []; }
       var totals = App.collection.totals(items);
       var totalValue = items.reduce(function (n, it) {
         var v = rowValue(it);
         return n + (v === null ? 0 : v);
       }, 0);
-      var tradeRows = [];
-      try { tradeRows = (App.trade && await App.trade.listForTrade()) || []; } catch (e) { tradeRows = []; }
+      var tradeRows;
+      try { tradeRows = (App.trade && await App.trade.listForTrade()) || []; } catch { tradeRows = []; }
       var tradeCount = tradeRows.reduce(function (n, r) {
         return n + ((App.trade && App.trade.effectiveQty(r)) || 0);
       }, 0);

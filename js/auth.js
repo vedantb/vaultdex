@@ -86,9 +86,9 @@
     enforceOwner: async function () {
       if (auth.user && !auth.isOwner()) {
         var email = auth.user.email || "that Google account";
-        try { await App.sb.auth.signOut(); } catch (e) { /* already out */ }
+        try { await App.sb.auth.signOut(); } catch { /* already out */ }
         auth.user = null;
-        try { sessionStorage.setItem("vaultdex_rejected", "1"); } catch (e) {}
+        try { sessionStorage.setItem("vaultdex_rejected", "1"); } catch { /* ignored */ }
         notify();
         App.ui.toast("Only the vault owner's Google account can sign in — " + email + " was signed out.", "error");
         return false;

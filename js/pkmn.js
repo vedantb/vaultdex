@@ -34,7 +34,7 @@
     });
     var res = await App.util.fetchWithTimeout(PROXY + "?" + q.toString(), { headers: { "Accept": "application/json" } }, API_TIMEOUT_MS);
     var json = null;
-    try { json = await res.json(); } catch (e) { /* non-JSON body */ }
+    try { json = await res.json(); } catch { /* non-JSON body */ }
     if (res.status === 503) {
       throw new PkmnError(
         "PkmnPrices isn't connected yet — add your API key as PKMNPRICES_API_KEY in the Vercel project settings.",

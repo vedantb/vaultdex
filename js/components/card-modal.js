@@ -59,7 +59,7 @@
       } else {
         box.innerHTML = '<p style="color:var(--muted);font-size:0.9rem">No Japanese price data for this printing yet.</p>';
       }
-    } catch (e) {
+    } catch {
       box.innerHTML = '<p style="color:var(--muted);font-size:0.9rem">Couldn\u2019t reach live pricing.</p>';
     }
   }
@@ -337,7 +337,7 @@
         try {
           render(cardFromRow(fallbackRow, lang));
           return;
-        } catch (e2) { /* fall through to the error toast */ }
+        } catch { /* fall through to the error toast */ }
       }
       App.handleApiError(e);
     }

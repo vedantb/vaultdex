@@ -61,7 +61,7 @@
     var bar = document.getElementById("announce-bar");
     if (!bar) return;
     var dismissed = false;
-    try { dismissed = localStorage.getItem(ANNOUNCE_KEY) === "1"; } catch (e) { /* private mode */ }
+    try { dismissed = localStorage.getItem(ANNOUNCE_KEY) === "1"; } catch { /* private mode */ }
     bar.hidden = !!App.auth.user || dismissed;
   }
   function initAnnounceBar() {
@@ -69,7 +69,7 @@
     if (!btn) return;
     btn.addEventListener("click", function () {
       document.getElementById("announce-bar").hidden = true;
-      try { localStorage.setItem(ANNOUNCE_KEY, "1"); } catch (e) { /* private mode */ }
+      try { localStorage.setItem(ANNOUNCE_KEY, "1"); } catch { /* private mode */ }
     });
   }
 
@@ -141,7 +141,7 @@
     setActiveNav();
     window.scrollTo(0, 0);
 
-    var setMatch = path.match(/^\/set\/([\w.\-]+)$/);
+    var setMatch = path.match(/^\/set\/([\w.-]+)$/);
     // Legacy set-id aliases (old catalog used me2pt5 for Ascended Heroes).
     var SET_ALIASES = { me2pt5: "me02.5" };
     // Each navigation renders into its own staging node. The node's
@@ -155,7 +155,7 @@
     var stage = document.createElement("div");
     stage.style.cssText = "position:absolute;left:-99999px;top:0;width:100%;height:0;overflow:hidden;visibility:hidden;pointer-events:none;";
     document.body.appendChild(stage);
-    var viewPromise = null;
+    var viewPromise;
     try {
       if (setMatch) {
         var sid = SET_ALIASES[setMatch[1]] || setMatch[1];
@@ -248,7 +248,7 @@
     // One-time: rewrite pre-TCGdex catalog ids on the user's rows so owned
     // state matches again. Awaited before routing to avoid a stale 0/N flash.
     if (App.auth.user && App.collection && App.collection.migrateLegacyCatalogIds) {
-      try { await App.collection.migrateLegacyCatalogIds(); } catch (e) { /* retries next boot */ }
+      try { await App.collection.migrateLegacyCatalogIds(); } catch { /* retries next boot */ }
     }
 
     window.addEventListener("popstate", route);

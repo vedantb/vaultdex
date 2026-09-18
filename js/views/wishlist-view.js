@@ -189,7 +189,7 @@
           m.close();
           render();
           App.ui.toast(price === null ? "Target cleared." : "Target set — I'll flag it in Deals when it hits.", "success");
-        } catch (err) {
+        } catch {
           App.ui.toast("Couldn't save the target — run the wishlist migration in Supabase first.", "info");
         }
       }

@@ -100,7 +100,7 @@
       if (r.set_name && !nameById[r.set_id]) nameById[r.set_id] = r.set_name;
     });
     var catalog = [];
-    try { catalog = await App.tcg.getSets(); } catch (e) { /* offline: row data only */ }
+    try { catalog = await App.tcg.getSets(); } catch { /* offline: row data only */ }
     var byAppId = {}, order = {};
     catalog.forEach(function (s, i) { byAppId[s.appId] = s; order[s.appId] = i; });
     var out = [];

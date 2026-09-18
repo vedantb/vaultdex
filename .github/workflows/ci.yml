@@ -1,0 +1,47 @@
+# VaultDex CI — Phase 1: lint + syntax gate.
+#
+# Zero-build vanilla JS, so there is no compiler to catch mistakes before they
+# deploy. This workflow is the deploy gate: every push to main (and every PR)
+# must pass ESLint (recommended rules only) plus plain syntax checks for the
+# JS and Python sources. See eslint.config.mjs for the lint scope.
+#
+# What is NOT checked here (deliberate, per the code-quality review):
+#   - data/        huge generated JSON catalog — never linted
+#   - scripts/     Python pipeline — syntax-checked only, no pytest
+#   - js/vendor/   third-party bundle — skipped by eslint, syntax-checked
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  lint-and-syntax:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dev dependencies
+        run: npm ci
+
+      - name: ESLint (recommended rules)
+        run: npx eslint .
+
+      - name: node --check on all JS
+        run: |
+          fail=0
+          for f in $(find js api -name '*.js') eslint.config.mjs; do
+            node --check "$f" || fail=1
+          done
+          exit $fail
+
+      - name: Python syntax check (scripts)
+        run: python3 -m compileall -q scripts

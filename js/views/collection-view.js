@@ -466,7 +466,7 @@
           updateTimestampNote();
           App.ui.toast("Prices refreshed.", "success");
         }
-      } catch (e) {
+      } catch {
         updateTimestampNote(); /* stay quiet; manual refresh still available */
       }
     }
@@ -476,12 +476,12 @@
     // card modal's Add button opened from a collection tile). One active
     // subscription per render; our own steppers already update locally and
     // this re-list simply converges to the same state.
-    if (App._collectionUnsub) { try { App._collectionUnsub(); } catch (e) {} App._collectionUnsub = null; }
+    if (App._collectionUnsub) { try { App._collectionUnsub(); } catch { /* ignored */ } App._collectionUnsub = null; }
     App._collectionUnsub = App.on("collection:changed", async function () {
       try {
         items = (await reloadItems()) || [];
         refreshViews();
-      } catch (e) { /* keep current view */ }
+      } catch { /* keep current view */ }
     });
     root.innerHTML = '<div class="stats-row"></div><div id="c-loading"></div>';
     App.ui.skeletonGrid(el("c-loading"), 6);

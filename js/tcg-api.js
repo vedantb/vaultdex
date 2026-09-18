@@ -9,7 +9,6 @@
   window.App = window.App || {};
 
   var API_ROOT = "https://api.tcgdex.net/v2";
-  var BASE = API_ROOT + "/en"; // default language base
 
   var LS_INDEX = "vd_tcgdex_index_v1"; // {at, cards:[{id,localId,name}]}
   var LS_SETS = "vd_tcgdex_sets_v2";   // {at, sets:[...]} (v2: lang+era fields)
@@ -58,7 +57,7 @@
     var res;
     try {
       res = await App.util.fetchWithTimeout(base + path, null, FETCH_TIMEOUT_MS);
-    } catch (e) {
+    } catch {
       throw new ApiError("Network error — check your connection and try again.", 0);
     }
     if (!res.ok) {
@@ -73,7 +72,7 @@
   var normNumber = App.util.normNumber;
 
   function titleCase(s) {
-    return String(s || "").toLowerCase().replace(/(^|[\s\-])(\w)/g, function (m, p1, p2) {
+    return String(s || "").toLowerCase().replace(/(^|[\s-])(\w)/g, function (m, p1, p2) {
       return p1 + p2.toUpperCase();
     });
   }
@@ -158,7 +157,7 @@
       if (!raw) return null;
       var p = JSON.parse(raw);
       if (p && Array.isArray(p.sets) && p.sets.length && (Date.now() - (p.at || 0)) < CACHE_TTL) return p.sets;
-    } catch (e) { /* corrupted: refetch below */ }
+    } catch { /* corrupted: refetch below */ }
     return null;
   }
 
@@ -190,10 +189,10 @@
       try {
         var ja = await snapJson("sets-ja.json");
         out = out.concat(ja.map(mapSetEntry));
-      } catch (e2) { /* Japanese list not snapshotted yet */ }
+      } catch { /* Japanese list not snapshotted yet */ }
       setsCache = out;
       return setsCache;
-    } catch (e) { /* no snapshot: live API below */ }
+    } catch { /* no snapshot: live API below */ }
     var cached = setsFromStorage();
     if (cached) { setsCache = cached; return cached; }
     var arr = await req("/sets");
@@ -205,7 +204,7 @@
         logo: s.logo, symbol: s.symbol
       });
     });
-    try { localStorage.setItem(LS_SETS, JSON.stringify({ at: Date.now(), sets: setsCache })); } catch (e) { /* quota: skip */ }
+    try { localStorage.setItem(LS_SETS, JSON.stringify({ at: Date.now(), sets: setsCache })); } catch { /* quota: skip */ }
     return setsCache;
   }
 
@@ -232,7 +231,7 @@
         total: sh.total,
         images: { logo: assetUrl(sh.logo), symbol: assetUrl(sh.symbol) }
       };
-    } catch (e) { /* no snapshot for this set: live API below */ }
+    } catch { /* no snapshot for this set: live API below */ }
     var s = await req("/sets/" + encodeURIComponent(p.id), p.lang);
     var out = {
       appId: appId,
@@ -264,7 +263,7 @@
             symbol: match.images && match.images.symbol
           };
         }
-      } catch (e2) { /* keep the live metadata */ }
+      } catch { /* keep the live metadata */ }
     }
     return out;
   }
@@ -291,7 +290,7 @@
       });
       setCardsCache[appId] = sortCards(snapCards);
       return setCardsCache[appId];
-    } catch (e) { /* no snapshot for this set: live API below */ }
+    } catch { /* no snapshot for this set: live API below */ }
     var s = await req("/sets/" + encodeURIComponent(p.id), p.lang);
     var list = (s.cards || []).map(function (c) { return normCard(c, s.id, s.name, p.lang); });
     setCardsCache[appId] = sortCards(list);
@@ -381,7 +380,7 @@
             setName = (snap.set && snap.set.name) || "";
           }
         }
-      } catch (e) { raw = null; }
+      } catch { raw = null; }
     }
     if (!raw) {
       var c = await req("/cards/" + encodeURIComponent(id), lang);
@@ -404,7 +403,7 @@
       while (i < ids.length) {
         var k = i++;
         try { out[k] = await getCard(ids[k], lang); }
-        catch (e) { out[k] = null; }
+        catch { out[k] = null; }
       }
     }
     var ws = [];
@@ -424,14 +423,14 @@
       if (Array.isArray(snap) && snap.length) {
         snap.forEach(function (e) { e.lang = "en"; combined.push(e); });
       }
-    } catch (e) { /* no snapshot: live API below */ }
+    } catch { /* no snapshot: live API below */ }
     /* Japanese snapshot index: English name + Japanese name + illustrator */
     try {
       var jaSnap = await snapJson("index-ja.json");
       if (Array.isArray(jaSnap) && jaSnap.length) {
         jaSnap.forEach(function (e) { e.lang = "ja"; combined.push(e); });
       }
-    } catch (e) { /* no JA index yet */ }
+    } catch { /* no JA index yet */ }
     if (combined.length) { indexCache = combined; return combined; }
     try {
       var raw = localStorage.getItem(LS_INDEX);
@@ -442,10 +441,10 @@
           return p.cards;
         }
       }
-    } catch (e) { /* corrupted: refetch below */ }
+    } catch { /* corrupted: refetch below */ }
     var arr = await req("/cards"); // [{id, localId, name}], ~23k cards, one request
     indexCache = arr;
-    try { localStorage.setItem(LS_INDEX, JSON.stringify({ at: Date.now(), cards: arr })); } catch (e) { /* quota: memory cache still works */ }
+    try { localStorage.setItem(LS_INDEX, JSON.stringify({ at: Date.now(), cards: arr })); } catch { /* quota: memory cache still works */ }
     return arr;
   }
 
@@ -600,7 +599,7 @@
    * "Holofoil" -> "holo"; "Standard" -> "normal". */
   function normVLabel(s) {
     var t = String(s || "").toLowerCase();
-    try { t = t.normalize("NFD").replace(/[\u0300-\u036f]/g, ""); } catch (e) { /* no normalize */ }
+    try { t = t.normalize("NFD").replace(/[\u0300-\u036f]/g, ""); } catch { /* no normalize */ }
     t = t.replace(/[^a-z0-9]/g, "");
     if (t === "standard") return "normal";
     if (t === "holofoil") return "holo";
