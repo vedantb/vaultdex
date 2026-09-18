@@ -36,8 +36,10 @@ python3 -m http.server 8000
 
 ## Deploy
 
+The repo is linked to Vercel: **every push to `main` auto-deploys Production** ([vaultdex-three.vercel.app](https://vaultdex-three.vercel.app)). No CLI deploy needed.
+
+**Vercel (manual):** run `vercel --prod` inside the folder, or import it as a static project — no build command needed.
 **Netlify:** drag the `pokemon-tcg-app` folder onto [Netlify Drop](https://app.netlify.com/drop).
-**Vercel:** run `vercel` inside the folder, or import it as a static project — no build command needed.
 
 ## Setup
 
