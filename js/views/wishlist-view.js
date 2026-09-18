@@ -14,9 +14,8 @@
   window.App = window.App || {};
   App.views = App.views || {};
 
-  function isJaRow(row) {
-    return (row.set_id || "").indexOf("ja-") === 0;
-  }
+  /* Shared: App.util.isJa (js/util.js). */
+  var isJaRow = App.util.isJa;
 
   function targetLine(row) {
     if (typeof row.target_price !== "number") return "";
@@ -25,26 +24,28 @@
       "</span></div>";
   }
 
+  /* Shared tile: App.ui.tileHtml (js/ui.js). */
   function tileHtml(row) {
     var deal = App.wishlist.isDeal(row);
     var price = (typeof row.market_price === "number")
       ? App.ui.money(row.market_price, row.price_currency)
       : "—";
-    return (
-      '<article class="card-tile wishlist-tile' + (deal ? " is-deal" : "") + '" data-row="' + App.esc(row.id) + '" data-card="' + App.esc(row.card_id) + '">' +
+    return App.ui.tileHtml(row, {
+      cls: "wishlist-tile" + (deal ? " is-deal" : ""),
+      dataRow: row.id,
+      dataCard: row.card_id,
+      activatable: false,
+      name: row.card_name || row.card_id,
+      tileButtons:
         '<button type="button" class="icon-btn-sm wishlist-target' + (typeof row.target_price === "number" ? " has-target" : "") + '" data-act="target" aria-label="Set target price for ' + App.esc(row.card_name || row.card_id) + '" title="Set target price">' + App.ui.icon("target") + "</button>" +
-        '<button type="button" class="icon-btn-sm wishlist-remove" data-act="rm" aria-label="Remove ' + App.esc(row.card_name || row.card_id) + ' from wishlist" title="Remove from wishlist">' + App.ui.icon("x") + "</button>" +
-        '<div class="art"><img loading="lazy" src="' + App.esc(row.image_small) + '" alt="' + App.esc(row.card_name || row.card_id) + ' card art"></div>' +
-        '<div class="info">' +
-          '<div class="name">' + App.esc(row.card_name || row.card_id) + "</div>" +
-          '<div class="set">' + App.esc(row.set_name || "") + "</div>" +
-          '<div class="price-row"><span class="price-badge">' + App.esc(price) + "</span>" +
-          (deal ? '<span class="deal-badge">At target</span>' : "") +
-          (row.variant ? '<span class="variant-chip">' + App.esc(row.variant) + "</span>" : "") + "</div>" +
-          targetLine(row) +
-        "</div>" +
-      "</article>"
-    );
+        '<button type="button" class="icon-btn-sm wishlist-remove" data-act="rm" aria-label="Remove ' + App.esc(row.card_name || row.card_id) + ' from wishlist" title="Remove from wishlist">' + App.ui.icon("x") + "</button>",
+      setHtml: App.esc(row.set_name || ""),
+      priceHtml:
+        '<span class="price-badge">' + App.esc(price) + "</span>" +
+        (deal ? '<span class="deal-badge">At target</span>' : "") +
+        (row.variant ? '<span class="variant-chip">' + App.esc(row.variant) + "</span>" : ""),
+      postPrice: targetLine(row)
+    });
   }
 
   App.views.wishlist = async function (root) {

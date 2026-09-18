@@ -12,16 +12,11 @@
   window.App = window.App || {};
   App.views = App.views || {};
 
-  var BUDGETS = [
-    { label: "Under $10", min: "", max: "10" },
-    { label: "$10–$50", min: "10", max: "50" },
-    { label: "$50–$100", min: "50", max: "100" },
-    { label: "$100+", min: "100", max: "" }
-  ];
+  /* Shared: App.util.BUDGETS (js/util.js). */
+  var BUDGETS = App.util.BUDGETS;
 
-  function langOf(row) {
-    return String(row.set_id || "").indexOf("ja-") === 0 ? "ja" : "en";
-  }
+  /* Shared: App.util.langOf (js/util.js). */
+  var langOf = App.util.langOf;
   // Trade budgets are per-copy prices — what a trader would pay for one card.
   function copyPrice(row) {
     return typeof row.market_price === "number" ? row.market_price : null;
@@ -55,24 +50,16 @@
   }
 
   // Most valuable listing image from a set of rows — the face of a hub card.
+  // Shared: App.util.topImage (js/util.js); trade budgets rank by per-copy
+  // price times copies available.
   function topImage(list, used) {
-    used = used || {};
-    var best = "", bestV = -1;
-    list.forEach(function (r) {
-      if (!r.image_small || used[r.image_small]) return;
+    return App.util.topImage(list, used, function (r) {
       var v = copyPrice(r);
-      v = (v === null ? 0 : v) * App.trade.effectiveQty(r);
-      if (v > bestV) { bestV = v; best = r.image_small; }
+      return (v === null ? 0 : v) * App.trade.effectiveQty(r);
     });
-    if (!best) {
-      for (var i = 0; i < list.length; i++) {
-        if (list[i].image_small && !used[list[i].image_small]) { best = list[i].image_small; break; }
-      }
-    }
-    if (best) used[best] = true;
-    return best;
   }
 
+  /* Shared tile: App.ui.tileHtml (js/ui.js). */
   function tileHtml(row, isOwner) {
     var avail = App.trade.effectiveQty(row);
     // Defensive: grading columns may be added by a parallel feature.
@@ -88,20 +75,17 @@
           "</div>" +
         "</div>"
       : "";
-    return (
-      '<article class="card-tile trade-tile" data-row="' + App.esc(row.id) + '">' +
-        '<div class="art"><img loading="lazy" src="' + App.esc(row.image_small) + '" alt="' + App.esc(row.card_name) + ' card art"></div>' +
-        '<div class="info">' +
-          '<div class="name">' + App.esc(row.card_name) + "</div>" +
-          '<div class="set">' + App.esc(row.set_name || "") + "</div>" +
-          '<div class="price-row"><span class="price-badge">' + App.ui.money(row.market_price, row.price_currency) + "</span>" +
-          '<span class="trade-chips"><span class="variant-chip">' + App.esc(row.variant) + "</span>" +
-          (grade ? '<span class="grade-badge">' + grade + "</span>" : "") + "</span></div>" +
-          '<div class="avail-note">×' + avail + " available</div>" +
-          stepper +
-        "</div>" +
-      "</article>"
-    );
+    return App.ui.tileHtml(row, {
+      cls: "trade-tile",
+      dataRow: row.id,
+      activatable: false,
+      setHtml: App.esc(row.set_name || ""),
+      priceHtml:
+        '<span class="price-badge">' + App.ui.money(row.market_price, row.price_currency) + "</span>" +
+        '<span class="trade-chips"><span class="variant-chip">' + App.esc(row.variant) + "</span>" +
+        (grade ? '<span class="grade-badge">' + grade + "</span>" : "") + "</span>",
+      postPrice: '<div class="avail-note">×' + avail + " available</div>" + stepper
+    });
   }
 
   /* Sets with trade listings in one language, newest era first (catalog
@@ -122,7 +106,7 @@
     var out = [];
     Object.keys(counts).forEach(function (appId) {
       var s = byAppId[appId];
-      var l = s ? s.lang : (String(appId).indexOf("ja-") === 0 ? "ja" : "en");
+      var l = s ? s.lang : App.util.langOf(appId);
       if (lang === "ja" ? l !== "ja" : l === "ja") return;
       out.push({
         set: s || { appId: appId, name: nameById[appId] || appId, series: "Other", images: {} },

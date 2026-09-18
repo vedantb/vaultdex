@@ -28,8 +28,7 @@
     logout: P('<path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/>'),
     cards: P('<rect x="3" y="6" width="13" height="16" rx="2"/><path d="M8 3h11a2 2 0 0 1 2 2v13"/>'),
     tag: P('<path d="M20.6 13.4L11 3.8A2 2 0 0 0 9.6 3H4a1 1 0 0 0-1 1v5.6c0 .5.2 1 .6 1.4l9.6 9.6a2 2 0 0 0 2.8 0l4.6-4.6a2 2 0 0 0 0-2.6z"/><circle cx="7.5" cy="7.5" r="1.5"/>'),
-    chevL: P('<path d="M15 18l-6-6 6-6"/>'),
-    chevR: P('<path d="M9 18l6-6-6-6"/>'),
+    "chev-r": P('<path d="M9 18l6-6-6-6"/>'),
     sliders: P('<path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/>'),
     google: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M23.5 12.3c0-.9-.1-1.5-.3-2.3H12v4.3h6.5c-.1 1.1-.8 2.7-2.4 3.8l-.1.1 3.5 2.7.2.1c2.2-2 3.8-5 3.8-8.7z"/><path fill="#34A853" d="M12 24c3.2 0 5.9-1.1 7.9-2.9l-3.8-2.9c-1 .7-2.4 1.2-4.1 1.2-3.1 0-5.8-2.1-6.8-5l-.1.1-3.6 2.8v.1C3.5 21.3 7.5 24 12 24z"/><path fill="#FBBC05" d="M5.2 14.4c-.2-.7-.4-1.5-.4-2.4s.1-1.7.4-2.4l-.1-.2-3.6-2.8-.1.1C.5 8.5 0 10.1 0 12s.5 3.5 1.4 5.1l3.8-2.7z"/><path fill="#EA4335" d="M12 4.7c1.8 0 3 .8 3.7 1.4l3.3-3.2C17.9 1.1 15.2 0 12 0 7.5 0 3.5 2.7 1.4 6.6l3.8 2.9c1-2.8 3.7-4.8 6.8-4.8z"/></svg>'
   };
@@ -130,6 +129,51 @@
         "<p>" + esc(opts.body || "") + "</p>" +
         (opts.actionHtml || "") +
       "</div>"
+    );
+  }
+
+  /* ---------- shared card tile ---------- */
+  /* One card-tile renderer for every view (browse, collection, trade,
+   * wishlist, movers, set pages). Same .card-tile/.art/.info/.price-badge
+   * skeleton everywhere; per-view differences ride in opts:
+   *   cls         extra article classes ("trade-tile", "wishlist-tile is-deal")
+   *   dataId / dataRow / dataCard   data-* attributes
+   *   activatable false skips tabindex/role/aria-label (default: activatable)
+   *   ariaLabel   override for the default "View <name>"
+   *   qty         number for the ×N badge (absent = no badge)
+   *   tileButtons HTML pinned before .art (wishlist target/remove buttons)
+   *   artExtra    HTML inside .art after the img (select-ring, variant checks)
+   *   name / img  overrides (defaults: card.name|card.card_name, image_small|images.small)
+   *   setHtml     .set line HTML (already escaped by the caller)
+   *   prePrice    HTML between .set and .price-row (mover prev→market line)
+   *   priceHtml   .price-row inner HTML
+   *   postPrice   HTML after .price-row, inside .info (target row, steppers)
+   */
+  function tileHtml(card, opts) {
+    opts = opts || {};
+    var name = opts.name !== undefined ? opts.name : (card && (card.name || card.card_name));
+    var img = opts.img !== undefined ? opts.img : (card && (card.image_small || (card.images && card.images.small)));
+    return (
+      '<article class="card-tile' + (opts.cls ? " " + opts.cls : "") + '"' +
+        (opts.dataId ? ' data-id="' + esc(opts.dataId) + '"' : "") +
+        (opts.dataRow ? ' data-row="' + esc(opts.dataRow) + '"' : "") +
+        (opts.dataCard ? ' data-card="' + esc(opts.dataCard) + '"' : "") +
+        (opts.activatable === false ? "" :
+          ' tabindex="0" role="button" aria-label="' + esc(opts.ariaLabel || ("View " + (name || ""))) + '"') +
+      ">" +
+        (opts.tileButtons || "") +
+        (opts.qty === null || opts.qty === undefined ? "" : '<span class="qty-badge">×' + opts.qty + "</span>") +
+        '<div class="art"><img loading="lazy" src="' + esc(img) + '" alt="' + esc((name || "") + " card art") + '">' +
+          (opts.artExtra || "") +
+        "</div>" +
+        '<div class="info">' +
+          '<div class="name">' + esc(name || "") + "</div>" +
+          '<div class="set">' + (opts.setHtml || "") + "</div>" +
+          (opts.prePrice || "") +
+          '<div class="price-row">' + (opts.priceHtml || "") + "</div>" +
+          (opts.postPrice || "") +
+        "</div>" +
+      "</article>"
     );
   }
 
@@ -234,6 +278,7 @@
     openSettings: openSettings,
     skeletonGrid: skeletonGrid,
     emptyState: emptyState,
+    tileHtml: tileHtml,
     money: money,
     timeAgo: timeAgo,
     debounce: debounce,

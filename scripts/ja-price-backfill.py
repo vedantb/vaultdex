@@ -25,13 +25,15 @@ time.
 
 Credit rules: shares data/pkmn-cache/credit-ledger.json (UTC date key) with
 ja-pkmn-enrich.py. Hard daily cap 17000 (Pro allows 20000/day). On HTTP 429
-we back off twice, then stop cleanly so a later run can resume.
+we back off twice, then stop cleanly so a later run can resume. A proxy
+403 (bad caller key) fails fast instead of retrying every card.
 
 Resume: cards priced within --max-age days are skipped (default 6), so the
 weekly refresh only refetches stale cards. --force reprices everything.
 --only <id> / --limit N restrict the set list (newest-first).
 """
 
+import fcntl
 import json
 import os
 import re
@@ -66,7 +68,9 @@ def _proxy_secret():
 PROXY_KEY = _proxy_secret()
 
 DAILY_CAP = 17000
-MIN_INTERVAL = 0.5  # ~2 requests/second max; PkmnPrices 429s sustained 4/s
+# Seconds between proxy requests. The Vercel proxy (api/pkmnprices.js)
+# allows 120 req/min per IP (2/s); ~109/min keeps us safely under it.
+MIN_INTERVAL = 0.55
 MAX_429_TRIES = 4
 BACKOFF_429 = (30, 60, 120, 240)  # seconds between 429 retries
 # Effective cap for this run; main() may lower it via --daily-cap (e.g. to
@@ -131,9 +135,37 @@ def spent_today(ledger):
     return int(ledger.get(utc_today(), 0))
 
 
+def atomic_write_json(path, obj, **kwargs):
+    """Write JSON atomically (tmp file + os.replace) so a crash or OOM
+    mid-write can never leave a truncated file in place."""
+    tmp = path + ".tmp"
+    with open(tmp, "w", encoding="utf-8") as f:
+        json.dump(obj, f, ensure_ascii=False, **kwargs)
+        f.flush()
+        os.fsync(f.fileno())
+    os.replace(tmp, path)
+
+
 def add_spend(ledger, n):
-    ledger[utc_today()] = spent_today(ledger) + n
-    json.dump(ledger, open(ledger_path(), "w"), indent=1)
+    """Record n credits spent today. Uses a lockfile-guarded
+    read-modify-write (re-reading the ledger under the lock) so overlapping
+    runs can't lose counts against the paid 20,000/day Pro cap, and writes
+    the ledger atomically."""
+    p = ledger_path()
+    os.makedirs(os.path.dirname(p), exist_ok=True)
+    with open(p + ".lock", "a+") as lock:
+        fcntl.flock(lock, fcntl.LOCK_EX)
+        try:
+            try:
+                disk = json.load(open(p)) if os.path.isfile(p) else {}
+            except Exception:
+                disk = {}
+            today = utc_today()
+            ledger[today] = max(int(disk.get(today, 0)),
+                                int(ledger.get(today, 0))) + n
+            atomic_write_json(p, ledger, indent=1)
+        finally:
+            fcntl.flock(lock, fcntl.LOCK_UN)
 
 
 _last_req = 0.0
@@ -159,8 +191,16 @@ class TransientError(Exception):
     pass
 
 
+class AuthError(Exception):
+    """The proxy rejected our caller key (HTTP 403): permanent, fail fast."""
+    pass
+
+
 def proxy_card(pp_id, ledger):
-    """GET /v1/cards/{id} via the proxy. 1 credit. Returns parsed JSON."""
+    """GET /v1/cards/{id} via the proxy. 1 credit. Returns parsed JSON.
+
+    A 403 means the proxy rejected our caller key: permanent, so raise
+    AuthError (main() fails fast) instead of retrying every card."""
     if spent_today(ledger) >= daily_cap:
         raise BudgetExhausted()
     pace()
@@ -176,6 +216,13 @@ def proxy_card(pp_id, ledger):
                 body = resp.read().decode("utf-8")
             break
         except urllib.error.HTTPError as e:
+            if e.code == 403:
+                raise AuthError(
+                    "PROXY 403 FORBIDDEN: the Vercel proxy rejected our "
+                    "caller key (no request will succeed). Check that "
+                    "PROXY_SHARED_SECRET in Vercel matches "
+                    "~/workspace/.secrets/vaultdex-proxy-key (or the "
+                    "VAULTDEX_PROXY_KEY env var), then re-run.")
             if e.code == 429:
                 if tries < MAX_429_TRIES:
                     wait = BACKOFF_429[min(tries, len(BACKOFF_429) - 1)]
@@ -302,19 +349,26 @@ def main():
             except BudgetExhausted:
                 print("BUDGET_EXHAUSTED: daily cap of %d reached." % daily_cap)
                 if dirty:
-                    json.dump(snap, open(path, "w", encoding="utf-8"),
-                              ensure_ascii=False)
+                    atomic_write_json(path, snap, ensure_ascii=False)
                 print("priced=%d skipped=%d no-price-data=%d fetched=%d" %
                       (n_priced, n_skipped, n_noprice, n_cards))
                 sys.exit(2)
             except RateLimited:
                 print("RATE LIMITED after backoff — stopping; resume later.")
                 if dirty:
-                    json.dump(snap, open(path, "w", encoding="utf-8"),
-                              ensure_ascii=False)
+                    atomic_write_json(path, snap, ensure_ascii=False)
                 print("priced=%d skipped=%d no-price-data=%d fetched=%d" %
                       (n_priced, n_skipped, n_noprice, n_cards))
                 sys.exit(3)
+            except AuthError as e:
+                # Wrong/missing proxy key: permanent. Fail fast (exit 4)
+                # instead of burning retries on every card.
+                print(str(e), file=sys.stderr)
+                if dirty:
+                    atomic_write_json(path, snap, ensure_ascii=False)
+                print("priced=%d skipped=%d no-price-data=%d fetched=%d" %
+                      (n_priced, n_skipped, n_noprice, n_cards))
+                sys.exit(4)
             except TransientError as e:
                 # One flaky card shouldn't kill the run; resume picks it up.
                 print("TRANSIENT ERROR on ppId %s: %s — skipping card." %
@@ -330,7 +384,7 @@ def main():
                             "pricedAt": now}
             dirty = True
         if dirty:
-            json.dump(snap, open(path, "w", encoding="utf-8"), ensure_ascii=False)
+            atomic_write_json(path, snap, ensure_ascii=False)
         print("[%s] done (%d priced this run)" % (sid, n_priced), file=sys.stderr)
 
     print("Done: priced=%d skipped=%d no-price-data=%d fetched=%d" %

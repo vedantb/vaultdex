@@ -20,7 +20,7 @@
    * are prefixed "ja-" because a few ids (e.g. neo1) exist in both
    * languages. parseSetId splits the app id back into language + id. */
   function parseSetId(appId) {
-    if (appId && appId.indexOf("ja-") === 0) return { lang: "ja", id: appId.slice(3) };
+    if (App.util.isJa(appId)) return { lang: "ja", id: appId.slice(3) };
     return { lang: "en", id: appId };
   }
   function appSetId(lang, id) {
@@ -38,27 +38,10 @@
    * awaited it. Callers already catch failures and fall back or show an
    * error state — they just never got the chance while the promise hung. */
   var FETCH_TIMEOUT_MS = 20000;
-  function fetchWithTimeout(url) {
-    var ctrl = null;
-    var timer = null;
-    try {
-      if (typeof AbortController !== "undefined") {
-        ctrl = new AbortController();
-        timer = setTimeout(function () { ctrl.abort(); }, FETCH_TIMEOUT_MS);
-      }
-    } catch (e) { /* very old browser: fetch without a timeout */ }
-    var p = ctrl ? fetch(url, { signal: ctrl.signal }) : fetch(url);
-    return p.then(function (res) {
-      if (timer) clearTimeout(timer);
-      return res;
-    }, function (err) {
-      if (timer) clearTimeout(timer);
-      throw err;
-    });
-  }
+  /* Shared: App.util.fetchWithTimeout (js/util.js). */
 
   async function snapJson(rel) {
-    var res = await fetchWithTimeout(SNAP + "/" + rel);
+    var res = await App.util.fetchWithTimeout(SNAP + "/" + rel, null, FETCH_TIMEOUT_MS);
     if (!res.ok) throw new Error("no snapshot: " + rel);
     return res.json();
   }
@@ -74,7 +57,7 @@
     var base = API_ROOT + "/" + (lang || "en");
     var res;
     try {
-      res = await fetchWithTimeout(base + path);
+      res = await App.util.fetchWithTimeout(base + path, null, FETCH_TIMEOUT_MS);
     } catch (e) {
       throw new ApiError("Network error — check your connection and try again.", 0);
     }
@@ -84,11 +67,10 @@
     return res.json();
   }
 
-  /* "001" -> "1", so padded TCGdex numbers match unpadded ones everywhere
-   * (PkmnPrices matching, owned-row keys, display). */
-  function normNumber(n) {
-    return String(n == null ? "" : n).trim().toLowerCase().replace(/^0+(?=\d)/, "");
-  }
+  /* Shared: App.util.normNumber (js/util.js) — "001" -> "1", so padded
+   * TCGdex numbers match unpadded ones everywhere (PkmnPrices matching,
+   * owned-row keys, display). */
+  var normNumber = App.util.normNumber;
 
   function titleCase(s) {
     return String(s || "").toLowerCase().replace(/(^|[\s\-])(\w)/g, function (m, p1, p2) {
@@ -472,7 +454,9 @@
     if (setRankCache) return setRankCache;
     var sets = await getSets(); // newest first
     var rank = {};
-    sets.forEach(function (s, i) { rank[s.id] = i; });
+    /* Keyed by app id ("ja-…" for Japanese): raw ids like neo1 exist in
+     * both languages and must not collide. */
+    sets.forEach(function (s, i) { rank[appSetId(s.lang, s.id)] = i; });
     setRankCache = rank;
     return rank;
   }
@@ -562,7 +546,7 @@
         // unfiltered browse: newest sets first, then card number
         var rank = await getSetRank();
         ranked = matches.slice().sort(function (a, b) {
-          var ra = rank[setIdOf(a.id)], rb = rank[setIdOf(b.id)];
+          var ra = rank[appSetId(a.lang, setIdOf(a.id))], rb = rank[appSetId(b.lang, setIdOf(b.id))];
           ra = ra === undefined ? 1e9 : ra;
           rb = rb === undefined ? 1e9 : rb;
           if (ra !== rb) return ra - rb;
@@ -592,11 +576,8 @@
     return best;
   }
 
-  var VARIANT_LABELS = {
-    normal: "Normal",
-    holofoil: "Holofoil",
-    reverseHolofoil: "Reverse Holo"
-  };
+  /* Shared: App.util.VARIANT_LABELS (js/util.js). */
+  var VARIANT_LABELS = App.util.VARIANT_LABELS;
 
   /* Available print variants with their price blocks, highest-market first. */
   function variantsOf(card) {

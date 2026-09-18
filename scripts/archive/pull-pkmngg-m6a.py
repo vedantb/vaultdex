@@ -14,6 +14,10 @@ downloads, proper UA, resumable (skips cached files), 3 retries with backoff.
 This is a TEMPORARY source until TCGdex / PkmnPrices carry M6a. The weekly
 refresh must NOT re-run this script unprompted; it re-runs only
 build-m6a-pkmngg.py from the cached extraction.
+
+Runtime guard: main() refuses to run unless --i-am-sure is passed, so the
+script can never land in a cron or a careless shell glob and re-hit the
+fan site.
 """
 import json, re, subprocess, sys, time, os
 
@@ -138,4 +142,9 @@ def main():
 
 
 if __name__ == "__main__":
+    if "--i-am-sure" not in sys.argv:
+        print("Refusing to run: pull-pkmngg-m6a.py hits a third-party fan "
+              "site (pkmn.gg) and must not be re-run unprompted. If you "
+              "really mean it, re-run with --i-am-sure.", file=sys.stderr)
+        sys.exit(1)
     main()

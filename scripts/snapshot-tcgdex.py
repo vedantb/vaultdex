@@ -400,12 +400,6 @@ def snapshot_sets():
         label = ser.get("name")
         if LANG == "ja":
             label = JA_SERIES_LABELS.get(sid, label)
-        try:
-            detail = polite("/series/" + sid)
-        except Exception as e:  # noqa: BLE001
-            print("  !! /series/%s failed: %r — skipping" % (sid, e), file=sys.stderr)
-            continue
-        sets_in_series = (detail.get("sets") or [])
         # English series arrays are chronological (oldest first) — reverse
         # for newest-first. Japanese arrays aren't reliably ordered, so
         # keep the API's stable order.
@@ -459,12 +453,14 @@ def snapshot_index():
 def snapshot_set(set_id):
     s = polite("/sets/" + set_id)
     summaries = s.get("cards") or []
+    dropped = []
 
     def one(c0):
         try:
             return trim_detail(polite("/cards/" + c0["id"]))
         except Exception as e:  # noqa: BLE001
             print("  !! %s: %s" % (c0.get("id"), e), file=sys.stderr)
+            dropped.append(c0.get("id"))
             return None
 
     cards = []
@@ -472,8 +468,15 @@ def snapshot_set(set_id):
         for d in ex.map(one, summaries):
             if d:
                 cards.append(d)
+    if dropped:
+        # Incomplete payloads are re-attempted on resume (see have_set):
+        # re-fetching the whole set is cheaper than tracking per-card.
+        print("  !! %s: dropped %d card(s): %s"
+              % (set_id, len(dropped), ", ".join(str(x) for x in dropped)),
+              file=sys.stderr)
     payload = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
+        "droppedCardIds": dropped,
         "set": {
             "id": s.get("id"),
             "name": s.get("name"),
@@ -499,10 +502,20 @@ def set_rel(set_id):
 
 
 def have_set(set_id):
+    """True when the snapshot exists and is complete: parseable JSON with
+    no dropped cards. Corrupt files and incomplete payloads return False
+    so a resumed --all run re-attempts the whole set."""
     import os
 
     p = os.path.join(OUT, set_rel(set_id))
-    return os.path.isfile(p) and os.path.getsize(p) > 0
+    if not (os.path.isfile(p) and os.path.getsize(p) > 0):
+        return False
+    try:
+        with open(p) as f:
+            payload = json.load(f)
+    except Exception:  # corrupt JSON: re-fetch the set
+        return False
+    return not payload.get("droppedCardIds")
 
 
 def write(rel, obj):

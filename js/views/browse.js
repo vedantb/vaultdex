@@ -15,20 +15,16 @@
     return setsCache;
   }
 
+  /* Shared tile: App.ui.tileHtml (js/ui.js). */
   function tileHtml(card) {
     var market = App.tcg.marketOf(card);
-    return (
-      '<article class="card-tile" data-id="' + App.esc(card.id) + '" tabindex="0" role="button" aria-label="View ' + App.esc(card.name) + '">' +
-        '<div class="art"><img loading="lazy" src="' + App.esc(card.images && card.images.small) + '" alt="' + App.esc(card.name) + ' card art"></div>' +
-        '<div class="info">' +
-          '<div class="name">' + App.esc(card.name) + "</div>" +
-          '<div class="set">' + App.esc((card.set && card.set.name) || "") + "</div>" +
-          '<div class="price-row"><span class="price-badge">' + App.ui.money(market, card.priceCurrency) + "</span>" +
-          (card.rarity ? '<span class="variant-chip" style="max-width:92px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">' + App.esc(card.rarity) + "</span>" : "") +
-          "</div>" +
-        "</div>" +
-      "</article>"
-    );
+    return App.ui.tileHtml(card, {
+      dataId: card.id,
+      setHtml: App.esc((card.set && card.set.name) || ""),
+      priceHtml:
+        '<span class="price-badge">' + App.ui.money(market, card.priceCurrency) + "</span>" +
+        (card.rarity ? '<span class="variant-chip" style="max-width:92px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">' + App.esc(card.rarity) + "</span>" : "")
+    });
   }
 
   function bindTiles(root) {
@@ -128,7 +124,7 @@
         if (!state.cards.length) {
           resultsEl.innerHTML = App.ui.emptyState({
             title: "No cards found",
-            body: "Try a different name — card search covers the English catalog."
+            body: "Try a different name — card search covers the English and Japanese catalogs."
           });
         } else {
           resultsEl.innerHTML = '<div class="card-grid">' + state.cards.map(tileHtml).join("") + "</div>";
@@ -164,7 +160,7 @@
    * with a set-specific search filter like pkmn.gg's. */
   function renderEraSections(body, sets, langLabel) {
     body.innerHTML =
-      '<a class="back-link" href="/browse" id="lang-back">' + App.ui.icon("chevL") + " Languages</a>" +
+      '<a class="back-link" href="/browse" id="lang-back">' + App.ui.icon("chev-l") + " Languages</a>" +
       '<div class="search-row set-search-row">' +
         '<div class="field"><input id="set-q" type="search" placeholder="Search ' + App.esc(langLabel.toLowerCase()) + ' sets — try &quot;obsidian&quot;" autocomplete="off" aria-label="Search sets"></div>' +
       "</div>" +

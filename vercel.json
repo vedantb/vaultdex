@@ -7,7 +7,7 @@
           "value": "no-store, must-revalidate"
         }
       ],
-      "source": "/(.*)"
+      "source": "/api/(.*)"
     }
   ],
   "rewrites": [

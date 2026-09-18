@@ -2,7 +2,8 @@
 (function () {
   window.App = window.App || {};
 
-  var VARIANT_LABELS = { normal: "Normal", holofoil: "Holofoil", reverseHolofoil: "Reverse Holo" };
+  /* Shared: App.util.VARIANT_LABELS (js/util.js). */
+  var VARIANT_LABELS = App.util.VARIANT_LABELS;
 
   /* Inline heart icon for the wishlist toggle (Feature 2). ui.js owns the
    * icon set and is off-limits, so the heart lives here as an SVG string:
@@ -28,12 +29,8 @@
     );
   }
 
-  function jaMoney(p) {
-    if (!p || typeof p.price !== "number") return "—";
-    var sym = p.currency === "EUR" ? "€" : "$";
-    return sym + p.price.toFixed(2);
-  }
-
+  /* Japanese price formatting is App.ui.money (js/ui.js) — same "—" for
+   * missing prices, € for EUR rows. */
   /* On-demand Japanese market price for the modal. Fetches the PkmnPrices
    * Near Mint price for the exact Japanese printing of the selected
    * variant — a few credits per lookup, never in bulk. */
@@ -57,7 +54,7 @@
         box.innerHTML =
           '<table class="price-table"><thead><tr><th>Condition</th><th>Market</th><th>Source</th></tr></thead>' +
           "<tbody><tr><td>Near Mint" + (pm.variant ? " · " + App.esc(pm.variant) : "") + "</td>" +
-          '<td class="market">' + App.esc(jaMoney(pm)) + "</td>" +
+          '<td class="market">' + App.ui.money(pm.price, pm.currency) + "</td>" +
           "<td>" + App.esc(src) + "</td></tr></tbody></table>";
       } else {
         box.innerHTML = '<p style="color:var(--muted);font-size:0.9rem">No Japanese price data for this printing yet.</p>';
@@ -137,7 +134,6 @@
             : "<h2>" + App.esc(card.name) + gradeBadgeHtml + "</h2>") +
           '<div class="sub">' + App.esc((card.set && card.set.name) || "") + " · #" + App.esc(card.number || "?") + "</div>" +
           '<div class="detail-chips">' + chips.join("") + "</div>" +
-          (card.flavorText ? '<p class="flavor">' + App.esc(card.flavorText) + "</p>" : "") +
           '<div class="field" style="margin-bottom:6px"><label>Illustrated by</label><div style="font-weight:600">' + App.esc(card.artist || "Unknown artist") + "</div></div>" +
           "<h4 style=\"margin:16px 0 8px\">Market prices</h4>" +
           priceHtml +
@@ -350,7 +346,7 @@
   /* Minimal card object synthesized from a stored collection row, so cards
    * missing from the catalog still open a detail view with artwork. */
   function cardFromRow(row, lang) {
-    var isJa = lang === "ja" || (row.set_id && row.set_id.indexOf("ja-") === 0);
+    var isJa = lang === "ja" || App.util.isJa(row);
     return {
       id: row.card_id,
       name: row.card_name || row.card_id,

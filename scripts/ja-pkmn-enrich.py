@@ -21,8 +21,9 @@ Everything from the API is cached under data/pkmn-cache/:
   manifest.json              per-set match/merge report
 
 Credit rules: 1 credit per item returned. Hard cap 16,000 credits/day
-(leaves headroom for the app's price refreshes). On HTTP 429 we stop
-immediately. Polite pacing: >=0.25s between requests.
+(leaves headroom for the app's price refreshes). On HTTP 429 we back off
+and retry twice (60s, 120s), then stop. Polite pacing: >=0.55s between
+requests (the Vercel proxy allows 120 req/min per IP).
 
 Usage:
   python3 scripts/ja-pkmn-enrich.py [--force] [--resume] [--match-only]
@@ -36,6 +37,7 @@ Usage:
 The PkmnPrices key lives server-side; all calls go through the
 production proxy. This script never handles the raw key.
 """
+import fcntl
 import json
 import os
 import re
@@ -81,7 +83,9 @@ PP_RARITY_FIX = {
     "Special Art Rare": "Special illustration rare",
     "Super Rare": "Ultra Rare",
 }
-MIN_INTERVAL = 0.25  # seconds between requests (~4/s max)
+# Seconds between proxy requests. The Vercel proxy (api/pkmnprices.js)
+# allows 120 req/min per IP (2/s); ~109/min keeps us safely under it.
+MIN_INTERVAL = 0.55
 
 # Manual set-id fixes: our id -> PkmnPrices set id. Used when the "<ID>:"
 # prefix convention doesn't hold (no colon, different naming, or ambiguity).
@@ -185,9 +189,37 @@ def spent_today(ledger):
     return int(ledger.get(utc_today(), 0))
 
 
+def atomic_write_json(path, obj, **kwargs):
+    """Write JSON atomically (tmp file + os.replace) so a crash or OOM
+    mid-write can never leave a truncated file in place."""
+    tmp = path + ".tmp"
+    with open(tmp, "w", encoding="utf-8") as f:
+        json.dump(obj, f, ensure_ascii=False, **kwargs)
+        f.flush()
+        os.fsync(f.fileno())
+    os.replace(tmp, path)
+
+
 def add_spend(ledger, n):
-    ledger[utc_today()] = spent_today(ledger) + n
-    json.dump(ledger, open(ledger_path(), "w"), indent=1)
+    """Record n credits spent today. Uses a lockfile-guarded
+    read-modify-write (re-reading the ledger under the lock) so overlapping
+    runs can't lose counts against the paid 20,000/day Pro cap, and writes
+    the ledger atomically."""
+    p = ledger_path()
+    os.makedirs(os.path.dirname(p), exist_ok=True)
+    with open(p + ".lock", "a+") as lock:
+        fcntl.flock(lock, fcntl.LOCK_EX)
+        try:
+            try:
+                disk = json.load(open(p)) if os.path.isfile(p) else {}
+            except Exception:
+                disk = {}
+            today = utc_today()
+            ledger[today] = max(int(disk.get(today, 0)),
+                                int(ledger.get(today, 0))) + n
+            atomic_write_json(p, ledger, indent=1)
+        finally:
+            fcntl.flock(lock, fcntl.LOCK_UN)
 
 
 def pace():
@@ -198,12 +230,19 @@ def pace():
     _last_req = time.time()
 
 
+MAX_429_TRIES = 2
+BACKOFF_429 = (60, 120)  # seconds between 429 retries
+
+
 def proxy_get(path, params, ledger):
-    """GET through the Vercel proxy. Returns parsed JSON. Counts credits."""
+    """GET through the Vercel proxy. Returns parsed JSON. Counts credits.
+
+    A 403 means the proxy rejected our caller key: permanent, so fail fast
+    instead of walking all ~184 sets fetching nothing. On 429 we back off
+    and retry twice, then stop cleanly (exit 3)."""
     if spent_today(ledger) >= DAILY_CAP:
         print("BUDGET_EXHAUSTED: daily cap of %d credits reached." % DAILY_CAP)
         sys.exit(2)
-    pace()
     qs = {"path": path}
     qs.update(params)
     url = PROXY + "?" + urllib.parse.urlencode(qs)
@@ -211,14 +250,34 @@ def proxy_get(path, params, ledger):
         "User-Agent": "VaultDex-ja-enrich/1.0",
         "x-vaultdex-key": PROXY_KEY,
     })
-    try:
-        with urllib.request.urlopen(req, timeout=40) as resp:
-            body = resp.read().decode("utf-8")
-    except urllib.error.HTTPError as e:
-        if e.code == 429:
-            print("RATE LIMITED (HTTP 429) — stopping immediately.")
-            sys.exit(3)
-        raise
+    body = None
+    for attempt in range(MAX_429_TRIES + 1):
+        pace()
+        try:
+            with urllib.request.urlopen(req, timeout=40) as resp:
+                body = resp.read().decode("utf-8")
+            break
+        except urllib.error.HTTPError as e:
+            if e.code == 403:
+                print("PROXY 403 FORBIDDEN: the Vercel proxy rejected our "
+                      "caller key (no request will succeed). Check that "
+                      "PROXY_SHARED_SECRET in Vercel matches "
+                      "~/workspace/.secrets/vaultdex-proxy-key (or the "
+                      "VAULTDEX_PROXY_KEY env var), then re-run.",
+                      file=sys.stderr)
+                sys.exit(4)
+            if e.code == 429:
+                if attempt < MAX_429_TRIES:
+                    wait = BACKOFF_429[attempt]
+                    print("HTTP 429 — backing off %ds (attempt %d/%d)." %
+                          (wait, attempt + 1, MAX_429_TRIES + 1),
+                          file=sys.stderr)
+                    time.sleep(wait)
+                    continue
+                print("RATE LIMITED (HTTP 429) after %d retries — stopping." %
+                      MAX_429_TRIES)
+                sys.exit(3)
+            raise
     data = json.loads(body)
     items = data.get("data") if isinstance(data, dict) else data
     n = len(items) if isinstance(items, list) else 0
@@ -247,10 +306,16 @@ def get_pp_sets(ledger, force):
     os.makedirs(CACHE, exist_ok=True)
     p = os.path.join(CACHE, "sets-ja.json")
     if os.path.isfile(p) and not force:
-        return json.load(open(p))
+        try:
+            return json.load(open(p))
+        except Exception as e:
+            # Truncated/corrupt cache (see issue #2): treat as cache-miss
+            # and refetch rather than crashing the whole weekly run.
+            print("Corrupt cache %s (%r) — refetching." % (p, e),
+                  file=sys.stderr)
     print("Fetching PkmnPrices Japanese set list...", file=sys.stderr)
     sets = fetch_all_pages("/v1/sets", {"language": "Japanese"}, ledger, "sets")
-    json.dump(sets, open(p, "w"), ensure_ascii=False, indent=1)
+    atomic_write_json(p, sets, indent=1)
     print("Cached %d PkmnPrices sets." % len(sets), file=sys.stderr)
     return sets
 
@@ -423,7 +488,7 @@ def main():
         }
         if sns:
             manifest["skippedNoSnapshot"] = sns
-        json.dump(manifest, open(mp, "w"), ensure_ascii=False, indent=1)
+        atomic_write_json(mp, manifest, indent=1)
 
     if args.match_only:
         write_manifest(preserve_summary=True)
@@ -453,103 +518,122 @@ def main():
               (len(skipped), ", ".join(skipped[:10])))
     deferred_sets = skipped
 
-    for s, pp, warn in chosen:
-        oid = s["id"]
-        ppid = pp.get("id")
-        snap_p = os.path.join(JA_DIR, oid + ".json")
-        if not os.path.isfile(snap_p):
-            print("[%s] snapshot missing, skipping (no credits spent)" % oid)
-            run_sets.append({
-                "ourId": oid, "ppSetId": ppid, "ppName": pp.get("name"),
-                "skipped": "no snapshot"})
-            run_skipped_no_snapshot.append(oid)
-            continue
-        cache_p = os.path.join(CACHE, "cards-%s.json" % ppid)
-        if os.path.isfile(cache_p) and not args.force:
-            cards = json.load(open(cache_p))["cards"]
-        else:
-            print("[%s] fetching cards from PkmnPrices set %s..." % (oid, ppid),
-                  file=sys.stderr)
-            try:
-                cards = fetch_all_pages(
-                    "/v1/cards",
-                    {"language": "Japanese", "set_id": ppid},
-                    ledger, oid)
-            except SystemExit:
-                raise
-            except Exception as e:
-                print("[%s] FAILED: %r — continuing" % (oid, e), file=sys.stderr)
+    # Incremental manifest flushes: the per-set loop can exit mid-run
+    # via SystemExit (429 / budget exhaustion from proxy_get), so
+    # per-set manifest entries are checkpointed after every set and
+    # flushed on all exit paths.
+    try:
+        for s, pp, warn in chosen:
+            oid = s["id"]
+            ppid = pp.get("id")
+            snap_p = os.path.join(JA_DIR, oid + ".json")
+            if not os.path.isfile(snap_p):
+                print("[%s] snapshot missing, skipping (no credits spent)" % oid)
                 run_sets.append({
                     "ourId": oid, "ppSetId": ppid, "ppName": pp.get("name"),
-                    "error": repr(e)})
+                    "skipped": "no snapshot"})
+                run_skipped_no_snapshot.append(oid)
+                write_manifest()  # checkpoint: don't lose this set's entry
                 continue
-            json.dump({"set_id": ppid, "fetched_at":
-                       datetime.now(timezone.utc).isoformat(), "cards": cards},
-                      open(cache_p, "w"), ensure_ascii=False)
+            cache_p = os.path.join(CACHE, "cards-%s.json" % ppid)
+            cached = None
+            if os.path.isfile(cache_p) and not args.force:
+                try:
+                    cached = json.load(open(cache_p))["cards"]
+                except Exception as e:
+                    # Truncated/corrupt cache: treat as cache-miss and refetch
+                    # rather than crashing the whole weekly run.
+                    print("[%s] corrupt cache %s (%r) — refetching" %
+                          (oid, cache_p, e), file=sys.stderr)
+            if cached is not None:
+                cards = cached
+            else:
+                print("[%s] fetching cards from PkmnPrices set %s..." % (oid, ppid),
+                      file=sys.stderr)
+                try:
+                    cards = fetch_all_pages(
+                        "/v1/cards",
+                        {"language": "Japanese", "set_id": ppid},
+                        ledger, oid)
+                except SystemExit:
+                    raise
+                except Exception as e:
+                    print("[%s] FAILED: %r — continuing" % (oid, e), file=sys.stderr)
+                    run_sets.append({
+                        "ourId": oid, "ppSetId": ppid, "ppName": pp.get("name"),
+                        "error": repr(e)})
+                    write_manifest()  # checkpoint: don't lose this set's entry
+                    continue
+                atomic_write_json(cache_p, {
+                    "set_id": ppid,
+                    "fetched_at": datetime.now(timezone.utc).isoformat(),
+                    "cards": cards})
 
-        pp_by_num = {}
-        dup_nums = 0
-        for c in cards:
-            k = norm_num(c.get("number"))
-            if k in pp_by_num:
-                dup_nums += 1
-                continue  # first entry wins; extras are usually reprints/variants
-            pp_by_num[k] = c
-        if dup_nums:
-            run_warnings.append(
-                "%s: %d duplicate card numbers in PkmnPrices data (kept first)" %
-                (oid, dup_nums))
+            pp_by_num = {}
+            dup_nums = 0
+            for c in cards:
+                k = norm_num(c.get("number"))
+                if k in pp_by_num:
+                    dup_nums += 1
+                    continue  # first entry wins; extras are usually reprints/variants
+                pp_by_num[k] = c
+            if dup_nums:
+                run_warnings.append(
+                    "%s: %d duplicate card numbers in PkmnPrices data (kept first)" %
+                    (oid, dup_nums))
 
-        snap = json.load(open(snap_p))
-        scards = snap.get("cards", [])
+            snap = json.load(open(snap_p))
+            scards = snap.get("cards", [])
 
-        matched = images = names = rarities = 0
-        for sc in scards:
-            pc = pp_by_num.get(norm_num(sc.get("localId")))
-            if not pc:
-                run_unmatched_cards.append({
-                    "set": oid, "localId": sc.get("localId"),
-                    "name": sc.get("name")})
-                continue
-            matched += 1
-            img = pc.get("image_url")
-            if img:
-                sc["imageSmall"] = img
-                sc["imageLarge"] = img
-                images += 1
-            # else: keep the old (Bulbapedia) URL if any
-            if has_non_ascii(sc.get("name")):
-                clean = clean_name(pc.get("name"))
-                if clean:
-                    sc["name"] = clean
-                    names += 1
-            # nameJa is never touched.
-            # Rarity correction for TCGdex's "Mega Hyper Rare" mislabels.
-            if sc.get("rarity") == "Mega Hyper Rare":
-                fixed = PP_RARITY_FIX.get(pc.get("rarity"))
-                if fixed:
-                    sc["rarity"] = fixed
-                    rarities += 1
+            matched = images = names = rarities = 0
+            for sc in scards:
+                pc = pp_by_num.get(norm_num(sc.get("localId")))
+                if not pc:
+                    run_unmatched_cards.append({
+                        "set": oid, "localId": sc.get("localId"),
+                        "name": sc.get("name")})
+                    continue
+                matched += 1
+                img = pc.get("image_url")
+                if img:
+                    sc["imageSmall"] = img
+                    sc["imageLarge"] = img
+                    images += 1
+                # else: keep the old (Bulbapedia) URL if any
+                if has_non_ascii(sc.get("name")):
+                    clean = clean_name(pc.get("name"))
+                    if clean:
+                        sc["name"] = clean
+                        names += 1
+                # nameJa is never touched.
+                # Rarity correction for TCGdex's "Mega Hyper Rare" mislabels.
+                if sc.get("rarity") == "Mega Hyper Rare":
+                    fixed = PP_RARITY_FIX.get(pc.get("rarity"))
+                    if fixed:
+                        sc["rarity"] = fixed
+                        rarities += 1
 
-        json.dump(snap, open(snap_p, "w"), ensure_ascii=False, indent=1)
+            atomic_write_json(snap_p, snap, indent=1)
 
-        totals["sets"] += 1
-        totals["cards"] += len(scards)
-        totals["matched"] += matched
-        totals["imagesSet"] += images
-        totals["namesFixed"] += names
-        totals["raritiesFixed"] += rarities
-        run_sets.append({
-            "ourId": oid, "ppSetId": ppid, "ppName": pp.get("name"),
-            "cards": len(scards), "matched": matched,
-            "imagesSet": images, "namesFixed": names,
-            "raritiesFixed": rarities,
-            "countWarning": warn,
-        })
-        print("[%s] %d/%d matched, %d images, %d names fixed, %d rarities fixed" %
-              (oid, matched, len(scards), images, names, rarities))
+            totals["sets"] += 1
+            totals["cards"] += len(scards)
+            totals["matched"] += matched
+            totals["imagesSet"] += images
+            totals["namesFixed"] += names
+            totals["raritiesFixed"] += rarities
+            run_sets.append({
+                "ourId": oid, "ppSetId": ppid, "ppName": pp.get("name"),
+                "cards": len(scards), "matched": matched,
+                "imagesSet": images, "namesFixed": names,
+                "raritiesFixed": rarities,
+                "countWarning": warn,
+            })
+            print("[%s] %d/%d matched, %d images, %d names fixed, %d rarities fixed" %
+                  (oid, matched, len(scards), images, names, rarities))
+            write_manifest()  # checkpoint after each set
 
-    write_manifest()
+    finally:
+        write_manifest()
     print("\nDone: %d sets, %d cards, %d matched, %d images set, %d names fixed, %d rarities fixed." %
           (totals["sets"], totals["cards"], totals["matched"],
            totals["imagesSet"], totals["namesFixed"], totals["raritiesFixed"]))

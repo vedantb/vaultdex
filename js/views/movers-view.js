@@ -29,21 +29,20 @@
     return txt;
   }
 
+  /* Shared tile: App.ui.tileHtml (js/ui.js). Unlike every other view's
+   * tiles these used to be dead markup — no click, no keyboard handler.
+   * They now open the card modal, like browse and set tiles do. */
   function moverTile(it) {
     var cls = deltaOf(it) > 0 ? "mover-up" : "mover-down";
-    return (
-      '<article class="card-tile" data-row="' + App.esc(it.id) + '">' +
-        '<span class="qty-badge">×' + it.quantity + "</span>" +
-        '<div class="art"><img loading="lazy" src="' + App.esc(it.image_small) + '" alt="' + App.esc(it.card_name) + ' card art"></div>' +
-        '<div class="info">' +
-          '<div class="name">' + App.esc(it.card_name) + "</div>" +
-          '<div class="set">' + App.esc(it.set_name || "") + "</div>" +
-          '<div class="mover-prices">' + App.ui.money(it.prev_price) + " → " + App.ui.money(it.market_price) + "</div>" +
-          '<div class="price-row"><span class="price-badge ' + cls + '">' + deltaText(it) + "</span>" +
-          '<span class="variant-chip">' + App.esc(it.variant) + "</span></div>" +
-        "</div>" +
-      "</article>"
-    );
+    return App.ui.tileHtml(it, {
+      dataRow: it.id,
+      qty: it.quantity,
+      setHtml: App.esc(it.set_name || ""),
+      prePrice: '<div class="mover-prices">' + App.ui.money(it.prev_price) + " → " + App.ui.money(it.market_price) + "</div>",
+      priceHtml:
+        '<span class="price-badge ' + cls + '">' + deltaText(it) + "</span>" +
+        '<span class="variant-chip">' + App.esc(it.variant) + "</span>"
+    });
   }
 
   function sectionHtml(title, sub, movers) {
@@ -118,6 +117,20 @@
       }
       root.innerHTML = html;
       window.scrollTo(0, 0);
+      // Tiles open the card modal — same as browse/set tiles. Row lookup
+      // closes over the mover list so no data attribute is needed.
+      var byRow = {};
+      movers.forEach(function (m) { byRow[String(m.id)] = m; });
+      root.querySelectorAll(".movers-section .card-tile").forEach(function (tile) {
+        function open() {
+          var row = byRow[tile.getAttribute("data-row")];
+          if (row) App.openCardModal(row.card_id, App.util.langOf(row), row);
+        }
+        tile.addEventListener("click", open);
+        tile.addEventListener("keydown", function (e) {
+          if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(); }
+        });
+      });
     } catch (e) {
       root.innerHTML = App.ui.emptyState({ title: "Couldn't load price movers", body: (e && e.message) || "Something went wrong." });
       App.handleApiError(e);

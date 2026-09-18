@@ -38,7 +38,7 @@
      * that exist in both languages. */
     var setLang = (card.set && card.set.lang) || "en";
     var setId = (card.set && card.set.id) || null;
-    if (setId && setLang === "ja" && setId.indexOf("ja-") !== 0) setId = "ja-" + setId;
+    if (setId && setLang === "ja" && !App.util.isJa(setId)) setId = "ja-" + setId;
     /* Grading (Feature 5): { company, grade } or null. A graded and an
      * ungraded copy of the same card+variant are distinct rows. */
     var gradingCompany = (grading && grading.company) || null;
@@ -213,13 +213,11 @@
     return { added: true, priceSource: addedPriceSource };
   }
 
-  /* One-time backfill: rows added before per-variant checkboxes carry no
-   * pkmn_id. Map each to its exact PkmnPrices record (set + number) so the
-   * set page can show its checkbox as checked. Runs lazily, only for rows
-   * that still lack a pkmn_id. */
-  /* Rows added while PkmnPrices was unreachable carry no pkmn_id. Map each
-   * to its exact print-variant record (variant-aware), once — after that
-   * pricing and owned-state are exact. Labels stay canonical (TCGdex). */
+  /* Backfill: rows that carry no pkmn_id (added before the per-variant
+   * checkboxes existed, or while PkmnPrices was unreachable) are mapped to
+   * their exact print-variant PkmnPrices record — name + set + number +
+   * print variant — once. After that the row's pricing and owned-state are
+   * exact. Runs lazily, only for rows that still lack a pkmn_id. */
   async function backfillPkmnIds(rows) {
     var u = App.auth.user;
     if (!u || !rows || !rows.length) return;
@@ -232,7 +230,7 @@
           name: row.card_name,
           setName: row.set_name,
           number: row.number,
-          lang: String(row.set_id || "").indexOf("ja-") === 0 ? "ja" : "en",
+          lang: App.util.langOf(row),
           pkmnLabel: pv.pkmnLabel,
           priceVariant: pv.priceVariant
         });
@@ -392,7 +390,7 @@
    * one yet. Returns the gradedPrice() shape or null (row keeps its
    * existing price on miss — never clobber a real graded price). */
   async function gradedPriceForRow(row) {
-    var lang = String(row.set_id || "").indexOf("ja-") === 0 ? "ja" : "en";
+    var lang = App.util.langOf(row);
     var gid = row.pkmn_id;
     if (!gid) {
       var number = row.number;
@@ -485,12 +483,18 @@
             rateLimited = true;
             break;
           }
+          // One retry for transient failures (network/timeout): HTTP errors
+          // carry a status and are final, so they don't burn a retry.
+          if (attempts < 2 && !(e && e.status)) {
+            console.warn("[VaultDex] price refresh failed for", row.card_name, e && e.message, "— retrying once");
+            continue;
+          }
           console.warn("[VaultDex] price refresh failed for", row.card_name, e && e.message);
           break;
         }
       }
       if (onProgress) onProgress(i + 1, items.length);
-      await new Promise(function (r) { setTimeout(r, 1200); }); // stay under the 60 req/min free tier
+      await new Promise(function (r) { setTimeout(r, 1200); }); // gentle pacing: the Pro plan budgets 20k credits/day, not a per-minute tier — keep requests spread out
     }
     // Fresh prices = fresh history point for the value-over-time chart.
     try { await recordValueSnapshot(); } catch (e) { /* already warned inside */ }

@@ -46,6 +46,17 @@ def pad_local(num):
     return n.zfill(3) if n.isdigit() else n
 
 
+def atomic_write_json(path, obj, **kwargs):
+    """Write JSON atomically (tmp file + os.replace) so a crash or OOM
+    mid-write can never leave a truncated file in place."""
+    tmp = path + ".tmp"
+    with open(tmp, "w", encoding="utf-8") as f:
+        json.dump(obj, f, ensure_ascii=False, **kwargs)
+        f.flush()
+        os.fsync(f.fileno())
+    os.replace(tmp, path)
+
+
 def main():
     man = json.load(open(os.path.join(CACHE, "manifest.json")))
     pp_of = {s["ourId"]: s["ppSetId"] for s in man["sets"] if "ppSetId" in s}
@@ -97,7 +108,7 @@ def main():
                 "ppId": c.get("id"),
             })
         snap["cards"] = new_cards
-        json.dump(snap, open(p, "w"), ensure_ascii=False, indent=1)
+        atomic_write_json(p, snap, indent=1)
         built += 1
         print("[%s] built %d cards from PkmnPrices set %s" %
               (oid, len(new_cards), ppid))

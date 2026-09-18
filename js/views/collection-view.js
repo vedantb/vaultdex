@@ -5,13 +5,10 @@
 
   var PRICE_KEY = "vd_prices_updated";
 
-  var BUDGETS = [
-    { label: "Under $10", min: "", max: "10" },
-    { label: "$10–$50", min: "10", max: "50" },
-    { label: "$50–$100", min: "50", max: "100" },
-    { label: "$100+", min: "100", max: "" }
-  ];
+  /* Shared: App.util.BUDGETS (js/util.js). */
+  var BUDGETS = App.util.BUDGETS;
 
+  /* Shared tile: App.ui.tileHtml (js/ui.js). */
   function tileHtml(item, readOnly) {
     var value = (item.market_price !== null && item.market_price !== undefined)
       ? Number(item.market_price) * item.quantity : null;
@@ -36,19 +33,17 @@
           '<button class="icon-btn-sm" data-act="rm" aria-label="Remove ' + App.esc(item.card_name) + ' from collection">' + App.ui.icon("trash") + "</button>" +
           '<button class="icon-btn-sm trade-toggle ' + tradeState + '" data-act="trade" aria-label="Toggle trade listing for ' + App.esc(item.card_name) + '" title="List for trade">' + App.ui.icon("tag") + "</button>" +
         "</div>";
-    return (
-      '<article class="card-tile" data-row="' + App.esc(item.id) + '" data-card="' + App.esc(item.card_id) + '">' +
-        '<span class="qty-badge">×' + item.quantity + "</span>" +
-        '<div class="art"><img loading="lazy" src="' + App.esc(item.image_small) + '" alt="' + App.esc(item.card_name) + ' card art"></div>' +
-        '<div class="info">' +
-          '<div class="name">' + App.esc(item.card_name) + "</div>" +
-          '<div class="set">' + App.esc(item.set_name || "") + "</div>" +
-          '<div class="price-row"><span class="price-badge"' + priceTitle + ">" + App.ui.money(value) + "</span>" +
-          '<span class="price-chips">' + gradeBadge + '<span class="variant-chip">' + App.esc(item.variant) + "</span></span></div>" +
-          controls +
-        "</div>" +
-      "</article>"
-    );
+    return App.ui.tileHtml(item, {
+      dataRow: item.id,
+      dataCard: item.card_id,
+      qty: item.quantity,
+      activatable: false,
+      setHtml: App.esc(item.set_name || ""),
+      priceHtml:
+        '<span class="price-badge"' + priceTitle + ">" + App.ui.money(value) + "</span>" +
+        '<span class="price-chips">' + gradeBadge + '<span class="variant-chip">' + App.esc(item.variant) + "</span></span>",
+      postPrice: controls
+    });
   }
 
   App.views.collection = async function (root) {
@@ -73,7 +68,7 @@
     function el(id) { return root.querySelector("#" + id); }
 
     // Collection language comes from the stored set id ("ja-…" = Japanese).
-    function langOf(it) { return String(it.set_id || "").indexOf("ja-") === 0 ? "ja" : "en"; }
+    // Shared: App.util.langOf (js/util.js).
     function rowValue(it) {
       return (it.market_price !== null && it.market_price !== undefined)
         ? Number(it.market_price) * it.quantity : null;
@@ -168,7 +163,7 @@
         if (q && (it.card_name || "").toLowerCase().indexOf(q) === -1) return false;
         if (artist && (it.artist || "").toLowerCase().indexOf(artist) === -1) return false;
         if (state.set && it.set_name !== state.set) return false;
-        if (state.lang && langOf(it) !== state.lang) return false;
+        if (state.lang && App.util.langOf(it) !== state.lang) return false;
         var v = rowValue(it);
         if (min !== null && (v === null || v < min)) return false;
         if (max !== null && (v === null || v > max)) return false;
@@ -225,7 +220,7 @@
           var cid = tile.getAttribute("data-card");
           /* Japanese cards live under ja- set ids; the catalog lookup must
            * use the Japanese namespace or TCGdex returns 404. */
-          var lang = (item && item.set_id && item.set_id.indexOf("ja-") === 0) || cid.indexOf("ja-") === 0 ? "ja" : "en";
+          var lang = (App.util.isJa(item) || App.util.isJa(cid)) ? "ja" : "en";
           App.openCardModal(cid, lang, item);
         });
         tile.querySelectorAll("[data-act]").forEach(function (btn) {
@@ -288,7 +283,7 @@
       var pillsEl = el("c-lang-pills");
       if (!pillsEl) return;
       var counts = { en: 0, ja: 0 };
-      items.forEach(function (it) { counts[langOf(it)]++; });
+      items.forEach(function (it) { counts[App.util.langOf(it)]++; });
       var defs = [
         { v: "", label: "All cards", n: items.length },
         { v: "en", label: "English", n: counts.en },

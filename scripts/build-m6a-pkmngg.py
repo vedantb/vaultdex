@@ -2,12 +2,14 @@
 """Build data/tcgdex/sets/ja/M6a.json from the cached pkmn.gg extraction.
 
 Reads data/pkmn-gg-m6a.json + data/pkmn-gg-cache/m6a-<num>.json (written by
-pull-pkmngg-m6a.py - do NOT re-run that pull unprompted; it hits a third-party
-fan site). Safe to re-run: rebuilds purely from local cache.
+scripts/archive/pull-pkmngg-m6a.py - do NOT re-run that pull unprompted; it
+hits a third-party fan site). Safe to re-run: rebuilds purely from local
+cache.
 
 TEMPORARY source until TCGdex / PkmnPrices carry M6a - then their data wins.
 """
 import json, os, subprocess, sys
+from datetime import datetime, timezone
 
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 RAW_LIST = os.path.join(HERE, "data", "pkmn-gg-m6a.json")
@@ -25,6 +27,17 @@ RARITY_MAP = {
     "Futuristic Rare_JP": "Futuristic Rare",
 }
 CATEGORY_MAP = {"Pok\u00e9mon": "Pokemon", "Trainer": "Trainer", "Energy": "Energy"}
+
+
+def atomic_write_json(path, obj, **kwargs):
+    """Write JSON atomically (tmp file + os.replace) so a crash or OOM
+    mid-write can never leave a truncated file in place."""
+    tmp = path + ".tmp"
+    with open(tmp, "w", encoding="utf-8") as f:
+        json.dump(obj, f, ensure_ascii=False, **kwargs)
+        f.flush()
+        os.fsync(f.fileno())
+    os.replace(tmp, path)
 
 
 def main():
@@ -96,11 +109,12 @@ def main():
         "total": len(out_cards),
         "lang": "ja",
     }
-    json.dump(
+    atomic_write_json(
+        SET_PATH,
         {"set": set_block, "cards": out_cards,
-         "generated_at": "2026-09-17", "source": "pkmn.gg",
-         "source_url": "https://www.pkmn.gg/jp/series/mega-evolution/30th-celebration"},
-        open(SET_PATH, "w", encoding="utf-8"), ensure_ascii=False)
+         "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
+         "source": "pkmn.gg",
+         "source_url": "https://www.pkmn.gg/jp/series/mega-evolution/30th-celebration"})
 
     # sets-ja.json entry
     sets = json.load(open(SETS_JA, encoding="utf-8"))
@@ -109,7 +123,7 @@ def main():
             s["total"] = len(out_cards)
             s["printedTotal"] = 103
             break
-    json.dump(sets, open(SETS_JA, "w", encoding="utf-8"), ensure_ascii=False)
+    atomic_write_json(SETS_JA, sets)
     print(f"wrote {SET_PATH} ({len(out_cards)} cards); sets-ja.json updated")
 
     if mismatches:

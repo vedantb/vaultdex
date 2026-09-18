@@ -193,7 +193,6 @@
       if (token !== renderToken) return; // superseded by a newer navigation
       App.handleApiError(e);
     }
-    void token;
   }
 
   /* ---------- boot ---------- */

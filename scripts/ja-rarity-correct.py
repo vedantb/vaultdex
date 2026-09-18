@@ -51,6 +51,17 @@ def norm_num(s):
     return s.lstrip("0") or "0"
 
 
+def atomic_write_json(path, obj, **kwargs):
+    """Write JSON atomically (tmp file + os.replace) so a crash or OOM
+    mid-write can never leave a truncated file in place."""
+    tmp = path + ".tmp"
+    with open(tmp, "w", encoding="utf-8") as f:
+        json.dump(obj, f, ensure_ascii=False, **kwargs)
+        f.flush()
+        os.fsync(f.fileno())
+    os.replace(tmp, path)
+
+
 def main():
     apply = "--apply" in sys.argv
     only = None
@@ -105,7 +116,7 @@ def main():
             print("[%s] %d Mega Hyper Rare cards, %d corrected%s" %
                   (sid, mhr, fixed, " (written)" if apply and fixed else ""))
         if apply and fixed:
-            json.dump(snap, open(snap_p, "w"), ensure_ascii=False, indent=1)
+            atomic_write_json(snap_p, snap, indent=1)
     print("\n%s: %d Mega Hyper Rare cards found, %d corrected." %
           ("APPLIED" if apply else "DRY RUN", total_mhr, total_fixed))
 

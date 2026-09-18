@@ -17,25 +17,7 @@
    * lookup per unmapped row — with 100+ rows a single hung fetch used to
    * wedge checkbox painting for minutes. */
   var API_TIMEOUT_MS = 20000;
-  function fetchWithTimeout(url, opts) {
-    var ctrl = null;
-    var timer = null;
-    try {
-      if (typeof AbortController !== "undefined") {
-        ctrl = new AbortController();
-        timer = setTimeout(function () { ctrl.abort(); }, API_TIMEOUT_MS);
-      }
-    } catch (e) { /* very old browser: fetch without a timeout */ }
-    var o = opts || {};
-    if (ctrl) o.signal = ctrl.signal;
-    return fetch(url, o).then(function (res) {
-      if (timer) clearTimeout(timer);
-      return res;
-    }, function (err) {
-      if (timer) clearTimeout(timer);
-      throw err;
-    });
-  }
+  /* Shared: App.util.fetchWithTimeout (js/util.js). */
 
   function PkmnError(message, opts) {
     this.name = "PkmnError";
@@ -50,7 +32,7 @@
     Object.keys(params || {}).forEach(function (k) {
       if (params[k] !== undefined && params[k] !== null) q.set(k, String(params[k]));
     });
-    var res = await fetchWithTimeout(PROXY + "?" + q.toString(), { headers: { "Accept": "application/json" } });
+    var res = await App.util.fetchWithTimeout(PROXY + "?" + q.toString(), { headers: { "Accept": "application/json" } }, API_TIMEOUT_MS);
     var json = null;
     try { json = await res.json(); } catch (e) { /* non-JSON body */ }
     if (res.status === 503) {
@@ -83,10 +65,9 @@
     return m ? m[1].trim() : null;
   }
 
-  /* "001" -> "1": TCGdex pads numbers, PkmnPrices may not. Compare padded. */
-  function normNumber(n) {
-    return String(n || "").trim().toLowerCase().replace(/^0+(?=\d)/, "");
-  }
+  /* Shared: App.util.normNumber (js/util.js) — "001" -> "1": TCGdex pads
+   * numbers, PkmnPrices may not. Compare padded. */
+  var normNumber = App.util.normNumber;
 
   var idCache = {};
   function cacheKey(name, setName, number, lang) {
@@ -292,7 +273,7 @@
    * Japanese rows (set_id prefixed "ja-") search Japanese printings only —
    * English prices are never substituted for Japanese cards. */
   async function priceForRow(row) {
-    var lang = row.lang || (String(row.set_id || "").indexOf("ja-") === 0 ? "ja" : "en");
+    var lang = row.lang || App.util.langOf(row);
     if (row.pkmn_id) return nearMintPrice(row.pkmn_id, row.variant);
     var number = row.number || guessNumber(row.card_id);
     if (!row.card_name || !number) return null;

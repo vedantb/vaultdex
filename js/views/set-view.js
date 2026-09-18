@@ -59,7 +59,7 @@
     var setLang = App.tcg.parseSetId(setId).lang;
 
     root.innerHTML =
-      '<a class="back-link set-back" href="/browse">' + App.ui.icon("chevL") + " Back to browse</a>" +
+      '<a class="back-link set-back" href="/browse">' + App.ui.icon("chev-l") + " Back to browse</a>" +
       '<div id="set-head"></div>' +
       '<div class="collect-progress" id="set-progress" hidden>' +
         '<div class="cp-top"><strong id="cp-count"></strong><span id="cp-pct"></span></div>' +
@@ -84,9 +84,9 @@
       "</div>" +
       '<div id="set-grid-wrap"></div>' +
       '<div class="pagination" id="set-pagination" hidden>' +
-        '<button class="btn btn-ghost btn-sm" id="pg-prev">' + App.ui.icon("chevL") + " Prev</button>" +
+        '<button class="btn btn-ghost btn-sm" id="pg-prev">' + App.ui.icon("chev-l") + " Prev</button>" +
         '<span class="page-info" id="pg-info"></span>' +
-        '<button class="btn btn-ghost btn-sm" id="pg-next">Next ' + App.ui.icon("chevR") + "</button>" +
+        '<button class="btn btn-ghost btn-sm" id="pg-next">Next ' + App.ui.icon("chev-r") + "</button>" +
       "</div>";
 
     var headEl = root.querySelector("#set-head");
@@ -237,23 +237,20 @@
       }
     }
 
+    /* Shared tile: App.ui.tileHtml (js/ui.js). */
     function renderGrid(cards) {
       currentCards = cards;
       gridWrap.innerHTML = '<div class="card-grid">' + cards.map(function (c) {
         var market = App.tcg.marketOf(c);
-        return (
-          '<article class="card-tile" data-id="' + App.esc(c.id) + '" tabindex="0" role="button" aria-label="View ' + App.esc(c.name) + '">' +
+        return App.ui.tileHtml(c, {
+          dataId: c.id,
+          img: c.images && c.images.small,
+          artExtra:
             '<div class="select-ring"></div>' +
-            '<div class="art"><img loading="lazy" src="' + App.esc(c.images && c.images.small) + '" alt="' + App.esc(c.name) + ' card art">' +
-              '<div class="variant-checks">' + checksHtml(c, boxesFor(c)) + "</div>" +
-            "</div>" +
-            '<div class="info">' +
-              '<div class="name">' + App.esc(c.name) + "</div>" +
-              '<div class="set">#' + App.esc(c.number || "?") + (c.rarity ? " · " + App.esc(c.rarity) : "") + "</div>" +
-              '<div class="price-row"><span class="price-badge">' + App.ui.money(market, c.priceCurrency) + "</span></div>" +
-            "</div>" +
-          "</article>"
-        );
+            '<div class="variant-checks">' + checksHtml(c, boxesFor(c)) + "</div>",
+          setHtml: "#" + App.esc(c.number || "?") + (c.rarity ? " · " + App.esc(c.rarity) : ""),
+          priceHtml: '<span class="price-badge">' + App.ui.money(market, c.priceCurrency) + "</span>"
+        });
       }).join("") + "</div>";
 
       gridWrap.querySelectorAll(".card-tile").forEach(function (tile, i) {
@@ -400,7 +397,7 @@
         if (!cards.length && query) {
           gridWrap.innerHTML = App.ui.emptyState({
             title: "No cards match",
-            body: "Nothing in this set matches &ldquo;" + App.esc(query) + "&rdquo; — try a different name or number."
+            body: "Nothing in this set matches “" + query + "” — try a different name or number."
           });
         } else {
           // Variant checkboxes come from the cards' own print data (free via

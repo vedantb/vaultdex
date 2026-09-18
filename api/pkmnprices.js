@@ -118,7 +118,7 @@ module.exports = async function handler(req, res) {
         "x-api-key": key,
         "User-Agent": "VaultDex/1.0 (vercel-proxy)"
       },
-      signal: AbortSignal.timeout(25000)
+      signal: AbortSignal.timeout(9000) // under Vercel's 10s serverless limit: scripts get a clean 502, not a dropped connection
     });
   } catch (e) {
     res.status(502).json({ error: "Could not reach the PkmnPrices API." });

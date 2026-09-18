@@ -236,22 +236,17 @@
     }
 
     /* ---------------- home ---------------- */
-    function langOf(it) { return String(it.set_id || "").indexOf("ja-") === 0 ? "ja" : "en"; }
+    /* Shared: App.util.langOf (js/util.js). */
+    var langOf = App.util.langOf;
     function rowValue(it) {
       return (it.market_price !== null && it.market_price !== undefined)
         ? Number(it.market_price) * it.quantity : null;
     }
     // Most valuable card image from a list — skips images already used on
     // this screen so every tile looks different.
+    // Shared: App.util.topImage (js/util.js); home ranks by total row value.
     function topImage(list, used) {
-      used = used || {};
-      var best = "", bestV = -1;
-      list.forEach(function (it) {
-        var v = rowValue(it) || 0;
-        if (it.image_small && !used[it.image_small] && v > bestV) { best = it.image_small; bestV = v; }
-      });
-      if (best) used[best] = true;
-      return best;
+      return App.util.topImage(list, used, function (it) { return rowValue(it) || 0; });
     }
 
     /* Pack-opening easter egg: rip a booster, pull a random vault card. */
@@ -406,7 +401,7 @@
               '<span class="home-entry-title">' + App.esc(readOnly ? "Vedant's Collection" : "My Collection") + "</span>" +
               '<span class="home-entry-meta">' + totals.count.toLocaleString() + " cards · " + App.ui.money(totalValue) + "</span>" +
             "</span>" +
-            '<span class="home-entry-arrow" aria-hidden="true">' + App.ui.icon("chevR") + "</span>" +
+            '<span class="home-entry-arrow" aria-hidden="true">' + App.ui.icon("chev-r") + "</span>" +
           "</a>" +
           '<a class="home-entry reveal" href="/trade">' +
             '<span class="home-entry-art">' + (tradeArt ? '<img loading="lazy" src="' + App.esc(tradeArt) + '" alt="">' : "") + "</span>" +
@@ -415,7 +410,7 @@
               '<span class="home-entry-title">Trade Binder</span>' +
               '<span class="home-entry-meta">' + (tradeCount === 1 ? "1 card up for trade" : tradeCount + " cards up for trade") + "</span>" +
             "</span>" +
-            '<span class="home-entry-arrow" aria-hidden="true">' + App.ui.icon("chevR") + "</span>" +
+            '<span class="home-entry-arrow" aria-hidden="true">' + App.ui.icon("chev-r") + "</span>" +
           "</a>" +
         "</section>" +
 
@@ -439,7 +434,7 @@
           '<div class="rail-head"><span class="rail-title">Top of the vault</span>' +
           '<span class="rail-nav">' +
             '<button type="button" class="btn-icon" data-rail-nav="prev" aria-label="Scroll left">' + App.ui.icon("chev-l") + "</button>" +
-            '<button type="button" class="btn-icon" data-rail-nav="next" aria-label="Scroll right">' + App.ui.icon("chevR") + "</button>" +
+            '<button type="button" class="btn-icon" data-rail-nav="next" aria-label="Scroll right">' + App.ui.icon("chev-r") + "</button>" +
           "</span></div>" +
           '<div class="rail" data-rail>' + railCards + "</div>" +
         "</div>" +
