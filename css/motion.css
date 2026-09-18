@@ -1,0 +1,204 @@
+/* VaultDex motion pack — staggered entrances, hover lift, scroll reveals,
+ * 3D tilt + holo foil on the card modal, spotlight rails, pack-opening easter
+ * egg, and press states. Everything animates opacity/transform (GPU-friendly)
+ * except the gated holo blend layer. All disabled under prefers-reduced-motion. */
+
+/* ---------- 1. staggered grid entrances ---------- */
+@keyframes tile-in {
+  from { opacity: 0; transform: translateY(14px) scale(0.98); }
+  to   { opacity: 1; transform: none; }
+}
+.tile-enter {
+  opacity: 0;
+  animation: tile-in 0.45s cubic-bezier(0.22, 0.8, 0.3, 1) forwards;
+  animation-delay: calc(var(--i, 0) * 45ms);
+}
+
+/* ---------- 2. hover lift ---------- */
+.card-tile, .set-tile {
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+@media (hover: hover) {
+  .card-tile:hover, .set-tile:hover { transform: translateY(-4px); }
+  .card-tile:hover { box-shadow: 0 14px 30px -12px rgba(0, 0, 0, 0.35); }
+}
+
+/* ---------- 4. scroll-triggered reveals ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.55s ease, transform 0.55s cubic-bezier(0.22, 0.8, 0.3, 1);
+}
+.reveal.in { opacity: 1; transform: none; }
+
+/* ---------- 5. animated progress sweeps ---------- */
+.cp-fill { transition: width 0.7s cubic-bezier(0.22, 0.8, 0.3, 1); }
+
+/* ---------- 7/8. modal card tilt + glare + holo ---------- */
+.card-detail .art.tilt-wrap { perspective: 1000px; }
+.card-detail .art.tilt {
+  position: relative;
+  --mx: 50; --my: 50;
+  transform:
+    rotateX(calc((50 - var(--my)) * 0.24deg))
+    rotateY(calc((var(--mx) - 50) * 0.32deg));
+  transition: transform 0.12s ease-out;
+  will-change: transform;
+}
+.card-detail .art.tilt img { display: block; }
+/* glare sweep that follows the pointer */
+.card-detail .art.tilt .glare {
+  position: absolute; inset: 0; border-radius: 14px; pointer-events: none;
+  background: radial-gradient(
+    circle at calc(var(--mx) * 1%) calc(var(--my) * 1%),
+    rgba(255, 255, 255, 0.45), transparent 55%);
+  mix-blend-mode: overlay;
+  opacity: 0; transition: opacity 0.25s ease;
+}
+@media (hover: hover) {
+  .card-detail .art.tilt:hover .glare { opacity: 1; }
+}
+/* holographic foil layer — rare cards only, desktop hover only */
+.card-detail .art.tilt.holo::after {
+  content: ""; position: absolute; inset: 0; border-radius: 14px; pointer-events: none;
+  background: linear-gradient(115deg,
+    transparent 15%,
+    rgba(255, 0, 128, 0.28) 30%,
+    rgba(0, 200, 255, 0.28) 45%,
+    rgba(255, 235, 0, 0.28) 60%,
+    rgba(120, 255, 120, 0.22) 72%,
+    transparent 88%);
+  background-size: 280% 280%;
+  background-position: calc(var(--mx) * 1%) calc(var(--my) * 1%);
+  mix-blend-mode: color-dodge;
+  opacity: 0; transition: opacity 0.3s ease;
+}
+@media (hover: hover) {
+  .card-detail .art.tilt.holo:hover::after { opacity: 0.85; }
+}
+
+/* ---------- 9. scroll-snap spotlight rail ---------- */
+.rail-section { margin: 26px 0 6px; }
+.rail-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 12px; }
+.rail-title { font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; }
+.rail-nav { display: flex; gap: 8px; }
+.rail {
+  display: flex; gap: 14px; overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 4px 2px 16px;
+  scrollbar-width: none;
+}
+.rail::-webkit-scrollbar { display: none; }
+.rail-card {
+  scroll-snap-align: start;
+  flex: 0 0 148px;
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+  overflow: hidden; cursor: pointer; padding: 0; text-align: left; color: inherit;
+  font: inherit;
+}
+.rail-card img { width: 100%; aspect-ratio: 63 / 88; object-fit: cover; display: block; background: var(--surface-2); }
+.rail-card .rc-body { padding: 10px 12px 12px; }
+.rail-card .rc-name { font-weight: 600; font-size: 0.85rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.rail-card .rc-value { color: var(--muted); font-size: 0.8rem; margin-top: 2px; }
+@media (hover: none) { .rail-nav { display: none; } }
+
+/* ---------- 11. pack-opening easter egg ---------- */
+.pack-cta {
+  display: flex; align-items: center; gap: 16px;
+  width: 100%; text-align: left; cursor: pointer;
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 14px 16px; color: inherit; font: inherit;
+  margin-top: 22px;
+}
+.pack-mini {
+  width: 54px; height: 76px; border-radius: 8px; flex: none;
+  background:
+    linear-gradient(160deg, rgba(255,255,255,0.22), transparent 45%),
+    linear-gradient(135deg, #e3350d 0%, #8e1f08 55%, #5c1305 100%);
+  border: 1px solid rgba(255,255,255,0.25);
+  box-shadow: 0 8px 18px -8px rgba(227,53,13,0.6);
+  position: relative; overflow: hidden;
+}
+.pack-mini::before, .pack-mini::after {
+  content: ""; position: absolute; left: 0; right: 0; height: 8px;
+  background: repeating-linear-gradient(90deg, rgba(0,0,0,0.35) 0 4px, rgba(255,255,255,0.18) 4px 8px);
+}
+.pack-mini::before { top: 0; } .pack-mini::after { bottom: 0; }
+.pack-cta .pack-text b { display: block; font-size: 0.95rem; }
+.pack-cta .pack-text span { color: var(--muted); font-size: 0.82rem; }
+.pack-stage {
+  position: fixed; inset: 0; z-index: 300;
+  background: rgba(8, 10, 16, 0.82); backdrop-filter: blur(8px);
+  display: flex; align-items: center; justify-content: center;
+  animation: fadeIn 0.25s ease;
+}
+.pack-big {
+  width: min(240px, 60vw); aspect-ratio: 63 / 88; border-radius: 14px;
+  background:
+    linear-gradient(160deg, rgba(255,255,255,0.25), transparent 45%),
+    linear-gradient(135deg, #e3350d 0%, #8e1f08 55%, #5c1305 100%);
+  border: 1px solid rgba(255,255,255,0.3);
+  box-shadow: 0 30px 80px -20px rgba(227,53,13,0.55);
+  position: relative; overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+  animation: pack-float 2.6s ease-in-out infinite;
+}
+.pack-big::before, .pack-big::after {
+  content: ""; position: absolute; left: 0; right: 0; height: 16px;
+  background: repeating-linear-gradient(90deg, rgba(0,0,0,0.35) 0 6px, rgba(255,255,255,0.2) 6px 12px);
+}
+.pack-big::before { top: 0; } .pack-big::after { bottom: 0; }
+.pack-big .pack-logo {
+  font-family: var(--font-display); font-weight: 800; color: #fff;
+  font-size: 1.4rem; letter-spacing: 2px; text-shadow: 0 2px 12px rgba(0,0,0,0.5);
+}
+@keyframes pack-float { 0%, 100% { transform: translateY(-6px) rotate(-1.5deg); } 50% { transform: translateY(6px) rotate(1.5deg); } }
+.pack-big.shake { animation: pack-shake 0.55s ease; }
+@keyframes pack-shake {
+  0%, 100% { transform: rotate(0) scale(1); }
+  20% { transform: rotate(-7deg) scale(1.04); }
+  40% { transform: rotate(6deg) scale(1.07); }
+  60% { transform: rotate(-5deg) scale(1.05); }
+  80% { transform: rotate(3deg) scale(1.02); }
+}
+.pack-big.torn { animation: pack-tear 0.5s ease forwards; }
+@keyframes pack-tear {
+  to { transform: scale(1.25); opacity: 0; filter: brightness(2.2); }
+}
+.pack-reveal {
+  width: min(280px, 68vw); aspect-ratio: 63 / 88;
+  animation: card-flip-in 0.7s cubic-bezier(0.2, 0.9, 0.3, 1.2);
+  transform-style: preserve-3d;
+}
+.pack-reveal img { width: 100%; height: 100%; object-fit: cover; border-radius: 16px; box-shadow: 0 30px 90px -18px rgba(0,0,0,0.8); }
+@keyframes card-flip-in {
+  from { transform: rotateY(90deg) scale(0.7); opacity: 0; }
+  to   { transform: rotateY(0) scale(1); opacity: 1; }
+}
+.pack-result { text-align: center; color: #fff; }
+.pack-result h3 { margin: 18px 0 4px; font-size: 1.3rem; }
+.pack-result .pr-sub { color: rgba(255,255,255,0.65); font-size: 0.9rem; margin-bottom: 20px; }
+.pack-result .pr-actions { display: flex; gap: 10px; justify-content: center; }
+/* Dark overlay: ghost buttons need transparent bg + white text/border, since
+ * the base .btn-ghost is a light pill that would swallow white labels. */
+.pack-result .btn-ghost {
+  color: #fff; border-color: rgba(255,255,255,0.4);
+  background: rgba(255,255,255,0.08); box-shadow: none;
+}
+.pack-result .btn-ghost:hover { background: rgba(255,255,255,0.18); color: #fff; border-color: rgba(255,255,255,0.6); }
+
+/* ---------- 12. press states ---------- */
+.btn, .hub-card, .rail-card, .variant-pill { transition: transform 0.12s ease; }
+.btn:active, .hub-card:active, .rail-card:active, .variant-pill:active { transform: scale(0.97); }
+.card-tile:active, .set-tile:active { transform: translateY(-4px) scale(0.97); }
+
+/* ---------- reduced motion: everything settles ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal, .tile-enter { opacity: 1 !important; transform: none !important; }
+  .card-detail .art.tilt { transform: none !important; }
+}

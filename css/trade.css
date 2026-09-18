@@ -1,0 +1,74 @@
+/* VaultDex — trade binder (Feature 6). Binder-specific styles only;
+ * tile/grid markup reuses .card-grid / .card-tile / .stepper / .price-badge
+ * / .variant-chip from styles.css. Follows the existing var() tokens. */
+
+/* Owner-only explainer for the auto-listing rule. */
+.trade-auto-note {
+  display: flex; align-items: center; gap: 8px;
+  margin: 0 2px 14px; padding: 10px 14px;
+  font-size: 0.85rem; color: var(--muted);
+  background: var(--accent-soft); border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}
+.trade-auto-note svg { width: 16px; height: 16px; flex: none; color: var(--accent-strong); }
+[data-theme="dark"] .trade-auto-note svg { color: var(--accent); }
+
+/* Fair-trade philosophy strip — Vedant's standing note to trade partners. */
+.trade-philosophy {
+  display: flex; align-items: center; gap: 10px;
+  margin: 14px 2px 22px; padding: 11px 14px;
+  font-size: 0.9rem; line-height: 1.45;
+  color: var(--text);
+  background: color-mix(in srgb, var(--gold) 12%, var(--surface));
+  border: 1px solid color-mix(in srgb, var(--gold) 40%, transparent);
+  border-radius: var(--radius-sm);
+}
+.trade-philosophy-ico { font-size: 1.1rem; flex: none; }
+
+/* Availability note under each listing tile. */
+.trade-grid .avail-note {
+  font-size: 0.8rem; font-weight: 600; color: var(--text);
+  margin-top: 2px;
+}
+
+/* Chips shown next to the variant chip (e.g. grade badges). */
+.trade-grid .trade-chips { display: inline-flex; align-items: center; gap: 6px; }
+.trade-grid .grade-badge {
+  font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;
+  color: var(--blue); border: 1px solid var(--blue); padding: 3px 8px; border-radius: 999px;
+  text-align: center;
+}
+
+/* Owner stepper for available copies — slightly smaller than the
+ * collection quantity stepper so it stays subtle inside the tile. */
+.trade-controls { display: flex; justify-content: flex-end; margin-top: 8px; }
+.trade-stepper button { width: 24px; height: 24px; font-size: 0.9rem; }
+.trade-stepper .qty { min-width: 26px; font-size: 0.85rem; }
+
+/* Trade toggle states for the collection-grid tile-controls button
+ * (patched into collection-view.js by the coordinator; App.trade drives
+ * the class via App.trade.tradeState(row)):
+ *   trade-on   = explicitly listed for trade (trade_qty > 0)
+ *   trade-auto = listed via the auto-rule (trade_qty null, surplus > 0)
+ *   trade-off  = excluded or nothing available */
+.tile-controls .trade-toggle.trade-on {
+  color: var(--accent-strong); border-color: var(--accent); background: var(--accent-soft);
+}
+.tile-controls .trade-toggle.trade-on:hover {
+  color: var(--accent-strong); border-color: var(--accent-strong);
+  background: color-mix(in srgb, var(--accent) 16%, transparent);
+}
+.tile-controls .trade-toggle.trade-auto {
+  color: var(--chart); border-color: var(--chart);
+}
+.tile-controls .trade-toggle.trade-auto:hover {
+  color: var(--chart); border-color: var(--chart);
+  background: color-mix(in srgb, var(--chart) 12%, transparent);
+}
+.tile-controls .trade-toggle.trade-off { opacity: 0.55; }
+
+/* Mobile: let the stepper and note breathe on narrow tiles. */
+@media (max-width: 520px) {
+  .trade-auto-note { font-size: 0.8rem; padding: 8px 12px; }
+  .trade-stepper button { width: 28px; height: 28px; }
+}

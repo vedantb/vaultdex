@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VaultDex — Pokémon TCG Collection Manager</title>
+  <meta name="description" content="VaultDex: browse, collect, and track the market value of your Pokémon TCG cards.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='28' fill='%23e3350d'/%3E%3Cpath d='M4 32a28 28 0 0 0 56 0z' fill='%23ffffff'/%3E%3Crect x='4' y='29' width='56' height='6' fill='%231c2333'/%3E%3Ccircle cx='32' cy='32' r='9' fill='%23ffffff' stroke='%231c2333' stroke-width='4'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/graded.css">
+  <link rel="stylesheet" href="/css/set-progress.css">
+  <link rel="stylesheet" href="/css/wishlist.css">
+  <link rel="stylesheet" href="/css/movers.css">
+  <link rel="stylesheet" href="/css/trade.css">
+  <link rel="stylesheet" href="/css/motion.css">
+  <link rel="stylesheet" href="/css/home.css">
+  <script src="/js/vendor/supabase.js" defer></script>
+  <script src="/js/config.js" defer></script>
+  <script src="/js/supabase-client.js" defer></script>
+  <script src="/js/tcg-api.js" defer></script>
+  <script src="/js/pkmn.js" defer></script>
+  <script src="/js/ui.js" defer></script>
+  <script src="/js/auth.js" defer></script>
+  <script src="/js/collection.js" defer></script>
+  <script src="/js/set-progress.js" defer></script>
+  <script src="/js/wishlist.js" defer></script>
+  <script src="/js/trade.js" defer></script>
+  <script src="/js/components/card-modal.js" defer></script>
+  <script src="/js/views/browse.js" defer></script>
+  <script src="/js/views/set-view.js" defer></script>
+  <script src="/js/views/collection-view.js" defer></script>
+  <script src="/js/views/home-view.js" defer></script>
+  <script src="/js/views/wishlist-view.js" defer></script>
+  <script src="/js/views/movers-view.js" defer></script>
+  <script src="/js/views/trade-view.js" defer></script>
+  <script src="/js/app.js" defer></script>
+</head>
+<body>
+  <div id="setup-banner" class="setup-banner" hidden>
+    <span>Supabase isn't configured yet — browsing works, but saving your collection needs setup.</span>
+    <a href="SETUP.md" target="_blank" rel="noopener">Open SETUP.md</a>
+    <button class="btn-icon" id="setup-banner-close" aria-label="Dismiss">✕</button>
+    <code class="setup-banner-diag" id="setup-banner-diag" hidden></code>
+  </div>
+
+  <div id="announce-bar" class="announce-bar" hidden>
+    <span class="announce-ico" aria-hidden="true">✨</span>
+    <span>The vault is growing — more cards are being added, and some prices are being refreshed. Check back soon!</span>
+    <button class="btn-icon" id="announce-bar-close" aria-label="Dismiss announcement">✕</button>
+  </div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/" class="brand" aria-label="VaultDex home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 64 64" width="34" height="34"><circle cx="32" cy="32" r="27" fill="#ffffff" stroke="#1c2333" stroke-width="3"/><path d="M5 32a27 27 0 0 1 54 0z" fill="#e3350d"/><rect x="5" y="29" width="54" height="6" fill="#1c2333"/><circle cx="32" cy="32" r="9" fill="#ffffff" stroke="#1c2333" stroke-width="4"/><circle cx="32" cy="32" r="3.5" fill="#1c2333"/></svg>
+        </span>
+        <span class="brand-name">Vault<em>Dex</em></span>
+      </a>
+      <nav class="main-nav" aria-label="Primary">
+        <a href="/" data-nav="home">Home</a>
+        <a href="/browse" data-nav="browse">Browse</a>
+        <a href="/collection" data-nav="collection">My Collection</a>
+        <a href="/trade" data-nav="trade">Trade Binder</a>
+      </nav>
+      <div class="header-actions">
+        <button class="btn-icon" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode"></button>
+        <button class="btn-icon" id="settings-btn" aria-label="Settings" title="Settings"></button>
+        <div id="auth-area" class="auth-area"></div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="page-nav container" aria-label="Primary">
+    <a href="/" data-nav="home">Home</a>
+    <a href="/browse" data-nav="browse">Browse</a>
+    <a href="/collection" data-nav="collection">Vedant's Collection</a>
+    <a href="/trade" data-nav="trade">Trade Binder</a>
+  </nav>
+
+  <main id="app" class="container" aria-live="polite"></main>
+
+  <div id="modal-root"></div>
+  <div id="toast-root" aria-live="polite" aria-atomic="false"></div>
+</body>
+</html>

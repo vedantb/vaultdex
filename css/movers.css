@@ -1,0 +1,21 @@
+/* VaultDex — price movers dashboard (Feature 4). Mover-specific bits only;
+ * tiles, grid, badges, and chips reuse the collection styles. */
+/* NOTE (coordinator): add <link rel="stylesheet" href="css/movers.css"> to index.html. */
+
+.movers-head { margin: 6px 2px 18px; }
+.movers-title { font-size: 1.5rem; margin: 0 0 4px; font-family: var(--font-display); }
+.movers-sub { color: var(--muted); font-size: 0.92rem; margin: 0; }
+
+.movers-section { margin-bottom: 28px; }
+.movers-h { font-size: 1.08rem; margin: 0 2px 2px; font-family: var(--font-display); }
+
+.mover-prices { color: var(--muted); font-size: 0.86rem; margin-top: 2px; }
+
+.price-badge.mover-up {
+  color: var(--green);
+  background: color-mix(in srgb, var(--green) 10%, transparent);
+}
+.price-badge.mover-down {
+  color: var(--danger);
+  background: color-mix(in srgb, var(--danger) 10%, transparent);
+}

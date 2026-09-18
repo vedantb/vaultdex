@@ -1,0 +1,33 @@
+/* VaultDex — set completion tracking (Feature 1). The slim progress line
+ * under each browse set tile's meta line, pkmn.gg-style: "you own X of Y"
+ * over a 4px bar. Light/dark come free from the shared theme vars. */
+.set-progress-line {
+  margin-top: 8px;
+  font-size: 0.78rem;
+  color: var(--muted);
+  text-align: center;
+  line-height: 1.35;
+}
+.set-progress-line .sp-text {
+  display: block;
+  margin-bottom: 5px;
+}
+.set-progress-line .sp-bar {
+  height: 4px;
+  border-radius: 999px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+.set-progress-line .sp-fill {
+  height: 100%;
+  width: 0;
+  border-radius: 999px;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+
+/* Narrow tiles (mobile): keep the line small and never let it stretch the tile. */
+@media (max-width: 520px) {
+  .set-progress-line { font-size: 0.72rem; margin-top: 6px; }
+}

@@ -1,0 +1,2015 @@
+{
+ "generated_at": "2026-09-16T01:39:23.356446+00:00",
+ "set": {
+  "id": "SV9a",
+  "name": "Heat Wave Arena",
+  "series": "ポケモンカードゲーム スカーレット&バイオレット",
+  "releaseDate": "2025-03-14",
+  "logo": null,
+  "symbol": "/data/tcgdex/set-symbols/ja/SV9a.png",
+  "printedTotal": 63,
+  "total": 92,
+  "lang": "ja",
+  "nameJa": "熱風のアリーナ"
+ },
+ "cards": [
+  {
+   "id": "SV9a-001",
+   "localId": "001",
+   "name": "Ethan's Pinsir",
+   "rarity": "Uncommon",
+   "illustrator": "GIDORA",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/001",
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 120,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/207d6d2ab11f4b48.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/207d6d2ab11f4b48.webp"
+  },
+  {
+   "id": "SV9a-002",
+   "localId": "002",
+   "name": "Yanma",
+   "rarity": "Common",
+   "illustrator": "svlt",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/002",
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/64dbc7afafe7580e.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/64dbc7afafe7580e.webp"
+  },
+  {
+   "id": "SV9a-003",
+   "localId": "003",
+   "name": "Yanmega ex",
+   "rarity": "Double rare",
+   "illustrator": "takuyoa",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/003",
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 280,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/15bcb6989f22577a.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/15bcb6989f22577a.webp"
+  },
+  {
+   "id": "SV9a-004",
+   "localId": "004",
+   "name": "Cynthia's Roselia",
+   "rarity": "Common",
+   "illustrator": "nisimono",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/004",
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/981053d80fa77537.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/981053d80fa77537.webp"
+  },
+  {
+   "id": "SV9a-005",
+   "localId": "005",
+   "name": "Cynthia's Roserade",
+   "rarity": "Rare",
+   "illustrator": "En Morikura",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/005",
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 130,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/e2e977b1006986cc.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/e2e977b1006986cc.webp"
+  },
+  {
+   "id": "SV9a-006",
+   "localId": "006",
+   "name": "Shaymin",
+   "rarity": "Uncommon",
+   "illustrator": "tono",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/006",
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 80,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/e081da79e6a79690.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/e081da79e6a79690.webp"
+  },
+  {
+   "id": "SV9a-007",
+   "localId": "007",
+   "name": "Dwebble",
+   "rarity": "Common",
+   "illustrator": "Kanami Ogata",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/007",
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/769a7a7bce6e7b18.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/769a7a7bce6e7b18.webp"
+  },
+  {
+   "id": "SV9a-008",
+   "localId": "008",
+   "name": "Crustle",
+   "rarity": "Rare",
+   "illustrator": "Po-Suzuki",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/008",
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 150,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/990b94ab2e045ec6.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/990b94ab2e045ec6.webp"
+  },
+  {
+   "id": "SV9a-009",
+   "localId": "009",
+   "name": "Applin",
+   "rarity": "Common",
+   "illustrator": "Tetsu Kayama",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/009",
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 40,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/2ffff88f40f0c0ae.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/2ffff88f40f0c0ae.webp"
+  },
+  {
+   "id": "SV9a-010",
+   "localId": "010",
+   "name": "Dipplin",
+   "rarity": "Common",
+   "illustrator": "Shigenori Negishi",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/010",
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 90,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/549750119e950bd3.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/549750119e950bd3.webp"
+  },
+  {
+   "id": "SV9a-011",
+   "localId": "011",
+   "name": "Hydrapple",
+   "rarity": "Rare",
+   "illustrator": "Anesaki Dynamic",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/011",
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 170,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/ae99ab242f736700.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/ae99ab242f736700.webp"
+  },
+  {
+   "id": "SV9a-012",
+   "localId": "012",
+   "name": "Teal Mask Ogerpon",
+   "rarity": "Uncommon",
+   "illustrator": "Tomomi Ozaki",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/012",
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 110,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/96a2e3865b4edb55.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/96a2e3865b4edb55.webp"
+  },
+  {
+   "id": "SV9a-013",
+   "localId": "013",
+   "name": "Ponyta",
+   "rarity": "Common",
+   "illustrator": "Ayako Ozaki",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/013",
+   "category": "Pokemon",
+   "types": [
+    "Fire"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/d59fc6b70cb6024a.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/d59fc6b70cb6024a.webp"
+  },
+  {
+   "id": "SV9a-014",
+   "localId": "014",
+   "name": "Rapidash",
+   "rarity": "Uncommon",
+   "illustrator": "SIE NANAHARA",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/014",
+   "category": "Pokemon",
+   "types": [
+    "Fire"
+   ],
+   "hp": 110,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/482b187e41416073.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/482b187e41416073.webp"
+  },
+  {
+   "id": "SV9a-015",
+   "localId": "015",
+   "name": "Ethan's Cyndaquil",
+   "rarity": "Common",
+   "illustrator": "Susumu Maeya",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/015",
+   "category": "Pokemon",
+   "types": [
+    "Fire"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/a61cfd48284fb772.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/a61cfd48284fb772.webp"
+  },
+  {
+   "id": "SV9a-016",
+   "localId": "016",
+   "name": "Ethan's Quilava",
+   "rarity": "Common",
+   "illustrator": "Souichirou Gunjima",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/016",
+   "category": "Pokemon",
+   "types": [
+    "Fire"
+   ],
+   "hp": 100,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/0e0439b993bcef16.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/0e0439b993bcef16.webp"
+  },
+  {
+   "id": "SV9a-017",
+   "localId": "017",
+   "name": "Ethan's Typhlosion",
+   "rarity": "Rare",
+   "illustrator": "danciao",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/017",
+   "category": "Pokemon",
+   "types": [
+    "Fire"
+   ],
+   "hp": 170,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/2389d91254cc0411.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/2389d91254cc0411.webp"
+  },
+  {
+   "id": "SV9a-018",
+   "localId": "018",
+   "name": "Ethan's Slugma",
+   "rarity": "Common",
+   "illustrator": "Sanosuke Sakuma",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/018",
+   "category": "Pokemon",
+   "types": [
+    "Fire"
+   ],
+   "hp": 80,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/c41836ecb09d6c3a.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/c41836ecb09d6c3a.webp"
+  },
+  {
+   "id": "SV9a-019",
+   "localId": "019",
+   "name": "Ethan's Magcargo",
+   "rarity": "Rare",
+   "illustrator": "kodama",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/019",
+   "category": "Pokemon",
+   "types": [
+    "Fire"
+   ],
+   "hp": 130,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/13357dbc0f896aa8.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/13357dbc0f896aa8.webp"
+  },
+  {
+   "id": "SV9a-020",
+   "localId": "020",
+   "name": "Ethan's Ho-Oh ex",
+   "rarity": "Double rare",
+   "illustrator": "aky CG Works",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/020",
+   "category": "Pokemon",
+   "types": [
+    "Fire"
+   ],
+   "hp": 230,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/353074e9cb432b22.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/353074e9cb432b22.webp"
+  },
+  {
+   "id": "SV9a-021",
+   "localId": "021",
+   "name": "Hearthflame Mask Ogerpon",
+   "rarity": "Uncommon",
+   "illustrator": "HYOGONOSUKE",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/021",
+   "category": "Pokemon",
+   "types": [
+    "Fire"
+   ],
+   "hp": 110,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/e917cc1fa2c081ba.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/e917cc1fa2c081ba.webp"
+  },
+  {
+   "id": "SV9a-022",
+   "localId": "022",
+   "name": "Misty's Psyduck",
+   "rarity": "Uncommon",
+   "illustrator": "Yuu Nishida",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/022",
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/6558995735efd897.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/6558995735efd897.webp"
+  },
+  {
+   "id": "SV9a-023",
+   "localId": "023",
+   "name": "Misty's Staryu",
+   "rarity": "Common",
+   "illustrator": "Shinya Komatsu",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/023",
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/9af33dbcfe764dc0.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/9af33dbcfe764dc0.webp"
+  },
+  {
+   "id": "SV9a-024",
+   "localId": "024",
+   "name": "Misty's Starmie",
+   "rarity": "Uncommon",
+   "illustrator": "Natsumi Yoshida",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/024",
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 100,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/797e4927a200c576.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/797e4927a200c576.webp"
+  },
+  {
+   "id": "SV9a-025",
+   "localId": "025",
+   "name": "Misty's Magikarp",
+   "rarity": "Common",
+   "illustrator": "Shimaris Yukichi",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/025",
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 30,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/adf5c60ce5de1924.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/adf5c60ce5de1924.webp"
+  },
+  {
+   "id": "SV9a-026",
+   "localId": "026",
+   "name": "Misty's Gyarados",
+   "rarity": "Rare",
+   "illustrator": "GOSSAN",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/026",
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 180,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/861bfee1ab7b7e09.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/861bfee1ab7b7e09.webp"
+  },
+  {
+   "id": "SV9a-027",
+   "localId": "027",
+   "name": "Misty's Lapras",
+   "rarity": "Common",
+   "illustrator": "En Morikura",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/027",
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 110,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/ff4f9c7602158c1e.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/ff4f9c7602158c1e.webp"
+  },
+  {
+   "id": "SV9a-028",
+   "localId": "028",
+   "name": "Cynthia's Feebas",
+   "rarity": "Common",
+   "illustrator": "kamonabe",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/028",
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 30,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/cbc342542a87689f.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/cbc342542a87689f.webp"
+  },
+  {
+   "id": "SV9a-029",
+   "localId": "029",
+   "name": "Cynthia's Milotic",
+   "rarity": "Uncommon",
+   "illustrator": "You Iribi",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/029",
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 130,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/bff4abb98cc14450.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/bff4abb98cc14450.webp"
+  },
+  {
+   "id": "SV9a-030",
+   "localId": "030",
+   "name": "Buizel",
+   "rarity": "Common",
+   "illustrator": "Ayako Ozaki",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/030",
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/a3b19571ed910f2e.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/a3b19571ed910f2e.webp"
+  },
+  {
+   "id": "SV9a-031",
+   "localId": "031",
+   "name": "Floatzel",
+   "rarity": "Uncommon",
+   "illustrator": "Shibuzoh.",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/031",
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 120,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/b1a27d458efb128e.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/b1a27d458efb128e.webp"
+  },
+  {
+   "id": "SV9a-032",
+   "localId": "032",
+   "name": "Dondozo ex",
+   "rarity": "Double rare",
+   "illustrator": "N-DESIGN Inc.",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/032",
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 260,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/3c32f2dc1a2a91ef.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/3c32f2dc1a2a91ef.webp"
+  },
+  {
+   "id": "SV9a-033",
+   "localId": "033",
+   "name": "Wellspring Mask Ogerpon",
+   "rarity": "Uncommon",
+   "illustrator": "rika",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/033",
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 110,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/10c387a8d3016ef4.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/10c387a8d3016ef4.webp"
+  },
+  {
+   "id": "SV9a-034",
+   "localId": "034",
+   "name": "Electabuzz",
+   "rarity": "Common",
+   "illustrator": "Amelicart",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/034",
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": 90,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/38e66440a45c9550.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/38e66440a45c9550.webp"
+  },
+  {
+   "id": "SV9a-035",
+   "localId": "035",
+   "name": "Electivire ex",
+   "rarity": "Double rare",
+   "illustrator": "PLANETA Mochizuki",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/035",
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": 280,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/2dfb775153194d4e.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/2dfb775153194d4e.webp"
+  },
+  {
+   "id": "SV9a-036",
+   "localId": "036",
+   "name": "Ethan's Pichu",
+   "rarity": "Common",
+   "illustrator": "Narumi Sato",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/036",
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": 30,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/9fb333c1d7773767.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/9fb333c1d7773767.webp"
+  },
+  {
+   "id": "SV9a-037",
+   "localId": "037",
+   "name": "Electrike",
+   "rarity": "Common",
+   "illustrator": "Narano",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/037",
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": 60,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/dbce45b2de3237ee.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/dbce45b2de3237ee.webp"
+  },
+  {
+   "id": "SV9a-038",
+   "localId": "038",
+   "name": "Manectric",
+   "rarity": "Common",
+   "illustrator": "Izucch",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/038",
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": 120,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/fedb33514ba1719a.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/fedb33514ba1719a.webp"
+  },
+  {
+   "id": "SV9a-039",
+   "localId": "039",
+   "name": "Rotom",
+   "rarity": "Common",
+   "illustrator": "Yoshimi Miyoshi",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/039",
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": 60,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/21223f0f373b35c5.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/21223f0f373b35c5.webp"
+  },
+  {
+   "id": "SV9a-040",
+   "localId": "040",
+   "name": "Zeraora",
+   "rarity": "Rare",
+   "illustrator": "Ryuta Fuse",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/040",
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": 100,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/58658dc2e1ad93da.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/58658dc2e1ad93da.webp"
+  },
+  {
+   "id": "SV9a-041",
+   "localId": "041",
+   "name": "Ethan's Sudowoodo",
+   "rarity": "Common",
+   "illustrator": "OKACHEKE",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/041",
+   "category": "Pokemon",
+   "types": [
+    "Fighting"
+   ],
+   "hp": 110,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/6026952d3367aa24.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/6026952d3367aa24.webp"
+  },
+  {
+   "id": "SV9a-042",
+   "localId": "042",
+   "name": "Cynthia's Gible",
+   "rarity": "Common",
+   "illustrator": "Tomomi Ozaki",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/042",
+   "category": "Pokemon",
+   "types": [
+    "Fighting"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/293820635c2ab71a.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/293820635c2ab71a.webp"
+  },
+  {
+   "id": "SV9a-043",
+   "localId": "043",
+   "name": "Cynthia's Gabite",
+   "rarity": "Common",
+   "illustrator": "Taira Akitsu",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/043",
+   "category": "Pokemon",
+   "types": [
+    "Fighting"
+   ],
+   "hp": 100,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/9a5b78c88f93883d.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/9a5b78c88f93883d.webp"
+  },
+  {
+   "id": "SV9a-044",
+   "localId": "044",
+   "name": "Cynthia's Garchomp ex",
+   "rarity": "Double rare",
+   "illustrator": "5ban Graphics",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/044",
+   "category": "Pokemon",
+   "types": [
+    "Fighting"
+   ],
+   "hp": 330,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/8769500a1639bd41.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/8769500a1639bd41.webp"
+  },
+  {
+   "id": "SV9a-045",
+   "localId": "045",
+   "name": "Mudbray",
+   "rarity": "Common",
+   "illustrator": "Aliya Chen",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/045",
+   "category": "Pokemon",
+   "types": [
+    "Fighting"
+   ],
+   "hp": 90,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/f2e7efb2c1c0c9c8.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/f2e7efb2c1c0c9c8.webp"
+  },
+  {
+   "id": "SV9a-046",
+   "localId": "046",
+   "name": "Mudsdale",
+   "rarity": "Uncommon",
+   "illustrator": "Uta",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/046",
+   "category": "Pokemon",
+   "types": [
+    "Fighting"
+   ],
+   "hp": 150,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/aabb7f89e7e7a18d.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/aabb7f89e7e7a18d.webp"
+  },
+  {
+   "id": "SV9a-047",
+   "localId": "047",
+   "name": "Arven's Toedscool",
+   "rarity": "Common",
+   "illustrator": "Fujimoto Gold",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/047",
+   "category": "Pokemon",
+   "types": [
+    "Fighting"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/36d0e35df73a5aa2.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/36d0e35df73a5aa2.webp"
+  },
+  {
+   "id": "SV9a-048",
+   "localId": "048",
+   "name": "Arven's Toedscruel",
+   "rarity": "Uncommon",
+   "illustrator": "Yuya Oka",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/048",
+   "category": "Pokemon",
+   "types": [
+    "Fighting"
+   ],
+   "hp": 140,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/f21c77d5ad424825.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/f21c77d5ad424825.webp"
+  },
+  {
+   "id": "SV9a-049",
+   "localId": "049",
+   "name": "Cornerstone Mask Ogerpon",
+   "rarity": "Uncommon",
+   "illustrator": "Kazumasa Yasukuni",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/049",
+   "category": "Pokemon",
+   "types": [
+    "Fighting"
+   ],
+   "hp": 110,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/97de71dcef646bc8.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/97de71dcef646bc8.webp"
+  },
+  {
+   "id": "SV9a-050",
+   "localId": "050",
+   "name": "Cynthia's Spiritomb",
+   "rarity": "Uncommon",
+   "illustrator": "satoma",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/050",
+   "category": "Pokemon",
+   "types": [
+    "Darkness"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/4090c7f11fca9949.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/4090c7f11fca9949.webp"
+  },
+  {
+   "id": "SV9a-051",
+   "localId": "051",
+   "name": "Arven's Maschiff",
+   "rarity": "Common",
+   "illustrator": "Mina Nakai",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/051",
+   "category": "Pokemon",
+   "types": [
+    "Darkness"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/e539a373fe7f44a2.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/e539a373fe7f44a2.webp"
+  },
+  {
+   "id": "SV9a-052",
+   "localId": "052",
+   "name": "Arven's Mabosstiff ex",
+   "rarity": "Double rare",
+   "illustrator": "akagi",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/052",
+   "category": "Pokemon",
+   "types": [
+    "Darkness"
+   ],
+   "hp": 270,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/ecec94642805f012.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/ecec94642805f012.webp"
+  },
+  {
+   "id": "SV9a-053",
+   "localId": "053",
+   "name": "Tauros",
+   "rarity": "Common",
+   "illustrator": "yuu",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/053",
+   "category": "Pokemon",
+   "types": [
+    "Colorless"
+   ],
+   "hp": 130,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/9ee32c4f1acceed4.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/9ee32c4f1acceed4.webp"
+  },
+  {
+   "id": "SV9a-054",
+   "localId": "054",
+   "name": "Arven's Skwovet",
+   "rarity": "Common",
+   "illustrator": "Oswaldo KATO",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/054",
+   "category": "Pokemon",
+   "types": [
+    "Colorless"
+   ],
+   "hp": 60,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/ba725148c2115554.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/ba725148c2115554.webp"
+  },
+  {
+   "id": "SV9a-055",
+   "localId": "055",
+   "name": "Arven's Greedent",
+   "rarity": "Rare",
+   "illustrator": "Akira Komayama",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/055",
+   "category": "Pokemon",
+   "types": [
+    "Colorless"
+   ],
+   "hp": 120,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/3c20236633c8ecbd.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/3c20236633c8ecbd.webp"
+  },
+  {
+   "id": "SV9a-056",
+   "localId": "056",
+   "name": "Sacred Ash",
+   "rarity": "Uncommon",
+   "illustrator": "Eske Yoshinob",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/056",
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/8ad2cc89f0cf321f.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/8ad2cc89f0cf321f.webp"
+  },
+  {
+   "id": "SV9a-057",
+   "localId": "057",
+   "name": "Arven's Sandwich",
+   "rarity": "Uncommon",
+   "illustrator": "AYUMI ODASHIMA",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/057",
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/f8ea6e0fe70c9186.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/f8ea6e0fe70c9186.webp"
+  },
+  {
+   "id": "SV9a-058",
+   "localId": "058",
+   "name": "Switch",
+   "rarity": "Uncommon",
+   "illustrator": "Studio Bora Inc.",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/058",
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/b40874182fc74476.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/b40874182fc74476.webp"
+  },
+  {
+   "id": "SV9a-059",
+   "localId": "059",
+   "name": "Pokemon Catcher",
+   "rarity": "Uncommon",
+   "illustrator": "Studio Bora Inc.",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/059",
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/d4ddf0362901f046.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/d4ddf0362901f046.webp"
+  },
+  {
+   "id": "SV9a-060",
+   "localId": "060",
+   "name": "Cynthia's Power Weight",
+   "rarity": "Uncommon",
+   "illustrator": "Studio Bora Inc.",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/060",
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/f9580592ac00322b.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/f9580592ac00322b.webp"
+  },
+  {
+   "id": "SV9a-061",
+   "localId": "061",
+   "name": "Emcee's Excitement",
+   "rarity": "Common",
+   "illustrator": "Cona Nitanda",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/061",
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/422ecc732b56bee4.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/422ecc732b56bee4.webp"
+  },
+  {
+   "id": "SV9a-062",
+   "localId": "062",
+   "name": "Judge",
+   "rarity": "Uncommon",
+   "illustrator": "kantaro",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/062",
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/aed7463e7d294adb.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/aed7463e7d294adb.webp"
+  },
+  {
+   "id": "SV9a-063",
+   "localId": "063",
+   "name": "Ethan's Adventure",
+   "rarity": "Uncommon",
+   "illustrator": "Iori Suzuki",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/063",
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/3cd10a56e97cc44d.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/3cd10a56e97cc44d.webp"
+  },
+  {
+   "id": "SV9a-064",
+   "localId": "064",
+   "name": "Yanma",
+   "rarity": "None",
+   "illustrator": "Ayako Ozaki",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/064",
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/7b66bf7be9af210a.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/7b66bf7be9af210a.webp"
+  },
+  {
+   "id": "SV9a-065",
+   "localId": "065",
+   "name": "Cynthia's Roserade",
+   "rarity": "None",
+   "illustrator": "rika",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/065",
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 130,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/4224c02de2cdad31.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/4224c02de2cdad31.webp"
+  },
+  {
+   "id": "SV9a-066",
+   "localId": "066",
+   "name": "Shaymin",
+   "rarity": "None",
+   "illustrator": "Heisuke Kitazawa",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/066",
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 80,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/c20f0f7e248e3406.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/c20f0f7e248e3406.webp"
+  },
+  {
+   "id": "SV9a-067",
+   "localId": "067",
+   "name": "Crustle",
+   "rarity": "None",
+   "illustrator": "Takumi Wada",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/067",
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 150,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/50644e815699ffea.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/50644e815699ffea.webp"
+  },
+  {
+   "id": "SV9a-068",
+   "localId": "068",
+   "name": "Hydrapple",
+   "rarity": "None",
+   "illustrator": "Jerky",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/068",
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 170,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/046c6e07b9314a07.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/046c6e07b9314a07.webp"
+  },
+  {
+   "id": "SV9a-069",
+   "localId": "069",
+   "name": "Rapidash",
+   "rarity": "None",
+   "illustrator": "Rond",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/069",
+   "category": "Pokemon",
+   "types": [
+    "Fire"
+   ],
+   "hp": 110,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/9f4e48521b9746a7.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/9f4e48521b9746a7.webp"
+  },
+  {
+   "id": "SV9a-070",
+   "localId": "070",
+   "name": "Ethan's Typhlosion",
+   "rarity": "None",
+   "illustrator": "GIDORA",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/070",
+   "category": "Pokemon",
+   "types": [
+    "Fire"
+   ],
+   "hp": 170,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/c979720b1aeff05e.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/c979720b1aeff05e.webp"
+  },
+  {
+   "id": "SV9a-071",
+   "localId": "071",
+   "name": "Misty's Psyduck",
+   "rarity": "None",
+   "illustrator": "OKACHEKE",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/071",
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/114d0ff73c50fb11.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/114d0ff73c50fb11.webp"
+  },
+  {
+   "id": "SV9a-072",
+   "localId": "072",
+   "name": "Misty's Lapras",
+   "rarity": "None",
+   "illustrator": "Orca",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/072",
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 110,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/e074095757f39250.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/e074095757f39250.webp"
+  },
+  {
+   "id": "SV9a-073",
+   "localId": "073",
+   "name": "Electrike",
+   "rarity": "None",
+   "illustrator": "Nakamura Ippan",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/073",
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": 60,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/5f1eb8acc69cb926.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/5f1eb8acc69cb926.webp"
+  },
+  {
+   "id": "SV9a-074",
+   "localId": "074",
+   "name": "Rotom",
+   "rarity": "None",
+   "illustrator": "Taiga Kayama",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/074",
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": 60,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/b3a977613b353060.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/b3a977613b353060.webp"
+  },
+  {
+   "id": "SV9a-075",
+   "localId": "075",
+   "name": "Arven's Greedent",
+   "rarity": "None",
+   "illustrator": "Natsumi Yoshida",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/075",
+   "category": "Pokemon",
+   "types": [
+    "Colorless"
+   ],
+   "hp": 120,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/d1e46b400f66d306.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/d1e46b400f66d306.webp"
+  },
+  {
+   "id": "SV9a-076",
+   "localId": "076",
+   "name": "Yanmega ex",
+   "rarity": "None",
+   "illustrator": "takuyoa",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/076",
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 280,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/3c8d71fd783ae5ed.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/3c8d71fd783ae5ed.webp"
+  },
+  {
+   "id": "SV9a-077",
+   "localId": "077",
+   "name": "Ethan's Ho-Oh ex",
+   "rarity": "None",
+   "illustrator": "aky CG Works",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/077",
+   "category": "Pokemon",
+   "types": [
+    "Fire"
+   ],
+   "hp": 230,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/066f85baf6c0ef4c.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/066f85baf6c0ef4c.webp"
+  },
+  {
+   "id": "SV9a-078",
+   "localId": "078",
+   "name": "Dondozo ex",
+   "rarity": "None",
+   "illustrator": "N-DESIGN Inc.",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/078",
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 260,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/eed3bf942dccf005.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/eed3bf942dccf005.webp"
+  },
+  {
+   "id": "SV9a-079",
+   "localId": "079",
+   "name": "Electivire ex",
+   "rarity": "None",
+   "illustrator": "PLANETA Mochizuki",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/079",
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": 280,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/dc76f32301c8e324.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/dc76f32301c8e324.webp"
+  },
+  {
+   "id": "SV9a-080",
+   "localId": "080",
+   "name": "Cynthia's Garchomp ex",
+   "rarity": "None",
+   "illustrator": "5ban Graphics",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/080",
+   "category": "Pokemon",
+   "types": [
+    "Fighting"
+   ],
+   "hp": 330,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/5213289f5d131467.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/5213289f5d131467.webp"
+  },
+  {
+   "id": "SV9a-081",
+   "localId": "081",
+   "name": "Arven's Mabosstiff ex",
+   "rarity": "None",
+   "illustrator": "PLANETA Igarashi",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/081",
+   "category": "Pokemon",
+   "types": [
+    "Darkness"
+   ],
+   "hp": 270,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/17fe17e69c509bec.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/17fe17e69c509bec.webp"
+  },
+  {
+   "id": "SV9a-082",
+   "localId": "082",
+   "name": "Emcee's Excitement",
+   "rarity": "None",
+   "illustrator": "Cona Nitanda",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/082",
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/4e833afce47e5ba7.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/4e833afce47e5ba7.webp"
+  },
+  {
+   "id": "SV9a-083",
+   "localId": "083",
+   "name": "Judge",
+   "rarity": "None",
+   "illustrator": "kantaro",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/083",
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/b11d1b2a3f5ef789.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/b11d1b2a3f5ef789.webp"
+  },
+  {
+   "id": "SV9a-084",
+   "localId": "084",
+   "name": "Ethan's Adventure",
+   "rarity": "None",
+   "illustrator": "Iori Suzuki",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/084",
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/4f3a32d3c0fbd8a9.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/4f3a32d3c0fbd8a9.webp"
+  },
+  {
+   "id": "SV9a-085",
+   "localId": "085",
+   "name": "Yanmega ex",
+   "rarity": "None",
+   "illustrator": "Tonji Matsuno",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/085",
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 280,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/d06d8c7347950d2d.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/d06d8c7347950d2d.webp"
+  },
+  {
+   "id": "SV9a-086",
+   "localId": "086",
+   "name": "Ethan's Ho-Oh ex",
+   "rarity": "None",
+   "illustrator": "Atsushi Furusawa",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/086",
+   "category": "Pokemon",
+   "types": [
+    "Fire"
+   ],
+   "hp": 230,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/e45bd36385669382.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/e45bd36385669382.webp"
+  },
+  {
+   "id": "SV9a-087",
+   "localId": "087",
+   "name": "Cynthia's Garchomp ex",
+   "rarity": "None",
+   "illustrator": "HICO KIM",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/087",
+   "category": "Pokemon",
+   "types": [
+    "Fighting"
+   ],
+   "hp": 330,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/3a87097f26f1e7c9.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/3a87097f26f1e7c9.webp"
+  },
+  {
+   "id": "SV9a-088",
+   "localId": "088",
+   "name": "Arven's Mabosstiff ex",
+   "rarity": "None",
+   "illustrator": "Yuriko Akase",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/088",
+   "category": "Pokemon",
+   "types": [
+    "Darkness"
+   ],
+   "hp": 270,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/008a895c842245a5.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/008a895c842245a5.webp"
+  },
+  {
+   "id": "SV9a-089",
+   "localId": "089",
+   "name": "Ethan's Adventure",
+   "rarity": "None",
+   "illustrator": "Kariya",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/089",
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/29e71a13e40c925e.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/29e71a13e40c925e.webp"
+  },
+  {
+   "id": "SV9a-090",
+   "localId": "090",
+   "name": "Ethan's Ho-Oh ex",
+   "rarity": "None",
+   "illustrator": "aky CG Works",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/090",
+   "category": "Pokemon",
+   "types": [
+    "Fire"
+   ],
+   "hp": 230,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/3a12a0ed94e6ec45.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/3a12a0ed94e6ec45.webp"
+  },
+  {
+   "id": "SV9a-091",
+   "localId": "091",
+   "name": "Cynthia's Garchomp ex",
+   "rarity": "None",
+   "illustrator": "5ban Graphics",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/091",
+   "category": "Pokemon",
+   "types": [
+    "Fighting"
+   ],
+   "hp": 330,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/315504bd40d4e318.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/315504bd40d4e318.webp"
+  },
+  {
+   "id": "SV9a-092",
+   "localId": "092",
+   "name": "Levincia",
+   "rarity": "None",
+   "illustrator": "MARINA Chikazawa",
+   "image": "https://assets.tcgdex.net/ja/SV/SV9a/092",
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "imageSmall": "https://images.pkmnprices.com/cards/9457b035dd6f6fb7.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/9457b035dd6f6fb7.webp"
+  }
+ ]
+}

@@ -1,0 +1,71 @@
+/* VaultDex — graded cards (Feature 5).
+ * Light/dark safe: everything below reads var()s from css/styles.css.
+ * Loaded after styles.css (see index.html).
+ */
+
+/* Small pill showing the slab, e.g. "PSA 10". Sized to sit next to
+ * .variant-chip on collection tiles and inside the modal <h2>. */
+.grade-badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  color: #1c2333;               /* dark text reads on gold in both themes */
+  background: var(--gold);
+  border: 1px solid rgba(0, 0, 0, 0.14);
+  padding: 3px 8px;
+  border-radius: 999px;
+}
+
+/* Modal title badge: slightly smaller, tucked against the card name. */
+h2 .grade-badge {
+  font-size: 0.62rem;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+/* Collection tile: group the grade badge with the variant chip on the
+ * right side of the space-between price row. */
+.price-chips {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ---- card modal: graded toggle + company/grade fields ---- */
+.field label.grade-check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: normal;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.field label.grade-check input[type="checkbox"] {
+  width: auto;
+  padding: 0;
+  accent-color: var(--accent);
+}
+
+#cm-graded-fields {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+
+#cm-graded-fields[hidden] {
+  display: none;
+}
+
+#cm-grade-value {
+  flex: 1;
+  min-width: 140px;
+}

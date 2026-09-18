@@ -1,0 +1,111 @@
+/* ============================================================
+   VaultDex — wishlist (Feature 2)
+   Heart toggle in the card modal + wishlist view layout.
+   ============================================================ */
+
+/* --- modal heart toggle (next to the title, owner-only) --- */
+.wish-title-row { display: flex; align-items: center; gap: 10px; }
+.wish-title-row h2 { margin: 0; }
+
+.wish-btn {
+  flex: none;
+  width: 38px; height: 38px; border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--surface); color: var(--muted);
+  display: inline-flex; align-items: center; justify-content: center;
+  cursor: pointer; transition: all 0.15s ease;
+}
+.wish-btn:hover { color: var(--accent); border-color: var(--accent); }
+.wish-btn svg {
+  width: 20px; height: 20px;
+  fill: none; stroke: currentColor; stroke-width: 2;
+  transition: all 0.15s ease;
+}
+/* active / wished state */
+.wish-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+.wish-btn.active svg { fill: #fff; stroke: #fff; }
+.wish-btn.active:hover { color: #fff; }
+.wish-btn:disabled { opacity: 0.5; cursor: default; }
+
+/* --- wishlist view --- */
+.wishlist-head {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px; margin: 0 0 16px;
+}
+.wishlist-head h2 { margin: 0; font-size: 1.4rem; }
+.wishlist-count { margin: 2px 0 0; font-size: 0.86rem; color: var(--muted); }
+
+/* remove affordance per wishlist tile (over the art, top-right) */
+.wishlist-tile { position: relative; }
+.wishlist-remove.wishlist-remove {
+  position: absolute; top: 8px; right: 8px; z-index: 3;
+  width: 30px; height: 30px;
+  box-shadow: var(--shadow-sm);
+}
+.wishlist-remove.wishlist-remove svg { width: 13px; height: 13px; }
+
+/* target-price affordance (over the art, top-left) */
+.wishlist-target.wishlist-target {
+  position: absolute; top: 8px; left: 8px; z-index: 3;
+  width: 30px; height: 30px;
+  box-shadow: var(--shadow-sm);
+}
+.wishlist-target.wishlist-target svg { width: 15px; height: 15px; }
+.wishlist-target.has-target { color: var(--accent); border-color: var(--accent); }
+
+/* --- deals section (pinned above the watching grid) --- */
+.deals-section {
+  margin: 0 0 22px;
+  padding: 14px 14px 16px;
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-lg, 14px);
+  background: color-mix(in srgb, var(--accent) 6%, transparent);
+}
+.deals-head { display: flex; align-items: baseline; gap: 10px; margin: 0 0 12px; }
+.deals-head h3 {
+  margin: 0; font-size: 1.05rem;
+  display: inline-flex; align-items: center; gap: 8px;
+  color: var(--accent);
+}
+.deals-head h3 svg { width: 18px; height: 18px; }
+.deals-head p { margin: 0; font-size: 0.82rem; color: var(--muted); }
+.watching-head { margin: 0 0 12px; font-size: 1.05rem; }
+
+/* deal tile: accent ring + hit badge */
+.wishlist-tile.is-deal { outline: 2px solid var(--accent); outline-offset: -2px; }
+.deal-badge {
+  display: inline-flex; align-items: center;
+  font-size: 0.72rem; font-weight: 700;
+  padding: 2px 8px; border-radius: 999px;
+  background: var(--accent); color: #fff;
+  white-space: nowrap;
+}
+
+/* target chip under the price row */
+.target-row { margin-top: 6px; }
+.target-chip {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 0.75rem; color: var(--muted);
+  border: 1px dashed var(--border); border-radius: 999px;
+  padding: 2px 9px;
+}
+.target-chip svg { width: 12px; height: 12px; }
+
+/* --- target editor modal --- */
+.target-editor h3 { margin: 0 0 4px; font-size: 1.15rem; }
+.target-sub { margin: 0 0 16px; font-size: 0.86rem; color: var(--muted); }
+.target-label { display: block; font-size: 0.9rem; font-weight: 600; }
+.target-input-wrap {
+  display: flex; align-items: center; gap: 6px;
+  margin-top: 8px; padding: 10px 12px;
+  border: 1px solid var(--border); border-radius: 10px;
+  background: var(--surface);
+}
+.target-input-wrap:focus-within { border-color: var(--accent); }
+.target-cur { color: var(--muted); font-weight: 600; }
+.target-input-wrap input {
+  flex: 1; border: 0; outline: 0; background: transparent;
+  font-size: 1.1rem; color: inherit; min-width: 0;
+}
+.target-actions { display: flex; align-items: center; margin-top: 16px; }
+.target-spacer { flex: 1; }

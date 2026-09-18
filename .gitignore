@@ -1,0 +1,15 @@
+.vercel
+node_modules/
+__pycache__/
+*.pyc
+
+# Regenerable / operational state — never committed.
+# (Scripts read these from disk on the VM; the deployed site doesn't need them.)
+data/pkmn-cache/
+.snapshot-logs/
+
+# Local secrets (the proxy shared secret lives in ~/workspace/.secrets/).
+.env
+*.env
+
+.DS_Store

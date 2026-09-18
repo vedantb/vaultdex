@@ -1,0 +1,43 @@
+{
+  "headers": [
+    {
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, must-revalidate"
+        }
+      ],
+      "source": "/(.*)"
+    }
+  ],
+  "rewrites": [
+    {
+      "destination": "/index.html",
+      "source": "/login"
+    },
+    {
+      "destination": "/index.html",
+      "source": "/collection"
+    },
+    {
+      "destination": "/index.html",
+      "source": "/browse"
+    },
+    {
+      "destination": "/index.html",
+      "source": "/set/:id"
+    },
+    {
+      "destination": "/index.html",
+      "source": "/wishlist"
+    },
+    {
+      "destination": "/index.html",
+      "source": "/movers"
+    },
+    {
+      "destination": "/index.html",
+      "source": "/trade"
+    }
+  ]
+}
