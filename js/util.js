@@ -64,6 +64,21 @@
     return String(n == null ? "" : n).trim().toLowerCase().replace(/^0+(?=\d)/, "");
   }
 
+  /* Which owned rows count for one set-page variant checkbox. Mirrors
+   * boxChecked: on a single-printing card (or before details load) any
+   * row counts, so a row whose variant label doesn't match the box still
+   * unchecks instead of silently adding a duplicate. Hoisted here from
+   * set-view.js (the checkbox-bug fix, 2026-09-17) so it can be
+   * unit-tested; logic is unchanged.
+   * `rows` are {id, vlabel} collection rows, `box` is {vlabel}, `boxes`
+   * is the tile's full checkbox list. */
+  function matchRows(rows, box, boxes) {
+    rows = rows || [];
+    if (!rows.length) return [];
+    if (!box || box.vlabel === "unknown" || (boxes && boxes.length === 1)) return rows.slice();
+    return rows.filter(function (r) { return r.vlabel === box.vlabel; });
+  }
+
   /* Print-variant labels shown across tiles, modals, and collection rows. */
   var VARIANT_LABELS = {
     normal: "Normal",
@@ -100,6 +115,7 @@
     isJa: isJa,
     fetchWithTimeout: fetchWithTimeout,
     normNumber: normNumber,
+    matchRows: matchRows,
     VARIANT_LABELS: VARIANT_LABELS,
     BUDGETS: BUDGETS,
     topImage: topImage

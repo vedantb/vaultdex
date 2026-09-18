@@ -1,9 +1,10 @@
-# VaultDex CI — Phase 1: lint + syntax gate.
+# VaultDex CI — Phase 1: lint + syntax gate. Phase 2: vitest unit tests.
 #
 # Zero-build vanilla JS, so there is no compiler to catch mistakes before they
 # deploy. This workflow is the deploy gate: every push to main (and every PR)
-# must pass ESLint (recommended rules only) plus plain syntax checks for the
-# JS and Python sources. See eslint.config.mjs for the lint scope.
+# must pass ESLint (recommended rules only), the vitest unit tests for the
+# pure helpers, plus plain syntax checks for the JS and Python sources.
+# See eslint.config.mjs for the lint scope.
 #
 # What is NOT checked here (deliberate, per the code-quality review):
 #   - data/        huge generated JSON catalog — never linted
@@ -34,6 +35,9 @@ jobs:
 
       - name: ESLint (recommended rules)
         run: npx eslint .
+
+      - name: Unit tests (vitest)
+        run: npx vitest run
 
       - name: node --check on all JS
         run: |

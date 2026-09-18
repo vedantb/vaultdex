@@ -6,8 +6,8 @@
  * errors (undefined variables, unused vars, bad regex, unreachable code), not
  * to enforce a code style.
  *
- * Scope: js/ (browser app), api/ (Vercel serverless function), and this file.
- * Explicitly NOT linted:
+ * Scope: js/ (browser app), tests/ (vitest unit tests), api/ (Vercel
+ * serverless function), and the .mjs config files. Explicitly NOT linted:
  *   - data/          huge generated JSON catalog files
  *   - scripts/       Python pipeline (gated by compileall in CI instead)
  *   - js/vendor/     vendored supabase-js bundle — third-party code
@@ -59,13 +59,29 @@ export default [
     },
   },
 
-  // This config file itself (Node ESM).
+  // This config file itself (Node ESM), plus the vitest config (dev only).
   {
-    files: ["eslint.config.mjs"],
+    files: ["eslint.config.mjs", "vitest.config.mjs"],
     languageOptions: {
       ecmaVersion: "latest",
       sourceType: "module",
       globals: { ...globals.node },
+    },
+    rules: {
+      ...js.configs.recommended.rules,
+    },
+  },
+
+  // Vitest unit tests: ESM source importing the plain browser scripts.
+  {
+    files: ["tests/**/*.js"],
+    languageOptions: {
+      ecmaVersion: "latest",
+      sourceType: "module",
+      globals: {
+        ...globals.browser,
+        App: "writable",
+      },
     },
     rules: {
       ...js.configs.recommended.rules,

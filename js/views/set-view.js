@@ -125,21 +125,12 @@
       updateProgress();
     }
 
-    /* Which owned rows count for one checkbox. Mirrors boxChecked: on a
-     * single-printing card (or before details load) any row counts, so a
-     * row whose variant label doesn't match the box still unchecks instead
-     * of silently adding a duplicate. */
-    function matchRows(cardId, box, boxes) {
-      var rows = owned[cardId] || [];
-      if (!rows.length) return [];
-      if (!box || box.vlabel === "unknown" || (boxes && boxes.length === 1)) return rows.slice();
-      return rows.filter(function (r) { return r.vlabel === box.vlabel; });
-    }
-
     /* Is one checkbox lit? A row matches its own variant label; on a
-     * single-printing card (or before details load) any row counts. */
+     * single-printing card (or before details load) any row counts.
+     * matchRows lives in App.util now (hoisted from here so the
+     * checkbox-bug logic can be unit-tested); behavior is unchanged. */
     function boxChecked(cardId, box, boxes) {
-      return matchRows(cardId, box, boxes).length > 0;
+      return App.util.matchRows(owned[cardId], box, boxes).length > 0;
     }
 
     /* Sync every checkbox on a tile (and the tile's owned ring) with `owned`. */
@@ -181,7 +172,7 @@
       toggling[key] = true;
       btn.disabled = true;
       var rows = owned[card.id] || [];
-      var match = matchRows(card.id, box, tile._boxes || []);
+      var match = App.util.matchRows(rows, box, tile._boxes || []);
       var was = match.length > 0;
       var name = displayName(card, box);
       // optimistic UI
