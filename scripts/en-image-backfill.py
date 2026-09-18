@@ -112,15 +112,21 @@ def ledger_today():
 
 
 def pkmn(args):
-    """Run the PkmnPrices CLI; returns parsed JSON. Raises on 429."""
-    p = subprocess.run([sys.executable, CLI] + args, capture_output=True, text=True, timeout=60)
+    """Run the PkmnPrices CLI; returns parsed JSON. Raises on 429.
+
+    NOTE: never substring-match "429" in stdout — valid card payloads
+    contain tcg_player_ids like 242915. A real 429 is the CLI exiting
+    nonzero with "HTTP 429" on stderr.
+    """
+    p = subprocess.run([sys.executable, CLI] + args, capture_output=True, text=True, timeout=120)
     out = (p.stdout or "").strip()
-    if "429" in out or "rate_limit" in out or "HTTP 429" in (p.stderr or ""):
+    err = (p.stderr or "").strip()
+    if p.returncode != 0 and ("HTTP 429" in err or "rate_limit" in err or "rate_limit" in out):
         raise RuntimeError("429")
     try:
         return json.loads(out)
     except Exception:
-        raise RuntimeError("bad response: " + out[:200])
+        raise RuntimeError("bad response: " + (err or out)[:200])
 
 
 def norm_name(s):
