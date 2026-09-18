@@ -1,15 +1,17 @@
 # VaultDex CI — Phase 1: lint + syntax gate. Phase 2: vitest unit tests.
+# Phase 3: Playwright smoke (chromium) against a local static server.
 #
 # Zero-build vanilla JS, so there is no compiler to catch mistakes before they
 # deploy. This workflow is the deploy gate: every push to main (and every PR)
 # must pass ESLint (recommended rules only), the vitest unit tests for the
-# pure helpers, plus plain syntax checks for the JS and Python sources.
-# See eslint.config.mjs for the lint scope.
+# pure helpers, plain syntax checks for the JS and Python sources, and the
+# signed-out smoke tests below. See eslint.config.mjs for the lint scope.
 #
 # What is NOT checked here (deliberate, per the code-quality review):
 #   - data/        huge generated JSON catalog — never linted
 #   - scripts/     Python pipeline — syntax-checked only, no pytest
 #   - js/vendor/   third-party bundle — skipped by eslint, syntax-checked
+#   - no secrets in CI — smoke tests stay signed-out
 name: CI
 
 on:
@@ -49,3 +51,35 @@ jobs:
 
       - name: Python syntax check (scripts)
         run: python3 -m compileall -q scripts
+
+  smoke:
+    # Playwright smoke tests (chromium only), signed-out, against a local
+    # static server. Runs after lint-and-syntax so a cheap failure fails fast.
+    runs-on: ubuntu-latest
+    needs: lint-and-syntax
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dev dependencies
+        run: npm ci
+
+      - name: Install Playwright Chromium
+        # GitHub-hosted runners allow sudo, so --with-deps installs the OS
+        # libraries Chromium needs (libnss3, libatk, ...). Plain
+        # `npx playwright install chromium` would suffice on a machine that
+        # already has them.
+        run: npx playwright install --with-deps chromium
+
+      - name: Start static SPA server
+        # qa/serve-spa.js mirrors the vercel.json rewrites (clean URLs like
+        # /set/<id> fall back to index.html, whose client router renders them).
+        run: node qa/serve-spa.js 8080 &
+
+      - name: Playwright smoke (local server)
+        env:
+          BASE_URL: http://127.0.0.1:8080
+        run: npx playwright test

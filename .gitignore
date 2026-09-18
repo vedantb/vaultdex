@@ -13,3 +13,7 @@ data/pkmn-cache/
 *.env
 
 .DS_Store
+
+# Playwright test artifacts (local/CI runs) — never committed.
+test-results/
+playwright-report/

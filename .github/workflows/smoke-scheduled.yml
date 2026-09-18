@@ -1,0 +1,40 @@
+# VaultDex daily production smoke — deploy drift detector.
+#
+# Same signed-out Playwright smoke spec as CI, but pointed at production
+# (https://vaultdex-three.vercel.app) once a day. Catches drift that the
+# PR gate can't: Vercel rewrites/env changes, catalog data regressions from
+# the weekly refresh, and upstream asset outages.
+#
+# Signed-out only; no secrets anywhere in this workflow.
+name: Daily production smoke
+
+on:
+  schedule:
+    # Daily ~7am PT (14:00 UTC).
+    - cron: "0 14 * * *"
+  workflow_dispatch: {}
+
+jobs:
+  smoke-production:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dev dependencies
+        run: npm ci
+
+      - name: Install Playwright Chromium
+        # GitHub-hosted runners allow sudo, so --with-deps installs the OS
+        # libraries Chromium needs (libnss3, libatk, ...). Plain
+        # `npx playwright install chromium` would suffice on a machine that
+        # already has them.
+        run: npx playwright install --with-deps chromium
+
+      - name: Playwright smoke (production)
+        env:
+          BASE_URL: https://vaultdex-three.vercel.app
+        run: npx playwright test
