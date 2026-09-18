@@ -40,43 +40,73 @@ LEDGER = os.path.join(CACHE, "credit-ledger.json")
 CLI = os.path.expanduser("~/workspace/skills/pkmnprices/bin/pkmnprices.py")
 DAILY_CAP = 16000
 
+# Sets whose card numbers don't align with PkmnPrices numbering — match on
+# exact normalized name instead of number (e.g. Celebrations Classic
+# Collection: ours "CC001", theirs original print numbers; My First
+# Battle: PkmnPrices carries no numbers at all).
+NAME_MATCH = {"cel25cc", "mfb"}
+
+# Per-set manual name aliases (normalized form): ours -> theirs.
+NAME_ALIASES = {
+    "cel25cc": {
+        "gardevoirex": "gardevoirexdeltaspecies",
+        "umbreon": "umbreonstar",  # ours "Umbreon ☆"
+        "donphan": "donphanprime",
+    },
+}
+
 # Our TCGdex set id -> PkmnPrices English set id. Built 2026-09-18 against
-# the PkmnPrices set list; verify with --only if a set looks wrong.
-# Sets with no PkmnPrices equivalent (mfb, ecard3/Skyridge, swsh12tg,
-# swsh11tg, swsh9tg, 30th-c, tk-bw-e, tk-bw-z, 2012bw, 2014xy, 2015xy,
-# tk-ex-m, xya, ex5.5) are absent and skipped.
+# the full PkmnPrices set list (214 sets); the number+name guard validates
+# every match, so a wrong mapping just yields zero fixes.
+# Still no PkmnPrices equivalent (skipped): ex5.5 (Poké Card Creator Pack).
 OVERRIDES = {
     "swsh4.5sv": 468,   # Shining Fates: Shiny Vault
     "mep": 502,         # ME: Mega Evolution Promo
-    "swsh12.5gg": 467,  # Galarian Gallery lives inside SWSH: Crown Zenith
+    "swsh12.5gg": 566,  # SWSH: Crown Zenith: Galarian Gallery (NOT 467)
     "svp": 505,         # SV: Scarlet & Violet Promo Cards
     "swsh10tg": 458,    # SWSH10: Astral Radiance Trainer Gallery
+    "swsh9tg": 526,     # SWSH09: Brilliant Stars Trainer Gallery
+    "swsh11tg": 544,    # SWSH11: Lost Origin Trainer Gallery
+    "swsh12tg": 585,    # SWSH12: Silver Tempest Trainer Gallery
     "exu": 466,         # Unown Collection lives inside Unseen Forces
     "tk-xy-w": 431,     # XY Trainer Kit: Bisharp & Wigglytuff (Wigglytuff half)
     "tk-xy-b": 431,     # XY Trainer Kit: Bisharp & Wigglytuff (Bisharp half)
     "tk-xy-n": 465,     # XY Trainer Kit: Sylveon & Noivern (Noivern half)
     "tk-xy-sy": 465,    # XY Trainer Kit: Sylveon & Noivern (Sylveon half)
     "tk-xy-latia": 515, # XY Trainer Kit: Latias & Latios
-    "cel25cc": 501,     # Celebrations: Classic Collection
+    "cel25cc": 501,     # Celebrations: Classic Collection (name-matched)
     "tk-hs-r": 433,     # HGSS Trainer Kit: Gyarados & Raichu
     "sve": 473,         # SVE: Scarlet & Violet Energies
     "2016xy": 430,      # McDonald's Promos 2016
     "2011bw": 477,      # McDonald's Promos 2011
+    "2012bw": 545,      # McDonald's Promos 2012
+    "2014xy": 583,      # McDonald's Promos 2014
+    "2015xy": 556,      # McDonald's Promos 2015
     "tk-ex-latia": 516, # EX Trainer Kit 1: Latias & Latios
     "tk-ex-latio": 516, # EX Trainer Kit 1: Latias & Latios
+    "tk-ex-m": 553,     # EX Trainer Kit 2: Plusle & Minun
+    "tk-bw-e": 557,     # BW Trainer Kit: Excadrill & Zoroark (Excadrill half)
+    "tk-bw-z": 557,     # BW Trainer Kit: Excadrill & Zoroark (Zoroark half)
     "tk-dp-m": 506,     # DP Trainer Kit: Manaphy & Lucario
     "mee": 425,         # MEE: Mega Evolution Energies
     "hgssp": 472,       # HGSS Promos
     "ecard2": 491,      # Aquapolis
+    "ecard3": 600,      # Skyridge
     "bwp": 514,         # Black and White Promos
+    "swshp": 599,       # SWSH: Sword & Shield Promo Cards
     "cel25": 509,       # Celebrations
-    "bog": 434,         # Best of Game promos live inside Nintendo Promos
+    "bog": 576,         # Best of Promos (NOT 434 Nintendo Promos)
+    "mfb": 554,         # My First Battle
+    "xya": 462,         # Alternate Art Promos (candidate — guard validates)
+    # 30th-c (local-only 30th Classic Collection) has no PkmnPrices
+    # equivalent yet — 1086 "ME: 30th Celebration" is the ME-era set.
 }
 
 
 def norm_num(s):
-    s = str(s or "").strip().upper().lstrip("0")
-    return s or "0"
+    s = re.sub(r"[^A-Z0-9]", "", str(s or "").strip().upper())
+    # strip leading zeros inside every digit run: "BW005"->"BW5", "085"->"85"
+    return re.sub(r"(?<!\d)0+(?=\d)", "", s) or "0"
 
 
 def clean_name(s):
@@ -135,7 +165,13 @@ def norm_name(s):
 
 def names_compatible(a, b):
     na, nb = norm_name(a), norm_name(b)
-    return bool(na and nb) and (na in nb or nb in na)
+    if not na or not nb:
+        return False
+    # containment is too weak for very short names ("N" is inside
+    # "greninjaex") — require equality there
+    if min(len(na), len(nb)) < 4:
+        return na == nb
+    return na in nb or nb in na
 
 
 def set_cache_path(pp_set_id, page):
@@ -254,17 +290,27 @@ def main():
         if pp_cards is None:
             print("rate limit would not clear, stopping cleanly")
             break
-        # index by normalized number for exact matching
+        # index by normalized number for exact matching (plus a name index
+        # for the few sets whose numbering doesn't align with PkmnPrices)
         by_num = {}
+        by_exact_name = {}
         for it in pp_cards:
             by_num.setdefault(norm_num(it.get("number")), []).append(it)
+            by_exact_name.setdefault(norm_name(it.get("name")), []).append(it)
         for c in clist:
-            want = norm_num(c["localId"])
             hit = None
-            for it in by_num.get(want, []):
-                if names_compatible(it.get("name"), c["name"]):
+            if sid in NAME_MATCH:
+                want_name = NAME_ALIASES.get(sid, {}).get(norm_name(c["name"]),
+                                                          norm_name(c["name"]))
+                for it in by_exact_name.get(want_name, []):
                     hit = it
                     break
+            else:
+                want = norm_num(c["localId"])
+                for it in by_num.get(want, []):
+                    if names_compatible(it.get("name"), c["name"]):
+                        hit = it
+                        break
             if not hit or not hit.get("image_url"):
                 skipped += 1
                 continue
