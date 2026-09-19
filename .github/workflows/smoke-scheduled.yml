@@ -37,6 +37,9 @@ jobs:
       - name: Playwright smoke (production)
         # Signed-out spec only: the signed-in suite injects a fake owner
         # session and is local-server-only by design (see qa/signed-in.spec.js).
+        # The upstream-contract spec also runs here (production only): it
+        # asserts the PkmnPrices response shape through the deployed proxy at
+        # ~2 credits/day, catching upstream drift before the Sunday refresh.
         env:
           BASE_URL: https://vaultdex-three.vercel.app
-        run: npx playwright test qa/smoke.spec.js
+        run: npx playwright test qa/smoke.spec.js qa/upstream-contract.spec.js qa/a11y.spec.js

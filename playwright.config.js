@@ -1,4 +1,4 @@
-// VaultDex Playwright config — smoke tests only (chromium, signed-out).
+// VaultDex Playwright config — full QA suite (chromium).
 // Runs against BASE_URL (default: local static server on :8080); the daily
 // scheduled workflow points BASE_URL at production instead. No secrets.
 const { defineConfig } = require("@playwright/test");
