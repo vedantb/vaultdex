@@ -236,7 +236,7 @@
       /* CSS-only crop: oversized art at a random offset inside the frame. */
       var scale = 2.2 + Math.random() * 1.4;
       var maxOff = (scale - 1) * 100;
-      var imgStyle = "width:" + scale.toFixed(2) + "%;" +
+      var imgStyle = "width:" + (scale * 100).toFixed(1) + "%;" +
         "left:" + (-(Math.random() * maxOff)).toFixed(1) + "%;" +
         "top:" + (-(Math.random() * maxOff)).toFixed(1) + "%;";
       stage.innerHTML =
