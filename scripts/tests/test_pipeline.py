@@ -404,5 +404,50 @@ class HiddenSeriesFilterTests(unittest.TestCase):
             self.assertIn(sid, snapshot.POCKET_SET_IDS, sid)
 
 
+class IndexImageOverlayTests(unittest.TestCase):
+    """snapshot_index() overlays per-set backfilled images onto the index.
+
+    Regression: the raw /cards index has no backfilled images, so browse
+    search showed imageless tiles for cards whose set pages had art.
+    """
+
+    def setUp(self):
+        self.tmp = tempfile.mkdtemp(prefix="vd-overlay-")
+        os.makedirs(os.path.join(self.tmp, "sets"))
+        payload = {"cards": [
+            {"id": "s1-001", "image": None,
+             "imageSmall": "https://images.pkmnprices.com/cards/1.webp"},
+            {"id": "s1-002", "image": "https://assets.tcgdex.net/en/s1/2",
+             "imageSmall": None},
+        ]}
+        with open(os.path.join(self.tmp, "sets", "s1.json"), "w") as f:
+            json.dump(payload, f)
+        self.orig_out = snapshot.OUT
+        snapshot.OUT = self.tmp
+
+    def tearDown(self):
+        snapshot.OUT = self.orig_out
+
+    def test_fills_gaps_from_per_set_files(self):
+        cards = [{"id": "s1-001", "image": ""},
+                 {"id": "s1-002", "image": ""},
+                 {"id": "s1-003", "image": ""}]
+        filled = snapshot.overlay_set_images(cards)
+        self.assertEqual(filled, 2)
+        self.assertEqual(cards[0]["image"],
+                         "https://images.pkmnprices.com/cards/1.webp")
+        self.assertEqual(cards[1]["image"],
+                         "https://assets.tcgdex.net/en/s1/2")
+        self.assertEqual(cards[2]["image"], "")
+
+    def test_canonical_index_image_wins(self):
+        cards = [{"id": "s1-001",
+                  "image": "https://assets.tcgdex.net/en/s1/1"}]
+        filled = snapshot.overlay_set_images(cards)
+        self.assertEqual(filled, 0)
+        self.assertEqual(cards[0]["image"],
+                         "https://assets.tcgdex.net/en/s1/1")
+
+
 if __name__ == "__main__":
     unittest.main()

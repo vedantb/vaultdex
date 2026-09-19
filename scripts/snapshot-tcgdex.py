@@ -479,6 +479,47 @@ def is_hidden_card(card, hidden_ids):
     return any(cid == hid or cid.startswith(hid + "-") for hid in hidden_ids)
 
 
+def overlay_set_images(cards):
+    """Fill image gaps in the index from local per-set snapshots.
+
+    The image backfill writes into per-set files; the raw /cards index
+    response carries no such images. Overlay them so browse search shows
+    the same art as set pages. Canonical TCGdex images always win — only
+    gaps are filled — and the overlay re-runs on every snapshot, so the
+    weekly refresh can't wipe backfilled index images.
+    """
+    import os
+    by_id = {}
+    try:
+        files = sorted(f for f in os.listdir(os.path.join(OUT, "sets"))
+                       if f.endswith(".json"))
+    except OSError:
+        files = []
+    for fn in files:
+        try:
+            with open(os.path.join(OUT, "sets", fn)) as f:
+                payload = json.load(f)
+        except Exception:  # noqa: BLE001
+            continue
+        for c in (payload.get("cards") or []):
+            # Backfilled images live in imageSmall/imageLarge; TCGdex's own
+            # image field stays null for those cards.
+            img = c.get("imageSmall") or c.get("imageLarge") or c.get("image")
+            if c.get("id") and img:
+                by_id[c["id"]] = img
+    filled = 0
+    for c in cards:
+        if not (c.get("image") or "").strip():
+            img = by_id.get(c.get("id"))
+            if img:
+                c["image"] = img
+                filled += 1
+    if filled:
+        print("  index: overlaid %d backfilled images from per-set files" % filled,
+              file=sys.stderr)
+    return filled
+
+
 def snapshot_index():
     arr = polite("/cards")
     hidden = hidden_set_ids()
@@ -486,6 +527,7 @@ def snapshot_index():
     dropped = len(arr) - len(kept)
     if dropped:
         print("  index: dropped %d hidden-series cards" % dropped, file=sys.stderr)
+    overlay_set_images(kept)
     write("index.json", kept)
     return len(kept)
 

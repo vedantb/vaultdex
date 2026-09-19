@@ -96,6 +96,10 @@ OVERRIDES = {
     "tk-bw-e": 557,     # BW Trainer Kit: Excadrill & Zoroark (Excadrill half)
     "tk-bw-z": 557,     # BW Trainer Kit: Excadrill & Zoroark (Zoroark half)
     "tk-dp-m": 506,     # DP Trainer Kit: Manaphy & Lucario
+    "tk-dp-l": 506,     # DP Trainer Kit: Manaphy & Lucario (Lucario half)
+    "tk-xy-latio": 515, # XY Trainer Kit: Latias & Latios (Latios half)
+    "tk-hs-g": 433,     # HGSS Trainer Kit: Gyarados & Raichu (Gyarados half)
+    "tk-ex-p": 553,     # EX Trainer Kit 2: Plusle & Minun (Plusle half)
     "mee": 425,         # MEE: Mega Evolution Energies
     "hgssp": 472,       # HGSS Promos
     "ecard2": 491,      # Aquapolis
