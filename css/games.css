@@ -130,6 +130,9 @@
   margin-bottom: 14px;
 }
 .quiz-crop img { position: absolute; max-width: none; }
+/* After answering: the crop opens up to the full card art. */
+.quiz-crop.quiz-revealed { aspect-ratio: auto; max-width: 300px; margin-left: auto; margin-right: auto; }
+.quiz-crop.quiz-revealed img { position: static; width: 100%; display: block; }
 .quiz-options {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -203,6 +206,50 @@
 .cotd-line { font-size: 16px; font-weight: 600; margin: 6px 0 0; }
 .cotd-tomorrow { color: var(--muted); font-size: 14px; margin: 10px 0 0; }
 
+/* ---------- did-you-know facts ---------- */
+.fact-block {
+  margin-top: 18px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.fact-kicker {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.fact-text { margin: 0; font-size: 14px; line-height: 1.55; }
+.fact-text + .fact-text { padding-top: 10px; border-top: 1px dashed var(--border); }
+.fact-shimmer {
+  display: block;
+  height: 14px;
+  border-radius: 7px;
+  background: linear-gradient(90deg, var(--border) 25%, var(--surface) 50%, var(--border) 75%);
+  background-size: 200% 100%;
+  animation: fact-shimmer 1.4s ease-in-out infinite;
+}
+@keyframes fact-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+.cotd-hero-fact {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.cotd-hero-fact:empty { display: none; }
+
 /* ---------- small screens ---------- */
 @media (max-width: 640px) {
   .cotd-hero-art { width: 88px; }
@@ -215,4 +262,5 @@
 
 @media (prefers-reduced-motion: reduce) {
   .hl-card, .quiz-opt { transition: none; }
+  .fact-shimmer { animation: none; }
 }

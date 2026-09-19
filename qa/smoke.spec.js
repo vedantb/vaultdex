@@ -228,6 +228,11 @@ test("signed-out /games/quiz plays one round: zero errors, no overflow", async (
   // The correct option is always marked after answering.
   await expect(page.locator(".quiz-opt.quiz-right")).toHaveCount(1);
   await expect(page.locator("[data-quiz-next]")).toBeVisible();
+  // Answering reveals the full card: the crop opens up and the feedback
+  // names the card + set.
+  await expect(page.locator(".quiz-crop.quiz-revealed")).toBeVisible();
+  await expect(page.locator(".quiz-crop.quiz-revealed img")).not.toHaveAttribute("style", /width:/);
+  await expect(page.locator("[data-quiz-feedback]")).toContainText("·");
 
   await expectNoOverflow(page);
   expect(errors).toEqual([]);
@@ -241,4 +246,14 @@ test("signed-out /games/card-of-the-day renders today's card: zero errors, no ov
   await expect(page.locator(".cotd-art")).toBeVisible();
   // Deterministic date stamp (YYYY-MM-DD).
   await expect(page.locator(".cotd-date")).toHaveText(/\d{4}-\d{2}-\d{2}/);
+  // "Did you know?" facts resolve async (PokéAPI lore + local artist
+  // stats). Lenient by design: when they resolve the block appears with
+  // real text; a flaky network must not fail the suite.
+  const factBlock = await page
+    .waitForSelector(".fact-block:not([hidden])", { timeout: 15000 })
+    .catch(() => null);
+  if (factBlock) {
+    const texts = await page.locator(".fact-text").allTextContents();
+    expect(texts.some((t) => t.trim().length > 0)).toBe(true);
+  }
 });

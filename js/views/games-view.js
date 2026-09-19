@@ -77,6 +77,7 @@
             '<span class="cotd-hero-name">' + App.esc(cardName(c)) + "</span>" +
             '<span class="cotd-hero-meta">' + App.esc(cardSet(c)) + "</span>" +
             '<span class="cotd-hero-line">' + App.esc(funLine(c, items)) + "</span>" +
+            '<span class="cotd-hero-fact" data-hub-fact></span>' +
             '<span class="cotd-hero-cta">See today\u2019s card →</span>' +
           "</div>" +
           (c.image_small ? '<img class="cotd-hero-art" loading="lazy" src="' + App.esc(c.image_small) + '" alt="' + App.esc(cardName(c)) + '">' : "") +
@@ -101,6 +102,21 @@
           '<span class="game-tile-desc">One card picked fresh every day. Same card for everyone, all day.</span>' +
         "</a>" +
       "</div>";
+    /* Compact daily fact on the hub hero: lore or artist, picked by date.
+     * Async and quiet — the line simply stays empty when no fact resolves. */
+    (function fillHubFact() {
+      var FF = window.App.funFacts;
+      var el = body.querySelector("[data-hub-fact]");
+      if (!FF || !el || !daily) return;
+      var useLore = (G().hashStr("vaultdex-hubfact:" + daily.dateStr) % 2) === 0;
+      var p = useLore
+        ? FF.loreFact(cardName(daily.card), daily.dateStr)
+        : FF.artistFactForCard(daily.card.artist, daily.dateStr);
+      p.then(function (t) {
+        if (t) el.textContent = "\uD83D\uDCA1 " + t;
+        else el.remove();
+      });
+    })();
     App.ui.reveal(root);
   };
 
@@ -263,13 +279,23 @@
             b.disabled = true;
             if (options[j].correct) b.classList.add("quiz-right");
           });
+          /* Reveal the full card: drop the oversized random-offset crop so
+           * the whole art shows, and name the card for verification. */
+          var crop = stage.querySelector(".quiz-crop");
+          if (crop) {
+            crop.classList.add("quiz-revealed");
+            var art = crop.querySelector("img");
+            if (art) art.removeAttribute("style");
+            crop.setAttribute("aria-label", "Revealed card art: " + cardName(answer));
+          }
+          var label = cardName(answer) + (cardSet(answer) ? " · " + cardSet(answer) : "");
           if (picked.correct) {
             score++;
-            feedback.textContent = "Correct!";
+            feedback.textContent = "Correct! That was " + label + ".";
             feedback.className = "quiz-feedback quiz-feedback-right";
           } else {
             btn.classList.add("quiz-wrong");
-            feedback.textContent = "That was " + cardName(answer) + ".";
+            feedback.textContent = "That was " + label + ".";
             feedback.className = "quiz-feedback quiz-feedback-wrong";
           }
           feedback.hidden = false;
@@ -338,7 +364,41 @@
           '<p class="cotd-line">' + App.esc(funLine(c, items)) + "</p>" +
           '<p class="cotd-tomorrow">A new card at midnight — come back tomorrow.</p>' +
         "</div>" +
+      "</div>" +
+      '<div class="fact-block" data-fact-block hidden>' +
+        '<p class="fact-kicker">Did you know?</p>' +
+        '<p class="fact-text" data-fact-lore><span class="fact-shimmer" aria-hidden="true"></span></p>' +
+        '<p class="fact-text" data-fact-artist></p>' +
       "</div>";
+    /* Fun facts: lore (PokéAPI, async with shimmer) + artist (catalog
+     * stats). Both fail quiet — the block only appears when at least one
+     * fact resolves. Never blocks the card render. */
+    (function fillFacts() {
+      var FF = window.App.funFacts;
+      if (!FF) return;
+      var block = body.querySelector("[data-fact-block]");
+      var loreEl = body.querySelector("[data-fact-lore]");
+      var artistEl = body.querySelector("[data-fact-artist]");
+      if (!block || !loreEl || !artistEl) return;
+      var shown = 0, loreDone = false, artistDone = false;
+      function maybeShow() {
+        if (!loreDone || !artistDone) return;
+        if (shown > 0) block.hidden = false;
+        else block.remove();
+      }
+      FF.loreFact(cardName(c), daily.dateStr).then(function (t) {
+        loreDone = true;
+        if (t) { loreEl.textContent = t; shown++; }
+        else { loreEl.remove(); }
+        maybeShow();
+      });
+      FF.artistFactForCard(c.artist, daily.dateStr).then(function (t) {
+        artistDone = true;
+        if (t) { artistEl.textContent = t; shown++; }
+        else { artistEl.remove(); }
+        maybeShow();
+      });
+    })();
     App.ui.reveal(root);
   };
 })();
