@@ -137,6 +137,9 @@
           '<div class="field" style="margin-bottom:6px"><label>Illustrated by</label><div style="font-weight:600">' + App.esc(card.artist || "Unknown artist") + "</div></div>" +
           "<h4 style=\"margin:16px 0 8px\">Market prices</h4>" +
           priceHtml +
+          /* Owned copies: filled in by refreshOwnedLine() once the shared
+           * quantity index loads. Public data — shown to visitors too. */
+          '<div class="owned-line" id="cm-owned" aria-live="polite"></div>' +
           (App.auth.isOwner()
             ? (pills ? '<div class="field" style="margin-bottom:10px"><label>Add variant</label><div class="variant-picker">' + pills + "</div></div>" : "") +
               /* Grading (Feature 5): owner-only toggle; checked means this copy
@@ -177,7 +180,41 @@
         "</div>" +
       "</div>";
 
-    var m = App.ui.openModal(html);
+    var unsubOwned = null;
+    var m = App.ui.openModal(html, {
+      onClose: function () {
+        if (unsubOwned) { try { unsubOwned(); } catch { /* ignored */ } unsubOwned = null; }
+      }
+    });
+
+    /* "In your collection" line: total owned copies plus a per-variant
+     * breakdown. Refreshes live after adds and on collection:changed
+     * (e.g. a set-page checkbox toggled behind the modal). */
+    function ownedLineHtml(entry) {
+      if (!entry || !entry.qty) {
+        return '<span class="owned-none">Not in your collection yet</span>';
+      }
+      return "In your collection: <strong>×" + entry.qty + "</strong>" +
+        (entry.variants.length
+          ? ' <span class="owned-breakdown">' + App.esc(App.ownedQty.breakdownText(entry.variants)) + "</span>"
+          : "");
+    }
+    async function refreshOwnedLine() {
+      var box = m.el.querySelector("#cm-owned");
+      if (!box) return;
+      if (!App.ownedQty) { box.innerHTML = ""; return; }
+      try {
+        var entry = await App.ownedQty.getCard(card.id);
+        if (!box.isConnected) return;
+        box.innerHTML = ownedLineHtml(entry);
+      } catch {
+        if (box.isConnected) box.innerHTML = "";
+      }
+    }
+    refreshOwnedLine();
+    if (typeof App.on === "function") {
+      unsubOwned = App.on("collection:changed", function () { refreshOwnedLine(); });
+    }
     /* Pointer-reactive 3D tilt + glare on the card art (+ holo foil for rare
      * cards). Desktop hover only — the art stays flat on touch and when the
      * user prefers reduced motion. */
@@ -277,7 +314,11 @@
           var label = VARIANT_LABELS[selected] || selected;
           App.ui.toast(gradedAddMsg(card, qty, label, grading, res2), "success");
         }
-        m.close();
+        /* Stay open so the "In your collection" line updates live — the
+         * owner can keep adding variants without reopening the modal. */
+        if (App.ownedQty) App.ownedQty.invalidate();
+        await refreshOwnedLine();
+        setQty(1);
       } catch (e) {
         App.handleApiError(e);
         btn.disabled = false;

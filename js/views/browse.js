@@ -31,6 +31,43 @@
     });
   }
 
+  var ownedSub = false;
+  var lastResultsEl = null;
+
+  /* Owned-count badges on search-result tiles, painted from the shared
+   * session-cached quantity index once it loads. Subscribed lazily so the
+   * module works even if app.js (App.on) hasn't executed yet. */
+  function ensureOwnedSub() {
+    if (ownedSub || typeof App.on !== "function") return;
+    ownedSub = true;
+    App.on("collection:changed", function () {
+      if (lastResultsEl) paintOwnedBadges(lastResultsEl);
+    });
+  }
+
+  function paintOwnedBadges(scope) {
+    ensureOwnedSub();
+    if (!App.ownedQty) return;
+    App.ownedQty.getIndex().then(function (map) {
+      scope.querySelectorAll(".card-tile").forEach(function (tile) {
+        if (!tile.isConnected) return; // a newer search already replaced it
+        var entry = map[tile.getAttribute("data-id")];
+        var badge = tile.querySelector(".qty-badge");
+        if (entry && entry.qty > 0) {
+          if (!badge) {
+            badge = document.createElement("span");
+            badge.className = "qty-badge";
+            tile.insertBefore(badge, tile.firstChild);
+          }
+          badge.textContent = "×" + entry.qty;
+          badge.setAttribute("aria-label", entry.qty + (entry.qty === 1 ? " copy" : " copies") + " in your collection");
+        } else if (badge) {
+          badge.remove();
+        }
+      });
+    }).catch(function () { /* badges are decorative: fail quiet */ });
+  }
+
   function bindTiles(root) {
     root.querySelectorAll(".card-tile").forEach(function (tile) {
       function open() { App.openCardModal(tile.getAttribute("data-id"), tile.getAttribute("data-lang") || "en"); }
@@ -133,6 +170,8 @@
         } else {
           resultsEl.innerHTML = '<div class="card-grid">' + state.cards.map(tileHtml).join("") + "</div>";
           bindTiles(resultsEl);
+          lastResultsEl = resultsEl;
+          paintOwnedBadges(resultsEl);
         }
         updateMeta();
         body.querySelector("#load-more-wrap").hidden = state.done || !state.cards.length;

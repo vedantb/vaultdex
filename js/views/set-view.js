@@ -145,18 +145,47 @@
         btns[i].setAttribute("aria-pressed", String(on));
       }
       tile.classList.toggle("owned", anyOwned);
+      paintQtyBadge(tile, cardId);
     }
 
-    /* Which collection rows (ids + variant labels) the user owns for one card. */
+    /* Total owned copies across every variant row for one card. */
+    function tileQty(cardId) {
+      return (owned[cardId] || []).reduce(function (n, r) {
+        return n + (r.qty || 0);
+      }, 0);
+    }
+
+    /* Owned-count badge (top-right, the same .qty-badge the collection
+     * grid uses). Painted from the tile-level `owned` map, so checkbox
+     * toggles update it immediately with no extra query. */
+    function paintQtyBadge(tile, cardId) {
+      var n = tileQty(cardId);
+      var badge = tile.querySelector(".qty-badge");
+      if (n > 0) {
+        if (!badge) {
+          badge = document.createElement("span");
+          badge.className = "qty-badge";
+          badge.setAttribute("aria-label", "Owned copies");
+          tile.insertBefore(badge, tile.firstChild);
+        }
+        badge.textContent = "×" + n;
+        badge.setAttribute("aria-label", n + (n === 1 ? " copy" : " copies") + " in your collection");
+      } else if (badge) {
+        badge.remove();
+      }
+    }
+
+    /* Which collection rows (ids + variant labels + quantities) the user
+     * owns for one card. */
     async function refetchOwnedRows(u, cardId) {
       var res = await App.sb
         .from("collection_items")
-        .select("id,variant")
+        .select("id,variant,quantity")
         .eq("user_id", u.id)
         .eq("card_id", cardId);
       if (res.error) throw res.error;
       return (res.data || []).map(function (r) {
-        return { id: r.id, vlabel: App.tcg.normVLabel(r.variant) };
+        return { id: r.id, vlabel: App.tcg.normVLabel(r.variant), qty: r.quantity || 1 };
       });
     }
 
@@ -178,7 +207,7 @@
       // optimistic UI
       owned[card.id] = was
         ? rows.filter(function (r) { return match.indexOf(r) === -1; })
-        : rows.concat([{ id: "pending", vlabel: box.vlabel }]);
+        : rows.concat([{ id: "pending", vlabel: box.vlabel, qty: 1 }]);
       paintTile(tile);
       try {
         if (was) {
@@ -328,7 +357,7 @@
         var res = await withTimeout(
           App.sb
             .from("collection_items")
-            .select("id,card_id,variant,pkmn_id")
+            .select("id,card_id,variant,pkmn_id,quantity")
             .eq("user_id", u.id)
             .eq("set_id", setId), // appId style ("ja-M4"), as rows are stored
           20000, "owned rows"
@@ -343,7 +372,8 @@
         rows.forEach(function (r) {
           (owned[r.card_id] = owned[r.card_id] || []).push({
             id: r.id,
-            vlabel: App.tcg.normVLabel(r.variant)
+            vlabel: App.tcg.normVLabel(r.variant),
+            qty: r.quantity || 1
           });
         });
         var missing = rows.filter(function (r) { return !r.pkmn_id; });

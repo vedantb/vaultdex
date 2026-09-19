@@ -125,6 +125,53 @@ test.describe("signed-in collection flows (stubbed Supabase)", () => {
     expect(st.pressed[0]).toBe("false");
   });
 
+  test("set-page tile shows ×N badge summing all variant rows; uncheck lowers it", async ({ page }) => {
+    const { db } = await gotoSignedIn(page, SET, [
+      seedRow({ id: 1, card_id: "me02-003", variant: "Holo", quantity: 2 }),
+      seedRow({ id: 2, card_id: "me02-003", variant: "Cosmos Holo", quantity: 1 })
+    ]);
+    await page.waitForSelector('.card-tile[data-id="me02-003"] .variant-check');
+    const badge = page.locator('.card-tile[data-id="me02-003"] .qty-badge');
+    await expect(badge).toHaveText("×3");
+
+    await clickBox(page, "me02-003", 0); // uncheck Holo (both copies live in one row)
+    await expect.poll(() => rowsOf(db).length, { timeout: 10000 }).toBe(1);
+    await expect(badge).toHaveText("×1");
+
+    await clickBox(page, "me02-003", 2); // uncheck Cosmos Holo: badge disappears
+    await expect.poll(() => rowsOf(db).length, { timeout: 10000 }).toBe(0);
+    await expect(badge).toHaveCount(0);
+  });
+
+  test("card modal shows owned count with per-variant breakdown and updates live on add", async ({ page }) => {
+    const { db } = await gotoSignedIn(page, SET, [
+      seedRow({ id: 1, card_id: "me02-001", variant: "Holo", quantity: 2 }),
+      seedRow({ id: 2, card_id: "me02-001", variant: "Reverse Holo", quantity: 1 })
+    ]);
+    await page.waitForSelector('.card-tile[data-id="me02-001"]');
+
+    await page.locator('.card-tile[data-id="me02-001"] .art img').click();
+    await page.waitForSelector("#cm-add", { timeout: 15000 });
+    const line = page.locator("#cm-owned");
+    await expect(line).toContainText("In your collection:");
+    await expect(line).toContainText("×3");
+    await expect(line).toContainText("Holo ×2 · Reverse Holo ×1");
+
+    await page.click("#cm-add"); // modal stays open; the line refreshes live
+    await expect(line).toContainText("×4", { timeout: 10000 });
+    await expect(page.locator("#cm-qty")).toHaveText("1"); // stepper resets
+    expect(rowsOf(db).length).toBeGreaterThan(0);
+  });
+
+  test("card modal shows 'not in your collection yet' for an unowned card", async ({ page }) => {
+    await gotoSignedIn(page, SET);
+    await page.waitForSelector('.card-tile[data-id="me02-001"]');
+
+    await page.locator('.card-tile[data-id="me02-001"] .art img').click();
+    await page.waitForSelector("#cm-add", { timeout: 15000 });
+    await expect(page.locator("#cm-owned")).toContainText("Not in your collection yet");
+  });
+
   test("card modal add saves the chosen quantity as a single row", async ({ page }) => {
     const { db } = await gotoSignedIn(page, SET);
     await page.waitForSelector('.card-tile[data-id="me02-001"]');

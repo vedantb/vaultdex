@@ -274,6 +274,15 @@ main#app { flex: 1; padding: 28px 20px 64px; }
   background: var(--text); color: var(--bg); font-size: 0.75rem; font-weight: 700;
   padding: 4px 10px; border-radius: 999px; box-shadow: var(--shadow-sm);
 }
+/* ---------- "In your collection" line in the card detail modal ---------- */
+.owned-line {
+  font-size: 0.85rem; color: var(--text); background: var(--bg-soft);
+  border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 8px 12px; margin: 12px 0 0;
+}
+.owned-line strong { font-weight: 800; }
+.owned-breakdown { color: var(--muted); font-size: 0.78rem; }
+.owned-none { color: var(--muted); }
 .select-ring { position: absolute; inset: 0; border-radius: var(--radius); border: 3px solid transparent; pointer-events: none; transition: border-color 0.15s ease; z-index: 2; }
 .card-tile.owned .select-ring { border-color: var(--accent); }
 .card-tile.owned { box-shadow: 0 0 0 3px var(--accent-soft), var(--shadow); }
