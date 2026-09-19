@@ -368,5 +368,41 @@ class PipelineLockTests(unittest.TestCase):
             self.assertEqual(cm.exception.code, 2)
 
 
+class HiddenSeriesFilterTests(unittest.TestCase):
+    """TCG Pocket cards must never reach the search index.
+
+    Regression: snapshot_index() used to write the raw /cards response,
+    so Pocket sets (A1 Genetic Apex, B1 Mega Rising, P-A promos, …) leaked
+    into browse search even though the set list hid them.
+    """
+
+    def test_pocket_cards_detected(self):
+        for sid in ("A1", "A1a", "A2b", "A4", "B1", "B1a", "B2", "P-A"):
+            card = {"id": "%s-001" % sid,
+                    "image": "https://assets.tcgdex.net/en/tcgp/%s/001" % sid}
+            self.assertTrue(snapshot.is_hidden_card(card, snapshot.POCKET_SET_IDS),
+                            sid)
+
+    def test_real_cards_kept(self):
+        for cid in ("sv03-035", "swshp-227", "me02-001", "base1-4"):
+            self.assertFalse(
+                snapshot.is_hidden_card({"id": cid}, snapshot.POCKET_SET_IDS),
+                cid)
+
+    def test_prefix_boundary(self):
+        # A1 must not swallow A10-style ids; P-A must not swallow P-AX.
+        self.assertFalse(
+            snapshot.is_hidden_card({"id": "A10-001"}, {"A1"}))
+        self.assertFalse(
+            snapshot.is_hidden_card({"id": "P-AX-001"}, {"P-A"}))
+
+    def test_fallback_covers_known_pocket_sets(self):
+        # The static fallback is the safety net when /series/tcgp is
+        # unreachable — it must name every Pocket set the API lists.
+        for sid in ("A1", "P-A", "A1a", "A2", "A2a", "A2b", "A3", "A3a",
+                    "A3b", "A4", "A4a", "B1", "B1a", "B2", "B2a"):
+            self.assertIn(sid, snapshot.POCKET_SET_IDS, sid)
+
+
 if __name__ == "__main__":
     unittest.main()

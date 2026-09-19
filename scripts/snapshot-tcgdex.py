@@ -63,6 +63,14 @@ LANG = "en"
 # Series excluded from the set lists entirely (not shown in the app).
 HIDDEN_SERIES = {"tcgp"}  # Pokémon TCG Pocket (mobile game)
 
+# Static fallback for the TCG Pocket set ids, used only if the live
+# /series/tcgp lookup fails — so the Pocket filter never silently lapses.
+POCKET_SET_IDS = frozenset({
+    "A1", "A1a", "A2", "A2a", "A2b",
+    "A3", "A3a", "A3b", "A4", "A4a",
+    "B1", "B1a", "B2", "B2a", "P-A",
+})
+
 # Explicit era order, newest first. The /series list order is chronological
 # for English but not for Japanese, so eras are ranked from these lists
 # (any series missing from the list lands at the end, in API order).
@@ -445,10 +453,41 @@ def snapshot_sets():
     return [s["id"] for s in out if s["id"] not in custom_ids]
 
 
+def hidden_set_ids():
+    """Set ids belonging to hidden series (e.g. TCG Pocket).
+
+    Derived live from the API like the set-list builder does, with a static
+    fallback so a failed lookup can't silently re-admit Pocket cards.
+    """
+    ids = set()
+    for sid in HIDDEN_SERIES:
+        try:
+            detail = polite("/series/" + sid) or {}
+            ids.update(s.get("id") for s in (detail.get("sets") or []))
+        except Exception as e:  # noqa: BLE001
+            print("  !! /series/%s failed: %r" % (sid, e), file=sys.stderr)
+    if not ids:
+        print("  !! hidden-series lookup empty, using static POCKET_SET_IDS fallback",
+              file=sys.stderr)
+        ids = set(POCKET_SET_IDS)
+    return ids
+
+
+def is_hidden_card(card, hidden_ids):
+    """True when a /cards index entry belongs to a hidden set."""
+    cid = card.get("id") or ""
+    return any(cid == hid or cid.startswith(hid + "-") for hid in hidden_ids)
+
+
 def snapshot_index():
     arr = polite("/cards")
-    write("index.json", arr)
-    return len(arr)
+    hidden = hidden_set_ids()
+    kept = [c for c in arr if not is_hidden_card(c, hidden)]
+    dropped = len(arr) - len(kept)
+    if dropped:
+        print("  index: dropped %d hidden-series cards" % dropped, file=sys.stderr)
+    write("index.json", kept)
+    return len(kept)
 
 
 def preserve_backfilled_images(payload, rel):
