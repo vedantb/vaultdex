@@ -422,6 +422,32 @@
       .eq("id", id)
       .eq("user_id", u.id);
     if (res.error) throw res.error;
+    /* Views (tile badges, owned-count lines) refresh off this event — the
+     * card modal's live stepper writes through setQuantity, so it must
+     * emit just like addItem/remove do. */
+    var cardId = null;
+    try {
+      var lk = await App.sb.from("collection_items").select("card_id").eq("id", id).eq("user_id", u.id).maybeSingle();
+      if (lk.data) cardId = lk.data.card_id;
+    } catch { /* best effort; views fall back to a full refresh */ }
+    App.emit("collection:changed", { cardId: cardId });
+    return true;
+  }
+
+  /* Undo support for the card modal's live stepper: re-inserts a previously
+   * removed row verbatim (original quantity, pricing, pkmn_id, slab) instead
+   * of re-adding it through addItem, which would re-resolve prices. The
+   * snapshot is a row object as selected from collection_items; the id is
+   * dropped so the database assigns a fresh one. */
+  async function restoreRow(snapshot) {
+    var u = needUser();
+    if (!u) return false;
+    var row = Object.assign({}, snapshot);
+    delete row.id;
+    row.user_id = u.id;
+    var ins = await App.sb.from("collection_items").insert(row);
+    if (ins.error) throw ins.error;
+    App.emit("collection:changed", { cardId: row.card_id || null });
     return true;
   }
 
@@ -614,6 +640,7 @@
     bulkAdd: bulkAdd,
     setQuantity: setQuantity,
     remove: remove,
+    restoreRow: restoreRow,
     refreshPrices: refreshPrices,
     recordValueSnapshot: recordValueSnapshot,
     valueHistory: valueHistory,

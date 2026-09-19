@@ -143,49 +143,103 @@ test.describe("signed-in collection flows (stubbed Supabase)", () => {
     await expect(badge).toHaveCount(0);
   });
 
-  test("card modal shows owned count with per-variant breakdown and updates live on add", async ({ page }) => {
+  test("card modal stepper shows owned qty for the selected variant; + bumps it live", async ({ page }) => {
     const { db } = await gotoSignedIn(page, SET, [
-      seedRow({ id: 1, card_id: "me02-001", variant: "Holo", quantity: 2 }),
+      seedRow({ id: 1, card_id: "me02-001", variant: "Normal", quantity: 2 }),
       seedRow({ id: 2, card_id: "me02-001", variant: "Reverse Holo", quantity: 1 })
     ]);
     await page.waitForSelector('.card-tile[data-id="me02-001"]');
 
     await page.locator('.card-tile[data-id="me02-001"] .art img').click();
-    await page.waitForSelector("#cm-add", { timeout: 15000 });
+    await page.waitForSelector("#cm-minus", { timeout: 15000 });
     const line = page.locator("#cm-owned");
     await expect(line).toContainText("In your collection:");
     await expect(line).toContainText("×3");
-    await expect(line).toContainText("Holo ×2 · Reverse Holo ×1");
+    await expect(line).toContainText("Normal ×2 · Reverse Holo ×1");
 
-    await page.click("#cm-add"); // modal stays open; the line refreshes live
-    await expect(line).toContainText("×4", { timeout: 10000 });
-    await expect(page.locator("#cm-qty")).toHaveText("1"); // stepper resets
-    expect(rowsOf(db).length).toBeGreaterThan(0);
-  });
-
-  test("card modal shows 'not in your collection yet' for an unowned card", async ({ page }) => {
-    await gotoSignedIn(page, SET);
-    await page.waitForSelector('.card-tile[data-id="me02-001"]');
-
-    await page.locator('.card-tile[data-id="me02-001"] .art img').click();
-    await page.waitForSelector("#cm-add", { timeout: 15000 });
-    await expect(page.locator("#cm-owned")).toContainText("Not in your collection yet");
-  });
-
-  test("card modal add saves the chosen quantity as a single row", async ({ page }) => {
-    const { db } = await gotoSignedIn(page, SET);
-    await page.waitForSelector('.card-tile[data-id="me02-001"]');
-
-    await page.locator('.card-tile[data-id="me02-001"] .art img').click();
-    await page.waitForSelector("#cm-add", { timeout: 15000 });
+    // Default pill is the first printing ("Normal") — the stepper binds its row.
+    await expect(page.locator("#cm-qty")).toHaveText("2", { timeout: 10000 });
+    await expect(page.locator("#cm-own-label")).toContainText("Normal");
 
     await page.click("#cm-plus");
-    await expect(page.locator("#cm-qty")).toHaveText("2");
-    await page.click("#cm-add");
+    await expect(page.locator("#cm-qty")).toHaveText("3", { timeout: 10000 });
+    await expect(line).toContainText("×4", { timeout: 10000 });
+    const normal = rowsOf(db).find(r => r.card_id === "me02-001" && r.variant === "Normal");
+    expect(normal.quantity).toBe(3);
+  });
 
+  test("card modal - at 1 removes the row; Undo restores it", async ({ page }) => {
+    const { db } = await gotoSignedIn(page, SET, [
+      seedRow({ id: 1, card_id: "me02-001", variant: "Normal", quantity: 1 })
+    ]);
+    await page.waitForSelector('.card-tile[data-id="me02-001"]');
+
+    await page.locator('.card-tile[data-id="me02-001"] .art img').click();
+    await page.waitForSelector("#cm-minus", { timeout: 15000 });
+    await expect(page.locator("#cm-qty")).toHaveText("1", { timeout: 10000 });
+
+    await page.click("#cm-minus");
+    await expect.poll(() => rowsOf(db).length, { timeout: 10000 }).toBe(0);
+
+    // Click Undo promptly: the toast auto-dismisses after a few seconds.
+    const undo = page.locator(".toast-action");
+    await expect(undo).toBeVisible({ timeout: 10000 });
+    await undo.click();
     await expect.poll(() => rowsOf(db).length, { timeout: 10000 }).toBe(1);
-    expect(rowsOf(db)[0].card_id).toBe("me02-001");
-    expect(rowsOf(db)[0].quantity).toBe(2);
+    expect(rowsOf(db)[0].quantity).toBe(1);
+
+    await expect(page.locator("#cm-qty")).toHaveText("1", { timeout: 10000 });
+    await expect(page.locator("#cm-owned")).toContainText("×1");
+  });
+
+  test("card modal - on an unowned variant does nothing; switching pills rebinds", async ({ page }) => {
+    const { db } = await gotoSignedIn(page, SET, [
+      seedRow({ id: 1, card_id: "me02-001", variant: "Normal", quantity: 2 }),
+      seedRow({ id: 2, card_id: "me02-001", variant: "Reverse Holo", quantity: 5 })
+    ]);
+    await page.waitForSelector('.card-tile[data-id="me02-001"]');
+
+    await page.locator('.card-tile[data-id="me02-001"] .art img').click();
+    await page.waitForSelector("#cm-minus", { timeout: 15000 });
+
+    // "Cosmos Holo" is unowned: the stepper shows 0 and - is disabled.
+    await page.locator(".variant-pill", { hasText: /^Cosmos Holo$/ }).click();
+    await expect(page.locator("#cm-qty")).toHaveText("0", { timeout: 10000 });
+    await expect(page.locator("#cm-own-label")).toContainText("not owned yet");
+    await expect(page.locator("#cm-minus")).toBeDisabled();
+
+    await page.locator(".variant-pill", { hasText: /^Reverse Holo$/ }).click();
+    await expect(page.locator("#cm-qty")).toHaveText("5", { timeout: 10000 });
+    await expect(page.locator("#cm-own-label")).toContainText("Reverse Holo");
+
+    await page.click("#cm-plus");
+    await expect(page.locator("#cm-qty")).toHaveText("6", { timeout: 10000 });
+    const rh = rowsOf(db).find(r => r.variant === "Reverse Holo");
+    expect(rh.quantity).toBe(6);
+    // The Normal row was untouched.
+    expect(rowsOf(db).find(r => r.variant === "Normal").quantity).toBe(2);
+
+    // + on an unowned variant creates the row at 1 (same lazy-match add path
+    // as the old add flow; pricing is stubbed to null in this suite).
+    await page.locator(".variant-pill", { hasText: /^Cosmos Holo$/ }).click();
+    await page.click("#cm-plus");
+    await expect(page.locator("#cm-qty")).toHaveText("1", { timeout: 10000 });
+    await expect.poll(() => rowsOf(db).length, { timeout: 10000 }).toBe(3);
+    expect(rowsOf(db).find(r => r.variant === "Cosmos Holo").quantity).toBe(1);
+  });
+
+  test("set-page tile badge updates when the modal stepper changes quantity", async ({ page }) => {
+    await gotoSignedIn(page, SET, [
+      seedRow({ id: 1, card_id: "me02-001", variant: "Normal", quantity: 1 })
+    ]);
+    const badge = page.locator('.card-tile[data-id="me02-001"] .qty-badge');
+    await expect(badge).toContainText("×1", { timeout: 15000 });
+
+    await page.locator('.card-tile[data-id="me02-001"] .art img').click();
+    await page.waitForSelector("#cm-minus", { timeout: 15000 });
+    await expect(page.locator("#cm-qty")).toHaveText("1", { timeout: 10000 });
+    await page.click("#cm-plus");
+    await expect(badge).toContainText("×2", { timeout: 10000 });
   });
 
   test("signed-in /trophies renders the owner's badge grid (owner-only view)", async ({ page }) => {

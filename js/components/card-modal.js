@@ -10,15 +10,6 @@
    * resting state is stroke-only; CSS fills it when .active. */
   var HEART_SVG = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>';
 
-  /* Toast text for the add flow. Graded copies name the slab; when grading
-   * was requested but only the raw Near Mint price was available, say so. */
-  function gradedAddMsg(card, qty, variantLabel, grading, res) {
-    var gLabel = grading ? " " + grading.company + " " + grading.grade : "";
-    var note = (grading && res && res.priceSource && res.priceSource !== "pkmnprices-graded")
-      ? " Graded price unavailable — showing Near Mint raw." : "";
-    return "Added " + qty + "× " + card.name + " (" + variantLabel + gLabel + ") to your collection." + note;
-  }
-
   function priceRow(label, p) {
     return (
       "<tr><td>" + App.esc(label) + "</td>" +
@@ -71,6 +62,29 @@
     if (!r || r === "rare") return false;
     return /holo|double rare|ultra rare|illustration|hyper|secret|amazing|radiant|shiny|prism|ace spec/.test(r);
   }
+
+  /* Row identity for the live stepper: (normalized variant label, pkmn_id,
+   * grading company, grade) — mirrors addItem's duplicate check in
+   * js/collection.js so the stepper always binds the exact row addItem
+   * would bump. Pure; exposed on App.cardModal for unit tests. */
+  function normVLabel(v) {
+    if (App.tcg && App.tcg.normVLabel) return App.tcg.normVLabel(v);
+    return String(v || "").toLowerCase().replace(/[^a-z0-9]/g, "");
+  }
+  function findBoundRow(rows, variantLabel, pkmnId, grading) {
+    var wantV = normVLabel(variantLabel);
+    var gC = (grading && grading.company) || null;
+    var gG = (grading && grading.grade) || null;
+    var cands = (rows || []).filter(function (r) {
+      return normVLabel(r.variant) === wantV &&
+        (r.grading_company || null) === gC && (r.grade || null) === gG;
+    });
+    if (!cands.length) return null;
+    if (cands.length === 1) return cands[0];
+    var wantP = pkmnId || null;
+    return cands.filter(function (r) { return (r.pkmn_id || null) === wantP; })[0] || cands[0];
+  }
+  App.cardModal = { findBoundRow: findBoundRow };
 
   function render(card) {
     var tcgVars = App.tcg.variantsOf(card);
@@ -141,7 +155,7 @@
            * quantity index loads. Public data — shown to visitors too. */
           '<div class="owned-line" id="cm-owned" aria-live="polite"></div>' +
           (App.auth.isOwner()
-            ? (pills ? '<div class="field" style="margin-bottom:10px"><label>Add variant</label><div class="variant-picker">' + pills + "</div></div>" : "") +
+            ? (pills ? '<div class="field" style="margin-bottom:10px"><label>Variant</label><div class="variant-picker">' + pills + "</div></div>" : "") +
               /* Grading (Feature 5): owner-only toggle; checked means this copy
                * is a PSA slab — pick the grade from the dropdown. At add time
                * the price comes from exact PSA+grade eBay sold comps when
@@ -163,13 +177,16 @@
                   "</select>" +
                 "</div>" +
               "</div>" +
-              '<div class="add-row">' +
-                '<div class="stepper" role="group" aria-label="Quantity">' +
-                  '<button id="cm-minus" aria-label="Decrease quantity">' + App.ui.icon("minus") + "</button>" +
-                  '<span class="qty" id="cm-qty">1</span>' +
-                  '<button id="cm-plus" aria-label="Increase quantity">' + App.ui.icon("plus") + "</button>" +
+              /* Live owned-quantity stepper: bound to the owned row for the
+               * currently selected variant (or graded slab). [+] grows the
+               * row, [-] shrinks it; [-] at 1 removes the row with Undo.
+               * The context label always names what the stepper edits. */
+              '<div class="field" style="margin-bottom:10px"><label id="cm-own-label">Owned</label>' +
+                '<div class="stepper" role="group" aria-label="Owned quantity">' +
+                  '<button id="cm-minus" aria-label="Remove one copy">' + App.ui.icon("minus") + "</button>" +
+                  '<span class="qty" id="cm-qty">0</span>' +
+                  '<button id="cm-plus" aria-label="Add one copy">' + App.ui.icon("plus") + "</button>" +
                 "</div>" +
-                '<button class="btn btn-primary" id="cm-add">' + App.ui.icon("plus") + " Add to collection</button>" +
               "</div>"
             : '<p style="font-size:0.85rem;color:var(--muted);margin:12px 0 0">Only the owner can add to this collection.</p>') +
           '<p style="font-size:0.78rem;color:var(--muted);margin:12px 0 0">' +
@@ -213,7 +230,15 @@
     }
     refreshOwnedLine();
     if (typeof App.on === "function") {
-      unsubOwned = App.on("collection:changed", function () { refreshOwnedLine(); });
+      /* Also rebinds the live stepper (function declarations are hoisted,
+       * so refreshOwnedRows/paintStepper exist by the time this fires) —
+       * e.g. a set-page checkbox toggled behind the modal. */
+      unsubOwned = App.on("collection:changed", function () {
+        refreshOwnedLine();
+        refreshOwnedRows().then(function () {
+          if (m.el.isConnected) paintStepper();
+        }, function () { /* keep last known state */ });
+      });
     }
     /* Pointer-reactive 3D tilt + glare on the card art (+ holo foil for rare
      * cards). Desktop hover only — the art stays flat on touch and when the
@@ -244,14 +269,160 @@
     // Non-owner viewers: read-only card details, no add controls.
     if (!m.el.querySelector("#cm-minus")) { refreshJaPrice(m, card, isJa, function () { return selectedBox; }); return; }
     refreshJaPrice(m, card, isJa, function () { return selectedBox; });
-    var qty = 1;
 
-    function setQty(n) {
-      qty = Math.max(1, Math.min(99, n));
-      m.el.querySelector("#cm-qty").textContent = qty;
+    /* Live owned-quantity stepper. ownedRows holds this card's full
+     * collection rows so +/- can write through setQuantity/remove and the
+     * Undo toast can restore a removed row verbatim. Writes serialize
+     * through a promise chain so rapid taps can't corrupt quantities. */
+    var ownedRows = [];
+    var writing = false;
+    var writeChain = Promise.resolve();
+
+    function currentGrading() {
+      // Grading (Feature 5): { company, grade } or null. Company is always
+      // PSA; the grade comes from the dropdown.
+      var gt = m.el.querySelector("#cm-graded-toggle");
+      if (gt && gt.checked) {
+        var gv = m.el.querySelector("#cm-grade-value");
+        var gGrade = gv ? gv.value : "";
+        if (gGrade) return { company: "PSA", grade: gGrade };
+      }
+      return null;
     }
-    m.el.querySelector("#cm-minus").addEventListener("click", function () { setQty(qty - 1); });
-    m.el.querySelector("#cm-plus").addEventListener("click", function () { setQty(qty + 1); });
+    function currentVariantLabel() {
+      if (selectedBox) return selectedBox.label;
+      return VARIANT_LABELS[selected] || selected;
+    }
+    function boundRow(pkmnId) {
+      return findBoundRow(ownedRows, currentVariantLabel(), pkmnId || null, currentGrading());
+    }
+    async function refreshOwnedRows() {
+      var u = App.auth && App.auth.user;
+      if (!u) { ownedRows = []; return ownedRows; }
+      var res = await App.sb.from("collection_items").select("*")
+        .eq("user_id", u.id)
+        .eq("card_id", card.id);
+      if (res.error) throw res.error;
+      ownedRows = res.data || [];
+      return ownedRows;
+    }
+    function stepperLabel(row) {
+      var grading = currentGrading();
+      var ctx = grading ? grading.company + " " + grading.grade : currentVariantLabel();
+      if (row && row.quantity > 0) return ctx + " · ×" + row.quantity + " owned";
+      return ctx + " · not owned yet";
+    }
+    function paintStepper() {
+      var qtyEl = m.el.querySelector("#cm-qty");
+      var labelEl = m.el.querySelector("#cm-own-label");
+      var minus = m.el.querySelector("#cm-minus");
+      var plus = m.el.querySelector("#cm-plus");
+      if (!qtyEl) return;
+      var row = boundRow(null);
+      var q = row ? row.quantity : 0;
+      qtyEl.textContent = q;
+      if (labelEl) labelEl.textContent = stepperLabel(row);
+      if (minus) minus.disabled = writing || q <= 0;
+      if (plus) plus.disabled = writing;
+    }
+    /* Lazy exact PkmnPrices match for the chosen printing (a few credits) —
+     * only when creating a brand-new row; bumps never re-resolve pricing.
+     * A miss still saves the card and the next price refresh fills it in. */
+    async function resolvePkmn() {
+      if (!selectedBox) return null;
+      try {
+        var pm = await App.pkmn.findVariantPrice({
+          name: card.name,
+          setName: card.set && card.set.name,
+          number: card.number,
+          lang: (card.set && card.set.lang) || "en",
+          pkmnLabel: selectedBox.pkmnLabel,
+          priceVariant: selectedBox.priceVariant
+        });
+        if (pm && pm.pkmnId) return pm;
+      } catch (e) {
+        console.warn("[VaultDex] PkmnPrices variant match failed:", e && e.message);
+      }
+      return null;
+    }
+    function showUndo(vlabel, grading, snapshot) {
+      var gLabel = grading ? " " + grading.company + " " + grading.grade : "";
+      App.ui.toast("Removed " + card.name + " (" + vlabel + gLabel + ") from your collection.", "info", {
+        label: "Undo",
+        ms: 6000,
+        onClick: function () {
+          enqueue(async function () {
+            await App.collection.restoreRow(snapshot);
+            await afterWrite();
+          });
+        }
+      });
+    }
+    async function afterWrite() {
+      /* setQuantity/remove/addItem all emit collection:changed, which
+       * invalidates the shared owned-qty index and repaints tile badges;
+       * refresh our local rows + both live readouts here. */
+      await refreshOwnedRows();
+      if (App.ownedQty) App.ownedQty.invalidate();
+      await refreshOwnedLine();
+    }
+    async function doAdjust(delta) {
+      if (!App.collection.needUser()) return;
+      var grading = currentGrading();
+      var vlabel = currentVariantLabel();
+      await refreshOwnedRows();
+      var row = boundRow(null);
+      if (delta > 0) {
+        if (row) {
+          await App.collection.setQuantity(row.id, row.quantity + 1);
+        } else {
+          var pm = await resolvePkmn();
+          /* Re-check with the resolved pkmn_id: a row for this exact
+           * printing may already exist under a different label spelling. */
+          await refreshOwnedRows();
+          row = boundRow(pm ? pm.pkmnId : null);
+          if (row) {
+            await App.collection.setQuantity(row.id, row.quantity + 1);
+          } else {
+            await App.collection.addItem(card, vlabel, 1, pm ? {
+              pkmnId: pm.pkmnId,
+              label: vlabel,
+              resolved: pm
+            } : null, grading);
+          }
+        }
+      } else {
+        if (!row) return;
+        if (row.quantity > 1) {
+          await App.collection.setQuantity(row.id, row.quantity - 1);
+        } else {
+          var snapshot = Object.assign({}, row);
+          await App.collection.remove(row.id);
+          showUndo(vlabel, grading, snapshot);
+        }
+      }
+      await afterWrite();
+    }
+    function enqueue(fn) {
+      writeChain = writeChain.then(function () {
+        writing = true;
+        paintStepper();
+        return fn();
+      }).catch(function (err) {
+        App.handleApiError(err);
+      }).then(function () {
+        writing = false;
+        if (m.el.isConnected) paintStepper();
+      });
+      return writeChain;
+    }
+    m.el.querySelector("#cm-minus").addEventListener("click", function () { enqueue(function () { return doAdjust(-1); }); });
+    m.el.querySelector("#cm-plus").addEventListener("click", function () { enqueue(function () { return doAdjust(1); }); });
+    function rebindStepper() {
+      /* Variant pills and the grading controls choose which row the
+       * stepper edits — repaint the binding instantly. */
+      if (m.el.isConnected) paintStepper();
+    }
     m.el.querySelectorAll(".variant-pill").forEach(function (btn) {
       btn.addEventListener("click", function () {
         m.el.querySelectorAll(".variant-pill").forEach(function (b) { b.classList.remove("active"); });
@@ -265,67 +436,30 @@
           selected = btn.getAttribute("data-variant");
         }
         refreshJaPrice(m, card, isJa, function () { return selectedBox; });
+        rebindStepper();
       });
     });
     var gradeToggle = m.el.querySelector("#cm-graded-toggle");
     var gradeFields = m.el.querySelector("#cm-graded-fields");
+    var gradeValue = m.el.querySelector("#cm-grade-value");
     if (gradeToggle && gradeFields) {
-      gradeToggle.addEventListener("change", function () { gradeFields.hidden = !gradeToggle.checked; });
+      gradeToggle.addEventListener("change", function () {
+        gradeFields.hidden = !gradeToggle.checked;
+        rebindStepper();
+      });
     }
-    m.el.querySelector("#cm-add").addEventListener("click", async function () {
-      if (!App.collection.needUser()) return;
-      var btn = m.el.querySelector("#cm-add");
-      btn.disabled = true;
-      // Grading (Feature 5): { company, grade } or null. Company is always
-      // PSA; the grade comes from the dropdown.
-      var grading = null;
-      var gt = m.el.querySelector("#cm-graded-toggle");
-      if (gt && gt.checked) {
-        var gv = m.el.querySelector("#cm-grade-value");
-        var gGrade = gv ? gv.value : "";
-        if (gGrade) grading = { company: "PSA", grade: gGrade };
-      }
-      try {
-        if (selectedBox) {
-          // Lazy exact PkmnPrices match for the chosen printing (a few credits).
-          var pm = null;
-          try {
-            pm = await App.pkmn.findVariantPrice({
-              name: card.name,
-              setName: card.set && card.set.name,
-              number: card.number,
-              lang: (card.set && card.set.lang) || "en",
-              pkmnLabel: selectedBox.pkmnLabel,
-              priceVariant: selectedBox.priceVariant
-            });
-          } catch (e) {
-            console.warn("[VaultDex] PkmnPrices variant match failed:", e && e.message);
-          }
-          // Pricing resolves quietly in the background: a miss here still
-          // saves the card, and the next price refresh fills it in.
-          var res = await App.collection.addItem(card, selectedBox.label, qty, {
-            pkmnId: pm ? pm.pkmnId : null,
-            label: selectedBox.label,
-            resolved: pm
-          }, grading);
-          App.ui.toast(gradedAddMsg(card, qty, selectedBox.label, grading, res), "success");
-        } else {
-          var res2 = await App.collection.addItem(card, selected, qty, null, grading);
-          var label = VARIANT_LABELS[selected] || selected;
-          App.ui.toast(gradedAddMsg(card, qty, label, grading, res2), "success");
-        }
-        /* Stay open so the "In your collection" line updates live — the
-         * owner can keep adding variants without reopening the modal. */
-        if (App.ownedQty) App.ownedQty.invalidate();
-        await refreshOwnedLine();
-        setQty(1);
-      } catch (e) {
-        App.handleApiError(e);
-        btn.disabled = false;
-      }
+    if (gradeValue) {
+      gradeValue.addEventListener("change", rebindStepper);
+    }
+    /* Keep the stepper in sync when the collection changes behind the
+     * modal — handled by the collection:changed subscription above. */
+    refreshOwnedRows().then(function () {
+      if (m.el.isConnected) paintStepper();
+    }, function (e) {
+      console.warn("[VaultDex] owned rows failed:", e && e.message);
     });
     /* Wishlist heart (owner-only): toggles this card for the currently
-     * selected variant pill. Fully separate from the add flow above —
+     * selected variant pill. Fully separate from the stepper flow above —
      * neither can break the other. */
     (function () {
       var wishBtn = m.el.querySelector("#cm-wish");

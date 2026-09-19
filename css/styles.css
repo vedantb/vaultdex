@@ -687,6 +687,15 @@ main#app { flex: 1; padding: 28px 20px 64px; }
 .toast.info { border-left: 4px solid var(--blue); }
 .toast.out { opacity: 0; transform: translateY(8px); transition: all 0.3s ease; }
 @keyframes slideUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+/* Optional action button inside a toast (e.g. Undo). Inherits the toast's
+ * inverted palette; the accent underline marks it as tappable. */
+.toast-action {
+  margin-left: auto; flex: none; background: none; border: none; cursor: pointer;
+  color: var(--bg); font: inherit; font-weight: 800; text-decoration: underline;
+  text-underline-offset: 3px; padding: 6px 4px; border-radius: 8px;
+}
+.toast-action:hover { color: var(--accent); }
+.toast-action:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
 /* ---------- footer ---------- */
 .site-footer { border-top: 1px solid var(--border); padding: 30px 0 40px; margin-top: auto; background: var(--surface-2); }

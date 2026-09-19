@@ -36,17 +36,35 @@
   function icon(name) { return icons[name] || ""; }
 
   /* ---------- toasts ---------- */
-  function toast(msg, type) {
+  /* opts (optional): { label, onClick, ms } renders an action button
+   * (e.g. Undo) inside the toast. Fully backward compatible — existing
+   * two-argument calls are unchanged. */
+  function toast(msg, type, opts) {
     type = type || "info";
     var root = document.getElementById("toast-root");
     var el = document.createElement("div");
     el.className = "toast " + type;
     el.innerHTML = "<span>" + esc(msg) + "</span>";
-    root.appendChild(el);
-    setTimeout(function () {
+    var dismissed = false;
+    function dismiss() {
+      if (dismissed) return;
+      dismissed = true;
       el.classList.add("out");
       setTimeout(function () { el.remove(); }, 350);
-    }, 3600);
+    }
+    if (opts && opts.label && typeof opts.onClick === "function") {
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "toast-action";
+      btn.textContent = opts.label;
+      btn.addEventListener("click", function () {
+        dismiss();
+        try { opts.onClick(); } catch (e) { console.warn("[VaultDex] toast action failed:", e && e.message); }
+      });
+      el.appendChild(btn);
+    }
+    root.appendChild(el);
+    setTimeout(dismiss, (opts && opts.ms) || 3600);
   }
 
   /* ---------- modal ---------- */
