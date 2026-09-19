@@ -195,7 +195,7 @@
   async function list() {
     var u = needUser();
     if (!u) return null;
-    return fetchAllPages(function (from, to) {
+    var rows = await fetchAllPages(function (from, to) {
       return App.sb
         .from("collection_items")
         .select("*")
@@ -203,6 +203,8 @@
         .order("added_at", { ascending: false })
         .range(from, to);
     });
+    await backfillRowImages(rows, true);
+    return rows;
   }
 
   /* Public read for signed-out visitors: the owner's collection only.
@@ -212,7 +214,7 @@
   async function listPublic() {
     var ownerId = (window.APP_CONFIG && window.APP_CONFIG.OWNER_USER_ID) || "";
     if (!ownerId || ownerId.indexOf("00000000") === 0) return [];
-    return fetchAllPages(function (from, to) {
+    var rows = await fetchAllPages(function (from, to) {
       return App.sb
         .from("collection_items")
         .select("*")
@@ -220,6 +222,9 @@
         .order("added_at", { ascending: false })
         .range(from, to);
     });
+    /* Signed-out: in-memory healing only — anon has no write grant. */
+    await backfillRowImages(rows, false);
+    return rows;
   }
 
   async function addItem(card, variant, quantity, pkmn, grading) {
@@ -303,6 +308,70 @@
         console.warn("[VaultDex] pkmn_id backfill failed for", row.card_name, e && e.message);
       }
     }
+  }
+
+  /* Image healing: rowFromCard snapshots image_small/image_large at add
+   * time, so a row added before a catalog image backfill (e.g. the EN
+   * image backfill of 2026-09-18/19) keeps NULL images forever — the
+   * collection tile and card modal render the row's stored URLs, not a
+   * live catalog lookup. Fill the gaps from the local catalog on read.
+   * Lazy: only rows still missing images trigger a set-file lookup, and
+   * getSetCardList caches each set's snapshot. With persist, healed URLs
+   * are written back to the row (owner pass only) so the fix is permanent;
+   * cards with no catalog image at all (deliberate gaps like svp Terapagos
+   * & Friends) are left alone — never rewritten, so no repeated writes
+   * and no invented images. */
+  async function backfillRowImages(rows, persist) {
+    var missing = (rows || []).filter(function (r) {
+      return r && r.card_id && !r.image_small;
+    });
+    if (!missing.length) return rows;
+    var tcg = App.tcg;
+    if (!tcg || typeof tcg.getSetCardList !== "function") return rows;
+    var bySet = {};
+    missing.forEach(function (r) {
+      var sid = r.set_id || "";
+      if (!sid) return;
+      (bySet[sid] = bySet[sid] || []).push(r);
+    });
+    var healed = [];
+    var setIds = Object.keys(bySet);
+    for (var i = 0; i < setIds.length; i++) {
+      var cards;
+      try {
+        cards = await tcg.getSetCardList(setIds[i]);
+      } catch (e) {
+        console.warn("[VaultDex] image backfill: set lookup failed for", setIds[i], e && e.message);
+        continue;
+      }
+      var group = bySet[setIds[i]];
+      for (var j = 0; j < group.length; j++) {
+        var row = group[j];
+        var hit = (cards || []).filter(function (c) {
+          return c && String(c.id) === String(row.card_id);
+        })[0];
+        if (!hit || !hit.images || !hit.images.small) continue;
+        row.image_small = hit.images.small;
+        if (hit.images.large) row.image_large = hit.images.large;
+        healed.push(row);
+      }
+    }
+    if (persist && healed.length && App.sb) {
+      var u = App.auth && App.auth.user;
+      for (var k = 0; k < healed.length; k++) {
+        var hr = healed[k];
+        try {
+          var q = App.sb.from("collection_items")
+            .update({ image_small: hr.image_small, image_large: hr.image_large })
+            .eq("id", hr.id);
+          if (u && u.id) q = q.eq("user_id", u.id);
+          await q;
+        } catch (e) {
+          console.warn("[VaultDex] image backfill: write-back failed for", hr.card_name, e && e.message);
+        }
+      }
+    }
+    return rows;
   }
 
   /* One-time migration: rows written before the TCGdex switch carry the old
@@ -646,6 +715,7 @@
     valueHistory: valueHistory,
     totals: totals,
     backfillPkmnIds: backfillPkmnIds,
+    backfillRowImages: backfillRowImages,
     migrateLegacyCatalogIds: migrateLegacyCatalogIds,
     defaultVariant: defaultVariant,
     needUser: needUser,

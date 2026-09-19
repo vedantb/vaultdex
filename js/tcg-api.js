@@ -721,6 +721,7 @@
     getSets: getSets,
     getSet: getSet,
     getSetCards: getSetCards,
+    getSetCardList: getSetCardList,
     getSetRarities: getSetRarities,
     parseSetId: parseSetId,
     marketOf: marketOf,

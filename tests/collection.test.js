@@ -5,7 +5,7 @@
  * mutations depend on — the exact spots where the real historical bugs
  * lived (duplicate rows, quantity handling, mover history, ja set ids).
  */
-import { describe, test, expect, beforeEach } from "vitest";
+import { describe, test, expect, beforeEach, afterEach } from "vitest";
 import "../js/util.js";
 import "../js/tcg-api.js"; // real normVLabel for findMatchingRow tests
 import "../js/collection.js";
@@ -229,5 +229,95 @@ describe("findMatchingRow (2026-09-18)", () => {
   test("empty rows -> null", () => {
     expect(F()([], "Holo", 24638)).toBeNull();
     expect(F()(null, "Holo", 24638)).toBeNull();
+  });
+});
+
+describe("backfillRowImages (collection image healing)", () => {
+  const IMG = "https://images.pkmnprices.com/cards/c08cd7c4c5af5aa2.webp";
+  const CATALOG = [
+    { id: "svp-085", images: { small: IMG, large: IMG } },
+    { id: "svp-500", images: { small: null, large: null } }, // deliberately imageless
+  ];
+  let calls, updates, prevAuth, prevSb;
+
+  beforeEach(() => {
+    calls = [];
+    updates = [];
+    prevAuth = window.App.auth;
+    prevSb = window.App.sb;
+    window.App.tcg = {
+      variantsOf: () => [],
+      marketOf: () => null,
+      normVLabel: realNormVLabel,
+      getSetCardList: async (appId) => { calls.push(appId); return CATALOG; },
+    };
+    window.App.auth = { user: { id: "u1" } };
+    window.App.sb = {
+      from: (table) => ({
+        update: (patch) => {
+          const builder = {
+            eq: (col, val) => { updates.push({ table, patch, col, val }); return builder; },
+          };
+          builder.then = (resolve) => resolve({ error: null });
+          return builder;
+        },
+      }),
+    };
+  });
+
+  afterEach(() => {
+    window.App.auth = prevAuth;
+    window.App.sb = prevSb;
+  });
+
+  const row = (over) => Object.assign(
+    { id: 7, card_id: "svp-085", card_name: "Pikachu with Grey Felt Hat", set_id: "svp", image_small: null, image_large: null },
+    over
+  );
+
+  test("leaves rows that already have images alone (no catalog fetch)", async () => {
+    const rows = [row({ image_small: "x" })];
+    await C.backfillRowImages(rows, true);
+    expect(calls).toEqual([]);
+    expect(rows[0].image_small).toBe("x");
+    expect(updates).toEqual([]);
+  });
+
+  test("fills missing images from the catalog in memory", async () => {
+    const rows = [row()];
+    await C.backfillRowImages(rows, false);
+    expect(calls).toEqual(["svp"]);
+    expect(rows[0].image_small).toBe(IMG);
+    expect(rows[0].image_large).toBe(IMG);
+    expect(updates).toEqual([]);
+  });
+
+  test("writes healed URLs back when persist is true", async () => {
+    const rows = [row()];
+    await C.backfillRowImages(rows, true);
+    expect(updates.length).toBeGreaterThan(0);
+    const up = updates.find((u) => u.col === "id");
+    expect(up.patch).toEqual({ image_small: IMG, image_large: IMG });
+    expect(updates.some((u) => u.col === "user_id" && u.val === "u1")).toBe(true);
+  });
+
+  test("leaves deliberately imageless cards alone (no write)", async () => {
+    const rows = [row({ card_id: "svp-500", card_name: "Terapagos & Friends" })];
+    await C.backfillRowImages(rows, true);
+    expect(rows[0].image_small).toBeNull();
+    expect(updates).toEqual([]);
+  });
+
+  test("skips rows without a set_id", async () => {
+    const rows = [row({ set_id: null })];
+    await C.backfillRowImages(rows, true);
+    expect(calls).toEqual([]);
+    expect(rows[0].image_small).toBeNull();
+  });
+
+  test("no-op on empty input", async () => {
+    expect(await C.backfillRowImages([], true)).toEqual([]);
+    expect(await C.backfillRowImages(null, true)).toBeNull();
+    expect(calls).toEqual([]);
   });
 });
