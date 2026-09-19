@@ -73,6 +73,7 @@ export default [
   },
 
   // Vitest unit tests: ESM source importing the plain browser scripts.
+  // Node globals included too — tests run under Node (process.env, etc.).
   {
     files: ["tests/**/*.js"],
     languageOptions: {
@@ -80,6 +81,7 @@ export default [
       sourceType: "module",
       globals: {
         ...globals.browser,
+        ...globals.node,
         App: "writable",
       },
     },

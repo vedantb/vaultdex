@@ -326,5 +326,47 @@ class PreserveBackfilledImagesTests(unittest.TestCase):
         self.assertNotIn("imageSmall", out["cards"][0])
 
 
+plock = load("pipeline_lock")
+
+
+class PipelineLockTests(unittest.TestCase):
+    def setUp(self):
+        # Point the lock at a temp path so tests never touch the real one.
+        self.orig = plock.LOCK_PATH
+        self.tmp = tempfile.mkdtemp(prefix="vd-lock-test-")
+        plock.LOCK_PATH = os.path.join(self.tmp, "test.lock")
+
+    def tearDown(self):
+        plock.release()
+        plock.LOCK_PATH = self.orig
+
+    def test_acquire_and_release(self):
+        with plock.pipeline_lock("test"):
+            self.assertTrue(os.path.exists(plock.LOCK_PATH))
+            # second acquire must fail atomically (O_EXCL), not overwrite
+            self.assertFalse(plock._try_acquire("other"))
+        self.assertFalse(os.path.exists(plock.LOCK_PATH))
+
+    def test_lock_file_names_owner(self):
+        with plock.pipeline_lock("ja-price-backfill"):
+            body = open(plock.LOCK_PATH).read()
+        self.assertIn("ja-price-backfill", body)
+
+    def test_stale_lock_is_reclaimed(self):
+        fd = os.open(plock.LOCK_PATH, os.O_CREAT | os.O_WRONLY)
+        os.close(fd)
+        ancient = plock.STALE_AFTER + 60
+        st = os.stat(plock.LOCK_PATH)
+        os.utime(plock.LOCK_PATH, (st.st_atime - ancient, st.st_mtime - ancient))
+        with plock.pipeline_lock("test", wait_timeout=1):
+            self.assertTrue(os.path.exists(plock.LOCK_PATH))
+
+    def test_held_lock_times_out_cleanly(self):
+        with plock.pipeline_lock("holder"):
+            with self.assertRaises(SystemExit) as cm:
+                plock.acquire("waiter", wait_timeout=0.05)
+            self.assertEqual(cm.exception.code, 2)
+
+
 if __name__ == "__main__":
     unittest.main()

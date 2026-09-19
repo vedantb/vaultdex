@@ -641,4 +641,8 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    # Catalog writers must not run concurrently (read-modify-write
+    # on the same set files). See scripts/pipeline_lock.py.
+    from pipeline_lock import pipeline_lock
+    with pipeline_lock("ja-pkmn-enrich"):
+        main()

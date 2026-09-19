@@ -62,10 +62,24 @@ function hostAllowed(req) {
   return !!(m && ALLOWED_HOSTS[m[1].toLowerCase()]);
 }
 
-function authorized(req) {
+/* Credit-burn guard: PkmnPrices bills 1 credit per item returned, so an
+ * unbounded per_page turns the 120/min rate limit into a budget hose
+ * (120 × 100 credits/min from a single IP with a spoofed Referer).
+ * Browser callers get the page size the app actually uses (50); script
+ * callers (shared-secret header) get headroom for bulk backfills. */
+var MAX_PER_PAGE = { script: 200, browser: 50 };
+
+function capPerPage(raw, mode) {
+  var cap = MAX_PER_PAGE[mode] || MAX_PER_PAGE.browser;
+  var n = parseInt(raw, 10);
+  if (!isFinite(n) || n < 1) return cap;
+  return Math.min(n, cap);
+}
+
+function callerMode(req) {
   var secret = process.env.PROXY_SHARED_SECRET;
-  if (secret && req.headers["x-vaultdex-key"] === secret) return true;
-  return hostAllowed(req);
+  if (secret && req.headers["x-vaultdex-key"] === secret) return "script";
+  return hostAllowed(req) ? "browser" : null;
 }
 
 module.exports = async function handler(req, res) {
@@ -80,7 +94,8 @@ module.exports = async function handler(req, res) {
     return;
   }
 
-  if (!authorized(req)) {
+  var mode = callerMode(req);
+  if (!mode) {
     res.status(403).json({ error: "Forbidden." });
     return;
   }
@@ -103,10 +118,11 @@ module.exports = async function handler(req, res) {
   Object.keys(req.query).forEach(function (k) {
     if (k === "path") return;
     var v = req.query[k];
+    var val = function (x) { return k === "per_page" ? String(capPerPage(x, mode)) : x; };
     if (Array.isArray(v)) {
-      v.forEach(function (x) { url.searchParams.append(k, x); });
+      v.forEach(function (x) { url.searchParams.append(k, val(x)); });
     } else if (v !== undefined) {
-      url.searchParams.append(k, v);
+      url.searchParams.append(k, val(v));
     }
   });
 
@@ -131,3 +147,8 @@ module.exports = async function handler(req, res) {
   res.setHeader("Cache-Control", "no-store");
   res.send(body);
 };
+
+/* Exported for unit tests (vitest). Vercel only uses the default handler. */
+module.exports.capPerPage = capPerPage;
+module.exports.callerMode = callerMode;
+module.exports.MAX_PER_PAGE = MAX_PER_PAGE;
