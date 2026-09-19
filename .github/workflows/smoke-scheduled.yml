@@ -35,6 +35,8 @@ jobs:
         run: npx playwright install --with-deps chromium
 
       - name: Playwright smoke (production)
+        # Signed-out spec only: the signed-in suite injects a fake owner
+        # session and is local-server-only by design (see qa/signed-in.spec.js).
         env:
           BASE_URL: https://vaultdex-three.vercel.app
-        run: npx playwright test
+        run: npx playwright test qa/smoke.spec.js
