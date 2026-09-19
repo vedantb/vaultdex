@@ -173,3 +173,72 @@ test.describe("desktop viewport", () => {
     await expectCleanPage(page, "/", ".home-title");
   });
 });
+
+test("signed-out /games hub renders tiles + Card of the Day hero: zero errors, no overflow", async ({
+  page,
+}) => {
+  await expectCleanPage(page, "/games", ".games-title", "Games");
+  await expect(page.locator(".game-tile")).toHaveCount(3);
+  // Card of the Day hero features a real card from the vault.
+  await expect(page.locator(".cotd-hero .cotd-hero-name")).toBeVisible();
+  // The Games nav entry is public and active on the hub.
+  await expect(page.locator('.main-nav [data-nav="games"], .page-nav [data-nav="games"]').first()).toHaveClass(/active/);
+});
+
+test("signed-out /games/higher-lower plays a full round: zero errors, no overflow", async ({
+  page,
+}) => {
+  const errors = collectErrors(page);
+  await page.goto("/games/higher-lower", { waitUntil: "networkidle", timeout: 60000 });
+  await page.waitForSelector(".hl-duel", { timeout: 20000 });
+  await expect(page.locator("[data-hl-pick]")).toHaveCount(2);
+  // Prices stay hidden until a pick.
+  await expect(page.locator("[data-hl-price]").first()).toBeHidden();
+
+  await page.locator("[data-hl-pick]").first().click();
+  const result = page.locator("[data-hl-result]");
+  await expect(result).toBeVisible();
+  // Both prices revealed, formatted as money.
+  const prices = await page.locator("[data-hl-price]").allTextContents();
+  expect(prices).toHaveLength(2);
+  expect(prices[0]).toMatch(/\$/);
+  expect(prices[1]).toMatch(/\$/);
+  await expect(page.locator("[data-hl-next]")).toBeVisible();
+  await expect(page.locator("[data-hl-streak]")).toContainText(/Streak: [01]/);
+
+  // Next round deals a fresh pair.
+  await page.locator("[data-hl-next]").click();
+  await page.waitForSelector(".hl-duel", { timeout: 20000 });
+  await expect(page.locator("[data-hl-result]")).toBeHidden();
+
+  await expectNoOverflow(page);
+  expect(errors).toEqual([]);
+});
+
+test("signed-out /games/quiz plays one round: zero errors, no overflow", async ({
+  page,
+}) => {
+  const errors = collectErrors(page);
+  await page.goto("/games/quiz", { waitUntil: "networkidle", timeout: 60000 });
+  await page.waitForSelector(".quiz-crop", { timeout: 20000 });
+  await expect(page.locator(".quiz-opt")).toHaveCount(4);
+
+  await page.locator(".quiz-opt").first().click();
+  await expect(page.locator("[data-quiz-feedback]")).toBeVisible();
+  // The correct option is always marked after answering.
+  await expect(page.locator(".quiz-opt.quiz-right")).toHaveCount(1);
+  await expect(page.locator("[data-quiz-next]")).toBeVisible();
+
+  await expectNoOverflow(page);
+  expect(errors).toEqual([]);
+});
+
+test("signed-out /games/card-of-the-day renders today's card: zero errors, no overflow", async ({
+  page,
+}) => {
+  await expectCleanPage(page, "/games/card-of-the-day", ".games-title", "Card of the Day");
+  await expect(page.locator(".cotd-name")).toBeVisible();
+  await expect(page.locator(".cotd-art")).toBeVisible();
+  // Deterministic date stamp (YYYY-MM-DD).
+  await expect(page.locator(".cotd-date")).toHaveText(/\d{4}-\d{2}-\d{2}/);
+});

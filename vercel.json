@@ -46,6 +46,14 @@
     {
       "destination": "/index.html",
       "source": "/pokedex"
+    },
+    {
+      "destination": "/index.html",
+      "source": "/games"
+    },
+    {
+      "destination": "/index.html",
+      "source": "/games/:slug"
     }
   ]
 }

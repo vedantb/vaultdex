@@ -1,0 +1,218 @@
+/* VaultDex — Games: hub, Higher or Lower, Card Quiz, Card of the Day. */
+
+.games-head { margin: 8px 0 18px; }
+.games-title {
+  font-family: Outfit, Inter, system-ui, sans-serif;
+  font-size: clamp(28px, 6vw, 40px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 0 0 6px;
+}
+.games-sub { color: var(--muted); margin: 0; font-size: 15px; }
+.games-loading { color: var(--muted); }
+
+/* ---------- hub ---------- */
+.cotd-hero {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 20px 22px;
+  margin-bottom: 18px;
+  text-decoration: none;
+  color: inherit;
+}
+.cotd-hero-text { display: flex; flex-direction: column; gap: 6px; min-width: 0; flex: 1; }
+.cotd-hero-name { font-family: Outfit, Inter, system-ui, sans-serif; font-size: 24px; font-weight: 800; }
+.cotd-hero-meta { color: var(--muted); font-size: 14px; }
+.cotd-hero-line { font-size: 14px; }
+.cotd-hero-cta { color: var(--accent); font-weight: 600; font-size: 14px; margin-top: 4px; }
+.cotd-hero-art {
+  width: 120px;
+  border-radius: 10px;
+  box-shadow: 0 10px 24px -12px rgba(0, 0, 0, 0.4);
+  flex: none;
+}
+.game-tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+}
+.game-tile {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 20px;
+  text-decoration: none;
+  color: inherit;
+  min-height: 44px;
+}
+.game-tile-icon { font-size: 30px; }
+.game-tile-title { font-family: Outfit, Inter, system-ui, sans-serif; font-size: 19px; font-weight: 700; }
+.game-tile-desc { color: var(--muted); font-size: 14px; line-height: 1.45; }
+
+/* ---------- higher or lower ---------- */
+.hl-score {
+  display: flex;
+  gap: 18px;
+  font-weight: 600;
+  font-size: 15px;
+  margin-bottom: 14px;
+}
+.hl-duel {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 12px;
+  align-items: center;
+}
+.hl-vs {
+  font-family: Outfit, Inter, system-ui, sans-serif;
+  font-weight: 800;
+  font-size: 18px;
+  color: var(--muted);
+}
+.hl-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: 16px;
+  padding: 14px;
+  cursor: pointer;
+  color: inherit;
+  font: inherit;
+  min-height: 48px;
+  transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+}
+@media (hover: hover) {
+  .hl-card:not(:disabled):hover { transform: translateY(-3px); border-color: var(--accent); }
+}
+.hl-card:disabled { cursor: default; }
+.hl-art { width: 100%; max-width: 220px; border-radius: 10px; }
+.hl-name { font-weight: 700; font-size: 15px; text-align: center; }
+.hl-set { color: var(--muted); font-size: 13px; text-align: center; }
+.hl-price {
+  font-family: Outfit, Inter, system-ui, sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--accent);
+}
+.hl-win { border-color: var(--green); box-shadow: 0 0 0 3px rgba(21, 122, 64, 0.25); }
+.hl-lose { border-color: var(--danger); box-shadow: 0 0 0 3px rgba(214, 69, 69, 0.22); }
+.hl-dim { opacity: 0.75; }
+.hl-result { font-size: 17px; font-weight: 600; margin: 16px 0 4px; text-align: center; }
+.hl-result-win { color: var(--green); }
+.hl-result-lose { color: var(--danger); }
+.hl-actions { text-align: center; margin-top: 10px; }
+
+/* ---------- quiz ---------- */
+.quiz-progress {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+  font-size: 15px;
+  margin-bottom: 12px;
+}
+.quiz-crop {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  aspect-ratio: 16 / 10;
+  background: var(--surface);
+  margin-bottom: 14px;
+}
+.quiz-crop img { position: absolute; max-width: none; }
+.quiz-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.quiz-opt {
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 14px 12px;
+  font: inherit;
+  font-weight: 600;
+  font-size: 15px;
+  color: inherit;
+  cursor: pointer;
+  min-height: 52px;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.quiz-opt:not(:disabled):hover { border-color: var(--accent); }
+.quiz-opt:disabled { cursor: default; }
+.quiz-right { border-color: var(--green) !important; background: rgba(21, 122, 64, 0.12); }
+.quiz-wrong { border-color: var(--danger) !important; background: rgba(214, 69, 69, 0.1); }
+.quiz-feedback { text-align: center; font-weight: 600; font-size: 16px; margin: 14px 0 4px; }
+.quiz-feedback-right { color: var(--green); }
+.quiz-feedback-wrong { color: var(--text); }
+.quiz-done { text-align: center; padding: 30px 0; }
+.quiz-done-score {
+  font-family: Outfit, Inter, system-ui, sans-serif;
+  font-size: 56px;
+  font-weight: 800;
+  margin: 0 0 8px;
+}
+.quiz-done-verdict { font-size: 18px; margin: 0 0 8px; }
+.quiz-done-best { color: var(--muted); margin: 0 0 18px; }
+
+/* ---------- card of the day ---------- */
+.cotd-card {
+  display: grid;
+  grid-template-columns: minmax(0, 320px) 1fr;
+  gap: 26px;
+  align-items: start;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 26px;
+}
+.cotd-art { width: 100%; border-radius: 12px; box-shadow: 0 16px 36px -16px rgba(0, 0, 0, 0.45); }
+.cotd-info { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.cotd-date {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0;
+}
+.cotd-name {
+  font-family: Outfit, Inter, system-ui, sans-serif;
+  font-size: clamp(26px, 5vw, 36px);
+  font-weight: 800;
+  margin: 0;
+}
+.cotd-meta { color: var(--muted); margin: 0; }
+.cotd-price {
+  font-family: Outfit, Inter, system-ui, sans-serif;
+  font-size: 30px;
+  font-weight: 800;
+  color: var(--accent);
+  margin: 6px 0 0;
+}
+.cotd-line { font-size: 16px; font-weight: 600; margin: 6px 0 0; }
+.cotd-tomorrow { color: var(--muted); font-size: 14px; margin: 10px 0 0; }
+
+/* ---------- small screens ---------- */
+@media (max-width: 640px) {
+  .cotd-hero-art { width: 88px; }
+  .hl-duel { grid-template-columns: 1fr; gap: 10px; }
+  .hl-vs { text-align: center; }
+  .quiz-options { grid-template-columns: 1fr; }
+  .cotd-card { grid-template-columns: 1fr; padding: 20px; }
+  .cotd-art { max-width: 280px; margin: 0 auto; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hl-card, .quiz-opt { transition: none; }
+}

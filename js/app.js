@@ -135,6 +135,7 @@
       : path === "/trade" ? "trade"
       : path === "/pokedex" ? "pokedex"
       : path === "/trophies" ? "trophies"
+      : (path === "/games" || path.indexOf("/games/") === 0) ? "games"
       : "collection"; /* /wishlist and /movers have no nav links; they read as collection pages */
     document.querySelectorAll("[data-nav]").forEach(function (a) {
       a.classList.toggle("active", a.getAttribute("data-nav") === key);
@@ -182,6 +183,14 @@
         viewPromise = App.views.pokedex(stage);
       } else if (path === "/trophies") {
         viewPromise = App.views.trophies(stage);
+      } else if (path === "/games") {
+        viewPromise = App.views.games(stage);
+      } else if (path === "/games/higher-lower") {
+        viewPromise = App.views.gameHigherLower(stage);
+      } else if (path === "/games/quiz") {
+        viewPromise = App.views.gameQuiz(stage);
+      } else if (path === "/games/card-of-the-day") {
+        viewPromise = App.views.gameCardOfDay(stage);
       } else {
         window.history.replaceState(null, "", "/");
         viewPromise = App.views.home(stage);
@@ -281,6 +290,7 @@
       if (href === "/" || href === "/login" || href === "/collection" || href === "/browse" ||
           href === "/wishlist" || href === "/movers" || href === "/trade" ||
           href === "/pokedex" || href === "/trophies" ||
+          href === "/games" || href.indexOf("/games/") === 0 ||
           href.indexOf("/set/") === 0) {
         e.preventDefault();
         navigate(href);
