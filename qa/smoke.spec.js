@@ -16,6 +16,8 @@
  *   /set/me02    — owner-only empty state
  *   /wishlist    — private empty state
  *   /trade       — public trade binder (tiles or empty state)
+ *   /trophies    — public trophy case (badge grid, locked + unlocked)
+ *   /pokedex     — public species grid (all 1025, captured cells)
  */
 const { test, expect } = require("@playwright/test");
 
@@ -82,6 +84,20 @@ test("signed-out /trade renders the public binder hub: zero errors, no overflow"
 }) => {
   // /trade lands on a section hub for visitors; tiles render per section.
   await expectCleanPage(page, "/trade", ".hub-page-title", "Trade Binder");
+});
+
+test("signed-out /trophies renders the trophy case: zero errors, no overflow", async ({
+  page,
+}) => {
+  // Public read-only showcase of the owner's badges (locked + unlocked).
+  await expectCleanPage(page, "/trophies", ".trophies-title", "Trophy Case");
+});
+
+test("signed-out /pokedex renders the species grid: zero errors, no overflow", async ({
+  page,
+}) => {
+  // All 1025 species render; captured cells carry the owner's card art.
+  await expectCleanPage(page, "/pokedex", ".pokedex-title", "Pokédex");
 });
 
 test.describe("desktop viewport", () => {

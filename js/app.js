@@ -129,6 +129,8 @@
     var key = (path === "/" || path === "/index.html") ? "home"
       : (path === "/browse" || path.indexOf("/set/") === 0) ? "browse"
       : path === "/trade" ? "trade"
+      : path === "/pokedex" ? "pokedex"
+      : path === "/trophies" ? "trophies"
       : "collection"; /* /wishlist and /movers have no nav links; they read as collection pages */
     document.querySelectorAll("[data-nav]").forEach(function (a) {
       a.classList.toggle("active", a.getAttribute("data-nav") === key);
@@ -172,6 +174,10 @@
         viewPromise = App.views.movers(stage);
       } else if (path === "/trade") {
         viewPromise = App.views.trade(stage);
+      } else if (path === "/pokedex") {
+        viewPromise = App.views.pokedex(stage);
+      } else if (path === "/trophies") {
+        viewPromise = App.views.trophies(stage);
       } else {
         window.history.replaceState(null, "", "/");
         viewPromise = App.views.home(stage);
@@ -252,6 +258,16 @@
     }
 
     window.addEventListener("popstate", route);
+    // Achievements (owner only): diff unlocks against localStorage and toast
+    // genuinely new ones (first run populates silently); celebrate sets that
+    // newly hit 100% whenever the collection changes. Fire-and-forget —
+    // never blocks routing, and every path is guarded internally.
+    if (App.auth.isOwner() && App.achievements) {
+      App.achievements.checkNewUnlocks().catch(function () { /* ignored */ });
+      App.on("collection:changed", function () {
+        try { App.achievements.checkSetCompletions(); } catch { /* ignored */ }
+      });
+    }
     // Intercept in-app links so navigation stays client-side.
     document.addEventListener("click", function (e) {
       var a = e.target && e.target.closest ? e.target.closest('a[href^="/"]') : null;
@@ -260,6 +276,7 @@
       var href = a.getAttribute("href");
       if (href === "/" || href === "/login" || href === "/collection" || href === "/browse" ||
           href === "/wishlist" || href === "/movers" || href === "/trade" ||
+          href === "/pokedex" || href === "/trophies" ||
           href.indexOf("/set/") === 0) {
         e.preventDefault();
         navigate(href);

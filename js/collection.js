@@ -574,6 +574,9 @@
           card_count: t.count
         }, { onConflict: "user_id,day" });
       if (res.error) throw res.error;
+      // One-shot vault-value milestone celebrations (owner only; the
+      // achievements module guards, dedupes, and toasts internally).
+      try { if (App.achievements) App.achievements.checkValueMilestones(t.value); } catch { /* garnish */ }
       return true;
     } catch (e) {
       console.warn("[VaultDex] value snapshot failed:", e && e.message);
