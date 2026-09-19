@@ -38,6 +38,14 @@
     {
       "destination": "/index.html",
       "source": "/trade"
+    },
+    {
+      "destination": "/index.html",
+      "source": "/trophies"
+    },
+    {
+      "destination": "/index.html",
+      "source": "/pokedex"
     }
   ]
 }
