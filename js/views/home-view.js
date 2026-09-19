@@ -389,6 +389,7 @@
               '<div class="home-stat"><span class="home-stat-value" data-countup="' + totals.count + '">' + totals.count.toLocaleString() + "</span>" +
               '<span class="home-stat-label">Total cards</span></div>' +
             "</div>" +
+          "</div>" +
           '<div class="home-hero-art"><img src="/images/home-hero.webp" alt="An open vault door glowing with light, holographic trading cards swirling out"></div>' +
         "</section>" +
 
