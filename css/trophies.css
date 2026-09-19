@@ -15,21 +15,21 @@
   gap: 12px;
 }
 .badge-card {
-  border: 1px solid var(--border, #e5e7eb);
+  border: 1px solid var(--border);
   border-radius: 14px;
   padding: 14px 10px;
   text-align: center;
-  background: var(--card, #fff);
+  background: var(--surface);
 }
 .badge-card.unlocked {
-  border-color: color-mix(in srgb, #ffcb05 55%, var(--border, #e5e7eb));
-  background: color-mix(in srgb, #ffcb05 7%, var(--card, #fff));
+  border-color: color-mix(in srgb, #ffcb05 55%, var(--border));
+  background: color-mix(in srgb, #ffcb05 7%, var(--surface));
 }
 .badge-card.locked {
   /* No blanket opacity: dimming the whole card pushes muted text below AA.
      The lock icon + desaturated border carry the "locked" signal instead. */
   border-style: dashed;
-  background: color-mix(in srgb, var(--muted) 6%, var(--card, #fff));
+  background: color-mix(in srgb, var(--muted) 6%, var(--surface));
 }
 .badge-icon { font-size: 2rem; line-height: 1; margin-bottom: 8px; }
 .badge-card.locked .badge-icon { filter: grayscale(1); opacity: 0.5; }
@@ -50,7 +50,7 @@
 .badge-nudge {
   display: flex; align-items: center; gap: 12px;
   margin: 14px 2px 0; padding: 12px 14px;
-  border: 1px dashed color-mix(in srgb, #ffcb05 60%, var(--border, #e5e7eb));
+  border: 1px dashed color-mix(in srgb, #ffcb05 60%, var(--border));
   border-radius: 14px;
   background: color-mix(in srgb, #ffcb05 6%, transparent);
   text-decoration: none; color: inherit;

@@ -19,8 +19,8 @@
   gap: 8px;
 }
 .dex-cell {
-  position: relative; border: 1px solid var(--border, #e5e7eb); border-radius: 12px;
-  background: var(--card, #fff); padding: 6px 4px 8px; cursor: pointer;
+  position: relative; border: 1px solid var(--border); border-radius: 12px;
+  background: var(--surface); padding: 6px 4px 8px; cursor: pointer;
   display: flex; flex-direction: column; align-items: center; gap: 4px;
   font: inherit; color: inherit; min-width: 0;
 }
@@ -31,7 +31,7 @@
 .dex-name { font-size: 0.72rem; font-weight: 600; text-align: center; line-height: 1.2; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
 
 .dex-missing { opacity: 0.55; background: color-mix(in srgb, var(--muted) 7%, transparent); }
-.dex-caught { border-color: color-mix(in srgb, #2a75bb 55%, var(--border, #e5e7eb)); }
+.dex-caught { border-color: color-mix(in srgb, #2a75bb 55%, var(--border)); }
 .dex-caught .dex-dot { border-color: #2a75bb; }
 .dex-bronze { border: 2px solid #b0793a; }
 .dex-dot.dex-bronze { border-color: #b0793a; background: color-mix(in srgb, #b0793a 30%, transparent); }
@@ -51,8 +51,8 @@
   gap: 10px; margin-top: 14px;
 }
 .dex-modal-card {
-  border: 1px solid var(--border, #e5e7eb); border-radius: 10px; overflow: hidden;
-  background: var(--card, #fff); padding: 0 0 6px; cursor: pointer;
+  border: 1px solid var(--border); border-radius: 10px; overflow: hidden;
+  background: var(--surface); padding: 0 0 6px; cursor: pointer;
   font: inherit; color: inherit; text-align: left;
 }
 .dex-modal-card img { width: 100%; aspect-ratio: 63 / 88; object-fit: cover; display: block; }
