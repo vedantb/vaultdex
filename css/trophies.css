@@ -46,26 +46,6 @@
 }
 .badge-hint { color: var(--muted); font-size: 0.78rem; margin-top: 6px; }
 
-/* Home-page next-badge nudge. */
-.badge-nudge {
-  display: flex; align-items: center; gap: 12px;
-  margin: 14px 2px 0; padding: 12px 14px;
-  border: 1px dashed color-mix(in srgb, #ffcb05 60%, var(--border));
-  border-radius: 14px;
-  background: color-mix(in srgb, #ffcb05 6%, transparent);
-  text-decoration: none; color: inherit;
-}
-.badge-nudge-icon { font-size: 1.6rem; }
-.badge-nudge-body { flex: 1; min-width: 0; }
-.badge-nudge-title { font-weight: 700; font-size: 0.9rem; }
-.badge-nudge-bar {
-  height: 6px; border-radius: 3px; margin-top: 6px;
-  background: color-mix(in srgb, var(--muted) 18%, transparent);
-  overflow: hidden;
-}
-.badge-nudge-fill { height: 100%; background: linear-gradient(90deg, #e3350d, #ffcb05); }
-.badge-nudge-hint { color: var(--muted); font-size: 0.78rem; margin-top: 4px; }
-
 /* Celebration confetti. */
 .confetti-stage {
   position: fixed; inset: 0; z-index: 9999; pointer-events: none; overflow: hidden;

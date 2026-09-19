@@ -1,6 +1,7 @@
 /* VaultDex — Trophy Case (achievements).
- * Public read-only showcase of the owner's badges; toasts and celebrations
- * are owner-only (handled in js/achievements.js). Zero PkmnPrices credits. */
+ * Owner-only: the trophy case is the owner's private shelf. Toasts and
+ * celebrations are owner-only too (handled in js/achievements.js).
+ * Zero PkmnPrices credits. */
 (function () {
   window.App = window.App || {};
   App.views = App.views || {};
@@ -34,18 +35,26 @@
       });
       return;
     }
-    var readOnly = !App.auth.isOwner();
+    // The trophy case is the owner's private shelf — owner-only.
+    if (!App.auth.isOwner()) {
+      root.innerHTML = App.ui.emptyState({
+        title: "Owner only",
+        body: "The Trophy Case is the owner's private shelf — you're seeing their public collection instead.",
+        actionHtml: '<a class="btn btn-primary" href="/collection">View collection</a>'
+      });
+      return;
+    }
     root.innerHTML =
       '<div class="trophies-head">' +
         '<h1 class="trophies-title">Trophy Case</h1>' +
-        '<p class="trophies-sub">' + App.esc(readOnly ? "Vedant's achievements." : "Your achievements. New badges unlock as the vault grows.") + "</p>" +
+        '<p class="trophies-sub">Your achievements. New badges unlock as the vault grows.</p>' +
       "</div>" +
       '<div id="t-loading"></div>';
     App.ui.skeletonGrid(root.querySelector("#t-loading"), 6);
 
     var items;
     try {
-      items = (readOnly ? await App.collection.listPublic() : await App.collection.list()) || [];
+      items = await App.collection.list() || [];
     } catch (e) {
       root.innerHTML = App.ui.emptyState({ title: "Couldn't load the vault", body: (e && e.message) || "Something went wrong." });
       return;
@@ -65,7 +74,7 @@
       '<div class="trophies-head">' +
         '<h1 class="trophies-title">Trophy Case</h1>' +
         '<p class="trophies-sub">' +
-          App.esc(readOnly ? "Vedant's achievements." : "Your achievements. New badges unlock as the vault grows.") +
+          "Your achievements. New badges unlock as the vault grows." +
         "</p>" +
         '<div class="trophies-count"><span class="trophies-count-num">' + unlocked.length + "</span> / " + results.length + " unlocked</div>" +
       "</div>";

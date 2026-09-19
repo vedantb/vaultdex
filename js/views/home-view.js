@@ -320,45 +320,6 @@
       document.body.appendChild(stage);
     }
 
-    /* Next-badge nudge: the single locked badge closest to unlocking, with
-     * a live progress bar. Rendered async after first paint so it never
-     * blocks the hero; failures stay quiet. */
-    var NUDGE_LINKS = { Species: "/pokedex", Sets: "/browse", Value: "/", Collection: "/collection", Rarity: "/collection" };
-    function nudgeTarget(badge, current, target) {
-      var remaining = target - current;
-      var fmt = badge.category === "Value"
-        ? function (v) { return App.ui.money(v); }
-        : function (v) { return Number(v).toLocaleString("en-US"); };
-      var pct = Math.max(0, Math.min(100, Math.round((current / target) * 100)));
-      var link = NUDGE_LINKS[badge.category] || "/trophies";
-      var hint = fmt(current) + " / " + fmt(target);
-      if (link === "/trophies") hint += " — view the Trophy Case";
-      return '<a class="badge-nudge" href="' + link + '">' +
-        '<span class="badge-nudge-icon" aria-hidden="true">' + App.esc(badge.icon) + "</span>" +
-        '<span class="badge-nudge-body">' +
-          '<span class="badge-nudge-title">' + App.esc(fmt(remaining) + " away from " + badge.name) + "</span>" +
-          '<span class="badge-nudge-bar"><span class="badge-nudge-fill" style="width:' + pct + '%"></span></span>' +
-          '<span class="badge-nudge-hint">' + App.esc(hint) + "</span>" +
-        "</span>" +
-      "</a>";
-    }
-    function fillBadgeNudge(root, items) {
-      var slot = root.querySelector("[data-badge-nudge]");
-      if (!slot || !App.achievements) return;
-      App.achievements.buildInput(items).then(function (input) {
-        if (!slot.isConnected) return;
-        var results = App.achievements.evaluate(input);
-        var next = App.achievements.closestLocked(results);
-        if (!next) {
-          slot.innerHTML = '<a class="badge-nudge" href="/trophies">' +
-            '<span class="badge-nudge-icon" aria-hidden="true">🏆</span>' +
-            '<span class="badge-nudge-body"><span class="badge-nudge-title">Every badge unlocked — the vault is complete.</span></span></a>';
-          return;
-        }
-        slot.innerHTML = nudgeTarget(next.badge, next.current, next.target);
-      }).catch(function () { /* nudge is garnish */ });
-    }
-
     App.views.home = async function (root) {
       if (!App.isConfigured()) {
         root.innerHTML = App.ui.emptyState({
@@ -428,8 +389,6 @@
               '<div class="home-stat"><span class="home-stat-value" data-countup="' + totals.count + '">' + totals.count.toLocaleString() + "</span>" +
               '<span class="home-stat-label">Total cards</span></div>' +
             "</div>" +
-            '<div data-badge-nudge></div>' +
-          "</div>" +
           '<div class="home-hero-art"><img src="/images/home-hero.webp" alt="An open vault door glowing with light, holographic trading cards swirling out"></div>' +
         "</section>" +
 
@@ -511,7 +470,6 @@
       var packBtn = root.querySelector("[data-pack-open]");
       if (packBtn) packBtn.addEventListener("click", function () { openPack(items); });
       App.ui.reveal(root);
-      fillBadgeNudge(root, items);
       window.scrollTo(0, 0);
     };
 

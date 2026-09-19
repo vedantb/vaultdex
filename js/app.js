@@ -80,6 +80,10 @@
     document.querySelectorAll('[data-nav="browse"]').forEach(function (a) {
       a.style.display = show ? "" : "none";
     });
+    // The trophy case is the owner's private shelf.
+    document.querySelectorAll('[data-nav="trophies"]').forEach(function (a) {
+      a.style.display = show ? "" : "none";
+    });
     // Visitors see whose collection this is; the owner sees "My Collection".
     var label = show ? "My Collection" : "Vedant's Collection";
     document.querySelectorAll('[data-nav="collection"]').forEach(function (a) {

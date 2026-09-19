@@ -140,4 +140,19 @@ test.describe("signed-in collection flows (stubbed Supabase)", () => {
     expect(rowsOf(db)[0].card_id).toBe("me02-001");
     expect(rowsOf(db)[0].quantity).toBe(2);
   });
+
+  test("signed-in /trophies renders the owner's badge grid (owner-only view)", async ({ page }) => {
+    const errors = [];
+    page.on("pageerror", e => errors.push(String(e && e.message || e)));
+    await gotoSignedIn(page, "/trophies", [
+      seedRow({ id: 1, card_name: "Bulbasaur", number: "001" }),
+      seedRow({ id: 2, card_name: "Ivysaur", number: "002" }),
+    ]);
+    await page.waitForSelector(".trophies-title", { timeout: 20000 });
+    await expect(page.locator(".trophies-count")).toContainText("unlocked");
+    // The seeded rows unlock at least the First Steps badge; locked badges
+    // render as locked cards, never as visitor read-only content.
+    expect(await page.locator(".badge-card").count()).toBeGreaterThan(0);
+    expect(errors).toEqual([]);
+  });
 });
