@@ -1,0 +1,92 @@
+/* VaultDex — grouped sidebar navigation (desktop) + slide-in drawer (mobile).
+ * Linear/Spotify-inspired: subtle tinted surface, icon + label rows, small
+ * section headers, faint-tint active state. No sticky bottom nav anywhere. */
+
+.app-layout { display: flex; align-items: stretch; min-height: 100vh; }
+.main-col { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; }
+.main-col > main#app { flex: 1; }
+
+/* ---------- desktop sidebar ---------- */
+.sidebar {
+  position: sticky; top: 0; height: 100vh; flex: 0 0 auto;
+  width: 252px; display: flex; flex-direction: column;
+  background: color-mix(in srgb, var(--surface) 70%, var(--bg));
+  border-right: 1px solid var(--border);
+  padding: 16px 12px 12px; z-index: 40;
+  transition: width 0.22s ease, padding 0.22s ease;
+}
+.sidebar-brand { display: flex; align-items: center; gap: 10px; padding: 6px 10px 18px; color: var(--text); }
+.sidebar-brand:hover { text-decoration: none; }
+.sidebar-nav { display: flex; flex-direction: column; gap: 20px; overflow-y: auto; flex: 1 1 auto; padding-bottom: 8px; }
+.nav-section { display: flex; flex-direction: column; gap: 2px; }
+.nav-heading {
+  font-family: var(--font-display); font-size: 0.7rem; font-weight: 700;
+  letter-spacing: 0.09em; text-transform: uppercase; color: var(--muted);
+  padding: 0 12px; margin: 0 0 6px; white-space: nowrap;
+}
+.nav-item {
+  display: flex; align-items: center; gap: 12px;
+  padding: 9px 12px; border-radius: 10px;
+  color: var(--muted); font-weight: 600; font-size: 0.95rem; line-height: 1.2;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.nav-item:hover { text-decoration: none; color: var(--text); background: var(--bg-soft); }
+.nav-item.active { background: var(--accent-soft); color: var(--accent-strong); }
+[data-theme="dark"] .nav-item.active { color: var(--accent); }
+.nav-ico { width: 22px; height: 22px; flex: 0 0 auto; display: inline-flex; align-items: center; justify-content: center; }
+.nav-ico svg { width: 100%; height: 100%; }
+.nav-label { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.sidebar-collapse {
+  margin-top: auto; flex: 0 0 auto;
+  display: flex; align-items: center; gap: 12px;
+  padding: 9px 12px; border: none; border-radius: 10px; background: transparent;
+  color: var(--muted); font-weight: 600; font-size: 0.9rem;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.sidebar-collapse:hover { background: var(--bg-soft); color: var(--text); }
+.sidebar-collapse .nav-ico { width: 22px; height: 22px; }
+
+/* ---------- collapsed icon rail (desktop) ---------- */
+body.sidebar-collapsed .sidebar { width: 72px; padding-left: 10px; padding-right: 10px; }
+body.sidebar-collapsed .nav-label,
+body.sidebar-collapsed .nav-heading,
+body.sidebar-collapsed .sidebar-brand .brand-name { display: none; }
+body.sidebar-collapsed .nav-item { justify-content: center; padding: 10px 0; }
+body.sidebar-collapsed .sidebar-brand { justify-content: center; padding: 6px 0 18px; }
+body.sidebar-collapsed .sidebar-collapse { justify-content: center; padding: 10px 0; }
+
+/* ---------- mobile: slim header + drawer ---------- */
+.hamburger { display: none; }
+.header-brand { display: none; }
+.header-brand .brand-name { font-size: 1.2rem; }
+.sidebar-scrim { display: none; }
+
+@media (max-width: 900px) {
+  .hamburger { display: inline-flex; }
+  .header-brand { display: flex; }
+  .sidebar {
+    position: fixed; left: 0; top: 0; bottom: 0; height: 100dvh; width: 284px;
+    transform: translateX(-105%); transition: transform 0.26s ease;
+    z-index: 100; box-shadow: 12px 0 40px rgba(0, 0, 0, 0.18);
+  }
+  body.drawer-open .sidebar { transform: none; }
+  .sidebar-scrim {
+    display: none; position: fixed; inset: 0; z-index: 90;
+    background: rgba(10, 12, 18, 0.5); border: none; padding: 0;
+  }
+  body.drawer-open .sidebar-scrim { display: block; }
+  .sidebar-collapse { display: none; }
+  /* The collapsed rail never applies to the drawer. */
+  body.sidebar-collapsed .sidebar { width: 284px; padding: 16px 12px 12px; }
+  body.sidebar-collapsed .sidebar .nav-label,
+  body.sidebar-collapsed .sidebar .nav-heading,
+  body.sidebar-collapsed .sidebar .sidebar-brand .brand-name { display: block; }
+  body.sidebar-collapsed .sidebar .nav-item { justify-content: flex-start; padding: 9px 12px; }
+  body.sidebar-collapsed .sidebar .sidebar-brand { justify-content: flex-start; padding: 6px 10px 18px; }
+  body.drawer-open { overflow: hidden; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sidebar, .nav-item, .sidebar-collapse { transition: none; }
+}

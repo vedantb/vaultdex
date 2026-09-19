@@ -130,22 +130,11 @@ main#app { flex: 1; padding: 28px 20px 64px; }
   backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--border);
 }
-.header-inner { height: var(--header-h); display: flex; align-items: center; gap: 20px; }
+.header-inner { height: var(--header-h); display: flex; align-items: center; gap: 12px; padding: 0 20px; }
 .brand { display: flex; align-items: center; gap: 10px; color: var(--text); }
 .brand:hover { text-decoration: none; }
 .brand-name { font-family: var(--font-display); font-weight: 800; font-size: 1.45rem; letter-spacing: -0.02em; }
 .brand-name em { font-style: normal; color: var(--accent); }
-.main-nav { display: flex; gap: 4px; margin-left: 8px; }
-.main-nav a {
-  color: var(--muted); font-weight: 600; font-size: 0.95rem;
-  padding: 9px 16px; border-radius: 999px; transition: all 0.18s ease;
-}
-.main-nav a:hover { text-decoration: none; color: var(--text); background: var(--bg-soft); }
-.main-nav a.active { color: var(--text); background: var(--accent-soft); color: var(--accent-strong); }
-[data-theme="dark"] .main-nav a.active { color: var(--accent); }
-
-/* mobile page-heading nav (non-sticky, lives in the page flow) */
-.page-nav { display: none; }
 .header-actions { margin-left: auto; display: flex; align-items: center; gap: 8px; }
 .auth-area { display: flex; align-items: center; gap: 10px; margin-left: 4px; }
 .user-chip { display: flex; align-items: center; gap: 9px; padding: 5px 12px 5px 5px; border: 1px solid var(--border); border-radius: 999px; background: var(--surface-2); }
@@ -713,14 +702,8 @@ main#app { flex: 1; padding: 28px 20px 64px; }
   .stat .value { font-size: 1.35rem; }
 }
 @media (max-width: 640px) {
-  .main-nav { display: none; }
-  /* on mobile the header nav is hidden, so keep the contextual back button */
+  /* on mobile the sidebar becomes a drawer, so keep the contextual back button */
   .set-back { display: inline-flex; }
-  .page-nav { display: flex; flex-wrap: nowrap; gap: 4px 18px; align-items: baseline; padding-top: 22px; margin-bottom: 6px; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
-  .page-nav::-webkit-scrollbar { display: none; }
-  .page-nav a { font-family: var(--font-display); font-weight: 800; font-size: 1.3rem; letter-spacing: -0.01em; color: var(--muted); padding: 4px 2px; white-space: nowrap; flex-shrink: 0; }
-  .page-nav a:hover { text-decoration: none; color: var(--text); }
-  .page-nav a.active { color: var(--text); }
   .brand-name { font-size: 1.2rem; }
   .hero { padding: 24px 20px; }
   .card-grid { grid-template-columns: repeat(auto-fill, minmax(128px, 1fr)); gap: 12px; }

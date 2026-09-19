@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/sidebar.css">
   <link rel="stylesheet" href="/css/graded.css">
   <link rel="stylesheet" href="/css/set-progress.css">
   <link rel="stylesheet" href="/css/wishlist.css">
@@ -51,55 +52,53 @@
   <script src="/js/app.js" defer></script>
 </head>
 <body>
-  <div id="setup-banner" class="setup-banner" hidden>
-    <span>Supabase isn't configured yet — browsing works, but saving your collection needs setup.</span>
-    <a href="SETUP.md" target="_blank" rel="noopener">Open SETUP.md</a>
-    <button class="btn-icon" id="setup-banner-close" aria-label="Dismiss">✕</button>
-    <code class="setup-banner-diag" id="setup-banner-diag" hidden></code>
-  </div>
-
-  <div id="announce-bar" class="announce-bar" hidden>
-    <span class="announce-ico" aria-hidden="true">✨</span>
-    <span>The vault is growing — more cards are being added, and some prices are being refreshed. Check back soon!</span>
-    <button class="btn-icon" id="announce-bar-close" aria-label="Dismiss announcement">✕</button>
-  </div>
-
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="/" class="brand" aria-label="VaultDex home">
+  <div class="app-layout">
+    <aside class="sidebar" id="sidebar" aria-label="Site">
+      <a href="/" class="brand sidebar-brand" aria-label="VaultDex home">
         <span class="brand-mark" aria-hidden="true">
           <svg viewBox="0 0 64 64" width="34" height="34"><circle cx="32" cy="32" r="27" fill="#ffffff" stroke="#1c2333" stroke-width="3"/><path d="M5 32a27 27 0 0 1 54 0z" fill="#e3350d"/><rect x="5" y="29" width="54" height="6" fill="#1c2333"/><circle cx="32" cy="32" r="9" fill="#ffffff" stroke="#1c2333" stroke-width="4"/><circle cx="32" cy="32" r="3.5" fill="#1c2333"/></svg>
         </span>
         <span class="brand-name">Vault<em>Dex</em></span>
       </a>
-      <nav class="main-nav" aria-label="Primary">
-        <a href="/" data-nav="home">Home</a>
-        <a href="/browse" data-nav="browse">Browse</a>
-        <a href="/collection" data-nav="collection">My Collection</a>
-        <a href="/pokedex" data-nav="pokedex">Pokédex</a>
-        <a href="/trophies" data-nav="trophies">Trophies</a>
-        <a href="/trade" data-nav="trade">Trade Binder</a>
-        <a href="/games" data-nav="games">Games</a>
-      </nav>
-      <div class="header-actions">
-        <button class="btn-icon" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode"></button>
-        <button class="btn-icon" id="settings-btn" aria-label="Settings" title="Settings"></button>
-        <div id="auth-area" class="auth-area"></div>
+      <nav class="sidebar-nav" id="sidebar-nav" aria-label="Primary"></nav>
+      <button class="sidebar-collapse" id="sidebar-collapse" aria-label="Collapse sidebar"></button>
+    </aside>
+    <div class="sidebar-scrim" id="sidebar-scrim" aria-hidden="true"></div>
+
+    <div class="main-col">
+      <div id="setup-banner" class="setup-banner" hidden>
+        <span>Supabase isn't configured yet — browsing works, but saving your collection needs setup.</span>
+        <a href="SETUP.md" target="_blank" rel="noopener">Open SETUP.md</a>
+        <button class="btn-icon" id="setup-banner-close" aria-label="Dismiss">✕</button>
+        <code class="setup-banner-diag" id="setup-banner-diag" hidden></code>
       </div>
+
+      <div id="announce-bar" class="announce-bar" hidden>
+        <span class="announce-ico" aria-hidden="true">✨</span>
+        <span>The vault is growing — more cards are being added, and some prices are being refreshed. Check back soon!</span>
+        <button class="btn-icon" id="announce-bar-close" aria-label="Dismiss announcement">✕</button>
+      </div>
+
+      <header class="site-header">
+        <div class="header-inner">
+          <button class="btn-icon hamburger" id="hamburger" aria-label="Open navigation menu" aria-expanded="false"></button>
+          <a href="/" class="brand header-brand" aria-label="VaultDex home">
+            <span class="brand-mark" aria-hidden="true">
+              <svg viewBox="0 0 64 64" width="28" height="28"><circle cx="32" cy="32" r="27" fill="#ffffff" stroke="#1c2333" stroke-width="3"/><path d="M5 32a27 27 0 0 1 54 0z" fill="#e3350d"/><rect x="5" y="29" width="54" height="6" fill="#1c2333"/><circle cx="32" cy="32" r="9" fill="#ffffff" stroke="#1c2333" stroke-width="4"/><circle cx="32" cy="32" r="3.5" fill="#1c2333"/></svg>
+            </span>
+            <span class="brand-name">Vault<em>Dex</em></span>
+          </a>
+          <div class="header-actions">
+            <button class="btn-icon" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode"></button>
+            <button class="btn-icon" id="settings-btn" aria-label="Settings" title="Settings"></button>
+            <div id="auth-area" class="auth-area"></div>
+          </div>
+        </div>
+      </header>
+
+      <main id="app" class="container" aria-live="polite"></main>
     </div>
-  </header>
-
-  <nav class="page-nav container" aria-label="Primary">
-    <a href="/" data-nav="home">Home</a>
-    <a href="/browse" data-nav="browse">Browse</a>
-    <a href="/collection" data-nav="collection">Vedant's Collection</a>
-    <a href="/pokedex" data-nav="pokedex">Pokédex</a>
-    <a href="/trophies" data-nav="trophies">Trophies</a>
-    <a href="/trade" data-nav="trade">Trade Binder</a>
-        <a href="/games" data-nav="games">Games</a>
-  </nav>
-
-  <main id="app" class="container" aria-live="polite"></main>
+  </div>
 
   <div id="modal-root"></div>
   <div id="toast-root" aria-live="polite" aria-atomic="false"></div>

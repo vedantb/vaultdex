@@ -73,21 +73,93 @@
     });
   }
 
+  /* ---------- sidebar navigation ---------- */
+  /* Grouped sidebar (desktop) / slide-in drawer (mobile). Rendered from one
+   * config so both stay identical. data-nav keys drive setActiveNav and
+   * updateNavVisibility below. */
+  var NAV_SECTIONS = [
+    { heading: "Explore", items: [
+      { key: "home", href: "/", label: "Home", icon: "home" },
+      { key: "collection", href: "/collection", label: "Collection", icon: "cards" },
+      { key: "pokedex", href: "/pokedex", label: "Pokédex", icon: "pokedex" },
+      { key: "trade", href: "/trade", label: "Trade Binder", icon: "trade" },
+      { key: "games", href: "/games", label: "Games", icon: "game" }
+    ]},
+    { heading: "My Vault", items: [
+      { key: "browse", href: "/browse", label: "Browse", icon: "search" },
+      { key: "wishlist", href: "/wishlist", label: "Wishlist", icon: "heart" },
+      { key: "trophies", href: "/trophies", label: "Trophies", icon: "trophy" },
+      { key: "movers", href: "/movers", label: "Price Movers", icon: "chart" }
+    ]}
+  ];
+  function renderSidebar() {
+    var nav = document.getElementById("sidebar-nav");
+    if (!nav) return;
+    nav.innerHTML = NAV_SECTIONS.map(function (sec) {
+      return '<div class="nav-section"><h2 class="nav-heading">' + App.esc(sec.heading) + "</h2>" +
+        sec.items.map(function (it) {
+          return '<a class="nav-item" href="' + it.href + '" data-nav="' + it.key + '" title="' + App.esc(it.label) + '">' +
+            '<span class="nav-ico" aria-hidden="true">' + App.ui.icon(it.icon) + "</span>" +
+            '<span class="nav-label">' + App.esc(it.label) + "</span></a>";
+        }).join("") + "</div>";
+    }).join("");
+  }
+
+  /* ---------- sidebar collapse (desktop) + drawer (mobile) ---------- */
+  var COLLAPSE_KEY = "vd_sidebar_collapsed";
+  function applyCollapsed(collapsed) {
+    document.body.classList.toggle("sidebar-collapsed", !!collapsed);
+    var btn = document.getElementById("sidebar-collapse");
+    if (btn) {
+      btn.innerHTML = '<span class="nav-ico" aria-hidden="true">' + App.ui.icon(collapsed ? "chev-r" : "chev-l") + "</span>";
+      btn.setAttribute("aria-label", collapsed ? "Expand sidebar" : "Collapse sidebar");
+    }
+    try { localStorage.setItem(COLLAPSE_KEY, collapsed ? "1" : "0"); } catch { /* private mode */ }
+  }
+  function openDrawer() {
+    document.body.classList.add("drawer-open");
+    var b = document.getElementById("hamburger");
+    if (b) b.setAttribute("aria-expanded", "true");
+  }
+  function closeDrawer() {
+    document.body.classList.remove("drawer-open");
+    var b = document.getElementById("hamburger");
+    if (b) b.setAttribute("aria-expanded", "false");
+  }
+  function initSidebarChrome() {
+    renderSidebar();
+    var stored = false;
+    try { stored = localStorage.getItem(COLLAPSE_KEY) === "1"; } catch { /* private mode */ }
+    applyCollapsed(stored);
+    var collapseBtn = document.getElementById("sidebar-collapse");
+    if (collapseBtn) collapseBtn.addEventListener("click", function () {
+      applyCollapsed(!document.body.classList.contains("sidebar-collapsed"));
+    });
+    var burger = document.getElementById("hamburger");
+    if (burger) {
+      burger.innerHTML = App.ui.icon("menu");
+      burger.addEventListener("click", function () {
+        if (document.body.classList.contains("drawer-open")) closeDrawer(); else openDrawer();
+      });
+    }
+    var scrim = document.getElementById("sidebar-scrim");
+    if (scrim) scrim.addEventListener("click", closeDrawer);
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeDrawer(); });
+  }
+
   /* ---------- header auth area ---------- */
   function updateNavVisibility() {
     // The catalog is owner-only; visitors get the public collection page.
     var show = App.auth.isOwner();
-    document.querySelectorAll('[data-nav="browse"]').forEach(function (a) {
-      a.style.display = show ? "" : "none";
-    });
-    // The trophy case is the owner's private shelf.
-    document.querySelectorAll('[data-nav="trophies"]').forEach(function (a) {
-      a.style.display = show ? "" : "none";
+    ["browse", "trophies", "wishlist"].forEach(function (k) {
+      document.querySelectorAll('[data-nav="' + k + '"]').forEach(function (a) {
+        a.style.display = show ? "" : "none";
+      });
     });
     // Visitors see whose collection this is; the owner sees "My Collection".
     var label = show ? "My Collection" : "Vedant's Collection";
-    document.querySelectorAll('[data-nav="collection"]').forEach(function (a) {
-      a.textContent = label;
+    document.querySelectorAll('[data-nav="collection"] .nav-label').forEach(function (el) {
+      el.textContent = label;
     });
   }
   function renderAuthArea() {
@@ -124,6 +196,7 @@
 
   function navigate(path) {
     if (window.location.pathname !== path) window.history.pushState(null, "", path);
+    closeDrawer();
     route();
   }
   App.navigate = navigate;
@@ -135,8 +208,10 @@
       : path === "/trade" ? "trade"
       : path === "/pokedex" ? "pokedex"
       : path === "/trophies" ? "trophies"
+      : path === "/wishlist" ? "wishlist"
+      : path === "/movers" ? "movers"
       : (path === "/games" || path.indexOf("/games/") === 0) ? "games"
-      : "collection"; /* /wishlist and /movers have no nav links; they read as collection pages */
+      : "collection";
     document.querySelectorAll("[data-nav]").forEach(function (a) {
       a.classList.toggle("active", a.getAttribute("data-nav") === key);
     });
@@ -229,6 +304,7 @@
   async function boot() {
     initTheme();
     initAnnounceBar();
+    initSidebarChrome();
     document.getElementById("settings-btn").innerHTML = App.ui.icon("gear");
     document.getElementById("settings-btn").addEventListener("click", function () { App.ui.openSettings(); });
 

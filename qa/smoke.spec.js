@@ -216,7 +216,7 @@ test("signed-out /games hub renders tiles + Card of the Day hero: zero errors, n
   // Card of the Day hero features a real card from the vault.
   await expect(page.locator(".cotd-hero .cotd-hero-name")).toBeVisible();
   // The Games nav entry is public and active on the hub.
-  await expect(page.locator('.main-nav [data-nav="games"], .page-nav [data-nav="games"]').first()).toHaveClass(/active/);
+  await expect(page.locator('#sidebar [data-nav="games"]').first()).toHaveClass(/active/);
 });
 
 test("signed-out /games/higher-lower plays a full round: zero errors, no overflow", async ({
