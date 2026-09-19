@@ -161,3 +161,56 @@ describe("displayName", () => {
     expect(S.displayName(input)).toBe(want);
   });
 });
+
+describe("artworkUrl — official artwork hotlinks", () => {
+  test("builds the PokeAPI sprites URL for a dex number", () => {
+    expect(S.artworkUrl(25)).toBe(
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png"
+    );
+  });
+  test("rejects junk input", () => {
+    expect(S.artworkUrl(0)).toBeNull();
+    expect(S.artworkUrl(-3)).toBeNull();
+    expect(S.artworkUrl("abc")).toBeNull();
+    expect(S.artworkUrl(null)).toBeNull();
+  });
+});
+
+describe("visibleInMode — pokedex grid filters", () => {
+  test.each([
+    [true, "all", true],
+    [false, "all", true],
+    [true, "caught", true],
+    [false, "caught", false],
+    [true, "missing", false],
+    [false, "missing", true],
+    [true, "bogus", true],
+  ])("captured=%s mode=%s -> %s", (captured, mode, want) => {
+    expect(S.visibleInMode(captured, mode)).toBe(want);
+  });
+});
+
+describe("missingPrintings — owned/missing partition", () => {
+  // species-printings.json tuples: [card_id, lang, name, set_name, image]
+  const PRINTINGS = [
+    ["me02-001", "en", "Oddish", "Mega Evolution", "img1"],
+    ["me02-002", "en", "Oddish", "Mega Evolution", "img2"],
+    ["M6a-001", "ja", "Oddish", "30th Celebration", "img3"],
+  ];
+  test("a printing is missing unless its exact card_id is owned", () => {
+    const missing = S.missingPrintings(PRINTINGS, ["me02-001"]);
+    expect(missing.map((p) => p[0])).toEqual(["me02-002", "M6a-001"]);
+  });
+  test("EN and JA printings are distinct (same species, both listed)", () => {
+    const missing = S.missingPrintings(PRINTINGS, ["M6a-001"]);
+    expect(missing.map((p) => p[0])).toEqual(["me02-001", "me02-002"]);
+  });
+  test("empty ownership -> everything missing; full ownership -> none", () => {
+    expect(S.missingPrintings(PRINTINGS, [])).toHaveLength(3);
+    expect(S.missingPrintings(PRINTINGS, ["me02-001", "me02-002", "M6a-001"])).toHaveLength(0);
+  });
+  test("tolerates null/empty inputs", () => {
+    expect(S.missingPrintings(null, ["x"])).toEqual([]);
+    expect(S.missingPrintings(PRINTINGS, null)).toHaveLength(3);
+  });
+});

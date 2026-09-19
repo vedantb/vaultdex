@@ -99,6 +99,74 @@ test("signed-out /pokedex renders the species grid: zero errors, no overflow", a
   await expectCleanPage(page, "/pokedex", ".pokedex-title", "Pokédex");
 });
 
+test("signed-out /pokedex filters are mutually exclusive and filter the grid", async ({
+  page,
+}) => {
+  const errors = collectErrors(page);
+  await page.goto("/pokedex", { waitUntil: "networkidle", timeout: 60000 });
+  await page.waitForSelector(".dex-cell", { timeout: 20000 });
+  const total = await page.locator(".dex-cell").count();
+  expect(total).toBe(1025);
+
+  const caughtBox = page.locator('[data-dex-filter="caught"]');
+  const missingBox = page.locator('[data-dex-filter="missing"]');
+
+  await caughtBox.check();
+  await expect(missingBox).not.toBeChecked();
+  const caughtCount = await page.locator(".dex-cell").count();
+  expect(caughtCount).toBeGreaterThan(0);
+  expect(caughtCount).toBeLessThan(total);
+  expect(await page.locator(".dex-cell.dex-missing").count()).toBe(0);
+
+  // Checking "Not captured" unchecks "Captured only".
+  await missingBox.check();
+  await expect(caughtBox).not.toBeChecked();
+  const missingCount = await page.locator(".dex-cell").count();
+  expect(missingCount).toBe(total - caughtCount);
+  expect(await page.locator(".dex-cell:not(.dex-missing)").count()).toBe(0);
+
+  // Unchecking the active filter returns to "All".
+  await missingBox.uncheck();
+  expect(await page.locator(".dex-cell").count()).toBe(total);
+
+  await expectNoOverflow(page);
+  expect(errors).toEqual([]);
+});
+
+test("signed-out /pokedex uncaptured cells show greyscale art and open missing printings", async ({
+  page,
+}) => {
+  const errors = collectErrors(page);
+  await page.goto("/pokedex", { waitUntil: "networkidle", timeout: 60000 });
+  await page.waitForSelector(".dex-cell", { timeout: 20000 });
+
+  await page.locator('[data-dex-filter="missing"]').check();
+  const cell = page.locator(".dex-cell.dex-missing").first();
+  await expect(cell).toBeVisible();
+  // Greyscale official artwork (falls back to number-only if art 404s).
+  const art = cell.locator("img.dex-art-missing");
+  await expect(art).toHaveAttribute(
+    "src",
+    /raw\.githubusercontent\.com\/PokeAPI\/sprites\/.*\/official-artwork\/\d+\.png/
+  );
+  const filter = await page.evaluate((el) => getComputedStyle(el).filter, await art.elementHandle());
+  expect(filter).toContain("grayscale");
+
+  // Uncaptured cells are clickable: the modal shows 0 owned + missing printings.
+  await cell.click();
+  const modal = page.locator(".modal-body");
+  await expect(modal.locator(".dex-modal-head h3")).toBeVisible({ timeout: 20000 });
+  await expect(modal.locator(".result-meta")).toContainText("0 cards in the vault");
+  await expect(modal.locator(".dex-modal-sub")).toContainText(/Missing printings \(\d+\)/, { timeout: 20000 });
+  const missingImg = modal.locator(".dex-modal-missing img").first();
+  await expect(missingImg).toBeVisible();
+  const mFilter = await page.evaluate((el) => getComputedStyle(el).filter, await missingImg.elementHandle());
+  expect(mFilter).toContain("grayscale");
+
+  await expectNoOverflow(page);
+  expect(errors).toEqual([]);
+});
+
 test.describe("desktop viewport", () => {
   test.use({ viewport: { width: 1280, height: 800 } });
   test("desktop viewport: signed-out home (/) renders cleanly", async ({ page }) => {

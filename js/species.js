@@ -157,12 +157,43 @@
   /* Test seam: inject a mapping without fetching. */
   function setMapping(m) { mapping = m; }
 
+  /* Official Pokémon artwork URL (PokeAPI sprites repo) for a National Dex
+   * number — used greyscaled for uncaptured species ("Who's that Pokémon?"). */
+  function artworkUrl(dexNum) {
+    var n = parseInt(dexNum, 10);
+    if (!n || n < 1) return null;
+    return "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/" + n + ".png";
+  }
+
+  /* Grid filter: which species are visible under each filter mode. */
+  function visibleInMode(captured, mode) {
+    if (mode === "caught") return !!captured;
+    if (mode === "missing") return !captured;
+    return true; // "all" (or anything unexpected) shows everything
+  }
+
+  /* Partition catalog printings (species-printings.json tuples:
+   * [card_id, lang, name, set_name, image]) into owned vs missing by
+   * card_id. card_id matches collection rows' card_id in both languages;
+   * EN and JA printings are distinct entries. Never invents ownership:
+   * a printing is "owned" only when its exact card_id is in ownedCardIds. */
+  function missingPrintings(printings, ownedCardIds) {
+    var owned = {};
+    (ownedCardIds || []).forEach(function (id) { owned[String(id)] = true; });
+    return (printings || []).filter(function (p) {
+      return !owned[String(p[0])];
+    });
+  }
+
   App.species = {
     loadMapping: loadMapping,
     setMapping: setMapping,
     slugForCardName: slugForCardName,
     dexNumber: dexNumber,
     displayName: displayName,
-    groupRowsBySpecies: groupRowsBySpecies
+    groupRowsBySpecies: groupRowsBySpecies,
+    artworkUrl: artworkUrl,
+    visibleInMode: visibleInMode,
+    missingPrintings: missingPrintings
   };
 })();

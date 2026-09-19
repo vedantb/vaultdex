@@ -12,6 +12,7 @@
 
 .dex-filter { display: inline-flex; align-items: center; gap: 8px; font-size: 0.88rem; margin-bottom: 4px; cursor: pointer; }
 .dex-filter input { width: 16px; height: 16px; accent-color: #e3350d; }
+.dex-filters { display: flex; flex-wrap: wrap; gap: 2px 18px; }
 
 .dex-grid {
   display: grid;
@@ -30,7 +31,13 @@
 .dex-num-alone { font-size: 1rem; margin-top: 10px; }
 .dex-name { font-size: 0.72rem; font-weight: 600; text-align: center; line-height: 1.2; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
 
-.dex-missing { opacity: 0.55; background: color-mix(in srgb, var(--muted) 7%, transparent); }
+/* Uncaptured cells keep the tinted "undiscovered" background. The dimming
+ * lives on the artwork only (not the whole cell): these cells are now
+ * clickable buttons, and washed-out text would fail AA contrast. */
+.dex-missing { background: color-mix(in srgb, var(--muted) 7%, transparent); }
+/* Uncaptured species show official artwork, fully greyscaled and dimmed —
+ * the "Who's that Pokémon?" silhouette feel. */
+.dex-missing .dex-art-missing { filter: grayscale(1); opacity: 0.6; }
 .dex-caught { border-color: color-mix(in srgb, #2a75bb 55%, var(--border)); }
 .dex-caught .dex-dot { border-color: #2a75bb; }
 .dex-bronze { border: 2px solid #b0793a; }
@@ -58,3 +65,8 @@
 .dex-modal-card img { width: 100%; aspect-ratio: 63 / 88; object-fit: cover; display: block; }
 .dmc-name { display: block; font-size: 0.74rem; font-weight: 700; padding: 6px 6px 0; }
 .dmc-meta { display: block; font-size: 0.68rem; color: var(--muted); padding: 2px 6px 0; }
+
+/* Missing-printings section of the species modal. */
+.dex-modal-sub { font-size: 0.95rem; margin: 18px 0 0; font-family: var(--font-display); }
+.dex-modal-loading { color: var(--muted); font-size: 0.85rem; margin: 14px 0 4px; }
+.dex-modal-missing img { filter: grayscale(1); }

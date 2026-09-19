@@ -155,4 +155,34 @@ test.describe("signed-in collection flows (stubbed Supabase)", () => {
     expect(await page.locator(".badge-card").count()).toBeGreaterThan(0);
     expect(errors).toEqual([]);
   });
+
+  test("signed-in /pokedex species modal shows owned in color + missing in greyscale", async ({ page }) => {
+    const errors = [];
+    page.on("pageerror", e => errors.push(String(e && e.message || e)));
+    // Seed one Bulbasaur printing; the catalog carries many more.
+    await gotoSignedIn(page, "/pokedex", [
+      seedRow({ id: 1, card_id: "sv03.5-001", card_name: "Bulbasaur", set_id: "sv03.5", set_name: "151", number: "001" }),
+    ]);
+    await page.waitForSelector('[data-dex-species="bulbasaur"]', { timeout: 20000 });
+    await page.locator('[data-dex-species="bulbasaur"]').click();
+
+    const modal = page.locator(".modal-body");
+    await expect(modal.locator(".dex-modal-head h3")).toContainText("Bulbasaur", { timeout: 20000 });
+    await expect(modal.locator(".result-meta")).toContainText("1 card in the vault");
+    // The owned printing renders in color.
+    expect(await modal.locator(".dex-modal-card:not(.dex-modal-missing)").count()).toBe(1);
+    // Missing printings load lazily from the local index and render greyscale.
+    await expect(modal.locator(".dex-modal-sub")).toContainText(/Missing printings \(\d+\)/, { timeout: 30000 });
+    const missingCards = modal.locator(".dex-modal-missing");
+    expect(await missingCards.count()).toBeGreaterThan(0);
+    // The seeded owned printing is excluded from the missing list.
+    for (const id of await missingCards.evaluateAll(els => els.map(e => e.getAttribute("data-dex-missing")))) {
+      expect(id).not.toBe("sv03.5-001");
+    }
+    const mImg = missingCards.locator("img").first();
+    await expect(mImg).toBeVisible();
+    const filter = await page.evaluate(el => getComputedStyle(el).filter, await mImg.elementHandle());
+    expect(filter).toContain("grayscale");
+    expect(errors).toEqual([]);
+  });
 });
