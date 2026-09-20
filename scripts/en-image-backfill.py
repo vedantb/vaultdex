@@ -44,14 +44,20 @@ DAILY_CAP = 16000
 # Sets whose card numbers don't align with PkmnPrices numbering — match on
 # exact normalized name instead of number (e.g. Celebrations Classic
 # Collection: ours "CC001", theirs original print numbers; My First
-# Battle: PkmnPrices carries no numbers at all).
-NAME_MATCH = {"cel25cc", "mfb"}
+# Battle: PkmnPrices carries no numbers at all; ecard2: 38 index-only
+# holo (H01-H32) and a/b variant cards have no PkmnPrices number).
+NAME_MATCH = {"cel25cc", "mfb", "ecard2"}
 
 # Per-card overrides for one-offs: our card id -> (PkmnPrices set id,
 # PkmnPrices exact card name). Used when the card lives in a different
 # PkmnPrices set than its siblings.
 CARD_OVERRIDES = {
     "mep-Museum": (550, "Pikachu at the Museum"),  # Jumbo Cards, not ME promos
+    # SM Trainer Kit: both half-decks share numbers; PP disambiguates in the name
+    "tk-sm-l-19": (520, "Hau (#19) (Lycanroc Half-Deck)"),
+    "tk-sm-l-23": (520, "Hau (#23) (Lycanroc Half-Deck)"),
+    "tk-sm-r-19": (520, "Hau (#19) (Alolan Raichu Half-Deck)"),
+    "tk-sm-r-23": (520, "Hau (#23) (Alolan Raichu Half-Deck)"),
 }
 
 # Per-set manual name aliases (normalized form): ours -> theirs.
@@ -60,6 +66,14 @@ NAME_ALIASES = {
         "gardevoirex": "gardevoirexdeltaspecies",
         "umbreon": "umbreonstar",  # ours "Umbreon ☆"
         "donphan": "donphanprime",
+    },
+    "ecard2": {
+        # PkmnPrices names 5 Aquapolis holos "Name (H##)"
+        "exeggutor": "exeggutorh10",
+        "houndoom": "houndoomh11",
+        "kingdra": "kingdrah14",
+        "lanturn": "lanturnh15",
+        "nidoking": "nidokingh18",
     },
 }
 
@@ -110,6 +124,22 @@ OVERRIDES = {
     "bog": 576,         # Best of Promos (NOT 434 Nintendo Promos)
     "mfb": 554,         # My First Battle
     "xya": 462,         # Alternate Art Promos (candidate — guard validates)
+    "tk-xy-p": 560,     # XY Trainer Kit: Pikachu Libre & Suicune (Pikachu Libre half)
+    "tk-xy-su": 560,    # XY Trainer Kit: Pikachu Libre & Suicune (Suicune half)
+    "tk-sm-l": 520,     # SM Trainer Kit: Lycanroc & Alolan Raichu (Lycanroc half)
+    "tk-sm-r": 520,     # SM Trainer Kit: Lycanroc & Alolan Raichu (Alolan Raichu half)
+    "sm7.5": 436,       # Dragon Majesty
+    "sm3.5": 529,       # Shining Legends
+    "smp": 539,         # SM Black Star Promos (PkmnPrices "SM Promos")
+    "2017sm": 517,      # McDonald's Promos 2017
+    "2018sm": 579,      # McDonald's Promos 2018
+    "2019sm": 590,      # McDonald's Promos 2019
+    "2021swsh": 486,    # McDonald's 25th Anniversary Promos (McDonald's Collection 2021)
+    "2022swsh": 589,    # McDonald's Promos 2022
+    "2023sv": 426,      # McDonald's Promos 2023
+    "2024sv": 513,      # McDonald's Promos 2024
+    "sm6": 617,         # SM - Forbidden Light
+    "xyp": 621,         # XY Black Star Promos (PkmnPrices "XY Promos")
     # 30th-c (local-only 30th Classic Collection) has no PkmnPrices
     # equivalent yet — 1086 "ME: 30th Celebration" is the ME-era set.
 }
