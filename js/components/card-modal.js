@@ -25,6 +25,18 @@
     return '<span class="skel ' + cls + '" aria-hidden="true"></span>';
   }
 
+  /* Japanese on-demand price skeleton: same table structure as the final
+   * Condition/Market/Source table so the modal never grows when the live
+   * PkmnPrices number lands. */
+  function jaSkelInner() {
+    return '<table class="price-table"><thead><tr><th>Condition</th><th>Market</th><th>Source</th></tr></thead><tbody>' +
+      "<tr><td>Near Mint</td>" + '<td class="market">' + skel("price-skel") + "</td><td>" + skel("label-skel") + "</td></tr>" +
+      "</tbody></table>";
+  }
+  function jaSkelBox() {
+    return '<div id="cm-ja-price">' + jaSkelInner() + "</div>";
+  }
+
   /* Pure price-box builder, loading-aware (exposed on App.cardModal for
    * unit tests). While the background price upgrade is pending, the table
    * keeps its full row structure with shimmer cells instead of "—" or a
@@ -51,10 +63,7 @@
         }).join(""));
       }
       if (isJa) {
-        return '<div id="cm-ja-price">' +
-          '<table class="price-table"><thead><tr><th>Condition</th><th>Market</th><th>Source</th></tr></thead><tbody>' +
-          "<tr><td>Near Mint</td>" + '<td class="market">' + skel("price-skel") + "</td><td>" + skel("label-skel") + "</td></tr>" +
-          "</tbody></table></div>";
+        return jaSkelBox();
       }
       /* Upgrade pending but the snapshot had no price rows at all: reserve
        * space with a best-guess row count (true printings when known). */
@@ -68,9 +77,10 @@
     if (tcgVars.length) {
       return wrap(tcgVars.map(function (v) { return priceRow(v.label, v.prices || {}); }).join(""));
     } else if (isJa) {
-      // Japanese cards have no TCGdex pricing — fetch the PkmnPrices
-      // Near Mint market price for the Japanese printing on demand.
-      return '<div id="cm-ja-price"><p style="color:var(--muted);font-size:0.9rem">Looking up Japanese market price…</p></div>';
+      // Japanese cards have no TCGdex pricing — the PkmnPrices Near Mint
+      // market price loads on demand; keep the skeleton table so the modal
+      // never grows when it lands.
+      return jaSkelBox();
     }
     return '<p style="color:var(--muted);font-size:0.9rem">No TCGPlayer price data for this card.</p>';
   }
@@ -85,7 +95,7 @@
     var box = m.el.querySelector("#cm-ja-price");
     if (!box) return;
     var selectedBox = getBox ? getBox() : null;
-    box.innerHTML = '<p style="color:var(--muted);font-size:0.9rem">Looking up Japanese market price…</p>';
+    box.innerHTML = jaSkelInner();
     try {
       var pm = await App.pkmn.findVariantPrice({
         name: card.name,

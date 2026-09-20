@@ -124,9 +124,11 @@ describe("priceBoxHtml (price loading skeletons, 2026-09-20)", () => {
     expect(html).toContain("$4.50");
     expect(html).not.toContain("skel");
   });
-  test("idle JA card keeps the looking-up note", () => {
+  test("idle JA card keeps the skeleton table (no layout shift)", () => {
     const html = priceBoxHtml({ tcgVars: [], prints: [], isJa: true, priceLoading: false });
-    expect(html).toContain("Looking up Japanese market price");
+    expect(html).toContain('id="cm-ja-price"');
+    expect(html).toContain("price-skel");
+    expect(html).not.toContain("Looking up Japanese market price");
   });
   test("idle card with no prices keeps the no-data note", () => {
     const html = priceBoxHtml({ tcgVars: [], prints: [], isJa: false, priceLoading: false });
