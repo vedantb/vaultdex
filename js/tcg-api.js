@@ -718,6 +718,7 @@
     searchCards: searchCards,
     getCard: getCard,
     getDetails: getDetails,
+    getIndex: getIndex,
     getSets: getSets,
     getSet: getSet,
     getSetCards: getSetCards,

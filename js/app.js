@@ -83,7 +83,8 @@
       { key: "collection", href: "/collection", label: "Collection", icon: "cards" },
       { key: "pokedex", href: "/pokedex", label: "Pokédex", icon: "pokedex" },
       { key: "trade", href: "/trade", label: "Trade Binder", icon: "trade" },
-      { key: "games", href: "/games", label: "Games", icon: "game" }
+      { key: "games", href: "/games", label: "Games", icon: "game" },
+      { key: "binder", href: "/binder", label: "Binder Studio", icon: "grid" }
     ]},
     { heading: "My Vault", items: [
       { key: "browse", href: "/browse", label: "Browse", icon: "search" },
@@ -151,7 +152,7 @@
   function updateNavVisibility() {
     // The catalog is owner-only; visitors get the public collection page.
     var show = App.auth.isOwner();
-    ["browse", "trophies", "wishlist"].forEach(function (k) {
+    ["browse", "trophies", "wishlist", "binder"].forEach(function (k) {
       document.querySelectorAll('[data-nav="' + k + '"]').forEach(function (a) {
         a.style.display = show ? "" : "none";
       });
@@ -211,6 +212,7 @@
       : path === "/wishlist" ? "wishlist"
       : path === "/movers" ? "movers"
       : (path === "/games" || path.indexOf("/games/") === 0) ? "games"
+      : path === "/binder" ? "binder"
       : "collection";
     document.querySelectorAll("[data-nav]").forEach(function (a) {
       a.classList.toggle("active", a.getAttribute("data-nav") === key);
@@ -266,6 +268,14 @@
         viewPromise = App.views.gameQuiz(stage);
       } else if (path === "/games/card-of-the-day") {
         viewPromise = App.views.gameCardOfDay(stage);
+      } else if (path === "/binder") {
+        // Owner-only: visitors are quietly sent home; no sign-in controls.
+        if (!App.auth.isOwner()) {
+          window.history.replaceState(null, "", "/");
+          viewPromise = App.views.home(stage);
+        } else {
+          viewPromise = App.views.binder(stage);
+        }
       } else {
         window.history.replaceState(null, "", "/");
         viewPromise = App.views.home(stage);
@@ -367,6 +377,7 @@
           href === "/wishlist" || href === "/movers" || href === "/trade" ||
           href === "/pokedex" || href === "/trophies" ||
           href === "/games" || href.indexOf("/games/") === 0 ||
+          href === "/binder" ||
           href.indexOf("/set/") === 0) {
         e.preventDefault();
         navigate(href);
