@@ -286,7 +286,11 @@
         document.removeEventListener("keydown", onKey);
         stage.remove();
       }
-      function onKey(e) { if (e.key === "Escape") close(); }
+      function onKey(e) {
+        /* Escape closes the topmost layer only: with a card detail open over
+         * the fan, it closes the dialog and the fan stays put. */
+        if (e.key === "Escape" && !document.querySelector(".modal-overlay")) close();
+      }
       document.addEventListener("keydown", onKey);
       stage.addEventListener("mousedown", function (e) { if (e.target === stage) close(); });
 
@@ -366,12 +370,9 @@
           btn.addEventListener("click", function () {
             var it = picks[parseInt(btn.getAttribute("data-fan"), 10)];
             if (!it) return;
-            /* Capture the fanned card's rect before the stage unmounts so
-             * the dialog can FLIP-morph from it. */
-            var r = btn.getBoundingClientRect();
-            close();
-            App.openCardModal(it.card_id, langOf(it), it,
-              { left: r.left, top: r.top, width: r.width, height: r.height });
+            /* Keep the stage mounted: the dialog sinks it behind itself and
+             * closing the dialog returns to the fan with the other pulls. */
+            App.openCardModal(it.card_id, langOf(it), it, btn.querySelector("img") || btn);
           });
         });
       }

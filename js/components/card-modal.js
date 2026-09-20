@@ -98,60 +98,75 @@
     };
   }
 
-  /* Tile-to-modal FLIP (2026-09-20): morph the tapped tile's artwork into
-   * the dialog art instead of popping the dialog in. `source` is the tile
-   * art element, or a bare rect (the pack reveal captures its rect before
-   * unmounting). Skipped for reduced-motion users and when the source is
-   * gone. */
+  /* Tile-to-modal FLIP (2026-09-20): a shared-element morph done right. A
+   * "ghost" clone of the tile art is pinned exactly over the source at frame
+   * one; the dialog fades in *around* it (its own pop entrance is suppressed
+   * so the landing rect is stable from the start), then the ghost flies to
+   * the art slot and swaps with the real artwork. One continuous motion —
+   * never pop-then-fly. `source` is the tile art element. Skipped for
+   * reduced-motion users and when the source is gone. */
   function flipFromTile(m, source) {
     if (!source || App.ui.reduceMotion) return;
-    var src = null;
+    var srcRect = null, imgSrc = null;
     if (typeof source.getBoundingClientRect === "function") {
       if (!source.isConnected) return;
-      src = source.getBoundingClientRect();
-    } else if (source.width && source.height) {
-      src = source;
+      srcRect = source.getBoundingClientRect();
+      var sImg = source.tagName === "IMG" ? source : source.querySelector("img");
+      if (sImg) imgSrc = sImg.currentSrc || sImg.src;
     }
-    if (!src || !src.width || !src.height) return;
-    var img = m.el.querySelector(".card-detail .art img");
-    if (!img) return;
-    /* Hide the art until the modal's own entrance settles, so the landing
-     * rect we measure is the final one — otherwise the card visibly snaps
-     * when the entrance animation ends. */
-    img.style.visibility = "hidden";
+    if (!srcRect || !srcRect.width || !srcRect.height || !imgSrc) return;
+    var artBox = m.el.querySelector(".card-detail .art");
+    var img = artBox && artBox.querySelector("img");
+    if (!artBox || !img) return;
+
+    /* The dialog materializes around the flying card: suppress its own pop
+     * so the landing rect measured after layout is the final one. */
+    m.el.classList.add("flip-live");
+
+    /* Ghost: a fixed clone of the tile art sitting exactly over the tile.
+     * It reads as the tile itself until the flight starts. */
+    var ghost = document.createElement("img");
+    ghost.src = imgSrc;
+    ghost.alt = "";
+    ghost.setAttribute("aria-hidden", "true");
+    ghost.className = "flip-ghost";
+    ghost.style.left = srcRect.left + "px";
+    ghost.style.top = srcRect.top + "px";
+    ghost.style.width = srcRect.width + "px";
+    ghost.style.height = srcRect.height + "px";
+    document.body.appendChild(ghost);
+    artBox.style.visibility = "hidden";
+
+    var done = false;
+    function cleanup() {
+      if (done) return;
+      done = true;
+      if (ghost.parentNode) ghost.parentNode.removeChild(ghost);
+      if (m.el.isConnected) m.el.classList.remove("flip-live");
+      if (artBox.isConnected) artBox.style.visibility = "";
+    }
+
     var t0 = Date.now();
     (function waitForArt() {
-      if (!m.el.isConnected) return;
-      var loaded = (img.complete && img.naturalWidth > 0) || Date.now() - t0 > 1200;
-      if (!loaded) { setTimeout(waitForArt, 60); return; }
-      var settle = Math.max(0, 320 - (Date.now() - t0));
-      setTimeout(function () {
-        if (!m.el.isConnected) return;
-        var dst = img.getBoundingClientRect();
-        if (!dst.width || !dst.height) { img.style.visibility = ""; return; }
-        var t = flipTransform(src, dst);
-        /* A tile already at the destination size/spot needs no morph. */
-        if (Math.abs(t.dx) < 2 && Math.abs(t.dy) < 2 && Math.abs(t.sx - 1) < 0.02 && Math.abs(t.sy - 1) < 0.02) {
-          img.style.visibility = "";
-          return;
-        }
-        img.style.visibility = "";
-        img.style.transformOrigin = "top left";
-        img.style.transition = "none";
-        img.style.transform = "translate(" + t.dx + "px," + t.dy + "px) scale(" + t.sx + "," + t.sy + ")";
-        void img.offsetWidth; /* reflow so the transition starts from the tile rect */
-        img.style.transition = "transform 0.42s cubic-bezier(0.22, 0.9, 0.26, 1)";
-        img.style.transform = "translate(0px, 0px) scale(1, 1)";
-        var done = false;
-        function cleanup() {
-          if (done) return;
-          done = true;
-          img.removeEventListener("transitionend", cleanup);
-          if (img.isConnected) { img.style.transform = ""; img.style.transition = ""; img.style.transformOrigin = ""; }
-        }
-        img.addEventListener("transitionend", cleanup);
-        setTimeout(cleanup, 750);
-      }, settle);
+      if (done || !m.el.isConnected) { cleanup(); return; }
+      var loaded = (img.complete && img.naturalWidth > 0) || Date.now() - t0 > 800;
+      if (!loaded) { setTimeout(waitForArt, 50); return; }
+      var dst = artBox.getBoundingClientRect();
+      if (!dst.width || !dst.height) { cleanup(); return; }
+      /* Forward transform: places the src-positioned ghost onto dst. */
+      var t = flipTransform(dst, srcRect);
+      /* A tile already at the destination size/spot needs no morph. */
+      if (Math.abs(t.dx) < 2 && Math.abs(t.dy) < 2 && Math.abs(t.sx - 1) < 0.02 && Math.abs(t.sy - 1) < 0.02) {
+        cleanup();
+        return;
+      }
+      ghost.style.transformOrigin = "top left";
+      ghost.style.transform = "translate(0px, 0px) scale(1, 1)";
+      void ghost.offsetWidth; /* reflow so the transition starts from the tile rect */
+      ghost.style.transition = "transform 0.45s cubic-bezier(0.22, 0.9, 0.26, 1)";
+      ghost.style.transform = "translate(" + t.dx + "px," + t.dy + "px) scale(" + t.sx + "," + t.sy + ")";
+      ghost.addEventListener("transitionend", cleanup, { once: true });
+      setTimeout(cleanup, 750);
     })();
   }
 
@@ -270,8 +285,17 @@
     var m = App.ui.openModal(html, {
       onClose: function () {
         if (unsubOwned) { try { unsubOwned(); } catch { /* ignored */ } unsubOwned = null; }
+        /* Pack-pull context: the fan stage was sunk below this dialog; float
+         * it back so closing the detail returns to the other pulls. */
+        var ps = document.querySelector(".pack-stage.pack-behind");
+        if (ps) ps.classList.remove("pack-behind");
       }
     });
+    /* Pack-pull context: the tapped card came from a pack reveal fan. Keep
+     * the stage mounted behind the dialog (instead of unmounting it) so the
+     * other two pulls are still there when the detail closes. */
+    var packStage = sourceEl && sourceEl.closest ? sourceEl.closest(".pack-stage") : null;
+    if (packStage) packStage.classList.add("pack-behind");
     /* Tile-to-modal FLIP: morph the tapped tile's art into the dialog. */
     flipFromTile(m, sourceEl);
 

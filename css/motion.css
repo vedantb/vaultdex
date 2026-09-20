@@ -264,6 +264,22 @@
 }
 .pop { animation: pop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1); }
 
+/* ---------- shared-element FLIP: tile art -> dialog art ----------
+ * The dialog fades in around the flying ghost card, so its own pop entrance
+ * is suppressed while the FLIP runs (the landing rect is stable from frame
+ * one). The ghost is a fixed clone of the tile art pinned over the source. */
+.modal-overlay.flip-live .modal { animation: none; }
+.flip-ghost {
+  position: fixed; z-index: 1000; margin: 0; padding: 0; pointer-events: none;
+  border-radius: 14px; box-shadow: var(--shadow); object-fit: cover;
+  will-change: transform;
+}
+
+/* Pack reveal keeps its context: when a pulled card's detail dialog opens,
+ * the stage sinks below the modal overlay instead of unmounting — closing
+ * the dialog drops you back onto the fan with the other two pulls. */
+.pack-stage.pack-behind { z-index: 50; }
+
 /* ---------- reduced motion: everything settles ---------- */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -273,4 +289,5 @@
   }
   .reveal, .tile-enter { opacity: 1 !important; transform: none !important; }
   .card-detail .art.tilt { transform: none !important; }
+  .flip-ghost { display: none !important; }
 }
