@@ -20,6 +20,61 @@
     );
   }
 
+  /* Skeleton shimmer span: reserves layout while a value loads. */
+  function skel(cls) {
+    return '<span class="skel ' + cls + '" aria-hidden="true"></span>';
+  }
+
+  /* Pure price-box builder, loading-aware (exposed on App.cardModal for
+   * unit tests). While the background price upgrade is pending, the table
+   * keeps its full row structure with shimmer cells instead of "—" or a
+   * "no data" message — so the modal never grows when the live numbers
+   * land. o: { tcgVars, prints, isJa, priceLoading }. */
+  function priceBoxHtml(o) {
+    var tcgVars = o.tcgVars || [];
+    var prints = o.prints || [];
+    var isJa = !!o.isJa;
+    var loading = !!o.priceLoading;
+    var head = "<th>Variant</th><th>Low</th><th>Mid</th><th>High</th><th>Market</th>";
+    function wrap(rows) {
+      return '<table class="price-table"><thead><tr>' + head + "</tr></thead><tbody>" + rows + "</tbody></table>";
+    }
+    function skelPriceCells() {
+      return "<td>" + skel("price-skel") + "</td><td>" + skel("price-skel") + "</td><td>" + skel("price-skel") + "</td>" +
+        '<td class="market">' + skel("price-skel") + "</td>";
+    }
+    if (loading) {
+      if (tcgVars.length) {
+        /* Variant labels are known from the snapshot — only numbers shimmer. */
+        return wrap(tcgVars.map(function (v) {
+          return "<tr><td>" + App.esc(v.label) + "</td>" + skelPriceCells() + "</tr>";
+        }).join(""));
+      }
+      if (isJa) {
+        return '<div id="cm-ja-price">' +
+          '<table class="price-table"><thead><tr><th>Condition</th><th>Market</th><th>Source</th></tr></thead><tbody>' +
+          "<tr><td>Near Mint</td>" + '<td class="market">' + skel("price-skel") + "</td><td>" + skel("label-skel") + "</td></tr>" +
+          "</tbody></table></div>";
+      }
+      /* Upgrade pending but the snapshot had no price rows at all: reserve
+       * space with a best-guess row count (true printings when known). */
+      var n = prints.length || 3;
+      var rows = [];
+      for (var i = 0; i < n; i++) {
+        rows.push("<tr><td>" + skel("label-skel") + "</td>" + skelPriceCells() + "</tr>");
+      }
+      return wrap(rows.join(""));
+    }
+    if (tcgVars.length) {
+      return wrap(tcgVars.map(function (v) { return priceRow(v.label, v.prices || {}); }).join(""));
+    } else if (isJa) {
+      // Japanese cards have no TCGdex pricing — fetch the PkmnPrices
+      // Near Mint market price for the Japanese printing on demand.
+      return '<div id="cm-ja-price"><p style="color:var(--muted);font-size:0.9rem">Looking up Japanese market price…</p></div>';
+    }
+    return '<p style="color:var(--muted);font-size:0.9rem">No TCGPlayer price data for this card.</p>';
+  }
+
   /* Japanese price formatting is App.ui.money (js/ui.js) — same "—" for
    * missing prices, € for EUR rows. */
   /* On-demand Japanese market price for the modal. Fetches the PkmnPrices
@@ -84,7 +139,7 @@
     var wantP = pkmnId || null;
     return cands.filter(function (r) { return (r.pkmn_id || null) === wantP; })[0] || cands[0];
   }
-  App.cardModal = { findBoundRow: findBoundRow, flipTransform: flipTransform };
+  App.cardModal = { findBoundRow: findBoundRow, flipTransform: flipTransform, priceBoxHtml: priceBoxHtml };
 
   /* Pure FLIP math: given source and destination rects, the transform that
    * places a top-left-origin element from the destination rect onto the
@@ -197,7 +252,11 @@
     cleanup();
   }
 
-  function render(card, sourceEl) {
+  function render(card, sourceEl, opts) {
+    /* priceLoading: the modal opened on snapshot data and a live price
+     * upgrade is on its way — price regions render skeleton shimmers so
+     * the layout can't shift when the numbers land. */
+    var priceLoading = !!(opts && opts.priceLoading);
     var tcgVars = App.tcg.variantsOf(card);
     var prints = App.tcg.printVariants(card); // true printings: Normal, Poké Ball, Energy Symbol, Holo, …
     var selectedBox = prints.length ? prints[0] : null;
@@ -218,21 +277,21 @@
     }
 
     function buildPriceHtml() {
-      if (tcgVars.length) {
-        var rows = tcgVars.map(function (v) { return priceRow(v.label, v.prices || {}); }).join("");
-        return (
-          '<table class="price-table"><thead><tr><th>Variant</th><th>Low</th><th>Mid</th><th>High</th><th>Market</th></tr></thead>' +
-          "<tbody>" + rows + "</tbody></table>"
-        );
-      } else if (isJa) {
-        // Japanese cards have no TCGdex pricing — fetch the PkmnPrices
-        // Near Mint market price for the Japanese printing on demand.
-        return '<div id="cm-ja-price"><p style="color:var(--muted);font-size:0.9rem">Looking up Japanese market price…</p></div>';
-      }
-      return '<p style="color:var(--muted);font-size:0.9rem">No TCGPlayer price data for this card.</p>';
+      return App.cardModal.priceBoxHtml({ tcgVars: tcgVars, prints: prints, isJa: isJa, priceLoading: priceLoading });
     }
 
     function pillsHtml() {
+      if (priceLoading && !prints.length) {
+        /* Live prices still incoming: keep pill widths stable with a
+         * shimmer where each not-yet-known price will land. */
+        return tcgVars.map(function (v) {
+          var bit = (v.prices && typeof v.prices.market === "number")
+            ? " · " + App.ui.money(v.prices.market)
+            : " " + skel("pill-skel");
+          return '<button class="variant-pill' + (v.key === selected ? " active" : "") + '" data-variant="' + v.key + '">' +
+            App.esc(v.label) + bit + "</button>";
+        }).join("");
+      }
       if (prints.length) {
         return prints.map(function (b) {
           return '<button class="variant-pill' + (b.label === selected ? " active" : "") + '" data-label="' + App.esc(b.label) + '">' +
@@ -267,7 +326,7 @@
           '<div class="detail-chips" id="cm-chips">' + chipsHtml(card) + "</div>" +
           '<div class="field" style="margin-bottom:6px"><label>Illustrated by</label><div id="cm-artist" style="font-weight:600">' + App.esc(card.artist || "Unknown artist") + "</div></div>" +
           "<h4 style=\"margin:16px 0 8px\">Market prices</h4>" +
-          '<div id="cm-pricebox">' + buildPriceHtml() + "</div>" +
+          '<div id="cm-pricebox"' + (priceLoading ? ' aria-busy="true"' : "") + ">" + buildPriceHtml() + "</div>" +
           /* Owned copies: filled in by refreshOwnedLine() once the shared
            * quantity index loads. Public data — shown to visitors too. */
           '<div class="owned-line" id="cm-owned" aria-live="polite"></div>' +
@@ -629,6 +688,9 @@
      * fill in. */
     function upgrade(live) {
       if (!live || !m.el.isConnected) return;
+      /* The live numbers are here — drop the loading state before
+       * re-rendering so skeletons swap for values in place. */
+      priceLoading = false;
       var keepLabel = selectedBox ? selectedBox.label : (VARIANT_LABELS[selected] || selected);
       tcgVars = App.tcg.variantsOf(live);
       prints = App.tcg.printVariants(live);
@@ -644,6 +706,7 @@
       card = live; /* stepper, wishlist and add flows now see the live card */
       var box = m.el.querySelector("#cm-pricebox");
       if (box) {
+        box.removeAttribute("aria-busy");
         box.innerHTML = buildPriceHtml();
         if (isJa) refreshJaPrice(m, live, true, function () { return selectedBox; });
       }
@@ -713,7 +776,7 @@
         card.gradingCompany = fallbackRow.grading_company;
         card.gradingGrade = fallbackRow.grade || null;
       }
-      var handle = render(card, sourceEl);
+      var handle = render(card, sourceEl, { priceLoading: !!upgradePromise });
       if (upgradePromise) {
         upgradePromise.then(function (live) {
           /* Patch only when the instant card actually had slim pricing —

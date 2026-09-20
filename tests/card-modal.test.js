@@ -4,10 +4,12 @@
  * (normalized variant label, pkmn_id, grading company, grade). */
 import { describe, test, expect } from "vitest";
 import "../js/util.js"; // loaded first, matching the browser script order
+import "../js/ui.js"; // App.esc + App.ui.money, used by priceBoxHtml
 import "../js/tcg-api.js"; // findBoundRow matches via the real App.tcg.normVLabel
 import "../js/components/card-modal.js";
 
 const { findBoundRow } = window.App.cardModal;
+const { priceBoxHtml } = window.App.cardModal;
 
 function row(over) {
   return Object.assign({
@@ -80,5 +82,54 @@ describe("flipTransform (tile-to-modal FLIP, 2026-09-20)", () => {
     const t = flipTransform({ left: 0, top: 0, width: 10, height: 10 }, { left: 0, top: 0, width: 0, height: 0 });
     expect(t.sx).toBe(1);
     expect(t.sy).toBe(1);
+  });
+});
+
+describe("priceBoxHtml (price loading skeletons, 2026-09-20)", () => {
+  const vars = [
+    { key: "normal", label: "Normal", prices: { market: 4.5 } },
+    { key: "holofoil", label: "Holofoil", prices: { market: 12.99 } }
+  ];
+  test("loading with snapshot variants keeps labels, shimmers numbers", () => {
+    const html = priceBoxHtml({ tcgVars: vars, prints: [], isJa: false, priceLoading: true });
+    expect(html).toContain("Normal");
+    expect(html).toContain("Holofoil");
+    expect((html.match(/price-skel/g) || []).length).toBe(8); // 2 rows x 4 price cells
+    expect(html).not.toContain("—");
+    expect(html).not.toContain("$4.50"); // snapshot values hidden until live lands
+  });
+  test("loading without any price rows reserves best-guess rows", () => {
+    const html = priceBoxHtml({ tcgVars: [], prints: [], isJa: false, priceLoading: true });
+    const bodyRows = (html.split("<tbody>")[1].match(/<tr>/g) || []).length;
+    expect(bodyRows).toBe(3);
+    expect(html).toContain("label-skel");
+    expect(html).not.toContain("No TCGPlayer price data");
+  });
+  test("loading without price rows uses the print count when known", () => {
+    const html = priceBoxHtml({ tcgVars: [], prints: [{ label: "a" }, { label: "b" }], isJa: false, priceLoading: true });
+    const bodyRows = (html.split("<tbody>")[1].match(/<tr>/g) || []).length;
+    expect(bodyRows).toBe(2);
+  });
+  test("loading JA card shows a shimmer table inside #cm-ja-price", () => {
+    const html = priceBoxHtml({ tcgVars: [], prints: [], isJa: true, priceLoading: true });
+    expect(html).toContain('id="cm-ja-price"');
+    expect(html).toContain("price-skel");
+    expect(html).not.toContain("Looking up");
+  });
+  test("loaded state renders real money values, no skeletons", () => {
+    const html = priceBoxHtml({
+      tcgVars: [{ key: "normal", label: "Normal", prices: { low: 1, mid: 2, high: 3, market: 4.5 } }],
+      prints: [], isJa: false, priceLoading: false
+    });
+    expect(html).toContain("$4.50");
+    expect(html).not.toContain("skel");
+  });
+  test("idle JA card keeps the looking-up note", () => {
+    const html = priceBoxHtml({ tcgVars: [], prints: [], isJa: true, priceLoading: false });
+    expect(html).toContain("Looking up Japanese market price");
+  });
+  test("idle card with no prices keeps the no-data note", () => {
+    const html = priceBoxHtml({ tcgVars: [], prints: [], isJa: false, priceLoading: false });
+    expect(html).toContain("No TCGPlayer price data");
   });
 });

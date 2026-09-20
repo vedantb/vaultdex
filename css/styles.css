@@ -32,6 +32,9 @@
   --radius: 16px;
   --radius-sm: 10px;
   --header-h: 66px;
+  /* skeleton shimmer placeholders (card modal price loading) */
+  --skel-bg: #e7ddc6;
+  --skel-hi: #f8f3e7;
   /* per-variant checkbox colors (pkmn.gg-style) */
   --vc-normal: #98a0aa;
   --vc-holo: #d99600;
@@ -49,6 +52,8 @@
   --text: #f1ebdc;
   --muted: #9aa3b5;
   --border: #2b3245;
+  --skel-bg: #232a3c;
+  --skel-hi: #303a55;
   --accent: #ff6a45;
   --accent-strong: #ff8465;
   --accent-soft: rgba(255, 106, 69, 0.12);
@@ -656,6 +661,24 @@ main#app { flex: 1; padding: 28px 20px 64px; }
 .price-table th:first-child, .price-table td:first-child { text-align: left; }
 .price-table th { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
 .price-table td.market { font-weight: 700; color: var(--green); }
+/* Price skeleton shimmer: reserves the price table / pill layout while the
+ * background price upgrade loads, so the modal never grows when the live
+ * numbers land. Static (no animation) under prefers-reduced-motion. */
+.skel {
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: 4px;
+  background: linear-gradient(100deg, var(--skel-bg) 35%, var(--skel-hi) 50%, var(--skel-bg) 65%);
+  background-size: 200% 100%;
+  animation: skel-shimmer 1.25s linear infinite;
+}
+.price-skel { width: 3.8em; height: 0.95em; }
+.label-skel { width: 4.6em; height: 0.95em; }
+.pill-skel { width: 3.4em; height: 0.9em; margin-left: 0.3em; }
+@keyframes skel-shimmer { to { background-position: -200% 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .skel { animation: none; }
+}
 .add-row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-top: 6px; }
 .signin-box { text-align: center; padding: 10px 0; }
 .signin-box .big-icon {
