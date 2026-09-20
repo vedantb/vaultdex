@@ -27,7 +27,6 @@
     "chev-l": P('<path d="M15 18l-6-6 6-6"/>'),
     logout: P('<path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/>'),
     cards: P('<rect x="3" y="6" width="13" height="16" rx="2"/><path d="M8 3h11a2 2 0 0 1 2 2v13"/>'),
-    grid: P('<rect x="3" y="3" width="5.4" height="5.4" rx="1.2"/><rect x="9.3" y="3" width="5.4" height="5.4" rx="1.2"/><rect x="15.6" y="3" width="5.4" height="5.4" rx="1.2"/><rect x="3" y="9.3" width="5.4" height="5.4" rx="1.2"/><rect x="9.3" y="9.3" width="5.4" height="5.4" rx="1.2"/><rect x="15.6" y="9.3" width="5.4" height="5.4" rx="1.2"/><rect x="3" y="15.6" width="5.4" height="5.4" rx="1.2"/><rect x="9.3" y="15.6" width="5.4" height="5.4" rx="1.2"/><rect x="15.6" y="15.6" width="5.4" height="5.4" rx="1.2"/>'),
     tag: P('<path d="M20.6 13.4L11 3.8A2 2 0 0 0 9.6 3H4a1 1 0 0 0-1 1v5.6c0 .5.2 1 .6 1.4l9.6 9.6a2 2 0 0 0 2.8 0l4.6-4.6a2 2 0 0 0 0-2.6z"/><circle cx="7.5" cy="7.5" r="1.5"/>'),
     "chev-r": P('<path d="M9 18l6-6-6-6"/>'),
     home: P('<path d="M3 10.5L12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M9.5 21v-6h5v6"/>'),
