@@ -276,7 +276,7 @@
         tile._card = card;
         tile._cardId = card.id;
         tile._boxes = boxesFor(card);
-        function open() { App.openCardModal(tile.getAttribute("data-id"), setLang, null, tile.querySelector(".art") || tile); }
+        function open() { App.openCardModal(tile._card || card, setLang, null, tile.querySelector(".art") || tile); }
         tile.addEventListener("click", open);
         tile.addEventListener("keydown", function (e) {
           if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(); }

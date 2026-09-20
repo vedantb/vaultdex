@@ -204,36 +204,42 @@
     var selected = selectedBox ? selectedBox.label : (tcgVars.length ? tcgVars[0].key : "normal");
     var isJa = (card.set && card.set.lang) === "ja";
 
-    var chips = [];
-    if (card.rarity) chips.push('<span class="chip accent">' + App.esc(card.rarity) + "</span>");
-    if (card.supertype) chips.push('<span class="chip">' + App.esc(card.supertype) + "</span>");
-    if (card.hp) chips.push('<span class="chip">HP ' + App.esc(card.hp) + "</span>");
-    if (card.types && card.types.length) {
-      card.types.forEach(function (t) { chips.push('<span class="chip">' + App.esc(t) + "</span>"); });
+    /* Builders below read the live pricing state so the background upgrade
+     * can re-render the price-driven regions in place. */
+    function chipsHtml(c) {
+      var chips = [];
+      if (c.rarity) chips.push('<span class="chip accent">' + App.esc(c.rarity) + "</span>");
+      if (c.supertype) chips.push('<span class="chip">' + App.esc(c.supertype) + "</span>");
+      if (c.hp) chips.push('<span class="chip">HP ' + App.esc(c.hp) + "</span>");
+      if (c.types && c.types.length) {
+        c.types.forEach(function (t) { chips.push('<span class="chip">' + App.esc(t) + "</span>"); });
+      }
+      return chips.join("");
     }
 
-    var priceHtml;
-    if (tcgVars.length) {
-      var rows = tcgVars.map(function (v) { return priceRow(v.label, v.prices || {}); }).join("");
-      priceHtml =
-        '<table class="price-table"><thead><tr><th>Variant</th><th>Low</th><th>Mid</th><th>High</th><th>Market</th></tr></thead>' +
-        "<tbody>" + rows + "</tbody></table>";
-    } else if (isJa) {
-      // Japanese cards have no TCGdex pricing — fetch the PkmnPrices
-      // Near Mint market price for the Japanese printing on demand.
-      priceHtml = '<div id="cm-ja-price"><p style="color:var(--muted);font-size:0.9rem">Looking up Japanese market price…</p></div>';
-    } else {
-      priceHtml = '<p style="color:var(--muted);font-size:0.9rem">No TCGPlayer price data for this card.</p>';
+    function buildPriceHtml() {
+      if (tcgVars.length) {
+        var rows = tcgVars.map(function (v) { return priceRow(v.label, v.prices || {}); }).join("");
+        return (
+          '<table class="price-table"><thead><tr><th>Variant</th><th>Low</th><th>Mid</th><th>High</th><th>Market</th></tr></thead>' +
+          "<tbody>" + rows + "</tbody></table>"
+        );
+      } else if (isJa) {
+        // Japanese cards have no TCGdex pricing — fetch the PkmnPrices
+        // Near Mint market price for the Japanese printing on demand.
+        return '<div id="cm-ja-price"><p style="color:var(--muted);font-size:0.9rem">Looking up Japanese market price…</p></div>';
+      }
+      return '<p style="color:var(--muted);font-size:0.9rem">No TCGPlayer price data for this card.</p>';
     }
 
-    var pills;
-    if (prints.length) {
-      pills = prints.map(function (b) {
-        return '<button class="variant-pill' + (b.label === selected ? " active" : "") + '" data-label="' + App.esc(b.label) + '">' +
-          App.esc(b.label) + "</button>";
-      }).join("");
-    } else {
-      pills = tcgVars.map(function (v) {
+    function pillsHtml() {
+      if (prints.length) {
+        return prints.map(function (b) {
+          return '<button class="variant-pill' + (b.label === selected ? " active" : "") + '" data-label="' + App.esc(b.label) + '">' +
+            App.esc(b.label) + "</button>";
+        }).join("");
+      }
+      return tcgVars.map(function (v) {
         return '<button class="variant-pill' + (v.key === selected ? " active" : "") + '" data-variant="' + v.key + '">' +
           App.esc(v.label) +
           (typeof v.prices.market === "number" ? " · " + App.ui.money(v.prices.market) : "") +
@@ -258,15 +264,15 @@
               '<button type="button" class="wish-btn" id="cm-wish" aria-label="Save to wishlist" title="Save to wishlist">' + HEART_SVG + "</button></div>"
             : "<h2>" + App.esc(card.name) + gradeBadgeHtml + "</h2>") +
           '<div class="sub">' + App.esc((card.set && card.set.name) || "") + " · #" + App.esc(card.number || "?") + "</div>" +
-          '<div class="detail-chips">' + chips.join("") + "</div>" +
-          '<div class="field" style="margin-bottom:6px"><label>Illustrated by</label><div style="font-weight:600">' + App.esc(card.artist || "Unknown artist") + "</div></div>" +
+          '<div class="detail-chips" id="cm-chips">' + chipsHtml(card) + "</div>" +
+          '<div class="field" style="margin-bottom:6px"><label>Illustrated by</label><div id="cm-artist" style="font-weight:600">' + App.esc(card.artist || "Unknown artist") + "</div></div>" +
           "<h4 style=\"margin:16px 0 8px\">Market prices</h4>" +
-          priceHtml +
+          '<div id="cm-pricebox">' + buildPriceHtml() + "</div>" +
           /* Owned copies: filled in by refreshOwnedLine() once the shared
            * quantity index loads. Public data — shown to visitors too. */
           '<div class="owned-line" id="cm-owned" aria-live="polite"></div>' +
           (App.auth.isOwner()
-            ? (pills ? '<div class="field" style="margin-bottom:10px"><label>Variant</label><div class="variant-picker">' + pills + "</div></div>" : "") +
+            ? '<div class="field" id="cm-variant-field" style="margin-bottom:10px"' + (pillsHtml() ? "" : " hidden") + '><label>Variant</label><div class="variant-picker" id="cm-pills">' + pillsHtml() + "</div></div>" +
               /* Grading (Feature 5): owner-only toggle; checked means this copy
                * is a PSA slab — pick the grade from the dropdown. At add time
                * the price comes from exact PSA+grade eBay sold comps when
@@ -545,22 +551,25 @@
        * stepper edits — repaint the binding instantly. */
       if (m.el.isConnected) paintStepper();
     }
-    m.el.querySelectorAll(".variant-pill").forEach(function (btn) {
-      btn.addEventListener("click", function () {
-        m.el.querySelectorAll(".variant-pill").forEach(function (b) { b.classList.remove("active"); });
-        btn.classList.add("active");
-        if (prints.length) {
-          var lbl = btn.getAttribute("data-label");
-          selected = lbl;
-          selectedBox = prints.filter(function (b) { return b.label === lbl; })[0] || null;
-        } else {
-          selectedBox = null;
-          selected = btn.getAttribute("data-variant");
-        }
-        refreshJaPrice(m, card, isJa, function () { return selectedBox; });
-        rebindStepper();
+    function bindPills() {
+      m.el.querySelectorAll(".variant-pill").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          m.el.querySelectorAll(".variant-pill").forEach(function (b) { b.classList.remove("active"); });
+          btn.classList.add("active");
+          if (prints.length) {
+            var lbl = btn.getAttribute("data-label");
+            selected = lbl;
+            selectedBox = prints.filter(function (b) { return b.label === lbl; })[0] || null;
+          } else {
+            selectedBox = null;
+            selected = btn.getAttribute("data-variant");
+          }
+          refreshJaPrice(m, card, isJa, function () { return selectedBox; });
+          rebindStepper();
+        });
       });
-    });
+    }
+    bindPills();
     var gradeToggle = m.el.querySelector("#cm-graded-toggle");
     var gradeFields = m.el.querySelector("#cm-graded-fields");
     var gradeValue = m.el.querySelector("#cm-grade-value");
@@ -613,16 +622,90 @@
         wishBtn.disabled = false;
       });
     })();
+
+    /* Background price upgrade: the modal opened instantly on snapshot
+     * data; when the live card arrives, patch the price-driven regions in
+     * place. Art, title and layout never move — only numbers and labels
+     * fill in. */
+    function upgrade(live) {
+      if (!live || !m.el.isConnected) return;
+      var keepLabel = selectedBox ? selectedBox.label : (VARIANT_LABELS[selected] || selected);
+      tcgVars = App.tcg.variantsOf(live);
+      prints = App.tcg.printVariants(live);
+      if (prints.length) {
+        selectedBox = prints.filter(function (b) { return b.label === keepLabel; })[0] || prints[0];
+        selected = selectedBox.label;
+      } else {
+        selectedBox = null;
+        var match = tcgVars.filter(function (v) { return (VARIANT_LABELS[v.key] || v.key) === keepLabel; })[0];
+        selected = match ? match.key : (tcgVars.length ? tcgVars[0].key : "normal");
+      }
+      isJa = (live.set && live.set.lang) === "ja";
+      card = live; /* stepper, wishlist and add flows now see the live card */
+      var box = m.el.querySelector("#cm-pricebox");
+      if (box) {
+        box.innerHTML = buildPriceHtml();
+        if (isJa) refreshJaPrice(m, live, true, function () { return selectedBox; });
+      }
+      var chipsEl = m.el.querySelector("#cm-chips");
+      if (chipsEl) chipsEl.innerHTML = chipsHtml(live);
+      var artistEl = m.el.querySelector("#cm-artist");
+      if (artistEl) artistEl.textContent = live.artist || "Unknown artist";
+      var vf = m.el.querySelector("#cm-variant-field");
+      if (vf) {
+        var ph = pillsHtml();
+        vf.hidden = !ph;
+        var pw = m.el.querySelector("#cm-pills");
+        if (pw) {
+          pw.innerHTML = ph;
+          bindPills();
+        }
+      }
+      if (m.el.isConnected) paintStepper();
+    }
+
+    return { el: m.el, close: m.close, upgrade: upgrade };
   }
 
-  /* Accepts a card object (from search results) or a card id (fetched fresh).
-   * fallbackRow: a collection row used to render a basic detail view when the
-   * card has no catalog record (e.g. pkmn.gg fallback imports).
-   * sourceEl: the tile art element (or a bare rect) the modal FLIP-morphs
-   * from; omit for a plain entrance. */
+  /* Snapshot-grade cards carry market-only pricing; live cards carry full
+   * low/mid/high. The modal opens instantly on whatever it has and
+   * background-upgrades when only the slim prices are present. Japanese
+   * cards never upgrade: TCGdex carries no JA pricing and the baked catalog
+   * prices are already the best source. */
+  function needsPriceUpgrade(card) {
+    if (!card || (card.set && card.set.lang) === "ja") return false;
+    try {
+      return !App.tcg.variantsOf(card).some(function (v) {
+        return v.prices && (typeof v.prices.low === "number" || typeof v.prices.high === "number");
+      });
+    } catch {
+      return true;
+    }
+  }
+
+  /* Accepts a card object (tile/search results) or a card id. Objects and
+   * snapshot hits render instantly — tap -> pixels with no round-trip —
+   * while the live card upgrades the price regions in the background.
+   * fallbackRow: a collection row used to render a basic detail view when
+   * the card has no catalog record (e.g. pkmn.gg fallback imports).
+   * sourceEl: the tile art element the modal FLIP-morphs from; omit for a
+   * plain entrance. */
   App.openCardModal = async function (cardOrId, lang, fallbackRow, sourceEl) {
     try {
-      var card = typeof cardOrId === "string" ? await App.tcg.getCard(cardOrId, lang) : cardOrId;
+      var card = null, upgradePromise = null;
+      if (typeof cardOrId === "string") {
+        card = await App.tcg.getCardLocal(cardOrId, lang);
+        if (card) {
+          upgradePromise = App.tcg.getCard(cardOrId, lang).then(function (c) { return c; }, function () { return null; });
+        } else {
+          card = await App.tcg.getCard(cardOrId, lang);
+        }
+      } else {
+        card = cardOrId;
+        if (needsPriceUpgrade(card)) {
+          upgradePromise = App.tcg.getCard(card.id, lang).then(function (c) { return c; }, function () { return null; });
+        }
+      }
       if (!card) throw new Error("Card not found.");
       // Already-graded collection row: carry the slab onto the card so
       // render() can show the grade badge near the title.
@@ -630,7 +713,14 @@
         card.gradingCompany = fallbackRow.grading_company;
         card.gradingGrade = fallbackRow.grade || null;
       }
-      render(card, sourceEl);
+      var handle = render(card, sourceEl);
+      if (upgradePromise) {
+        upgradePromise.then(function (live) {
+          /* Patch only when the instant card actually had slim pricing —
+           * a live-grade object needs no touch. */
+          if (live && needsPriceUpgrade(card)) handle.upgrade(live);
+        });
+      }
     } catch (e) {
       if (fallbackRow) {
         try {

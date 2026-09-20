@@ -414,6 +414,35 @@
     return card;
   }
 
+  /* Snapshot-only card lookup: local files, no network, never throws.
+   * Returns the normalized card when the local catalog carries it, else
+   * null. This is the card modal's instant-open path — the dialog renders
+   * on this immediately (tap -> pixels with no round-trip) while the live
+   * card upgrades the price regions in the background. */
+  var localCardCache = {};
+  async function getCardLocal(id, lang) {
+    lang = lang || "en";
+    var key = lang + ":" + id;
+    if (localCardCache[key] !== undefined) return localCardCache[key];
+    var card = null;
+    try {
+      var setIdGuess = id.slice(0, Math.max(0, id.lastIndexOf("-")));
+      if (setIdGuess) {
+        var snap = await snapJson(setSnapPath((lang === "ja" ? "ja-" : "") + setIdGuess));
+        var raw = null;
+        (snap.cards || []).some(function (sc) {
+          if (sc.id === id) { raw = sc; return true; }
+          return false;
+        });
+        if (raw) {
+          card = normCard(raw, (snap.set && snap.set.id) || setIdGuess, (snap.set && snap.set.name) || "", lang);
+        }
+      }
+    } catch { card = null; }
+    localCardCache[key] = card;
+    return card;
+  }
+
   /* Fetch details for many ids with bounded parallelism; failures resolve
    * to null instead of rejecting the batch. */
   async function getDetails(ids, limit, lang) {
@@ -738,6 +767,7 @@
   App.tcg = {
     searchCards: searchCards,
     getCard: getCard,
+    getCardLocal: getCardLocal,
     getDetails: getDetails,
     getSets: getSets,
     getSet: getSet,

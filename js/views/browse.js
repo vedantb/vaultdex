@@ -68,9 +68,16 @@
     }).catch(function () { /* badges are decorative: fail quiet */ });
   }
 
-  function bindTiles(root) {
+  function bindTiles(root, cards) {
     root.querySelectorAll(".card-tile").forEach(function (tile) {
-      function open() { App.openCardModal(tile.getAttribute("data-id"), tile.getAttribute("data-lang") || "en", null, tile.querySelector(".art") || tile); }
+      /* Stash the result object so the modal can open instantly on it
+       * instead of refetching the card. */
+      if (cards) {
+        var found = null;
+        cards.some(function (x) { if (x.id === tile.getAttribute("data-id")) { found = x; return true; } return false; });
+        if (found) tile._card = found;
+      }
+      function open() { App.openCardModal(tile._card || tile.getAttribute("data-id"), tile.getAttribute("data-lang") || "en", null, tile.querySelector(".art") || tile); }
       tile.addEventListener("click", open);
       tile.addEventListener("keydown", function (e) {
         if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(); }
@@ -169,7 +176,7 @@
           });
         } else {
           resultsEl.innerHTML = '<div class="card-grid">' + state.cards.map(tileHtml).join("") + "</div>";
-          bindTiles(resultsEl);
+          bindTiles(resultsEl, state.cards);
           lastResultsEl = resultsEl;
           paintOwnedBadges(resultsEl);
         }
