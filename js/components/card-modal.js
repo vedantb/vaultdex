@@ -98,14 +98,17 @@
     };
   }
 
-  /* Tile-to-modal FLIP (2026-09-20): a shared-element morph done right. A
-   * "ghost" clone of the tile art is pinned exactly over the source at frame
-   * one; the dialog fades in *around* it (its own pop entrance is suppressed
-   * so the landing rect is stable from the start), then the ghost flies to
-   * the art slot and swaps with the real artwork. One continuous motion —
-   * never pop-then-fly. `source` is the tile art element. Skipped for
-   * reduced-motion users and when the source is gone. */
-  function flipFromTile(m, source) {
+  /* Tile-to-modal FLIP (2026-09-20): a shared-element morph done right.
+   * "Load the card first, then reveal around it": the dialog renders fully
+   * but stays invisible while the full-res artwork preloads. A ghost clone
+   * of the tile art pins over the source at frame one so the tap feels
+   * instant; once the art is decoded the backdrop fades in around the card
+   * and the ghost flies to the art slot (Web Animations API), swapping with
+   * the real artwork on landing. One continuous motion — never pop-then-fly,
+   * and never a late image pop-in. `source` is the tile art element. Skipped
+   * for reduced-motion users and when the source is gone. */
+  async function flipFromTile(m, source) {
+    var overlay = m.el;
     if (!source || App.ui.reduceMotion) return;
     var srcRect = null, imgSrc = null;
     if (typeof source.getBoundingClientRect === "function") {
@@ -115,16 +118,15 @@
       if (sImg) imgSrc = sImg.currentSrc || sImg.src;
     }
     if (!srcRect || !srcRect.width || !srcRect.height || !imgSrc) return;
-    var artBox = m.el.querySelector(".card-detail .art");
+    var artBox = overlay.querySelector(".card-detail .art");
     var img = artBox && artBox.querySelector("img");
     if (!artBox || !img) return;
 
-    /* The dialog materializes around the flying card: suppress its own pop
-     * so the landing rect measured after layout is the final one. */
-    m.el.classList.add("flip-live");
-
-    /* Ghost: a fixed clone of the tile art sitting exactly over the tile.
-     * It reads as the tile itself until the flight starts. */
+    /* Phase 1 — prep, invisible: the dialog lays out (so the landing rect
+     * is measurable) while the full-res art preloads. The ghost pins over
+     * the tile immediately so the tap reads as instant. */
+    overlay.classList.add("flip-prep");
+    artBox.style.visibility = "hidden";
     var ghost = document.createElement("img");
     ghost.src = imgSrc;
     ghost.alt = "";
@@ -135,46 +137,64 @@
     ghost.style.width = srcRect.width + "px";
     ghost.style.height = srcRect.height + "px";
     document.body.appendChild(ghost);
-    artBox.style.visibility = "hidden";
 
     var done = false;
     function cleanup() {
       if (done) return;
       done = true;
+      clearTimeout(failsafe);
       if (ghost.parentNode) ghost.parentNode.removeChild(ghost);
-      if (m.el.isConnected) {
-        /* The dialog has been on screen for the whole flight — keep its
-         * pop entrance suppressed. Removing flip-live without a
-         * replacement would replay the entrance animation a second time,
-         * which reads as the modal refreshing itself. */
-        m.el.classList.remove("flip-live");
-        m.el.classList.add("flip-done");
+      if (overlay.isConnected) {
+        /* The dialog has been on screen since the reveal — keep its pop
+         * entrance suppressed so it can never replay as a glitchy
+         * second pop. */
+        overlay.classList.remove("flip-prep");
+        overlay.classList.remove("flip-live");
+        overlay.classList.add("flip-done");
       }
       if (artBox.isConnected) artBox.style.visibility = "";
     }
+    /* Hard failsafe: the dialog must never get stuck invisible. */
+    var failsafe = setTimeout(cleanup, 2500);
 
-    var t0 = Date.now();
-    (function waitForArt() {
-      if (done || !m.el.isConnected) { cleanup(); return; }
-      var loaded = (img.complete && img.naturalWidth > 0) || Date.now() - t0 > 800;
-      if (!loaded) { setTimeout(waitForArt, 50); return; }
-      var dst = artBox.getBoundingClientRect();
-      if (!dst.width || !dst.height) { cleanup(); return; }
-      /* Forward transform: places the src-positioned ghost onto dst. */
-      var t = flipTransform(dst, srcRect);
-      /* A tile already at the destination size/spot needs no morph. */
-      if (Math.abs(t.dx) < 2 && Math.abs(t.dy) < 2 && Math.abs(t.sx - 1) < 0.02 && Math.abs(t.sy - 1) < 0.02) {
-        cleanup();
-        return;
-      }
+    function preloadArt(el, ms) {
+      return new Promise(function (resolve) {
+        if (el.complete && el.naturalWidth > 0) { resolve(true); return; }
+        var to = setTimeout(function () { resolve(el.complete && el.naturalWidth > 0); }, ms);
+        el.addEventListener("load", function () { clearTimeout(to); resolve(true); }, { once: true });
+        el.addEventListener("error", function () { clearTimeout(to); resolve(false); }, { once: true });
+      });
+    }
+
+    try {
+      await preloadArt(img, 900);
+      try { if (img.decode) await img.decode(); } catch (e) { /* keep going */ }
+    } catch (e) { /* keep going — the ghost still flies */ }
+    if (done || !overlay.isConnected) { cleanup(); return; }
+
+    var dst = artBox.getBoundingClientRect();
+    if (!dst.width || !dst.height) { cleanup(); return; }
+    /* Forward transform: places the src-positioned ghost onto dst. */
+    var t = flipTransform(dst, srcRect);
+    /* A tile already at the destination size/spot needs no morph. */
+    var atDest = Math.abs(t.dx) < 2 && Math.abs(t.dy) < 2 &&
+      Math.abs(t.sx - 1) < 0.02 && Math.abs(t.sy - 1) < 0.02;
+
+    /* Phase 2 — reveal + flight: the backdrop fades in around the card
+     * while the ghost morphs to the art slot. */
+    overlay.classList.remove("flip-prep");
+    overlay.classList.add("flip-live");
+    if (!atDest && typeof ghost.animate === "function") {
       ghost.style.transformOrigin = "top left";
-      ghost.style.transform = "translate(0px, 0px) scale(1, 1)";
-      void ghost.offsetWidth; /* reflow so the transition starts from the tile rect */
-      ghost.style.transition = "transform 0.45s cubic-bezier(0.22, 0.9, 0.26, 1)";
-      ghost.style.transform = "translate(" + t.dx + "px," + t.dy + "px) scale(" + t.sx + "," + t.sy + ")";
-      ghost.addEventListener("transitionend", cleanup, { once: true });
-      setTimeout(cleanup, 750);
-    })();
+      try {
+        var anim = ghost.animate([
+          { transform: "translate(0px, 0px) scale(1, 1)" },
+          { transform: "translate(" + t.dx + "px," + t.dy + "px) scale(" + t.sx + "," + t.sy + ")" }
+        ], { duration: 480, easing: "cubic-bezier(0.22, 0.9, 0.26, 1)", fill: "forwards" });
+        await anim.finished;
+      } catch (e) { /* WAAPI aborted — fall through to cleanup */ }
+    }
+    cleanup();
   }
 
   function render(card, sourceEl) {
@@ -229,7 +249,7 @@
 
     var html =
       '<div class="card-detail">' +
-        '<div class="art"><img src="' + App.esc(card.images && (card.images.large || card.images.small)) + '" alt="' + App.esc(card.name) + ' card artwork" loading="lazy"></div>' +
+        '<div class="art"><img src="' + App.esc(card.images && (card.images.large || card.images.small)) + '" alt="' + App.esc(card.name) + ' card artwork" loading="eager" fetchpriority="high"></div>' +
         "<div>" +
           /* Graded copies name the slab next to the title; the wishlist heart
            * (owner-only) stays as-is beside it. */

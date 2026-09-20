@@ -265,13 +265,18 @@
 .pop { animation: pop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1); }
 
 /* ---------- shared-element FLIP: tile art -> dialog art ----------
- * The dialog fades in around the flying ghost card, so its own pop entrance
- * is suppressed while the FLIP runs (the landing rect is stable from frame
- * one). The ghost is a fixed clone of the tile art pinned over the source. */
-.modal-overlay.flip-live .modal { animation: none; }
-/* After a FLIP completes the dialog must never replay its entrance pop —
- * dropping flip-live alone would start the suppressed animation late. */
-.modal-overlay.flip-done .modal { animation: none; }
+ * Two phases: "flip-prep" renders the dialog fully but invisibly while the
+ * full-res artwork preloads (the ghost card pinned over the tile is the
+ * only visible thing, so the tap feels instant); "flip-live" then fades the
+ * backdrop in around the flying card. The dialog's own pop entrance stays
+ * suppressed through "flip-done" so it can never replay as a glitchy
+ * second pop. */
+.modal-overlay.flip-prep { opacity: 0; visibility: hidden; animation: none; }
+.modal-overlay.flip-prep .modal { animation: none; }
+.modal-overlay.flip-live, .modal-overlay.flip-done { animation: none; }
+.modal-overlay.flip-live .modal, .modal-overlay.flip-done .modal { animation: none; }
+/* Backdrop fades in around the card once the art is ready. */
+.modal-overlay.flip-live { transition: opacity 0.25s ease, visibility 0.25s; }
 .flip-ghost {
   position: fixed; z-index: 1000; margin: 0; padding: 0; pointer-events: none;
   border-radius: 14px; box-shadow: var(--shadow); object-fit: cover;
