@@ -157,7 +157,7 @@ test.describe("sidebar nav — signed in (local only)", () => {
     const errors = collectPageErrors(page);
     await gotoSignedIn(page, "/");
     expect(await visibleNavLabels(page)).toEqual([
-      "Home", "My Collection", "Pokédex", "Trade Binder", "Games",
+      "Home", "My Collection", "Pokédex", "Trade Binder", "Games", "Binder Studio",
       "Browse", "Wishlist", "Trophies", "Price Movers",
     ]);
 
