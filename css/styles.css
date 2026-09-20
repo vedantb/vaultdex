@@ -628,6 +628,10 @@ main#app { flex: 1; padding: 28px 20px 64px; }
 .modal-close { position: absolute; top: 14px; right: 14px; z-index: 2; background: var(--surface-2); border-color: var(--border); }
 .modal-body { padding: 30px; }
 .card-detail { display: grid; grid-template-columns: 300px 1fr; gap: 30px; }
+/* Hug the artwork height: without this the grid stretches .art to the full
+ * row height and the tilt glare / holo layers (inset: 0) spill over a tall
+ * empty rectangle below the card. */
+.card-detail .art { align-self: start; }
 .card-detail .art img { border-radius: 14px; box-shadow: var(--shadow); width: 100%; }
 .card-detail h2 { font-size: 1.7rem; margin-bottom: 2px; }
 .card-detail .sub { color: var(--muted); margin-bottom: 14px; font-size: 0.95rem; }
