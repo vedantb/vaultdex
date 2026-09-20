@@ -124,7 +124,7 @@
       root.querySelectorAll(".movers-section .card-tile").forEach(function (tile) {
         function open() {
           var row = byRow[tile.getAttribute("data-row")];
-          if (row) App.openCardModal(row.card_id, App.util.langOf(row), row);
+          if (row) App.openCardModal(row.card_id, App.util.langOf(row), row, tile.querySelector(".art") || tile);
         }
         tile.addEventListener("click", open);
         tile.addEventListener("keydown", function (e) {

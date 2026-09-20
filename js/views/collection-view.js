@@ -214,14 +214,15 @@
       if (moreBtn) moreBtn.addEventListener("click", function () { state.limit += GRID_PAGE; renderGrid(); });
 
       gridEl.querySelectorAll(".card-tile").forEach(function (tile) {
-        tile.querySelector(".art").addEventListener("click", function () {
+        var art = tile.querySelector(".art");
+        art.addEventListener("click", function () {
           var rowId = tile.getAttribute("data-row");
           var item = items.filter(function (x) { return x.id === rowId; })[0];
           var cid = tile.getAttribute("data-card");
           /* Japanese cards live under ja- set ids; the catalog lookup must
            * use the Japanese namespace or TCGdex returns 404. */
           var lang = (App.util.isJa(item) || App.util.isJa(cid)) ? "ja" : "en";
-          App.openCardModal(cid, lang, item);
+          App.openCardModal(cid, lang, item, art);
         });
         tile.querySelectorAll("[data-act]").forEach(function (btn) {
           btn.addEventListener("click", async function (e) {

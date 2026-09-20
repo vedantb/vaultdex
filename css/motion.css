@@ -161,20 +161,56 @@
   60% { transform: rotate(-5deg) scale(1.05); }
   80% { transform: rotate(3deg) scale(1.02); }
 }
-.pack-big.torn { animation: pack-tear 0.5s ease forwards; }
-@keyframes pack-tear {
-  to { transform: scale(1.25); opacity: 0; filter: brightness(2.2); }
+/* tear-apart: the pack splits into two halves that fly off, a light flash
+ * bursts, and three pulls fan out with staggered 3D flip-ins. */
+.pack-scene { position: relative; width: min(360px, 86vw); aspect-ratio: 1 / 1; margin: 0 auto 6px; }
+.pack-halves { position: absolute; inset: 12% 24%; z-index: 3; pointer-events: none; }
+.pack-half {
+  position: absolute; left: 0; right: 0; height: 50.5%;
+  background:
+    linear-gradient(160deg, rgba(255,255,255,0.25), transparent 45%),
+    linear-gradient(135deg, #e3350d 0%, #8e1f08 55%, #5c1305 100%);
+  border: 1px solid rgba(255,255,255,0.3);
 }
-.pack-reveal {
-  width: min(280px, 68vw); aspect-ratio: 63 / 88;
-  animation: card-flip-in 0.7s cubic-bezier(0.2, 0.9, 0.3, 1.2);
-  transform-style: preserve-3d;
+.pack-half.ph-top { top: 0; border-radius: 12px 12px 0 0; border-bottom: none; animation: tear-top 0.55s cubic-bezier(0.5, 0, 0.8, 0.4) forwards; }
+.pack-half.ph-bottom { bottom: 0; border-radius: 0 0 12px 12px; border-top: none; animation: tear-bottom 0.55s cubic-bezier(0.5, 0, 0.8, 0.4) forwards; }
+@keyframes tear-top { to { transform: translate(-70%, -90%) rotate(-24deg); opacity: 0; } }
+@keyframes tear-bottom { to { transform: translate(70%, 90%) rotate(20deg); opacity: 0; } }
+.pack-flash {
+  position: absolute; inset: -10%; z-index: 2; pointer-events: none;
+  background: radial-gradient(circle, rgba(255,255,255,0.95) 0%, rgba(255,240,200,0.55) 35%, transparent 65%);
+  opacity: 0; transform: scale(0.4); animation: pack-flash 0.65s ease-out forwards;
 }
-.pack-reveal img { width: 100%; height: 100%; object-fit: cover; border-radius: 16px; box-shadow: 0 30px 90px -18px rgba(0,0,0,0.8); }
-@keyframes card-flip-in {
-  from { transform: rotateY(90deg) scale(0.7); opacity: 0; }
-  to   { transform: rotateY(0) scale(1); opacity: 1; }
+@keyframes pack-flash { 25% { opacity: 1; transform: scale(1); } 100% { opacity: 0; transform: scale(1.35); } }
+.pack-fan { position: absolute; inset: 0; z-index: 1; }
+.fan-card {
+  position: absolute; left: 50%; top: 50%; width: 46%; aspect-ratio: 63 / 88;
+  margin: -32.13% 0 0 -23%;
+  padding: 0; border: 0; background: none; cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  --dx: calc((var(--i) - 1) * 105%);
+  --rot: calc((var(--i) - 1) * 13deg);
+  opacity: 0; transform: translate(var(--dx), 26px) rotate(0deg) scale(0.8);
+  transition: opacity 0.32s ease, transform 0.6s cubic-bezier(0.2, 0.9, 0.3, 1.15);
+  transition-delay: calc(var(--i) * 0.13s);
 }
+.fan-card:nth-child(2) { z-index: 2; } /* the headliner sits on top */
+.pack-fan.dealt .fan-card { opacity: 1; transform: translate(var(--dx), 0) rotate(var(--rot)) scale(1); }
+.fan-card:focus-visible { outline: 2px solid #fff; outline-offset: 4px; border-radius: 12px; }
+.fan-inner {
+  display: block; width: 100%; height: 100%;
+  transform: rotateY(90deg); transform-style: preserve-3d;
+  transition: transform 0.55s cubic-bezier(0.3, 0.7, 0.3, 1.2);
+  transition-delay: calc(0.08s + var(--i) * 0.13s);
+}
+.pack-fan.dealt .fan-inner { transform: rotateY(0deg); }
+.fan-inner img {
+  width: 100%; height: 100%; object-fit: cover; border-radius: 12px; display: block;
+  box-shadow: 0 24px 70px -18px rgba(0,0,0,0.85);
+}
+/* instant (reduced-motion) fan: everything already in place, no transitions */
+.pack-instant .pack-fan .fan-card { opacity: 1; transform: translate(var(--dx), 0) rotate(var(--rot)) scale(1); transition: none; }
+.pack-instant .pack-fan .fan-inner { transform: none; transition: none; }
 .pack-result { text-align: center; color: #fff; }
 .pack-result h3 { margin: 18px 0 4px; font-size: 1.3rem; }
 .pack-result .pr-sub { color: rgba(255,255,255,0.65); font-size: 0.9rem; margin-bottom: 20px; }

@@ -126,7 +126,7 @@
           var cid = tile.getAttribute("data-card");
           // Japanese cards live under ja- set ids; the catalog lookup must
           // use the Japanese namespace or TCGdex returns 404.
-          App.openCardModal(cid, isJaRow(row || {}) ? "ja" : "en", row);
+          App.openCardModal(cid, isJaRow(row || {}) ? "ja" : "en", row, tile.querySelector(".art"));
         });
         var rm = tile.querySelector('[data-act="rm"]');
         if (rm) rm.addEventListener("click", async function (e) {

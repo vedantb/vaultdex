@@ -301,15 +301,11 @@
         var pack = stage.querySelector("[data-pack]");
         stage.querySelector("[data-pack-close]").addEventListener("click", close);
         function rip() {
-          if (App.ui.reduceMotion) { revealCard(pool[Math.floor(Math.random() * pool.length)]); return; }
+          if (App.ui.reduceMotion) { revealPulls(pickPulls(pool, 3, rowValue), false); return; }
           pack.classList.add("shake");
           setTimeout(function () {
             if (closed) return;
-            pack.classList.remove("shake");
-            pack.classList.add("torn");
-            setTimeout(function () {
-              if (!closed) revealCard(pool[Math.floor(Math.random() * pool.length)]);
-            }, 480);
+            revealPulls(pickPulls(pool, 3, rowValue), true);
           }, 560);
         }
         pack.addEventListener("click", rip);
@@ -317,32 +313,86 @@
           if (e.key === "Enter" || e.key === " ") { e.preventDefault(); rip(); }
         });
       }
-      function revealCard(it) {
-        var v = rowValue(it);
+      /* Tear the pack in two, flash, then fan three pulls with staggered
+       * 3D flip-ins — the most valuable pull lands center stage. Tapping a
+       * fanned card FLIP-morphs it into the card dialog. */
+      function revealPulls(picks, animate) {
+        if (!picks.length) { close(); return; }
+        var headliner = picks[1] || picks[0];
+        var total = picks.reduce(function (n, it) { var v = rowValue(it); return n + (v || 0); }, 0);
         stage.innerHTML =
           '<div class="pack-result">' +
-            '<div class="pack-reveal" role="button" tabindex="0" aria-label="View ' + App.esc(it.card_name || "card") + '">' +
-              '<img src="' + App.esc(it.image_large || it.image_small) + '" alt="' + App.esc(it.card_name || "Pulled card") + '">' +
+            '<div class="pack-scene' + (animate ? "" : " pack-instant") + '">' +
+              (animate
+                ? '<div class="pack-halves" aria-hidden="true"><div class="pack-half ph-top"></div><div class="pack-half ph-bottom"></div></div>' +
+                  '<div class="pack-flash" aria-hidden="true"></div>'
+                : "") +
+              '<div class="pack-fan">' +
+                picks.map(function (it, i) {
+                  return '<button type="button" class="fan-card" data-fan="' + i + '" style="--i:' + i + '" aria-label="View ' + App.esc(it.card_name || "card") + '">' +
+                    '<span class="fan-inner"><img draggable="false" src="' + App.esc(it.image_large || it.image_small) + '" alt="' + App.esc(it.card_name || "Pulled card") + '"></span>' +
+                  "</button>";
+                }).join("") +
+              "</div>" +
             "</div>" +
-            "<h3>" + App.esc(it.card_name || "???") + "</h3>" +
-            '<div class="pr-sub">' + App.esc(it.set_name || "") + (v !== null ? " · " + App.ui.money(v) : "") + "</div>" +
+            "<h3>" + App.esc(headliner.card_name || "???") + "</h3>" +
+            '<div class="pr-sub">' + picks.length + (picks.length === 1 ? " card" : " cards") +
+              (total ? " · " + App.ui.money(total) + " total" : "") + "</div>" +
             '<div class="pr-actions">' +
               '<button type="button" class="btn btn-primary" data-pack-again>Open another</button>' +
               '<button type="button" class="btn btn-ghost" data-pack-done>Done</button>' +
             "</div>" +
           "</div>";
+        var fan = stage.querySelector(".pack-fan");
+        if (animate) {
+          /* Halves tear on insertion (CSS animation); the fan deals a beat later. */
+          requestAnimationFrame(function () {
+            requestAnimationFrame(function () { if (!closed && fan.isConnected) fan.classList.add("dealt"); });
+          });
+          /* Tear debris has served its purpose after ~0.8s — remove it so it
+           * can never intercept taps on the fanned cards. */
+          setTimeout(function () {
+            var halves = stage.querySelector(".pack-halves");
+            var flash = stage.querySelector(".pack-flash");
+            if (halves) halves.remove();
+            if (flash) flash.remove();
+          }, 850);
+        } else {
+          fan.classList.add("dealt");
+        }
         stage.querySelector("[data-pack-again]").addEventListener("click", showPack);
         stage.querySelector("[data-pack-done]").addEventListener("click", close);
-        function viewCard() {
-          var card = it;
-          close();
-          App.openCardModal(card.card_id, langOf(card), card);
-        }
-        stage.querySelector(".pack-reveal").addEventListener("click", viewCard);
+        fan.querySelectorAll(".fan-card").forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            var it = picks[parseInt(btn.getAttribute("data-fan"), 10)];
+            if (!it) return;
+            /* Capture the fanned card's rect before the stage unmounts so
+             * the dialog can FLIP-morph from it. */
+            var r = btn.getBoundingClientRect();
+            close();
+            App.openCardModal(it.card_id, langOf(it), it,
+              { left: r.left, top: r.top, width: r.width, height: r.height });
+          });
+        });
       }
       showPack();
       document.body.appendChild(stage);
     }
+
+    /* Pick n unique random pulls; the most valuable lands in the middle of
+     * the fan (order [2nd, 1st, 3rd]) so the "hit" sits center stage.
+     * Exposed on App.packPick for unit tests. */
+    function pickPulls(pool, n, valueOf) {
+      var bag = pool.slice();
+      var picks = [];
+      while (bag.length && picks.length < n) {
+        picks.push(bag.splice(Math.floor(Math.random() * bag.length), 1)[0]);
+      }
+      picks.sort(function (a, b) { return (valueOf(b) || 0) - (valueOf(a) || 0); });
+      if (picks.length === 3) picks = [picks[1], picks[0], picks[2]];
+      return picks;
+    }
+    App.packPick = pickPulls;
 
     App.views.home = async function (root) {
       if (!App.isConfigured()) {
@@ -488,7 +538,7 @@
         rail.querySelectorAll("[data-rail-card]").forEach(function (rc) {
           rc.addEventListener("click", function () {
             var it = railTopCards[parseInt(rc.getAttribute("data-rail-card"), 10)];
-            if (it) App.openCardModal(it.card_id, langOf(it), it);
+            if (it) App.openCardModal(it.card_id, langOf(it), it, rc.querySelector("img") || rc);
           });
         });
       }

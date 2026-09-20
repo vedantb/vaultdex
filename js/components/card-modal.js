@@ -84,9 +84,78 @@
     var wantP = pkmnId || null;
     return cands.filter(function (r) { return (r.pkmn_id || null) === wantP; })[0] || cands[0];
   }
-  App.cardModal = { findBoundRow: findBoundRow };
+  App.cardModal = { findBoundRow: findBoundRow, flipTransform: flipTransform };
 
-  function render(card) {
+  /* Pure FLIP math: given source and destination rects, the transform that
+   * places a top-left-origin element from the destination rect onto the
+   * source rect. Exposed on App.cardModal for unit tests. */
+  function flipTransform(src, dst) {
+    return {
+      dx: src.left - dst.left,
+      dy: src.top - dst.top,
+      sx: dst.width ? src.width / dst.width : 1,
+      sy: dst.height ? src.height / dst.height : 1
+    };
+  }
+
+  /* Tile-to-modal FLIP (2026-09-20): morph the tapped tile's artwork into
+   * the dialog art instead of popping the dialog in. `source` is the tile
+   * art element, or a bare rect (the pack reveal captures its rect before
+   * unmounting). Skipped for reduced-motion users and when the source is
+   * gone. */
+  function flipFromTile(m, source) {
+    if (!source || App.ui.reduceMotion) return;
+    var src = null;
+    if (typeof source.getBoundingClientRect === "function") {
+      if (!source.isConnected) return;
+      src = source.getBoundingClientRect();
+    } else if (source.width && source.height) {
+      src = source;
+    }
+    if (!src || !src.width || !src.height) return;
+    var img = m.el.querySelector(".card-detail .art img");
+    if (!img) return;
+    /* Hide the art until the modal's own entrance settles, so the landing
+     * rect we measure is the final one — otherwise the card visibly snaps
+     * when the entrance animation ends. */
+    img.style.visibility = "hidden";
+    var t0 = Date.now();
+    (function waitForArt() {
+      if (!m.el.isConnected) return;
+      var loaded = (img.complete && img.naturalWidth > 0) || Date.now() - t0 > 1200;
+      if (!loaded) { setTimeout(waitForArt, 60); return; }
+      var settle = Math.max(0, 320 - (Date.now() - t0));
+      setTimeout(function () {
+        if (!m.el.isConnected) return;
+        var dst = img.getBoundingClientRect();
+        if (!dst.width || !dst.height) { img.style.visibility = ""; return; }
+        var t = flipTransform(src, dst);
+        /* A tile already at the destination size/spot needs no morph. */
+        if (Math.abs(t.dx) < 2 && Math.abs(t.dy) < 2 && Math.abs(t.sx - 1) < 0.02 && Math.abs(t.sy - 1) < 0.02) {
+          img.style.visibility = "";
+          return;
+        }
+        img.style.visibility = "";
+        img.style.transformOrigin = "top left";
+        img.style.transition = "none";
+        img.style.transform = "translate(" + t.dx + "px," + t.dy + "px) scale(" + t.sx + "," + t.sy + ")";
+        void img.offsetWidth; /* reflow so the transition starts from the tile rect */
+        img.style.transition = "transform 0.42s cubic-bezier(0.22, 0.9, 0.26, 1)";
+        img.style.transform = "translate(0px, 0px) scale(1, 1)";
+        var done = false;
+        function cleanup() {
+          if (done) return;
+          done = true;
+          img.removeEventListener("transitionend", cleanup);
+          if (img.isConnected) { img.style.transform = ""; img.style.transition = ""; img.style.transformOrigin = ""; }
+        }
+        img.addEventListener("transitionend", cleanup);
+        setTimeout(cleanup, 750);
+      }, settle);
+    })();
+  }
+
+  function render(card, sourceEl) {
     var tcgVars = App.tcg.variantsOf(card);
     var prints = App.tcg.printVariants(card); // true printings: Normal, Poké Ball, Energy Symbol, Holo, …
     var selectedBox = prints.length ? prints[0] : null;
@@ -203,6 +272,8 @@
         if (unsubOwned) { try { unsubOwned(); } catch { /* ignored */ } unsubOwned = null; }
       }
     });
+    /* Tile-to-modal FLIP: morph the tapped tile's art into the dialog. */
+    flipFromTile(m, sourceEl);
 
     /* "In your collection" line: total owned copies plus a per-variant
      * breakdown. Refreshes live after adds and on collection:changed
@@ -495,8 +566,10 @@
 
   /* Accepts a card object (from search results) or a card id (fetched fresh).
    * fallbackRow: a collection row used to render a basic detail view when the
-   * card has no catalog record (e.g. pkmn.gg fallback imports). */
-  App.openCardModal = async function (cardOrId, lang, fallbackRow) {
+   * card has no catalog record (e.g. pkmn.gg fallback imports).
+   * sourceEl: the tile art element (or a bare rect) the modal FLIP-morphs
+   * from; omit for a plain entrance. */
+  App.openCardModal = async function (cardOrId, lang, fallbackRow, sourceEl) {
     try {
       var card = typeof cardOrId === "string" ? await App.tcg.getCard(cardOrId, lang) : cardOrId;
       if (!card) throw new Error("Card not found.");
@@ -506,11 +579,11 @@
         card.gradingCompany = fallbackRow.grading_company;
         card.gradingGrade = fallbackRow.grade || null;
       }
-      render(card);
+      render(card, sourceEl);
     } catch (e) {
       if (fallbackRow) {
         try {
-          render(cardFromRow(fallbackRow, lang));
+          render(cardFromRow(fallbackRow, lang), sourceEl);
           return;
         } catch { /* fall through to the error toast */ }
       }

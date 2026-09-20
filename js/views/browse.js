@@ -70,7 +70,7 @@
 
   function bindTiles(root) {
     root.querySelectorAll(".card-tile").forEach(function (tile) {
-      function open() { App.openCardModal(tile.getAttribute("data-id"), tile.getAttribute("data-lang") || "en"); }
+      function open() { App.openCardModal(tile.getAttribute("data-id"), tile.getAttribute("data-lang") || "en", null, tile.querySelector(".art") || tile); }
       tile.addEventListener("click", open);
       tile.addEventListener("keydown", function (e) {
         if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(); }

@@ -59,3 +59,26 @@ describe("findBoundRow", () => {
     expect(findBoundRow(rows, "Holo", null, null).id).toBe(1);
   });
 });
+
+describe("flipTransform (tile-to-modal FLIP, 2026-09-20)", () => {
+  const { flipTransform } = window.App.cardModal;
+  test("identity when rects match", () => {
+    const r = { left: 10, top: 20, width: 100, height: 140 };
+    expect(flipTransform(r, { ...r })).toEqual({ dx: 0, dy: 0, sx: 1, sy: 1 });
+  });
+  test("computes translate + scale from destination to source", () => {
+    const t = flipTransform(
+      { left: 50, top: 100, width: 60, height: 84 },
+      { left: 400, top: 200, width: 300, height: 420 }
+    );
+    expect(t.dx).toBe(-350);
+    expect(t.dy).toBe(-100);
+    expect(t.sx).toBeCloseTo(0.2);
+    expect(t.sy).toBeCloseTo(0.2);
+  });
+  test("guards zero-size destination", () => {
+    const t = flipTransform({ left: 0, top: 0, width: 10, height: 10 }, { left: 0, top: 0, width: 0, height: 0 });
+    expect(t.sx).toBe(1);
+    expect(t.sy).toBe(1);
+  });
+});
