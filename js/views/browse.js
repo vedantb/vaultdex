@@ -260,7 +260,7 @@
 
   /* Language picker: the default landing of the browse view. */
   function renderBrowseHome(body) {
-    body.innerHTML = '<div class="spinner" role="status" aria-label="Loading sets"></div>';
+    body.innerHTML = '<div class="ball-loader" role="status" aria-label="Loading sets"></div>';
     loadSets().then(function (sets) {
       var en = sets.filter(function (s) { return s.lang !== "ja"; });
       var ja = sets.filter(function (s) { return s.lang === "ja"; });

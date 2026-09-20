@@ -188,6 +188,10 @@
           }
           m.close();
           render();
+          if (price !== null) {
+            var tileBtn = root.querySelector('.card-tile[data-card="' + row.card_id + '"] .wishlist-target');
+            if (tileBtn) App.ui.pop(tileBtn);
+          }
           App.ui.toast(price === null ? "Target cleared." : "Target set — I'll flag it in Deals when it hits.", "success");
         } catch {
           App.ui.toast("Couldn't save the target — run the wishlist migration in Supabase first.", "info");

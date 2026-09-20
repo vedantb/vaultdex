@@ -176,6 +176,29 @@
         chgEl.className = "spot-graph-change " + c.cls;
         chgEl.textContent = c.text;
       }
+      /* Draw-on animation: the value line draws itself left-to-right, the
+       * area fill and end dot fade in behind it. Skipped entirely under
+       * reduced motion (the full graph just renders). */
+      function drawSpotLine(box) {
+        if (App.ui.reduceMotion) return;
+        var line = box.querySelector(".spot-line");
+        var area = box.querySelector(".spot-area");
+        var dot = box.querySelector(".spot-end-dot");
+        if (!line || typeof line.getTotalLength !== "function") return;
+        var len = line.getTotalLength();
+        if (!len) return;
+        line.style.strokeDasharray = String(len);
+        line.style.strokeDashoffset = String(len);
+        if (area) area.style.opacity = "0";
+        if (dot) dot.style.opacity = "0";
+        void line.getBoundingClientRect();
+        line.style.transition = "stroke-dashoffset 0.9s cubic-bezier(0.22, 0.8, 0.3, 1)";
+        if (area) area.style.transition = "opacity 0.6s ease 0.45s";
+        if (dot) dot.style.transition = "opacity 0.4s ease 0.75s";
+        line.style.strokeDashoffset = "0";
+        if (area) area.style.opacity = "1";
+        if (dot) dot.style.opacity = "1";
+      }
       function render() {
         // Re-validate on every render: the change line and the .on pill
         // always describe the actually-rendered range.
@@ -185,6 +208,7 @@
         var L = graphLayout(pts);
         var n = pts.length;
         chartBox.innerHTML = graphSvg(pts);
+        drawSpotLine(chartBox);
         paintChange(pts);
         var svg = chartBox.querySelector("svg");
         var hline = svg.querySelector(".spot-hover-line");

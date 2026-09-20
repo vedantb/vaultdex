@@ -296,6 +296,15 @@
     });
   }
 
+  /* Micro pop: replayable attention nudge (wishlist target set, etc.).
+   * No-op under reduced motion. */
+  function pop(elm) {
+    if (!elm || reduceMotion) return;
+    elm.classList.remove("pop");
+    void elm.offsetWidth;
+    elm.classList.add("pop");
+  }
+
   App.ui = {
     esc: esc,
     icon: icon,
@@ -312,6 +321,7 @@
     staggerTiles: staggerTiles,
     reveal: reveal,
     bindCounters: bindCounters,
+    pop: pop,
     reduceMotion: reduceMotion
   };
   App.esc = esc; // convenience alias

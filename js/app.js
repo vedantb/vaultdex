@@ -278,9 +278,13 @@
     }
     // Reveal the synchronous first paint right away; the async tail
     // continues rendering into the node now that it lives in #app.
+    // The view-enter class plays a short fade/rise so route changes don't
+    // hard-cut (neutralized under prefers-reduced-motion by motion.css).
     stage.style.cssText = "";
     appEl.innerHTML = "";
     appEl.appendChild(stage);
+    void stage.offsetWidth;
+    stage.classList.add("view-enter");
     try {
       await viewPromise;
     } catch (e) {
