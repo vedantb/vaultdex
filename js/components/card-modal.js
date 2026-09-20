@@ -149,7 +149,10 @@
     var wantP = pkmnId || null;
     return cands.filter(function (r) { return (r.pkmn_id || null) === wantP; })[0] || cands[0];
   }
-  App.cardModal = { findBoundRow: findBoundRow, flipTransform: flipTransform, priceBoxHtml: priceBoxHtml, priceUpgradeFor: priceUpgradeFor };
+  App.cardModal = { findBoundRow: findBoundRow, flipTransform: flipTransform, priceBoxHtml: priceBoxHtml, priceUpgradeFor: priceUpgradeFor,
+    /* FLIP flight duration in ms. Slower reads as the same card traveling
+     * into the modal. Writable so QA can sweep speeds without rebuilding. */
+    flipFlightMs: 700 };
 
   /* Pure FLIP math: given source and destination rects, the transform that
    * places a top-left-origin element from the destination rect onto the
@@ -252,10 +255,11 @@
     if (!atDest && typeof ghost.animate === "function") {
       ghost.style.transformOrigin = "top left";
       try {
+        var flightMs = App.cardModal.flipFlightMs > 0 ? App.cardModal.flipFlightMs : 480;
         var anim = ghost.animate([
           { transform: "translate(0px, 0px) scale(1, 1)" },
           { transform: "translate(" + t.dx + "px," + t.dy + "px) scale(" + t.sx + "," + t.sy + ")" }
-        ], { duration: 480, easing: "cubic-bezier(0.22, 0.9, 0.26, 1)", fill: "forwards" });
+        ], { duration: flightMs, easing: "cubic-bezier(0.22, 0.9, 0.26, 1)", fill: "forwards" });
         await anim.finished;
       } catch (e) { /* WAAPI aborted — fall through to cleanup */ }
     }
