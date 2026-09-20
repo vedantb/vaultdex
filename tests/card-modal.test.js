@@ -135,3 +135,65 @@ describe("priceBoxHtml (price loading skeletons, 2026-09-20)", () => {
     expect(html).toContain("No TCGPlayer price data");
   });
 });
+
+describe("priceUpgradeFor (JA id-path shimmer regression, 2026-09-20)", () => {
+  const { priceUpgradeFor } = window.App.cardModal;
+  const realGetCard = window.App.tcg.getCard;
+
+  function stubGetCard() {
+    let calls = 0;
+    window.App.tcg.getCard = async () => { calls++; return null; };
+    return () => calls;
+  }
+  function restore() { window.App.tcg.getCard = realGetCard; }
+
+  const jaCard = {
+    id: "SM-P-270", name: "Red's Pikachu", number: "270",
+    set: { id: "SM-P", name: "Sun & Moon Promos", lang: "ja" },
+    tcgplayer: { prices: { holofoil: { market: 427.24, currency: "USD" } } }
+  };
+  const enSlimCard = {
+    id: "me02-001", name: "Oddish", number: "1",
+    set: { id: "me02", name: "Ascended Heroes", lang: "en" },
+    tcgplayer: { prices: { holofoil: { market: 0.15 } } }
+  };
+
+  test("Japanese card by id: no upgrade promise (baked prices are final)", async () => {
+    const count = stubGetCard();
+    try {
+      const p = priceUpgradeFor(jaCard, jaCard.id, "ja");
+      expect(p).toBeNull(); // null -> priceLoading false -> no shimmer at all
+      expect(count()).toBe(0);
+    } finally { restore(); }
+  });
+
+  test("Japanese card by id with no baked pricing: still no live upgrade", async () => {
+    const count = stubGetCard();
+    try {
+      const bare = Object.assign({}, jaCard, { tcgplayer: null });
+      expect(priceUpgradeFor(bare, bare.id, "ja")).toBeNull();
+      expect(count()).toBe(0);
+    } finally { restore(); }
+  });
+
+  test("English card with slim snapshot pricing still upgrades", async () => {
+    const count = stubGetCard();
+    try {
+      const p = priceUpgradeFor(enSlimCard, enSlimCard.id, "en");
+      expect(p).not.toBeNull();
+      await p;
+      expect(count()).toBe(1);
+    } finally { restore(); }
+  });
+
+  test("English card with full live pricing does not upgrade", async () => {
+    const count = stubGetCard();
+    try {
+      const full = Object.assign({}, enSlimCard, {
+        tcgplayer: { prices: { holofoil: { low: 0.01, mid: 0.1, high: 1, market: 0.15 } } }
+      });
+      expect(priceUpgradeFor(full, full.id, "en")).toBeNull();
+      expect(count()).toBe(0);
+    } finally { restore(); }
+  });
+});

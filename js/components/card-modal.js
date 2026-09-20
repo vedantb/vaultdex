@@ -149,7 +149,7 @@
     var wantP = pkmnId || null;
     return cands.filter(function (r) { return (r.pkmn_id || null) === wantP; })[0] || cands[0];
   }
-  App.cardModal = { findBoundRow: findBoundRow, flipTransform: flipTransform, priceBoxHtml: priceBoxHtml };
+  App.cardModal = { findBoundRow: findBoundRow, flipTransform: flipTransform, priceBoxHtml: priceBoxHtml, priceUpgradeFor: priceUpgradeFor };
 
   /* Pure FLIP math: given source and destination rects, the transform that
    * places a top-left-origin element from the destination rect onto the
@@ -463,8 +463,9 @@
         art.style.setProperty("--my", 50);
       });
     })();
-    // Non-owner viewers: read-only card details, no add controls.
-    if (!m.el.querySelector("#cm-minus")) { refreshJaPrice(m, card, isJa, function () { return selectedBox; }); return; }
+    // Non-owner viewers: read-only card details, no add controls. Still
+    // return the handle — the background price upgrade needs it.
+    if (!m.el.querySelector("#cm-minus")) { refreshJaPrice(m, card, isJa, function () { return selectedBox; }); return { el: m.el, close: m.close, upgrade: upgrade }; }
     refreshJaPrice(m, card, isJa, function () { return selectedBox; });
 
     /* Live owned-quantity stepper. ownedRows holds this card's full
@@ -756,6 +757,18 @@
     }
   }
 
+  /* Live-price upgrade promise for a modal card, or null when no upgrade
+   * is needed. Japanese cards never upgrade: TCGdex carries no JA pricing
+   * and the baked catalog prices are already the best source. Returning
+   * null (instead of a promise that can never apply) matters: the modal
+   * renders skeleton shimmers while an upgrade is pending, so a dangling
+   * promise would leave priceLoading true forever — a shimmer that never
+   * resolves. Both openCardModal paths (card object and card id) use this. */
+  function priceUpgradeFor(card, id, lang) {
+    if (!needsPriceUpgrade(card)) return null;
+    return App.tcg.getCard(id, lang).then(function (c) { return c; }, function () { return null; });
+  }
+
   /* Accepts a card object (tile/search results) or a card id. Objects and
    * snapshot hits render instantly — tap -> pixels with no round-trip —
    * while the live card upgrades the price regions in the background.
@@ -769,15 +782,13 @@
       if (typeof cardOrId === "string") {
         card = await App.tcg.getCardLocal(cardOrId, lang);
         if (card) {
-          upgradePromise = App.tcg.getCard(cardOrId, lang).then(function (c) { return c; }, function () { return null; });
+          upgradePromise = priceUpgradeFor(card, cardOrId, lang);
         } else {
           card = await App.tcg.getCard(cardOrId, lang);
         }
       } else {
         card = cardOrId;
-        if (needsPriceUpgrade(card)) {
-          upgradePromise = App.tcg.getCard(card.id, lang).then(function (c) { return c; }, function () { return null; });
-        }
+        upgradePromise = priceUpgradeFor(card, card.id, lang);
       }
       if (!card) throw new Error("Card not found.");
       // Already-graded collection row: carry the slab onto the card so
