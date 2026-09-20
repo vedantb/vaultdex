@@ -138,7 +138,7 @@
 
     var html =
       '<div class="card-detail">' +
-        '<div class="art"><img src="' + App.esc(card.images && card.images.large) + '" alt="' + App.esc(card.name) + ' card artwork" loading="lazy"></div>' +
+        '<div class="art"><img src="' + App.esc(card.images && (card.images.large || card.images.small)) + '" alt="' + App.esc(card.name) + ' card artwork" loading="lazy"></div>' +
         "<div>" +
           /* Graded copies name the slab next to the title; the wishlist heart
            * (owner-only) stays as-is beside it. */

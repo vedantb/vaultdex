@@ -183,3 +183,56 @@ describe("printVariants dedupe (2026-09-18)", () => {
     expect(boxes.length).toBe(3);
   });
 });
+
+describe("getCard image backfill (2026-09-20)", () => {
+  test("patches missing live images from the local snapshot", async () => {
+    const liveCard = {
+      id: "svp-085", name: "Pikachu with Grey Felt Hat", localId: "085",
+      image: null, set: { id: "svp", name: "SVP Black Star Promos" },
+    };
+    const snapCard = {
+      id: "svp-085", name: "Pikachu with Grey Felt Hat", localId: "085",
+      image: null,
+      imageSmall: "https://images.pkmnprices.com/cards/x.webp",
+      imageLarge: "https://images.pkmnprices.com/cards/x.webp",
+    };
+    const orig = window.App.util.fetchWithTimeout;
+    window.App.util.fetchWithTimeout = async (url) => {
+      if (String(url).includes("/data/tcgdex/sets/svp.json")) {
+        return { ok: true, json: async () => ({ set: { id: "svp", name: "SVP Black Star Promos" }, cards: [snapCard] }) };
+      }
+      return { ok: true, json: async () => liveCard };
+    };
+    try {
+      const card = await window.App.tcg.getCard("svp-085", "en");
+      expect(card.images.small).toBe("https://images.pkmnprices.com/cards/x.webp");
+      expect(card.images.large).toBe("https://images.pkmnprices.com/cards/x.webp");
+    } finally {
+      window.App.util.fetchWithTimeout = orig;
+    }
+  });
+
+  test("keeps live images when present (no snapshot lookup needed)", async () => {
+    const liveCard = {
+      id: "sv1-001", name: "Sprigatito", localId: "001",
+      image: "https://assets.tcgdex.net/en/sv1/1", set: { id: "sv1", name: "Scarlet & Violet" },
+    };
+    let snapshotHit = false;
+    const orig = window.App.util.fetchWithTimeout;
+    window.App.util.fetchWithTimeout = async (url) => {
+      if (String(url).includes("/data/tcgdex/")) {
+        snapshotHit = true;
+        return { ok: false };
+      }
+      return { ok: true, json: async () => liveCard };
+    };
+    try {
+      const card = await window.App.tcg.getCard("sv1-001", "en");
+      expect(card.images.small).toBe("https://assets.tcgdex.net/en/sv1/1/low.png");
+      expect(card.images.large).toBe("https://assets.tcgdex.net/en/sv1/1/high.png");
+      expect(snapshotHit).toBe(false);
+    } finally {
+      window.App.util.fetchWithTimeout = orig;
+    }
+  });
+});

@@ -387,6 +387,27 @@
       raw = c;
       setId = (c.set && c.set.id) || id.slice(0, Math.max(0, id.lastIndexOf("-")));
       setName = (c.set && c.set.name) || "";
+      /* TCGdex genuinely lacks scans for some cards (e.g. svp-085 Pikachu
+       * with Grey Felt Hat): live returns no image while our local
+       * snapshots carry the backfilled scan. Patch the images in from the
+       * local set snapshot so the detail modal doesn't render broken art.
+       * Live data (pricing, names) stays authoritative. */
+      if (raw && !raw.image && !raw.imageSmall) {
+        try {
+          var imgSetGuess = id.slice(0, Math.max(0, id.lastIndexOf("-")));
+          if (imgSetGuess) {
+            var imgSnap = await snapJson(setSnapPath((lang === "ja" ? "ja-" : "") + imgSetGuess));
+            (imgSnap.cards || []).some(function (sc) {
+              if (sc.id === id) {
+                if (sc.imageSmall) raw.imageSmall = sc.imageSmall;
+                if (sc.imageLarge) raw.imageLarge = sc.imageLarge;
+                return true;
+              }
+              return false;
+            });
+          }
+        } catch { /* snapshot miss — live data stands as-is */ }
+      }
     }
     var card = normCard(raw, setId, setName, lang);
     detailCache[key] = card;
