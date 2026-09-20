@@ -142,7 +142,14 @@
       if (done) return;
       done = true;
       if (ghost.parentNode) ghost.parentNode.removeChild(ghost);
-      if (m.el.isConnected) m.el.classList.remove("flip-live");
+      if (m.el.isConnected) {
+        /* The dialog has been on screen for the whole flight — keep its
+         * pop entrance suppressed. Removing flip-live without a
+         * replacement would replay the entrance animation a second time,
+         * which reads as the modal refreshing itself. */
+        m.el.classList.remove("flip-live");
+        m.el.classList.add("flip-done");
+      }
       if (artBox.isConnected) artBox.style.visibility = "";
     }
 

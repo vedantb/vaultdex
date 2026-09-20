@@ -269,6 +269,9 @@
  * is suppressed while the FLIP runs (the landing rect is stable from frame
  * one). The ghost is a fixed clone of the tile art pinned over the source. */
 .modal-overlay.flip-live .modal { animation: none; }
+/* After a FLIP completes the dialog must never replay its entrance pop —
+ * dropping flip-live alone would start the suppressed animation late. */
+.modal-overlay.flip-done .modal { animation: none; }
 .flip-ghost {
   position: fixed; z-index: 1000; margin: 0; padding: 0; pointer-events: none;
   border-radius: 14px; box-shadow: var(--shadow); object-fit: cover;
