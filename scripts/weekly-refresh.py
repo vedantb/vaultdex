@@ -41,6 +41,7 @@ PROD_BASE = "https://vaultdex-three.vercel.app"
 STAGES = [
     "preflight",
     "snapshot-en",
+    "30thc",
     "snapshot-ja",
     "enrich-ja",
     "backfill-ja",
@@ -162,6 +163,13 @@ def stage_snapshot_en(ctx):
     if ctx["full"]:
         _force_refresh_set_files("en")
     run([sys.executable, "scripts/snapshot-tcgdex.py", "--all", "--workers", "2"])
+
+
+def stage_30thc(ctx):
+    # Cache-only re-vendor of EN 30th Anniversary card images (30th-c has no
+    # TCGdex scans; 30th is missing 3 promo-numbered Mews). The EN snapshot
+    # would otherwise wipe the vendored imageSmall/imageLarge on re-fetch.
+    run([sys.executable, "scripts/build-30thc-pkmngg.py"])
 
 
 def stage_snapshot_ja(ctx):
@@ -380,6 +388,7 @@ def stage_verify(ctx):
 STAGE_FNS = {
     "preflight": stage_preflight,
     "snapshot-en": stage_snapshot_en,
+    "30thc": stage_30thc,
     "snapshot-ja": stage_snapshot_ja,
     "enrich-ja": stage_enrich_ja,
     "backfill-ja": stage_backfill_ja,

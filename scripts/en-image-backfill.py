@@ -140,8 +140,9 @@ OVERRIDES = {
     "2024sv": 513,      # McDonald's Promos 2024
     "sm6": 617,         # SM - Forbidden Light
     "xyp": 621,         # XY Black Star Promos (PkmnPrices "XY Promos")
-    # 30th-c (local-only 30th Classic Collection) has no PkmnPrices
-    # equivalent yet — 1086 "ME: 30th Celebration" is the ME-era set.
+    "30th": 1086,       # ME: 30th Celebration
+    # 30th-c (30th Classic Collection) has no PkmnPrices equivalent —
+    # its images are vendored from pkmn.gg by scripts/build-30thc-pkmngg.py.
 }
 
 
