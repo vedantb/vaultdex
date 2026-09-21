@@ -296,13 +296,14 @@
 /* ---------- modal card swap navigation (2026-09-21) ----------
  * Arrow keys / flicks step to the neighbor card without moving the dialog
  * or backdrop: the outgoing content shimmers briefly, then the new card's
- * data replaces it with the entrance animations suppressed (.nav-swap)
- * and a soft fade-in. At the list edges the card nudges instead of
- * moving — a binder doesn't wrap. */
+ * data replaces it with the entrance animations suppressed (.nav-swap).
+ * The sheen carries across the cut — the incoming detail starts shimmering
+ * too and the sheen fades out — so the dialog is never empty (a
+ * fade-from-zero on the whole detail read as a blink on every press).
+ * At the list edges the card nudges instead of moving — a binder doesn't
+ * wrap. */
 .modal-overlay.nav-swap { animation: none; }
 .modal-overlay.nav-swap .modal { animation: none; }
-.modal-overlay.nav-swap .card-detail { animation: card-swap-in 0.18s ease; }
-@keyframes card-swap-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
 .card-detail.card-swapping { position: relative; }
 .card-detail.card-swapping::after {
   content: ""; position: absolute; inset: 0; border-radius: 14px;
@@ -310,7 +311,11 @@
   background-size: 220% 100%;
   animation: card-swap-shimmer 0.45s linear infinite;
   pointer-events: none;
+  opacity: 1;
+  transition: opacity 0.25s ease;
 }
+/* Added ~200ms after a swap lands: dissolves the sheen instead of cutting it. */
+.card-detail.card-swapping.shimmer-out::after { opacity: 0; }
 @keyframes card-swap-shimmer { from { background-position: 180% 0; } to { background-position: -80% 0; } }
 @keyframes edge-nudge-right { 35% { transform: translateX(10px); } }
 @keyframes edge-nudge-left { 35% { transform: translateX(-10px); } }

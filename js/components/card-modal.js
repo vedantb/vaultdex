@@ -428,10 +428,24 @@
     flipFromTile(m, sourceEl);
     /* Swap navigation entrance: a modal opened by stepping to a neighbor
      * card keeps the dialog and backdrop exactly where they are — the
-     * entrance animations are suppressed and the fresh content fades in
-     * in place (see .nav-swap in motion.css). */
+     * entrance animations are suppressed and the incoming detail keeps
+     * shimmering, so the sheen carries across the cut and the dialog is
+     * never empty (see .nav-swap / .shimmer-out in motion.css). */
     var nav = (opts && opts.nav) || null;
     if (nav && nav.swap) m.el.classList.add("nav-swap");
+    if (nav && nav.swap && !App.ui.reduceMotion) {
+      (function () {
+        var swapDetail = m.el.querySelector(".card-detail");
+        if (!swapDetail) return;
+        swapDetail.classList.add("card-swapping");
+        /* Dissolve the sheen once the new data is in place. */
+        setTimeout(function () {
+          if (!swapDetail.isConnected) return;
+          swapDetail.classList.add("shimmer-out");
+          setTimeout(function () { swapDetail.classList.remove("card-swapping", "shimmer-out"); }, 300);
+        }, 200);
+      })();
+    }
 
     /* Card-to-card navigation (2026-09-21): when the modal was opened with
      * a nav context (the set page's grid), flicking the artwork or pressing
@@ -916,7 +930,8 @@
    * ordered tile/card list the modal may step through, the current position
    * in it, and the catalog language. swap marks a modal opened by stepping
    * to a neighbor card: the dialog and backdrop stay put, the outgoing
-   * content shimmers, and the entrance animations are suppressed. */
+   * content shimmers, the sheen carries across the cut onto the incoming
+   * detail, and the entrance animations are suppressed. */
   App.openCardModal = async function (cardOrId, lang, fallbackRow, sourceEl, nav) {
     try {
       var card = null, upgradePromise = null;
