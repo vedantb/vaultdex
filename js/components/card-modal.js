@@ -426,26 +426,20 @@
     if (packStage) packStage.classList.add("pack-behind");
     /* Tile-to-modal FLIP: morph the tapped tile's art into the dialog. */
     flipFromTile(m, sourceEl);
-    /* Swipe navigation entrance: a modal opened by a card swipe slides in
-     * from the flick direction instead of popping. (Swipe opens never pass
-     * a sourceEl, so this never fights the FLIP.) */
+    /* Swap navigation entrance: a modal opened by stepping to a neighbor
+     * card keeps the dialog and backdrop exactly where they are — the
+     * entrance animations are suppressed and the fresh content fades in
+     * in place (see .nav-swap in motion.css). */
     var nav = (opts && opts.nav) || null;
-    if (nav && nav.swipeIn && !App.ui.reduceMotion) {
-      (function () {
-        var inCls = "swipe-in-" + nav.swipeIn;
-        m.el.classList.add(inCls);
-        var detail = m.el.querySelector(".card-detail");
-        function clear() { if (m.el.isConnected) m.el.classList.remove(inCls); }
-        if (detail) detail.addEventListener("animationend", clear, { once: true });
-        setTimeout(clear, 400);
-      })();
-    }
+    if (nav && nav.swap) m.el.classList.add("nav-swap");
 
-    /* Swipe between cards (2026-09-21): when the modal was opened with a
-     * nav context (the set page's grid), flicking the artwork steps to the
-     * next/previous card. The outgoing card slides out, then the modal
-     * reopens on the neighbor with a matching slide-in — one overlay at a
-     * time, so the backdrop never flickers. */
+    /* Card-to-card navigation (2026-09-21): when the modal was opened with
+     * a nav context (the set page's grid), flicking the artwork or pressing
+     * an arrow key steps to the next/previous card. The dialog and backdrop
+     * stay put: the outgoing content shimmers briefly, then the neighbor
+     * card's data replaces it with the entrance animations suppressed —
+     * one overlay at a time, so the backdrop never flickers and nothing
+     * pops or slides against the dialog. */
     var navigating = false;
     function navCardAt(i) {
       var t = nav && nav.tiles && nav.tiles[i];
@@ -466,18 +460,26 @@
       var nextCard = navCardAt(target);
       if (!nextCard) return;
       var lang = nav.lang;
-      var nextNav = { tiles: nav.tiles, index: target, lang: lang, swipeIn: dir > 0 ? "right" : "left" };
-      if (App.ui.reduceMotion) {
-        m.close();
-        App.openCardModal(nextCard, lang, null, null, nextNav);
-        return;
-      }
+      var nextNav = { tiles: nav.tiles, index: target, lang: lang, swap: true };
       navigating = true;
-      m.el.classList.add(dir > 0 ? "swipe-out-left" : "swipe-out-right");
-      setTimeout(function () {
+      function swapNow() {
+        navigating = false;
+        /* The user may have dismissed the modal during the shimmer —
+         * never reopen on top of a dismissal. */
+        if (!m.el.isConnected) return;
         m.close();
         App.openCardModal(nextCard, lang, null, null, nextNav);
-      }, 200);
+      }
+      if (App.ui.reduceMotion) { swapNow(); return; }
+      var detail = m.el.querySelector(".card-detail");
+      if (detail) detail.classList.add("card-swapping");
+      /* Warm the next artwork so it paints with the swap instead of
+       * popping in a beat later. */
+      try {
+        var artSrc = nextCard.images && (nextCard.images.large || nextCard.images.small);
+        if (artSrc) { var preload = new Image(); preload.src = artSrc; }
+      } catch (e) { /* preloading is best-effort */ }
+      setTimeout(swapNow, 170);
     }
     /* Desktop: arrow keys step through the set while the modal is open.
      * Document-level (focus usually stays on the tile behind the modal).
@@ -910,10 +912,11 @@
    * the card has no catalog record (e.g. pkmn.gg fallback imports).
    * sourceEl: the tile art element the modal FLIP-morphs from; omit for a
    * plain entrance.
-   * nav: optional swipe-navigation context { tiles, index, lang } — the
+   * nav: optional card-navigation context { tiles, index, lang } — the
    * ordered tile/card list the modal may step through, the current position
-   * in it, and the catalog language. swipeIn ("left"/"right") marks a modal
-   * opened by a swipe so the card slides in from the flick direction. */
+   * in it, and the catalog language. swap marks a modal opened by stepping
+   * to a neighbor card: the dialog and backdrop stay put, the outgoing
+   * content shimmers, and the entrance animations are suppressed. */
   App.openCardModal = async function (cardOrId, lang, fallbackRow, sourceEl, nav) {
     try {
       var card = null, upgradePromise = null;

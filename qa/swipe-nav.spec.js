@@ -128,11 +128,12 @@ test("flicking the art left advances to the next card", async ({ page }) => {
 
   await touchSwipe(page, x, y, x - 140, y);
 
-  // The outgoing card slides out toward the flick…
-  await expect(page.locator(".modal-overlay.swipe-out-left")).toBeAttached({ timeout: 3000 });
-  // …then the modal reopens on the neighbor.
+  // The outgoing content shimmers in place (dialog and backdrop never move)…
+  await expect(page.locator(".modal-overlay .card-detail.card-swapping")).toBeAttached({ timeout: 3000 });
+  // …then the modal reopens on the neighbor with its entrance animations suppressed.
   await waitForTitleChange(page, before);
   expect(await modalTitle(page)).not.toBe(before);
+  await expect(page.locator(".modal-overlay.nav-swap")).toBeAttached();
   // Exactly one modal overlay is ever on screen (no backdrop flicker stack).
   expect(await page.locator(".modal-overlay").count()).toBe(1);
 });

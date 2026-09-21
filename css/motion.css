@@ -293,18 +293,25 @@
  * the dialog drops you back onto the fan with the other two pulls. */
 .pack-stage.pack-behind { z-index: 50; }
 
-/* ---------- modal card swipe navigation (2026-09-21) ----------
- * Flicking the artwork steps through the set: the outgoing card slides out
- * toward the flick, the incoming card slides in from the flick side. At
- * the list edges the card nudges instead of moving — a binder doesn't wrap. */
-@keyframes card-out-left { to { opacity: 0; transform: translateX(-72px) scale(0.96); } }
-@keyframes card-out-right { to { opacity: 0; transform: translateX(72px) scale(0.96); } }
-@keyframes card-in-right { from { opacity: 0; transform: translateX(72px) scale(0.96); } }
-@keyframes card-in-left { from { opacity: 0; transform: translateX(-72px) scale(0.96); } }
-.modal-overlay.swipe-out-left .card-detail { animation: card-out-left 0.2s ease-in forwards; }
-.modal-overlay.swipe-out-right .card-detail { animation: card-out-right 0.2s ease-in forwards; }
-.modal-overlay.swipe-in-right .card-detail { animation: card-in-right 0.24s cubic-bezier(0.22, 0.8, 0.3, 1); }
-.modal-overlay.swipe-in-left .card-detail { animation: card-in-left 0.24s cubic-bezier(0.22, 0.8, 0.3, 1); }
+/* ---------- modal card swap navigation (2026-09-21) ----------
+ * Arrow keys / flicks step to the neighbor card without moving the dialog
+ * or backdrop: the outgoing content shimmers briefly, then the new card's
+ * data replaces it with the entrance animations suppressed (.nav-swap)
+ * and a soft fade-in. At the list edges the card nudges instead of
+ * moving — a binder doesn't wrap. */
+.modal-overlay.nav-swap { animation: none; }
+.modal-overlay.nav-swap .modal { animation: none; }
+.modal-overlay.nav-swap .card-detail { animation: card-swap-in 0.18s ease; }
+@keyframes card-swap-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.card-detail.card-swapping { position: relative; }
+.card-detail.card-swapping::after {
+  content: ""; position: absolute; inset: 0; border-radius: 14px;
+  background: linear-gradient(100deg, transparent 25%, rgba(255,255,255,0.16) 50%, transparent 75%);
+  background-size: 220% 100%;
+  animation: card-swap-shimmer 0.45s linear infinite;
+  pointer-events: none;
+}
+@keyframes card-swap-shimmer { from { background-position: 180% 0; } to { background-position: -80% 0; } }
 @keyframes edge-nudge-right { 35% { transform: translateX(10px); } }
 @keyframes edge-nudge-left { 35% { transform: translateX(-10px); } }
 .modal-overlay.edge-right .card-detail { animation: edge-nudge-right 0.28s ease; }
