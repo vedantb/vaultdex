@@ -271,12 +271,19 @@
         });
       }).join("") + "</div>";
 
-      gridWrap.querySelectorAll(".card-tile").forEach(function (tile, i) {
+      var tileEls = Array.from(gridWrap.querySelectorAll(".card-tile"));
+      tileEls.forEach(function (tile, i) {
         var card = cards[i];
         tile._card = card;
         tile._cardId = card.id;
         tile._boxes = boxesFor(card);
-        function open() { App.openCardModal(tile._card || card, setLang, null, tile.querySelector(".art") || tile); }
+        /* Swipe navigation context for the modal: the page's tiles in order
+         * (tile._card is enriched in place by enrichTiles, so swiping picks
+         * up the richer card). */
+        function open() {
+          App.openCardModal(tile._card || card, setLang, null, tile.querySelector(".art") || tile,
+            { tiles: tileEls, index: i, lang: setLang });
+        }
         tile.addEventListener("click", open);
         tile.addEventListener("keydown", function (e) {
           if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(); }

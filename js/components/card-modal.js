@@ -150,6 +150,7 @@
     return cands.filter(function (r) { return (r.pkmn_id || null) === wantP; })[0] || cands[0];
   }
   App.cardModal = { findBoundRow: findBoundRow, flipTransform: flipTransform, priceBoxHtml: priceBoxHtml, priceUpgradeFor: priceUpgradeFor,
+    navIndex: navIndex, classifySwipe: classifySwipe,
     /* FLIP flight duration in ms. Slower reads as the same card traveling
      * into the modal. Writable so QA can sweep speeds without rebuilding. */
     flipFlightMs: 700 };
@@ -164,6 +165,26 @@
       sx: dst.width ? src.width / dst.width : 1,
       sy: dst.height ? src.height / dst.height : 1
     };
+  }
+
+  /* Swipe navigation math (2026-09-21): the modal can step through a card
+   * list (e.g. the set page's current grid). No wrap-around — a binder
+   * doesn't wrap, so the UI answers the boundary with an edge nudge.
+   * Returns the target index, or null at the boundary. Pure; tested. */
+  function navIndex(count, index, dir) {
+    var t = index + dir;
+    if (t < 0 || t >= count) return null;
+    return t;
+  }
+
+  /* Touch-gesture classifier for the modal art: quick, mostly-horizontal
+   * flicks are swipes (1 = next card, -1 = previous); slow drags just tilt
+   * the card and vertical movement is page scroll. Pure; tested. */
+  function classifySwipe(dx, dy, dtMs) {
+    if (dtMs > 600) return 0;
+    if (Math.abs(dx) < 80) return 0;
+    if (Math.abs(dx) < 1.6 * Math.abs(dy)) return 0;
+    return dx < 0 ? 1 : -1;
   }
 
   /* Tile-to-modal FLIP (2026-09-20): a shared-element morph done right.
@@ -390,6 +411,7 @@
     var unsubOwned = null;
     var m = App.ui.openModal(html, {
       onClose: function () {
+        document.removeEventListener("keydown", onNavKey);
         if (unsubOwned) { try { unsubOwned(); } catch { /* ignored */ } unsubOwned = null; }
         /* Pack-pull context: the fan stage was sunk below this dialog; float
          * it back so closing the detail returns to the other pulls. */
@@ -404,6 +426,71 @@
     if (packStage) packStage.classList.add("pack-behind");
     /* Tile-to-modal FLIP: morph the tapped tile's art into the dialog. */
     flipFromTile(m, sourceEl);
+    /* Swipe navigation entrance: a modal opened by a card swipe slides in
+     * from the flick direction instead of popping. (Swipe opens never pass
+     * a sourceEl, so this never fights the FLIP.) */
+    var nav = (opts && opts.nav) || null;
+    if (nav && nav.swipeIn && !App.ui.reduceMotion) {
+      (function () {
+        var inCls = "swipe-in-" + nav.swipeIn;
+        m.el.classList.add(inCls);
+        var detail = m.el.querySelector(".card-detail");
+        function clear() { if (m.el.isConnected) m.el.classList.remove(inCls); }
+        if (detail) detail.addEventListener("animationend", clear, { once: true });
+        setTimeout(clear, 400);
+      })();
+    }
+
+    /* Swipe between cards (2026-09-21): when the modal was opened with a
+     * nav context (the set page's grid), flicking the artwork steps to the
+     * next/previous card. The outgoing card slides out, then the modal
+     * reopens on the neighbor with a matching slide-in — one overlay at a
+     * time, so the backdrop never flickers. */
+    var navigating = false;
+    function navCardAt(i) {
+      var t = nav && nav.tiles && nav.tiles[i];
+      return (t && t._card) || null;
+    }
+    function edgeNudge(dir) {
+      if (App.ui.reduceMotion) return;
+      var cls = dir > 0 ? "edge-right" : "edge-left";
+      m.el.classList.remove("edge-right", "edge-left");
+      void m.el.offsetWidth;
+      m.el.classList.add(cls);
+      setTimeout(function () { if (m.el.isConnected) m.el.classList.remove(cls); }, 320);
+    }
+    function navTo(dir) {
+      if (navigating || !nav || !nav.tiles || !nav.tiles.length) return;
+      var target = navIndex(nav.tiles.length, nav.index, dir);
+      if (target === null) { edgeNudge(dir); return; }
+      var nextCard = navCardAt(target);
+      if (!nextCard) return;
+      var lang = nav.lang;
+      var nextNav = { tiles: nav.tiles, index: target, lang: lang, swipeIn: dir > 0 ? "right" : "left" };
+      if (App.ui.reduceMotion) {
+        m.close();
+        App.openCardModal(nextCard, lang, null, null, nextNav);
+        return;
+      }
+      navigating = true;
+      m.el.classList.add(dir > 0 ? "swipe-out-left" : "swipe-out-right");
+      setTimeout(function () {
+        m.close();
+        App.openCardModal(nextCard, lang, null, null, nextNav);
+      }, 200);
+    }
+    /* Desktop: arrow keys step through the set while the modal is open.
+     * Document-level (focus usually stays on the tile behind the modal).
+     * Never hijack typing in form fields; removed with the modal. */
+    function onNavKey(e) {
+      if (!nav) return;
+      if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
+      var t = e.target;
+      if (t && /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName)) return;
+      e.preventDefault();
+      navTo(e.key === "ArrowRight" ? 1 : -1);
+    }
+    if (nav) document.addEventListener("keydown", onNavKey);
 
     /* "In your collection" line: total owned copies plus a per-variant
      * breakdown. Refreshes live after adds and on collection:changed
@@ -442,12 +529,12 @@
       });
     }
     /* Pointer-reactive 3D tilt + glare on the card art (+ holo foil for rare
-     * cards). Desktop hover only — the art stays flat on touch and when the
-     * user prefers reduced motion. */
+     * cards). Desktop tracks the cursor; touch tracks the finger — a quick
+     * horizontal flick on the art swipes to the next/previous card instead
+     * (see navTo above), while slow drags just tilt. Skipped entirely when
+     * the user prefers reduced motion. */
     (function tiltArt() {
-      var fine = typeof window.matchMedia === "function" &&
-        window.matchMedia("(hover: hover) and (pointer: fine)").matches;
-      if (!fine || App.ui.reduceMotion) return;
+      if (App.ui.reduceMotion) return;
       var art = m.el.querySelector(".card-detail .art");
       if (!art) return;
       art.classList.add("tilt-wrap", "tilt");
@@ -455,17 +542,60 @@
       glare.className = "glare";
       art.insertBefore(glare, art.firstChild);
       if (isHoloRarity(card.rarity)) art.classList.add("holo");
-      art.addEventListener("pointermove", function (e) {
-        var b = art.getBoundingClientRect();
-        var mx = ((e.clientX - b.left) / b.width) * 100;
-        var my = ((e.clientY - b.top) / b.height) * 100;
+      function setTilt(mx, my) {
         art.style.setProperty("--mx", Math.max(0, Math.min(100, mx)).toFixed(1));
         art.style.setProperty("--my", Math.max(0, Math.min(100, my)).toFixed(1));
-      });
-      art.addEventListener("pointerleave", function () {
-        art.style.setProperty("--mx", 50);
-        art.style.setProperty("--my", 50);
-      });
+      }
+      function tiltAt(clientX, clientY) {
+        var b = art.getBoundingClientRect();
+        if (!b.width || !b.height) return;
+        setTilt(((clientX - b.left) / b.width) * 100, ((clientY - b.top) / b.height) * 100);
+      }
+      var fine = typeof window.matchMedia === "function" &&
+        window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+      if (fine) {
+        art.addEventListener("pointermove", function (e) {
+          if (e.pointerType !== "mouse" && e.pointerType !== "pen") return;
+          tiltAt(e.clientX, e.clientY);
+        });
+        art.addEventListener("pointerleave", function () { setTilt(50, 50); });
+      }
+      /* Touch: tilt follows the finger; a fast horizontal flick becomes a
+       * card swipe. touch-action: pan-y (motion.css) keeps vertical page
+       * scroll native while horizontal movement reaches these handlers. */
+      var tState = null;
+      art.addEventListener("touchstart", function (e) {
+        if (!e.touches || !e.touches.length) return;
+        var t = e.touches[0];
+        tState = { id: t.identifier, x0: t.clientX, y0: t.clientY, x1: t.clientX, y1: t.clientY, t0: Date.now() };
+        art.classList.add("touching");
+        tiltAt(t.clientX, t.clientY);
+      }, { passive: true });
+      art.addEventListener("touchmove", function (e) {
+        if (!tState || !e.touches) return;
+        for (var i = 0; i < e.touches.length; i++) {
+          var t = e.touches[i];
+          if (t.identifier === tState.id) {
+            tState.x1 = t.clientX;
+            tState.y1 = t.clientY;
+            tiltAt(t.clientX, t.clientY);
+            break;
+          }
+        }
+      }, { passive: true });
+      function touchDone(e) {
+        if (!tState) return;
+        var s = tState;
+        tState = null;
+        art.classList.remove("touching");
+        setTilt(50, 50);
+        if (nav && e.type === "touchend") {
+          var dir = classifySwipe(s.x1 - s.x0, s.y1 - s.y0, Date.now() - s.t0);
+          if (dir) navTo(dir);
+        }
+      }
+      art.addEventListener("touchend", touchDone);
+      art.addEventListener("touchcancel", touchDone);
     })();
     // Non-owner viewers: read-only card details, no add controls. Still
     // return the handle — the background price upgrade needs it.
@@ -779,8 +909,12 @@
    * fallbackRow: a collection row used to render a basic detail view when
    * the card has no catalog record (e.g. pkmn.gg fallback imports).
    * sourceEl: the tile art element the modal FLIP-morphs from; omit for a
-   * plain entrance. */
-  App.openCardModal = async function (cardOrId, lang, fallbackRow, sourceEl) {
+   * plain entrance.
+   * nav: optional swipe-navigation context { tiles, index, lang } — the
+   * ordered tile/card list the modal may step through, the current position
+   * in it, and the catalog language. swipeIn ("left"/"right") marks a modal
+   * opened by a swipe so the card slides in from the flick direction. */
+  App.openCardModal = async function (cardOrId, lang, fallbackRow, sourceEl, nav) {
     try {
       var card = null, upgradePromise = null;
       if (typeof cardOrId === "string") {
@@ -801,7 +935,7 @@
         card.gradingCompany = fallbackRow.grading_company;
         card.gradingGrade = fallbackRow.grade || null;
       }
-      var handle = render(card, sourceEl, { priceLoading: !!upgradePromise });
+      var handle = render(card, sourceEl, { priceLoading: !!upgradePromise, nav: nav || null });
       if (upgradePromise) {
         upgradePromise.then(function (live) {
           /* Patch only when the instant card actually had slim pricing —

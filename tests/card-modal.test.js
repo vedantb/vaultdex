@@ -197,3 +197,34 @@ describe("priceUpgradeFor (JA id-path shimmer regression, 2026-09-20)", () => {
     } finally { restore(); }
   });
 });
+
+describe("swipe navigation math + gesture classifier (2026-09-21)", () => {
+  const { navIndex, classifySwipe } = window.App.cardModal;
+
+  test("navIndex steps forward and back inside the list", () => {
+    expect(navIndex(48, 5, 1)).toBe(6);
+    expect(navIndex(48, 5, -1)).toBe(4);
+  });
+  test("navIndex returns null at the edges (no wrap — a binder doesn't wrap)", () => {
+    expect(navIndex(48, 47, 1)).toBeNull();
+    expect(navIndex(48, 0, -1)).toBeNull();
+  });
+  test("navIndex handles a single-card list", () => {
+    expect(navIndex(1, 0, 1)).toBeNull();
+    expect(navIndex(1, 0, -1)).toBeNull();
+  });
+  test("classifySwipe: quick left flick is next, quick right flick is previous", () => {
+    expect(classifySwipe(-120, 10, 250)).toBe(1);
+    expect(classifySwipe(120, -8, 250)).toBe(-1);
+  });
+  test("classifySwipe: slow drags just tilt (not a swipe)", () => {
+    expect(classifySwipe(-200, 5, 900)).toBe(0);
+  });
+  test("classifySwipe: short flicks are not swipes", () => {
+    expect(classifySwipe(-40, 5, 200)).toBe(0);
+  });
+  test("classifySwipe: mostly-vertical movement is page scroll (not a swipe)", () => {
+    expect(classifySwipe(-120, -100, 250)).toBe(0);
+    expect(classifySwipe(30, -150, 250)).toBe(0);
+  });
+});
