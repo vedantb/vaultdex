@@ -17,3 +17,4 @@ data/pkmn-cache/
 # Playwright test artifacts (local/CI runs) — never committed.
 test-results/
 playwright-report/
+data/.refresh/
