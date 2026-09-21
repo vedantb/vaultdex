@@ -123,6 +123,22 @@ def main():
             s["total"] = len(out_cards)
             s["printedTotal"] = 103
             break
+    else:
+        # the JA snapshot rewrites sets-ja.json from TCGdex, which has no
+        # M6a — re-add the entry or the set vanishes from browse
+        sets.append({
+            "id": "M6a",
+            "name": "30th Celebration",
+            "logo": "/data/tcgdex/set-logos/ja/M6a.png",
+            "symbol": None,
+            "printedTotal": 103,
+            "total": len(out_cards),
+            "series": "Mega Evolution",
+            "eraRank": 0,
+            "setRank": 0,
+            "lang": "ja",
+            "nameJa": "30th セレブレーション",
+        })
     atomic_write_json(SETS_JA, sets)
     print(f"wrote {SET_PATH} ({len(out_cards)} cards); sets-ja.json updated")
 
