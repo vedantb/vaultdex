@@ -48,17 +48,21 @@ function artCenter(page) {
   });
 }
 
-/* Synthesized touch gesture via CDP (Playwright's touchscreen only taps). */
+/* Synthesized touch gesture via CDP (Playwright's touchscreen only taps).
+ * Moves are spread over ~250ms like a real finger: an instant burst lets a
+ * loaded VM coalesce or delay the events and miss the swipe window. */
 async function touchSwipe(page, x0, y0, x1, y1) {
   const session = await page.context().newCDPSession(page);
   const pts = (x, y) => ({ x, y, id: 1 });
   await session.send("Input.dispatchTouchEvent", { type: "touchStart", touchPoints: [pts(x0, y0)] });
+  await page.waitForTimeout(50);
   const steps = 4;
   for (let i = 1; i <= steps; i++) {
     await session.send("Input.dispatchTouchEvent", {
       type: "touchMove",
       touchPoints: [pts(x0 + ((x1 - x0) * i) / steps, y0 + ((y1 - y0) * i) / steps)]
     });
+    await page.waitForTimeout(50);
   }
   await session.send("Input.dispatchTouchEvent", { type: "touchEnd", touchPoints: [] });
   await session.detach();
