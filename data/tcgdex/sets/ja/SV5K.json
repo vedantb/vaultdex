@@ -1,1 +1,3185 @@
-{"generated_at": "2026-09-16T01:32:22.199012+00:00", "set": {"id": "SV5K", "name": "Wild Force", "series": "ポケモンカードゲーム スカーレット&バイオレット", "releaseDate": "2024-01-26", "logo": "/data/tcgdex/set-logos/ja/SV5K.png", "symbol": "/data/tcgdex/set-symbols/ja/SV5K.png", "printedTotal": 71, "total": 100, "lang": "ja", "nameJa": "ワイルドフォース"}, "cards": [{"id": "SV5K-001", "localId": "001", "name": "Roselia", "rarity": "Common", "illustrator": "Tomomi Ozaki", "image": "https://assets.tcgdex.net/ja/SV/SV5K/001", "category": "Pokemon", "types": ["Grass"], "hp": 60, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.11}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "ロゼリア", "imageSmall": "https://images.pkmnprices.com/cards/2af0892b528ad27f.webp", "imageLarge": "https://images.pkmnprices.com/cards/2af0892b528ad27f.webp", "ppId": 47768}, {"id": "SV5K-002", "localId": "002", "name": "Roserade", "rarity": "Uncommon", "illustrator": "Gapao", "image": "https://assets.tcgdex.net/ja/SV/SV5K/002", "category": "Pokemon", "types": ["Grass"], "hp": 130, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.1}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "ロズレイド", "imageSmall": "https://images.pkmnprices.com/cards/6b146a78e0fd59e9.webp", "imageLarge": "https://images.pkmnprices.com/cards/6b146a78e0fd59e9.webp", "ppId": 47821}, {"id": "SV5K-003", "localId": "003", "name": "Turtwig", "rarity": "Common", "illustrator": "OKACHEKE", "image": "https://assets.tcgdex.net/ja/SV/SV5K/003", "category": "Pokemon", "types": ["Grass"], "hp": 80, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.12}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "ナエトル", "imageSmall": "https://images.pkmnprices.com/cards/0f4bfc5ad813ecbd.webp", "imageLarge": "https://images.pkmnprices.com/cards/0f4bfc5ad813ecbd.webp", "ppId": 47701}, {"id": "SV5K-004", "localId": "004", "name": "Grotle", "rarity": "Common", "illustrator": "Uninori", "image": "https://assets.tcgdex.net/ja/SV/SV5K/004", "category": "Pokemon", "types": ["Grass"], "hp": 120, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.11}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "ハヤシガメ", "imageSmall": "https://images.pkmnprices.com/cards/19f1774e5df6d294.webp", "imageLarge": "https://images.pkmnprices.com/cards/19f1774e5df6d294.webp", "ppId": 47747}, {"id": "SV5K-005", "localId": "005", "name": "Torterra ex", "rarity": "Double rare", "illustrator": "PLANETA Tsuji", "image": "https://assets.tcgdex.net/ja/SV/SV5K/005", "category": "Pokemon", "types": ["Grass"], "hp": 340, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 0.28}}, "currency": "USD", "pricedAt": "2026-09-17T10:49:11Z"}, "nameJa": "ドダイトスex", "imageSmall": "https://images.pkmnprices.com/cards/63bc998f3d606493.webp", "imageLarge": "https://images.pkmnprices.com/cards/63bc998f3d606493.webp", "ppId": 47744}, {"id": "SV5K-006", "localId": "006", "name": "Shaymin", "rarity": "Uncommon", "illustrator": "Atsushi Furusawa", "image": "https://assets.tcgdex.net/ja/SV/SV5K/006", "category": "Pokemon", "types": ["Grass"], "hp": 70, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.14}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "シェイミ", "imageSmall": "https://images.pkmnprices.com/cards/f172f9eca04a4a67.webp", "imageLarge": "https://images.pkmnprices.com/cards/f172f9eca04a4a67.webp", "ppId": 47874}, {"id": "SV5K-007", "localId": "007", "name": "Cottonee", "rarity": "Common", "illustrator": "Kyoko Umemoto", "image": "https://assets.tcgdex.net/ja/SV/SV5K/007", "category": "Pokemon", "types": ["Grass"], "hp": 60, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.07}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "モンメン", "imageSmall": "https://images.pkmnprices.com/cards/7398482096394555.webp", "imageLarge": "https://images.pkmnprices.com/cards/7398482096394555.webp", "ppId": 47818}, {"id": "SV5K-008", "localId": "008", "name": "Whimsicott", "rarity": "Rare", "illustrator": "Mizue", "image": "https://assets.tcgdex.net/ja/SV/SV5K/008", "category": "Pokemon", "types": ["Grass"], "hp": 100, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 0.23}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "エルフーン", "imageSmall": "https://images.pkmnprices.com/cards/b1da068493bf2ee3.webp", "imageLarge": "https://images.pkmnprices.com/cards/b1da068493bf2ee3.webp", "ppId": 47794}, {"id": "SV5K-009", "localId": "009", "name": "Heatmor", "rarity": "Common", "illustrator": "Masakazu Fukuda", "image": "https://assets.tcgdex.net/ja/SV/SV5K/009", "category": "Pokemon", "types": ["Fire"], "hp": 110, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.04}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "クイタラン", "imageSmall": "https://images.pkmnprices.com/cards/df56c0f533558a96.webp", "imageLarge": "https://images.pkmnprices.com/cards/df56c0f533558a96.webp", "ppId": 47759}, {"id": "SV5K-010", "localId": "010", "name": "Sizzlipede", "rarity": "Common", "illustrator": "Yukiko Baba", "image": "https://assets.tcgdex.net/ja/SV/SV5K/010", "category": "Pokemon", "types": ["Fire"], "hp": 80, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.08}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "ヤクデ", "imageSmall": "https://images.pkmnprices.com/cards/c9e605e606a81b56.webp", "imageLarge": "https://images.pkmnprices.com/cards/c9e605e606a81b56.webp", "ppId": 47805}, {"id": "SV5K-011", "localId": "011", "name": "Centiskorch", "rarity": "Uncommon", "illustrator": "Krgc", "image": "https://assets.tcgdex.net/ja/SV/SV5K/011", "category": "Pokemon", "types": ["Fire"], "hp": 140, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.1}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "マルヤクデ", "imageSmall": "https://images.pkmnprices.com/cards/e578ddbff79426ce.webp", "imageLarge": "https://images.pkmnprices.com/cards/e578ddbff79426ce.webp", "ppId": 47811}, {"id": "SV5K-012", "localId": "012", "name": "Gouging Fire ex", "rarity": "Double rare", "illustrator": "5ban Graphics", "image": "https://assets.tcgdex.net/ja/SV/SV5K/012", "category": "Pokemon", "types": ["Fire"], "hp": 230, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 0.3}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "ウガツホムラex", "imageSmall": "https://images.pkmnprices.com/cards/d0a0437befa5cd98.webp", "imageLarge": "https://images.pkmnprices.com/cards/d0a0437befa5cd98.webp", "ppId": 48487}, {"id": "SV5K-013", "localId": "013", "name": "Totodile", "rarity": "Common", "illustrator": "MINAMINAMI Take", "image": "https://assets.tcgdex.net/ja/SV/SV5K/013", "category": "Pokemon", "types": ["Water"], "hp": 70, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.2}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "ワニノコ", "imageSmall": "https://images.pkmnprices.com/cards/35f168f60c54ba61.webp", "imageLarge": "https://images.pkmnprices.com/cards/35f168f60c54ba61.webp", "ppId": 47763}, {"id": "SV5K-014", "localId": "014", "name": "Croconaw", "rarity": "Common", "illustrator": "Jerky", "image": "https://assets.tcgdex.net/ja/SV/SV5K/014", "category": "Pokemon", "types": ["Water"], "hp": 90, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.16}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "アリゲイツ", "imageSmall": "https://images.pkmnprices.com/cards/56798e0abe61e79c.webp", "imageLarge": "https://images.pkmnprices.com/cards/56798e0abe61e79c.webp", "ppId": 47735}, {"id": "SV5K-015", "localId": "015", "name": "Feraligatr", "rarity": "Rare", "illustrator": "GOSSAN", "image": "https://assets.tcgdex.net/ja/SV/SV5K/015", "category": "Pokemon", "types": ["Water"], "hp": 180, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 0.38}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "オーダイル", "imageSmall": "https://images.pkmnprices.com/cards/23dfeff8e1c008c5.webp", "imageLarge": "https://images.pkmnprices.com/cards/23dfeff8e1c008c5.webp", "ppId": 47749}, {"id": "SV5K-016", "localId": "016", "name": "Carvanha", "rarity": "Common", "illustrator": "Souichirou Gunjima", "image": "https://assets.tcgdex.net/ja/SV/SV5K/016", "category": "Pokemon", "types": ["Water"], "hp": 50, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.13}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "キバニア", "imageSmall": "https://images.pkmnprices.com/cards/8b5a3402b9f99cea.webp", "imageLarge": "https://images.pkmnprices.com/cards/8b5a3402b9f99cea.webp", "ppId": 47809}, {"id": "SV5K-017", "localId": "017", "name": "Sharpedo", "rarity": "Uncommon", "illustrator": "Shinji Kanda", "image": "https://assets.tcgdex.net/ja/SV/SV5K/017", "category": "Pokemon", "types": ["Water"], "hp": 120, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.21}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "サメハダー", "imageSmall": "https://images.pkmnprices.com/cards/6dc39fdb0f0716dd.webp", "imageLarge": "https://images.pkmnprices.com/cards/6dc39fdb0f0716dd.webp", "ppId": 47795}, {"id": "SV5K-018", "localId": "018", "name": "Keldeo", "rarity": "Uncommon", "illustrator": "satoma", "image": "https://assets.tcgdex.net/ja/SV/SV5K/018", "category": "Pokemon", "types": ["Water"], "hp": 110, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.17}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "ケルディオ", "imageSmall": "https://images.pkmnprices.com/cards/15b8fb79ee13b545.webp", "imageLarge": "https://images.pkmnprices.com/cards/15b8fb79ee13b545.webp", "ppId": 47769}, {"id": "SV5K-019", "localId": "019", "name": "Snom", "rarity": "Common", "illustrator": "Orca", "image": "https://assets.tcgdex.net/ja/SV/SV5K/019", "category": "Pokemon", "types": ["Water"], "hp": 50, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.12}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "ユキハミ", "imageSmall": "https://images.pkmnprices.com/cards/60755fa4eb61181a.webp", "imageLarge": "https://images.pkmnprices.com/cards/60755fa4eb61181a.webp", "ppId": 47705}, {"id": "SV5K-020", "localId": "020", "name": "Frosmoth", "rarity": "Common", "illustrator": "rika", "image": "https://assets.tcgdex.net/ja/SV/SV5K/020", "category": "Pokemon", "types": ["Water"], "hp": 110, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.08}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "モスノウ", "imageSmall": "https://images.pkmnprices.com/cards/583ce1484bbc9015.webp", "imageLarge": "https://images.pkmnprices.com/cards/583ce1484bbc9015.webp", "ppId": 47762}, {"id": "SV5K-021", "localId": "021", "name": "Wiglett", "rarity": "Common", "illustrator": "OKUBO", "image": "https://assets.tcgdex.net/ja/SV/SV5K/021", "category": "Pokemon", "types": ["Water"], "hp": 60, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.14}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "ウミディグダ", "imageSmall": "https://images.pkmnprices.com/cards/57a4caea0c5f110d.webp", "imageLarge": "https://images.pkmnprices.com/cards/57a4caea0c5f110d.webp", "ppId": 47754}, {"id": "SV5K-022", "localId": "022", "name": "Finizen", "rarity": "Common", "illustrator": "HYOGONOSUKE", "image": "https://assets.tcgdex.net/ja/SV/SV5K/022", "category": "Pokemon", "types": ["Water"], "hp": 80, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.14}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "ナミイルカ", "imageSmall": "https://images.pkmnprices.com/cards/70b4ae28ccabf86c.webp", "imageLarge": "https://images.pkmnprices.com/cards/70b4ae28ccabf86c.webp", "ppId": 47792}, {"id": "SV5K-023", "localId": "023", "name": "Palafin", "rarity": "Uncommon", "illustrator": "DOM", "image": "https://assets.tcgdex.net/ja/SV/SV5K/023", "category": "Pokemon", "types": ["Water"], "hp": 150, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.1}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "イルカマン", "imageSmall": "https://images.pkmnprices.com/cards/fda7a1b181e3fc78.webp", "imageLarge": "https://images.pkmnprices.com/cards/fda7a1b181e3fc78.webp", "ppId": 47820}, {"id": "SV5K-024", "localId": "024", "name": "Walking Wake ex", "rarity": "Double rare", "illustrator": "takuyoa", "image": "https://assets.tcgdex.net/ja/SV/SV5K/024", "category": "Pokemon", "types": ["Water"], "hp": 220, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 0.32}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "ウネルミナモex", "imageSmall": "https://images.pkmnprices.com/cards/b94b2d6d5de70364.webp", "imageLarge": "https://images.pkmnprices.com/cards/b94b2d6d5de70364.webp", "ppId": 47720}, {"id": "SV5K-025", "localId": "025", "name": "Wugtrio ex", "rarity": "Double rare", "illustrator": "5ban Graphics", "image": "https://assets.tcgdex.net/ja/SV/SV5K/025", "category": "Pokemon", "types": ["Lightning"], "hp": 250, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 0.35}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "ウミトリオex", "imageSmall": "https://images.pkmnprices.com/cards/cb9da4cac78aa31a.webp", "imageLarge": "https://images.pkmnprices.com/cards/cb9da4cac78aa31a.webp", "ppId": 47770}, {"id": "SV5K-026", "localId": "026", "name": "Marill", "rarity": "Common", "illustrator": "yuu", "image": "https://assets.tcgdex.net/ja/SV/SV5K/026", "category": "Pokemon", "types": ["Psychic"], "hp": 70, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.14}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "マリル", "imageSmall": "https://images.pkmnprices.com/cards/c988d8bf33a39c34.webp", "imageLarge": "https://images.pkmnprices.com/cards/c988d8bf33a39c34.webp", "ppId": 47778}, {"id": "SV5K-027", "localId": "027", "name": "Azumarill", "rarity": "Common", "illustrator": "Makura Tami", "image": "https://assets.tcgdex.net/ja/SV/SV5K/027", "category": "Pokemon", "types": ["Psychic"], "hp": 130, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.18}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "マリルリ", "imageSmall": "https://images.pkmnprices.com/cards/c6274b875d866648.webp", "imageLarge": "https://images.pkmnprices.com/cards/c6274b875d866648.webp", "ppId": 47774}, {"id": "SV5K-028", "localId": "028", "name": "Bronzor", "rarity": "Common", "illustrator": "Kedamahadaitai Yawarakai", "image": "https://assets.tcgdex.net/ja/SV/SV5K/028", "category": "Pokemon", "types": ["Psychic"], "hp": 80, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.1}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "ドーミラー", "imageSmall": "https://images.pkmnprices.com/cards/b246b0b26146ee79.webp", "imageLarge": "https://images.pkmnprices.com/cards/b246b0b26146ee79.webp", "ppId": 47787}, {"id": "SV5K-029", "localId": "029", "name": "Bronzong", "rarity": "Uncommon", "illustrator": "Katsunori Sato", "image": "https://assets.tcgdex.net/ja/SV/SV5K/029", "category": "Pokemon", "types": ["Psychic"], "hp": 110, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.1}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "ドータクン", "imageSmall": "https://images.pkmnprices.com/cards/d5176ad739bc73d6.webp", "imageLarge": "https://images.pkmnprices.com/cards/d5176ad739bc73d6.webp", "ppId": 47798}, {"id": "SV5K-030", "localId": "030", "name": "Solosis", "rarity": "Common", "illustrator": "Cona Nitanda", "image": "https://assets.tcgdex.net/ja/SV/SV5K/030", "category": "Pokemon", "types": ["Psychic"], "hp": 40, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.15}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "ユニラン", "imageSmall": "https://images.pkmnprices.com/cards/9e59565139c05faa.webp", "imageLarge": "https://images.pkmnprices.com/cards/9e59565139c05faa.webp", "ppId": 47776}, {"id": "SV5K-031", "localId": "031", "name": "Duosion", "rarity": "Common", "illustrator": "mele", "image": "https://assets.tcgdex.net/ja/SV/SV5K/031", "category": "Pokemon", "types": ["Psychic"], "hp": 80, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.13}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "ダブラン", "imageSmall": "https://images.pkmnprices.com/cards/b09425a37cac92b6.webp", "imageLarge": "https://images.pkmnprices.com/cards/b09425a37cac92b6.webp", "ppId": 47799}, {"id": "SV5K-032", "localId": "032", "name": "Reuniclus", "rarity": "Uncommon", "illustrator": "Gemi", "image": "https://assets.tcgdex.net/ja/SV/SV5K/032", "category": "Pokemon", "types": ["Psychic"], "hp": 120, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.16}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "ランクルス", "imageSmall": "https://images.pkmnprices.com/cards/d65248755d279244.webp", "imageLarge": "https://images.pkmnprices.com/cards/d65248755d279244.webp", "ppId": 47746}, {"id": "SV5K-033", "localId": "033", "name": "Flutter Mane", "rarity": "Rare", "illustrator": "kodama", "image": "https://assets.tcgdex.net/ja/SV/SV5K/033", "category": "Pokemon", "types": ["Psychic"], "hp": 90, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 0.17}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "ハバタクカミ", "imageSmall": "https://images.pkmnprices.com/cards/baaaad02e9dbe570.webp", "imageLarge": "https://images.pkmnprices.com/cards/baaaad02e9dbe570.webp", "ppId": 47788}, {"id": "SV5K-034", "localId": "034", "name": "Relicanth", "rarity": "Rare", "illustrator": "Mina Nakai", "image": "https://assets.tcgdex.net/ja/SV/SV5K/034", "category": "Pokemon", "types": ["Fighting"], "hp": 100, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 0.23}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "ジーランス", "imageSmall": "https://images.pkmnprices.com/cards/9ec54603b1d59bd6.webp", "imageLarge": "https://images.pkmnprices.com/cards/9ec54603b1d59bd6.webp", "ppId": 47815}, {"id": "SV5K-035", "localId": "035", "name": "Golett", "rarity": "Common", "illustrator": "miki kudo", "image": "https://assets.tcgdex.net/ja/SV/SV5K/035", "category": "Pokemon", "types": ["Fighting"], "hp": 90, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.09}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "ゴビット", "imageSmall": "https://images.pkmnprices.com/cards/0d57695b2897031f.webp", "imageLarge": "https://images.pkmnprices.com/cards/0d57695b2897031f.webp", "ppId": 47765}, {"id": "SV5K-036", "localId": "036", "name": "Golurk", "rarity": "Uncommon", "illustrator": "Oku", "image": "https://assets.tcgdex.net/ja/SV/SV5K/036", "category": "Pokemon", "types": ["Fighting"], "hp": 160, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.08}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "ゴルーグ", "imageSmall": "https://images.pkmnprices.com/cards/3c7b23208b1c022a.webp", "imageLarge": "https://images.pkmnprices.com/cards/3c7b23208b1c022a.webp", "ppId": 47793}, {"id": "SV5K-037", "localId": "037", "name": "Mudbray", "rarity": "Common", "illustrator": "Narumi Sato", "image": "https://assets.tcgdex.net/ja/SV/SV5K/037", "category": "Pokemon", "types": ["Fighting"], "hp": 80, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.09}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "ドロバンコ", "imageSmall": "https://images.pkmnprices.com/cards/aa55da223cf23d06.webp", "imageLarge": "https://images.pkmnprices.com/cards/aa55da223cf23d06.webp", "ppId": 47790}, {"id": "SV5K-038", "localId": "038", "name": "Mudsdale", "rarity": "Uncommon", "illustrator": "Naoyo Kimura", "image": "https://assets.tcgdex.net/ja/SV/SV5K/038", "category": "Pokemon", "types": ["Fighting"], "hp": 150, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.2}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "バンバドロ", "imageSmall": "https://images.pkmnprices.com/cards/5a85acc7753cee08.webp", "imageLarge": "https://images.pkmnprices.com/cards/5a85acc7753cee08.webp", "ppId": 47784}, {"id": "SV5K-039", "localId": "039", "name": "Rolycoly", "rarity": "Common", "illustrator": "Aya Kusube", "image": "https://assets.tcgdex.net/ja/SV/SV5K/039", "category": "Pokemon", "types": ["Fighting"], "hp": 80, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.08}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "タンドン", "imageSmall": "https://images.pkmnprices.com/cards/2dd7cdc8c335e447.webp", "imageLarge": "https://images.pkmnprices.com/cards/2dd7cdc8c335e447.webp", "ppId": 47750}, {"id": "SV5K-040", "localId": "040", "name": "Carkol", "rarity": "Common", "illustrator": "Anesaki Dynamic", "image": "https://assets.tcgdex.net/ja/SV/SV5K/040", "category": "Pokemon", "types": ["Fighting"], "hp": 110, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.07}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "トロッゴン", "imageSmall": "https://images.pkmnprices.com/cards/9f8d9b419888cd26.webp", "imageLarge": "https://images.pkmnprices.com/cards/9f8d9b419888cd26.webp", "ppId": 47817}, {"id": "SV5K-041", "localId": "041", "name": "Coalossal", "rarity": "Uncommon", "illustrator": "Shiburingaru", "image": "https://assets.tcgdex.net/ja/SV/SV5K/041", "category": "Pokemon", "types": ["Fighting"], "hp": 180, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.07}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "セキタンザン", "imageSmall": "https://images.pkmnprices.com/cards/48e6b1114c530534.webp", "imageLarge": "https://images.pkmnprices.com/cards/48e6b1114c530534.webp", "ppId": 47804}, {"id": "SV5K-042", "localId": "042", "name": "Great Tusk", "rarity": "Uncommon", "illustrator": "GIDORA", "image": "https://assets.tcgdex.net/ja/SV/SV5K/042", "category": "Pokemon", "types": ["Fighting"], "hp": 140, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.1}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "イダイナキバ", "imageSmall": "https://images.pkmnprices.com/cards/e177951d0633b846.webp", "imageLarge": "https://images.pkmnprices.com/cards/e177951d0633b846.webp", "ppId": 47764}, {"id": "SV5K-043", "localId": "043", "name": "Ekans", "rarity": "Common", "illustrator": "Shimaris Yukichi", "image": "https://assets.tcgdex.net/ja/SV/SV5K/043", "category": "Pokemon", "types": ["Darkness"], "hp": 60, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.11}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "アーボ", "imageSmall": "https://images.pkmnprices.com/cards/3e68724297e4e84f.webp", "imageLarge": "https://images.pkmnprices.com/cards/3e68724297e4e84f.webp", "ppId": 47785}, {"id": "SV5K-044", "localId": "044", "name": "Arbok", "rarity": "Common", "illustrator": "Minato", "image": "https://assets.tcgdex.net/ja/SV/SV5K/044", "category": "Pokemon", "types": ["Darkness"], "hp": 130, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.16}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "アーボック", "imageSmall": "https://images.pkmnprices.com/cards/6f06801f1d265ae8.webp", "imageLarge": "https://images.pkmnprices.com/cards/6f06801f1d265ae8.webp", "ppId": 47775}, {"id": "SV5K-045", "localId": "045", "name": "Gastly", "rarity": "Common", "illustrator": "Fujimoto Gold", "image": "https://assets.tcgdex.net/ja/SV/SV5K/045", "category": "Pokemon", "types": ["Darkness"], "hp": 60, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.2}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "ゴース", "imageSmall": "https://images.pkmnprices.com/cards/21ac40ca81043c7c.webp", "imageLarge": "https://images.pkmnprices.com/cards/21ac40ca81043c7c.webp", "ppId": 47711}, {"id": "SV5K-046", "localId": "046", "name": "Haunter", "rarity": "Common", "illustrator": "MAHOU", "image": "https://assets.tcgdex.net/ja/SV/SV5K/046", "category": "Pokemon", "types": ["Darkness"], "hp": 90, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.16}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "ゴースト", "imageSmall": "https://images.pkmnprices.com/cards/65da91e0252e82ce.webp", "imageLarge": "https://images.pkmnprices.com/cards/65da91e0252e82ce.webp", "ppId": 47758}, {"id": "SV5K-047", "localId": "047", "name": "Gengar ex", "rarity": "Double rare", "illustrator": "Nisota Niso", "image": "https://assets.tcgdex.net/ja/SV/SV5K/047", "category": "Pokemon", "types": ["Darkness"], "hp": 310, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 4.09}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "ゲンガーex", "imageSmall": "https://images.pkmnprices.com/cards/515785a4f0d43864.webp", "imageLarge": "https://images.pkmnprices.com/cards/515785a4f0d43864.webp", "ppId": 47700}, {"id": "SV5K-048", "localId": "048", "name": "Poochyena", "rarity": "Common", "illustrator": "Miki Tanaka", "image": "https://assets.tcgdex.net/ja/SV/SV5K/048", "category": "Pokemon", "types": ["Darkness"], "hp": 70, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.11}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "ポチエナ", "imageSmall": "https://images.pkmnprices.com/cards/1ac5d75900fc3fd9.webp", "imageLarge": "https://images.pkmnprices.com/cards/1ac5d75900fc3fd9.webp", "ppId": 47789}, {"id": "SV5K-049", "localId": "049", "name": "Mightyena", "rarity": "Common", "illustrator": "akagi", "image": "https://assets.tcgdex.net/ja/SV/SV5K/049", "category": "Pokemon", "types": ["Darkness"], "hp": 120, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.12}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "グラエナ", "imageSmall": "https://images.pkmnprices.com/cards/1ca2132addf037e3.webp", "imageLarge": "https://images.pkmnprices.com/cards/1ca2132addf037e3.webp", "ppId": 47860}, {"id": "SV5K-050", "localId": "050", "name": "Sableye", "rarity": "Uncommon", "illustrator": "0313", "image": "https://assets.tcgdex.net/ja/SV/SV5K/050", "category": "Pokemon", "types": ["Darkness"], "hp": 70, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.15}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "ヤミラミ", "imageSmall": "https://images.pkmnprices.com/cards/008cf009dd01f230.webp", "imageLarge": "https://images.pkmnprices.com/cards/008cf009dd01f230.webp", "ppId": 47756}, {"id": "SV5K-051", "localId": "051", "name": "Roaring Moon", "rarity": "Rare", "illustrator": "hncl", "image": "https://assets.tcgdex.net/ja/SV/SV5K/051", "category": "Pokemon", "types": ["Darkness"], "hp": 140, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 0.22}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "トドロクツキ", "imageSmall": "https://images.pkmnprices.com/cards/94215c0d068df9cc.webp", "imageLarge": "https://images.pkmnprices.com/cards/94215c0d068df9cc.webp", "ppId": 47826}, {"id": "SV5K-052", "localId": "052", "name": "Koraidon", "rarity": "Rare", "illustrator": "Teeziro", "image": "https://assets.tcgdex.net/ja/SV/SV5K/052", "category": "Pokemon", "types": ["Dragon"], "hp": 140, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 0.17}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "コライドン", "imageSmall": "https://images.pkmnprices.com/cards/884112c4a1dc6206.webp", "imageLarge": "https://images.pkmnprices.com/cards/884112c4a1dc6206.webp", "ppId": 47786}, {"id": "SV5K-053", "localId": "053", "name": "Raging Bolt ex", "rarity": "Double rare", "illustrator": "aky CG Works", "image": "https://assets.tcgdex.net/ja/SV/SV5K/053", "category": "Pokemon", "types": ["Dragon"], "hp": 240, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 0.33}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "タケルライコex", "imageSmall": "https://images.pkmnprices.com/cards/bc04281e5d9f3cf8.webp", "imageLarge": "https://images.pkmnprices.com/cards/bc04281e5d9f3cf8.webp", "ppId": 47730}, {"id": "SV5K-054", "localId": "054", "name": "Hoothoot", "rarity": "Common", "illustrator": "ryoma uratsuka", "image": "https://assets.tcgdex.net/ja/SV/SV5K/054", "category": "Pokemon", "types": ["Colorless"], "hp": 70, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.07}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "ホーホー", "imageSmall": "https://images.pkmnprices.com/cards/422364dc3ea8a69b.webp", "imageLarge": "https://images.pkmnprices.com/cards/422364dc3ea8a69b.webp", "ppId": 47734}, {"id": "SV5K-055", "localId": "055", "name": "Noctowl", "rarity": "Common", "illustrator": "toi8", "image": "https://assets.tcgdex.net/ja/SV/SV5K/055", "category": "Pokemon", "types": ["Colorless"], "hp": 110, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.1}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "ヨルノズク", "imageSmall": "https://images.pkmnprices.com/cards/19f0c75d9bfcca45.webp", "imageLarge": "https://images.pkmnprices.com/cards/19f0c75d9bfcca45.webp", "ppId": 47825}, {"id": "SV5K-056", "localId": "056", "name": "Dunsparce", "rarity": "Common", "illustrator": "Sanosuke Sakuma", "image": "https://assets.tcgdex.net/ja/SV/SV5K/056", "category": "Pokemon", "types": ["Colorless"], "hp": 60, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.1}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "ノコッチ", "imageSmall": "https://images.pkmnprices.com/cards/e53baa7f349c30e0.webp", "imageLarge": "https://images.pkmnprices.com/cards/e53baa7f349c30e0.webp", "ppId": 47822}, {"id": "SV5K-057", "localId": "057", "name": "Dudunsparce", "rarity": "Rare", "illustrator": "Teeziro", "image": "https://assets.tcgdex.net/ja/SV/SV5K/057", "category": "Pokemon", "types": ["Colorless"], "hp": 140, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 0.18}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "ノココッチ", "imageSmall": "https://images.pkmnprices.com/cards/2077be8312cb7b0a.webp", "imageLarge": "https://images.pkmnprices.com/cards/2077be8312cb7b0a.webp", "ppId": 47803}, {"id": "SV5K-058", "localId": "058", "name": "Chatot", "rarity": "Common", "illustrator": "GOTO minori", "image": "https://assets.tcgdex.net/ja/SV/SV5K/058", "category": "Pokemon", "types": ["Colorless"], "hp": 70, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.15}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "ペラップ", "imageSmall": "https://images.pkmnprices.com/cards/4d5fc2dbdab548c8.webp", "imageLarge": "https://images.pkmnprices.com/cards/4d5fc2dbdab548c8.webp", "ppId": 47772}, {"id": "SV5K-059", "localId": "059", "name": "Minccino", "rarity": "Common", "illustrator": "Yuka Morii", "image": "https://assets.tcgdex.net/ja/SV/SV5K/059", "category": "Pokemon", "types": ["Colorless"], "hp": 70, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.17}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "チラーミィ", "imageSmall": "https://images.pkmnprices.com/cards/acbc6b2154f2e59a.webp", "imageLarge": "https://images.pkmnprices.com/cards/acbc6b2154f2e59a.webp", "ppId": 47780}, {"id": "SV5K-060", "localId": "060", "name": "Cinccino", "rarity": "Uncommon", "illustrator": "Yuu Nishida", "image": "https://assets.tcgdex.net/ja/SV/SV5K/060", "category": "Pokemon", "types": ["Colorless"], "hp": 110, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.13}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "チラチーノ", "imageSmall": "https://images.pkmnprices.com/cards/de4f5322c8e42094.webp", "imageLarge": "https://images.pkmnprices.com/cards/de4f5322c8e42094.webp", "ppId": 47797}, {"id": "SV5K-061", "localId": "061", "name": "Boxed Order", "rarity": "Uncommon", "illustrator": "Studio Bora Inc.", "image": "https://assets.tcgdex.net/ja/SV/SV5K/061", "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.14}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "おとりよせボックス", "imageSmall": "https://images.pkmnprices.com/cards/e167aa7db6f3bfed.webp", "imageLarge": "https://images.pkmnprices.com/cards/e167aa7db6f3bfed.webp", "ppId": 47813}, {"id": "SV5K-062", "localId": "062", "name": "Awakening Drum", "rarity": "ACE SPEC Rare", "illustrator": "Toyste Beach", "image": "https://assets.tcgdex.net/ja/SV/SV5K/062", "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 0.31}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "覚醒のドラム", "imageSmall": "https://images.pkmnprices.com/cards/1d030094566f77c5.webp", "imageLarge": "https://images.pkmnprices.com/cards/1d030094566f77c5.webp", "ppId": 47802}, {"id": "SV5K-063", "localId": "063", "name": "Buddy-Buddy Poffin", "rarity": "Uncommon", "illustrator": "AYUMI ODASHIMA", "image": "https://assets.tcgdex.net/ja/SV/SV5K/063", "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.29}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "なかよしポフィン", "imageSmall": "https://images.pkmnprices.com/cards/7ef7e880583315b1.webp", "imageLarge": "https://images.pkmnprices.com/cards/7ef7e880583315b1.webp", "ppId": 47748}, {"id": "SV5K-064", "localId": "064", "name": "Rescue Board", "rarity": "Uncommon", "illustrator": "Toyste Beach", "image": "https://assets.tcgdex.net/ja/SV/SV5K/064", "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.29}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "緊急ボード", "imageSmall": "https://images.pkmnprices.com/cards/023100e10c087811.webp", "imageLarge": "https://images.pkmnprices.com/cards/023100e10c087811.webp", "ppId": 47745}, {"id": "SV5K-065", "localId": "065", "name": "Ancient Booster Energy Capsule", "rarity": "Uncommon", "illustrator": "5ban Graphics", "image": "https://assets.tcgdex.net/ja/SV/SV5K/065", "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.11}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "ブーストエナジー 古代", "imageSmall": "https://images.pkmnprices.com/cards/d92bc69b4239209c.webp", "imageLarge": "https://images.pkmnprices.com/cards/d92bc69b4239209c.webp", "ppId": 47791}, {"id": "SV5K-066", "localId": "066", "name": "Maximum Belt", "rarity": "ACE SPEC Rare", "illustrator": "inose yukie", "image": "https://assets.tcgdex.net/ja/SV/SV5K/066", "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 0.26}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "マキシマムベルト", "imageSmall": "https://images.pkmnprices.com/cards/3a6ba838af72c7d1.webp", "imageLarge": "https://images.pkmnprices.com/cards/3a6ba838af72c7d1.webp", "ppId": 47761}, {"id": "SV5K-067", "localId": "067", "name": "Explorer's Guidance", "rarity": "Uncommon", "illustrator": "Hideki Ishikawa", "image": "https://assets.tcgdex.net/ja/SV/SV5K/067", "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.17}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "探検家の先導", "imageSmall": "https://images.pkmnprices.com/cards/3139f0e4ca4adb45.webp", "imageLarge": "https://images.pkmnprices.com/cards/3139f0e4ca4adb45.webp", "ppId": 47844}, {"id": "SV5K-068", "localId": "068", "name": "Eri", "rarity": "Uncommon", "illustrator": "GOSSAN", "image": "https://assets.tcgdex.net/ja/SV/SV5K/068", "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.17}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "ビワ", "imageSmall": "https://images.pkmnprices.com/cards/e9006a94759c24a0.webp", "imageLarge": "https://images.pkmnprices.com/cards/e9006a94759c24a0.webp", "ppId": 47888}, {"id": "SV5K-069", "localId": "069", "name": "Morty's Conviction", "rarity": "Uncommon", "illustrator": "GIDORA", "image": "https://assets.tcgdex.net/ja/SV/SV5K/069", "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.22}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "マツバの確信", "imageSmall": "https://images.pkmnprices.com/cards/e7b1153ecb336803.webp", "imageLarge": "https://images.pkmnprices.com/cards/e7b1153ecb336803.webp", "ppId": 47779}, {"id": "SV5K-070", "localId": "070", "name": "Perilous Jungle", "rarity": "Uncommon", "illustrator": "AYUMI ODASHIMA", "image": "https://assets.tcgdex.net/ja/SV/SV5K/070", "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.12}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "危険な密林", "imageSmall": "https://images.pkmnprices.com/cards/ef213d7f047f1eb0.webp", "imageLarge": "https://images.pkmnprices.com/cards/ef213d7f047f1eb0.webp", "ppId": 47890}, {"id": "SV5K-071", "localId": "071", "name": "Neo Upper Energy", "rarity": "ACE SPEC Rare", "illustrator": "", "image": "https://assets.tcgdex.net/ja/SV/SV5K/071", "category": "Energy", "types": null, "hp": null, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 3.18}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "ネオアッパーエネルギー", "imageSmall": "https://images.pkmnprices.com/cards/000074049222fb32.webp", "imageLarge": "https://images.pkmnprices.com/cards/000074049222fb32.webp", "ppId": 47766}, {"id": "SV5K-072", "localId": "072", "name": "Grotle", "rarity": "Illustration rare", "illustrator": "Oswaldo KATO", "image": "https://assets.tcgdex.net/ja/SV/SV5K/072", "category": "Pokemon", "types": ["Grass"], "hp": 120, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 6.24}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "ハヤシガメ", "imageSmall": "https://images.pkmnprices.com/cards/269c061e6524b2c1.webp", "imageLarge": "https://images.pkmnprices.com/cards/269c061e6524b2c1.webp", "ppId": 47736}, {"id": "SV5K-073", "localId": "073", "name": "Snom", "rarity": "Illustration rare", "illustrator": "N-DESIGN Inc.", "image": "https://assets.tcgdex.net/ja/SV/SV5K/073", "category": "Pokemon", "types": ["Water"], "hp": 50, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 5.6}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "ユキハミ", "imageSmall": "https://images.pkmnprices.com/cards/ccad49b035ffd8ff.webp", "imageLarge": "https://images.pkmnprices.com/cards/ccad49b035ffd8ff.webp", "ppId": 47710}, {"id": "SV5K-074", "localId": "074", "name": "Bronzor", "rarity": "Illustration rare", "illustrator": "sowsow", "image": "https://assets.tcgdex.net/ja/SV/SV5K/074", "category": "Pokemon", "types": ["Psychic"], "hp": 80, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 2.67}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "ドーミラー", "imageSmall": "https://images.pkmnprices.com/cards/023f0bca84055ff5.webp", "imageLarge": "https://images.pkmnprices.com/cards/023f0bca84055ff5.webp", "ppId": 47738}, {"id": "SV5K-075", "localId": "075", "name": "Reuniclus", "rarity": "Illustration rare", "illustrator": "Atsushi Furusawa", "image": "https://assets.tcgdex.net/ja/SV/SV5K/075", "category": "Pokemon", "types": ["Psychic"], "hp": 120, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 5.29}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "ランクルス", "imageSmall": "https://images.pkmnprices.com/cards/959c5517f4fca76c.webp", "imageLarge": "https://images.pkmnprices.com/cards/959c5517f4fca76c.webp", "ppId": 47699}, {"id": "SV5K-076", "localId": "076", "name": "Flutter Mane", "rarity": "Illustration rare", "illustrator": "Takumi Wada", "image": "https://assets.tcgdex.net/ja/SV/SV5K/076", "category": "Pokemon", "types": ["Psychic"], "hp": 90, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 2.25}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "ハバタクカミ", "imageSmall": "https://images.pkmnprices.com/cards/8b07c0a05334c2b6.webp", "imageLarge": "https://images.pkmnprices.com/cards/8b07c0a05334c2b6.webp", "ppId": 47757}, {"id": "SV5K-077", "localId": "077", "name": "Relicanth", "rarity": "Illustration rare", "illustrator": "Mitsuhiro Arita", "image": "https://assets.tcgdex.net/ja/SV/SV5K/077", "category": "Pokemon", "types": ["Fighting"], "hp": 100, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 3.23}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "ジーランス", "imageSmall": "https://images.pkmnprices.com/cards/6b271544d1c1d7bf.webp", "imageLarge": "https://images.pkmnprices.com/cards/6b271544d1c1d7bf.webp", "ppId": 47812}, {"id": "SV5K-078", "localId": "078", "name": "Mudsdale", "rarity": "Illustration rare", "illustrator": "MINAMINAMI Take", "image": "https://assets.tcgdex.net/ja/SV/SV5K/078", "category": "Pokemon", "types": ["Fighting"], "hp": 150, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 2.57}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "バンバドロ", "imageSmall": "https://images.pkmnprices.com/cards/b0828768b336f3f7.webp", "imageLarge": "https://images.pkmnprices.com/cards/b0828768b336f3f7.webp", "ppId": 47728}, {"id": "SV5K-079", "localId": "079", "name": "Arbok", "rarity": "Illustration rare", "illustrator": "OKUBO", "image": "https://assets.tcgdex.net/ja/SV/SV5K/079", "category": "Pokemon", "types": ["Darkness"], "hp": 130, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 6.47}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "アーボック", "imageSmall": "https://images.pkmnprices.com/cards/eece7f979982a7cf.webp", "imageLarge": "https://images.pkmnprices.com/cards/eece7f979982a7cf.webp", "ppId": 47755}, {"id": "SV5K-080", "localId": "080", "name": "Gastly", "rarity": "Illustration rare", "illustrator": "Mousho", "image": "https://assets.tcgdex.net/ja/SV/SV5K/080", "category": "Pokemon", "types": ["Darkness"], "hp": 60, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 38.04}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "ゴース", "imageSmall": "https://images.pkmnprices.com/cards/42645daccc3cc140.webp", "imageLarge": "https://images.pkmnprices.com/cards/42645daccc3cc140.webp", "ppId": 47741}, {"id": "SV5K-081", "localId": "081", "name": "Chatot", "rarity": "Illustration rare", "illustrator": "Scav", "image": "https://assets.tcgdex.net/ja/SV/SV5K/081", "category": "Pokemon", "types": ["Colorless"], "hp": 70, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 3.35}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "ペラップ", "imageSmall": "https://images.pkmnprices.com/cards/8050e34fa3302a33.webp", "imageLarge": "https://images.pkmnprices.com/cards/8050e34fa3302a33.webp", "ppId": 47707}, {"id": "SV5K-082", "localId": "082", "name": "Minccino", "rarity": "Illustration rare", "illustrator": "Shibuzoh.", "image": "https://assets.tcgdex.net/ja/SV/SV5K/082", "category": "Pokemon", "types": ["Colorless"], "hp": 70, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 12.75}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "チラーミィ", "imageSmall": "https://images.pkmnprices.com/cards/9aa3fe5524d60102.webp", "imageLarge": "https://images.pkmnprices.com/cards/9aa3fe5524d60102.webp", "ppId": 47717}, {"id": "SV5K-083", "localId": "083", "name": "Cinccino", "rarity": "Illustration rare", "illustrator": "Shibuzoh.", "image": "https://assets.tcgdex.net/ja/SV/SV5K/083", "category": "Pokemon", "types": ["Colorless"], "hp": 110, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 14.57}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "チラチーノ", "imageSmall": "https://images.pkmnprices.com/cards/b68743d549a8d176.webp", "imageLarge": "https://images.pkmnprices.com/cards/b68743d549a8d176.webp", "ppId": 47753}, {"id": "SV5K-084", "localId": "084", "name": "Torterra ex", "rarity": "Ultra Rare", "illustrator": "PLANETA Tsuji", "image": "https://assets.tcgdex.net/ja/SV/SV5K/084", "category": "Pokemon", "types": ["Grass"], "hp": 340, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 2.18}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "ドダイトスex", "imageSmall": "https://images.pkmnprices.com/cards/030ac6c8bef2e911.webp", "imageLarge": "https://images.pkmnprices.com/cards/030ac6c8bef2e911.webp", "ppId": 47709}, {"id": "SV5K-085", "localId": "085", "name": "Gouging Fire ex", "rarity": "Ultra Rare", "illustrator": "5ban Graphics", "image": "https://assets.tcgdex.net/ja/SV/SV5K/085", "category": "Pokemon", "types": ["Fire"], "hp": 230, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 1.8}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "ウガツホムラex", "imageSmall": "https://images.pkmnprices.com/cards/9a54716ce4d4f455.webp", "imageLarge": "https://images.pkmnprices.com/cards/9a54716ce4d4f455.webp", "ppId": 47771}, {"id": "SV5K-086", "localId": "086", "name": "Walking Wake ex", "rarity": "Ultra Rare", "illustrator": "takuyoa", "image": "https://assets.tcgdex.net/ja/SV/SV5K/086", "category": "Pokemon", "types": ["Water"], "hp": 220, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 1.51}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "ウネルミナモex", "imageSmall": "https://images.pkmnprices.com/cards/0e9e29ed2bf0cfb6.webp", "imageLarge": "https://images.pkmnprices.com/cards/0e9e29ed2bf0cfb6.webp", "ppId": 47773}, {"id": "SV5K-087", "localId": "087", "name": "Wugtrio ex", "rarity": "Ultra Rare", "illustrator": "5ban Graphics", "image": "https://assets.tcgdex.net/ja/SV/SV5K/087", "category": "Pokemon", "types": ["Lightning"], "hp": 250, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 1.62}}, "currency": "USD", "pricedAt": "2026-09-17T10:49:11Z"}, "nameJa": "ウミトリオex", "imageSmall": "https://images.pkmnprices.com/cards/d4998aac8089af49.webp", "imageLarge": "https://images.pkmnprices.com/cards/d4998aac8089af49.webp", "ppId": 47752}, {"id": "SV5K-088", "localId": "088", "name": "Gengar ex", "rarity": "Ultra Rare", "illustrator": "Satoshi Shirai", "image": "https://assets.tcgdex.net/ja/SV/SV5K/088", "category": "Pokemon", "types": ["Darkness"], "hp": 310, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 38.96}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "ゲンガーex", "imageSmall": "https://images.pkmnprices.com/cards/e875f580bcd406a8.webp", "imageLarge": "https://images.pkmnprices.com/cards/e875f580bcd406a8.webp", "ppId": 47751}, {"id": "SV5K-089", "localId": "089", "name": "Raging Bolt ex", "rarity": "Ultra Rare", "illustrator": "aky CG Works", "image": "https://assets.tcgdex.net/ja/SV/SV5K/089", "category": "Pokemon", "types": ["Dragon"], "hp": 240, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 2.12}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "タケルライコex", "imageSmall": "https://images.pkmnprices.com/cards/e19c534eb19d6c62.webp", "imageLarge": "https://images.pkmnprices.com/cards/e19c534eb19d6c62.webp", "ppId": 47760}, {"id": "SV5K-090", "localId": "090", "name": "Explorer's Guidance", "rarity": "Ultra Rare", "illustrator": "Hideki Ishikawa", "image": "https://assets.tcgdex.net/ja/SV/SV5K/090", "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 0.96}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "探検家の先導", "imageSmall": "https://images.pkmnprices.com/cards/ce3e43fa2cccb28a.webp", "imageLarge": "https://images.pkmnprices.com/cards/ce3e43fa2cccb28a.webp", "ppId": 47781}, {"id": "SV5K-091", "localId": "091", "name": "Eri", "rarity": "Ultra Rare", "illustrator": "GOSSAN", "image": "https://assets.tcgdex.net/ja/SV/SV5K/091", "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 1.35}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "ビワ", "imageSmall": "https://images.pkmnprices.com/cards/2411cc9ffbb64a47.webp", "imageLarge": "https://images.pkmnprices.com/cards/2411cc9ffbb64a47.webp", "ppId": 47724}, {"id": "SV5K-092", "localId": "092", "name": "Morty's Conviction", "rarity": "Ultra Rare", "illustrator": "GIDORA", "image": "https://assets.tcgdex.net/ja/SV/SV5K/092", "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 1.63}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "マツバの確信", "imageSmall": "https://images.pkmnprices.com/cards/3e51a5c17cc00fc0.webp", "imageLarge": "https://images.pkmnprices.com/cards/3e51a5c17cc00fc0.webp", "ppId": 47713}, {"id": "SV5K-093", "localId": "093", "name": "Gouging Fire ex", "rarity": "Special illustration rare", "illustrator": "Teeziro", "image": "https://assets.tcgdex.net/ja/SV/SV5K/093", "category": "Pokemon", "types": ["Fire"], "hp": 230, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 31.04}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "ウガツホムラex", "imageSmall": "https://images.pkmnprices.com/cards/ceca9b302dbf732f.webp", "imageLarge": "https://images.pkmnprices.com/cards/ceca9b302dbf732f.webp", "ppId": 47723}, {"id": "SV5K-094", "localId": "094", "name": "Walking Wake ex", "rarity": "Special illustration rare", "illustrator": "Teeziro", "image": "https://assets.tcgdex.net/ja/SV/SV5K/094", "category": "Pokemon", "types": ["Water"], "hp": 220, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 35.13}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "ウネルミナモex", "imageSmall": "https://images.pkmnprices.com/cards/a32f92623292b7eb.webp", "imageLarge": "https://images.pkmnprices.com/cards/a32f92623292b7eb.webp", "ppId": 47725}, {"id": "SV5K-095", "localId": "095", "name": "Raging Bolt ex", "rarity": "Special illustration rare", "illustrator": "Teeziro", "image": "https://assets.tcgdex.net/ja/SV/SV5K/095", "category": "Pokemon", "types": ["Dragon"], "hp": 240, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 53.71}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "タケルライコex", "imageSmall": "https://images.pkmnprices.com/cards/b182b1a728a6c07a.webp", "imageLarge": "https://images.pkmnprices.com/cards/b182b1a728a6c07a.webp", "ppId": 47737}, {"id": "SV5K-096", "localId": "096", "name": "Eri", "rarity": "Special illustration rare", "illustrator": "DOM", "image": "https://assets.tcgdex.net/ja/SV/SV5K/096", "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 14.11}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "ビワ", "imageSmall": "https://images.pkmnprices.com/cards/add47ed0fdf5c32e.webp", "imageLarge": "https://images.pkmnprices.com/cards/add47ed0fdf5c32e.webp", "ppId": 47731}, {"id": "SV5K-097", "localId": "097", "name": "Morty's Conviction", "rarity": "Special illustration rare", "illustrator": "Megumi Mizutani", "image": "https://assets.tcgdex.net/ja/SV/SV5K/097", "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 49.36}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "マツバの確信", "imageSmall": "https://images.pkmnprices.com/cards/634436b64a2618f0.webp", "imageLarge": "https://images.pkmnprices.com/cards/634436b64a2618f0.webp", "ppId": 47729}, {"id": "SV5K-098", "localId": "098", "name": "Gouging Fire ex", "rarity": "Mega Hyper Rare", "illustrator": "5ban Graphics", "image": "https://assets.tcgdex.net/ja/SV/SV5K/098", "category": "Pokemon", "types": ["Fire"], "hp": 230, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 6.77}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "ウガツホムラex", "imageSmall": "https://images.pkmnprices.com/cards/f28e3dd6dd3b8755.webp", "imageLarge": "https://images.pkmnprices.com/cards/f28e3dd6dd3b8755.webp", "ppId": 47810}, {"id": "SV5K-099", "localId": "099", "name": "Walking Wake ex", "rarity": "Mega Hyper Rare", "illustrator": "takuyoa", "image": "https://assets.tcgdex.net/ja/SV/SV5K/099", "category": "Pokemon", "types": ["Water"], "hp": 220, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 5.87}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "ウネルミナモex", "imageSmall": "https://images.pkmnprices.com/cards/dbf06a2ceb87748a.webp", "imageLarge": "https://images.pkmnprices.com/cards/dbf06a2ceb87748a.webp", "ppId": 47800}, {"id": "SV5K-100", "localId": "100", "name": "Raging Bolt ex", "rarity": "Mega Hyper Rare", "illustrator": "aky CG Works", "image": "https://assets.tcgdex.net/ja/SV/SV5K/100", "category": "Pokemon", "types": ["Dragon"], "hp": 240, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 9.94}}, "currency": "USD", "pricedAt": "2026-09-17T03:20:40Z"}, "nameJa": "タケルライコex", "imageSmall": "https://images.pkmnprices.com/cards/64dc860e6ec1cf59.webp", "imageLarge": "https://images.pkmnprices.com/cards/64dc860e6ec1cf59.webp", "ppId": 47742}]}
+{
+ "generated_at": "2026-09-16T01:32:22.199012+00:00",
+ "set": {
+  "id": "SV5K",
+  "name": "Wild Force",
+  "series": "ポケモンカードゲーム スカーレット&バイオレット",
+  "releaseDate": "2024-01-26",
+  "logo": "/data/tcgdex/set-logos/ja/SV5K.png",
+  "symbol": "/data/tcgdex/set-symbols/ja/SV5K.png",
+  "printedTotal": 71,
+  "total": 100,
+  "lang": "ja",
+  "nameJa": "ワイルドフォース"
+ },
+ "cards": [
+  {
+   "id": "SV5K-001",
+   "localId": "001",
+   "name": "Roselia",
+   "rarity": "Common",
+   "illustrator": "Tomomi Ozaki",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/001",
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 60,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.11
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "ロゼリア",
+   "imageSmall": "https://images.pkmnprices.com/cards/2af0892b528ad27f.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/2af0892b528ad27f.webp",
+   "ppId": 47768
+  },
+  {
+   "id": "SV5K-002",
+   "localId": "002",
+   "name": "Roserade",
+   "rarity": "Uncommon",
+   "illustrator": "Gapao",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/002",
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 130,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.1
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "ロズレイド",
+   "imageSmall": "https://images.pkmnprices.com/cards/6b146a78e0fd59e9.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/6b146a78e0fd59e9.webp",
+   "ppId": 47821
+  },
+  {
+   "id": "SV5K-003",
+   "localId": "003",
+   "name": "Turtwig",
+   "rarity": "Common",
+   "illustrator": "OKACHEKE",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/003",
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 80,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.12
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "ナエトル",
+   "imageSmall": "https://images.pkmnprices.com/cards/0f4bfc5ad813ecbd.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/0f4bfc5ad813ecbd.webp",
+   "ppId": 47701
+  },
+  {
+   "id": "SV5K-004",
+   "localId": "004",
+   "name": "Grotle",
+   "rarity": "Common",
+   "illustrator": "Uninori",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/004",
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 120,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.11
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "ハヤシガメ",
+   "imageSmall": "https://images.pkmnprices.com/cards/19f1774e5df6d294.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/19f1774e5df6d294.webp",
+   "ppId": 47747
+  },
+  {
+   "id": "SV5K-005",
+   "localId": "005",
+   "name": "Torterra ex",
+   "rarity": "Double rare",
+   "illustrator": "PLANETA Tsuji",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/005",
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 340,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 0.28
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T10:49:11Z"
+   },
+   "nameJa": "ドダイトスex",
+   "imageSmall": "https://images.pkmnprices.com/cards/63bc998f3d606493.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/63bc998f3d606493.webp",
+   "ppId": 47744
+  },
+  {
+   "id": "SV5K-006",
+   "localId": "006",
+   "name": "Shaymin",
+   "rarity": "Uncommon",
+   "illustrator": "Atsushi Furusawa",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/006",
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.14
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "シェイミ",
+   "imageSmall": "https://images.pkmnprices.com/cards/f172f9eca04a4a67.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/f172f9eca04a4a67.webp",
+   "ppId": 47874
+  },
+  {
+   "id": "SV5K-007",
+   "localId": "007",
+   "name": "Cottonee",
+   "rarity": "Common",
+   "illustrator": "Kyoko Umemoto",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/007",
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 60,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.07
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "モンメン",
+   "imageSmall": "https://images.pkmnprices.com/cards/7398482096394555.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/7398482096394555.webp",
+   "ppId": 47818
+  },
+  {
+   "id": "SV5K-008",
+   "localId": "008",
+   "name": "Whimsicott",
+   "rarity": "Rare",
+   "illustrator": "Mizue",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/008",
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 100,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 0.23
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "エルフーン",
+   "imageSmall": "https://images.pkmnprices.com/cards/b1da068493bf2ee3.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/b1da068493bf2ee3.webp",
+   "ppId": 47794
+  },
+  {
+   "id": "SV5K-009",
+   "localId": "009",
+   "name": "Heatmor",
+   "rarity": "Common",
+   "illustrator": "Masakazu Fukuda",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/009",
+   "category": "Pokemon",
+   "types": [
+    "Fire"
+   ],
+   "hp": 110,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.04
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "クイタラン",
+   "imageSmall": "https://images.pkmnprices.com/cards/df56c0f533558a96.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/df56c0f533558a96.webp",
+   "ppId": 47759
+  },
+  {
+   "id": "SV5K-010",
+   "localId": "010",
+   "name": "Sizzlipede",
+   "rarity": "Common",
+   "illustrator": "Yukiko Baba",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/010",
+   "category": "Pokemon",
+   "types": [
+    "Fire"
+   ],
+   "hp": 80,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.08
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "ヤクデ",
+   "imageSmall": "https://images.pkmnprices.com/cards/c9e605e606a81b56.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/c9e605e606a81b56.webp",
+   "ppId": 47805
+  },
+  {
+   "id": "SV5K-011",
+   "localId": "011",
+   "name": "Centiskorch",
+   "rarity": "Uncommon",
+   "illustrator": "Krgc",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/011",
+   "category": "Pokemon",
+   "types": [
+    "Fire"
+   ],
+   "hp": 140,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.1
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "マルヤクデ",
+   "imageSmall": "https://images.pkmnprices.com/cards/e578ddbff79426ce.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/e578ddbff79426ce.webp",
+   "ppId": 47811
+  },
+  {
+   "id": "SV5K-012",
+   "localId": "012",
+   "name": "Gouging Fire ex",
+   "rarity": "Double rare",
+   "illustrator": "5ban Graphics",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/012",
+   "category": "Pokemon",
+   "types": [
+    "Fire"
+   ],
+   "hp": 230,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 0.3
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "ウガツホムラex",
+   "imageSmall": "https://images.pkmnprices.com/cards/d0a0437befa5cd98.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/d0a0437befa5cd98.webp",
+   "ppId": 48487
+  },
+  {
+   "id": "SV5K-013",
+   "localId": "013",
+   "name": "Totodile",
+   "rarity": "Common",
+   "illustrator": "MINAMINAMI Take",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/013",
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.2
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "ワニノコ",
+   "imageSmall": "https://images.pkmnprices.com/cards/35f168f60c54ba61.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/35f168f60c54ba61.webp",
+   "ppId": 47763
+  },
+  {
+   "id": "SV5K-014",
+   "localId": "014",
+   "name": "Croconaw",
+   "rarity": "Common",
+   "illustrator": "Jerky",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/014",
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 90,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.16
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "アリゲイツ",
+   "imageSmall": "https://images.pkmnprices.com/cards/56798e0abe61e79c.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/56798e0abe61e79c.webp",
+   "ppId": 47735
+  },
+  {
+   "id": "SV5K-015",
+   "localId": "015",
+   "name": "Feraligatr",
+   "rarity": "Rare",
+   "illustrator": "GOSSAN",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/015",
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 180,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 0.38
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "オーダイル",
+   "imageSmall": "https://images.pkmnprices.com/cards/23dfeff8e1c008c5.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/23dfeff8e1c008c5.webp",
+   "ppId": 47749
+  },
+  {
+   "id": "SV5K-016",
+   "localId": "016",
+   "name": "Carvanha",
+   "rarity": "Common",
+   "illustrator": "Souichirou Gunjima",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/016",
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 50,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.13
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "キバニア",
+   "imageSmall": "https://images.pkmnprices.com/cards/8b5a3402b9f99cea.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/8b5a3402b9f99cea.webp",
+   "ppId": 47809
+  },
+  {
+   "id": "SV5K-017",
+   "localId": "017",
+   "name": "Sharpedo",
+   "rarity": "Uncommon",
+   "illustrator": "Shinji Kanda",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/017",
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 120,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.21
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "サメハダー",
+   "imageSmall": "https://images.pkmnprices.com/cards/6dc39fdb0f0716dd.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/6dc39fdb0f0716dd.webp",
+   "ppId": 47795
+  },
+  {
+   "id": "SV5K-018",
+   "localId": "018",
+   "name": "Keldeo",
+   "rarity": "Uncommon",
+   "illustrator": "satoma",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/018",
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 110,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.17
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "ケルディオ",
+   "imageSmall": "https://images.pkmnprices.com/cards/15b8fb79ee13b545.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/15b8fb79ee13b545.webp",
+   "ppId": 47769
+  },
+  {
+   "id": "SV5K-019",
+   "localId": "019",
+   "name": "Snom",
+   "rarity": "Common",
+   "illustrator": "Orca",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/019",
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 50,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.12
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "ユキハミ",
+   "imageSmall": "https://images.pkmnprices.com/cards/60755fa4eb61181a.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/60755fa4eb61181a.webp",
+   "ppId": 47705
+  },
+  {
+   "id": "SV5K-020",
+   "localId": "020",
+   "name": "Frosmoth",
+   "rarity": "Common",
+   "illustrator": "rika",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/020",
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 110,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.08
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "モスノウ",
+   "imageSmall": "https://images.pkmnprices.com/cards/583ce1484bbc9015.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/583ce1484bbc9015.webp",
+   "ppId": 47762
+  },
+  {
+   "id": "SV5K-021",
+   "localId": "021",
+   "name": "Wiglett",
+   "rarity": "Common",
+   "illustrator": "OKUBO",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/021",
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 60,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.14
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "ウミディグダ",
+   "imageSmall": "https://images.pkmnprices.com/cards/57a4caea0c5f110d.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/57a4caea0c5f110d.webp",
+   "ppId": 47754
+  },
+  {
+   "id": "SV5K-022",
+   "localId": "022",
+   "name": "Finizen",
+   "rarity": "Common",
+   "illustrator": "HYOGONOSUKE",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/022",
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 80,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.14
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "ナミイルカ",
+   "imageSmall": "https://images.pkmnprices.com/cards/70b4ae28ccabf86c.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/70b4ae28ccabf86c.webp",
+   "ppId": 47792
+  },
+  {
+   "id": "SV5K-023",
+   "localId": "023",
+   "name": "Palafin",
+   "rarity": "Uncommon",
+   "illustrator": "DOM",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/023",
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 150,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.1
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "イルカマン",
+   "imageSmall": "https://images.pkmnprices.com/cards/fda7a1b181e3fc78.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/fda7a1b181e3fc78.webp",
+   "ppId": 47820
+  },
+  {
+   "id": "SV5K-024",
+   "localId": "024",
+   "name": "Walking Wake ex",
+   "rarity": "Double rare",
+   "illustrator": "takuyoa",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/024",
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 220,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 0.32
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "ウネルミナモex",
+   "imageSmall": "https://images.pkmnprices.com/cards/b94b2d6d5de70364.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/b94b2d6d5de70364.webp",
+   "ppId": 47720
+  },
+  {
+   "id": "SV5K-025",
+   "localId": "025",
+   "name": "Wugtrio ex",
+   "rarity": "Double rare",
+   "illustrator": "5ban Graphics",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/025",
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": 250,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 0.35
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "ウミトリオex",
+   "imageSmall": "https://images.pkmnprices.com/cards/cb9da4cac78aa31a.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/cb9da4cac78aa31a.webp",
+   "ppId": 47770
+  },
+  {
+   "id": "SV5K-026",
+   "localId": "026",
+   "name": "Marill",
+   "rarity": "Common",
+   "illustrator": "yuu",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/026",
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.14
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "マリル",
+   "imageSmall": "https://images.pkmnprices.com/cards/c988d8bf33a39c34.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/c988d8bf33a39c34.webp",
+   "ppId": 47778
+  },
+  {
+   "id": "SV5K-027",
+   "localId": "027",
+   "name": "Azumarill",
+   "rarity": "Common",
+   "illustrator": "Makura Tami",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/027",
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": 130,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.18
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "マリルリ",
+   "imageSmall": "https://images.pkmnprices.com/cards/c6274b875d866648.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/c6274b875d866648.webp",
+   "ppId": 47774
+  },
+  {
+   "id": "SV5K-028",
+   "localId": "028",
+   "name": "Bronzor",
+   "rarity": "Common",
+   "illustrator": "Kedamahadaitai Yawarakai",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/028",
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": 80,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.1
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "ドーミラー",
+   "imageSmall": "https://images.pkmnprices.com/cards/b246b0b26146ee79.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/b246b0b26146ee79.webp",
+   "ppId": 47787
+  },
+  {
+   "id": "SV5K-029",
+   "localId": "029",
+   "name": "Bronzong",
+   "rarity": "Uncommon",
+   "illustrator": "Katsunori Sato",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/029",
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": 110,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.1
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "ドータクン",
+   "imageSmall": "https://images.pkmnprices.com/cards/d5176ad739bc73d6.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/d5176ad739bc73d6.webp",
+   "ppId": 47798
+  },
+  {
+   "id": "SV5K-030",
+   "localId": "030",
+   "name": "Solosis",
+   "rarity": "Common",
+   "illustrator": "Cona Nitanda",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/030",
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": 40,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.15
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "ユニラン",
+   "imageSmall": "https://images.pkmnprices.com/cards/9e59565139c05faa.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/9e59565139c05faa.webp",
+   "ppId": 47776
+  },
+  {
+   "id": "SV5K-031",
+   "localId": "031",
+   "name": "Duosion",
+   "rarity": "Common",
+   "illustrator": "mele",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/031",
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": 80,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.13
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "ダブラン",
+   "imageSmall": "https://images.pkmnprices.com/cards/b09425a37cac92b6.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/b09425a37cac92b6.webp",
+   "ppId": 47799
+  },
+  {
+   "id": "SV5K-032",
+   "localId": "032",
+   "name": "Reuniclus",
+   "rarity": "Uncommon",
+   "illustrator": "Gemi",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/032",
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": 120,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.16
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "ランクルス",
+   "imageSmall": "https://images.pkmnprices.com/cards/d65248755d279244.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/d65248755d279244.webp",
+   "ppId": 47746
+  },
+  {
+   "id": "SV5K-033",
+   "localId": "033",
+   "name": "Flutter Mane",
+   "rarity": "Rare",
+   "illustrator": "kodama",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/033",
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": 90,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 0.17
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "ハバタクカミ",
+   "imageSmall": "https://images.pkmnprices.com/cards/baaaad02e9dbe570.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/baaaad02e9dbe570.webp",
+   "ppId": 47788
+  },
+  {
+   "id": "SV5K-034",
+   "localId": "034",
+   "name": "Relicanth",
+   "rarity": "Rare",
+   "illustrator": "Mina Nakai",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/034",
+   "category": "Pokemon",
+   "types": [
+    "Fighting"
+   ],
+   "hp": 100,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 0.23
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "ジーランス",
+   "imageSmall": "https://images.pkmnprices.com/cards/9ec54603b1d59bd6.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/9ec54603b1d59bd6.webp",
+   "ppId": 47815
+  },
+  {
+   "id": "SV5K-035",
+   "localId": "035",
+   "name": "Golett",
+   "rarity": "Common",
+   "illustrator": "miki kudo",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/035",
+   "category": "Pokemon",
+   "types": [
+    "Fighting"
+   ],
+   "hp": 90,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.09
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "ゴビット",
+   "imageSmall": "https://images.pkmnprices.com/cards/0d57695b2897031f.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/0d57695b2897031f.webp",
+   "ppId": 47765
+  },
+  {
+   "id": "SV5K-036",
+   "localId": "036",
+   "name": "Golurk",
+   "rarity": "Uncommon",
+   "illustrator": "Oku",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/036",
+   "category": "Pokemon",
+   "types": [
+    "Fighting"
+   ],
+   "hp": 160,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.08
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "ゴルーグ",
+   "imageSmall": "https://images.pkmnprices.com/cards/3c7b23208b1c022a.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/3c7b23208b1c022a.webp",
+   "ppId": 47793
+  },
+  {
+   "id": "SV5K-037",
+   "localId": "037",
+   "name": "Mudbray",
+   "rarity": "Common",
+   "illustrator": "Narumi Sato",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/037",
+   "category": "Pokemon",
+   "types": [
+    "Fighting"
+   ],
+   "hp": 80,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.09
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "ドロバンコ",
+   "imageSmall": "https://images.pkmnprices.com/cards/aa55da223cf23d06.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/aa55da223cf23d06.webp",
+   "ppId": 47790
+  },
+  {
+   "id": "SV5K-038",
+   "localId": "038",
+   "name": "Mudsdale",
+   "rarity": "Uncommon",
+   "illustrator": "Naoyo Kimura",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/038",
+   "category": "Pokemon",
+   "types": [
+    "Fighting"
+   ],
+   "hp": 150,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.2
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "バンバドロ",
+   "imageSmall": "https://images.pkmnprices.com/cards/5a85acc7753cee08.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/5a85acc7753cee08.webp",
+   "ppId": 47784
+  },
+  {
+   "id": "SV5K-039",
+   "localId": "039",
+   "name": "Rolycoly",
+   "rarity": "Common",
+   "illustrator": "Aya Kusube",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/039",
+   "category": "Pokemon",
+   "types": [
+    "Fighting"
+   ],
+   "hp": 80,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.08
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "タンドン",
+   "imageSmall": "https://images.pkmnprices.com/cards/2dd7cdc8c335e447.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/2dd7cdc8c335e447.webp",
+   "ppId": 47750
+  },
+  {
+   "id": "SV5K-040",
+   "localId": "040",
+   "name": "Carkol",
+   "rarity": "Common",
+   "illustrator": "Anesaki Dynamic",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/040",
+   "category": "Pokemon",
+   "types": [
+    "Fighting"
+   ],
+   "hp": 110,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.07
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "トロッゴン",
+   "imageSmall": "https://images.pkmnprices.com/cards/9f8d9b419888cd26.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/9f8d9b419888cd26.webp",
+   "ppId": 47817
+  },
+  {
+   "id": "SV5K-041",
+   "localId": "041",
+   "name": "Coalossal",
+   "rarity": "Uncommon",
+   "illustrator": "Shiburingaru",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/041",
+   "category": "Pokemon",
+   "types": [
+    "Fighting"
+   ],
+   "hp": 180,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.07
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "セキタンザン",
+   "imageSmall": "https://images.pkmnprices.com/cards/48e6b1114c530534.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/48e6b1114c530534.webp",
+   "ppId": 47804
+  },
+  {
+   "id": "SV5K-042",
+   "localId": "042",
+   "name": "Great Tusk",
+   "rarity": "Uncommon",
+   "illustrator": "GIDORA",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/042",
+   "category": "Pokemon",
+   "types": [
+    "Fighting"
+   ],
+   "hp": 140,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.1
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "イダイナキバ",
+   "imageSmall": "https://images.pkmnprices.com/cards/e177951d0633b846.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/e177951d0633b846.webp",
+   "ppId": 47764
+  },
+  {
+   "id": "SV5K-043",
+   "localId": "043",
+   "name": "Ekans",
+   "rarity": "Common",
+   "illustrator": "Shimaris Yukichi",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/043",
+   "category": "Pokemon",
+   "types": [
+    "Darkness"
+   ],
+   "hp": 60,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.11
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "アーボ",
+   "imageSmall": "https://images.pkmnprices.com/cards/3e68724297e4e84f.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/3e68724297e4e84f.webp",
+   "ppId": 47785
+  },
+  {
+   "id": "SV5K-044",
+   "localId": "044",
+   "name": "Arbok",
+   "rarity": "Common",
+   "illustrator": "Minato",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/044",
+   "category": "Pokemon",
+   "types": [
+    "Darkness"
+   ],
+   "hp": 130,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.16
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "アーボック",
+   "imageSmall": "https://images.pkmnprices.com/cards/6f06801f1d265ae8.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/6f06801f1d265ae8.webp",
+   "ppId": 47775
+  },
+  {
+   "id": "SV5K-045",
+   "localId": "045",
+   "name": "Gastly",
+   "rarity": "Common",
+   "illustrator": "Fujimoto Gold",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/045",
+   "category": "Pokemon",
+   "types": [
+    "Darkness"
+   ],
+   "hp": 60,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.2
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "ゴース",
+   "imageSmall": "https://images.pkmnprices.com/cards/21ac40ca81043c7c.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/21ac40ca81043c7c.webp",
+   "ppId": 47711
+  },
+  {
+   "id": "SV5K-046",
+   "localId": "046",
+   "name": "Haunter",
+   "rarity": "Common",
+   "illustrator": "MAHOU",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/046",
+   "category": "Pokemon",
+   "types": [
+    "Darkness"
+   ],
+   "hp": 90,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.16
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "ゴースト",
+   "imageSmall": "https://images.pkmnprices.com/cards/65da91e0252e82ce.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/65da91e0252e82ce.webp",
+   "ppId": 47758
+  },
+  {
+   "id": "SV5K-047",
+   "localId": "047",
+   "name": "Gengar ex",
+   "rarity": "Double rare",
+   "illustrator": "Nisota Niso",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/047",
+   "category": "Pokemon",
+   "types": [
+    "Darkness"
+   ],
+   "hp": 310,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 4.09
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "ゲンガーex",
+   "imageSmall": "https://images.pkmnprices.com/cards/515785a4f0d43864.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/515785a4f0d43864.webp",
+   "ppId": 47700
+  },
+  {
+   "id": "SV5K-048",
+   "localId": "048",
+   "name": "Poochyena",
+   "rarity": "Common",
+   "illustrator": "Miki Tanaka",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/048",
+   "category": "Pokemon",
+   "types": [
+    "Darkness"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.11
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "ポチエナ",
+   "imageSmall": "https://images.pkmnprices.com/cards/1ac5d75900fc3fd9.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/1ac5d75900fc3fd9.webp",
+   "ppId": 47789
+  },
+  {
+   "id": "SV5K-049",
+   "localId": "049",
+   "name": "Mightyena",
+   "rarity": "Common",
+   "illustrator": "akagi",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/049",
+   "category": "Pokemon",
+   "types": [
+    "Darkness"
+   ],
+   "hp": 120,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.12
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "グラエナ",
+   "imageSmall": "https://images.pkmnprices.com/cards/1ca2132addf037e3.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/1ca2132addf037e3.webp",
+   "ppId": 47860
+  },
+  {
+   "id": "SV5K-050",
+   "localId": "050",
+   "name": "Sableye",
+   "rarity": "Uncommon",
+   "illustrator": "0313",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/050",
+   "category": "Pokemon",
+   "types": [
+    "Darkness"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.15
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "ヤミラミ",
+   "imageSmall": "https://images.pkmnprices.com/cards/008cf009dd01f230.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/008cf009dd01f230.webp",
+   "ppId": 47756
+  },
+  {
+   "id": "SV5K-051",
+   "localId": "051",
+   "name": "Roaring Moon",
+   "rarity": "Rare",
+   "illustrator": "hncl",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/051",
+   "category": "Pokemon",
+   "types": [
+    "Darkness"
+   ],
+   "hp": 140,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 0.22
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "トドロクツキ",
+   "imageSmall": "https://images.pkmnprices.com/cards/94215c0d068df9cc.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/94215c0d068df9cc.webp",
+   "ppId": 47826
+  },
+  {
+   "id": "SV5K-052",
+   "localId": "052",
+   "name": "Koraidon",
+   "rarity": "Rare",
+   "illustrator": "Teeziro",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/052",
+   "category": "Pokemon",
+   "types": [
+    "Dragon"
+   ],
+   "hp": 140,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 0.17
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "コライドン",
+   "imageSmall": "https://images.pkmnprices.com/cards/884112c4a1dc6206.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/884112c4a1dc6206.webp",
+   "ppId": 47786
+  },
+  {
+   "id": "SV5K-053",
+   "localId": "053",
+   "name": "Raging Bolt ex",
+   "rarity": "Double rare",
+   "illustrator": "aky CG Works",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/053",
+   "category": "Pokemon",
+   "types": [
+    "Dragon"
+   ],
+   "hp": 240,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 0.33
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "タケルライコex",
+   "imageSmall": "https://images.pkmnprices.com/cards/bc04281e5d9f3cf8.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/bc04281e5d9f3cf8.webp",
+   "ppId": 47730
+  },
+  {
+   "id": "SV5K-054",
+   "localId": "054",
+   "name": "Hoothoot",
+   "rarity": "Common",
+   "illustrator": "ryoma uratsuka",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/054",
+   "category": "Pokemon",
+   "types": [
+    "Colorless"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.07
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "ホーホー",
+   "imageSmall": "https://images.pkmnprices.com/cards/422364dc3ea8a69b.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/422364dc3ea8a69b.webp",
+   "ppId": 47734
+  },
+  {
+   "id": "SV5K-055",
+   "localId": "055",
+   "name": "Noctowl",
+   "rarity": "Common",
+   "illustrator": "toi8",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/055",
+   "category": "Pokemon",
+   "types": [
+    "Colorless"
+   ],
+   "hp": 110,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.1
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "ヨルノズク",
+   "imageSmall": "https://images.pkmnprices.com/cards/19f0c75d9bfcca45.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/19f0c75d9bfcca45.webp",
+   "ppId": 47825
+  },
+  {
+   "id": "SV5K-056",
+   "localId": "056",
+   "name": "Dunsparce",
+   "rarity": "Common",
+   "illustrator": "Sanosuke Sakuma",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/056",
+   "category": "Pokemon",
+   "types": [
+    "Colorless"
+   ],
+   "hp": 60,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.1
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "ノコッチ",
+   "imageSmall": "https://images.pkmnprices.com/cards/e53baa7f349c30e0.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/e53baa7f349c30e0.webp",
+   "ppId": 47822
+  },
+  {
+   "id": "SV5K-057",
+   "localId": "057",
+   "name": "Dudunsparce",
+   "rarity": "Rare",
+   "illustrator": "Teeziro",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/057",
+   "category": "Pokemon",
+   "types": [
+    "Colorless"
+   ],
+   "hp": 140,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 0.18
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "ノココッチ",
+   "imageSmall": "https://images.pkmnprices.com/cards/2077be8312cb7b0a.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/2077be8312cb7b0a.webp",
+   "ppId": 47803
+  },
+  {
+   "id": "SV5K-058",
+   "localId": "058",
+   "name": "Chatot",
+   "rarity": "Common",
+   "illustrator": "GOTO minori",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/058",
+   "category": "Pokemon",
+   "types": [
+    "Colorless"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.15
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "ペラップ",
+   "imageSmall": "https://images.pkmnprices.com/cards/4d5fc2dbdab548c8.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/4d5fc2dbdab548c8.webp",
+   "ppId": 47772
+  },
+  {
+   "id": "SV5K-059",
+   "localId": "059",
+   "name": "Minccino",
+   "rarity": "Common",
+   "illustrator": "Yuka Morii",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/059",
+   "category": "Pokemon",
+   "types": [
+    "Colorless"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.17
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "チラーミィ",
+   "imageSmall": "https://images.pkmnprices.com/cards/acbc6b2154f2e59a.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/acbc6b2154f2e59a.webp",
+   "ppId": 47780
+  },
+  {
+   "id": "SV5K-060",
+   "localId": "060",
+   "name": "Cinccino",
+   "rarity": "Uncommon",
+   "illustrator": "Yuu Nishida",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/060",
+   "category": "Pokemon",
+   "types": [
+    "Colorless"
+   ],
+   "hp": 110,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.13
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "チラチーノ",
+   "imageSmall": "https://images.pkmnprices.com/cards/de4f5322c8e42094.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/de4f5322c8e42094.webp",
+   "ppId": 47797
+  },
+  {
+   "id": "SV5K-061",
+   "localId": "061",
+   "name": "Boxed Order",
+   "rarity": "Uncommon",
+   "illustrator": "Studio Bora Inc.",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/061",
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.14
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "おとりよせボックス",
+   "imageSmall": "https://images.pkmnprices.com/cards/e167aa7db6f3bfed.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/e167aa7db6f3bfed.webp",
+   "ppId": 47813
+  },
+  {
+   "id": "SV5K-062",
+   "localId": "062",
+   "name": "Awakening Drum",
+   "rarity": "ACE SPEC Rare",
+   "illustrator": "Toyste Beach",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/062",
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 0.31
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "覚醒のドラム",
+   "imageSmall": "https://images.pkmnprices.com/cards/1d030094566f77c5.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/1d030094566f77c5.webp",
+   "ppId": 47802
+  },
+  {
+   "id": "SV5K-063",
+   "localId": "063",
+   "name": "Buddy-Buddy Poffin",
+   "rarity": "Uncommon",
+   "illustrator": "AYUMI ODASHIMA",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/063",
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.29
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "なかよしポフィン",
+   "imageSmall": "https://images.pkmnprices.com/cards/7ef7e880583315b1.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/7ef7e880583315b1.webp",
+   "ppId": 47748
+  },
+  {
+   "id": "SV5K-064",
+   "localId": "064",
+   "name": "Rescue Board",
+   "rarity": "Uncommon",
+   "illustrator": "Toyste Beach",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/064",
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.29
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "緊急ボード",
+   "imageSmall": "https://images.pkmnprices.com/cards/023100e10c087811.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/023100e10c087811.webp",
+   "ppId": 47745
+  },
+  {
+   "id": "SV5K-065",
+   "localId": "065",
+   "name": "Ancient Booster Energy Capsule",
+   "rarity": "Uncommon",
+   "illustrator": "5ban Graphics",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/065",
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.11
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "ブーストエナジー 古代",
+   "imageSmall": "https://images.pkmnprices.com/cards/d92bc69b4239209c.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/d92bc69b4239209c.webp",
+   "ppId": 47791
+  },
+  {
+   "id": "SV5K-066",
+   "localId": "066",
+   "name": "Maximum Belt",
+   "rarity": "ACE SPEC Rare",
+   "illustrator": "inose yukie",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/066",
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 0.26
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "マキシマムベルト",
+   "imageSmall": "https://images.pkmnprices.com/cards/3a6ba838af72c7d1.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/3a6ba838af72c7d1.webp",
+   "ppId": 47761
+  },
+  {
+   "id": "SV5K-067",
+   "localId": "067",
+   "name": "Explorer's Guidance",
+   "rarity": "Uncommon",
+   "illustrator": "Hideki Ishikawa",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/067",
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.17
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "探検家の先導",
+   "imageSmall": "https://images.pkmnprices.com/cards/3139f0e4ca4adb45.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/3139f0e4ca4adb45.webp",
+   "ppId": 47844
+  },
+  {
+   "id": "SV5K-068",
+   "localId": "068",
+   "name": "Eri",
+   "rarity": "Uncommon",
+   "illustrator": "GOSSAN",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/068",
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.17
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "ビワ",
+   "imageSmall": "https://images.pkmnprices.com/cards/e9006a94759c24a0.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/e9006a94759c24a0.webp",
+   "ppId": 47888
+  },
+  {
+   "id": "SV5K-069",
+   "localId": "069",
+   "name": "Morty's Conviction",
+   "rarity": "Uncommon",
+   "illustrator": "GIDORA",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/069",
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.22
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "マツバの確信",
+   "imageSmall": "https://images.pkmnprices.com/cards/e7b1153ecb336803.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/e7b1153ecb336803.webp",
+   "ppId": 47779
+  },
+  {
+   "id": "SV5K-070",
+   "localId": "070",
+   "name": "Perilous Jungle",
+   "rarity": "Uncommon",
+   "illustrator": "AYUMI ODASHIMA",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/070",
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.12
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "危険な密林",
+   "imageSmall": "https://images.pkmnprices.com/cards/ef213d7f047f1eb0.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/ef213d7f047f1eb0.webp",
+   "ppId": 47890
+  },
+  {
+   "id": "SV5K-071",
+   "localId": "071",
+   "name": "Neo Upper Energy",
+   "rarity": "ACE SPEC Rare",
+   "illustrator": "",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/071",
+   "category": "Energy",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 3.18
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "ネオアッパーエネルギー",
+   "imageSmall": "https://images.pkmnprices.com/cards/000074049222fb32.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/000074049222fb32.webp",
+   "ppId": 47766
+  },
+  {
+   "id": "SV5K-072",
+   "localId": "072",
+   "name": "Grotle",
+   "rarity": "Illustration rare",
+   "illustrator": "Oswaldo KATO",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/072",
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 120,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 6.24
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "ハヤシガメ",
+   "imageSmall": "https://images.pkmnprices.com/cards/269c061e6524b2c1.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/269c061e6524b2c1.webp",
+   "ppId": 47736
+  },
+  {
+   "id": "SV5K-073",
+   "localId": "073",
+   "name": "Snom",
+   "rarity": "Illustration rare",
+   "illustrator": "N-DESIGN Inc.",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/073",
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 50,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 5.6
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "ユキハミ",
+   "imageSmall": "https://images.pkmnprices.com/cards/ccad49b035ffd8ff.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/ccad49b035ffd8ff.webp",
+   "ppId": 47710
+  },
+  {
+   "id": "SV5K-074",
+   "localId": "074",
+   "name": "Bronzor",
+   "rarity": "Illustration rare",
+   "illustrator": "sowsow",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/074",
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": 80,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 2.67
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "ドーミラー",
+   "imageSmall": "https://images.pkmnprices.com/cards/023f0bca84055ff5.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/023f0bca84055ff5.webp",
+   "ppId": 47738
+  },
+  {
+   "id": "SV5K-075",
+   "localId": "075",
+   "name": "Reuniclus",
+   "rarity": "Illustration rare",
+   "illustrator": "Atsushi Furusawa",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/075",
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": 120,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 5.29
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "ランクルス",
+   "imageSmall": "https://images.pkmnprices.com/cards/959c5517f4fca76c.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/959c5517f4fca76c.webp",
+   "ppId": 47699
+  },
+  {
+   "id": "SV5K-076",
+   "localId": "076",
+   "name": "Flutter Mane",
+   "rarity": "Illustration rare",
+   "illustrator": "Takumi Wada",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/076",
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": 90,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 2.25
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "ハバタクカミ",
+   "imageSmall": "https://images.pkmnprices.com/cards/8b07c0a05334c2b6.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/8b07c0a05334c2b6.webp",
+   "ppId": 47757
+  },
+  {
+   "id": "SV5K-077",
+   "localId": "077",
+   "name": "Relicanth",
+   "rarity": "Illustration rare",
+   "illustrator": "Mitsuhiro Arita",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/077",
+   "category": "Pokemon",
+   "types": [
+    "Fighting"
+   ],
+   "hp": 100,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 3.23
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "ジーランス",
+   "imageSmall": "https://images.pkmnprices.com/cards/6b271544d1c1d7bf.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/6b271544d1c1d7bf.webp",
+   "ppId": 47812
+  },
+  {
+   "id": "SV5K-078",
+   "localId": "078",
+   "name": "Mudsdale",
+   "rarity": "Illustration rare",
+   "illustrator": "MINAMINAMI Take",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/078",
+   "category": "Pokemon",
+   "types": [
+    "Fighting"
+   ],
+   "hp": 150,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 2.57
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "バンバドロ",
+   "imageSmall": "https://images.pkmnprices.com/cards/b0828768b336f3f7.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/b0828768b336f3f7.webp",
+   "ppId": 47728
+  },
+  {
+   "id": "SV5K-079",
+   "localId": "079",
+   "name": "Arbok",
+   "rarity": "Illustration rare",
+   "illustrator": "OKUBO",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/079",
+   "category": "Pokemon",
+   "types": [
+    "Darkness"
+   ],
+   "hp": 130,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 6.47
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "アーボック",
+   "imageSmall": "https://images.pkmnprices.com/cards/eece7f979982a7cf.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/eece7f979982a7cf.webp",
+   "ppId": 47755
+  },
+  {
+   "id": "SV5K-080",
+   "localId": "080",
+   "name": "Gastly",
+   "rarity": "Illustration rare",
+   "illustrator": "Mousho",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/080",
+   "category": "Pokemon",
+   "types": [
+    "Darkness"
+   ],
+   "hp": 60,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 38.04
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "ゴース",
+   "imageSmall": "https://images.pkmnprices.com/cards/42645daccc3cc140.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/42645daccc3cc140.webp",
+   "ppId": 47741
+  },
+  {
+   "id": "SV5K-081",
+   "localId": "081",
+   "name": "Chatot",
+   "rarity": "Illustration rare",
+   "illustrator": "Scav",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/081",
+   "category": "Pokemon",
+   "types": [
+    "Colorless"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 3.35
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "ペラップ",
+   "imageSmall": "https://images.pkmnprices.com/cards/8050e34fa3302a33.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/8050e34fa3302a33.webp",
+   "ppId": 47707
+  },
+  {
+   "id": "SV5K-082",
+   "localId": "082",
+   "name": "Minccino",
+   "rarity": "Illustration rare",
+   "illustrator": "Shibuzoh.",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/082",
+   "category": "Pokemon",
+   "types": [
+    "Colorless"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 12.75
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "チラーミィ",
+   "imageSmall": "https://images.pkmnprices.com/cards/9aa3fe5524d60102.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/9aa3fe5524d60102.webp",
+   "ppId": 47717
+  },
+  {
+   "id": "SV5K-083",
+   "localId": "083",
+   "name": "Cinccino",
+   "rarity": "Illustration rare",
+   "illustrator": "Shibuzoh.",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/083",
+   "category": "Pokemon",
+   "types": [
+    "Colorless"
+   ],
+   "hp": 110,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 14.57
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "チラチーノ",
+   "imageSmall": "https://images.pkmnprices.com/cards/b68743d549a8d176.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/b68743d549a8d176.webp",
+   "ppId": 47753
+  },
+  {
+   "id": "SV5K-084",
+   "localId": "084",
+   "name": "Torterra ex",
+   "rarity": "Ultra Rare",
+   "illustrator": "PLANETA Tsuji",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/084",
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 340,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 2.18
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "ドダイトスex",
+   "imageSmall": "https://images.pkmnprices.com/cards/030ac6c8bef2e911.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/030ac6c8bef2e911.webp",
+   "ppId": 47709
+  },
+  {
+   "id": "SV5K-085",
+   "localId": "085",
+   "name": "Gouging Fire ex",
+   "rarity": "Ultra Rare",
+   "illustrator": "5ban Graphics",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/085",
+   "category": "Pokemon",
+   "types": [
+    "Fire"
+   ],
+   "hp": 230,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 1.8
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "ウガツホムラex",
+   "imageSmall": "https://images.pkmnprices.com/cards/9a54716ce4d4f455.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/9a54716ce4d4f455.webp",
+   "ppId": 47771
+  },
+  {
+   "id": "SV5K-086",
+   "localId": "086",
+   "name": "Walking Wake ex",
+   "rarity": "Ultra Rare",
+   "illustrator": "takuyoa",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/086",
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 220,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 1.51
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "ウネルミナモex",
+   "imageSmall": "https://images.pkmnprices.com/cards/0e9e29ed2bf0cfb6.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/0e9e29ed2bf0cfb6.webp",
+   "ppId": 47773
+  },
+  {
+   "id": "SV5K-087",
+   "localId": "087",
+   "name": "Wugtrio ex",
+   "rarity": "Ultra Rare",
+   "illustrator": "5ban Graphics",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/087",
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": 250,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 1.62
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T10:49:11Z"
+   },
+   "nameJa": "ウミトリオex",
+   "imageSmall": "https://images.pkmnprices.com/cards/d4998aac8089af49.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/d4998aac8089af49.webp",
+   "ppId": 47752
+  },
+  {
+   "id": "SV5K-088",
+   "localId": "088",
+   "name": "Gengar ex",
+   "rarity": "Ultra Rare",
+   "illustrator": "Satoshi Shirai",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/088",
+   "category": "Pokemon",
+   "types": [
+    "Darkness"
+   ],
+   "hp": 310,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 38.96
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "ゲンガーex",
+   "imageSmall": "https://images.pkmnprices.com/cards/e875f580bcd406a8.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/e875f580bcd406a8.webp",
+   "ppId": 47751
+  },
+  {
+   "id": "SV5K-089",
+   "localId": "089",
+   "name": "Raging Bolt ex",
+   "rarity": "Ultra Rare",
+   "illustrator": "aky CG Works",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/089",
+   "category": "Pokemon",
+   "types": [
+    "Dragon"
+   ],
+   "hp": 240,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 2.12
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "タケルライコex",
+   "imageSmall": "https://images.pkmnprices.com/cards/e19c534eb19d6c62.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/e19c534eb19d6c62.webp",
+   "ppId": 47760
+  },
+  {
+   "id": "SV5K-090",
+   "localId": "090",
+   "name": "Explorer's Guidance",
+   "rarity": "Ultra Rare",
+   "illustrator": "Hideki Ishikawa",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/090",
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 0.96
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "探検家の先導",
+   "imageSmall": "https://images.pkmnprices.com/cards/ce3e43fa2cccb28a.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/ce3e43fa2cccb28a.webp",
+   "ppId": 47781
+  },
+  {
+   "id": "SV5K-091",
+   "localId": "091",
+   "name": "Eri",
+   "rarity": "Ultra Rare",
+   "illustrator": "GOSSAN",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/091",
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 1.35
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "ビワ",
+   "imageSmall": "https://images.pkmnprices.com/cards/2411cc9ffbb64a47.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/2411cc9ffbb64a47.webp",
+   "ppId": 47724
+  },
+  {
+   "id": "SV5K-092",
+   "localId": "092",
+   "name": "Morty's Conviction",
+   "rarity": "Ultra Rare",
+   "illustrator": "GIDORA",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/092",
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 1.63
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "マツバの確信",
+   "imageSmall": "https://images.pkmnprices.com/cards/3e51a5c17cc00fc0.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/3e51a5c17cc00fc0.webp",
+   "ppId": 47713
+  },
+  {
+   "id": "SV5K-093",
+   "localId": "093",
+   "name": "Gouging Fire ex",
+   "rarity": "Special illustration rare",
+   "illustrator": "Teeziro",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/093",
+   "category": "Pokemon",
+   "types": [
+    "Fire"
+   ],
+   "hp": 230,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 31.04
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "ウガツホムラex",
+   "imageSmall": "https://images.pkmnprices.com/cards/ceca9b302dbf732f.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/ceca9b302dbf732f.webp",
+   "ppId": 47723
+  },
+  {
+   "id": "SV5K-094",
+   "localId": "094",
+   "name": "Walking Wake ex",
+   "rarity": "Special illustration rare",
+   "illustrator": "Teeziro",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/094",
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 220,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 35.13
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "ウネルミナモex",
+   "imageSmall": "https://images.pkmnprices.com/cards/a32f92623292b7eb.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/a32f92623292b7eb.webp",
+   "ppId": 47725
+  },
+  {
+   "id": "SV5K-095",
+   "localId": "095",
+   "name": "Raging Bolt ex",
+   "rarity": "Special illustration rare",
+   "illustrator": "Teeziro",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/095",
+   "category": "Pokemon",
+   "types": [
+    "Dragon"
+   ],
+   "hp": 240,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 53.71
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "タケルライコex",
+   "imageSmall": "https://images.pkmnprices.com/cards/b182b1a728a6c07a.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/b182b1a728a6c07a.webp",
+   "ppId": 47737
+  },
+  {
+   "id": "SV5K-096",
+   "localId": "096",
+   "name": "Eri",
+   "rarity": "Special illustration rare",
+   "illustrator": "DOM",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/096",
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 14.11
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "ビワ",
+   "imageSmall": "https://images.pkmnprices.com/cards/add47ed0fdf5c32e.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/add47ed0fdf5c32e.webp",
+   "ppId": 47731
+  },
+  {
+   "id": "SV5K-097",
+   "localId": "097",
+   "name": "Morty's Conviction",
+   "rarity": "Special illustration rare",
+   "illustrator": "Megumi Mizutani",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/097",
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 49.36
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "マツバの確信",
+   "imageSmall": "https://images.pkmnprices.com/cards/634436b64a2618f0.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/634436b64a2618f0.webp",
+   "ppId": 47729
+  },
+  {
+   "id": "SV5K-098",
+   "localId": "098",
+   "name": "Gouging Fire ex",
+   "rarity": "Mega Hyper Rare",
+   "illustrator": "5ban Graphics",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/098",
+   "category": "Pokemon",
+   "types": [
+    "Fire"
+   ],
+   "hp": 230,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 6.77
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "ウガツホムラex",
+   "imageSmall": "https://images.pkmnprices.com/cards/f28e3dd6dd3b8755.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/f28e3dd6dd3b8755.webp",
+   "ppId": 47810
+  },
+  {
+   "id": "SV5K-099",
+   "localId": "099",
+   "name": "Walking Wake ex",
+   "rarity": "Mega Hyper Rare",
+   "illustrator": "takuyoa",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/099",
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 220,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 5.87
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "ウネルミナモex",
+   "imageSmall": "https://images.pkmnprices.com/cards/dbf06a2ceb87748a.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/dbf06a2ceb87748a.webp",
+   "ppId": 47800
+  },
+  {
+   "id": "SV5K-100",
+   "localId": "100",
+   "name": "Raging Bolt ex",
+   "rarity": "Mega Hyper Rare",
+   "illustrator": "aky CG Works",
+   "image": "https://assets.tcgdex.net/ja/SV/SV5K/100",
+   "category": "Pokemon",
+   "types": [
+    "Dragon"
+   ],
+   "hp": 240,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 9.94
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-17T03:20:40Z"
+   },
+   "nameJa": "タケルライコex",
+   "imageSmall": "https://images.pkmnprices.com/cards/64dc860e6ec1cf59.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/64dc860e6ec1cf59.webp",
+   "ppId": 47742
+  }
+ ]
+}

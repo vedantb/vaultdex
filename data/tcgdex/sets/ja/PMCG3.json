@@ -1,1 +1,1111 @@
-{"generated_at": "2026-09-16T02:10:59.285774+00:00", "set": {"id": "PMCG3", "name": "Mystery of the Fossils", "series": "ポケットモンスターカードゲーム", "releaseDate": "1997-06-21", "logo": null, "symbol": "/data/tcgdex/set-symbols/ja/PMCG3.png", "printedTotal": 48, "total": 48, "lang": "ja", "nameJa": "化石の秘密"}, "cards": [{"id": "PMCG3-001", "localId": "001", "name": "Ekans", "rarity": "Common", "illustrator": "Kagemaru Himeno", "image": null, "category": "Pokemon", "types": ["Grass"], "hp": 40, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": null, "nameJa": "アーボ", "imageSmall": "https://archives.bulbagarden.net/media/upload/d/d8/EkansFossil46.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/d/d8/EkansFossil46.jpg"}, {"id": "PMCG3-002", "localId": "002", "name": "Zubat", "rarity": "Common", "illustrator": "Kagemaru Himeno", "image": null, "category": "Pokemon", "types": ["Grass"], "hp": 40, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": null, "nameJa": "ズバット", "imageSmall": "https://archives.bulbagarden.net/media/upload/a/a9/ZubatFossil57.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/a/a9/ZubatFossil57.jpg"}, {"id": "PMCG3-003", "localId": "003", "name": "Grimer", "rarity": "Common", "illustrator": "Mitsuhiro Arita", "image": null, "category": "Pokemon", "types": ["Grass"], "hp": 50, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": null, "nameJa": "ベトベター", "imageSmall": "https://archives.bulbagarden.net/media/upload/3/3e/GrimerFossil48.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/3/3e/GrimerFossil48.jpg"}, {"id": "PMCG3-004", "localId": "004", "name": "Arbok", "rarity": "Uncommon", "illustrator": "Ken Sugimori", "image": null, "category": "Pokemon", "types": ["Grass"], "hp": 60, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": null, "nameJa": "アーボック", "imageSmall": "https://archives.bulbagarden.net/media/upload/6/63/ArbokFossil31.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/6/63/ArbokFossil31.jpg"}, {"id": "PMCG3-005", "localId": "005", "name": "Golbat", "rarity": "Uncommon", "illustrator": "Kagemaru Himeno", "image": null, "category": "Pokemon", "types": ["Grass"], "hp": 60, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": null, "nameJa": "ゴルバット", "imageSmall": "https://archives.bulbagarden.net/media/upload/d/db/GolbatFossil34.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/d/db/GolbatFossil34.jpg"}, {"id": "PMCG3-006", "localId": "006", "name": "Weezing", "rarity": "Uncommon", "illustrator": "Mitsuhiro Arita", "image": null, "category": "Pokemon", "types": ["Grass"], "hp": 60, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": null, "nameJa": "マタドガス", "imageSmall": "https://archives.bulbagarden.net/media/upload/7/76/WeezingFossil45.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/7/76/WeezingFossil45.jpg"}, {"id": "PMCG3-007", "localId": "007", "name": "Muk", "rarity": "Holo Rare", "illustrator": "Mitsuhiro Arita", "image": null, "category": "Pokemon", "types": ["Grass"], "hp": 70, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": null, "nameJa": "ベトベトン", "imageSmall": "https://archives.bulbagarden.net/media/upload/8/85/MukFossil13.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/8/85/MukFossil13.jpg"}, {"id": "PMCG3-008", "localId": "008", "name": "Magmar", "rarity": "Uncommon", "illustrator": "Mitsuhiro Arita", "image": null, "category": "Pokemon", "types": ["Fire"], "hp": 70, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": null, "nameJa": "ブーバー", "imageSmall": "https://archives.bulbagarden.net/media/upload/8/81/MagmarFossil39.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/8/81/MagmarFossil39.jpg"}, {"id": "PMCG3-009", "localId": "009", "name": "Moltres", "rarity": "Holo Rare", "illustrator": "Mitsuhiro Arita", "image": null, "category": "Pokemon", "types": ["Fire"], "hp": 70, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": null, "nameJa": "ファイヤー", "imageSmall": "https://archives.bulbagarden.net/media/upload/1/1d/MoltresFossil12.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/1/1d/MoltresFossil12.jpg"}, {"id": "PMCG3-010", "localId": "010", "name": "Psyduck", "rarity": "Common", "illustrator": "Kagemaru Himeno", "image": null, "category": "Pokemon", "types": ["Water"], "hp": 50, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": null, "nameJa": "コダック", "imageSmall": "https://archives.bulbagarden.net/media/upload/9/95/PsyduckFossil53.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/9/95/PsyduckFossil53.jpg"}, {"id": "PMCG3-011", "localId": "011", "name": "Tentacool", "rarity": "Common", "illustrator": "Kagemaru Himeno", "image": null, "category": "Pokemon", "types": ["Water"], "hp": 30, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": null, "nameJa": "メノクラゲ", "imageSmall": "https://archives.bulbagarden.net/media/upload/f/f8/TentacoolFossil56.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/f/f8/TentacoolFossil56.jpg"}, {"id": "PMCG3-012", "localId": "012", "name": "Shellder", "rarity": "Common", "illustrator": "Mitsuhiro Arita", "image": null, "category": "Pokemon", "types": ["Water"], "hp": 30, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": null, "nameJa": "シェルダー", "imageSmall": "https://archives.bulbagarden.net/media/upload/a/ac/ShellderFossil54.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/a/ac/ShellderFossil54.jpg"}, {"id": "PMCG3-013", "localId": "013", "name": "Krabby", "rarity": "Common", "illustrator": "Mitsuhiro Arita", "image": null, "category": "Pokemon", "types": ["Water"], "hp": 50, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": null, "nameJa": "クラブ", "imageSmall": "https://archives.bulbagarden.net/media/upload/b/b3/KrabbyFossil51.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/b/b3/KrabbyFossil51.jpg"}, {"id": "PMCG3-014", "localId": "014", "name": "Horsea", "rarity": "Common", "illustrator": "Mitsuhiro Arita", "image": null, "category": "Pokemon", "types": ["Water"], "hp": 40, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": null, "nameJa": "タッツ", "imageSmall": "https://archives.bulbagarden.net/media/upload/b/be/HorseaFossil49.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/b/be/HorseaFossil49.jpg"}, {"id": "PMCG3-015", "localId": "015", "name": "Omanyte", "rarity": "Common", "illustrator": "Kagemaru Himeno", "image": null, "category": "Pokemon", "types": ["Water"], "hp": 40, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": null, "nameJa": "オムナイト", "imageSmall": "https://archives.bulbagarden.net/media/upload/9/9e/OmanyteFossil52.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/9/9e/OmanyteFossil52.jpg"}, {"id": "PMCG3-016", "localId": "016", "name": "Golduck", "rarity": "Uncommon", "illustrator": "Kagemaru Himeno", "image": null, "category": "Pokemon", "types": ["Water"], "hp": 70, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": null, "nameJa": "ゴルダック", "imageSmall": "https://archives.bulbagarden.net/media/upload/1/13/GolduckFossil35.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/1/13/GolduckFossil35.jpg"}, {"id": "PMCG3-017", "localId": "017", "name": "Tentacruel", "rarity": "Uncommon", "illustrator": "Kagemaru Himeno", "image": null, "category": "Pokemon", "types": ["Water"], "hp": 60, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": null, "nameJa": "ドククラゲ", "imageSmall": "https://archives.bulbagarden.net/media/upload/f/f0/TentacruelFossil44.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/f/f0/TentacruelFossil44.jpg"}, {"id": "PMCG3-018", "localId": "018", "name": "Cloyster", "rarity": "Uncommon", "illustrator": "Kagemaru Himeno", "image": null, "category": "Pokemon", "types": ["Water"], "hp": 50, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": null, "nameJa": "パルシェン", "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/1/14/CloysterFossil32.jpg/400px-CloysterFossil32.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/1/14/CloysterFossil32.jpg"}, {"id": "PMCG3-019", "localId": "019", "name": "Kingler", "rarity": "Uncommon", "illustrator": "Kagemaru Himeno", "image": null, "category": "Pokemon", "types": ["Water"], "hp": 60, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": null, "nameJa": "キングラー", "imageSmall": "https://archives.bulbagarden.net/media/upload/3/30/KinglerFossil38.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/3/30/KinglerFossil38.jpg"}, {"id": "PMCG3-020", "localId": "020", "name": "Seadra", "rarity": "Uncommon", "illustrator": "Ken Sugimori", "image": null, "category": "Pokemon", "types": ["Water"], "hp": 60, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": null, "nameJa": "シードラ", "imageSmall": "https://archives.bulbagarden.net/media/upload/1/1b/SeadraFossil42.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/1/1b/SeadraFossil42.jpg"}, {"id": "PMCG3-021", "localId": "021", "name": "Omastar", "rarity": "Uncommon", "illustrator": "Ken Sugimori", "image": null, "category": "Pokemon", "types": ["Water"], "hp": 70, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": null, "nameJa": "オムスター", "imageSmall": "https://archives.bulbagarden.net/media/upload/3/3e/OmastarFossil40.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/3/3e/OmastarFossil40.jpg"}, {"id": "PMCG3-022", "localId": "022", "name": "Lapras", "rarity": "Holo Rare", "illustrator": "Ken Sugimori", "image": null, "category": "Pokemon", "types": ["Water"], "hp": 80, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": null, "nameJa": "ラプラス", "imageSmall": "https://archives.bulbagarden.net/media/upload/4/47/LaprasFossil10.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/4/47/LaprasFossil10.jpg"}, {"id": "PMCG3-023", "localId": "023", "name": "Articuno", "rarity": "Holo Rare", "illustrator": "Mitsuhiro Arita", "image": null, "category": "Pokemon", "types": ["Water"], "hp": 70, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": null, "nameJa": "フリーザー", "imageSmall": "https://archives.bulbagarden.net/media/upload/a/a0/ArticunoFossil17.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/a/a0/ArticunoFossil17.jpg"}, {"id": "PMCG3-024", "localId": "024", "name": "Raichu", "rarity": "Holo Rare", "illustrator": "Mitsuhiro Arita", "image": null, "category": "Pokemon", "types": ["Lightning"], "hp": 90, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": null, "nameJa": "ライチュウ", "imageSmall": "https://archives.bulbagarden.net/media/upload/6/6d/RaichuFossil14.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/6/6d/RaichuFossil14.jpg"}, {"id": "PMCG3-025", "localId": "025", "name": "Magneton", "rarity": "Holo Rare", "illustrator": "Ken Sugimori", "image": null, "category": "Pokemon", "types": ["Lightning"], "hp": 80, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": null, "nameJa": "レアコイル", "imageSmall": "https://archives.bulbagarden.net/media/upload/5/53/MagnetonFossil11.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/5/53/MagnetonFossil11.jpg"}, {"id": "PMCG3-026", "localId": "026", "name": "Zapdos", "rarity": "Holo Rare", "illustrator": "Ken Sugimori", "image": null, "category": "Pokemon", "types": ["Lightning"], "hp": 80, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": null, "nameJa": "サンダー", "imageSmall": "https://archives.bulbagarden.net/media/upload/f/fb/ZapdosFossil30.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/f/fb/ZapdosFossil30.jpg"}, {"id": "PMCG3-027", "localId": "027", "name": "Slowpoke", "rarity": "Common", "illustrator": "Miki Tanaka", "image": null, "category": "Pokemon", "types": ["Psychic"], "hp": 50, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": null, "nameJa": "ヤドン", "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/d/d9/SlowpokeFossil55.jpg/400px-SlowpokeFossil55.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/d/d9/SlowpokeFossil55.jpg"}, {"id": "PMCG3-028", "localId": "028", "name": "Slowbro", "rarity": "Uncommon", "illustrator": "Kagemaru Himeno", "image": null, "category": "Pokemon", "types": ["Psychic"], "hp": 60, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": null, "nameJa": "ヤドラン", "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/8/8a/SlowbroFossil43.jpg/400px-SlowbroFossil43.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/8/8a/SlowbroFossil43.jpg"}, {"id": "PMCG3-029", "localId": "029", "name": "Gastly", "rarity": "Uncommon", "illustrator": "Mitsuhiro Arita", "image": null, "category": "Pokemon", "types": ["Psychic"], "hp": 50, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": null, "nameJa": "ゴース", "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/c/c1/GastlyFossil33.jpg/400px-GastlyFossil33.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/c/c1/GastlyFossil33.jpg"}, {"id": "PMCG3-030", "localId": "030", "name": "Haunter", "rarity": "Holo Rare", "illustrator": "Ken Sugimori", "image": null, "category": "Pokemon", "types": ["Psychic"], "hp": 50, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": null, "nameJa": "ゴースト", "imageSmall": "https://archives.bulbagarden.net/media/upload/a/af/HaunterFossil6.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/a/af/HaunterFossil6.jpg"}, {"id": "PMCG3-031", "localId": "031", "name": "Gengar", "rarity": "Holo Rare", "illustrator": "Keiji Kinebuchi", "image": null, "category": "Pokemon", "types": ["Psychic"], "hp": 80, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": null, "nameJa": "ゲンガー", "imageSmall": "https://archives.bulbagarden.net/media/upload/a/a6/GengarFossil5.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/a/a6/GengarFossil5.jpg"}, {"id": "PMCG3-032", "localId": "032", "name": "Hypno", "rarity": "Holo Rare", "illustrator": "Ken Sugimori", "image": null, "category": "Pokemon", "types": ["Psychic"], "hp": 90, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": null, "nameJa": "スリーパー", "imageSmall": "https://archives.bulbagarden.net/media/upload/d/d0/HypnoFossil8.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/d/d0/HypnoFossil8.jpg"}, {"id": "PMCG3-033", "localId": "033", "name": "Mew", "rarity": "Holo Rare", "illustrator": "Ken Sugimori", "image": null, "category": "Pokemon", "types": ["Psychic"], "hp": 50, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": null, "nameJa": "ミュウ", "imageSmall": "https://archives.bulbagarden.net/media/upload/4/47/MewWizardsPromo8.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/4/47/MewWizardsPromo8.jpg"}, {"id": "PMCG3-034", "localId": "034", "name": "Geodude", "rarity": "Common", "illustrator": "Kagemaru Himeno", "image": null, "category": "Pokemon", "types": ["Fighting"], "hp": 50, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": null, "nameJa": "イシツブテ", "imageSmall": "https://archives.bulbagarden.net/media/upload/5/57/GeodudeFossil47.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/5/57/GeodudeFossil47.jpg"}, {"id": "PMCG3-035", "localId": "035", "name": "Kabuto", "rarity": "Common", "illustrator": "Ken Sugimori", "image": null, "category": "Pokemon", "types": ["Fighting"], "hp": 30, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": null, "nameJa": "カブト", "imageSmall": "https://archives.bulbagarden.net/media/upload/4/4d/KabutoFossil50.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/4/4d/KabutoFossil50.jpg"}, {"id": "PMCG3-036", "localId": "036", "name": "Sandslash", "rarity": "Uncommon", "illustrator": "Ken Sugimori", "image": null, "category": "Pokemon", "types": ["Fighting"], "hp": 70, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": null, "nameJa": "サンドパン", "imageSmall": "https://archives.bulbagarden.net/media/upload/a/ae/SandslashFossil41.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/a/ae/SandslashFossil41.jpg"}, {"id": "PMCG3-037", "localId": "037", "name": "Graveler", "rarity": "Uncommon", "illustrator": "Kagemaru Himeno", "image": null, "category": "Pokemon", "types": ["Fighting"], "hp": 60, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": null, "nameJa": "ゴローン", "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/b/bb/GravelerFossil37.jpg/400px-GravelerFossil37.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/b/bb/GravelerFossil37.jpg"}, {"id": "PMCG3-038", "localId": "038", "name": "Golem", "rarity": "Uncommon", "illustrator": "Kagemaru Himeno", "image": null, "category": "Pokemon", "types": ["Fighting"], "hp": 80, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": null, "nameJa": "ゴローニャ", "imageSmall": "https://archives.bulbagarden.net/media/upload/6/62/GolemFossil36.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/6/62/GolemFossil36.jpg"}, {"id": "PMCG3-039", "localId": "039", "name": "Hitmonlee", "rarity": "Holo Rare", "illustrator": "Ken Sugimori", "image": null, "category": "Pokemon", "types": ["Fighting"], "hp": 60, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": null, "nameJa": "サワムラー", "imageSmall": "https://archives.bulbagarden.net/media/upload/d/de/HitmonleeFossil7.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/d/de/HitmonleeFossil7.jpg"}, {"id": "PMCG3-040", "localId": "040", "name": "Kabutops", "rarity": "Holo Rare", "illustrator": "Ken Sugimori", "image": null, "category": "Pokemon", "types": ["Fighting"], "hp": 60, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": null, "nameJa": "カブトプス", "imageSmall": "https://archives.bulbagarden.net/media/upload/b/bc/KabutopsFossil9.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/b/bc/KabutopsFossil9.jpg"}, {"id": "PMCG3-041", "localId": "041", "name": "Aerodactyl", "rarity": "Holo Rare", "illustrator": "Kagemaru Himeno", "image": null, "category": "Pokemon", "types": ["Fighting"], "hp": 60, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": null, "nameJa": "プテラ", "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/2/23/AerodactylFossil16.jpg/400px-AerodactylFossil16.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/2/23/AerodactylFossil16.jpg"}, {"id": "PMCG3-042", "localId": "042", "name": "Ditto", "rarity": "Holo Rare", "illustrator": "Keiji Kinebuchi", "image": null, "category": "Pokemon", "types": ["Colorless"], "hp": 50, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": null, "nameJa": "メタモン", "imageSmall": "https://archives.bulbagarden.net/media/upload/d/d4/DittoFossil3.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/d/d4/DittoFossil3.jpg"}, {"id": "PMCG3-043", "localId": "043", "name": "Dragonite", "rarity": "Holo Rare", "illustrator": "Kagemaru Himeno", "image": null, "category": "Pokemon", "types": ["Colorless"], "hp": 100, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": null, "nameJa": "カイリュー", "imageSmall": "https://archives.bulbagarden.net/media/upload/d/d5/DragoniteFossil4.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/d/d5/DragoniteFossil4.jpg"}, {"id": "PMCG3-044", "localId": "044", "name": "Energy Search", "rarity": "Common", "illustrator": "Toyste Beach", "image": null, "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": null, "nameJa": "エネルギー転送", "imageSmall": "https://archives.bulbagarden.net/media/upload/9/9e/EnergySearchFossil59.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/9/9e/EnergySearchFossil59.jpg"}, {"id": "PMCG3-045", "localId": "045", "name": "Gambler", "rarity": "Common", "illustrator": "Keiji Kinebuchi", "image": null, "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": null, "nameJa": "ギャンブラー", "imageSmall": "https://archives.bulbagarden.net/media/upload/c/cf/GamblerFossil60.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/c/cf/GamblerFossil60.jpg"}, {"id": "PMCG3-046", "localId": "046", "name": "Mysterious Fossil", "rarity": "Common", "illustrator": "Keiji Kinebuchi", "image": null, "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": null, "nameJa": "なにかの化石", "imageSmall": "https://archives.bulbagarden.net/media/upload/0/03/MysteriousFossilFossil62.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/0/03/MysteriousFossilFossil62.jpg"}, {"id": "PMCG3-047", "localId": "047", "name": "Recycle", "rarity": "Common", "illustrator": "Ryo Ueda", "image": null, "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": null, "nameJa": "リサイクル", "imageSmall": "https://archives.bulbagarden.net/media/upload/c/c3/RecycleFossil61.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/c/c3/RecycleFossil61.jpg"}, {"id": "PMCG3-048", "localId": "048", "name": "Mr. Fuji", "rarity": "Uncommon", "illustrator": "Ken Sugimori", "image": null, "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": null, "nameJa": "フジろうじん", "imageSmall": "https://archives.bulbagarden.net/media/upload/f/f5/MrFujiFossil58.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/f/f5/MrFujiFossil58.jpg"}]}
+{
+ "generated_at": "2026-09-16T02:10:59.285774+00:00",
+ "set": {
+  "id": "PMCG3",
+  "name": "Mystery of the Fossils",
+  "series": "ポケットモンスターカードゲーム",
+  "releaseDate": "1997-06-21",
+  "logo": null,
+  "symbol": "/data/tcgdex/set-symbols/ja/PMCG3.png",
+  "printedTotal": 48,
+  "total": 48,
+  "lang": "ja",
+  "nameJa": "化石の秘密"
+ },
+ "cards": [
+  {
+   "id": "PMCG3-001",
+   "localId": "001",
+   "name": "Ekans",
+   "rarity": "Common",
+   "illustrator": "Kagemaru Himeno",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 40,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "nameJa": "アーボ",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/d/d8/EkansFossil46.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/d/d8/EkansFossil46.jpg"
+  },
+  {
+   "id": "PMCG3-002",
+   "localId": "002",
+   "name": "Zubat",
+   "rarity": "Common",
+   "illustrator": "Kagemaru Himeno",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 40,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "nameJa": "ズバット",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/a/a9/ZubatFossil57.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/a/a9/ZubatFossil57.jpg"
+  },
+  {
+   "id": "PMCG3-003",
+   "localId": "003",
+   "name": "Grimer",
+   "rarity": "Common",
+   "illustrator": "Mitsuhiro Arita",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 50,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "nameJa": "ベトベター",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/3/3e/GrimerFossil48.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/3/3e/GrimerFossil48.jpg"
+  },
+  {
+   "id": "PMCG3-004",
+   "localId": "004",
+   "name": "Arbok",
+   "rarity": "Uncommon",
+   "illustrator": "Ken Sugimori",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 60,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "nameJa": "アーボック",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/6/63/ArbokFossil31.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/6/63/ArbokFossil31.jpg"
+  },
+  {
+   "id": "PMCG3-005",
+   "localId": "005",
+   "name": "Golbat",
+   "rarity": "Uncommon",
+   "illustrator": "Kagemaru Himeno",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 60,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "nameJa": "ゴルバット",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/d/db/GolbatFossil34.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/d/db/GolbatFossil34.jpg"
+  },
+  {
+   "id": "PMCG3-006",
+   "localId": "006",
+   "name": "Weezing",
+   "rarity": "Uncommon",
+   "illustrator": "Mitsuhiro Arita",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 60,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "nameJa": "マタドガス",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/7/76/WeezingFossil45.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/7/76/WeezingFossil45.jpg"
+  },
+  {
+   "id": "PMCG3-007",
+   "localId": "007",
+   "name": "Muk",
+   "rarity": "Holo Rare",
+   "illustrator": "Mitsuhiro Arita",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "nameJa": "ベトベトン",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/8/85/MukFossil13.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/8/85/MukFossil13.jpg"
+  },
+  {
+   "id": "PMCG3-008",
+   "localId": "008",
+   "name": "Magmar",
+   "rarity": "Uncommon",
+   "illustrator": "Mitsuhiro Arita",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Fire"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "nameJa": "ブーバー",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/8/81/MagmarFossil39.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/8/81/MagmarFossil39.jpg"
+  },
+  {
+   "id": "PMCG3-009",
+   "localId": "009",
+   "name": "Moltres",
+   "rarity": "Holo Rare",
+   "illustrator": "Mitsuhiro Arita",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Fire"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "nameJa": "ファイヤー",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/1/1d/MoltresFossil12.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/1/1d/MoltresFossil12.jpg"
+  },
+  {
+   "id": "PMCG3-010",
+   "localId": "010",
+   "name": "Psyduck",
+   "rarity": "Common",
+   "illustrator": "Kagemaru Himeno",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 50,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "nameJa": "コダック",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/9/95/PsyduckFossil53.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/9/95/PsyduckFossil53.jpg"
+  },
+  {
+   "id": "PMCG3-011",
+   "localId": "011",
+   "name": "Tentacool",
+   "rarity": "Common",
+   "illustrator": "Kagemaru Himeno",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 30,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "nameJa": "メノクラゲ",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/f/f8/TentacoolFossil56.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/f/f8/TentacoolFossil56.jpg"
+  },
+  {
+   "id": "PMCG3-012",
+   "localId": "012",
+   "name": "Shellder",
+   "rarity": "Common",
+   "illustrator": "Mitsuhiro Arita",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 30,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "nameJa": "シェルダー",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/a/ac/ShellderFossil54.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/a/ac/ShellderFossil54.jpg"
+  },
+  {
+   "id": "PMCG3-013",
+   "localId": "013",
+   "name": "Krabby",
+   "rarity": "Common",
+   "illustrator": "Mitsuhiro Arita",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 50,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "nameJa": "クラブ",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/b/b3/KrabbyFossil51.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/b/b3/KrabbyFossil51.jpg"
+  },
+  {
+   "id": "PMCG3-014",
+   "localId": "014",
+   "name": "Horsea",
+   "rarity": "Common",
+   "illustrator": "Mitsuhiro Arita",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 40,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "nameJa": "タッツ",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/b/be/HorseaFossil49.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/b/be/HorseaFossil49.jpg"
+  },
+  {
+   "id": "PMCG3-015",
+   "localId": "015",
+   "name": "Omanyte",
+   "rarity": "Common",
+   "illustrator": "Kagemaru Himeno",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 40,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "nameJa": "オムナイト",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/9/9e/OmanyteFossil52.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/9/9e/OmanyteFossil52.jpg"
+  },
+  {
+   "id": "PMCG3-016",
+   "localId": "016",
+   "name": "Golduck",
+   "rarity": "Uncommon",
+   "illustrator": "Kagemaru Himeno",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "nameJa": "ゴルダック",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/1/13/GolduckFossil35.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/1/13/GolduckFossil35.jpg"
+  },
+  {
+   "id": "PMCG3-017",
+   "localId": "017",
+   "name": "Tentacruel",
+   "rarity": "Uncommon",
+   "illustrator": "Kagemaru Himeno",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 60,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "nameJa": "ドククラゲ",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/f/f0/TentacruelFossil44.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/f/f0/TentacruelFossil44.jpg"
+  },
+  {
+   "id": "PMCG3-018",
+   "localId": "018",
+   "name": "Cloyster",
+   "rarity": "Uncommon",
+   "illustrator": "Kagemaru Himeno",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 50,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "nameJa": "パルシェン",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/1/14/CloysterFossil32.jpg/400px-CloysterFossil32.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/1/14/CloysterFossil32.jpg"
+  },
+  {
+   "id": "PMCG3-019",
+   "localId": "019",
+   "name": "Kingler",
+   "rarity": "Uncommon",
+   "illustrator": "Kagemaru Himeno",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 60,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "nameJa": "キングラー",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/3/30/KinglerFossil38.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/3/30/KinglerFossil38.jpg"
+  },
+  {
+   "id": "PMCG3-020",
+   "localId": "020",
+   "name": "Seadra",
+   "rarity": "Uncommon",
+   "illustrator": "Ken Sugimori",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 60,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "nameJa": "シードラ",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/1/1b/SeadraFossil42.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/1/1b/SeadraFossil42.jpg"
+  },
+  {
+   "id": "PMCG3-021",
+   "localId": "021",
+   "name": "Omastar",
+   "rarity": "Uncommon",
+   "illustrator": "Ken Sugimori",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "nameJa": "オムスター",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/3/3e/OmastarFossil40.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/3/3e/OmastarFossil40.jpg"
+  },
+  {
+   "id": "PMCG3-022",
+   "localId": "022",
+   "name": "Lapras",
+   "rarity": "Holo Rare",
+   "illustrator": "Ken Sugimori",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 80,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "nameJa": "ラプラス",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/4/47/LaprasFossil10.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/4/47/LaprasFossil10.jpg"
+  },
+  {
+   "id": "PMCG3-023",
+   "localId": "023",
+   "name": "Articuno",
+   "rarity": "Holo Rare",
+   "illustrator": "Mitsuhiro Arita",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "nameJa": "フリーザー",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/a/a0/ArticunoFossil17.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/a/a0/ArticunoFossil17.jpg"
+  },
+  {
+   "id": "PMCG3-024",
+   "localId": "024",
+   "name": "Raichu",
+   "rarity": "Holo Rare",
+   "illustrator": "Mitsuhiro Arita",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": 90,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "nameJa": "ライチュウ",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/6/6d/RaichuFossil14.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/6/6d/RaichuFossil14.jpg"
+  },
+  {
+   "id": "PMCG3-025",
+   "localId": "025",
+   "name": "Magneton",
+   "rarity": "Holo Rare",
+   "illustrator": "Ken Sugimori",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": 80,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "nameJa": "レアコイル",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/5/53/MagnetonFossil11.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/5/53/MagnetonFossil11.jpg"
+  },
+  {
+   "id": "PMCG3-026",
+   "localId": "026",
+   "name": "Zapdos",
+   "rarity": "Holo Rare",
+   "illustrator": "Ken Sugimori",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": 80,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "nameJa": "サンダー",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/f/fb/ZapdosFossil30.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/f/fb/ZapdosFossil30.jpg"
+  },
+  {
+   "id": "PMCG3-027",
+   "localId": "027",
+   "name": "Slowpoke",
+   "rarity": "Common",
+   "illustrator": "Miki Tanaka",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": 50,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "nameJa": "ヤドン",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/d/d9/SlowpokeFossil55.jpg/400px-SlowpokeFossil55.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/d/d9/SlowpokeFossil55.jpg"
+  },
+  {
+   "id": "PMCG3-028",
+   "localId": "028",
+   "name": "Slowbro",
+   "rarity": "Uncommon",
+   "illustrator": "Kagemaru Himeno",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": 60,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "nameJa": "ヤドラン",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/8/8a/SlowbroFossil43.jpg/400px-SlowbroFossil43.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/8/8a/SlowbroFossil43.jpg"
+  },
+  {
+   "id": "PMCG3-029",
+   "localId": "029",
+   "name": "Gastly",
+   "rarity": "Uncommon",
+   "illustrator": "Mitsuhiro Arita",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": 50,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "nameJa": "ゴース",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/c/c1/GastlyFossil33.jpg/400px-GastlyFossil33.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/c/c1/GastlyFossil33.jpg"
+  },
+  {
+   "id": "PMCG3-030",
+   "localId": "030",
+   "name": "Haunter",
+   "rarity": "Holo Rare",
+   "illustrator": "Ken Sugimori",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": 50,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "nameJa": "ゴースト",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/a/af/HaunterFossil6.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/a/af/HaunterFossil6.jpg"
+  },
+  {
+   "id": "PMCG3-031",
+   "localId": "031",
+   "name": "Gengar",
+   "rarity": "Holo Rare",
+   "illustrator": "Keiji Kinebuchi",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": 80,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "nameJa": "ゲンガー",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/a/a6/GengarFossil5.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/a/a6/GengarFossil5.jpg"
+  },
+  {
+   "id": "PMCG3-032",
+   "localId": "032",
+   "name": "Hypno",
+   "rarity": "Holo Rare",
+   "illustrator": "Ken Sugimori",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": 90,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "nameJa": "スリーパー",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/d/d0/HypnoFossil8.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/d/d0/HypnoFossil8.jpg"
+  },
+  {
+   "id": "PMCG3-033",
+   "localId": "033",
+   "name": "Mew",
+   "rarity": "Holo Rare",
+   "illustrator": "Ken Sugimori",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": 50,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "nameJa": "ミュウ",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/4/47/MewWizardsPromo8.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/4/47/MewWizardsPromo8.jpg"
+  },
+  {
+   "id": "PMCG3-034",
+   "localId": "034",
+   "name": "Geodude",
+   "rarity": "Common",
+   "illustrator": "Kagemaru Himeno",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Fighting"
+   ],
+   "hp": 50,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "nameJa": "イシツブテ",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/5/57/GeodudeFossil47.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/5/57/GeodudeFossil47.jpg"
+  },
+  {
+   "id": "PMCG3-035",
+   "localId": "035",
+   "name": "Kabuto",
+   "rarity": "Common",
+   "illustrator": "Ken Sugimori",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Fighting"
+   ],
+   "hp": 30,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "nameJa": "カブト",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/4/4d/KabutoFossil50.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/4/4d/KabutoFossil50.jpg"
+  },
+  {
+   "id": "PMCG3-036",
+   "localId": "036",
+   "name": "Sandslash",
+   "rarity": "Uncommon",
+   "illustrator": "Ken Sugimori",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Fighting"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "nameJa": "サンドパン",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/a/ae/SandslashFossil41.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/a/ae/SandslashFossil41.jpg"
+  },
+  {
+   "id": "PMCG3-037",
+   "localId": "037",
+   "name": "Graveler",
+   "rarity": "Uncommon",
+   "illustrator": "Kagemaru Himeno",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Fighting"
+   ],
+   "hp": 60,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "nameJa": "ゴローン",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/b/bb/GravelerFossil37.jpg/400px-GravelerFossil37.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/b/bb/GravelerFossil37.jpg"
+  },
+  {
+   "id": "PMCG3-038",
+   "localId": "038",
+   "name": "Golem",
+   "rarity": "Uncommon",
+   "illustrator": "Kagemaru Himeno",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Fighting"
+   ],
+   "hp": 80,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "nameJa": "ゴローニャ",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/6/62/GolemFossil36.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/6/62/GolemFossil36.jpg"
+  },
+  {
+   "id": "PMCG3-039",
+   "localId": "039",
+   "name": "Hitmonlee",
+   "rarity": "Holo Rare",
+   "illustrator": "Ken Sugimori",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Fighting"
+   ],
+   "hp": 60,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "nameJa": "サワムラー",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/d/de/HitmonleeFossil7.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/d/de/HitmonleeFossil7.jpg"
+  },
+  {
+   "id": "PMCG3-040",
+   "localId": "040",
+   "name": "Kabutops",
+   "rarity": "Holo Rare",
+   "illustrator": "Ken Sugimori",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Fighting"
+   ],
+   "hp": 60,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "nameJa": "カブトプス",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/b/bc/KabutopsFossil9.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/b/bc/KabutopsFossil9.jpg"
+  },
+  {
+   "id": "PMCG3-041",
+   "localId": "041",
+   "name": "Aerodactyl",
+   "rarity": "Holo Rare",
+   "illustrator": "Kagemaru Himeno",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Fighting"
+   ],
+   "hp": 60,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "nameJa": "プテラ",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/2/23/AerodactylFossil16.jpg/400px-AerodactylFossil16.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/2/23/AerodactylFossil16.jpg"
+  },
+  {
+   "id": "PMCG3-042",
+   "localId": "042",
+   "name": "Ditto",
+   "rarity": "Holo Rare",
+   "illustrator": "Keiji Kinebuchi",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Colorless"
+   ],
+   "hp": 50,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "nameJa": "メタモン",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/d/d4/DittoFossil3.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/d/d4/DittoFossil3.jpg"
+  },
+  {
+   "id": "PMCG3-043",
+   "localId": "043",
+   "name": "Dragonite",
+   "rarity": "Holo Rare",
+   "illustrator": "Kagemaru Himeno",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Colorless"
+   ],
+   "hp": 100,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "nameJa": "カイリュー",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/d/d5/DragoniteFossil4.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/d/d5/DragoniteFossil4.jpg"
+  },
+  {
+   "id": "PMCG3-044",
+   "localId": "044",
+   "name": "Energy Search",
+   "rarity": "Common",
+   "illustrator": "Toyste Beach",
+   "image": null,
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "nameJa": "エネルギー転送",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/9/9e/EnergySearchFossil59.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/9/9e/EnergySearchFossil59.jpg"
+  },
+  {
+   "id": "PMCG3-045",
+   "localId": "045",
+   "name": "Gambler",
+   "rarity": "Common",
+   "illustrator": "Keiji Kinebuchi",
+   "image": null,
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "nameJa": "ギャンブラー",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/c/cf/GamblerFossil60.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/c/cf/GamblerFossil60.jpg"
+  },
+  {
+   "id": "PMCG3-046",
+   "localId": "046",
+   "name": "Mysterious Fossil",
+   "rarity": "Common",
+   "illustrator": "Keiji Kinebuchi",
+   "image": null,
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "nameJa": "なにかの化石",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/0/03/MysteriousFossilFossil62.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/0/03/MysteriousFossilFossil62.jpg"
+  },
+  {
+   "id": "PMCG3-047",
+   "localId": "047",
+   "name": "Recycle",
+   "rarity": "Common",
+   "illustrator": "Ryo Ueda",
+   "image": null,
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "nameJa": "リサイクル",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/c/c3/RecycleFossil61.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/c/c3/RecycleFossil61.jpg"
+  },
+  {
+   "id": "PMCG3-048",
+   "localId": "048",
+   "name": "Mr. Fuji",
+   "rarity": "Uncommon",
+   "illustrator": "Ken Sugimori",
+   "image": null,
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "nameJa": "フジろうじん",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/f/f5/MrFujiFossil58.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/f/f5/MrFujiFossil58.jpg"
+  }
+ ]
+}

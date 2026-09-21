@@ -1,1 +1,688 @@
-{"generated_at": "2026-09-16T01:37:07.082263+00:00", "set": {"id": "SVLS", "name": "Stellar Tera Type Starter Set Ceruledge ex", "series": "ポケモンカードゲーム スカーレット&バイオレット", "releaseDate": "2024-08-30", "logo": null, "symbol": "/data/tcgdex/set-symbols/ja/SVLS.png", "printedTotal": 22, "total": 22, "lang": "ja", "nameJa": "スターターセット テラスタイプ：ステラ ソウブレイズex"}, "cards": [{"id": "SVLS-001", "localId": "001", "name": "Vulpix", "rarity": "None", "illustrator": "Narumi Sato", "image": "https://assets.tcgdex.net/ja/SV/SVLS/001", "category": "Pokemon", "types": ["Fire"], "hp": 70, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 4.5}}, "currency": "USD", "pricedAt": "2026-09-18T00:30:05Z"}, "nameJa": "ロコン", "imageSmall": "https://images.pkmnprices.com/cards/5ddaa02725eb8f1d.webp", "imageLarge": "https://images.pkmnprices.com/cards/5ddaa02725eb8f1d.webp", "ppId": 38045}, {"id": "SVLS-002", "localId": "002", "name": "Ninetales", "rarity": "None", "illustrator": "Kamome Shirahama", "image": "https://assets.tcgdex.net/ja/SV/SVLS/002", "category": "Pokemon", "types": ["Fire"], "hp": 120, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 8.82}}, "currency": "USD", "pricedAt": "2026-09-18T00:30:05Z"}, "nameJa": "キュウコン", "imageSmall": "https://images.pkmnprices.com/cards/6108bebbcf6abed3.webp", "imageLarge": "https://images.pkmnprices.com/cards/6108bebbcf6abed3.webp", "ppId": 38018}, {"id": "SVLS-003", "localId": "003", "name": "Ho-Oh", "rarity": "None", "illustrator": "kodama", "image": "https://assets.tcgdex.net/ja/SV/SVLS/003", "category": "Pokemon", "types": ["Fire"], "hp": 130, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 5.0}}, "currency": "USD", "pricedAt": "2026-09-18T00:30:05Z"}, "nameJa": "ホウオウ", "imageSmall": "https://images.pkmnprices.com/cards/6fe38a03558e0568.webp", "imageLarge": "https://images.pkmnprices.com/cards/6fe38a03558e0568.webp", "ppId": 38038}, {"id": "SVLS-004", "localId": "004", "name": "Oricorio", "rarity": "None", "illustrator": "Heisuke Kitazawa", "image": "https://assets.tcgdex.net/ja/SV/SVLS/004", "category": "Pokemon", "types": ["Fire"], "hp": 90, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 1.5}}, "currency": "EUR", "pricedAt": "2026-09-18T00:30:05Z"}, "nameJa": "オドリドリ", "imageSmall": "https://images.pkmnprices.com/cards/4de54a377a8b5d55.webp", "imageLarge": "https://images.pkmnprices.com/cards/4de54a377a8b5d55.webp", "ppId": 38027}, {"id": "SVLS-005", "localId": "005", "name": "Charcadet", "rarity": "None", "illustrator": "Kariya", "image": "https://assets.tcgdex.net/ja/SV/SVLS/005", "category": "Pokemon", "types": ["Fire"], "hp": 70, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 3.0}}, "currency": "USD", "pricedAt": "2026-09-18T00:30:05Z"}, "nameJa": "カルボウ", "imageSmall": "https://images.pkmnprices.com/cards/fd9315946d150b97.webp", "imageLarge": "https://images.pkmnprices.com/cards/fd9315946d150b97.webp", "ppId": 37987}, {"id": "SVLS-006", "localId": "006", "name": "Ceruledge ex", "rarity": "None", "illustrator": "5ban Graphics", "image": "https://assets.tcgdex.net/ja/SV/SVLS/006", "category": "Pokemon", "types": ["Fire"], "hp": 270, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 15.37}}, "currency": "USD", "pricedAt": "2026-09-18T00:30:05Z"}, "nameJa": "ソウブレイズex", "imageSmall": "https://images.pkmnprices.com/cards/7b033d011802ba41.webp", "imageLarge": "https://images.pkmnprices.com/cards/7b033d011802ba41.webp", "ppId": 38116}, {"id": "SVLS-007", "localId": "007", "name": "Sigilyph", "rarity": "None", "illustrator": "svlt", "image": "https://assets.tcgdex.net/ja/SV/SVLS/007", "category": "Pokemon", "types": ["Psychic"], "hp": 110, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.97}}, "currency": "EUR", "pricedAt": "2026-09-18T00:30:05Z"}, "nameJa": "シンボラー", "imageSmall": "https://images.pkmnprices.com/cards/2de705d57061cb23.webp", "imageLarge": "https://images.pkmnprices.com/cards/2de705d57061cb23.webp", "ppId": 38030}, {"id": "SVLS-008", "localId": "008", "name": "Registeel", "rarity": "None", "illustrator": "Shiburingaru", "image": "https://assets.tcgdex.net/ja/SV/SVLS/008", "category": "Pokemon", "types": ["Metal"], "hp": 130, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 1.0}}, "currency": "USD", "pricedAt": "2026-09-18T00:30:05Z"}, "nameJa": "レジスチル", "imageSmall": "https://images.pkmnprices.com/cards/f7988d1dd929dd3a.webp", "imageLarge": "https://images.pkmnprices.com/cards/f7988d1dd929dd3a.webp", "ppId": 38002}, {"id": "SVLS-009", "localId": "009", "name": "Hoothoot", "rarity": "None", "illustrator": "Yukihiro Tada", "image": "https://assets.tcgdex.net/ja/SV/SVLS/009", "category": "Pokemon", "types": ["Colorless"], "hp": 70, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.5}}, "currency": "EUR", "pricedAt": "2026-09-18T00:30:05Z"}, "nameJa": "ホーホー", "imageSmall": "https://images.pkmnprices.com/cards/5c9049fac83315a7.webp", "imageLarge": "https://images.pkmnprices.com/cards/5c9049fac83315a7.webp", "ppId": 38011}, {"id": "SVLS-010", "localId": "010", "name": "Noctowl", "rarity": "None", "illustrator": "matazo", "image": "https://assets.tcgdex.net/ja/SV/SVLS/010", "category": "Pokemon", "types": ["Colorless"], "hp": 100, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 1.79}}, "currency": "USD", "pricedAt": "2026-09-18T00:30:05Z"}, "nameJa": "ヨルノズク", "imageSmall": "https://images.pkmnprices.com/cards/0544c22fe6dc9709.webp", "imageLarge": "https://images.pkmnprices.com/cards/0544c22fe6dc9709.webp", "ppId": 38035}, {"id": "SVLS-011", "localId": "011", "name": "Super Rod", "rarity": "None", "illustrator": "Toyste Beach", "image": "https://assets.tcgdex.net/ja/SV/SVLS/011", "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.05}}, "currency": "EUR", "pricedAt": "2026-09-18T00:30:05Z"}, "nameJa": "すごいつりざお", "imageSmall": "https://images.pkmnprices.com/cards/4420a624a654f21e.webp", "imageLarge": "https://images.pkmnprices.com/cards/4420a624a654f21e.webp", "ppId": 38025}, {"id": "SVLS-012", "localId": "012", "name": "Tera Orb", "rarity": "None", "illustrator": "Ayaka Yoshida", "image": "https://assets.tcgdex.net/ja/SV/SVLS/012", "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.15}}, "currency": "EUR", "pricedAt": "2026-09-18T00:30:05Z"}, "nameJa": "テラスタルオーブ", "imageSmall": "https://images.pkmnprices.com/cards/94fe5e9eedaacb62.webp", "imageLarge": "https://images.pkmnprices.com/cards/94fe5e9eedaacb62.webp", "ppId": 38068}, {"id": "SVLS-013", "localId": "013", "name": "Nest Ball", "rarity": "None", "illustrator": "Toyste Beach", "image": "https://assets.tcgdex.net/ja/SV/SVLS/013", "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.15}}, "currency": "EUR", "pricedAt": "2026-09-18T00:30:05Z"}, "nameJa": "ネストボール", "imageSmall": "https://images.pkmnprices.com/cards/3fdd16e54dbfd3af.webp", "imageLarge": "https://images.pkmnprices.com/cards/3fdd16e54dbfd3af.webp", "ppId": 38019}, {"id": "SVLS-014", "localId": "014", "name": "Brilliant Blender", "rarity": "None", "illustrator": "Toyste Beach", "image": "https://assets.tcgdex.net/ja/SV/SVLS/014", "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 1.76}}, "currency": "EUR", "pricedAt": "2026-09-18T00:30:05Z"}, "nameJa": "パーフェクトミキサー", "imageSmall": "https://images.pkmnprices.com/cards/5b0421863181c74a.webp", "imageLarge": "https://images.pkmnprices.com/cards/5b0421863181c74a.webp", "ppId": 38021}, {"id": "SVLS-015", "localId": "015", "name": "Ultra Ball", "rarity": "None", "illustrator": "Ayaka Yoshida", "image": "https://assets.tcgdex.net/ja/SV/SVLS/015", "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.02}}, "currency": "EUR", "pricedAt": "2026-09-18T00:30:05Z"}, "nameJa": "ハイパーボール", "imageSmall": "https://images.pkmnprices.com/cards/2f38f4ca8d3410f9.webp", "imageLarge": "https://images.pkmnprices.com/cards/2f38f4ca8d3410f9.webp", "ppId": 38004}, {"id": "SVLS-016", "localId": "016", "name": "Pokegear 3.0", "rarity": "None", "illustrator": "Toyste Beach", "image": "https://assets.tcgdex.net/ja/SV/SVLS/016", "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.15}}, "currency": "EUR", "pricedAt": "2026-09-18T00:30:05Z"}, "nameJa": "ポケギア3.0", "imageSmall": "https://images.pkmnprices.com/cards/27fa754c70e4b776.webp", "imageLarge": "https://images.pkmnprices.com/cards/27fa754c70e4b776.webp", "ppId": 38039}, {"id": "SVLS-017", "localId": "017", "name": "Switch", "rarity": "None", "illustrator": "Studio Bora Inc.", "image": "https://assets.tcgdex.net/ja/SV/SVLS/017", "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": null, "nameJa": "ポケモンいれかえ", "imageSmall": "https://archives.bulbagarden.net/media/upload/b/be/SwitchBaseSet95.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/b/be/SwitchBaseSet95.jpg"}, {"id": "SVLS-018", "localId": "018", "name": "Crispin", "rarity": "None", "illustrator": "GIDORA", "image": "https://assets.tcgdex.net/ja/SV/SVLS/018", "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 1.9}}, "currency": "EUR", "pricedAt": "2026-09-18T00:30:05Z"}, "nameJa": "アカマツ", "imageSmall": "https://images.pkmnprices.com/cards/ffaa4d6d988bbaaf.webp", "imageLarge": "https://images.pkmnprices.com/cards/ffaa4d6d988bbaaf.webp", "ppId": 38015}, {"id": "SVLS-019", "localId": "019", "name": "Iono", "rarity": "None", "illustrator": "Sanosuke Sakuma", "image": "https://assets.tcgdex.net/ja/SV/SVLS/019", "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.15}}, "currency": "EUR", "pricedAt": "2026-09-18T00:30:05Z"}, "nameJa": "ナンジャモ", "imageSmall": "https://images.pkmnprices.com/cards/72bc7d8338906fb3.webp", "imageLarge": "https://images.pkmnprices.com/cards/72bc7d8338906fb3.webp", "ppId": 38041}, {"id": "SVLS-020", "localId": "020", "name": "Nemona", "rarity": "None", "illustrator": "Sanosuke Sakuma", "image": "https://assets.tcgdex.net/ja/SV/SVLS/020", "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.15}}, "currency": "EUR", "pricedAt": "2026-09-18T00:30:05Z"}, "nameJa": "ネモ", "imageSmall": "https://images.pkmnprices.com/cards/0adfbc9ac0ad7cfd.webp", "imageLarge": "https://images.pkmnprices.com/cards/0adfbc9ac0ad7cfd.webp", "ppId": 38008}, {"id": "SVLS-021", "localId": "021", "name": "Professor's Research", "rarity": "None", "illustrator": "kirisAki", "image": "https://assets.tcgdex.net/ja/SV/SVLS/021", "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.13}}, "currency": "EUR", "pricedAt": "2026-09-18T00:30:05Z"}, "nameJa": "博士の研究", "imageSmall": "https://images.pkmnprices.com/cards/61b2f62733ba818f.webp", "imageLarge": "https://images.pkmnprices.com/cards/61b2f62733ba818f.webp", "ppId": 38081}, {"id": "SVLS-022", "localId": "022", "name": "Boss's Orders", "rarity": "None", "illustrator": "NC Empire", "image": "https://assets.tcgdex.net/ja/SV/SVLS/022", "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.15}}, "currency": "EUR", "pricedAt": "2026-09-18T00:30:05Z"}, "nameJa": "ボスの指令", "imageSmall": "https://images.pkmnprices.com/cards/136ba8471609930c.webp", "imageLarge": "https://images.pkmnprices.com/cards/136ba8471609930c.webp", "ppId": 38014}]}
+{
+ "generated_at": "2026-09-16T01:37:07.082263+00:00",
+ "set": {
+  "id": "SVLS",
+  "name": "Stellar Tera Type Starter Set Ceruledge ex",
+  "series": "ポケモンカードゲーム スカーレット&バイオレット",
+  "releaseDate": "2024-08-30",
+  "logo": null,
+  "symbol": "/data/tcgdex/set-symbols/ja/SVLS.png",
+  "printedTotal": 22,
+  "total": 22,
+  "lang": "ja",
+  "nameJa": "スターターセット テラスタイプ：ステラ ソウブレイズex"
+ },
+ "cards": [
+  {
+   "id": "SVLS-001",
+   "localId": "001",
+   "name": "Vulpix",
+   "rarity": "None",
+   "illustrator": "Narumi Sato",
+   "image": "https://assets.tcgdex.net/ja/SV/SVLS/001",
+   "category": "Pokemon",
+   "types": [
+    "Fire"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 4.5
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-18T00:30:05Z"
+   },
+   "nameJa": "ロコン",
+   "imageSmall": "https://images.pkmnprices.com/cards/5ddaa02725eb8f1d.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/5ddaa02725eb8f1d.webp",
+   "ppId": 38045
+  },
+  {
+   "id": "SVLS-002",
+   "localId": "002",
+   "name": "Ninetales",
+   "rarity": "None",
+   "illustrator": "Kamome Shirahama",
+   "image": "https://assets.tcgdex.net/ja/SV/SVLS/002",
+   "category": "Pokemon",
+   "types": [
+    "Fire"
+   ],
+   "hp": 120,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 8.82
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-18T00:30:05Z"
+   },
+   "nameJa": "キュウコン",
+   "imageSmall": "https://images.pkmnprices.com/cards/6108bebbcf6abed3.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/6108bebbcf6abed3.webp",
+   "ppId": 38018
+  },
+  {
+   "id": "SVLS-003",
+   "localId": "003",
+   "name": "Ho-Oh",
+   "rarity": "None",
+   "illustrator": "kodama",
+   "image": "https://assets.tcgdex.net/ja/SV/SVLS/003",
+   "category": "Pokemon",
+   "types": [
+    "Fire"
+   ],
+   "hp": 130,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 5.0
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-18T00:30:05Z"
+   },
+   "nameJa": "ホウオウ",
+   "imageSmall": "https://images.pkmnprices.com/cards/6fe38a03558e0568.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/6fe38a03558e0568.webp",
+   "ppId": 38038
+  },
+  {
+   "id": "SVLS-004",
+   "localId": "004",
+   "name": "Oricorio",
+   "rarity": "None",
+   "illustrator": "Heisuke Kitazawa",
+   "image": "https://assets.tcgdex.net/ja/SV/SVLS/004",
+   "category": "Pokemon",
+   "types": [
+    "Fire"
+   ],
+   "hp": 90,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 1.5
+     }
+    },
+    "currency": "EUR",
+    "pricedAt": "2026-09-18T00:30:05Z"
+   },
+   "nameJa": "オドリドリ",
+   "imageSmall": "https://images.pkmnprices.com/cards/4de54a377a8b5d55.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/4de54a377a8b5d55.webp",
+   "ppId": 38027
+  },
+  {
+   "id": "SVLS-005",
+   "localId": "005",
+   "name": "Charcadet",
+   "rarity": "None",
+   "illustrator": "Kariya",
+   "image": "https://assets.tcgdex.net/ja/SV/SVLS/005",
+   "category": "Pokemon",
+   "types": [
+    "Fire"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 3.0
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-18T00:30:05Z"
+   },
+   "nameJa": "カルボウ",
+   "imageSmall": "https://images.pkmnprices.com/cards/fd9315946d150b97.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/fd9315946d150b97.webp",
+   "ppId": 37987
+  },
+  {
+   "id": "SVLS-006",
+   "localId": "006",
+   "name": "Ceruledge ex",
+   "rarity": "None",
+   "illustrator": "5ban Graphics",
+   "image": "https://assets.tcgdex.net/ja/SV/SVLS/006",
+   "category": "Pokemon",
+   "types": [
+    "Fire"
+   ],
+   "hp": 270,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 15.37
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-18T00:30:05Z"
+   },
+   "nameJa": "ソウブレイズex",
+   "imageSmall": "https://images.pkmnprices.com/cards/7b033d011802ba41.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/7b033d011802ba41.webp",
+   "ppId": 38116
+  },
+  {
+   "id": "SVLS-007",
+   "localId": "007",
+   "name": "Sigilyph",
+   "rarity": "None",
+   "illustrator": "svlt",
+   "image": "https://assets.tcgdex.net/ja/SV/SVLS/007",
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": 110,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.97
+     }
+    },
+    "currency": "EUR",
+    "pricedAt": "2026-09-18T00:30:05Z"
+   },
+   "nameJa": "シンボラー",
+   "imageSmall": "https://images.pkmnprices.com/cards/2de705d57061cb23.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/2de705d57061cb23.webp",
+   "ppId": 38030
+  },
+  {
+   "id": "SVLS-008",
+   "localId": "008",
+   "name": "Registeel",
+   "rarity": "None",
+   "illustrator": "Shiburingaru",
+   "image": "https://assets.tcgdex.net/ja/SV/SVLS/008",
+   "category": "Pokemon",
+   "types": [
+    "Metal"
+   ],
+   "hp": 130,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 1.0
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-18T00:30:05Z"
+   },
+   "nameJa": "レジスチル",
+   "imageSmall": "https://images.pkmnprices.com/cards/f7988d1dd929dd3a.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/f7988d1dd929dd3a.webp",
+   "ppId": 38002
+  },
+  {
+   "id": "SVLS-009",
+   "localId": "009",
+   "name": "Hoothoot",
+   "rarity": "None",
+   "illustrator": "Yukihiro Tada",
+   "image": "https://assets.tcgdex.net/ja/SV/SVLS/009",
+   "category": "Pokemon",
+   "types": [
+    "Colorless"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.5
+     }
+    },
+    "currency": "EUR",
+    "pricedAt": "2026-09-18T00:30:05Z"
+   },
+   "nameJa": "ホーホー",
+   "imageSmall": "https://images.pkmnprices.com/cards/5c9049fac83315a7.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/5c9049fac83315a7.webp",
+   "ppId": 38011
+  },
+  {
+   "id": "SVLS-010",
+   "localId": "010",
+   "name": "Noctowl",
+   "rarity": "None",
+   "illustrator": "matazo",
+   "image": "https://assets.tcgdex.net/ja/SV/SVLS/010",
+   "category": "Pokemon",
+   "types": [
+    "Colorless"
+   ],
+   "hp": 100,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 1.79
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-18T00:30:05Z"
+   },
+   "nameJa": "ヨルノズク",
+   "imageSmall": "https://images.pkmnprices.com/cards/0544c22fe6dc9709.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/0544c22fe6dc9709.webp",
+   "ppId": 38035
+  },
+  {
+   "id": "SVLS-011",
+   "localId": "011",
+   "name": "Super Rod",
+   "rarity": "None",
+   "illustrator": "Toyste Beach",
+   "image": "https://assets.tcgdex.net/ja/SV/SVLS/011",
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.05
+     }
+    },
+    "currency": "EUR",
+    "pricedAt": "2026-09-18T00:30:05Z"
+   },
+   "nameJa": "すごいつりざお",
+   "imageSmall": "https://images.pkmnprices.com/cards/4420a624a654f21e.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/4420a624a654f21e.webp",
+   "ppId": 38025
+  },
+  {
+   "id": "SVLS-012",
+   "localId": "012",
+   "name": "Tera Orb",
+   "rarity": "None",
+   "illustrator": "Ayaka Yoshida",
+   "image": "https://assets.tcgdex.net/ja/SV/SVLS/012",
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.15
+     }
+    },
+    "currency": "EUR",
+    "pricedAt": "2026-09-18T00:30:05Z"
+   },
+   "nameJa": "テラスタルオーブ",
+   "imageSmall": "https://images.pkmnprices.com/cards/94fe5e9eedaacb62.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/94fe5e9eedaacb62.webp",
+   "ppId": 38068
+  },
+  {
+   "id": "SVLS-013",
+   "localId": "013",
+   "name": "Nest Ball",
+   "rarity": "None",
+   "illustrator": "Toyste Beach",
+   "image": "https://assets.tcgdex.net/ja/SV/SVLS/013",
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.15
+     }
+    },
+    "currency": "EUR",
+    "pricedAt": "2026-09-18T00:30:05Z"
+   },
+   "nameJa": "ネストボール",
+   "imageSmall": "https://images.pkmnprices.com/cards/3fdd16e54dbfd3af.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/3fdd16e54dbfd3af.webp",
+   "ppId": 38019
+  },
+  {
+   "id": "SVLS-014",
+   "localId": "014",
+   "name": "Brilliant Blender",
+   "rarity": "None",
+   "illustrator": "Toyste Beach",
+   "image": "https://assets.tcgdex.net/ja/SV/SVLS/014",
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 1.76
+     }
+    },
+    "currency": "EUR",
+    "pricedAt": "2026-09-18T00:30:05Z"
+   },
+   "nameJa": "パーフェクトミキサー",
+   "imageSmall": "https://images.pkmnprices.com/cards/5b0421863181c74a.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/5b0421863181c74a.webp",
+   "ppId": 38021
+  },
+  {
+   "id": "SVLS-015",
+   "localId": "015",
+   "name": "Ultra Ball",
+   "rarity": "None",
+   "illustrator": "Ayaka Yoshida",
+   "image": "https://assets.tcgdex.net/ja/SV/SVLS/015",
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.02
+     }
+    },
+    "currency": "EUR",
+    "pricedAt": "2026-09-18T00:30:05Z"
+   },
+   "nameJa": "ハイパーボール",
+   "imageSmall": "https://images.pkmnprices.com/cards/2f38f4ca8d3410f9.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/2f38f4ca8d3410f9.webp",
+   "ppId": 38004
+  },
+  {
+   "id": "SVLS-016",
+   "localId": "016",
+   "name": "Pokegear 3.0",
+   "rarity": "None",
+   "illustrator": "Toyste Beach",
+   "image": "https://assets.tcgdex.net/ja/SV/SVLS/016",
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.15
+     }
+    },
+    "currency": "EUR",
+    "pricedAt": "2026-09-18T00:30:05Z"
+   },
+   "nameJa": "ポケギア3.0",
+   "imageSmall": "https://images.pkmnprices.com/cards/27fa754c70e4b776.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/27fa754c70e4b776.webp",
+   "ppId": 38039
+  },
+  {
+   "id": "SVLS-017",
+   "localId": "017",
+   "name": "Switch",
+   "rarity": "None",
+   "illustrator": "Studio Bora Inc.",
+   "image": "https://assets.tcgdex.net/ja/SV/SVLS/017",
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "nameJa": "ポケモンいれかえ",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/b/be/SwitchBaseSet95.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/b/be/SwitchBaseSet95.jpg"
+  },
+  {
+   "id": "SVLS-018",
+   "localId": "018",
+   "name": "Crispin",
+   "rarity": "None",
+   "illustrator": "GIDORA",
+   "image": "https://assets.tcgdex.net/ja/SV/SVLS/018",
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 1.9
+     }
+    },
+    "currency": "EUR",
+    "pricedAt": "2026-09-18T00:30:05Z"
+   },
+   "nameJa": "アカマツ",
+   "imageSmall": "https://images.pkmnprices.com/cards/ffaa4d6d988bbaaf.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/ffaa4d6d988bbaaf.webp",
+   "ppId": 38015
+  },
+  {
+   "id": "SVLS-019",
+   "localId": "019",
+   "name": "Iono",
+   "rarity": "None",
+   "illustrator": "Sanosuke Sakuma",
+   "image": "https://assets.tcgdex.net/ja/SV/SVLS/019",
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.15
+     }
+    },
+    "currency": "EUR",
+    "pricedAt": "2026-09-18T00:30:05Z"
+   },
+   "nameJa": "ナンジャモ",
+   "imageSmall": "https://images.pkmnprices.com/cards/72bc7d8338906fb3.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/72bc7d8338906fb3.webp",
+   "ppId": 38041
+  },
+  {
+   "id": "SVLS-020",
+   "localId": "020",
+   "name": "Nemona",
+   "rarity": "None",
+   "illustrator": "Sanosuke Sakuma",
+   "image": "https://assets.tcgdex.net/ja/SV/SVLS/020",
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.15
+     }
+    },
+    "currency": "EUR",
+    "pricedAt": "2026-09-18T00:30:05Z"
+   },
+   "nameJa": "ネモ",
+   "imageSmall": "https://images.pkmnprices.com/cards/0adfbc9ac0ad7cfd.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/0adfbc9ac0ad7cfd.webp",
+   "ppId": 38008
+  },
+  {
+   "id": "SVLS-021",
+   "localId": "021",
+   "name": "Professor's Research",
+   "rarity": "None",
+   "illustrator": "kirisAki",
+   "image": "https://assets.tcgdex.net/ja/SV/SVLS/021",
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.13
+     }
+    },
+    "currency": "EUR",
+    "pricedAt": "2026-09-18T00:30:05Z"
+   },
+   "nameJa": "博士の研究",
+   "imageSmall": "https://images.pkmnprices.com/cards/61b2f62733ba818f.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/61b2f62733ba818f.webp",
+   "ppId": 38081
+  },
+  {
+   "id": "SVLS-022",
+   "localId": "022",
+   "name": "Boss's Orders",
+   "rarity": "None",
+   "illustrator": "NC Empire",
+   "image": "https://assets.tcgdex.net/ja/SV/SVLS/022",
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.15
+     }
+    },
+    "currency": "EUR",
+    "pricedAt": "2026-09-18T00:30:05Z"
+   },
+   "nameJa": "ボスの指令",
+   "imageSmall": "https://images.pkmnprices.com/cards/136ba8471609930c.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/136ba8471609930c.webp",
+   "ppId": 38014
+  }
+ ]
+}
