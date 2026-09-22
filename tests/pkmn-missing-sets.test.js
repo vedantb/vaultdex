@@ -1,0 +1,131 @@
+/* VaultDex unit tests — the 2026-09-22 M6a cross-set pricing fix.
+ *
+ * PkmnPrices carries no Japanese M6a (30th Celebration), MC, or SM1p cards.
+ * The number-only fallbacks in findCardId()/findVariantPrice() used to
+ * silently match a DIFFERENT set's card with the same number — M6a Pikachu
+ * #017 was priced as SV2D Clay Burst #017, which ranked false ~$800 cards
+ * at the top of the collection. These tests pin the guard:
+ *   1. Unsupported Japanese sets never match via the number-only fallback.
+ *   2. Unsupported Japanese rows always come back unpriced.
+ *   3. Supported sets still resolve exact printings (no regression).
+ *   4. English pricing is never substituted for Japanese cards.
+ */
+import { describe, test, expect, beforeEach, afterEach } from "vitest";
+import "../js/util.js";
+import "../js/pkmn.js";
+
+const P = window.App.pkmn;
+
+/* Fake the /v1/cards search response the way the proxy returns it:
+ * { data: [{ id, set: { name }, number, ... }] }. */
+function cardsApiResponse(cards) {
+  return { data: cards.map((c) => ({ id: c.id, set: { name: c.set }, number: c.num })) };
+}
+
+const CLAY_BURST_PIKACHU_017 = { id: "52452", set: "SV2D: Clay Burst", num: "017" };
+const M4_PIKACHU = { id: "90001", set: "M4: Mega Evolution", num: "023" };
+
+/* pkmn.js's api() uses App.util.fetchWithTimeout(PROXY + "?" + q...).
+ * Swap in a stub that routes /v1/cards to canned payloads. */
+function stubApi(handler) {
+  window.App.util.fetchWithTimeout = async (url) => {
+    const u = new URL(url, "https://x.test");
+    const path = u.searchParams.get("path");
+    const payload = handler(path, Object.fromEntries(u.searchParams));
+    return { ok: true, status: 200, json: async () => payload };
+  };
+}
+
+const realFetchWithTimeout = window.App.util.fetchWithTimeout;
+afterEach(() => {
+  window.App.util.fetchWithTimeout = realFetchWithTimeout;
+  // idCache lives inside the module closure; bypass it with fresh args per test.
+});
+
+describe("pkmnMissingSet", () => {
+  test("flags the three unsupported Japanese sets", () => {
+    expect(P.pkmnMissingSet("30th Celebration", "ja")).toBe(true); // M6a
+    expect(P.pkmnMissingSet("Starter Decks 100 Battle Collection", "ja")).toBe(true); // MC
+    expect(P.pkmnMissingSet("Sun and Moon Plus", "ja")).toBe(true); // SM1p
+  });
+  test("leaves supported Japanese sets alone", () => {
+    expect(P.pkmnMissingSet("Mega Evolution", "ja")).toBe(false);
+  });
+  test("leaves English sets alone", () => {
+    expect(P.pkmnMissingSet("30th Celebration", "en")).toBe(false);
+    expect(P.pkmnMissingSet("Clay Burst", "en")).toBe(false);
+  });
+});
+
+describe("findCardId — unsupported Japanese sets", () => {
+  beforeEach(() => {
+    // Provider knows Clay Burst #017 and M4 #023, but nothing for M6a.
+    stubApi(() => cardsApiResponse([CLAY_BURST_PIKACHU_017, M4_PIKACHU]));
+  });
+  test("M6a Pikachu #017 does NOT resolve to Clay Burst #017", async () => {
+    const id = await P.findCardId({ name: "Pikachu", setName: "30th Celebration", number: "017", lang: "ja" });
+    expect(id).toBeNull();
+  });
+  test("M6a lookup returns null instead of any cross-set number hit", async () => {
+    const id = await P.findCardId({ name: "Pikachu", setName: "30th Celebration", number: "023", lang: "ja" });
+    expect(id).toBeNull();
+  });
+  test("MC cards never match another set's card", async () => {
+    const id = await P.findCardId({ name: "Charizard", setName: "Starter Decks 100 Battle Collection", number: "017", lang: "ja" });
+    expect(id).toBeNull();
+  });
+});
+
+describe("findCardId — supported sets still resolve exactly", () => {
+  beforeEach(() => {
+    stubApi(() => cardsApiResponse([CLAY_BURST_PIKACHU_017, M4_PIKACHU]));
+  });
+  test("exact set+number match still wins for a supported set", async () => {
+    const id = await P.findCardId({ name: "Pikachu", setName: "Mega Evolution", number: "023", lang: "ja" });
+    expect(id).toBe("90001");
+  });
+});
+
+describe("findVariantPrice — unsupported Japanese sets stay unpriced", () => {
+  beforeEach(() => {
+    stubApi(() => cardsApiResponse([CLAY_BURST_PIKACHU_017, M4_PIKACHU]));
+  });
+  test("M6a Pikachu #017 returns null, not Clay Burst's price", async () => {
+    const m = await P.findVariantPrice({
+      name: "Pikachu", setName: "30th Celebration", number: "017", lang: "ja",
+      pkmnLabel: "holofoil", priceVariant: "holofoil"
+    });
+    expect(m).toBeNull();
+  });
+});
+
+describe("priceForRow — unsupported Japanese rows stay unpriced", () => {
+  test("a row with a stale pkmn_id is not priced off it", async () => {
+    stubApi(() => {
+      throw new Error("should never be called");
+    });
+    const p = await P.priceForRow({
+      card_name: "Pikachu",
+      set_name: "30th Celebration",
+      number: "017",
+      variant: "Holo",
+      lang: "ja",
+      pkmn_id: "52452", // poisoned residue from the old fallback
+    });
+    expect(p).toBeNull();
+  });
+  test("a row with no pkmn_id never looks the provider up", async () => {
+    stubApi(() => {
+      throw new Error("should never be called");
+    });
+    const p = await P.priceForRow({
+      card_name: "Pikachu",
+      set_name: "30th Celebration",
+      number: "017",
+      variant: "Holo",
+      lang: "ja",
+      pkmn_id: null,
+    });
+    expect(p).toBeNull();
+  });
+});

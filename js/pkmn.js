@@ -58,6 +58,26 @@
     return s.trim().toLowerCase();
   }
 
+  /* Japanese sets PkmnPrices doesn't carry at all (verified 2026-09-22:
+   * M6a is absent from their full Japanese set list; MC and SM1p have no
+   * PkmnPrices equivalent). For these, the number-only fallback would
+   * silently match a DIFFERENT set's card with the same number — pricing
+   * M6a Pikachu #017 as SV2D Clay Burst #017, for example. A missing price
+   * is honest; a cross-set price is a lie. Keyed lang|normalized-set-name.
+   * When the provider adds coverage, remove the entry and re-verify. */
+  var PKMN_MISSING_SETS = {
+    "ja|30th celebration": true,                    /* M6a */
+    "ja|starter decks 100 battle collection": true, /* MC */
+    "ja|sun and moon plus": true                    /* SM1p */
+  };
+
+  /* True when PkmnPrices has no cards for this set at all — the unsafe
+   * number-only fallbacks in findCardId()/findVariantPrice() must be
+   * skipped so these sets can never price from another set's printing. */
+  function pkmnMissingSet(setName, lang) {
+    return !!PKMN_MISSING_SETS[String(lang === "ja" ? "ja" : "en") + "|" + normSetName(setName)];
+  }
+
   /* "(Poke Ball)" suffix of a PkmnPrices record name, e.g.
    * "Erika's Oddish (Poke Ball)" -> "Poke Ball". Null for base records. */
   function recordLabel(name) {
@@ -97,8 +117,10 @@
       if (normSetName(setName) === wantSet && normNumber(c.number) === wantNum) hit = c;
     });
     // Fallback: name + number matched but set name didn't normalize cleanly
-    // (e.g. promo sets) — take the first number-exact hit.
-    if (!hit) {
+    // (e.g. promo sets) — take the first number-exact hit. Skipped for sets
+    // PkmnPrices doesn't carry at all: there the exact match already failed
+    // for good reason, and any number hit is necessarily another set's card.
+    if (!hit && !pkmnMissingSet(opts.setName, opts.lang)) {
       (json.data || []).forEach(function (c) {
         if (hit) return;
         if (normNumber(c.number) === wantNum) hit = c;
@@ -169,7 +191,10 @@
     var cands = all.filter(function (c) {
       return normSetName(c.set && c.set.name) === wantSet && normNumber(c.number) === wantNum;
     });
-    if (!cands.length) {
+    if (!cands.length && !pkmnMissingSet(opts.setName, opts.lang)) {
+      /* Number-only fallback for promo sets whose names normalize oddly.
+       * Never for unsupported sets: the exact match already failed for good
+       * reason, and any hit here is another set's printing. */
       cands = all.filter(function (c) { return normNumber(c.number) === wantNum; });
     }
     if (!cands.length) return null;
@@ -274,6 +299,11 @@
    * English prices are never substituted for Japanese cards. */
   async function priceForRow(row) {
     var lang = row.lang || App.util.langOf(row);
+    /* Unsupported sets (M6a/MC/SM1p): the provider carries no cards for
+     * them, so a stored pkmn_id here could only be cross-set residue from
+     * the removed number-only fallback — never price off it. Return null so
+     * the refresh loop leaves these rows untouched (unpriced is honest). */
+    if (pkmnMissingSet(row.set_name, lang)) return null;
     if (row.pkmn_id) return nearMintPrice(row.pkmn_id, row.variant);
     var number = row.number || guessNumber(row.card_id);
     if (!row.card_name || !number) return null;
@@ -296,6 +326,7 @@
     gradedPrice: gradedPrice,
     priceForRow: priceForRow,
     normSetName: normSetName,
+    pkmnMissingSet: pkmnMissingSet,
     PkmnError: PkmnError
   };
 })();

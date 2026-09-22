@@ -204,6 +204,10 @@
         .range(from, to);
     });
     await backfillRowImages(rows, true);
+    /* One-shot repair: unsupported Japanese sets (M6a/MC/SM1p) can hold a
+     * poisoned pkmn_id + price from the removed number-only fallback —
+     * e.g. M6a Pikachu #017 priced as SV2D Clay Burst #017. Clear them. */
+    await repairMissingSetPrices(rows);
     return rows;
   }
 
@@ -276,6 +280,51 @@
     return { added: true, priceSource: addedPriceSource };
   }
 
+  /* One-shot repair (2026-09-22): rows from Japanese sets PkmnPrices doesn't
+   * carry (M6a, MC, SM1p) can hold a pkmn_id + market_price from the unsafe
+   * number-only fallback — e.g. M6a Pikachu #017 priced as SV2D Clay Burst
+   * #017, which ranked M6a cards at the top of the collection by value.
+   * Those IDs and prices were never real. Clear them all — id and price
+   * fields plus mover history — while keeping quantity, ownership, variant,
+   * images, and grading data untouched. Idempotent: rows already clean are
+   * skipped, so later runs are a no-op. */
+  async function repairMissingSetPrices(rows) {
+    var u = App.auth.user;
+    if (!u || !rows || !rows.length || !App.pkmn || typeof App.pkmn.pkmnMissingSet !== "function") return;
+    var bad = rows.filter(function (r) {
+      return r && r.pkmn_id && App.pkmn.pkmnMissingSet(r.set_name, App.util.langOf(r));
+    });
+    if (!bad.length) return;
+    console.warn("[VaultDex] clearing cross-set prices from", bad.length, "unsupported-set row(s)");
+    for (var i = 0; i < bad.length; i++) {
+      var row = bad[i];
+      try {
+        var up = await App.sb
+          .from("collection_items")
+          .update({
+            pkmn_id: null,
+            market_price: null,
+            price_source: null,
+            price_updated_at: null,
+            prev_price: null,
+            prev_price_at: null
+          })
+          .eq("id", row.id)
+          .eq("user_id", u.id);
+        if (!up.error) {
+          row.pkmn_id = null;
+          row.market_price = null;
+          row.price_source = null;
+          row.price_updated_at = null;
+          row.prev_price = null;
+          row.prev_price_at = null;
+        }
+      } catch (e) {
+        console.warn("[VaultDex] missing-set repair failed for", row.card_name, e && e.message);
+      }
+    }
+  }
+
   /* Backfill: rows that carry no pkmn_id (added before the per-variant
    * checkboxes existed, or while PkmnPrices was unreachable) are mapped to
    * their exact print-variant PkmnPrices record — name + set + number +
@@ -287,6 +336,10 @@
     for (var i = 0; i < rows.length; i++) {
       var row = rows[i];
       if (row.pkmn_id) continue;
+      /* Never re-poison: unsupported sets stay unpriced until the provider
+       * carries them. */
+      if (App.pkmn && typeof App.pkmn.pkmnMissingSet === "function" &&
+          App.pkmn.pkmnMissingSet(row.set_name, App.util.langOf(row))) continue;
       try {
         var pv = App.tcg.printVariantForLabel(row.variant);
         var m = await App.pkmn.findVariantPrice({
