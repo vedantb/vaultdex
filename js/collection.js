@@ -280,20 +280,30 @@
     return { added: true, priceSource: addedPriceSource };
   }
 
+  /* Pure predicate for the missing-set repair: a row from an unsupported
+   * set needs clearing when it carries any pricing residue — a stored
+   * pkmn_id OR a market_price written without an ID (the old number-only
+   * fallback priced rows via priceForRow without persisting pkmn_id).
+   * Exported for unit tests. */
+  function needsMissingSetRepair(row) {
+    if (!row || !App.pkmn || typeof App.pkmn.pkmnMissingSet !== "function") return false;
+    if (!App.pkmn.pkmnMissingSet(row.set_name, App.util.langOf(row))) return false;
+    return !!(row.pkmn_id || row.market_price != null);
+  }
+
   /* One-shot repair (2026-09-22): rows from Japanese sets PkmnPrices doesn't
    * carry (M6a, MC, SM1p) can hold a pkmn_id + market_price from the unsafe
    * number-only fallback — e.g. M6a Pikachu #017 priced as SV2D Clay Burst
    * #017, which ranked M6a cards at the top of the collection by value.
-   * Those IDs and prices were never real. Clear them all — id and price
+   * Some rows were priced without a pkmn_id, so any market_price on these
+   * sets is cross-set residue too. Clear them all — id and price
    * fields plus mover history — while keeping quantity, ownership, variant,
    * images, and grading data untouched. Idempotent: rows already clean are
    * skipped, so later runs are a no-op. */
   async function repairMissingSetPrices(rows) {
     var u = App.auth.user;
-    if (!u || !rows || !rows.length || !App.pkmn || typeof App.pkmn.pkmnMissingSet !== "function") return;
-    var bad = rows.filter(function (r) {
-      return r && r.pkmn_id && App.pkmn.pkmnMissingSet(r.set_name, App.util.langOf(r));
-    });
+    if (!u || !rows || !rows.length) return;
+    var bad = rows.filter(needsMissingSetRepair);
     if (!bad.length) return;
     console.warn("[VaultDex] clearing cross-set prices from", bad.length, "unsupported-set row(s)");
     for (var i = 0; i < bad.length; i++) {
@@ -779,6 +789,7 @@
     moverUpdate: moverUpdate,
     fetchAllPages: fetchAllPages,
     legacyMarket: legacyMarket,
-    findMatchingRow: findMatchingRow
+    findMatchingRow: findMatchingRow,
+    needsMissingSetRepair: needsMissingSetRepair
   };
 })();

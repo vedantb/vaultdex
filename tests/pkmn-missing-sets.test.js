@@ -13,8 +13,11 @@
 import { describe, test, expect, beforeEach, afterEach } from "vitest";
 import "../js/util.js";
 import "../js/pkmn.js";
+import "../js/tcg-api.js"; // real normVLabel for collection.js's pure seams
+import "../js/collection.js";
 
 const P = window.App.pkmn;
+const C = window.App.collection;
 
 /* Fake the /v1/cards search response the way the proxy returns it:
  * { data: [{ id, set: { name }, number, ... }] }. */
@@ -127,5 +130,26 @@ describe("priceForRow — unsupported Japanese rows stay unpriced", () => {
       pkmn_id: null,
     });
     expect(p).toBeNull();
+  });
+});
+
+describe("needsMissingSetRepair — repair predicate", () => {
+  const m6a = { set_name: "30th Celebration", set_id: "ja-M6a" };
+  const m4 = { set_name: "Mega Evolution", set_id: "ja-M4" };
+  test("flags an M6a row priced with NO pkmn_id (the live bug shape)", () => {
+    expect(C.needsMissingSetRepair({ ...m6a, pkmn_id: null, market_price: 800, price_source: "pkmnprices" })).toBe(true);
+  });
+  test("flags an M6a row with a stored pkmn_id", () => {
+    expect(C.needsMissingSetRepair({ ...m6a, pkmn_id: "52452", market_price: 800 })).toBe(true);
+  });
+  test("leaves a clean M6a row alone (no id, no price)", () => {
+    expect(C.needsMissingSetRepair({ ...m6a, pkmn_id: null, market_price: null })).toBe(false);
+  });
+  test("leaves a priced supported-set row alone", () => {
+    expect(C.needsMissingSetRepair({ ...m4, pkmn_id: "90001", market_price: 12.5, price_source: "pkmnprices" })).toBe(false);
+  });
+  test("flags MC and SM1p rows too", () => {
+    expect(C.needsMissingSetRepair({ set_name: "Starter Decks 100 Battle Collection", set_id: "ja-MC", pkmn_id: null, market_price: 5 })).toBe(true);
+    expect(C.needsMissingSetRepair({ set_name: "Sun and Moon Plus", set_id: "ja-SM1p", pkmn_id: null, market_price: 5 })).toBe(true);
   });
 });
