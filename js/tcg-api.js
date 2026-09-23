@@ -420,25 +420,40 @@
    * on this immediately (tap -> pixels with no round-trip) while the live
    * card upgrades the price regions in the background. */
   var localCardCache = {};
+  /* Snapshot-only raw lookup: returns { raw, setId, setName } without
+   * normalization, so callers can read snapshot-only metadata (e.g. the
+   * Japanese pricing.pricedAt timestamp baked by ja-price-backfill).
+   * Local files only, no network, never throws. */
+  async function rawCard(id, lang) {
+    lang = lang || "en";
+    var key = "raw:" + lang + ":" + id;
+    if (localCardCache[key] !== undefined) return localCardCache[key];
+    var found = null;
+    try {
+      var setIdGuess = id.slice(0, Math.max(0, id.lastIndexOf("-")));
+      if (setIdGuess) {
+        var snap = await snapJson(setSnapPath((lang === "ja" ? "ja-" : "") + setIdGuess));
+        (snap.cards || []).some(function (sc) {
+          if (sc.id === id) {
+            found = { raw: sc, setId: (snap.set && snap.set.id) || setIdGuess, setName: (snap.set && snap.set.name) || "" };
+            return true;
+          }
+          return false;
+        });
+      }
+    } catch { found = null; }
+    localCardCache[key] = found;
+    return found;
+  }
   async function getCardLocal(id, lang) {
     lang = lang || "en";
     var key = lang + ":" + id;
     if (localCardCache[key] !== undefined) return localCardCache[key];
     var card = null;
-    try {
-      var setIdGuess = id.slice(0, Math.max(0, id.lastIndexOf("-")));
-      if (setIdGuess) {
-        var snap = await snapJson(setSnapPath((lang === "ja" ? "ja-" : "") + setIdGuess));
-        var raw = null;
-        (snap.cards || []).some(function (sc) {
-          if (sc.id === id) { raw = sc; return true; }
-          return false;
-        });
-        if (raw) {
-          card = normCard(raw, (snap.set && snap.set.id) || setIdGuess, (snap.set && snap.set.name) || "", lang);
-        }
-      }
-    } catch { card = null; }
+    var found = await rawCard(id, lang);
+    if (found) {
+      card = normCard(found.raw, found.setId, found.setName, lang);
+    }
     localCardCache[key] = card;
     return card;
   }
@@ -768,7 +783,10 @@
     searchCards: searchCards,
     getCard: getCard,
     getCardLocal: getCardLocal,
+    rawCard: rawCard,
+    getIndex: getIndex,
     getDetails: getDetails,
+    getDetailsMixed: getDetailsMixed,
     getSets: getSets,
     getSet: getSet,
     getSetCards: getSetCards,
