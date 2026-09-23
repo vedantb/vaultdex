@@ -271,18 +271,28 @@
     return false;
   }
 
-  function scoreEntry(e, info) {
-    var s = 0;
+  /* Score broken into evidence parts so rankCandidates can apply
+   * evidence-aware rules (a bare card number alone is never enough —
+   * it matches every set's printing of that number). scoreEntry keeps
+   * the historical single-number contract. */
+  function scoreParts(e, info) {
+    var parts = { number: 0, name: 0, ja: 0, illustrator: 0, bonus: 0 };
     var num = App.util.normNumber(info.number || "");
-    if (num && App.util.normNumber(e.localId) === num) s += 80;
+    if (num && App.util.normNumber(e.localId) === num) parts.number = 80;
     var en = String(e.name || "").toLowerCase().trim();
     var qn = String(info.name || "").toLowerCase().trim();
-    var nameScore = 0;
     if (en && qn) {
       if (en === qn) {
-        nameScore = 100;
+        parts.name = 100;
       } else {
         var nameTokens = tokens(en);
+        /* The catalog names energy cards "Grass Energy" but the card
+         * prints "Basic Grass Energy". Without this, a clean energy
+         * read scores only 30, and a mangled one ("Basic.Enerdy")
+         * fuzzy-matches every energy type equally. */
+        if (/energy$/.test(en) && nameTokens.indexOf("basic") === -1) {
+          nameTokens.push("basic");
+        }
         var hits = 0, fuzzy = 0;
         tokens(qn).forEach(function (t) {
           /* Short fragments never score. Phone-photo OCR produces
@@ -295,41 +305,48 @@
           if (nameTokens.indexOf(t) !== -1) hits++;
           else if (fuzzyTokenHit(nameTokens, t)) fuzzy++;
         });
-        nameScore = hits * 15 + fuzzy * 8;
+        /* Fuzzy hits are worth less than exact ones: two fuzzy
+         * fragments are usually one mangled word ("enerdy", "energ"
+         * for "energy"), and must not sum to near-exact strength —
+         * cf. the iPhone photo of Basic Grass Energy, whose fragments
+         * matched every Basic Energy type at gate-clearing strength. */
+        parts.name = hits * 15 + fuzzy * 5;
         /* The containment bonus needs real words on both sides: a
          * single-letter catalog name ("N") is contained in almost any
          * garbage query ("ssn ue i e"). Exact full-name equality above
          * is unaffected. */
         if (qn.length >= 4 && en.length >= 4 &&
-            (en.indexOf(qn) !== -1 || qn.indexOf(en) !== -1)) nameScore += 20;
+            (en.indexOf(qn) !== -1 || qn.indexOf(en) !== -1)) parts.name += 20;
       }
     }
-    s += nameScore;
-    var jaScore = 0;
     var ja = String(e.nameJa || "").replace(/\s+/g, "");
     var qj = String(info.nameJa || "").replace(/\s+/g, "");
     if (ja && qj && ja.length > 1 && qj.length > 1) {
-      if (ja === qj) jaScore = 100;
-      else if (ja.indexOf(qj) !== -1 || qj.indexOf(ja) !== -1) jaScore = 50;
+      if (ja === qj) parts.ja = 100;
+      else if (ja.indexOf(qj) !== -1 || qj.indexOf(ja) !== -1) parts.ja = 50;
     }
-    s += jaScore;
     /* The printed illustrator credit disambiguates printings when the
      * card number is unreadable ("Illus. chibi" narrows 145 Pikachus
      * to two). */
     var qi = String(info.illustrator || "").toLowerCase().trim();
     if (qi && e.illustrator &&
-        String(e.illustrator).toLowerCase().indexOf(qi) !== -1) s += 40;
+        String(e.illustrator).toLowerCase().indexOf(qi) !== -1) parts.illustrator = 40;
     /* Language alignment: a Latin-script read is an English card and
      * vice versa. JA index entries carry English names, so without this
      * a Japanese printing can outrank the English one on ties (or on a
      * stray number hit) and the English printing vanishes from the
      * candidate list entirely. The bonus only applies on top of other
      * evidence — never on its own. */
-    if (s > 0) {
-      if (e.lang === "en" && nameScore > 0) s += 10;
-      else if (e.lang === "ja" && jaScore > 0) s += 10;
+    if (parts.number + parts.name + parts.ja + parts.illustrator > 0) {
+      if (e.lang === "en" && parts.name > 0) parts.bonus = 10;
+      else if (e.lang === "ja" && parts.ja > 0) parts.bonus = 10;
     }
-    return s;
+    return parts;
+  }
+
+  function scoreEntry(e, info) {
+    var p = scoreParts(e, info);
+    return p.number + p.name + p.ja + p.illustrator + p.bonus;
   }
 
   /* setRank (optional): App.tcg.getSetRank() map, newest set first.
@@ -347,16 +364,32 @@
    * is too weak to be useful — the view renders its honest "couldn't
    * read it" state instead of a list of random cards. 40 is the weakest
    * legitimate standalone signal (an illustrator-credit match); a lone
-   * short name fragment or stray token can never clear it. */
+   * short name fragment or stray token can never clear it, and a bare
+   * card number alone is withheld by the rule below regardless of its
+   * 80-point score. */
   var MIN_SCORE = 40;
 
-  function rankCandidates(entries, info, limit, setRank, minScore) {
+  function rankCandidates(entries, info, limit, setRank, minScore, opts) {
     limit = limit || 8;
     if (typeof minScore !== "number") minScore = MIN_SCORE;
+    /* Manual search explicitly asks for a number; the number-only
+     * withhold below is about weak OCR evidence, not deliberate
+     * queries. */
+    var allowNumberOnly = !!(opts && opts.allowNumberOnly);
     var scored = [];
     (entries || []).forEach(function (e) {
-      var s = scoreEntry(e, info || {});
-      if (s > 0 && s >= minScore) scored.push({ entry: e, score: s });
+      var p = scoreParts(e, info || {});
+      var s = p.number + p.name + p.ja + p.illustrator + p.bonus;
+      if (s <= 0 || s < minScore) return;
+      /* A bare card number matches every set's printing of that number
+       * ("005" hits 150+ cards), so a number-only read can only ever
+       * surface a random cross-set list. Withhold it unless other
+       * evidence — name, Japanese name, or illustrator — backs it up;
+       * the honest "couldn't read it" state beats random cards, and
+       * manual search is one tap away. Cf. the iPhone photo of N's
+       * Zekrom, whose misread "5" surfaced twelve unrelated #005s. */
+      if (!allowNumberOnly && p.number > 0 && p.name === 0 && p.ja === 0 && p.illustrator === 0) return;
+      scored.push({ entry: e, score: s });
     });
     scored.sort(function (a, b) {
       if (b.score !== a.score) return b.score - a.score;
@@ -379,7 +412,9 @@
       nameJa: hasJapanese(q) ? q : "",
       number: App.util.normNumber(num)
     };
-    return rankCandidates(entries, info, limit, setRank);
+    /* A typed number is a deliberate query, not weak OCR evidence —
+     * don't apply the number-only withhold here. */
+    return rankCandidates(entries, info, limit, setRank, undefined, { allowNumberOnly: true });
   }
 
   /* ---------- OCR engine (lazy) ---------- */

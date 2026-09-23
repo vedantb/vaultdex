@@ -207,8 +207,16 @@ describe("rankCandidates", () => {
     expect(ranked[0].id).toBe("base1-58");
   });
 
-  test("normalizes leading zeros so OCR '060' matches catalog '60'", () => {
-    const ranked = rankCandidates(ENTRIES, { name: "", number: "060" });
+  test("a bare card number alone is not evidence (no cross-set random list)", () => {
+    /* A lone "060" matches ~150 printings across sets; the 12 shown
+     * would be effectively random. Withheld instead — cf. the iPhone
+     * photo of N's Zekrom, whose misread "5" surfaced twelve unrelated
+     * #005s. Manual search is one tap away from the honest empty state. */
+    expect(rankCandidates(ENTRIES, { name: "", number: "060" })).toEqual([]);
+    /* ...but the number still scores when corroborated, and leading
+     * zeros still normalize against the catalog form. */
+    expect(scoreEntry(ENTRIES[1], { name: "", number: "060" })).toBe(80);
+    const ranked = rankCandidates(ENTRIES, { name: "Charizard ex", number: "060" });
     expect(ranked.length).toBeGreaterThan(0);
     expect(ranked[0].id).toMatch(/-60$/);
   });
@@ -394,8 +402,8 @@ describe("phone-photo regression: garbage OCR never yields random cards (2026-09
   });
 
   test("a lone weak fragment stays below the confidence bar", () => {
-    /* "Firex": one fuzzy token hit (8) + containment (20) + language
-     * (10) = 38 < MIN_SCORE (40) — withheld, not shown as a guess. */
+    /* "Firex": one fuzzy token hit (5) + containment (20) + language
+     * (10) = 35 < MIN_SCORE (40) — withheld, not shown as a guess. */
     const ranked = rankCandidates(
       [{ id: "t-1", localId: "1", name: "Fire", lang: "en" }],
       { name: "Firex", number: "" }, 12);
@@ -431,6 +439,73 @@ describe("phone-photo regression: garbage OCR never yields random cards (2026-09
     });
     expect(info.name).toBe("Pikachu");
     expect(info.number).toBe("60");
+  });
+});
+
+describe("real iPhone photo regressions (2026-09-23)", () => {
+  /* Vedant's three real scans (iPhone photos: sleeve glare, fingers,
+   * off-angle framing). The info objects below are what the production
+   * extractCardInfo produced from the actual Tesseract eng+jpn output
+   * for each photo — see ~/workspace/.qa/ocr/photos-before.json.
+   * All three cards exist in the catalog (mep-031, me02.5-159,
+   * mee-001), so every failure here is recognition-side. */
+
+  test("glare-destroyed Zekrom read yields no candidates, not random #005s", () => {
+    /* N's Zekrom, MEP EN 031. Glare destroyed the name bar; OCR kept a
+     * stray "5" as the number. A bare number matches every set's #005,
+     * so the old code surfaced twelve unrelated cards (M4-005,
+     * 30th-005, ...). Now: honest empty. */
+    const entries = [
+      { id: "mep-031", localId: "31", name: "N's Zekrom", lang: "en" },
+      { id: "mep-005", localId: "5", name: "MEP Card Five", lang: "en" },
+      { id: "sv01-005", localId: "5", name: "SV01 Card Five", lang: "en" }
+    ];
+    const info = { name: "J SERCH SE en RRR Se", nameJa: "うー", number: "5", illustrator: "" };
+    expect(rankCandidates(entries, info, 12)).toEqual([]);
+  });
+
+  test("Drakloak read ranks the Ascended Heroes printing #1", () => {
+    /* Drakloak, "ASC" = Ascended Heroes (TCGdex me02.5), 159/217.
+     * The name bar read cleanly; the number misread as "4" matches
+     * nothing, so the exact name hit must carry the ranking. */
+    const entries = [
+      { id: "me02.5-159", localId: "159", name: "Drakloak", lang: "en" },
+      { id: "me02.5-248", localId: "248", name: "Drakloak", lang: "en" },
+      { id: "swsh7-091", localId: "91", name: "Drakloak", lang: "en" }
+    ];
+    const info = { name: "Drakloak", nameJa: "", number: "4", illustrator: "" };
+    const ranked = rankCandidates(entries, info, 12);
+    expect(ranked.length).toBeGreaterThan(0);
+    expect(ranked[0].id).toBe("me02.5-159");
+  });
+
+  test("mangled energy read yields no candidates, not random energy types", () => {
+    /* Basic Grass Energy, MEE EN 001. The name bar came out
+     * "Basic.Enerdy i ENERG" with the type and number unreadable; the
+     * fragments matched every Basic Energy type at gate strength (the
+     * old code showed Darkness/Metal/Psychic/...). Now: honest empty. */
+    const entries = [
+      { id: "mee-001", localId: "1", name: "Grass Energy", lang: "en" },
+      { id: "sv02-278", localId: "278", name: "Basic Grass Energy", lang: "en" },
+      { id: "sv06.5-098", localId: "98", name: "Basic Darkness Energy", lang: "en" },
+      { id: "sv01-230", localId: "230", name: "Basic Fire Energy", lang: "en" }
+    ];
+    const info = { name: "Basic.Enerdy i ENERG", nameJa: "リンミミ", number: "", illustrator: "" };
+    expect(rankCandidates(entries, info, 12)).toEqual([]);
+  });
+
+  test("a clean 'Basic Grass Energy' read finds Grass Energy (catalog says 'Grass Energy')", () => {
+    /* The card prints "Basic Grass Energy"; the catalog names it
+     * "Grass Energy". The energy alias bridges the two, and the type
+     * token keeps the wrong energy types below the right one. */
+    const entries = [
+      { id: "mee-001", localId: "1", name: "Grass Energy", lang: "en" },
+      { id: "sv06.5-098", localId: "98", name: "Basic Darkness Energy", lang: "en" },
+      { id: "sv01-230", localId: "230", name: "Basic Fire Energy", lang: "en" }
+    ];
+    const ranked = rankCandidates(entries, { name: "Basic Grass Energy", number: "" }, 12);
+    expect(ranked.length).toBeGreaterThan(0);
+    expect(ranked[0].name).toBe("Grass Energy");
   });
 });
 
