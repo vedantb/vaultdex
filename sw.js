@@ -12,7 +12,7 @@
  *
  * Bump SHELL_VERSION on every release that touches shell files.
  */
-var SHELL_VERSION = "vaultdex-shell-v1";
+var SHELL_VERSION = "vaultdex-shell-v2";
 var SHELL_FILES = [
   "/",
   "/index.html",

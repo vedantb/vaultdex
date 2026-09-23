@@ -261,11 +261,16 @@
     return cards;
   }
 
-  async function candidatesFor(info, idx) {
+  async function candidatesFor(info, idx, pin, boostId) {
     idx = idx || await App.tcg.getIndex();
     var setRank = null;
     try { setRank = await App.tcg.getSetRank(); } catch { /* tiebreak skipped */ }
-    var picks = App.scan.rankCandidates(idx, info, 12, setRank);
+    var picks = App.scan.rankCandidates(idx, info, 12, setRank, undefined,
+      boostId ? { setId: boostId } : undefined);
+    /* A resolved printed set code is near-certain evidence: pin it first. */
+    if (pin) {
+      picks = [pin].concat(picks.filter(function (p) { return p.id !== pin.id; })).slice(0, 12);
+    }
     return resolveCandidates(picks);
   }
 
@@ -528,11 +533,56 @@
           if (cancelled || !stage.isConnected) return;
           var idx = await App.tcg.getIndex();
           var info = App.scan.extractCardInfo(ocr, App.scan.buildIllustratorTokens(idx));
+          /* Second pass: when the first read isn't confident, OCR the
+           * bottom strip for the printed set code + card number
+           * ("MEE EN 001") — near-certain evidence when it resolves.
+           * Skipped on clean reads so they don't pay for a second OCR
+           * run; a failed strip read falls back silently. */
+          var pin = null, codeNote = "", boostId = "";
+          if (App.scan.topScore(idx, info) < App.scan.HIGH_CONFIDENCE) {
+            if (label) label.textContent = "Checking card code…";
+            try {
+              var sc = await App.scan.recognizeSetCode(dataUrl, function (p) {
+                if (fill) fill.style.width = Math.round(p * 100) + "%";
+              });
+              if (cancelled || !stage.isConnected) return;
+              if (sc && sc.code) {
+                /* Exact code+number pins the one printing. */
+                if (sc.number) {
+                  pin = App.scan.resolvePrintedCode(idx, sc.code, sc.number, sc.lang);
+                  if (pin) codeNote = sc.code + " " + sc.number;
+                }
+                if (!pin) {
+                  /* Code without the number is still strong evidence of
+                   * the SET: validate it against the index, then let it
+                   * boost that set's printings in the re-rank. For energy
+                   * cards the orb color names the type the OCR text
+                   * can't ("MEE" + green -> mee-001 Grass). */
+                  var setId = App.scan.setIdForCode(sc.code);
+                  if (setId && App.scan.hasSetEntries(idx, setId)) {
+                    boostId = setId;
+                    if (/energ/i.test(info.name || "")) {
+                      try {
+                        var etype = await App.scan.detectEnergyType(dataUrl);
+                        if (cancelled || !stage.isConnected) return;
+                        if (etype) {
+                          pin = App.scan.resolveEnergyType(idx, setId, etype);
+                          if (pin) codeNote = sc.code + " · " + etype + " energy";
+                        }
+                      } catch { /* color unreadable: set boost still applies */ }
+                    }
+                  }
+                }
+              }
+            } catch { /* strip unreadable: first-pass results stand */ }
+          }
           if (label) label.textContent = "Matching…";
-          var cards = await candidatesFor(info, idx);
+          var cards = await candidatesFor(info, idx, pin, boostId);
           if (cancelled || !stage.isConnected) return;
           var note = "";
-          if (info.name || info.nameJa || info.number) {
+          if (pin && codeNote) {
+            note = "Matched card code “" + App.esc(codeNote) + "” — tap to confirm.";
+          } else if (info.name || info.nameJa || info.number) {
             note = "We read: “" + App.esc([info.name || info.nameJa, info.number ? "#" + info.number : ""].filter(Boolean).join(" ")) +
               "” — tap the right card.";
           }

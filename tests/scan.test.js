@@ -509,6 +509,135 @@ describe("real iPhone photo regressions (2026-09-23)", () => {
   });
 });
 
+describe("printed set code + card number (bottom-strip pass)", () => {
+  const { extractSetCode, resolvePrintedCode, topScore } = window.App.scan;
+
+  test("reads 'MEE EN 001' as code MEE, number 1", () => {
+    expect(extractSetCode("MEE EN 001")).toEqual({ code: "MEE", number: "1", lang: "en" });
+  });
+
+  test("reads 'MEP EN 031' (promo set)", () => {
+    expect(extractSetCode("MEP EN 031")).toEqual({ code: "MEP", number: "31", lang: "en" });
+  });
+
+  test("reads 'ASC EN 159/217' (fraction form)", () => {
+    expect(extractSetCode("ASC EN 159/217")).toEqual({ code: "ASC", number: "159", lang: "en" });
+  });
+
+  test("prefers the bottom-most strict match over junk higher up", () => {
+    expect(extractSetCode("HP 130\no EE (03103)\nMEE EN 001"))
+      .toEqual({ code: "MEE", number: "1", lang: "en" });
+  });
+
+  test("loose match covers strips where OCR dropped the EN/JA marker", () => {
+    expect(extractSetCode("M4 005/120")).toEqual({ code: "M4", number: "5", lang: null });
+  });
+
+  test("trainer-gallery numbers keep their letter prefix", () => {
+    expect(extractSetCode("BRS EN TG01/TG30")).toEqual({ code: "BRS", number: "tg01", lang: "en" });
+  });
+
+  test("marker-only read: code + EN/JA with the number destroyed", () => {
+    /* Real Drakloak strip: "H ASC EN 159/217" OCR'd as "H ASCen". */
+    expect(extractSetCode("H ASCen")).toEqual({ code: "ASC", number: "", lang: "en" });
+  });
+
+  test("bare known-code token: code survives, marker and number don't", () => {
+    /* Real strips: "MEE EN 001" -> "| MEE is | a p—", "MEP EN 031" -> "MEP ep + a TORO". */
+    expect(extractSetCode("| MEE is | a p—")).toEqual({ code: "MEE", number: "", lang: null });
+    expect(extractSetCode("MEP ep + a TORO, 24 Junarmis nny bos"))
+      .toEqual({ code: "MEP", number: "", lang: null });
+  });
+
+  test("bare token outranks the loose pattern's copyright-line garbage", () => {
+    /* "KSMON 1" is mangled "Pokémon / Nintendo"; the true code is "MEE". */
+    expect(extractSetCode("Be BRS Poksmon 1 Nentend? 1 Creatures / GAME FREAK\n| MEE is | a p—"))
+      .toEqual({ code: "MEE", number: "", lang: null });
+  });
+
+  test("copyright-line tokens never become codes", () => {
+    expect(extractSetCode("Be BRS Poksmon 1 Nentend? 1 Creatures / GAME FREAK")).toBeNull();
+  });
+
+  test("bare English words are never codes, even when mapped", () => {
+    /* SIT (swsh12) and PAL (sv02) are ordinary words in flavor text. */
+    expect(extractSetCode("sit here pal")).toBeNull();
+  });
+
+  test("loose still covers code+number with no marker outside the copyright line", () => {
+    expect(extractSetCode("M4 005/120")).toEqual({ code: "M4", number: "5", lang: null });
+  });
+
+  test("returns null when nothing code-like is present", () => {
+    expect(extractSetCode("")).toBeNull();
+    expect(extractSetCode("shred this pokemon")).toBeNull();
+    expect(extractSetCode(null)).toBeNull();
+  });
+
+  test("extraction is dumb by design: 'HP 130' extracts, resolution rejects", () => {
+    /* extractSetCode doesn't know the set map — an unmapped code is
+     * fine here; resolvePrintedCode is where it dies. */
+    expect(extractSetCode("HP 130")).toEqual({ code: "HP", number: "130", lang: null });
+  });
+
+  const CODE_ENTRIES = [
+    { id: "mee-001", localId: "001", name: "Basic Grass Energy", lang: "en" },
+    { id: "mee-002", localId: "002", name: "Basic Fire Energy", lang: "en" },
+    { id: "mep-031", localId: "031", name: "N's Zekrom", lang: "en" },
+    { id: "me02.5-159", localId: "159", name: "Drakloak", lang: "en" },
+    { id: "swsh9tg-TG01", localId: "TG01", name: "Pikachu", lang: "en" },
+    { id: "M4-005", localId: "005", name: "ハリマロン", nameJa: "ハリマロン", lang: "ja" }
+  ];
+
+  test("resolves MEE 001 to mee-001", () => {
+    expect(resolvePrintedCode(CODE_ENTRIES, "MEE", "1", "en").id).toBe("mee-001");
+  });
+
+  test("resolves ASC 159 to me02.5-159 (printed code differs from catalog id)", () => {
+    expect(resolvePrintedCode(CODE_ENTRIES, "ASC", "159", "en").id).toBe("me02.5-159");
+  });
+
+  test("resolves MEP 031 to mep-031", () => {
+    expect(resolvePrintedCode(CODE_ENTRIES, "MEP", "31", "en").id).toBe("mep-031");
+  });
+
+  test("resolves JA M4 005 via the case-insensitive code == id fallback", () => {
+    expect(resolvePrintedCode(CODE_ENTRIES, "M4", "5", null).id).toBe("M4-005");
+  });
+
+  test("resolves trainer-gallery TG01 through the main set's printed code", () => {
+    expect(resolvePrintedCode(CODE_ENTRIES, "BRS", "TG01", "en").id).toBe("swsh9tg-TG01");
+  });
+
+  test("unmapped code resolves to null, never a guess", () => {
+    expect(resolvePrintedCode(CODE_ENTRIES, "HP", "130", "en")).toBeNull();
+    expect(resolvePrintedCode(CODE_ENTRIES, "ZZZ", "1", "en")).toBeNull();
+  });
+
+  test("number the set doesn't carry resolves to null", () => {
+    expect(resolvePrintedCode(CODE_ENTRIES, "MEE", "999", "en")).toBeNull();
+  });
+
+  test("the EN/JA marker filters the language", () => {
+    /* M4-005 is a Japanese printing; an EN strip read must not resolve it. */
+    expect(resolvePrintedCode(CODE_ENTRIES, "M4", "5", "en")).toBeNull();
+  });
+
+  test("topScore mirrors rankCandidates: exact name read is high-confidence", () => {
+    expect(App.scan.HIGH_CONFIDENCE).toBe(90);
+    expect(topScore(
+      [{ id: "sv01-25", localId: "25", name: "Pikachu", lang: "en" }],
+      { name: "Pikachu", number: "" })).toBeGreaterThanOrEqual(App.scan.HIGH_CONFIDENCE);
+  });
+
+  test("topScore: weak reads stay below high-confidence, number-only scores zero", () => {
+    const entries = [{ id: "sv01-25", localId: "25", name: "Pikachu", lang: "en" }];
+    expect(topScore(entries, { name: "Pika", number: "" })).toBeLessThan(App.scan.HIGH_CONFIDENCE);
+    /* A bare number is withheld by the same rule as rankCandidates. */
+    expect(topScore(entries, { name: "", number: "25" })).toBe(0);
+  });
+});
+
 describe("scanCapable", () => {
   beforeEach(() => {
     delete window.matchMedia;
@@ -531,5 +660,73 @@ describe("scanCapable", () => {
     window.matchMedia = function () { return { matches: false }; };
     delete window.ontouchstart;
     expect(scanCapable()).toBe(false);
+  });
+});
+
+describe("strip code-only path (code read, number lost)", () => {
+  const { setIdForCode, hasSetEntries, energyTypeByHue, resolveEnergyType, rankCandidates } = window.App.scan;
+
+  const SET_ENTRIES = [
+    { id: "mee-001", localId: "001", name: "Grass Energy", lang: "en" },
+    { id: "mee-002", localId: "002", name: "Fire Energy", lang: "en" },
+    { id: "sv02-278", localId: "278", name: "Grass Energy", lang: "en" },
+    { id: "mep-031", localId: "031", name: "N's Zekrom", lang: "en" }
+  ];
+
+  test("setIdForCode maps printed codes, falling back to the lowercased code", () => {
+    expect(setIdForCode("ASC")).toBe("me02.5");
+    expect(setIdForCode("MEP")).toBe("mep");
+    expect(setIdForCode("MEE")).toBe("mee");
+    expect(setIdForCode("M4")).toBe("m4");
+    expect(setIdForCode("ZZZ")).toBe("zzz");
+    expect(setIdForCode("")).toBe("");
+  });
+
+  test("hasSetEntries validates the code against the real index", () => {
+    expect(hasSetEntries(SET_ENTRIES, "mee")).toBe(true);
+    expect(hasSetEntries(SET_ENTRIES, "zzz")).toBe(false);
+    expect(hasSetEntries(SET_ENTRIES, "")).toBe(false);
+  });
+
+  test("energyTypeByHue classifies the orb color, conservatively", () => {
+    expect(energyTypeByHue(0.38, 0.44, 0.24)).toBe("grass");   /* real photo mean */
+    expect(energyTypeByHue(0.80, 0.10, 0.10)).toBe("fire");
+    expect(energyTypeByHue(0.90, 0.80, 0.10)).toBe("lightning");
+    expect(energyTypeByHue(0.10, 0.30, 0.80)).toBe("water");
+    expect(energyTypeByHue(0.50, 0.10, 0.80)).toBe("psychic");
+    expect(energyTypeByHue(0.85, 0.45, 0.10)).toBe("fighting");
+    expect(energyTypeByHue(0.10, 0.10, 0.12)).toBe("darkness");
+    expect(energyTypeByHue(0.50, 0.50, 0.52)).toBe("metal");
+    expect(energyTypeByHue(0.50, 0.55, 0.45)).toBeNull();       /* washed out: no guess */
+  });
+
+  test("resolveEnergyType picks the set's single energy of that type", () => {
+    expect(resolveEnergyType(SET_ENTRIES, "mee", "grass").id).toBe("mee-001");
+    expect(resolveEnergyType(SET_ENTRIES, "mee", "fire").id).toBe("mee-002");
+    expect(resolveEnergyType(SET_ENTRIES, "zzz", "grass")).toBeNull();
+    expect(resolveEnergyType(SET_ENTRIES, "mee", null)).toBeNull();
+  });
+
+  test("resolveEnergyType refuses ambiguous matches", () => {
+    const amb = [
+      { id: "xx-1", localId: "1", name: "Grass Energy", lang: "en" },
+      { id: "xx-2", localId: "2", name: "Grass Energy", lang: "en" }
+    ];
+    expect(resolveEnergyType(amb, "xx", "grass")).toBeNull();
+  });
+
+  test("setId boost lifts the strip set's printings past the gate", () => {
+    const info = { name: "Basic.Enerdy i ENERG", number: "" };
+    const plain = rankCandidates(SET_ENTRIES, info, 12);
+    expect(plain.map((e) => e.id)).not.toContain("mee-001");
+    const boosted = rankCandidates(SET_ENTRIES, info, 12, null, undefined, { setId: "mee" });
+    expect(boosted.map((e) => e.id)).toEqual(["mee-002", "mee-001"]); /* tie: alpha */
+  });
+
+  test("setId boost never applies to number-only evidence", () => {
+    /* The Zekrom case: misread "5" + strip "MEP" must not surface mep-005. */
+    const entries = [{ id: "mep-005", localId: "005", name: "Some Card", lang: "en" }];
+    const out = rankCandidates(entries, { name: "", number: "005" }, 12, null, undefined, { setId: "mep" });
+    expect(out).toEqual([]);
   });
 });

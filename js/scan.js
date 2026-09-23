@@ -369,17 +369,34 @@
    * 80-point score. */
   var MIN_SCORE = 40;
 
-  function rankCandidates(entries, info, limit, setRank, minScore, opts) {
-    limit = limit || 8;
-    if (typeof minScore !== "number") minScore = MIN_SCORE;
-    /* Manual search explicitly asks for a number; the number-only
-     * withhold below is about weak OCR evidence, not deliberate
-     * queries. */
+  /* A first-pass read at or above this score is trusted outright and
+   * skips the second (bottom-strip) OCR pass. An exact name read scores
+   * 100+, so in practice the strip pass only runs when the name bar
+   * didn't read cleanly. */
+  var HIGH_CONFIDENCE = 90;
+
+  /* Shared scored loop behind rankCandidates and topScore: same gate,
+   * same number-only withhold, so both always agree on what counts. */
+  /* Bonus for entries in the set read from the bottom strip. The strip
+   * code is strong evidence of the SET even when the number didn't
+   * survive ("MEE" without "001"), so printings from that set get a
+   * lift. Deliberately gated on non-number evidence: a bare misread
+   * number must never surface a wrong card just because the set
+   * matched (cf. the number-only withhold below). */
+  var SET_BOOST = 30;
+
+  function scoredEntries(entries, info, minScore, opts) {
     var allowNumberOnly = !!(opts && opts.allowNumberOnly);
-    var scored = [];
+    var boostSet = (opts && opts.setId) || "";
+    var out = [];
     (entries || []).forEach(function (e) {
       var p = scoreParts(e, info || {});
       var s = p.number + p.name + p.ja + p.illustrator + p.bonus;
+      if (boostSet && (p.name > 0 || p.ja > 0 || p.illustrator > 0)) {
+        var id = String(e.id || "");
+        var prefix = id.slice(0, Math.max(0, id.lastIndexOf("-"))).toLowerCase();
+        if (prefix === boostSet || prefix === boostSet + "tg") s += SET_BOOST;
+      }
       if (s <= 0 || s < minScore) return;
       /* A bare card number matches every set's printing of that number
        * ("005" hits 150+ cards), so a number-only read can only ever
@@ -389,8 +406,15 @@
        * manual search is one tap away. Cf. the iPhone photo of N's
        * Zekrom, whose misread "5" surfaced twelve unrelated #005s. */
       if (!allowNumberOnly && p.number > 0 && p.name === 0 && p.ja === 0 && p.illustrator === 0) return;
-      scored.push({ entry: e, score: s });
+      out.push({ entry: e, score: s });
     });
+    return out;
+  }
+
+  function rankCandidates(entries, info, limit, setRank, minScore, opts) {
+    limit = limit || 8;
+    if (typeof minScore !== "number") minScore = MIN_SCORE;
+    var scored = scoredEntries(entries, info, minScore, opts);
     scored.sort(function (a, b) {
       if (b.score !== a.score) return b.score - a.score;
       var ra = setRankOf(a.entry, setRank), rb = setRankOf(b.entry, setRank);
@@ -398,6 +422,18 @@
       return String(a.entry.name || "").localeCompare(String(b.entry.name || ""));
     });
     return scored.slice(0, limit).map(function (x) { return x.entry; });
+  }
+
+  /* Best production score for this read (same gate + evidence rules as
+   * rankCandidates). The view uses it to decide whether the first pass
+   * is already confident enough to skip the bottom-strip OCR pass. */
+  function topScore(entries, info, opts) {
+    var scored = scoredEntries(entries, info, MIN_SCORE, opts);
+    var best = 0;
+    for (var i = 0; i < scored.length; i++) {
+      if (scored[i].score > best) best = scored[i].score;
+    }
+    return best;
   }
 
   /* Manual-fallback search: turn a typed query into info (digits become a
@@ -415,6 +451,211 @@
     /* A typed number is a deliberate query, not weak OCR evidence —
      * don't apply the number-only withhold here. */
     return rankCandidates(entries, info, limit, setRank, undefined, { allowNumberOnly: true });
+  }
+
+  /* ---------- printed set code + card number (bottom-strip pass) ---------- */
+
+  /* Official printed abbreviations for modern sets, code -> catalog id.
+   * The code on the card isn't always the TCGdex id ("ASC" on the card,
+   * "me02.5" in the catalog). Anything not listed here falls back to a
+   * case-insensitive code == id match ("MEP" -> "mep", "30TH" -> "30th"). */
+  var SET_CODE_MAP = {
+    /* Mega Evolution era */
+    MEE: "mee", MEP: "mep", ASC: "me02.5",
+    /* Scarlet & Violet era */
+    SVI: "sv01", PAL: "sv02", OBF: "sv03", MEW: "sv03.5", PAR: "sv04",
+    PAF: "sv04.5", TEF: "sv05", TWM: "sv06", SFA: "sv06.5", SCR: "sv07",
+    SSP: "sv08", PRE: "sv08.5", JTG: "sv09", DRI: "sv10",
+    BLK: "sv10.5b", WHT: "sv10.5w", SVP: "svp", SVE: "sve",
+    /* Sword & Shield era */
+    SSH: "swsh1", RCL: "swsh2", DAA: "swsh3", CPA: "swsh3.5",
+    VIV: "swsh4", SHF: "swsh4.5", BST: "swsh5", CRE: "swsh6",
+    EVS: "swsh7", CEL: "cel25", FST: "swsh8", BRS: "swsh9",
+    ASR: "swsh10", PGO: "swsh10.5", LOR: "swsh11", SIT: "swsh12",
+    CRZ: "swsh12.5", SWSH: "swshp"
+  };
+
+  function setIdForCode(code) {
+    var c = String(code || "").toUpperCase().trim();
+    if (!c) return "";
+    return SET_CODE_MAP[c] || c.toLowerCase();
+  }
+
+  /* The bottom copyright line prints e.g. "MEE EN 001", "ASC EN 159/217".
+   * Strict form (with the EN/JA marker) is preferred and scanned
+   * bottom-up; the loose form covers strips where OCR dropped the marker.
+   * The number allows a letter prefix ("TG01/TG30" trainer-gallery
+   * cards). Pure: OCR text in, { code, number, lang } out (number is
+   * normNumber-normalized), or null when nothing code-like is found. */
+  var SETCODE_STRICT = /([A-Z0-9]{2,5})\s*(EN|JA)\s*([A-Z]{0,2}0*\d{1,3})(?![\dA-Z])/;
+  var SETCODE_LOOSE = /([A-Z0-9]{2,5})\s+([A-Z]{0,2}0*\d{1,3})(?![\dA-Z])/;
+  var SETCODE_MARKER = /([A-Z0-9]{2,5})\s*(EN|JA)(?![\dA-Z])/;
+  /* Bare-code tokens: the strip often reads the 3-letter code while
+   * mangling the marker/number ("MEE is a p", "MEP ep + a"). Only accept
+   * standalone tokens from the curated code map — never bare English
+   * words like SIT or PAL, which show up in flavor text. */
+  var BARECODE_DENY = { SIT: 1, PAL: 1 };
+  /* The copyright line ("©2026 Pokémon / Nintendo / Creatures / GAME
+   * FREAK") lives right next to the set code and its mangled tokens
+   * ("BRS Poksmon", "KSMON 1") are the main source of false codes. The
+   * bare-token and loose patterns skip it; strict and marker-only keep
+   * scanning it because the EN/JA marker is distinctive enough. */
+  var COPYRIGHT_LINE = /POK[ÉE]MON|NINTENDO|CREATURES|FREAK/;
+
+  function extractSetCode(text) {
+    var lines = String(text || "").toUpperCase().split(/\n+/);
+    var marker = null;
+    for (var i = lines.length - 1; i >= 0; i--) {
+      var line = lines[i];
+      /* Strict (code + EN/JA + number) is near-certain: return at once. */
+      var m = SETCODE_STRICT.exec(line);
+      if (m) {
+        return {
+          code: m[1],
+          number: App.util.normNumber(m[3]),
+          lang: m[2] === "JA" ? "ja" : "en"
+        };
+      }
+      if (!marker) {
+        var m3 = SETCODE_MARKER.exec(line);
+        if (m3) marker = { code: m3[1], number: "", lang: m3[2] === "JA" ? "ja" : "en" };
+      }
+    }
+    if (marker) return marker;
+    /* Bare known-code token ("MEE is a p"): the strip often reads the
+     * code while mangling the marker and number. Standalone tokens from
+     * the curated map only — never bare English words like SIT or PAL,
+     * which show up in flavor text. */
+    for (var j = lines.length - 1; j >= 0; j--) {
+      if (COPYRIGHT_LINE.test(lines[j])) continue;
+      var toks = lines[j].split(/[^A-Z0-9]+/);
+      for (var k = toks.length - 1; k >= 0; k--) {
+        var t = toks[k];
+        if (t.length >= 3 && SET_CODE_MAP[t] && !BARECODE_DENY[t]) {
+          return { code: t, number: "", lang: null };
+        }
+      }
+    }
+    /* Loose (code + number, no marker) is the last resort: a bare
+     * "CODE NUMBER" also matches mangled copyright lines. */
+    for (var l = lines.length - 1; l >= 0; l--) {
+      if (COPYRIGHT_LINE.test(lines[l])) continue;
+      var m2 = SETCODE_LOOSE.exec(lines[l]);
+      if (m2) return { code: m2[1], number: App.util.normNumber(m2[2]), lang: null };
+    }
+    return null;
+  }
+
+  /* Resolve a printed set code + card number to exactly one index entry.
+   * Only succeeds on an exact set+number hit — an unmapped code, or a
+   * number the set doesn't carry, resolves to null (never a guess).
+   * `lang` ("en"/"ja"/null) comes from the printed EN/JA marker when the
+   * strip read included one. */
+  function resolvePrintedCode(entries, code, number, lang) {
+    var setId = setIdForCode(code);
+    var num = App.util.normNumber(number);
+    if (!setId || !num) return null;
+    var hits = (entries || []).filter(function (e) {
+      if (lang === "en" && e.lang !== "en") return false;
+      if (lang === "ja" && e.lang !== "ja") return false;
+      var id = String(e.id || "");
+      var prefix = id.slice(0, Math.max(0, id.lastIndexOf("-"))).toLowerCase();
+      /* Trainer-gallery printings share the main set's printed code
+       * ("BRS" on a "TG01/TG30" card lives in swsh9tg, not swsh9). */
+      if (prefix !== setId && prefix !== setId + "tg") return false;
+      return App.util.normNumber(e.localId) === num;
+    });
+    return hits.length === 1 ? hits[0] : null;
+  }
+
+  /* True when the index has at least one entry from this set — guards
+   * the code-only path against a misread code boosting a phantom set. */
+  function hasSetEntries(entries, setId) {
+    if (!setId) return false;
+    return (entries || []).some(function (e) {
+      var id = String(e.id || "");
+      var prefix = id.slice(0, Math.max(0, id.lastIndexOf("-"))).toLowerCase();
+      return prefix === setId || prefix === setId + "tg";
+    });
+  }
+
+  /* Pure hue classifier for basic Energy cards. The strip tells us the
+   * set ("MEE") and the name tells us it's an energy, but nothing in the
+   * OCR text says which type — the big colored orb does. r/g/b are 0-1.
+   * Returns "grass" | "fire" | "water" | "lightning" | "psychic" |
+   * "fighting" | "darkness" | "metal" | null when unsure. Conservative:
+   * low-saturation or out-of-range colors return null rather than guess. */
+  function energyTypeByHue(r, g, b) {
+    var mx = Math.max(r, g, b), mn = Math.min(r, g, b);
+    var sat = mx === 0 ? 0 : (mx - mn) / mx, val = mx;
+    if (val < 0.22) return "darkness";
+    if (sat < 0.18) return "metal";
+    if (sat < 0.25) return null;
+    var d = mx - mn;
+    if (d === 0) return null;
+    var h;
+    if (mx === r) h = ((g - b) / d) % 6;
+    else if (mx === g) h = (b - r) / d + 2;
+    else h = (r - g) / d + 4;
+    h *= 60;
+    if (h < 0) h += 360;
+    if (h < 18 || h >= 340) return "fire";
+    if (h < 45) return "fighting";
+    if (h < 72) return "lightning";
+    if (h < 155) return "grass";
+    if (h < 255) return "water";
+    if (h < 300) return "psychic";
+    return "fairy";
+  }
+
+  /* Sample the center of the captured frame (where an energy orb sits)
+   * and classify its color. Never rejects — resolves null on any
+   * failure or ambiguity, so the caller can fall back silently. */
+  function detectEnergyType(dataUrl) {
+    return new Promise(function (resolve) {
+      try {
+        var img = new Image();
+        img.onload = function () {
+          try {
+            var w = img.naturalWidth, h = img.naturalHeight;
+            if (!w || !h) return resolve(null);
+            var cw = w * 0.3, ch = h * 0.3;
+            var c = document.createElement("canvas");
+            c.width = 32; c.height = 32;
+            var ctx = c.getContext("2d");
+            ctx.drawImage(img, (w - cw) / 2, (h - ch) / 2, cw, ch, 0, 0, 32, 32);
+            var d = ctx.getImageData(0, 0, 32, 32).data;
+            var n = 0, rs = 0, gs = 0, bs = 0;
+            for (var i = 0; i < d.length; i += 4) {
+              var r = d[i] / 255, g = d[i + 1] / 255, b = d[i + 2] / 255;
+              var mx = Math.max(r, g, b), mn = Math.min(r, g, b);
+              var sat = mx === 0 ? 0 : (mx - mn) / mx;
+              if (sat < 0.15 || mx > 0.95) continue; /* glare / background */
+              rs += r; gs += g; bs += b; n++;
+            }
+            if (!n) return resolve(null);
+            resolve(energyTypeByHue(rs / n, gs / n, bs / n));
+          } catch { resolve(null); }
+        };
+        img.onerror = function () { resolve(null); };
+        img.src = dataUrl;
+      } catch { resolve(null); }
+    });
+  }
+
+  /* Within one set, pick the single energy card matching a detected
+   * type ("grass" hits "Grass Energy" / "Basic Grass Energy"). Returns
+   * null unless exactly one card matches — ambiguity is not resolved
+   * by guessing. */
+  function resolveEnergyType(entries, setId, type) {
+    if (!setId || !type) return null;
+    var hits = (entries || []).filter(function (e) {
+      var id = String(e.id || "");
+      var prefix = id.slice(0, Math.max(0, id.lastIndexOf("-"))).toLowerCase();
+      if (prefix !== setId) return false;
+      return String(e.name || "").toLowerCase().indexOf(type) !== -1;
+    });
+    return hits.length === 1 ? hits[0] : null;
   }
 
   /* ---------- OCR engine (lazy) ---------- */
@@ -459,9 +700,9 @@
 
   /* Run OCR over an image (data URL). onProgress(0..1) is best-effort.
    * Returns { text, lines } with Tesseract line boxes. */
-  async function recognize(image, onProgress) {
+  async function recognize(image, onProgress, langs) {
     var T = await loadOcr();
-    var res = await T.recognize(image, "eng+jpn", {
+    var res = await T.recognize(image, langs || "eng+jpn", {
       logger: function (m) {
         if (onProgress && m && m.status === "recognizing text" && typeof m.progress === "number") {
           try { onProgress(m.progress); } catch { /* progress is advisory */ }
@@ -477,15 +718,68 @@
     };
   }
 
+  /* Crop the bottom strip of the captured frame — where the set code +
+   * card number print — and upscale 3x for a dedicated OCR pass. The
+   * full-card pass can't read that tiny line; a second pass on just the
+   * strip can. The strip is a generous bottom quarter because phone
+   * photos are often tilted: the card's bottom-left corner (where the
+   * code prints) can sit well above the frame's bottom edge. */
+  function bottomStripDataUrl(dataUrl) {
+    return new Promise(function (resolve, reject) {
+      try {
+        var img = new Image();
+        img.onload = function () {
+          try {
+            var w = img.naturalWidth, h = img.naturalHeight;
+            if (!w || !h) throw new Error("strip crop: empty image");
+            var stripH = Math.max(1, Math.round(h * 0.25));
+            var k = 3;
+            var c = document.createElement("canvas");
+            c.width = Math.round(w * k);
+            c.height = Math.round(stripH * k);
+            c.getContext("2d").drawImage(img, 0, h - stripH, w, stripH, 0, 0, c.width, c.height);
+            resolve(c.toDataURL("image/jpeg", 0.9));
+          } catch (e) { reject(e); }
+        };
+        img.onerror = function () { reject(new Error("strip crop: image failed to load")); };
+        img.src = dataUrl;
+      } catch (e) { reject(e); }
+    });
+  }
+
+  /* Second OCR pass: read the printed set code + card number from the
+   * bottom strip. English-only: the strip line is Latin ("MEE EN 001"),
+   * and eng+jpn hallucinates kana on tiny text. Returns { code, number,
+   * lang } or null. Rejects when the strip can't be cropped or OCR'd —
+   * the caller falls back to the first pass silently. The Tesseract
+   * engine is already loaded by the first pass, so this is just one
+   * more recognition job. */
+  async function recognizeSetCode(image, onProgress) {
+    var strip = await bottomStripDataUrl(image);
+    var ocr = await recognize(strip, onProgress, "eng");
+    return extractSetCode(ocr.text);
+  }
+
   App.scan = {
     scanCapable: scanCapable,
     extractCardInfo: extractCardInfo,
     buildIllustratorTokens: buildIllustratorTokens,
     scoreEntry: scoreEntry,
     rankCandidates: rankCandidates,
+    topScore: topScore,
     MIN_SCORE: MIN_SCORE,
+    HIGH_CONFIDENCE: HIGH_CONFIDENCE,
+    extractSetCode: extractSetCode,
+    resolvePrintedCode: resolvePrintedCode,
+    setIdForCode: setIdForCode,
+    hasSetEntries: hasSetEntries,
+    energyTypeByHue: energyTypeByHue,
+    detectEnergyType: detectEnergyType,
+    resolveEnergyType: resolveEnergyType,
+    SET_BOOST: SET_BOOST,
     searchIndexQuery: searchIndexQuery,
     loadOcr: loadOcr,
-    recognize: recognize
+    recognize: recognize,
+    recognizeSetCode: recognizeSetCode
   };
 })();
