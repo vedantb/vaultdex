@@ -257,8 +257,8 @@
 
     try {
       await preloadArt(img, 900);
-      try { if (img.decode) await img.decode(); } catch (e) { /* keep going */ }
-    } catch (e) { /* keep going — the ghost still flies */ }
+      try { if (img.decode) await img.decode(); } catch { /* keep going */ }
+    } catch { /* keep going — the ghost still flies */ }
     if (done || !overlay.isConnected) { cleanup(); return; }
 
     var dst = artBox.getBoundingClientRect();
@@ -282,7 +282,7 @@
           { transform: "translate(" + t.dx + "px," + t.dy + "px) scale(" + t.sx + "," + t.sy + ")" }
         ], { duration: flightMs, easing: "cubic-bezier(0.22, 0.9, 0.26, 1)", fill: "forwards" });
         await anim.finished;
-      } catch (e) { /* WAAPI aborted — fall through to cleanup */ }
+      } catch { /* WAAPI aborted — fall through to cleanup */ }
     }
     cleanup();
   }
@@ -492,7 +492,7 @@
       try {
         var artSrc = nextCard.images && (nextCard.images.large || nextCard.images.small);
         if (artSrc) { var preload = new Image(); preload.src = artSrc; }
-      } catch (e) { /* preloading is best-effort */ }
+      } catch { /* preloading is best-effort */ }
       setTimeout(swapNow, 170);
     }
     /* Desktop: arrow keys step through the set while the modal is open.
