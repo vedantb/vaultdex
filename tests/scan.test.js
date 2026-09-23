@@ -346,6 +346,94 @@ describe("searchIndexQuery (manual fallback)", () => {
   });
 });
 
+describe("phone-photo regression: garbage OCR never yields random cards (2026-09-23)", () => {
+  /* After the accuracy repair, real iPhone scans surfaced "completely
+   * random cards". Root causes, all in scoreEntry:
+   *  - short OCR fragments ("tt") substring-matched any catalog word
+   *    containing them ("banette", "jett", "floette")
+   *    — cf. the en-sm1-28 corpus case, "TTT TT ETT" glare garbage
+   *  - single-letter catalog names ("N") matched via the containment
+   *    bonus against any garbage query containing the letter
+   *    — cf. the ja-M-P-002 corpus case, "SSN ue i e"
+   * The tightened token rules plus the MIN_SCORE confidence gate
+   * withhold these; the view renders its honest "couldn't read it"
+   * state instead of a random list. */
+
+  const GARBAGE_ENTRIES = [
+    { id: "me05-034", localId: "34", name: "Banette", lang: "en" },
+    { id: "me05-079", localId: "79", name: "Jett", lang: "en" },
+    { id: "me04-035", localId: "35", name: "Mega Floette ex", lang: "en" },
+    { id: "30th-015", localId: "15", name: "Fuecoco ex", lang: "en" },
+    { id: "30th-c-021", localId: "21", name: "N", lang: "en" },
+    { id: "swsh7-24", localId: "24", name: "Psyduck", lang: "en" }
+  ];
+
+  test("glare garbage ('TTT TT ETT') yields no candidates, not Banette/Jett", () => {
+    const info = extractCardInfo({
+      text: "TTT TT ETT\n©2021 Pokémon",
+      lines: [ocrLine("TTT TT ETT", 40, 70), ocrLine("©2021 Pokémon", 780, 800)]
+    });
+    expect(info.name).toBe("TTT TT ETT");
+    expect(rankCandidates(GARBAGE_ENTRIES, info, 12)).toEqual([]);
+  });
+
+  test("fragment garbage ('SSN ue i e') does not match the 'N' trainer", () => {
+    const info = extractCardInfo({
+      text: "SSN ue i e",
+      lines: [ocrLine("SSN ue i e", 45, 70)]
+    });
+    expect(rankCandidates(GARBAGE_ENTRIES, info, 12)).toEqual([]);
+  });
+
+  test("blur garbage yields no candidates", () => {
+    const info = extractCardInfo({
+      text: "asdf qwer\nzxcv",
+      lines: [ocrLine("asdf qwer", 100, 130), ocrLine("zxcv", 700, 730)]
+    });
+    expect(rankCandidates(GARBAGE_ENTRIES, info, 12)).toEqual([]);
+  });
+
+  test("a lone weak fragment stays below the confidence bar", () => {
+    /* "Firex": one fuzzy token hit (8) + containment (20) + language
+     * (10) = 38 < MIN_SCORE (40) — withheld, not shown as a guess. */
+    const ranked = rankCandidates(
+      [{ id: "t-1", localId: "1", name: "Fire", lang: "en" }],
+      { name: "Firex", number: "" }, 12);
+    expect(ranked).toEqual([]);
+    expect(App.scan.MIN_SCORE).toBe(40);
+  });
+
+  test("a real partial read ('Pikachu ex' vs 'Pikachu') still clears the gate", () => {
+    const ranked = rankCandidates(
+      [{ id: "sv01-25", localId: "25", name: "Pikachu", lang: "en" }],
+      { name: "Pikachu ex", number: "" }, 12);
+    expect(ranked.length).toBe(1);
+  });
+
+  test("callers can tighten the bar explicitly", () => {
+    const e = { id: "x-1", localId: "1", name: "Pikachu", lang: "en" };
+    expect(rankCandidates([e], { name: "Pikachu", number: "" }, 12, null, 200)).toEqual([]);
+    expect(rankCandidates([e], { name: "Pikachu", number: "" }, 12, null, 0).length).toBe(1);
+  });
+
+  test("y-normalization survives phone framing (table visible around the card)", () => {
+    /* Card occupies y 200..1200 of a 1600px photo; a stray
+     * background-texture line sits below it. Normalization is
+     * monotonic, so top/bottom ordering — and the name/number picks —
+     * survive the framing. */
+    const info = extractCardInfo({
+      text: "Pikachu\n060/198",
+      lines: [
+        ocrLine("Pikachu", 210, 250),
+        ocrLine("060/198", 1100, 1140),
+        ocrLine(".. .", 1450, 1480)
+      ]
+    });
+    expect(info.name).toBe("Pikachu");
+    expect(info.number).toBe("60");
+  });
+});
+
 describe("scanCapable", () => {
   beforeEach(() => {
     delete window.matchMedia;

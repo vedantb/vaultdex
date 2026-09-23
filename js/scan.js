@@ -285,11 +285,23 @@
         var nameTokens = tokens(en);
         var hits = 0, fuzzy = 0;
         tokens(qn).forEach(function (t) {
-          if (en.indexOf(t) !== -1) hits++;
+          /* Short fragments never score. Phone-photo OCR produces
+           * garbage like "tt" that used to substring-match any catalog
+           * word containing it ("banette", "jett", "floette") and
+           * surface completely random cards. A token must be a full
+           * word of the catalog name, or within edit distance 2
+           * (fuzzyTokenHit already requires length >= 4). */
+          if (t.length < 4) return;
+          if (nameTokens.indexOf(t) !== -1) hits++;
           else if (fuzzyTokenHit(nameTokens, t)) fuzzy++;
         });
         nameScore = hits * 15 + fuzzy * 8;
-        if (en.indexOf(qn) !== -1 || qn.indexOf(en) !== -1) nameScore += 20;
+        /* The containment bonus needs real words on both sides: a
+         * single-letter catalog name ("N") is contained in almost any
+         * garbage query ("ssn ue i e"). Exact full-name equality above
+         * is unaffected. */
+        if (qn.length >= 4 && en.length >= 4 &&
+            (en.indexOf(qn) !== -1 || qn.indexOf(en) !== -1)) nameScore += 20;
       }
     }
     s += nameScore;
@@ -331,12 +343,20 @@
     return (typeof r === "number") ? r : 9999;
   }
 
-  function rankCandidates(entries, info, limit, setRank) {
+  /* Minimum score for a candidate to be shown. Below this, the read
+   * is too weak to be useful — the view renders its honest "couldn't
+   * read it" state instead of a list of random cards. 40 is the weakest
+   * legitimate standalone signal (an illustrator-credit match); a lone
+   * short name fragment or stray token can never clear it. */
+  var MIN_SCORE = 40;
+
+  function rankCandidates(entries, info, limit, setRank, minScore) {
     limit = limit || 8;
+    if (typeof minScore !== "number") minScore = MIN_SCORE;
     var scored = [];
     (entries || []).forEach(function (e) {
       var s = scoreEntry(e, info || {});
-      if (s > 0) scored.push({ entry: e, score: s });
+      if (s > 0 && s >= minScore) scored.push({ entry: e, score: s });
     });
     scored.sort(function (a, b) {
       if (b.score !== a.score) return b.score - a.score;
@@ -428,6 +448,7 @@
     buildIllustratorTokens: buildIllustratorTokens,
     scoreEntry: scoreEntry,
     rankCandidates: rankCandidates,
+    MIN_SCORE: MIN_SCORE,
     searchIndexQuery: searchIndexQuery,
     loadOcr: loadOcr,
     recognize: recognize
