@@ -54,6 +54,10 @@
     {
       "destination": "/index.html",
       "source": "/games/:slug"
+    },
+    {
+      "destination": "/index.html",
+      "source": "/scan"
     }
   ]
 }
