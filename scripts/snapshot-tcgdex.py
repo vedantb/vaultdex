@@ -520,6 +520,44 @@ def overlay_set_images(cards):
     return filled
 
 
+def overlay_illustrators(cards):
+    """Fill illustrator gaps in the index from local per-set snapshots.
+
+    The raw /cards index response carries no illustrator, but per-set
+    snapshots do. The card scanner matches the printed "Illus. <name>"
+    credit against the index, so the overlay re-runs on every snapshot
+    and the weekly refresh can't wipe it.
+    """
+    import os
+    by_id = {}
+    try:
+        files = sorted(f for f in os.listdir(os.path.join(OUT, "sets"))
+                       if f.endswith(".json"))
+    except OSError:
+        files = []
+    for fn in files:
+        try:
+            with open(os.path.join(OUT, "sets", fn)) as f:
+                payload = json.load(f)
+        except Exception:  # noqa: BLE001
+            continue
+        for c in (payload.get("cards") or []):
+            illus = (c.get("illustrator") or "").strip()
+            if c.get("id") and illus:
+                by_id[c["id"]] = illus
+    filled = 0
+    for c in cards:
+        if not (c.get("illustrator") or "").strip():
+            illus = by_id.get(c.get("id"))
+            if illus:
+                c["illustrator"] = illus
+                filled += 1
+    if filled:
+        print("  index: overlaid %d illustrators from per-set files" % filled,
+              file=sys.stderr)
+    return filled
+
+
 def snapshot_index():
     arr = polite("/cards")
     hidden = hidden_set_ids()
@@ -528,6 +566,7 @@ def snapshot_index():
     if dropped:
         print("  index: dropped %d hidden-series cards" % dropped, file=sys.stderr)
     overlay_set_images(kept)
+    overlay_illustrators(kept)
     write("index.json", kept)
     return len(kept)
 

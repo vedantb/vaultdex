@@ -449,5 +449,43 @@ class IndexImageOverlayTests(unittest.TestCase):
                          "https://assets.tcgdex.net/en/s1/1")
 
 
+class IllustratorOverlayTests(unittest.TestCase):
+    """snapshot_index() overlays per-set illustrators onto the index.
+
+    The raw /cards index carries no illustrator, but the card scanner
+    matches the printed "Illus. <name>" credit — so per-set snapshots
+    (which do carry it) are overlaid on every snapshot run.
+    """
+
+    def setUp(self):
+        self.tmp = tempfile.mkdtemp(prefix="vd-illus-")
+        os.makedirs(os.path.join(self.tmp, "sets"))
+        payload = {"cards": [
+            {"id": "s1-001", "illustrator": "chibi"},
+            {"id": "s1-002", "illustrator": ""},
+        ]}
+        with open(os.path.join(self.tmp, "sets", "s1.json"), "w") as f:
+            json.dump(payload, f)
+        self.orig_out = snapshot.OUT
+        snapshot.OUT = self.tmp
+
+    def tearDown(self):
+        snapshot.OUT = self.orig_out
+
+    def test_fills_gaps_from_per_set_files(self):
+        cards = [{"id": "s1-001"}, {"id": "s1-002"}, {"id": "s1-003"}]
+        filled = snapshot.overlay_illustrators(cards)
+        self.assertEqual(filled, 1)
+        self.assertEqual(cards[0]["illustrator"], "chibi")
+        self.assertNotIn("illustrator", cards[1])
+        self.assertNotIn("illustrator", cards[2])
+
+    def test_existing_illustrator_wins(self):
+        cards = [{"id": "s1-001", "illustrator": "OKACHEKE"}]
+        filled = snapshot.overlay_illustrators(cards)
+        self.assertEqual(filled, 0)
+        self.assertEqual(cards[0]["illustrator"], "OKACHEKE")
+
+
 if __name__ == "__main__":
     unittest.main()

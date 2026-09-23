@@ -30,53 +30,134 @@
 
   /* ---------- OCR text -> { name, nameJa, number } ---------- */
 
-  /* Card numbers print as "123/456" (or "TG01/TG30", "SV01" promos, …).
-   * Try the fraction form first — a bare "123" elsewhere on the card
-   * (HP, damage numbers) is a much weaker signal. */
+  /* Card numbers print as "123/203" (or "TG01/TG30", promo "SV01", …).
+   * The fraction form is distinctive enough to accept anywhere on the
+   * card (base-era cards print it inside the copyright line); a bare
+   * "123" elsewhere (HP, damage, "10 times more") is a much weaker
+   * signal and needs positional/context checks. */
   function findNumber(lines) {
-    var frac = /([A-Za-z]{0,3}\d{1,3})\s*\/\s*[A-Za-z]{0,3}\d{1,3}/;
+    var frac = /(^|[^\d])([A-Za-z]{0,3}\d{1,3})\s*\/\s*[A-Za-z]{0,3}\d{1,3}(?![\d])/;
     var bare = /^([A-Za-z]{0,2}\d{1,3})$/;
-    var i, m, line;
-    /* Bottom third of the card first: that's where the number lives. */
+    var i, m;
+    /* Bottom of the card first: that's where the number lives. */
     var ordered = lines.slice().sort(function (a, b) { return b.y - a.y; });
     for (i = 0; i < ordered.length; i++) {
-      line = ordered[i];
-      m = line.text.match(frac);
-      if (m) return m[1];
+      m = ordered[i].text.match(frac);
+      if (m) return m[2];
     }
     for (i = 0; i < ordered.length; i++) {
-      line = ordered[i];
-      var toks = line.text.split(/\s+/);
-      for (var t = 0; t < toks.length; t++) {
-        m = toks[t].match(bare);
-        /* Skip HP values ("HP120") and years. */
-        if (m && !/^(19|20)\d{2}$/.test(m[1])) return m[1];
-      }
+      var line = ordered[i];
+      /* The printed number sits at the bottom, on its own line. Reject
+       * bare numbers from the top half (HP lives there), from multi-word
+       * lines ("10 times more" in flavor text, "i 1" OCR junk), and from
+       * Pokédex lines ("NO.054", "LV. 12 #25"). */
+      if (line.y < 0.5) continue;
+      if (/\b(no\.|lv\.|#)/i.test(line.text)) continue;
+      var toks = line.text.split(/\s+/).filter(Boolean);
+      if (toks.length !== 1) continue;
+      var m2 = toks[0].replace(/^[©®*●•]+|[©®*●•.,;:!?]+$/g, "").match(bare);
+      /* Skip years and HP values ("HP120"). */
+      if (m2 && !/^(19|20)\d{2}$/.test(m2[1]) && !/^hp$/i.test(m2[1])) return m2[1];
     }
     return "";
   }
 
   var NAME_JUNK = /^(basic|stage|hp|trainer|energy|pok[eé]mon|pokemon)$/i;
+  var ILLUS_RE = /\billus\.?/i;
 
-  /* The card name is the biggest text at the top of the card. With line
-   * boxes we take the longest alphabetic line in the top half; without
-   * boxes we fall back to the longest plausible line of the raw text. */
+  /* Strip OCR junk from a name-bar line: evolution clauses ("Evolves
+   * from X" sits right below the name bar and names the WRONG species),
+   * stage/HP labels, HP values and other digit tokens ("w60", "4)"),
+   * stray symbols. "Pikachu w60 4)" becomes "Pikachu";
+   * "gems Psyduck 70 &" becomes "gems Psyduck". */
+  function cleanNameLine(t) {
+    return String(t).replace(/\bevolves?\s+from\b.*$/i, "").split(/\s+/).filter(function (w) {
+      var alpha = w.replace(/[^A-Za-zéÉ]/g, "");
+      if (NAME_JUNK.test(alpha)) return false;
+      if (/[0-9]/.test(w) && w.length <= 4) return false;
+      if (!/[A-Za-z\u3040-\u30ff\u4e00-\u9faf]/.test(w)) return false;
+      return true;
+    }).join(" ")
+      .replace(/[|_—–\-"'«»“”‘’()[\]{}]+/g, " ")
+      .replace(/\s+/g, " ").trim();
+  }
+
+  function hasLetterRun(s) {
+    return /[A-Za-z]{3,}/.test(s) || /[\u3040-\u30ff\u4e00-\u9faf]/.test(s);
+  }
+
+  /* The card name is the name bar: the first readable text at the very
+   * top of the card. (The old "longest line in the top half" rule picked
+   * the illustrator/flavor/evolution line, usually the longest line on
+   * the card, because the y values were never normalized.) */
   function findName(lines) {
-    var cands = lines.filter(function (l) { return l.y < 0.55; });
-    if (!cands.length) cands = lines;
-    var best = "", bestLen = 0;
-    cands.forEach(function (l) {
-      var t = l.text.replace(/[|_—–-]{2,}/g, " ").trim();
-      /* Strip junk tokens ("BASIC", "HP 120", "STAGE 1") but keep the rest:
-       * "Pikachu ex" must survive intact. */
-      var kept = t.split(/\s+/).filter(function (w) {
-        return !NAME_JUNK.test(w.replace(/[^A-Za-zéÉ]/g, ""));
-      }).join(" ").trim();
-      if (!kept) return;
-      if (!/[A-Za-z\u3040-\u30ff\u4e00-\u9faf]/.test(kept)) return;
-      if (kept.length > bestLen) { bestLen = kept.length; best = kept; }
+    var cands = lines.filter(function (l) {
+      return l.y < 0.30 && !ILLUS_RE.test(l.text);
     });
-    return best;
+    if (!cands.length) cands = lines;
+    cands.sort(function (a, b) { return a.y - b.y; });
+    for (var i = 0; i < cands.length; i++) {
+      var kept = cleanNameLine(cands[i].text);
+      if (kept && hasLetterRun(kept)) return kept;
+    }
+    return "";
+  }
+
+  /* The illustrator credit ("Illus. chibi") is a strong disambiguator
+   * when the card number is unreadable. Match the credit marker loosely
+   * — Tesseract often mangles it ("Mllus.", "llus."). Only the first
+   * token after the marker is kept ("Takeshi" for "Takeshi Nakamura"),
+   * which is distinctive enough for scoring. */
+  var ILLUS_MARKER = /(?:illus|llus)\.?\s+([A-Za-z][A-Za-z.'-]*)/i;
+  function findIllustrator(lines) {
+    for (var i = lines.length - 1; i >= 0; i--) {
+      var l = lines[i];
+      if (l.y < 0.55) continue;
+      var m = l.text.match(ILLUS_MARKER);
+      if (m && /[A-Za-z]{2,}/.test(m[1])) return m[1];
+    }
+    return "";
+  }
+
+  /* Build a lookup of known illustrator name tokens (lowercase) from the
+   * search index. Lets extraction rescue the illustrator credit when
+   * Tesseract mangles the "Illus." marker itself ("Hos. chibi").
+   * Tokens shorter than 4 chars are ignored — they'd match ordinary
+   * words in flavor text. Illustrator VALUES are sanitized first: the
+   * catalog has polluted credits (HTML notes, "GAME FREAK inc.",
+   * "Basic Grass Energy" on energy cards) whose tokens would otherwise
+   * match the copyright/flavor lines of every card. */
+  var ILLUS_VALUE_DROP = /(inc\.?|ltd\.?|game\s*freak|creatures|nintendo|pok[eé]mon|art[-\s]?team|company|studio|basic\s+\w+\s+energy)/i;
+  var ILLUS_TOKEN_DROP = { game: 1, freak: 1, energy: 1, this: 1, that: 1, with: 1, from: 1,
+    your: 1, card: 1, cards: 1, pokemon: 1, illus: 1, illustrator: 1 };
+  function cleanIllustratorValue(v) {
+    return String(v || "").replace(/<[^>]*>/g, " ").replace(/\([^)]*\)/g, " ")
+      .split("|")[0].trim();
+  }
+  function buildIllustratorTokens(entries) {
+    var set = {};
+    (entries || []).forEach(function (e) {
+      var v = cleanIllustratorValue(e.illustrator);
+      if (!v || ILLUS_VALUE_DROP.test(v)) return;
+      v.toLowerCase().split(/[^a-z]+/).forEach(function (t) {
+        if (t.length >= 4 && !ILLUS_TOKEN_DROP[t]) set[t] = true;
+      });
+    });
+    return set;
+  }
+
+  /* Fallback credit search: a known illustrator token in the bottom-half
+   * lines, for when the "Illus." marker itself was misread. */
+  function findIllustratorToken(lines, illusTokens) {
+    if (!illusTokens) return "";
+    for (var i = lines.length - 1; i >= 0; i--) {
+      if (lines[i].y < 0.55) continue;
+      var toks = lines[i].text.toLowerCase().split(/[^a-z]+/);
+      for (var t = 0; t < toks.length; t++) {
+        if (toks[t].length >= 4 && illusTokens[toks[t]]) return toks[t];
+      }
+    }
+    return "";
   }
 
   function hasJapanese(s) {
@@ -86,19 +167,27 @@
   /* ocr: { text, lines: [{ text, bbox: {x0,y0,x1,y1} }] } — lines optional.
    * Returns { name, nameJa, number }: name is the Latin-script name (may be
    * empty on Japanese cards), nameJa the Japanese-script name. */
-  function extractCardInfo(ocr) {
+  function extractCardInfo(ocr, illusTokens) {
     var text = String((ocr && ocr.text) || "");
     var rawLines = ((ocr && ocr.lines) || []).map(function (l) {
-      var b = (l && l.bbox) || {};
-      var t = String((l && l.text) || "").trim();
-      /* y = vertical center as a 0..1 fraction (bbox may be in pixels). */
-      var y = 0.5;
-      if (typeof b.y0 === "number" && typeof b.y1 === "number" && b.y1 > b.y0) {
-        y = (b.y0 + b.y1) / 2;
-      }
-      return { text: t, y: y };
+      return { text: String((l && l.text) || "").trim(), bbox: (l && l.bbox) || {} };
     }).filter(function (l) { return l.text; });
-    var lines = rawLines;
+    /* Tesseract line boxes are in pixels: normalize each line's vertical
+     * center by the lowest box bottom so y is a true 0..1 fraction.
+     * (The old code compared the raw pixel value against 0.55, so the
+     * top-half name filter never fired.) */
+    var maxY1 = 0;
+    rawLines.forEach(function (l) {
+      var y1 = l.bbox.y1;
+      if (typeof y1 === "number" && y1 > maxY1) maxY1 = y1;
+    });
+    var lines = rawLines.map(function (l) {
+      var b = l.bbox, y = 0.5;
+      if (typeof b.y0 === "number" && typeof b.y1 === "number" && b.y1 > b.y0 && maxY1 > 0) {
+        y = ((b.y0 + b.y1) / 2) / maxY1;
+      }
+      return { text: l.text, y: y };
+    });
     if (!lines.length && text) {
       /* No line boxes (or OCR gave plain text): treat each text line as a
        * line with unknown position. */
@@ -107,11 +196,34 @@
       }).filter(function (l) { return l.text; });
     }
     var number = findNumber(lines);
-    var name = findName(lines);
+    var rawName = findName(lines);
+    var illustrator = findIllustrator(lines) || findIllustratorToken(lines, illusTokens);
+    /* A name-bar read can mix scripts: kana hallucinations on an English
+     * card ("soc Psyduck 上 生"), or Latin fragments on a Japanese one.
+     * Keep both parts — the Latin part for EN matching, the Japanese
+     * part for JA matching — instead of routing the whole line one way
+     * and losing the good half. Tesseract-inserted spaces inside
+     * Japanese are artifacts; strip them ("ピカ チュ ウ" → "ピカチュウ"). */
+    var name = rawName, nameJa = "";
+    if (hasJapanese(rawName)) {
+      /* Keep runs that contain Japanese for JA matching — Latin stays
+       * attached only when adjoined to Japanese ("リザードンex"), not
+       * when space-separated ("soc Psyduck 上 生" → "上生"). The
+       * Latin-only part separately feeds EN matching so a kana
+       * hallucination can't sink an English read. */
+      var runs = rawName.match(/[\u3040-\u30ff\u4e00-\u9fafA-Za-z0-9]+/g) || [];
+      nameJa = runs.filter(function (r) {
+        return /[\u3040-\u30ff\u4e00-\u9faf]/.test(r);
+      }).join("");
+      if (nameJa.length < 2) nameJa = ""; /* single-kana noise ("は") is not a name */
+      name = cleanNameLine(rawName.replace(/[\u3040-\u30ff\u4e00-\u9faf]+/g, " "));
+      if (!hasLetterRun(name)) name = "";
+    }
     return {
-      name: hasJapanese(name) ? "" : name,
-      nameJa: hasJapanese(name) ? name : "",
-      number: App.util.normNumber(number)
+      name: name,
+      nameJa: nameJa,
+      number: App.util.normNumber(number),
+      illustrator: illustrator
     };
   }
 
@@ -122,34 +234,104 @@
       .filter(function (t) { return t.length >= 2; });
   }
 
-  /* Score one index entry against extracted info. Number-exact is the
-   * strongest signal (+100); name token overlap and nameJa inclusion
-   * follow. Zero means "no evidence" — such entries never rank. */
+  /* Score one index entry against extracted info.
+   *
+   * An exact name read is the strongest signal: a misread number (very
+   * common — HP values, "10 times more" in flavor text) must not bury the
+   * correctly-named card. The number still disambiguates between
+   * printings once the name matches. Zero means "no evidence" — such
+   * entries never rank. */
+  function lev(a, b) {
+    var m = a.length, n = b.length, i, j, tmp;
+    if (!m) return n;
+    if (!n) return m;
+    var prev = [], cur = [];
+    for (j = 0; j <= n; j++) prev[j] = j;
+    for (i = 1; i <= m; i++) {
+      cur[0] = i;
+      for (j = 1; j <= n; j++) {
+        cur[j] = Math.min(prev[j] + 1, cur[j - 1] + 1,
+          prev[j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
+      }
+      tmp = prev; prev = cur; cur = tmp;
+    }
+    return prev[n];
+  }
+
+  /* OCR-mangled name token ("Psyduok") vs a catalog name token
+   * ("psyduck"): allow a small edit distance so one misread letter
+   * doesn't zero the hit. */
+  function fuzzyTokenHit(nameTokens, t) {
+    if (t.length < 4) return false;
+    for (var i = 0; i < nameTokens.length; i++) {
+      var w = nameTokens[i];
+      if (w.length < 4 || Math.abs(w.length - t.length) > 2) continue;
+      if (lev(w, t) <= 2) return true;
+    }
+    return false;
+  }
+
   function scoreEntry(e, info) {
     var s = 0;
     var num = App.util.normNumber(info.number || "");
-    if (num && App.util.normNumber(e.localId) === num) s += 100;
+    if (num && App.util.normNumber(e.localId) === num) s += 80;
     var en = String(e.name || "").toLowerCase().trim();
     var qn = String(info.name || "").toLowerCase().trim();
+    var nameScore = 0;
     if (en && qn) {
       if (en === qn) {
-        s += 60;
+        nameScore = 100;
       } else {
-        var hits = 0;
-        tokens(qn).forEach(function (t) { if (en.indexOf(t) !== -1) hits++; });
-        s += hits * 15;
-        if (en.indexOf(qn) !== -1 || qn.indexOf(en) !== -1) s += 20;
+        var nameTokens = tokens(en);
+        var hits = 0, fuzzy = 0;
+        tokens(qn).forEach(function (t) {
+          if (en.indexOf(t) !== -1) hits++;
+          else if (fuzzyTokenHit(nameTokens, t)) fuzzy++;
+        });
+        nameScore = hits * 15 + fuzzy * 8;
+        if (en.indexOf(qn) !== -1 || qn.indexOf(en) !== -1) nameScore += 20;
       }
     }
-    var ja = String(e.nameJa || "").trim();
-    var qj = String(info.nameJa || "").trim();
+    s += nameScore;
+    var jaScore = 0;
+    var ja = String(e.nameJa || "").replace(/\s+/g, "");
+    var qj = String(info.nameJa || "").replace(/\s+/g, "");
     if (ja && qj && ja.length > 1 && qj.length > 1) {
-      if (ja.indexOf(qj) !== -1 || qj.indexOf(ja) !== -1) s += 50;
+      if (ja === qj) jaScore = 100;
+      else if (ja.indexOf(qj) !== -1 || qj.indexOf(ja) !== -1) jaScore = 50;
+    }
+    s += jaScore;
+    /* The printed illustrator credit disambiguates printings when the
+     * card number is unreadable ("Illus. chibi" narrows 145 Pikachus
+     * to two). */
+    var qi = String(info.illustrator || "").toLowerCase().trim();
+    if (qi && e.illustrator &&
+        String(e.illustrator).toLowerCase().indexOf(qi) !== -1) s += 40;
+    /* Language alignment: a Latin-script read is an English card and
+     * vice versa. JA index entries carry English names, so without this
+     * a Japanese printing can outrank the English one on ties (or on a
+     * stray number hit) and the English printing vanishes from the
+     * candidate list entirely. The bonus only applies on top of other
+     * evidence — never on its own. */
+    if (s > 0) {
+      if (e.lang === "en" && nameScore > 0) s += 10;
+      else if (e.lang === "ja" && jaScore > 0) s += 10;
     }
     return s;
   }
 
-  function rankCandidates(entries, info, limit) {
+  /* setRank (optional): App.tcg.getSetRank() map, newest set first.
+   * Breaks score ties toward recent printings — the card in hand is
+   * usually a recent one when the OCR number is missing. */
+  function setRankOf(e, setRank) {
+    if (!setRank) return 0;
+    var id = String(e.id || "");
+    var prefix = id.slice(0, Math.max(0, id.lastIndexOf("-")));
+    var r = setRank[(e.lang === "ja" ? "ja-" : "") + prefix];
+    return (typeof r === "number") ? r : 9999;
+  }
+
+  function rankCandidates(entries, info, limit, setRank) {
     limit = limit || 8;
     var scored = [];
     (entries || []).forEach(function (e) {
@@ -158,6 +340,8 @@
     });
     scored.sort(function (a, b) {
       if (b.score !== a.score) return b.score - a.score;
+      var ra = setRankOf(a.entry, setRank), rb = setRankOf(b.entry, setRank);
+      if (ra !== rb) return ra - rb;
       return String(a.entry.name || "").localeCompare(String(b.entry.name || ""));
     });
     return scored.slice(0, limit).map(function (x) { return x.entry; });
@@ -165,7 +349,7 @@
 
   /* Manual-fallback search: turn a typed query into info (digits become a
    * number guess) and rank the same way. */
-  function searchIndexQuery(entries, query, limit) {
+  function searchIndexQuery(entries, query, limit, setRank) {
     var q = String(query || "").trim();
     var num = "";
     var m = q.match(/(\d{1,3})\s*\/\s*\d{1,3}/) || q.match(/\b(\d{1,3})\b/);
@@ -175,7 +359,7 @@
       nameJa: hasJapanese(q) ? q : "",
       number: App.util.normNumber(num)
     };
-    return rankCandidates(entries, info, limit);
+    return rankCandidates(entries, info, limit, setRank);
   }
 
   /* ---------- OCR engine (lazy) ---------- */
@@ -241,6 +425,7 @@
   App.scan = {
     scanCapable: scanCapable,
     extractCardInfo: extractCardInfo,
+    buildIllustratorTokens: buildIllustratorTokens,
     scoreEntry: scoreEntry,
     rankCandidates: rankCandidates,
     searchIndexQuery: searchIndexQuery,

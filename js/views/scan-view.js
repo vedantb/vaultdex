@@ -261,9 +261,11 @@
     return cards;
   }
 
-  async function candidatesFor(info) {
-    var idx = await App.tcg.getIndex();
-    var picks = App.scan.rankCandidates(idx, info, 8);
+  async function candidatesFor(info, idx) {
+    idx = idx || await App.tcg.getIndex();
+    var setRank = null;
+    try { setRank = await App.tcg.getSetRank(); } catch { /* tiebreak skipped */ }
+    var picks = App.scan.rankCandidates(idx, info, 12, setRank);
     return resolveCandidates(picks);
   }
 
@@ -328,7 +330,9 @@
       results.innerHTML = '<div class="scan-loading"><span class="spinner"></span></div>';
       try {
         var idx = await App.tcg.getIndex();
-        var picks = App.scan.searchIndexQuery(idx, q, 8);
+        var setRank = null;
+        try { setRank = await App.tcg.getSetRank(); } catch { /* tiebreak skipped */ }
+        var picks = App.scan.searchIndexQuery(idx, q, 12, setRank);
         var cards = await resolveCandidates(picks);
         renderCandidates(results, cards, "", onPick);
       } catch {
@@ -522,9 +526,10 @@
             if (fill) fill.style.width = Math.round(p * 100) + "%";
           });
           if (cancelled || !stage.isConnected) return;
-          var info = App.scan.extractCardInfo(ocr);
+          var idx = await App.tcg.getIndex();
+          var info = App.scan.extractCardInfo(ocr, App.scan.buildIllustratorTokens(idx));
           if (label) label.textContent = "Matching…";
-          var cards = await candidatesFor(info);
+          var cards = await candidatesFor(info, idx);
           if (cancelled || !stage.isConnected) return;
           var note = "";
           if (info.name || info.nameJa || info.number) {

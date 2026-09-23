@@ -78,15 +78,117 @@ describe("extractCardInfo", () => {
 
   test("handles missing OCR payload entirely", () => {
     const info = extractCardInfo(null);
-    expect(info).toEqual({ name: "", nameJa: "", number: "" });
+    expect(info).toEqual({ name: "", nameJa: "", number: "", illustrator: "" });
+  });
+
+  test("pulls the illustrator credit from a mangled 'Illus.' marker", () => {
+    const info = extractCardInfo({
+      text: "Psyduck\n| Mllus. OKACHEKE Ithas been found",
+      lines: [
+        ocrLine("gems Psyduck 70 &", 50, 72),
+        ocrLine("| Mllus. OKACHEKE Ithas been found", 750, 772)
+      ]
+    });
+    expect(info.illustrator).toBe("OKACHEKE");
+  });
+
+  test("rescues the illustrator when the marker itself is unreadable ('Hos. chibi')", () => {
+    const tokens = App.scan.buildIllustratorTokens([
+      { illustrator: "chibi" },
+      { illustrator: "Mitsuhiro Arita" }
+    ]);
+    const info = extractCardInfo({
+      text: "Hos. chibi When Pikachu meet",
+      lines: [
+        ocrLine("Pikachu w60 4)", 40, 62),
+        ocrLine("Hos. chibi When Pikachu meet, they ll touch their tails", 752, 774)
+      ]
+    }, tokens);
+    expect(info.illustrator).toBe("chibi");
+  });
+
+  test("buildIllustratorTokens drops polluted credits (GAME FREAK, energy cards, HTML notes)", () => {
+    const tokens = App.scan.buildIllustratorTokens([
+      { illustrator: "GAME FREAK inc." },
+      { illustrator: "Basic Grass Energy" },
+      { illustrator: '<span>(This card cannot be used at official tournaments.)</span>' },
+      { illustrator: "chibi" }
+    ]);
+    expect(tokens.game).toBeUndefined();
+    expect(tokens.freak).toBeUndefined();
+    expect(tokens.energy).toBeUndefined();
+    expect(tokens.this).toBeUndefined();
+    expect(tokens.chibi).toBe(true);
+  });
+
+  test("keeps a mixed-script name readable in both languages", () => {
+    const info = extractCardInfo({
+      text: "soc Psyduck 上 生",
+      lines: [ocrLine("soc Psyduck 上 生", 50, 72)]
+    });
+    expect(info.name).toMatch(/psyduck/i);
+    expect(info.nameJa).toBe("上生");
+  });
+
+  test("strips Tesseract's artifact spaces inside Japanese names", () => {
+    const info = extractCardInfo({
+      text: "ピカ チュ ウ",
+      lines: [ocrLine("ピカ チュ ウ", 50, 72)]
+    });
+    expect(info.nameJa).toBe("ピカチュウ");
+    expect(info.name).toBe("");
+  });
+
+  test("the evolution line never wins the name (it names the wrong species)", () => {
+    const info = extractCardInfo({
+      text: "Charizard 120 HP\nSTAGE 2 Evolves from Charmeleon",
+      lines: [
+        ocrLine("Charizard 120 HP", 40, 70),
+        ocrLine("STAGE 2 Evolves from Charmeleon", 80, 105)
+      ]
+    });
+    expect(info.name).toBe("Charizard");
+  });
+
+  test("a bare number inside flavor text is not the card number", () => {
+    const info = extractCardInfo({
+      text: "Ithas been found thatits brain cells are 10 times more.\n©2021 GAME FREAK.",
+      lines: [
+        ocrLine("Pikachu", 40, 70),
+        ocrLine("Ithas been found thatits brain cells are 10 times more.", 740, 765),
+        ocrLine("©2021 GAME FREAK.", 790, 810)
+      ]
+    });
+    expect(info.number).toBe("");
   });
 });
 
 describe("scoreEntry", () => {
-  test("a number-exact hit outscores a name-only hit", () => {
+  test("an exact name hit outscores a number-only hit (stray numbers must not bury the name)", () => {
     const numHit = scoreEntry(ENTRIES[1], { name: "", number: "60" });
     const nameHit = scoreEntry(ENTRIES[0], { name: "Pikachu", number: "" });
-    expect(numHit).toBeGreaterThan(nameHit);
+    expect(nameHit).toBeGreaterThan(numHit);
+  });
+
+  test("name plus number together beats either alone", () => {
+    const both = scoreEntry(ENTRIES[1], { name: "Charizard ex", number: "60" });
+    const nameOnly = scoreEntry(ENTRIES[1], { name: "Charizard ex", number: "" });
+    const numOnly = scoreEntry(ENTRIES[1], { name: "", number: "60" });
+    expect(both).toBeGreaterThan(nameOnly);
+    expect(both).toBeGreaterThan(numOnly);
+  });
+
+  test("an OCR-mangled name token still scores (fuzzy match)", () => {
+    const psyduck = { id: "swsh7-24", localId: "24", name: "Psyduck", lang: "en" };
+    expect(scoreEntry(psyduck, { name: "Psyduok", number: "" })).toBeGreaterThan(0);
+    expect(scoreEntry(psyduck, { name: "xyzzy", number: "" })).toBe(0);
+  });
+
+  test("the illustrator credit boosts the right printing", () => {
+    const chibi = { id: "swsh7-49", localId: "49", name: "Pikachu", lang: "en", illustrator: "chibi" };
+    const other = { id: "sv01-25", localId: "25", name: "Pikachu", lang: "en", illustrator: "Mitsuhiro Arita" };
+    const info = { name: "Pikachu", number: "", illustrator: "chibi" };
+    expect(scoreEntry(chibi, info)).toBeGreaterThan(scoreEntry(other, info));
   });
 
   test("zero means no evidence", () => {
@@ -95,9 +197,14 @@ describe("scoreEntry", () => {
 });
 
 describe("rankCandidates", () => {
-  test("number-exact beats name-only matches", () => {
+  test("a stray number does not outrank the exactly-named card", () => {
     const ranked = rankCandidates(ENTRIES, { name: "Pikachu", number: "60" });
-    expect(ranked[0].id).toMatch(/-60$/);
+    expect(ranked[0].name).toBe("Pikachu");
+  });
+
+  test("name plus number pinpoints the exact printing", () => {
+    const ranked = rankCandidates(ENTRIES, { name: "Pikachu", number: "58" });
+    expect(ranked[0].id).toBe("base1-58");
   });
 
   test("normalizes leading zeros so OCR '060' matches catalog '60'", () => {
@@ -127,6 +234,90 @@ describe("rankCandidates", () => {
       return { id: e.id + "-" + i, localId: e.localId, name: "Pikachu", nameJa: "", rarity: "", set: "" };
     }));
     expect(rankCandidates(many, { name: "Pikachu", number: "" }, 3).length).toBeLessThanOrEqual(3);
+  });
+});
+
+describe("user-reported regressions (swsh7 Evolving Skies)", () => {
+  /* Real Tesseract output (eng+jpn, 600x825 catalog scan) for the two
+   * cards Vedant reported on 2026-09-23:
+   *  - Pikachu 049/203, illus. chibi — "couldn't read correctly"
+   *  - Psyduck 024/203, illus. OKACHEKE — "only a Japanese variant,
+   *    English never appeared"
+   * The old pipeline read the illustrator/flavor line as the name and a
+   * flavor-text number ("10 times more") as the card number. */
+
+  const PIKACHU_OCR = {
+    text: "Pikachu w60 4)\nHos. chibi When Pikachu meet\n幸 ©2021 Pokemon/Nintendo/Creatures GAME FREAK. 4",
+    lines: [
+      ocrLine("Pikachu w60 4)", 40, 62),
+      ocrLine("Attach a 4 Energy card from your discard pile to this", 520, 542),
+      ocrLine("Hos. chibi When Pikachu meet, they ll touch their tails together and", 752, 774),
+      ocrLine("幸 ©2021 Pokemon/Nintendo/Creatures GAME FREAK. 4", 803, 825)
+    ]
+  };
+
+  const PSYDUCK_OCR = {
+    text: "gems Psyduck 70 &\n| Mllus. OKACHEKE Ithas been found thatits brain cells are 10 times more.\n©2021 Pokémon / Nintendo / Creatures / GAME FREAK 。",
+    lines: [
+      ocrLine("gems Psyduck 70 &", 50, 72),
+      ocrLine("fr NO.054 Duck Pokémon. HT. 27° WI. 43.2 1b, pe", 392, 414),
+      ocrLine("| Xx Rain Splash 10", 548, 570),
+      ocrLine("| Mllus. OKACHEKE Ithas been found thatits brain cells are 10 times more.", 750, 772),
+      ocrLine("| Oe active when Psyduck is experiencing a headache.", 771, 793),
+      ocrLine("©2021 Pokémon / Nintendo / Creatures / GAME FREAK 。", 796, 818)
+    ]
+  };
+
+  const PRINTINGS = [
+    { id: "swsh7-49", localId: "49", name: "Pikachu", lang: "en", illustrator: "chibi" },
+    { id: "2022swsh-7", localId: "7", name: "Pikachu", lang: "en", illustrator: "chibi" },
+    { id: "sv01-25", localId: "25", name: "Pikachu", lang: "en", illustrator: "Mitsuhiro Arita" },
+    { id: "SM0-004", localId: "004", name: "Pikachu", lang: "ja", illustrator: "Naoyo Kimura" },
+    { id: "swsh7-24", localId: "24", name: "Psyduck", lang: "en", illustrator: "OKACHEKE" },
+    { id: "xy9-16", localId: "16", name: "Psyduck", lang: "en", illustrator: "Mitsuhiro Arita" },
+    { id: "PMCG3-010", localId: "010", name: "Psyduck", nameJa: "コダック", lang: "ja", illustrator: "OKACHEKE" },
+    { id: "SV2a-010", localId: "010", name: "Caterpie", nameJa: "キャタピー", lang: "ja", illustrator: "chibi" }
+  ];
+
+  test("Pikachu 049/203: name reads, flavor numbers are not the card number", () => {
+    const info = extractCardInfo(PIKACHU_OCR);
+    expect(info.name).toBe("Pikachu");
+    expect(info.number).toBe("");
+  });
+
+  test("Pikachu 049/203: the English printing ranks first", () => {
+    const info = extractCardInfo(PIKACHU_OCR);
+    const ranked = rankCandidates(PRINTINGS, info, 8);
+    expect(ranked[0].id).toBe("swsh7-49");
+    expect(ranked[0].lang).toBe("en");
+  });
+
+  test("Psyduck 024/203: name reads, '10 times more' is not the card number", () => {
+    const info = extractCardInfo(PSYDUCK_OCR);
+    expect(info.name).toMatch(/psyduck/i);
+    expect(info.number).toBe("");
+    expect(info.illustrator).toBe("OKACHEKE");
+  });
+
+  test("Psyduck 024/203: English printings are never buried under Japanese ones", () => {
+    const info = extractCardInfo(PSYDUCK_OCR);
+    const ranked = rankCandidates(PRINTINGS, info, 8);
+    expect(ranked[0].lang).toBe("en");
+    expect(ranked.map((e) => e.id)).toContain("swsh7-24");
+    /* The old bug: the JA Psyduck (same illustrator, stray number "10")
+     * ranked above every English printing. */
+    const enIdx = ranked.findIndex((e) => e.lang === "en");
+    const jaPsyIdx = ranked.findIndex((e) => e.id === "PMCG3-010");
+    expect(enIdx).toBeLessThan(jaPsyIdx);
+  });
+
+  test("set recency breaks ties toward newer printings", () => {
+    const setRank = { "swsh7": 50, "sv01": 20 };
+    const ranked = rankCandidates(
+      [PRINTINGS[0], PRINTINGS[2]],
+      { name: "Pikachu", number: "" }, 8, setRank
+    );
+    expect(ranked[0].id).toBe("sv01-25");
   });
 });
 
