@@ -12,7 +12,7 @@
  *
  * Bump SHELL_VERSION on every release that touches shell files.
  */
-var SHELL_VERSION = "vaultdex-shell-v2";
+var SHELL_VERSION = "vaultdex-shell-v3";
 var SHELL_FILES = [
   "/",
   "/index.html",
@@ -29,7 +29,6 @@ var SHELL_FILES = [
   "/css/games.css",
   "/css/motion.css",
   "/css/home.css",
-  "/css/scan.css",
   "/js/vendor/supabase.js",
   "/js/config.js",
   "/js/supabase-client.js",
@@ -47,7 +46,6 @@ var SHELL_FILES = [
   "/js/achievements.js",
   "/js/games.js",
   "/js/fun-facts.js",
-  "/js/scan.js",
   "/js/components/card-modal.js",
   "/js/views/browse.js",
   "/js/views/set-view.js",
@@ -59,7 +57,6 @@ var SHELL_FILES = [
   "/js/views/trophies-view.js",
   "/js/views/pokedex-view.js",
   "/js/views/games-view.js",
-  "/js/views/scan-view.js",
   "/js/app.js",
   "/images/icon-192.png",
   "/images/icon-512.png",

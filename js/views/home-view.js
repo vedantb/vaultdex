@@ -468,20 +468,6 @@
           '<div class="home-hero-art"><img src="/images/home-hero.webp" alt="An open vault door glowing with light, holographic trading cards swirling out"></div>' +
         "</section>" +
 
-        /* Mobile-only scan entry: the scanner needs a phone camera, so
-         * desktop users never see this. Placed between the hero and the
-         * entry cards so it reads as the primary action on phones. */
-        ((App.scan && App.scan.scanCapable())
-          ? '<a class="home-scan-cta reveal" href="/scan">' +
-              '<span class="home-scan-ico" aria-hidden="true">' + App.ui.icon("camera") + "</span>" +
-              '<span class="home-scan-body">' +
-                '<span class="home-scan-title">Scan a card</span>' +
-                '<span class="home-scan-meta">Point your camera at a card to add it to the vault</span>' +
-              "</span>" +
-              '<span class="home-entry-arrow" aria-hidden="true">' + App.ui.icon("chev-r") + "</span>" +
-            "</a>"
-          : "") +
-
         '<section class="home-entries">' +
           '<a class="home-entry reveal" href="/collection">' +
             '<span class="home-entry-art">' + (collArt ? '<img loading="lazy" src="' + App.esc(collArt) + '" alt="">' : "") + "</span>" +

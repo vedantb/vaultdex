@@ -211,7 +211,6 @@
       : path === "/wishlist" ? "wishlist"
       : path === "/movers" ? "movers"
       : (path === "/games" || path.indexOf("/games/") === 0) ? "games"
-      : path === "/scan" ? "scan"
       : "collection";
     document.querySelectorAll("[data-nav]").forEach(function (a) {
       a.classList.toggle("active", a.getAttribute("data-nav") === key);
@@ -259,11 +258,6 @@
         viewPromise = App.views.pokedex(stage);
       } else if (path === "/trophies") {
         viewPromise = App.views.trophies(stage);
-      } else if (path === "/scan") {
-        /* Scanner is mobile-only by design (App.scan.scanCapable):
-         * phones get the camera flow; desktop gets the "use your
-         * phone" note. There is deliberately no desktop entry point. */
-        viewPromise = App.views.scan(stage);
       } else if (path === "/games") {
         viewPromise = App.views.games(stage);
       } else if (path === "/games/higher-lower") {
@@ -387,7 +381,7 @@
       if (a.target === "_blank" || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
       var href = a.getAttribute("href");
       if (href === "/" || href === "/login" || href === "/collection" || href === "/browse" ||
-          href === "/scan" || href === "/wishlist" || href === "/movers" || href === "/trade" ||
+          href === "/wishlist" || href === "/movers" || href === "/trade" ||
           href === "/pokedex" || href === "/trophies" ||
           href === "/games" || href.indexOf("/games/") === 0 ||
           href.indexOf("/set/") === 0) {
