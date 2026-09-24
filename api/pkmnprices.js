@@ -5,7 +5,10 @@
  * key attached server-side.
  *
  * Abuse protection (the upstream key is paid & credit-capped):
- *   1. Path allow-list — only the three endpoints the app actually uses.
+ *   1. Path allow-list — /v1/sets, /v1/cards, /v1/cards/<id>,
+ *      /v1/cards/<id>/listings/ebay. /v1/sets is only used by the
+ *      build-pkmn-set-map.py script (server-side caller key); the app
+ *      ships a baked data/pkmn-set-ids.json instead of calling it live.
  *   2. Caller check — browser traffic must come from our own site
  *      (Referer/Origin host allow-list); the Python backfill scripts send a
  *      shared secret header instead (they run server-side, no Referer).
@@ -26,8 +29,8 @@ var ALLOWED_HOSTS = {
   "127.0.0.1": true
 };
 
-/* /v1/cards, /v1/cards/<numeric id>, /v1/cards/<numeric id>/listings/ebay */
-var PATH_RE = /^\/v1\/cards(?:\/(\d+)(?:\/listings\/ebay)?)?$/;
+/* /v1/sets, /v1/cards, /v1/cards/<numeric id>, /v1/cards/<numeric id>/listings/ebay */
+var PATH_RE = /^\/v1\/(?:sets|cards(?:\/(\d+)(?:\/listings\/ebay)?)?)$/;
 
 /* 120 requests per rolling 60s window, per client IP. */
 var RATE_LIMIT = 120;
