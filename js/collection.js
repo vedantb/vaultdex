@@ -130,7 +130,8 @@
           name: card.name,
           setName: card.set && card.set.name,
           number: card.number,
-          lang: setLang
+          lang: setLang,
+          setId: setId
         });
         var g = gid ? await App.pkmn.gradedPrice(gid, gradingCompany, gradingGrade, { lang: setLang }) : null;
         if (g && typeof g.price === "number") {
@@ -165,6 +166,7 @@
         var q = await App.pkmn.priceForRow({
           card_name: card.name,
           set_name: card.set && card.set.name,
+          set_id: setId,
           number: card.number,
           variant: variant,
           lang: setLang
@@ -247,6 +249,12 @@
      * fallback cross-price rows in accented sets (Pokémon GO Moltres #12
      * Holo as Fossil Moltres). Clear them; the next refresh re-prices. */
     await repairAccentFallbackPrices(rows);
+    /* One-shot repair: name-normalization-only set matching let the
+     * number-only fallback cross-price rows in any set whose provider
+     * name never normalized cleanly (SV Professor's Research #189/#190
+     * as Professor Program promos). Now that lookups are set_id-scoped,
+     * clear the stale ids + prices; the next refresh re-prices them. */
+    await repairSetMatchPrices(rows);
     return rows;
   }
 
@@ -392,6 +400,93 @@
     return oldNorm !== App.pkmn.normSetName(row.set_name);
   }
 
+  /* Pre-fix set-name normalization for the set-match repair predicate:
+   * lowercase + ": " cut, accents KEPT — exactly what normSetName did
+   * before the 2026-09-23 accent fix. Exported for unit tests. */
+  function oldNormSetName(name) {
+    var s = String(name || "");
+    var cut = s.indexOf(": ");
+    if (cut !== -1) s = s.slice(cut + 2);
+    return s.trim().toLowerCase();
+  }
+
+  /* Pure predicate for the set-match repair: given a row and its mapped
+   * PkmnPrices set entry, could the stored pkmn_id / market_price only
+   * have come from the number-only fallback? Under the old normalization
+   * the exact set+number match could only succeed when the provider name
+   * normalized to the row's set name — anything else fell through to the
+   * fallback (e.g. SV Professor's Research #190 as the $36.23 Professor
+   * Program promo). Exported for unit tests. */
+  function setMatchNeedsRepair(row, entry) {
+    if (!row) return false;
+    if (!row.pkmn_id && row.market_price == null) return false;
+    if (!entry || !entry.ppName) return false;
+    return oldNormSetName(entry.ppName) !== oldNormSetName(row.set_name);
+  }
+
+  /* One-shot repair (2026-09-24): rows priced while set matching was
+   * name-normalization-only hold cross-set prices from the number-only
+   * fallback — e.g. Scarlet & Violet Professor's Research #190 priced as
+   * the $36.23 Professor Program promo, because "SV01: Scarlet & Violet
+   * Base Set" never normalized to "Scarlet & Violet". Any row whose set
+   * now maps to a PkmnPrices set the OLD normalization couldn't match is
+   * cleared; the next refresh re-prices it set-scoped. Rows in sets the
+   * old matcher DID match (e.g. "Fossil") are untouched, as are unmapped
+   * sets. Quantity, ownership, variant, images, and grading are untouched.
+   * Idempotent: clean rows are skipped, so later runs are a no-op. */
+  async function repairSetMatchPrices(rows) {
+    var u = App.auth.user;
+    if (!u || !rows || !rows.length) return;
+    if (!App.pkmn || typeof App.pkmn.ppSetEntry !== "function") return;
+    var bad = [];
+    for (var i = 0; i < rows.length; i++) {
+      var row = rows[i];
+      if (!row.pkmn_id && row.market_price == null) continue;
+      var sid = row.set_id || "";
+      if (!sid && row.card_id) {
+        var dash = String(row.card_id).lastIndexOf("-");
+        if (dash > 0) sid = row.card_id.slice(0, dash);
+      }
+      if (!sid) continue;
+      var entry = null;
+      try { entry = await App.pkmn.ppSetEntry(sid); } catch (e) { entry = null; }
+      if (setMatchNeedsRepair(row, entry)) bad.push(row);
+    }
+    if (!bad.length) return;
+    var hasCurrency = await ensurePriceCurrencyProbe();
+    console.warn("[VaultDex] clearing set-match fallback prices from", bad.length, "row(s)");
+    for (var j = 0; j < bad.length; j++) {
+      var brow = bad[j];
+      var clear = {
+        pkmn_id: null,
+        market_price: null,
+        price_source: null,
+        price_updated_at: null,
+        prev_price: null,
+        prev_price_at: null
+      };
+      if (hasCurrency) clear.price_currency = "USD";
+      try {
+        var up = await App.sb
+          .from("collection_items")
+          .update(clear)
+          .eq("id", brow.id)
+          .eq("user_id", u.id);
+        if (!up.error) {
+          brow.pkmn_id = null;
+          brow.market_price = null;
+          brow.price_source = null;
+          brow.price_updated_at = null;
+          brow.prev_price = null;
+          brow.prev_price_at = null;
+          if (hasCurrency) brow.price_currency = "USD";
+        }
+      } catch (e) {
+        console.warn("[VaultDex] set-match repair failed for", brow.card_name, e && e.message);
+      }
+    }
+  }
+
   /* One-shot repair (2026-09-23): rows priced while normSetName was
    * accent-blind hold cross-set prices from the number-only fallback.
    * Clear the id + price fields plus mover history; the next price refresh
@@ -459,6 +554,7 @@
         var m = await App.pkmn.findVariantPrice({
           name: row.card_name,
           setName: row.set_name,
+          setId: row.set_id,
           number: row.number,
           lang: App.util.langOf(row),
           pkmnLabel: pv.pkmnLabel,
@@ -900,6 +996,8 @@
     findMatchingRow: findMatchingRow,
     needsMissingSetRepair: needsMissingSetRepair,
     needsAccentRepair: needsAccentRepair,
+    oldNormSetName: oldNormSetName,
+    setMatchNeedsRepair: setMatchNeedsRepair,
     /* Test seam: force the price_currency capability flag (the real value
      * comes from the runtime probe of the live schema). */
     _setPriceCurrencySupport: function (v) { HAS_PRICE_CURRENCY = !!v; }

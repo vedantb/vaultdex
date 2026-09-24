@@ -95,13 +95,47 @@
    * numbers, PkmnPrices may not. Compare padded. */
   var normNumber = App.util.normNumber;
 
+  /* PkmnPrices set-id map (data/pkmn-set-ids.json, built by
+   * scripts/build-pkmn-set-map.py): app set id -> { pp, ppName }.
+   * Provider set names carry code prefixes ("SV01: ", "SM - ", "XY - ")
+   * and subset suffixes ("Base Set", "Trainer Gallery", "Shiny Vault")
+   * that defeat normalized name matching, so the unscoped number-only
+   * fallback used to price cards as another set's printing (SV
+   * Professor's Research #190 as the $36.23 Professor Program promo).
+   * Scoping the /v1/cards search with set_id makes the match exact.
+   * Loaded lazily and cached; a missing/unparsable map degrades to the
+   * legacy name-matching path (status quo ante). */
+  var setIdMap = null;
+  var setIdMapPromise = null;
+  function loadSetIdMap() {
+    if (setIdMapPromise) return setIdMapPromise;
+    setIdMapPromise = App.util.fetchWithTimeout("/data/pkmn-set-ids.json", null, API_TIMEOUT_MS)
+      .then(function (res) { return res.ok ? res.json() : {}; })
+      .then(function (j) { setIdMap = (j && typeof j === "object") ? j : {}; return setIdMap; })
+      .catch(function () { setIdMap = {}; return setIdMap; });
+    return setIdMapPromise;
+  }
+  /* Resolve an app set id ("sv01", "ja-M4") to its PkmnPrices set entry.
+   * Promise of { pp, ppName } or null when unmapped (legacy path). */
+  async function ppSetEntry(setId) {
+    if (!setId) return null;
+    var map = await loadSetIdMap();
+    var e = map[setId];
+    return (e && e.pp) ? e : null;
+  }
+
   var idCache = {};
   function cacheKey(name, setName, number, lang) {
     return (lang === "ja" ? "ja|" : "en|") + normSetName(setName) + "|" + normNumber(number) + "|" + String(name || "").trim().toLowerCase();
   }
 
   /* Find the exact PkmnPrices card id for a collection row.
-   * opts.lang === "ja" scopes the search to Japanese printings. */
+   * opts.lang === "ja" scopes the search to Japanese printings.
+   * opts.setId (the app's set id) scopes the search to the mapped
+   * provider set — every candidate is then the right set and the card
+   * number alone decides. Without a mapping the legacy name-normalized
+   * match runs, then the number-only fallback (skipped for sets the
+   * provider doesn't carry at all). */
   async function findCardId(opts) {
     opts = opts || {};
     var key = cacheKey(opts.name, opts.setName, opts.number, opts.lang);
@@ -113,20 +147,34 @@
       per_page: 50
     };
     if (opts.lang === "ja") params.language = "Japanese";
+    var entry = await ppSetEntry(opts.setId);
+    var scoped = !!entry;
+    if (entry) params.set_id = entry.pp;
     var json = await api("/v1/cards", params);
     var wantSet = normSetName(opts.setName);
     var wantNum = normNumber(opts.number);
     var hit = null;
-    (json.data || []).forEach(function (c) {
-      if (hit) return;
-      var setName = c.set && c.set.name;
-      if (normSetName(setName) === wantSet && normNumber(c.number) === wantNum) hit = c;
-    });
+    if (scoped) {
+      /* Set-scoped search: the provider filtered to our set already. */
+      (json.data || []).forEach(function (c) {
+        if (hit) return;
+        if (normNumber(c.number) === wantNum) hit = c;
+      });
+    } else {
+      (json.data || []).forEach(function (c) {
+        if (hit) return;
+        var setName = c.set && c.set.name;
+        if (normSetName(setName) === wantSet && normNumber(c.number) === wantNum) hit = c;
+      });
+    }
     // Fallback: name + number matched but set name didn't normalize cleanly
     // (e.g. promo sets) — take the first number-exact hit. Skipped for sets
     // PkmnPrices doesn't carry at all: there the exact match already failed
     // for good reason, and any number hit is necessarily another set's card.
-    if (!hit && !pkmnMissingSet(opts.setName, opts.lang)) {
+    // Also skipped when set-scoped: the scoped search already covers the
+    // whole right set, so a miss means the printing isn't carried — never
+    // another set's card.
+    if (!hit && !scoped && !pkmnMissingSet(opts.setName, opts.lang)) {
       (json.data || []).forEach(function (c) {
         if (hit) return;
         if (normNumber(c.number) === wantNum) hit = c;
@@ -203,17 +251,26 @@
       per_page: 50
     };
     if (opts.lang === "ja") params.language = "Japanese";
+    var entry = await ppSetEntry(opts.setId);
+    var scoped = !!entry;
+    if (entry) params.set_id = entry.pp;
     var json = await api("/v1/cards", params);
     var wantSet = normSetName(opts.setName);
     var wantNum = normNumber(opts.number);
     var all = json.data || [];
-    var cands = all.filter(function (c) {
-      return normSetName(c.set && c.set.name) === wantSet && normNumber(c.number) === wantNum;
-    });
-    if (!cands.length && !pkmnMissingSet(opts.setName, opts.lang)) {
+    var cands;
+    if (scoped) {
+      cands = all.filter(function (c) { return normNumber(c.number) === wantNum; });
+    } else {
+      cands = all.filter(function (c) {
+        return normSetName(c.set && c.set.name) === wantSet && normNumber(c.number) === wantNum;
+      });
+    }
+    if (!cands.length && !scoped && !pkmnMissingSet(opts.setName, opts.lang)) {
       /* Number-only fallback for promo sets whose names normalize oddly.
        * Never for unsupported sets: the exact match already failed for good
-       * reason, and any hit here is another set's printing. */
+       * reason, and any hit here is another set's printing. Never when
+       * set-scoped: the scoped search already covers the whole right set. */
       cands = all.filter(function (c) { return normNumber(c.number) === wantNum; });
     }
     if (!cands.length) return null;
@@ -326,7 +383,7 @@
     if (row.pkmn_id) return nearMintPrice(row.pkmn_id, row.variant);
     var number = row.number || guessNumber(row.card_id);
     if (!row.card_name || !number) return null;
-    var id = await findCardId({ name: row.card_name, setName: row.set_name, number: number, lang: lang });
+    var id = await findCardId({ name: row.card_name, setName: row.set_name, number: number, lang: lang, setId: row.set_id });
     if (!id) return null;
     return nearMintPrice(id, row.variant);
   }
@@ -347,6 +404,7 @@
     normSetName: normSetName,
     variantMatches: variantMatches,
     pkmnMissingSet: pkmnMissingSet,
+    ppSetEntry: ppSetEntry,
     PkmnError: PkmnError
   };
 })();
