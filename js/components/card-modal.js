@@ -361,6 +361,11 @@
           '<div class="detail-chips" id="cm-chips">' + chipsHtml(card) + "</div>" +
           '<div class="field" style="margin-bottom:6px"><label>Illustrated by</label><div id="cm-artist" style="font-weight:600">' + App.esc(card.artist || "Unknown artist") + "</div></div>" +
           "<h4 style=\"margin:16px 0 8px\">Market prices</h4>" +
+          /* The catalog table is TCGPlayer reference data — label it so it
+           * is never mistaken for the collection value shown in the owned
+           * section below (PkmnPrices). Japanese cards skip this: their
+           * price box is already PkmnPrices-sourced. */
+          (isJa ? "" : '<p style="font-size:0.78rem;color:var(--muted);margin:-4px 0 8px">Catalog reference · TCGPlayer</p>') +
           '<div id="cm-pricebox"' + (priceLoading ? ' aria-busy="true"' : "") + ">" + buildPriceHtml() + "</div>" +
           /* Owned copies: filled in by refreshOwnedLine() once the shared
            * quantity index loads. Public data — shown to visitors too. */
@@ -508,17 +513,29 @@
     }
     if (nav) document.addEventListener("keydown", onNavKey);
 
-    /* "In your collection" line: total owned copies plus a per-variant
-     * breakdown. Refreshes live after adds and on collection:changed
-     * (e.g. a set-page checkbox toggled behind the modal). */
+    /* "In your collection" line: total owned copies, a per-variant
+     * breakdown (each variant shows its collection value so the dialog
+     * agrees with the tile that opened it), a value total grouped by
+     * currency, and a muted source note naming the price feed. Refreshes
+     * live after adds and on collection:changed (e.g. a set-page
+     * checkbox toggled behind the modal). */
     function ownedLineHtml(entry) {
       if (!entry || !entry.qty) {
         return '<span class="owned-none">Not in your collection yet</span>';
       }
-      return "In your collection: <strong>×" + entry.qty + "</strong>" +
+      var html = "In your collection: <strong>×" + entry.qty + "</strong>" +
         (entry.variants.length
           ? ' <span class="owned-breakdown">' + App.esc(App.ownedQty.breakdownText(entry.variants)) + "</span>"
           : "");
+      var valueText = App.ownedQty.collectionValueText(entry.variants);
+      if (valueText) {
+        html += '<div class="owned-value">Collection value: <strong>' + App.esc(valueText) + "</strong></div>";
+      }
+      var note = App.ownedQty.priceSourceNote(entry.variants);
+      if (note) {
+        html += '<div class="owned-source">' + App.esc(note) + "</div>";
+      }
+      return html;
     }
     async function refreshOwnedLine() {
       var box = m.el.querySelector("#cm-owned");

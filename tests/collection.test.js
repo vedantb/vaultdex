@@ -127,6 +127,31 @@ describe("moverUpdate (prev_price semantics)", () => {
   });
 });
 
+describe("moverUpdate price_currency", () => {
+  const now = new Date().toISOString();
+
+  test("omits price_currency when the column is unsupported (pre-migration)", () => {
+    C._setPriceCurrencySupport(false);
+    const u = C.moverUpdate({}, 5.0, "pkmnprices", now, "EUR");
+    expect("price_currency" in u).toBe(false);
+    expect(u.market_price).toBe(5.0);
+  });
+
+  test("includes the price currency when supported", () => {
+    C._setPriceCurrencySupport(true);
+    const u = C.moverUpdate({}, 5.0, "pkmnprices", now, "EUR");
+    expect(u.price_currency).toBe("EUR");
+    C._setPriceCurrencySupport(false);
+  });
+
+  test("defaults a missing currency to USD", () => {
+    C._setPriceCurrencySupport(true);
+    const u = C.moverUpdate({}, 5.0, "pkmnprices", now, null);
+    expect(u.price_currency).toBe("USD");
+    C._setPriceCurrencySupport(false);
+  });
+});
+
 describe("totals", () => {
   test("sums value x quantity and counts copies", () => {
     const t = C.totals([

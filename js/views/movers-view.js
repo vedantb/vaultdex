@@ -17,11 +17,13 @@
   }
 
   /* delta signed: "+$3.50 (+12.34%)" for gains, "−$1.20 (−4.56%)" for losses.
-   * Percent is vs prev_price; guarded against divide-by-zero (prev = 0). */
+   * Percent is vs prev_price; guarded against divide-by-zero (prev = 0).
+   * The delta renders in the row's own currency (prev_price predates the
+   * price_currency column, so the row currency is the best available). */
   function deltaText(it) {
     var d = deltaOf(it);
     var sign = d > 0 ? "+" : "\u2212"; // U+2212 minus, matches collection-view
-    var txt = sign + App.ui.money(Math.abs(d));
+    var txt = sign + App.ui.money(Math.abs(d), it.price_currency);
     var prev = Number(it.prev_price);
     if (prev !== 0) {
       txt += " (" + sign + (Math.abs(d / prev) * 100).toFixed(2) + "%)";
@@ -38,7 +40,7 @@
       dataRow: it.id,
       qty: it.quantity,
       setHtml: App.esc(it.set_name || ""),
-      prePrice: '<div class="mover-prices">' + App.ui.money(it.prev_price) + " → " + App.ui.money(it.market_price) + "</div>",
+      prePrice: '<div class="mover-prices">' + App.ui.money(it.prev_price, it.price_currency) + " → " + App.ui.money(it.market_price, it.price_currency) + "</div>",
       priceHtml:
         '<span class="price-badge ' + cls + '">' + deltaText(it) + "</span>" +
         '<span class="variant-chip">' + App.esc(it.variant) + "</span>"

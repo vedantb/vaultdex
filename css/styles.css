@@ -276,6 +276,8 @@ main#app { flex: 1; padding: 28px 20px 64px; }
 }
 .owned-line strong { font-weight: 800; }
 .owned-breakdown { color: var(--muted); font-size: 0.78rem; }
+.owned-value { margin-top: 6px; }
+.owned-source { color: var(--muted); font-size: 0.78rem; margin-top: 4px; }
 .owned-none { color: var(--muted); }
 .select-ring { position: absolute; inset: 0; border-radius: var(--radius); border: 3px solid transparent; pointer-events: none; transition: border-color 0.15s ease; z-index: 2; }
 .card-tile.owned .select-ring { border-color: var(--accent); }

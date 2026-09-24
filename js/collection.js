@@ -41,15 +41,41 @@
     return !t || t < nowMs - PRICE_REFRESH_MS;
   }
 
+  /* Price currency column ("price_currency" on collection_items) may not
+   * exist yet — Vedant runs supabase/migration-price-currency.sql in the
+   * dashboard, and there is no service key on this VM to apply it for him.
+   * Probe once per session; writes include the column only when it exists,
+   * reads treat a missing value as USD either way. */
+  var HAS_PRICE_CURRENCY = false;
+  var priceCurrencyProbe = null;
+  async function probePriceCurrencyOnce() {
+    try {
+      if (!App.sb) return false;
+      var res = await App.sb.from("collection_items").select("price_currency").limit(1);
+      HAS_PRICE_CURRENCY = !res.error;
+    } catch {
+      HAS_PRICE_CURRENCY = false;
+    }
+    return HAS_PRICE_CURRENCY;
+  }
+  function ensurePriceCurrencyProbe() {
+    if (!priceCurrencyProbe) {
+      priceCurrencyProbe = probePriceCurrencyOnce().catch(function () { return false; });
+    }
+    return priceCurrencyProbe;
+  }
+
   /* Mover history (Feature 4): NULL prev_price means "no mover data" — a
    * row that was never refreshed, or whose price never moved, shows no
    * mover data rather than a fake zero. Only when the row had a real
    * price before AND the new price differs do we record the old price
    * as prev_price. Returns the update object, or null when the new
-   * price isn't a real number. */
-  function moverUpdate(row, newPrice, priceSource, now) {
+   * price isn't a real number. The currency travels with the price so
+   * movers/tiles never render EUR prices with a "$". */
+  function moverUpdate(row, newPrice, priceSource, now, currency) {
     if (typeof newPrice !== "number") return null;
     var update = { market_price: newPrice, price_source: priceSource, price_updated_at: now };
+    if (HAS_PRICE_CURRENCY) update.price_currency = currency || "USD";
     var oldPrice = row.market_price;
     if (typeof oldPrice === "number" && newPrice !== oldPrice) {
       update.prev_price = oldPrice;
@@ -86,6 +112,7 @@
   async function rowFromCard(u, card, variant, quantity, pkmn, grading) {
     var market = null;
     var priceSource = null;
+    var priceCurrency = "USD";
     var pkmnId = (pkmn && pkmn.pkmnId) || null;
     var label = variant;
     var ids = rowSetId(card);
@@ -109,6 +136,7 @@
         if (g && typeof g.price === "number") {
           market = g.price;
           priceSource = "pkmnprices-graded";
+          priceCurrency = g.currency || "USD";
         }
       } catch (e) {
         console.warn("[VaultDex] PkmnPrices graded lookup failed:", e && e.message);
@@ -123,6 +151,7 @@
         if (p && typeof p.price === "number") {
           market = p.price;
           priceSource = "pkmnprices";
+          priceCurrency = p.currency || "USD";
           if (!pkmn.label || pkmn.label === "Standard") label = p.variant || "Normal";
           else label = pkmn.label;
         }
@@ -143,6 +172,7 @@
         if (q && typeof q.price === "number") {
           market = q.price;
           priceSource = "pkmnprices";
+          priceCurrency = q.currency || "USD";
         }
       } catch (e) {
         // Not configured yet (or lookup failed): fall back to the legacy price
@@ -153,7 +183,10 @@
       if (market === null) market = legacyMarket(card, variant);
     }
     } /* end if (market === null): graded lookup ran first, raw Near Mint is the fallback */
-    return {
+    /* The currency column may not exist yet (probe at the top of this
+     * module). Omit it from the insert when unsupported so older DBs
+     * never see an unknown column. */
+    var insert = {
       user_id: u.id,
       card_id: card.id,
       card_name: card.name,
@@ -173,6 +206,8 @@
       price_source: priceSource,
       price_updated_at: typeof market === "number" ? new Date().toISOString() : null
     };
+    if (await ensurePriceCurrencyProbe()) insert.price_currency = priceCurrency;
+    return insert;
   }
 
   /* Paginated fetch: PostgREST caps a single response at 1000 rows,
@@ -208,6 +243,10 @@
      * poisoned pkmn_id + price from the removed number-only fallback —
      * e.g. M6a Pikachu #017 priced as SV2D Clay Burst #017. Clear them. */
     await repairMissingSetPrices(rows);
+    /* One-shot repair: accent-blind set matching let the number-only
+     * fallback cross-price rows in accented sets (Pokémon GO Moltres #12
+     * Holo as Fossil Moltres). Clear them; the next refresh re-prices. */
+    await repairAccentFallbackPrices(rows);
     return rows;
   }
 
@@ -331,6 +370,71 @@
         }
       } catch (e) {
         console.warn("[VaultDex] missing-set repair failed for", row.card_name, e && e.message);
+      }
+    }
+  }
+
+  /* Pure predicate for the accent-fallback repair: the row's set name
+   * normalizes differently now that normSetName strips accents. Under the
+   * old accent-blind normalization the exact set+number match necessarily
+   * failed for these rows, so any stored pkmn_id or market_price could only
+   * have come from the number-only fallback — e.g. Pokémon GO Moltres #12
+   * priced as Fossil Moltres ($196.25). Exported for unit tests. */
+  function needsAccentRepair(row) {
+    if (!row || !App.pkmn || typeof App.pkmn.normSetName !== "function") return false;
+    if (!row.pkmn_id && row.market_price == null) return false;
+    var s = String(row.set_name || "");
+    if (!s) return false;
+    /* The pre-fix normalization: lowercase + ": " cut, accents kept. */
+    var cut = s.indexOf(": ");
+    if (cut !== -1) s = s.slice(cut + 2);
+    var oldNorm = s.trim().toLowerCase();
+    return oldNorm !== App.pkmn.normSetName(row.set_name);
+  }
+
+  /* One-shot repair (2026-09-23): rows priced while normSetName was
+   * accent-blind hold cross-set prices from the number-only fallback.
+   * Clear the id + price fields plus mover history; the next price refresh
+   * re-prices them with the fixed matcher. Quantity, ownership, variant,
+   * images, and grading are untouched. Idempotent: clean rows are skipped,
+   * so later runs are a no-op. */
+  async function repairAccentFallbackPrices(rows) {
+    var u = App.auth.user;
+    if (!u || !rows || !rows.length) return;
+    var bad = rows.filter(needsAccentRepair);
+    if (!bad.length) return;
+    /* The currency column may not exist yet — only reset it when the
+     * schema probe says it's there (same guard as the price writes). */
+    var hasCurrency = await ensurePriceCurrencyProbe();
+    console.warn("[VaultDex] clearing accent-fallback prices from", bad.length, "row(s)");
+    for (var i = 0; i < bad.length; i++) {
+      var row = bad[i];
+      var clear = {
+        pkmn_id: null,
+        market_price: null,
+        price_source: null,
+        price_updated_at: null,
+        prev_price: null,
+        prev_price_at: null
+      };
+      if (hasCurrency) clear.price_currency = "USD";
+      try {
+        var up = await App.sb
+          .from("collection_items")
+          .update(clear)
+          .eq("id", row.id)
+          .eq("user_id", u.id);
+        if (!up.error) {
+          row.pkmn_id = null;
+          row.market_price = null;
+          row.price_source = null;
+          row.price_updated_at = null;
+          row.prev_price = null;
+          row.prev_price_at = null;
+          if (hasCurrency) row.price_currency = "USD";
+        }
+      } catch (e) {
+        console.warn("[VaultDex] accent repair failed for", row.card_name, e && e.message);
       }
     }
   }
@@ -647,6 +751,10 @@
     var now = new Date().toISOString();
     var rateLimited = false;
 
+    /* One tiny query per pass: learn whether price_currency exists before
+     * writing it (Vedant applies the migration in the dashboard). */
+    await ensurePriceCurrencyProbe();
+
     for (var i = 0; i < items.length && !rateLimited; i++) {
       var row = items[i];
       var attempts = 0;
@@ -667,7 +775,7 @@
             p = await App.pkmn.priceForRow(row);
           }
           if (p && typeof p.price === "number") {
-            var update = moverUpdate(row, p.price, src, now);
+            var update = moverUpdate(row, p.price, src, now, p.currency);
             var up = await App.sb
               .from("collection_items")
               .update(update)
@@ -790,6 +898,10 @@
     fetchAllPages: fetchAllPages,
     legacyMarket: legacyMarket,
     findMatchingRow: findMatchingRow,
-    needsMissingSetRepair: needsMissingSetRepair
+    needsMissingSetRepair: needsMissingSetRepair,
+    needsAccentRepair: needsAccentRepair,
+    /* Test seam: force the price_currency capability flag (the real value
+     * comes from the runtime probe of the live schema). */
+    _setPriceCurrencySupport: function (v) { HAS_PRICE_CURRENCY = !!v; }
   };
 })();

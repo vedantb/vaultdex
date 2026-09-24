@@ -40,7 +40,7 @@
       activatable: false,
       setHtml: App.esc(item.set_name || ""),
       priceHtml:
-        '<span class="price-badge"' + priceTitle + ">" + App.ui.money(value) + "</span>" +
+        '<span class="price-badge"' + priceTitle + ">" + App.ui.money(value, item.price_currency) + "</span>" +
         '<span class="price-chips">' + gradeBadge + '<span class="variant-chip">' + App.esc(item.variant) + "</span></span>",
       postPrice: controls
     });

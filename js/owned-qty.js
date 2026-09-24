@@ -29,9 +29,12 @@
     return String(v || "").toLowerCase().replace(/[^a-z0-9]/g, "");
   }
 
-  /* Pure: [{ card_id, variant, quantity }] -> { cardId: { qty, variants } }.
+  /* Pure: [{ card_id, variant, quantity, market_price, price_currency,
+   * price_source, price_updated_at }] -> { cardId: { qty, variants } }.
    * Rows sharing a normalized variant label merge; the display label keeps
-   * the first stored spelling seen. Exposed for unit tests. */
+   * the first stored spelling seen. Per-variant collection value is
+   * accumulated (market_price × qty) so the card dialog can show the same
+   * number as the tile that opened it. Exposed for unit tests. */
   function buildIndex(rows) {
     var map = {};
     (rows || []).forEach(function (r) {
@@ -51,15 +54,86 @@
         entry.variants.push(v);
       }
       v.qty += q;
+      var mp = Number(r.market_price);
+      if (r.market_price !== null && r.market_price !== undefined && !isNaN(mp)) {
+        if (v.value === undefined) { v.value = 0; v.currency = r.price_currency || "USD"; }
+        v.value += mp * q;
+      }
+      if (r.price_source && !v.priceSource) v.priceSource = r.price_source;
+      var pu = r.price_updated_at ? Date.parse(r.price_updated_at) : 0;
+      if (pu && (!v.priceUpdatedAt || pu > Date.parse(v.priceUpdatedAt))) {
+        v.priceUpdatedAt = r.price_updated_at;
+      }
     });
     return map;
   }
 
-  /* Pure: [{ label, qty }] -> "Holo ×2 · Reverse Holo ×1". Exposed for tests. */
+  /* Local USD/EUR formatter so breakdownText stays pure and unit-testable
+   * without App.ui. Mirrors App.ui.money's symbols. */
+  function fmtMoney(n, currency) {
+    var sym = currency === "EUR" ? "€" : "$";
+    return sym + Number(n).toFixed(2);
+  }
+
+  /* Pure: [{ label, qty, value, currency }] -> "Holo ×2 · $25.00".
+   * Variants with no priced rows keep the old "Holo ×1" rendering.
+   * Exposed for tests. */
   function breakdownText(variants) {
     return (variants || []).map(function (v) {
-      return v.label + " ×" + v.qty;
+      var t = v.label + " ×" + v.qty;
+      if (typeof v.value === "number") t += " · " + fmtMoney(v.value, v.currency);
+      return t;
     }).join(" · ");
+  }
+
+  /* Pure: group priced variants by currency -> [{ currency, value }].
+   * Exposed for tests. */
+  function valueByCurrency(variants) {
+    var map = {};
+    (variants || []).forEach(function (v) {
+      if (typeof v.value !== "number") return;
+      var c = v.currency || "USD";
+      map[c] = (map[c] || 0) + v.value;
+    });
+    return Object.keys(map).map(function (c) {
+      return { currency: c, value: Math.round(map[c] * 100) / 100 };
+    });
+  }
+
+  /* Pure: "Collection value: $45.50", "$40.00 · €12.00" across currencies,
+   * or "" when no variant carries a price. Exposed for tests. */
+  function collectionValueText(variants) {
+    var parts = valueByCurrency(variants).map(function (t) {
+      return fmtMoney(t.value, t.currency);
+    });
+    return parts.length ? parts.join(" · ") : "";
+  }
+
+  /* Pure local time-ago (mirrors App.ui.timeAgo) for the source note. */
+  function timeAgo(ts, nowMs) {
+    var s = Math.floor((nowMs - ts) / 1000);
+    if (s < 60) return "just now";
+    if (s < 3600) return Math.floor(s / 60) + "m ago";
+    if (s < 86400) return Math.floor(s / 3600) + "h ago";
+    return Math.floor(s / 86400) + "d ago";
+  }
+
+  /* Pure: muted source line for the modal's owned section, e.g.
+   * "PkmnPrices · Near Mint · refreshed 2d ago", or "eBay sold listings"
+   * when any priced row came from graded comps. "" when nothing is priced.
+   * Exposed for tests. */
+  function priceSourceNote(variants, nowMs) {
+    var priced = (variants || []).filter(function (v) { return typeof v.value === "number"; });
+    if (!priced.length) return "";
+    var graded = priced.some(function (v) { return v.priceSource === "pkmnprices-graded"; });
+    var note = graded ? "eBay sold listings" : "PkmnPrices · Near Mint";
+    var latest = 0;
+    priced.forEach(function (v) {
+      var t = v.priceUpdatedAt ? Date.parse(v.priceUpdatedAt) : 0;
+      if (t > latest) latest = t;
+    });
+    if (latest) note += " · refreshed " + timeAgo(latest, nowMs == null ? Date.now() : nowMs);
+    return note;
   }
 
   /* Paginated fetch: PostgREST caps a single response at 1000 rows. */
@@ -89,13 +163,28 @@
       if (!ownerId || ownerId.indexOf("00000000") === 0) return {};
       uid = ownerId;
     }
-    var rows = await fetchAllPages(function (from, to) {
-      return App.sb
-        .from("collection_items")
-        .select("card_id,variant,quantity")
-        .eq("user_id", uid)
-        .range(from, to);
-    });
+    /* price_currency may not exist yet (pre-migration schema): fall back
+     * to the legacy select rather than failing the whole index. */
+    var fullSelect = "card_id,variant,quantity,market_price,price_currency,price_source,price_updated_at";
+    var legacySelect = "card_id,variant,quantity,market_price,price_source,price_updated_at";
+    var rows;
+    try {
+      rows = await fetchAllPages(function (from, to) {
+        return App.sb
+          .from("collection_items")
+          .select(fullSelect)
+          .eq("user_id", uid)
+          .range(from, to);
+      });
+    } catch {
+      rows = await fetchAllPages(function (from, to) {
+        return App.sb
+          .from("collection_items")
+          .select(legacySelect)
+          .eq("user_id", uid)
+          .range(from, to);
+      });
+    }
     return buildIndex(rows);
   }
 
@@ -133,6 +222,9 @@
     getCard: getCard,
     invalidate: invalidate,
     buildIndex: buildIndex,
-    breakdownText: breakdownText
+    breakdownText: breakdownText,
+    valueByCurrency: valueByCurrency,
+    collectionValueText: collectionValueText,
+    priceSourceNote: priceSourceNote
   };
 })();

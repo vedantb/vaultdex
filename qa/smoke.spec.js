@@ -74,8 +74,10 @@ test("signed-out card modal shows owned counts read-only (no stepper)", async ({
   // "In your collection" line but no owner-only stepper controls.
   const errors = collectErrors(page);
   const badUrls = [];
+  const badUrls400 = [];
   page.on("response", (r) => {
     if (r.status() === 404) badUrls.push(r.url());
+    if (r.status() === 400) badUrls400.push(r.url());
   });
   await page.goto("/collection", { waitUntil: "networkidle", timeout: 60000 });
   await page.waitForSelector(".card-tile", { timeout: 20000 });
@@ -95,9 +97,19 @@ test("signed-out card modal shows owned counts read-only (no stepper)", async ({
   // live TCGdex fallback. Unrelated to this change — only fail on errors
   // that don't trace to those known URLs.
   const knownGap = badUrls.some((u) => /ja-swshp/i.test(u));
-  const realErrors = knownGap
-    ? errors.filter((e) => !/Failed to load resource.*404/.test(e))
-    : errors;
+  let realErrors = errors;
+  if (knownGap)
+    realErrors = realErrors.filter((e) => !/Failed to load resource.*404/.test(e));
+  // Pre-migration schema probe: until supabase/migration-price-currency.sql is
+  // applied, the owned-qty index tries selecting price_currency once, gets a
+  // 400, and falls back to the legacy select (the app keeps working in USD).
+  // Allow exactly that one expected 400; remove this carve-out once the
+  // migration is applied, when the 400 disappears entirely.
+  if (badUrls400.some((u) => /collection_items.*price_currency/i.test(u))) {
+    const e400 = realErrors.filter((e) => /status of 400/.test(e));
+    expect(e400.length).toBeLessThanOrEqual(1);
+    realErrors = realErrors.filter((e) => !/status of 400/.test(e));
+  }
   expect(realErrors).toEqual([]);
 });
 

@@ -55,6 +55,12 @@
     var s = String(name || "");
     var cut = s.indexOf(": ");
     if (cut !== -1) s = s.slice(cut + 2);
+    /* Accents must go: TCGdex writes "Pokémon GO" but PkmnPrices writes
+     * "Pokemon GO". Without this the exact set+number match always fails
+     * for accented sets and the number-only fallback prices the card as
+     * another set's printing (Pokémon GO Moltres #12 as Fossil Moltres —
+     * $196.25 on a $0.40 card). */
+    try { s = s.normalize("NFD").replace(/[\u0300-\u036f]/g, ""); } catch { /* old engine: keep accents */ }
     return s.trim().toLowerCase();
   }
 
@@ -136,10 +142,23 @@
     reverseHolofoil: ["reverse holofoil", "reverse holo"]
   };
 
-  function variantMatches(row, wantKey) {
-    var aliases = VARIANT_ALIASES[wantKey] || [];
-    var v = String(row || "").toLowerCase();
-    return aliases.some(function (a) { return v === a; });
+  /* Collection rows store display labels ("Holo", "Reverse Holo") but the
+   * alias table is keyed by TCGdex keys ("holofoil") — so "Holo" never
+   * matched and nearMintPrice silently priced the first USD Near Mint row
+   * of ANY variant. Compare both sides through App.tcg.normVLabel so
+   * label spellings resolve to the right finish. Unknown labels (e.g.
+   * "Cosmos Holo") fall back to exact normalized equality — never a
+   * silent wrong-variant match. Exported for unit tests. */
+  function variantMatches(pkmnVariant, wantKey) {
+    var nv = App.tcg.normVLabel;
+    var want = nv(wantKey);
+    var v = nv(pkmnVariant);
+    for (var k in VARIANT_ALIASES) {
+      if (Object.prototype.hasOwnProperty.call(VARIANT_ALIASES, k) && nv(k) === want) {
+        return VARIANT_ALIASES[k].some(function (a) { return nv(a) === v; });
+      }
+    }
+    return want !== "" && want === v;
   }
 
   /* Near Mint market price for a PkmnPrices card id. Always Near Mint first. */
@@ -326,6 +345,7 @@
     gradedPrice: gradedPrice,
     priceForRow: priceForRow,
     normSetName: normSetName,
+    variantMatches: variantMatches,
     pkmnMissingSet: pkmnMissingSet,
     PkmnError: PkmnError
   };
