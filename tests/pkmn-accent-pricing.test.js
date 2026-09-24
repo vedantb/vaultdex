@@ -151,4 +151,22 @@ describe("needsAccentRepair", () => {
     expect(C.needsAccentRepair({ set_name: null, market_price: 3 })).toBe(false);
     expect(C.needsAccentRepair({ market_price: 3 })).toBe(false);
   });
+  test("never re-clears a price written after the accent fix deployed", () => {
+    expect(
+      C.needsAccentRepair({
+        set_name: "Pokémon GO",
+        market_price: 0.39,
+        price_updated_at: "2026-09-24T03:46:08.00+00:00",
+      })
+    ).toBe(false);
+  });
+  test("still flags a stale pre-fix price in an accented set", () => {
+    expect(
+      C.needsAccentRepair({
+        set_name: "Pokémon GO",
+        market_price: 196.25,
+        price_updated_at: "2026-09-23T06:57:18.000+00:00",
+      })
+    ).toBe(true);
+  });
 });

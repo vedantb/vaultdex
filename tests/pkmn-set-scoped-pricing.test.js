@@ -265,4 +265,30 @@ describe("setMatchNeedsRepair", () => {
     };
     expect(C.setMatchNeedsRepair(row, null)).toBe(false);
   });
+
+  test("never re-clears a price written after the set-scoped deploy (151 wipe loop)", () => {
+    const entry151 = { pp: 620, ppName: "SV: Scarlet & Violet 151" };
+    const row = {
+      card_name: "Pikachu",
+      set_name: "151",
+      number: "173",
+      pkmn_id: null,
+      market_price: 79.69,
+      price_updated_at: "2026-09-24T03:46:08.42+00:00",
+    };
+    expect(C.setMatchNeedsRepair(row, entry151)).toBe(false);
+  });
+
+  test("still flags a stale pre-fix price in a mismatched set", () => {
+    const entry151 = { pp: 620, ppName: "SV: Scarlet & Violet 151" };
+    const row = {
+      card_name: "Pikachu",
+      set_name: "151",
+      number: "173",
+      pkmn_id: null,
+      market_price: 79.69,
+      price_updated_at: "2026-09-23T06:57:18.000+00:00",
+    };
+    expect(C.setMatchNeedsRepair(row, entry151)).toBe(true);
+  });
 });

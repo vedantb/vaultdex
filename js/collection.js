@@ -382,15 +382,35 @@
     }
   }
 
+  /* Repair cutoffs — one-shot scoping (2026-09-24): the repairs below exist
+   * to clear prices that could only have been written by the old buggy
+   * matchers. Any price with price_updated_at at/after the fix's deploy was
+   * written by the fixed code and must be left alone — without this, every
+   * signed-in collection read re-wipes freshly repriced rows in sets whose
+   * names never normalize equally (266 of 381 mapped sets, e.g. 151), so
+   * they can never hold a price. Padded past the deploy to cover the Vercel
+   * rollout + client clock skew; a row caught inside the padding is simply
+   * repriced once more, then stable. Null/unparseable timestamps count as
+   * old (fail toward clearing stale residue). */
+  var ACCENT_REPAIR_CUTOFF_MS = Date.parse("2026-09-24T00:20:00Z");    /* 1fbc92e deployed 00:14:22Z */
+  var SETMATCH_REPAIR_CUTOFF_MS = Date.parse("2026-09-24T01:00:00Z");  /* ce974ee deployed 00:41:20Z */
+  function priceIsPostFix(row, cutoffMs) {
+    var t = row.price_updated_at ? Date.parse(row.price_updated_at) : 0;
+    return !(t < cutoffMs); /* NaN/0 -> false: old */
+  }
+
   /* Pure predicate for the accent-fallback repair: the row's set name
    * normalizes differently now that normSetName strips accents. Under the
    * old accent-blind normalization the exact set+number match necessarily
    * failed for these rows, so any stored pkmn_id or market_price could only
    * have come from the number-only fallback — e.g. Pokémon GO Moltres #12
-   * priced as Fossil Moltres ($196.25). Exported for unit tests. */
+   * priced as Fossil Moltres ($196.25). Prices written after the accent fix
+   * deployed are trusted and never re-cleared (see cutoffs above).
+   * Exported for unit tests. */
   function needsAccentRepair(row) {
     if (!row || !App.pkmn || typeof App.pkmn.normSetName !== "function") return false;
     if (!row.pkmn_id && row.market_price == null) return false;
+    if (priceIsPostFix(row, ACCENT_REPAIR_CUTOFF_MS)) return false;
     var s = String(row.set_name || "");
     if (!s) return false;
     /* The pre-fix normalization: lowercase + ": " cut, accents kept. */
@@ -416,11 +436,15 @@
    * the exact set+number match could only succeed when the provider name
    * normalized to the row's set name — anything else fell through to the
    * fallback (e.g. SV Professor's Research #190 as the $36.23 Professor
-   * Program promo). Exported for unit tests. */
+   * Program promo). Prices written after the set-scoped lookup deployed
+   * are trusted and never re-cleared (see cutoffs above) — otherwise rows
+   * in name-mismatched sets are wiped on every read and can never hold a
+   * price. Exported for unit tests. */
   function setMatchNeedsRepair(row, entry) {
     if (!row) return false;
     if (!row.pkmn_id && row.market_price == null) return false;
     if (!entry || !entry.ppName) return false;
+    if (priceIsPostFix(row, SETMATCH_REPAIR_CUTOFF_MS)) return false;
     return oldNormSetName(entry.ppName) !== oldNormSetName(row.set_name);
   }
 
@@ -433,7 +457,8 @@
    * cleared; the next refresh re-prices it set-scoped. Rows in sets the
    * old matcher DID match (e.g. "Fossil") are untouched, as are unmapped
    * sets. Quantity, ownership, variant, images, and grading are untouched.
-   * Idempotent: clean rows are skipped, so later runs are a no-op. */
+   * One-shot via the SETMATCH_REPAIR_CUTOFF_MS guard in setMatchNeedsRepair:
+   * post-fix prices are never re-cleared, so later runs are a no-op. */
   async function repairSetMatchPrices(rows) {
     var u = App.auth.user;
     if (!u || !rows || !rows.length) return;
@@ -491,8 +516,9 @@
    * accent-blind hold cross-set prices from the number-only fallback.
    * Clear the id + price fields plus mover history; the next price refresh
    * re-prices them with the fixed matcher. Quantity, ownership, variant,
-   * images, and grading are untouched. Idempotent: clean rows are skipped,
-   * so later runs are a no-op. */
+   * images, and grading are untouched. One-shot via the
+   * ACCENT_REPAIR_CUTOFF_MS guard in needsAccentRepair: post-fix prices are
+   * never re-cleared, so later runs are a no-op. */
   async function repairAccentFallbackPrices(rows) {
     var u = App.auth.user;
     if (!u || !rows || !rows.length) return;
