@@ -346,3 +346,51 @@ describe("backfillRowImages (collection image healing)", () => {
     expect(calls).toEqual([]);
   });
 });
+
+describe("sortRefreshQueue (refresh priority)", () => {
+  const row = (o) => ({
+    card_id: "x", card_name: "X", grading_company: null, grade: null,
+    market_price: null, price_updated_at: null, ...o,
+  });
+
+  test("unpriced graded rows go before unpriced raw rows", () => {
+    const raw = row({ card_id: "raw-1" });
+    const graded = row({ card_id: "gr-1", grading_company: "PSA", grade: "10" });
+    expect(C.sortRefreshQueue([raw, graded]).map((r) => r.card_id))
+      .toEqual(["gr-1", "raw-1"]);
+  });
+
+  test("unpriced raw rows go before priced-but-stale rows", () => {
+    const stale = row({ card_id: "stale-1", market_price: 5, price_updated_at: "2026-01-01T00:00:00Z" });
+    const unpriced = row({ card_id: "raw-2" });
+    expect(C.sortRefreshQueue([stale, unpriced]).map((r) => r.card_id))
+      .toEqual(["raw-2", "stale-1"]);
+  });
+
+  test("priced graded rows are not treated as priority (already visible)", () => {
+    const pricedGraded = row({ card_id: "gr-2", grading_company: "PSA", grade: "10",
+      market_price: 100, price_updated_at: "2026-09-20T00:00:00Z" });
+    const unpricedGraded = row({ card_id: "gr-3", grading_company: "PSA", grade: "10" });
+    expect(C.sortRefreshQueue([pricedGraded, unpricedGraded]).map((r) => r.card_id))
+      .toEqual(["gr-3", "gr-2"]);
+  });
+
+  test("stalest price refreshes first within the same priority class", () => {
+    const newer = row({ card_id: "n", market_price: 5, price_updated_at: "2026-09-20T00:00:00Z" });
+    const older = row({ card_id: "o", market_price: 5, price_updated_at: "2026-09-10T00:00:00Z" });
+    expect(C.sortRefreshQueue([newer, older]).map((r) => r.card_id))
+      .toEqual(["o", "n"]);
+  });
+
+  test("does not mutate the input array", () => {
+    const a = row({ card_id: "a" });
+    const b = row({ card_id: "b", grading_company: "PSA", grade: "10" });
+    const input = [a, b];
+    C.sortRefreshQueue(input);
+    expect(input.map((r) => r.card_id)).toEqual(["a", "b"]);
+  });
+
+  test("empty input returns empty", () => {
+    expect(C.sortRefreshQueue([])).toEqual([]);
+  });
+});

@@ -41,6 +41,29 @@
     return !t || t < nowMs - PRICE_REFRESH_MS;
   }
 
+  /* Refresh queue priority (2026-09-25): a full pass over ~450 unpriced
+   * rows takes 10+ minutes at 1.2s pacing, and a pass can be cut short at
+   * any time (tab backgrounded, phone locked, rate limit). The old code ran
+   * rows in database order, so a partial pass priced random bulk rows while
+   * the owner's most visible cards — the unpriced graded cards at the top
+   * of the collection — sat at the back of the queue indefinitely.
+   * Order: unpriced graded rows first, then other unpriced rows, then
+   * stale rows stalest-first. Pure, unit-tested. */
+  function sortRefreshQueue(items) {
+    function rank(row) {
+      var graded = row.grading_company && row.grade ? 0 : 1;
+      var unpriced = (row.market_price == null) ? 0 : 1;
+      return graded * 2 + unpriced;
+    }
+    return items.slice().sort(function (a, b) {
+      var ra = rank(a), rb = rank(b);
+      if (ra !== rb) return ra - rb;
+      var ta = a.price_updated_at ? Date.parse(a.price_updated_at) : 0;
+      var tb = b.price_updated_at ? Date.parse(b.price_updated_at) : 0;
+      return ta - tb;
+    });
+  }
+
   /* Price currency column ("price_currency" on collection_items) may not
    * exist yet — Vedant runs supabase/migration-price-currency.sql in the
    * dashboard, and there is no service key on this VM to apply it for him.
@@ -1002,6 +1025,9 @@
     var nowMs = Date.now();
     var items = all.filter(function (row) { return needsPriceRefresh(row, nowMs); });
     if (!items.length) return { updated: 0, at: new Date().toISOString() };
+    /* Most visible cards first: a partial pass still fixes the top of the
+     * collection (see sortRefreshQueue). */
+    items = sortRefreshQueue(items);
 
     var updated = 0;
     var now = new Date().toISOString();
@@ -1221,6 +1247,7 @@
     clampQuantity: clampQuantity,
     rowSetId: rowSetId,
     needsPriceRefresh: needsPriceRefresh,
+    sortRefreshQueue: sortRefreshQueue,
     moverUpdate: moverUpdate,
     fetchAllPages: fetchAllPages,
     legacyMarket: legacyMarket,
