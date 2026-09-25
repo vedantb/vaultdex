@@ -340,7 +340,13 @@
         String(r.grade) === gradeStr;
     });
     var exact = comps.filter(function (r) { return r.attribution === "exact"; });
-    var pool = exact.length ? exact : comps;
+    /* Only verified attributions feed the price. "unknown"/"shared" rows
+     * are never this card for certain — e.g. Latias & Latios GX PSA 10
+     * returned six unknown-attribution German listings at €1,313–€14,999
+     * whose median (€5,496.45) priced the row at fantasy money. With no
+     * exact comp there is no graded price: return null and callers fall
+     * back to the raw Near Mint price with its explicit label. */
+    var pool = exact;
     if (!pool.length) return null;
     /* Most recent sales first; median of up to 10. */
     pool.sort(function (a, b) {

@@ -255,6 +255,11 @@
      * as Professor Program promos). Now that lookups are set_id-scoped,
      * clear the stale ids + prices; the next refresh re-prices them. */
     await repairSetMatchPrices(rows);
+    /* One-shot repair: graded prices from before the exact-attribution
+     * fix may be medians of unverified comps (Latias & Latios GX PSA 10
+     * at €5,496.45). Clear them; the next refresh re-prices with the
+     * fixed lookup. */
+    await repairGradedAttributionPrices(rows);
     return rows;
   }
 
@@ -394,6 +399,7 @@
    * old (fail toward clearing stale residue). */
   var ACCENT_REPAIR_CUTOFF_MS = Date.parse("2026-09-24T00:20:00Z");    /* 1fbc92e deployed 00:14:22Z */
   var SETMATCH_REPAIR_CUTOFF_MS = Date.parse("2026-09-24T01:00:00Z");  /* ce974ee deployed 00:41:20Z */
+  var GRADED_REPAIR_CUTOFF_MS = Date.parse("2026-09-25T01:00:00Z");    /* graded exact-attribution fix, deploys ~00:20Z */
   function priceIsPostFix(row, cutoffMs) {
     var t = row.price_updated_at ? Date.parse(row.price_updated_at) : 0;
     return !(t < cutoffMs); /* NaN/0 -> false: old */
@@ -446,6 +452,22 @@
     if (!entry || !entry.ppName) return false;
     if (priceIsPostFix(row, SETMATCH_REPAIR_CUTOFF_MS)) return false;
     return oldNormSetName(entry.ppName) !== oldNormSetName(row.set_name);
+  }
+
+  /* Pure predicate for the graded-attribution repair: gradedPrice() used
+   * to fall back to unverified ("unknown"/"shared" attribution) eBay
+   * comps when no exact-attribution comp existed, so graded rows could
+   * hold fantasy prices — e.g. Latias & Latios GX PSA 10 at €5,496.45,
+   * the median of six unknown-attribution German listings at
+   * €1,313–€14,999. Any pkmnprices-graded price written before the
+   * exact-only fix deployed could be poisoned; prices written after are
+   * by the fixed lookup and are never re-cleared (see cutoffs above).
+   * Exported for unit tests. */
+  function gradedAttributionNeedsRepair(row) {
+    if (!row) return false;
+    if (row.price_source !== "pkmnprices-graded") return false;
+    if (row.market_price == null) return false;
+    return !priceIsPostFix(row, GRADED_REPAIR_CUTOFF_MS);
   }
 
   /* One-shot repair (2026-09-24): rows priced while set matching was
@@ -508,6 +530,53 @@
         }
       } catch (e) {
         console.warn("[VaultDex] set-match repair failed for", brow.card_name, e && e.message);
+      }
+    }
+  }
+
+  /* One-shot repair (2026-09-24): rows holding a pkmnprices-graded price
+   * from before the exact-attribution fix may be the median of
+   * unverified comps (e.g. Latias & Latios GX PSA 10 at €5,496.45).
+   * Clear the price fields; the next refresh re-prices each graded row
+   * with the fixed lookup — exact-attribution comps keep their graded
+   * price, anything else falls back to the raw Near Mint price with its
+   * explicit label. Quantity, ownership, variant, images, and grading
+   * are untouched. One-shot via the GRADED_REPAIR_CUTOFF_MS guard in
+   * gradedAttributionNeedsRepair: post-fix prices are never re-cleared,
+   * so later runs are a no-op. */
+  async function repairGradedAttributionPrices(rows) {
+    var u = App.auth.user;
+    if (!u || !rows || !rows.length) return;
+    var bad = rows.filter(gradedAttributionNeedsRepair);
+    if (!bad.length) return;
+    var hasCurrency = await ensurePriceCurrencyProbe();
+    console.warn("[VaultDex] clearing unverified-attribution graded prices from", bad.length, "row(s)");
+    for (var i = 0; i < bad.length; i++) {
+      var row = bad[i];
+      var clear = {
+        market_price: null,
+        price_source: null,
+        price_updated_at: null,
+        prev_price: null,
+        prev_price_at: null
+      };
+      if (hasCurrency) clear.price_currency = "USD";
+      try {
+        var up = await App.sb
+          .from("collection_items")
+          .update(clear)
+          .eq("id", row.id)
+          .eq("user_id", u.id);
+        if (!up.error) {
+          row.market_price = null;
+          row.price_source = null;
+          row.price_updated_at = null;
+          row.prev_price = null;
+          row.prev_price_at = null;
+          if (hasCurrency) row.price_currency = "USD";
+        }
+      } catch (e) {
+        console.warn("[VaultDex] graded-attribution repair failed for", row.card_name, e && e.message);
       }
     }
   }
@@ -1024,6 +1093,7 @@
     needsAccentRepair: needsAccentRepair,
     oldNormSetName: oldNormSetName,
     setMatchNeedsRepair: setMatchNeedsRepair,
+    gradedAttributionNeedsRepair: gradedAttributionNeedsRepair,
     /* Test seam: force the price_currency capability flag (the real value
      * comes from the runtime probe of the live schema). */
     _setPriceCurrencySupport: function (v) { HAS_PRICE_CURRENCY = !!v; }
