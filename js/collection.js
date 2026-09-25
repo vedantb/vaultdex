@@ -978,6 +978,15 @@
     return App.pkmn.gradedPrice(gid, row.grading_company, row.grade, { lang: lang });
   }
 
+  /* Pure: on a graded lookup miss (no exact company+grade comps), decide
+   * the refresh fallback. A never-priced row falls back to raw Near Mint
+   * ("raw") so the card isn't invisible forever; a row that already holds
+   * a price keeps it ("keep") — a temporary comp drought must never
+   * downgrade a real graded price to raw. Exported for unit tests. */
+  function gradedMissFallback(row) {
+    return (row && row.market_price == null) ? "raw" : "keep";
+  }
+
   /* Re-fetch market prices via PkmnPrices, one row at a time.
    * Each row is mapped to its exact printing by set + card number, and the
    * price picked is always the Near Mint row (USD preferred) — except
@@ -1018,8 +1027,20 @@
           var src = "pkmnprices";
           if (row.grading_company && row.grade) {
             p = await gradedPriceForRow(row);
-            if (p && typeof p.price === "number") src = "pkmnprices-graded";
-            else p = null;
+            if (p && typeof p.price === "number") {
+              src = "pkmnprices-graded";
+            } else {
+              /* Graded miss: no exact company+grade eBay comps. A row that
+               * already holds a price keeps it — never downgrade a real
+               * graded price to raw when comps temporarily vanish. A
+               * never-priced row falls back to raw Near Mint so the card
+               * isn't invisible forever (2026-09-25: two PSA 10 Japanese
+               * promos sat at null for a day because the refresh had no
+               * fallback). Downstream UI labels it via price_source
+               * "pkmnprices" on a graded row = raw fallback, no comps. */
+              p = (gradedMissFallback(row) === "raw") ? await App.pkmn.priceForRow(row) : null;
+              if (!(p && typeof p.price === "number")) p = null;
+            }
           } else {
             p = await App.pkmn.priceForRow(row);
           }
@@ -1214,6 +1235,7 @@
     repairSetMatchPrices: repairSetMatchPrices,
     pricePlausibility: pricePlausibility,
     snapshotLooksSane: snapshotLooksSane,
+    gradedMissFallback: gradedMissFallback,
     /* Test seam: force the price_currency capability flag (the real value
      * comes from the runtime probe of the live schema). */
     _setPriceCurrencySupport: function (v) { HAS_PRICE_CURRENCY = !!v; }

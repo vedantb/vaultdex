@@ -209,3 +209,17 @@ describe("repair continuity + one-shot flags", () => {
     }
   });
 });
+
+describe("gradedMissFallback", () => {
+  test("never-priced graded row falls back to raw Near Mint", () => {
+    expect(C.gradedMissFallback({ market_price: null })).toBe("raw");
+    expect(C.gradedMissFallback({})).toBe("raw");
+    // Degenerate null row: conservative keep (the refresh never passes one).
+    expect(C.gradedMissFallback(null)).toBe("keep");
+  });
+
+  test("priced graded row is never downgraded on a comp miss", () => {
+    expect(C.gradedMissFallback({ market_price: 16338.17 })).toBe("keep");
+    expect(C.gradedMissFallback({ market_price: 0 })).toBe("keep");
+  });
+});
