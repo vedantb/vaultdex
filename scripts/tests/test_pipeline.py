@@ -489,3 +489,234 @@ class IllustratorOverlayTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+wr = load("weekly-refresh")
+
+
+class WeeklyRefreshBackupTests(unittest.TestCase):
+    """--full backup semantics (2026-09-25 hardening): per-set JSON is MOVED
+    to data/.refresh/backup-<lang>, never deleted. A failed snapshot stage
+    restores the originals; leftovers from a previous crashed run are
+    recovered on entry; success drops the backup."""
+
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self._old_repo = wr.REPO
+        self._old_log = wr.log
+        self._old_run = wr.run
+        wr.REPO = self.tmp.name
+        self.logged = []
+        wr.log = self.logged.append
+        for lang in ("en", "ja"):
+            d = os.path.join(self.tmp.name, "data", "tcgdex", "sets",
+                             "ja" if lang == "ja" else "")
+            os.makedirs(d, exist_ok=True)
+            for name in ("sv01.json", "sv02.json"):
+                with open(os.path.join(d, name), "w", encoding="utf-8") as f:
+                    json.dump({"id": name[:-5], "cards": [1, 2, 3]}, f)
+
+    def tearDown(self):
+        wr.REPO = self._old_repo
+        wr.log = self._old_log
+        wr.run = self._old_run
+        self.tmp.cleanup()
+
+    def sets(self, lang="en"):
+        d = os.path.join(self.tmp.name, "data", "tcgdex", "sets",
+                         "ja" if lang == "ja" else "")
+        return sorted(f for f in os.listdir(d) if f.endswith(".json"))
+
+    def backup(self, lang="en"):
+        return os.path.join(self.tmp.name, "data", ".refresh",
+                            "backup-" + lang)
+
+    def read_set(self, name, lang="en"):
+        d = os.path.join(self.tmp.name, "data", "tcgdex", "sets",
+                         "ja" if lang == "ja" else "")
+        with open(os.path.join(d, name), encoding="utf-8") as f:
+            return json.load(f)
+
+    def test_force_refresh_moves_files_to_backup(self):
+        self.assertTrue(wr._force_refresh_set_files("en"))
+        self.assertEqual(self.sets("en"), [])
+        self.assertEqual(sorted(os.listdir(self.backup("en"))),
+                         ["sv01.json", "sv02.json"])
+        # JA tree untouched
+        self.assertEqual(self.sets("ja"), ["sv01.json", "sv02.json"])
+
+    def test_failed_snapshot_restores_missing_originals(self):
+        wr._force_refresh_set_files("en")
+        # Partial refetch: sv01 re-fetched, sv02 still missing.
+        d = os.path.join(self.tmp.name, "data", "tcgdex", "sets")
+        with open(os.path.join(d, "sv01.json"), "w", encoding="utf-8") as f:
+            json.dump({"id": "sv01", "cards": "new"}, f)
+        wr._restore_backup("en")
+        self.assertEqual(self.sets("en"), ["sv01.json", "sv02.json"])
+        self.assertEqual(self.read_set("sv02.json")["cards"], [1, 2, 3])
+        self.assertEqual(self.read_set("sv01.json")["cards"], "new")
+        self.assertEqual(os.listdir(self.backup("en")), [])
+
+    def test_previous_crash_leftovers_recovered_on_entry(self):
+        # A crashed run left sv02.json in the backup dir and out of the tree.
+        bdir = self.backup("en")
+        os.makedirs(bdir, exist_ok=True)
+        os.remove(os.path.join(self.tmp.name, "data", "tcgdex", "sets",
+                               "sv02.json"))
+        with open(os.path.join(bdir, "sv02.json"), "w",
+                  encoding="utf-8") as f:
+            json.dump({"id": "sv02", "cards": "old"}, f)
+        wr._force_refresh_set_files("en")
+        # sv02 recovered first, then everything moved to backup.
+        self.assertEqual(self.sets("en"), [])
+        self.assertEqual(sorted(os.listdir(bdir)), ["sv01.json", "sv02.json"])
+
+    def test_drop_backup(self):
+        wr._force_refresh_set_files("en")
+        wr._drop_backup("en")
+        self.assertEqual(os.listdir(self.backup("en")), [])
+
+    def test_snapshot_with_backup_success_drops_backup(self):
+        wr.run = lambda cmd, **k: 0
+        wr._snapshot_with_backup("en", ["true"])
+        self.assertEqual(os.listdir(self.backup("en")), [])
+
+    def test_snapshot_with_backup_failure_restores_and_reraises(self):
+        def boom(cmd, **k):
+            raise RuntimeError("snapshot crashed")
+        wr.run = boom
+        with self.assertRaises(RuntimeError):
+            wr._snapshot_with_backup("en", ["false"])
+        self.assertEqual(self.sets("en"), ["sv01.json", "sv02.json"])
+        self.assertEqual(os.listdir(self.backup("en")), [])
+
+    def test_snapshot_with_no_set_files_runs_plain(self):
+        for lang in ("en", "ja"):
+            d = os.path.join(self.tmp.name, "data", "tcgdex", "sets",
+                             "ja" if lang == "ja" else "")
+            for f in os.listdir(d):
+                p = os.path.join(d, f)
+                if os.path.isfile(p):
+                    os.remove(p)
+        calls = []
+        wr.run = lambda cmd, **k: calls.append(cmd) or 0
+        wr._snapshot_with_backup("en", ["true"])
+        self.assertEqual(calls, [["true"]])
+
+
+class WeeklyRefreshRegressionTests(unittest.TestCase):
+    """Relative sanity checks (2026-09-25 hardening): absolute floors can't
+    catch a provider returning truncated-but-above-floor data, so the gate
+    also fails on material shrinkage vs HEAD and on JA pricing coverage
+    drops."""
+
+    def test_index_shrink_beyond_3pct_errors(self):
+        errs = wr._index_shrink_errors([
+            ("data/tcgdex/index.json", 9000, 10000),     # 10% shrink: error
+            ("data/tcgdex/index-ja.json", 9900, 10000),  # 1%: fine
+        ])
+        self.assertEqual(len(errs), 1)
+        self.assertIn("index.json", errs[0])
+        self.assertNotIn("index-ja", errs[0])
+
+    def test_index_growth_is_fine(self):
+        self.assertEqual(
+            wr._index_shrink_errors([("data/tcgdex/index.json", 10500, 10000)]),
+            [])
+
+    def test_index_missing_head_data_is_fine(self):
+        self.assertEqual(
+            wr._index_shrink_errors([("data/tcgdex/index.json", 0, None)]), [])
+
+    def test_index_boundary_3pct(self):
+        # Exactly 3% is the boundary: n < old*0.97 fails, n == old*0.97 passes.
+        self.assertEqual(
+            wr._index_shrink_errors([("data/tcgdex/index.json", 9700, 10000)]),
+            [])
+        self.assertEqual(
+            len(wr._index_shrink_errors(
+                [("data/tcgdex/index.json", 9699, 10000)])),
+            1)
+
+    def test_coverage_drop_beyond_5pts_errors(self):
+        err = wr._coverage_drop_error(800, 1000, 950, 1000)  # 80% vs 95%
+        self.assertIsNotNone(err)
+        self.assertIn("JA pricing coverage", err)
+
+    def test_coverage_small_drop_ok(self):
+        self.assertIsNone(wr._coverage_drop_error(930, 1000, 950, 1000))
+
+    def test_coverage_gain_ok(self):
+        self.assertIsNone(wr._coverage_drop_error(990, 1000, 950, 1000))
+
+    def test_coverage_no_data_ok(self):
+        self.assertIsNone(wr._coverage_drop_error(800, 1000, 0, 0))
+        self.assertIsNone(wr._coverage_drop_error(0, 0, 950, 1000))
+
+
+class CurlJsonRelayTests(unittest.TestCase):
+    """Production verification falls back to the local egress relay when
+    direct DNS is sinkholed (2026-09-25 audit: vercel.app block page)."""
+
+    def _patch_run(self, fake):
+        import subprocess as sp
+        self._real_run = sp.run
+        sp.run = fake
+
+    def tearDown(self):
+        import subprocess as sp
+        if hasattr(self, "_real_run"):
+            sp.run = self._real_run
+
+    def test_falls_back_to_relay_when_direct_dns_fails(self):
+        import subprocess as sp
+        calls = []
+
+        def fake_run(cmd, **k):
+            calls.append(cmd)
+            if "-x" in cmd:
+                return sp.CompletedProcess(cmd, 0, stdout='{"a":1}', stderr="")
+            return sp.CompletedProcess(cmd, 6, stdout="", stderr="dns fail")
+
+        self._patch_run(fake_run)
+        self.assertEqual(wr._curl_json("https://x.test/data"), {"a": 1})
+        self.assertEqual(len(calls), 2)
+        self.assertIn("-x", calls[1])
+        self.assertIn("http://127.0.0.1:8888", calls[1])
+
+    def test_direct_success_never_touches_relay(self):
+        import subprocess as sp
+        calls = []
+
+        def fake_run(cmd, **k):
+            calls.append(cmd)
+            return sp.CompletedProcess(cmd, 0, stdout='[1,2]', stderr="")
+
+        self._patch_run(fake_run)
+        self.assertEqual(wr._curl_json("https://x.test/data"), [1, 2])
+        self.assertEqual(len(calls), 1)
+
+    def test_returns_none_when_both_routes_fail(self):
+        import subprocess as sp
+
+        def fake_run(cmd, **k):
+            return sp.CompletedProcess(cmd, 6, stdout="", stderr="nope")
+
+        self._patch_run(fake_run)
+        self.assertIsNone(wr._curl_json("https://x.test/data"))
+
+    def test_block_page_body_falls_through(self):
+        import subprocess as sp
+        calls = []
+
+        def fake_run(cmd, **k):
+            calls.append(cmd)
+            if "-x" in cmd:
+                return sp.CompletedProcess(cmd, 0, stdout='{"ok":true}',
+                                           stderr="")
+            # 200 with an HTML block page: not JSON, try the next route.
+            return sp.CompletedProcess(cmd, 0, stdout="<html>blocked</html>",
+                                       stderr="")
+
+        self._patch_run(fake_run)
+        self.assertEqual(wr._curl_json("https://x.test/data"), {"ok": True})
+        self.assertEqual(len(calls), 2)

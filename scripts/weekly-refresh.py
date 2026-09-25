@@ -150,19 +150,79 @@ def stage_preflight(ctx):
     log("preflight ok: tcgdex reachable, proxy secret present, node/npx present")
 
 
+def _sets_dir(lang):
+    return os.path.join(REPO, "data", "tcgdex", "sets", "ja" if lang == "ja" else "")
+
+
+def _backup_dir(lang):
+    return os.path.join(REPO, "data", ".refresh", "backup-" + lang)
+
+
 def _force_refresh_set_files(lang):
-    """Delete per-set JSON so --all re-fetches everything (weekly full refresh)."""
-    d = os.path.join(REPO, "data", "tcgdex", "sets", "ja" if lang == "ja" else "")
+    """Move per-set JSON to a backup dir so --all re-fetches everything.
+
+    Files are MOVED, not deleted: a crash mid-snapshot can never leave the
+    tree with missing set files. On entry, backup copies for currently
+    missing sets are merged back first (recovers a previous crashed run);
+    on snapshot-stage failure the caller restores the backup; on success
+    the backup is dropped. (2026-09-25: --full used to os.remove() every
+    file up front — a mid-run crash left the tree degraded.)"""
+    d, backup = _sets_dir(lang), _backup_dir(lang)
+    os.makedirs(backup, exist_ok=True)
+    for f in glob.glob(os.path.join(backup, "*.json")):
+        dest = os.path.join(d, os.path.basename(f))
+        if not os.path.isfile(dest):
+            os.rename(f, dest)
+            log("recovered %s from previous backup" % os.path.basename(f))
     files = [f for f in glob.glob(os.path.join(d, "*.json")) if os.path.isfile(f)]
     for f in files:
+        os.rename(f, os.path.join(backup, os.path.basename(f)))
+    log("forced refresh: moved %d %s set files to backup" % (len(files), lang))
+    return bool(files)
+
+
+def _restore_backup(lang):
+    """Put backup files back after a failed snapshot stage. Sets the
+    snapshot already re-fetched are kept (backup copy dropped); missing
+    ones are restored, so the tree is whole again."""
+    d, backup = _sets_dir(lang), _backup_dir(lang)
+    restored = kept = 0
+    for f in glob.glob(os.path.join(backup, "*.json")):
+        dest = os.path.join(d, os.path.basename(f))
+        if os.path.isfile(dest):
+            os.remove(f)
+            kept += 1
+        else:
+            os.rename(f, dest)
+            restored += 1
+    log("backup restored: %d %s files back, %d already re-fetched" % (restored, lang, kept))
+
+
+def _drop_backup(lang):
+    backup = _backup_dir(lang)
+    for f in glob.glob(os.path.join(backup, "*.json")):
         os.remove(f)
-    log("forced refresh: removed %d %s set files" % (len(files), lang))
+    log("backup dropped for %s" % lang)
+
+
+def _snapshot_with_backup(lang, cmd):
+    if _force_refresh_set_files(lang):
+        try:
+            run(cmd)
+        except Exception:
+            _restore_backup(lang)
+            raise
+        _drop_backup(lang)
+    else:
+        run(cmd)
 
 
 def stage_snapshot_en(ctx):
+    cmd = [sys.executable, "scripts/snapshot-tcgdex.py", "--all", "--workers", "2"]
     if ctx["full"]:
-        _force_refresh_set_files("en")
-    run([sys.executable, "scripts/snapshot-tcgdex.py", "--all", "--workers", "2"])
+        _snapshot_with_backup("en", cmd)
+    else:
+        run(cmd)
 
 
 def stage_30thc(ctx):
@@ -173,9 +233,11 @@ def stage_30thc(ctx):
 
 
 def stage_snapshot_ja(ctx):
+    cmd = [sys.executable, "scripts/snapshot-tcgdex.py", "--all", "--workers", "2", "--lang", "ja"]
     if ctx["full"]:
-        _force_refresh_set_files("ja")
-    run([sys.executable, "scripts/snapshot-tcgdex.py", "--all", "--workers", "2", "--lang", "ja"])
+        _snapshot_with_backup("ja", cmd)
+    else:
+        run(cmd)
 
 
 def stage_enrich_ja(ctx):
@@ -206,6 +268,30 @@ def stage_tests(ctx):
 def _load(p):
     with open(p) as f:
         return json.load(f)
+
+
+def _index_shrink_errors(entries):
+    """Pure: entries are (rel_path, new_len, head_len) triples. Fail when a
+    catalog index shrank more than 3% vs HEAD — absolute floors can't catch
+    a provider returning truncated-but-above-floor data (2026-09-25 audit).
+    Exported for unit tests."""
+    errors = []
+    for rel, n, old in entries:
+        if old and n < old * 0.97:
+            errors.append("%s shrank %d -> %d (>3%% vs HEAD)" % (rel, old, n))
+    return errors
+
+
+def _coverage_drop_error(priced, total, old_priced, old_total):
+    """Pure: a >5-point JA pricing coverage drop vs HEAD is an error, not a
+    warning — the backfill runs before the sanity gate, so a drop means it
+    didn't complete. Exported for unit tests."""
+    if total and old_total:
+        cov_now, cov_old = 100.0 * priced / total, 100.0 * old_priced / old_total
+        if cov_old - cov_now > 5:
+            return ("JA pricing coverage dropped %.1f%% -> %.1f%% (>5 pts vs HEAD)"
+                    % (cov_old, cov_now))
+    return None
 
 
 def stage_sanity(ctx):
@@ -297,6 +383,7 @@ def stage_sanity(ctx):
                     priced += 1
         return priced, total
     priced, total = _coverage(None)
+    old_priced, old_total = 0, 0
     if total:
         log("JA pricing coverage: %d/%d (%.1f%%)" % (priced, total, 100.0 * priced / total))
         old_priced, old_total = _coverage("HEAD")
@@ -305,6 +392,40 @@ def stage_sanity(ctx):
 
     for w in warnings:
         log("SANITY WARNING: " + w)
+
+    # 8. relative regression bounds vs HEAD. Absolute floors (checks 3+6)
+    # can't catch a provider returning truncated-but-above-floor data, so
+    # fail when the catalog shrinks materially against the last commit.
+    # (2026-09-25 audit: a degraded-but-above-floor snapshot would previously
+    # commit and auto-deploy.)
+    def _head_len(rel):
+        r = subprocess.run(["git", "show", "HEAD:" + rel], cwd=REPO,
+                           capture_output=True, text=True)
+        if r.returncode != 0:
+            return None
+        try:
+            return len(json.loads(r.stdout))
+        except ValueError:
+            return None
+    entries = []
+    for rel in ("data/tcgdex/index.json", "data/tcgdex/index-ja.json"):
+        try:
+            n = len(_load(os.path.join(REPO, rel)))
+        except Exception:
+            n = 0
+        old = _head_len(rel)
+        if old:
+            log("%s: %d entries (HEAD: %d)" % (rel, n, old))
+        entries.append((rel, n, old))
+    errors.extend(_index_shrink_errors(entries))
+
+    # 9. JA pricing coverage: a >5-point drop vs HEAD is an error, not a
+    # warning — the backfill runs before this gate, so a drop means it
+    # didn't complete (previously advisory-only).
+    cov_err = _coverage_drop_error(priced, total, old_priced, old_total)
+    if cov_err:
+        errors.append(cov_err)
+
     if errors:
         for e in errors:
             log("SANITY ERROR: " + e)
@@ -347,19 +468,30 @@ def stage_push(ctx):
     log("pushed %s" % _git("rev-parse", "--short", "HEAD"))
 
 
+def _curl_json(url):
+    """GET url, parse JSON. Falls back to the local egress relay when direct
+    DNS fails (vercel.app is sinkholed on some workers — 2026-09-25 audit)."""
+    for proxy in (None, "http://127.0.0.1:8888"):
+        cmd = ["curl", "-sf", "--max-time", "40", url]
+        if proxy:
+            cmd[1:1] = ["-x", proxy]
+        r = subprocess.run(cmd, capture_output=True, text=True)
+        if r.returncode != 0:
+            continue
+        try:
+            return json.loads(r.stdout)
+        except ValueError:
+            continue  # block page or truncated body — try the next route
+    return None
+
+
 def _prod_counts():
     out = {}
     for name in ("sets.json", "sets-ja.json"):
-        r = subprocess.run(
-            ["curl", "-sf", "--max-time", "40", "%s/data/tcgdex/%s" % (PROD_BASE, name)],
-            capture_output=True, text=True,
-        )
-        if r.returncode != 0:
+        data = _curl_json("%s/data/tcgdex/%s" % (PROD_BASE, name))
+        if not isinstance(data, list):
             return None
-        try:
-            out[name] = len(json.loads(r.stdout))
-        except ValueError:
-            return None  # block page or truncated body, not real JSON
+        out[name] = len(data)
     return out
 
 
@@ -408,7 +540,7 @@ def main():
     global LOG_FILE
     ap = argparse.ArgumentParser(description="VaultDex weekly catalog refresh orchestrator")
     ap.add_argument("--full", action="store_true",
-                    help="force re-fetch: delete per-set JSON before each snapshot")
+                    help="force re-fetch: move per-set JSON to a backup dir before each snapshot (restored on failure)")
     ap.add_argument("--from", dest="from_stage", choices=STAGES,
                     help="resume from this stage (earlier done stages are kept)")
     ap.add_argument("--only", dest="only_stage", choices=STAGES,
