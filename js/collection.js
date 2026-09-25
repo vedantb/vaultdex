@@ -65,6 +65,57 @@
     return priceCurrencyProbe;
   }
 
+  /* Plausibility-quarantine columns ("price_pending" + "price_pending_at"
+   * on collection_items) may not exist yet — Vedant runs
+   * supabase/migration-price-pending.sql in the dashboard, and there is
+   * no service key on this VM to apply it for him. Probe once per
+   * session; the two-confirmation gate below is active only when the
+   * columns exist, otherwise extreme prices are written with a loud
+   * warning (today's behavior). */
+  var HAS_PRICE_PENDING = false;
+  var pricePendingProbe = null;
+  async function probePricePendingOnce() {
+    try {
+      if (!App.sb) return false;
+      var res = await App.sb.from("collection_items").select("price_pending").limit(1);
+      HAS_PRICE_PENDING = !res.error;
+    } catch {
+      HAS_PRICE_PENDING = false;
+    }
+    return HAS_PRICE_PENDING;
+  }
+  function ensurePricePendingProbe() {
+    if (!pricePendingProbe) {
+      pricePendingProbe = probePricePendingOnce().catch(function () { return false; });
+    }
+    return pricePendingProbe;
+  }
+
+  /* Plausibility gate (2026-09-25): a single price write may never move a
+   * row's value by an order of magnitude on first sight. If the fresh
+   * lookup says a $5+ row is suddenly worth 10x more (or 90% less), the
+   * displayed price is HELD and the candidate parked in price_pending.
+   * Only when the NEXT pass computes the same extreme value is it
+   * confirmed and written — a one-off bad lookup (wrong printing, bad
+   * comps, provider glitch) can never move the collection total or the
+   * graph again. Legitimate spikes land 24h later; the graph stays
+   * honest. Sub-$5 rows are exempt: bulk-bin noise can't move the total.
+   * Pure — exported for unit tests. */
+  var PLAUS_MAX_RATIO = 10;
+  var PLAUS_MIN_BASE = 5;
+  function pricePlausibility(row, newPrice) {
+    var old = row && row.market_price;
+    if (typeof old !== "number" || !(old >= PLAUS_MIN_BASE)) return { hold: false };
+    if (typeof newPrice !== "number" || !(newPrice >= 0)) return { hold: false };
+    var extreme = newPrice === 0 || newPrice / old >= PLAUS_MAX_RATIO || newPrice / old <= 1 / PLAUS_MAX_RATIO;
+    if (!extreme) return { hold: false };
+    var pending = row.price_pending;
+    if (typeof pending === "number" && Math.abs(pending - newPrice) < 0.005) {
+      return { hold: false, confirmed: true }; /* same extreme twice running: trust it */
+    }
+    return { hold: true };
+  }
+
   /* Mover history (Feature 4): NULL prev_price means "no mover data" — a
    * row that was never refreshed, or whose price never moved, shows no
    * mover data rather than a fake zero. Only when the row had a real
@@ -337,6 +388,63 @@
    * pkmn_id OR a market_price written without an ID (the old number-only
    * fallback priced rows via priceForRow without persisting pkmn_id).
    * Exported for unit tests. */
+  /* Continuity guard (2026-09-25): a repair NEVER deletes a displayed
+   * price. The old value may be wrong, but nulling it drops the collection
+   * total and carves a fake cliff into the value graph — strictly worse
+   * than showing the stale price until its replacement lands. So a repair
+   * clears only the poisoned identity (pkmn_id, mover history, any parked
+   * plausibility candidate) and backdates price_updated_at past the refresh
+   * horizon, forcing the next pass to reprice the row; the refresh then
+   * overwrites the price in a single atomic write. The total never dips. */
+  var STALE_REPRICE_AT = "2000-01-01T00:00:00.000Z";
+  async function staleForReprice(u, row, hasCurrency, hasPending) {
+    var patch = {
+      pkmn_id: null,
+      price_updated_at: STALE_REPRICE_AT,
+      prev_price: null,
+      prev_price_at: null
+    };
+    if (hasCurrency) patch.price_currency = "USD";
+    if (hasPending) { patch.price_pending = null; patch.price_pending_at = null; }
+    try {
+      var up = await App.sb
+        .from("collection_items")
+        .update(patch)
+        .eq("id", row.id)
+        .eq("user_id", u.id);
+      if (!up.error) {
+        row.pkmn_id = null;
+        row.price_updated_at = STALE_REPRICE_AT;
+        row.prev_price = null;
+        row.prev_price_at = null;
+        if (hasCurrency) row.price_currency = "USD";
+        if (hasPending) { row.price_pending = null; row.price_pending_at = null; }
+        return true;
+      }
+      return false;
+    } catch (e) {
+      console.warn("[VaultDex] continuity repair failed for", row.card_name, e && e.message);
+      return false;
+    }
+  }
+
+  /* One-shot repair flags (2026-09-25): every data repair runs exactly
+   * once per browser via a persistent flag, set only after a fully
+   * successful pass. A bare timestamp cutoff re-clears prices the fixed
+   * code writes before the cutoff passes — wipe-looping them on every
+   * collection read (this erased all graded prices nightly on 2026-09-25).
+   * If anything fails the flag stays unset and the repair retries next
+   * boot. The cutoffs in the predicates below still scope WHICH rows each
+   * repair may touch; the flag scopes HOW OFTEN. */
+  function repairDone(key) {
+    try { return localStorage.getItem(key) === "1"; } catch (e) { return false; }
+  }
+  function markRepairDone(key) {
+    try { localStorage.setItem(key, "1"); } catch (e) { /* ignored */ }
+  }
+  var ACCENT_REPAIR_FLAG = "vd_accent_repair_v1";
+  var SETMATCH_REPAIR_FLAG = "vd_setmatch_repair_v1";
+
   function needsMissingSetRepair(row) {
     if (!row || !App.pkmn || typeof App.pkmn.pkmnMissingSet !== "function") return false;
     if (!App.pkmn.pkmnMissingSet(row.set_name, App.util.langOf(row))) return false;
@@ -475,15 +583,17 @@
    * fallback — e.g. Scarlet & Violet Professor's Research #190 priced as
    * the $36.23 Professor Program promo, because "SV01: Scarlet & Violet
    * Base Set" never normalized to "Scarlet & Violet". Any row whose set
-   * now maps to a PkmnPrices set the OLD normalization couldn't match is
-   * cleared; the next refresh re-prices it set-scoped. Rows in sets the
-   * old matcher DID match (e.g. "Fossil") are untouched, as are unmapped
-   * sets. Quantity, ownership, variant, images, and grading are untouched.
-   * One-shot via the SETMATCH_REPAIR_CUTOFF_MS guard in setMatchNeedsRepair:
-   * post-fix prices are never re-cleared, so later runs are a no-op. */
+   * now maps to a PkmnPrices set the OLD normalization couldn't match has
+   * its poisoned pkmn_id cleared and is forced stale; the displayed price
+   * is KEPT until the next refresh re-prices it set-scoped (continuity
+   * guard). Rows in sets the old matcher DID match (e.g. "Fossil") are
+   * untouched, as are unmapped sets. Quantity, ownership, variant, images,
+   * and grading are untouched. One-shot via SETMATCH_REPAIR_FLAG; the
+   * cutoff in setMatchNeedsRepair still scopes which rows qualify. */
   async function repairSetMatchPrices(rows) {
     var u = App.auth.user;
     if (!u || !rows || !rows.length) return;
+    if (repairDone(SETMATCH_REPAIR_FLAG)) return;
     if (!App.pkmn || typeof App.pkmn.ppSetEntry !== "function") return;
     var bad = [];
     for (var i = 0; i < rows.length; i++) {
@@ -499,39 +609,16 @@
       try { entry = await App.pkmn.ppSetEntry(sid); } catch (e) { entry = null; }
       if (setMatchNeedsRepair(row, entry)) bad.push(row);
     }
-    if (!bad.length) return;
-    var hasCurrency = await ensurePriceCurrencyProbe();
-    console.warn("[VaultDex] clearing set-match fallback prices from", bad.length, "row(s)");
-    for (var j = 0; j < bad.length; j++) {
-      var brow = bad[j];
-      var clear = {
-        pkmn_id: null,
-        market_price: null,
-        price_source: null,
-        price_updated_at: null,
-        prev_price: null,
-        prev_price_at: null
-      };
-      if (hasCurrency) clear.price_currency = "USD";
-      try {
-        var up = await App.sb
-          .from("collection_items")
-          .update(clear)
-          .eq("id", brow.id)
-          .eq("user_id", u.id);
-        if (!up.error) {
-          brow.pkmn_id = null;
-          brow.market_price = null;
-          brow.price_source = null;
-          brow.price_updated_at = null;
-          brow.prev_price = null;
-          brow.prev_price_at = null;
-          if (hasCurrency) brow.price_currency = "USD";
-        }
-      } catch (e) {
-        console.warn("[VaultDex] set-match repair failed for", brow.card_name, e && e.message);
+    var ok = true;
+    if (bad.length) {
+      var hasCurrency = await ensurePriceCurrencyProbe();
+      var hasPending = await ensurePricePendingProbe();
+      console.warn("[VaultDex] forcing reprice (keeping displayed prices) for", bad.length, "set-match row(s)");
+      for (var j = 0; j < bad.length; j++) {
+        if (!await staleForReprice(u, bad[j], hasCurrency, hasPending)) ok = false;
       }
     }
+    if (ok) markRepairDone(SETMATCH_REPAIR_FLAG);
   }
 
   /* One-shot repair (2026-09-24): rows holding a pkmnprices-graded price
@@ -540,13 +627,14 @@
    * six unknown-attribution German listings. The stored pkmn_id can be
    * wrong too (that row pointed at the German "Teams Sind Trumpf"
    * printing, set 2653, instead of the English Team Up printing), so it
-   * is cleared as well and the set-scoped lookup re-resolves it. The next
-   * refresh re-prices each graded row with the fixed lookup:
+   * is cleared and the row forced stale; the displayed price is KEPT
+   * until the next refresh overwrites it with the fixed lookup
+   * (continuity guard — the total never dips mid-repair):
    * exact-attribution comps keep their graded price, anything else falls
    * back to the raw Near Mint price with its explicit label. Quantity,
    * ownership, variant, images, and grading are untouched.
    *
-   * One-shot via a localStorage flag (not the timestamp cutoff): the
+   * One-shot via GRADED_REPAIR_FLAG (not the timestamp cutoff): the
    * cutoff alone re-clears prices the fixed code writes before the cutoff
    * passes, wipe-looping them on every collection read until the top of
    * the hour. The flag is set only after a fully successful pass; if
@@ -555,99 +643,45 @@
   async function repairGradedAttributionPrices(rows) {
     var u = App.auth.user;
     if (!u || !rows || !rows.length) return;
-    try {
-      if (localStorage.getItem(GRADED_REPAIR_FLAG)) return;
-    } catch (e) { /* no storage: fall through, the cutoff still bounds it */ }
+    if (repairDone(GRADED_REPAIR_FLAG)) return;
     var bad = rows.filter(gradedAttributionNeedsRepair);
     var ok = true;
     if (bad.length) {
       var hasCurrency = await ensurePriceCurrencyProbe();
-      console.warn("[VaultDex] clearing unverified-attribution graded prices from", bad.length, "row(s)");
+      var hasPending = await ensurePricePendingProbe();
+      console.warn("[VaultDex] forcing reprice (keeping displayed prices) for", bad.length, "graded row(s)");
       for (var i = 0; i < bad.length; i++) {
-        var row = bad[i];
-        var clear = {
-          pkmn_id: null,
-          market_price: null,
-          price_source: null,
-          price_updated_at: null,
-          prev_price: null,
-          prev_price_at: null
-        };
-        if (hasCurrency) clear.price_currency = "USD";
-        try {
-          var up = await App.sb
-            .from("collection_items")
-            .update(clear)
-            .eq("id", row.id)
-            .eq("user_id", u.id);
-          if (!up.error) {
-            row.pkmn_id = null;
-            row.market_price = null;
-            row.price_source = null;
-            row.price_updated_at = null;
-            row.prev_price = null;
-            row.prev_price_at = null;
-            if (hasCurrency) row.price_currency = "USD";
-          } else {
-            ok = false;
-          }
-        } catch (e) {
-          ok = false;
-          console.warn("[VaultDex] graded-attribution repair failed for", row.card_name, e && e.message);
-        }
+        if (!await staleForReprice(u, bad[i], hasCurrency, hasPending)) ok = false;
       }
     }
-    if (ok) {
-      try { localStorage.setItem(GRADED_REPAIR_FLAG, "1"); } catch (e) { /* ignored */ }
-    }
+    if (ok) markRepairDone(GRADED_REPAIR_FLAG);
   }
 
   /* One-shot repair (2026-09-23): rows priced while normSetName was
    * accent-blind hold cross-set prices from the number-only fallback.
-   * Clear the id + price fields plus mover history; the next price refresh
-   * re-prices them with the fixed matcher. Quantity, ownership, variant,
-   * images, and grading are untouched. One-shot via the
-   * ACCENT_REPAIR_CUTOFF_MS guard in needsAccentRepair: post-fix prices are
-   * never re-cleared, so later runs are a no-op. */
+   * The poisoned pkmn_id is cleared and the row forced stale; the
+   * displayed price is KEPT until the next refresh overwrites it with the
+   * fixed matcher (continuity guard — no fake dip in the total or graph).
+   * Quantity, ownership, variant, images, and grading are untouched.
+   * One-shot via ACCENT_REPAIR_FLAG; the cutoff in needsAccentRepair
+   * still scopes which rows qualify. */
   async function repairAccentFallbackPrices(rows) {
     var u = App.auth.user;
     if (!u || !rows || !rows.length) return;
+    if (repairDone(ACCENT_REPAIR_FLAG)) return;
     var bad = rows.filter(needsAccentRepair);
-    if (!bad.length) return;
-    /* The currency column may not exist yet — only reset it when the
-     * schema probe says it's there (same guard as the price writes). */
-    var hasCurrency = await ensurePriceCurrencyProbe();
-    console.warn("[VaultDex] clearing accent-fallback prices from", bad.length, "row(s)");
-    for (var i = 0; i < bad.length; i++) {
-      var row = bad[i];
-      var clear = {
-        pkmn_id: null,
-        market_price: null,
-        price_source: null,
-        price_updated_at: null,
-        prev_price: null,
-        prev_price_at: null
-      };
-      if (hasCurrency) clear.price_currency = "USD";
-      try {
-        var up = await App.sb
-          .from("collection_items")
-          .update(clear)
-          .eq("id", row.id)
-          .eq("user_id", u.id);
-        if (!up.error) {
-          row.pkmn_id = null;
-          row.market_price = null;
-          row.price_source = null;
-          row.price_updated_at = null;
-          row.prev_price = null;
-          row.prev_price_at = null;
-          if (hasCurrency) row.price_currency = "USD";
-        }
-      } catch (e) {
-        console.warn("[VaultDex] accent repair failed for", row.card_name, e && e.message);
+    var ok = true;
+    if (bad.length) {
+      /* The currency column may not exist yet — only reset it when the
+       * schema probe says it's there (same guard as the price writes). */
+      var hasCurrency = await ensurePriceCurrencyProbe();
+      var hasPending = await ensurePricePendingProbe();
+      console.warn("[VaultDex] forcing reprice (keeping displayed prices) for", bad.length, "accent-fallback row(s)");
+      for (var i = 0; i < bad.length; i++) {
+        if (!await staleForReprice(u, bad[i], hasCurrency, hasPending)) ok = false;
       }
     }
+    if (ok) markRepairDone(ACCENT_REPAIR_FLAG);
   }
 
   /* Backfill: rows that carry no pkmn_id (added before the per-variant
@@ -935,7 +969,8 @@
           name: row.card_name,
           setName: row.set_name,
           number: number,
-          lang: lang
+          lang: lang,
+          setId: row.set_id
         });
       }
     }
@@ -966,6 +1001,8 @@
     /* One tiny query per pass: learn whether price_currency exists before
      * writing it (Vedant applies the migration in the dashboard). */
     await ensurePriceCurrencyProbe();
+    /* And whether the plausibility-quarantine columns exist. */
+    await ensurePricePendingProbe();
 
     for (var i = 0; i < items.length && !rateLimited; i++) {
       var row = items[i];
@@ -987,12 +1024,31 @@
             p = await App.pkmn.priceForRow(row);
           }
           if (p && typeof p.price === "number") {
-            var update = moverUpdate(row, p.price, src, now, p.currency);
+            /* Plausibility gate: an order-of-magnitude swing on first
+             * sight is parked, not written (see pricePlausibility). */
+            var gate = pricePlausibility(row, p.price);
+            var update;
+            var held = gate.hold && HAS_PRICE_PENDING;
+            if (held) {
+              update = {
+                price_pending: Math.round(p.price * 100) / 100,
+                price_pending_at: now,
+                price_updated_at: now /* not stale: re-check on the next cycle, not every visit */
+              };
+              console.warn("[VaultDex] holding implausible price for", row.card_name,
+                ": candidate", p.price, "vs stored", row.market_price, "- parked for confirmation");
+            } else {
+              if (gate.hold) {
+                console.warn("[VaultDex] plausibility guard inactive (run supabase/migration-price-pending.sql); writing extreme price for", row.card_name, p.price, "vs", row.market_price);
+              }
+              update = moverUpdate(row, p.price, src, now, p.currency);
+              if (HAS_PRICE_PENDING) { update.price_pending = null; update.price_pending_at = null; }
+            }
             var up = await App.sb
               .from("collection_items")
               .update(update)
               .eq("id", row.id);
-            if (!up.error) updated++;
+            if (!up.error && !held) updated++;
           }
           break;
         } catch (e) {
@@ -1038,17 +1094,55 @@
     return { value: value, count: count };
   }
 
+  /* Pure: is today's total sane enough to record as a value-history
+   * point? A pricing bug must never carve a fake cliff (or spike) into
+   * the graph: a collapse to under 60% of the previous point, or a
+   * >2.5x spike with no real card growth, is skipped — a gap in the
+   * graph is honest, a cliff is a lie. The next sane pass records
+   * normally (the upsert overwrites today's row). Exported for tests. */
+  function snapshotLooksSane(prevTotal, prevCount, total, count) {
+    if (!(prevTotal > 0)) return true;
+    if (total < prevTotal * 0.6) return false;
+    if (total > prevTotal * 2.5 && !(count > prevCount * 1.1)) return false;
+    return true;
+  }
+
   async function recordValueSnapshot() {
     var u = App.auth.user;
     if (!u) return null;
     try {
       var items = await list();
       var t = totals(items);
+      var total = Math.round(t.value * 100) / 100;
+      /* Graph guard (2026-09-25): never record a history point that
+       * collapses the graph on bad data — e.g. the graded repair that
+       * nulled every graded price recorded $12,669.87, halving the
+       * series overnight on zero market movement. */
+      try {
+        var hist = await App.sb
+          .from("collection_value_snapshots")
+          .select("day,total_value,card_count")
+          .eq("user_id", u.id)
+          .order("day", { ascending: false })
+          .limit(2);
+        if (!hist.error && hist.data && hist.data.length) {
+          var todayStr = new Date().toISOString().slice(0, 10);
+          var prev = null;
+          for (var hi = 0; hi < hist.data.length; hi++) {
+            if (hist.data[hi].day !== todayStr) { prev = hist.data[hi]; break; }
+          }
+          if (prev && !snapshotLooksSane(prev.total_value, prev.card_count, total, t.count)) {
+            console.warn("[VaultDex] skipping value snapshot: total", total,
+              "fails sanity vs previous", prev.total_value, "on", prev.day, "- bug-guard, not a market move");
+            return null;
+          }
+        }
+      } catch (e) { /* history check failed: record anyway, don't lose the point */ }
       var res = await App.sb
         .from("collection_value_snapshots")
         .upsert({
           user_id: u.id,
-          total_value: Math.round(t.value * 100) / 100,
+          total_value: total,
           card_count: t.count
         }, { onConflict: "user_id,day" });
       if (res.error) throw res.error;
@@ -1116,6 +1210,10 @@
     setMatchNeedsRepair: setMatchNeedsRepair,
     gradedAttributionNeedsRepair: gradedAttributionNeedsRepair,
     repairGradedAttributionPrices: repairGradedAttributionPrices,
+    repairAccentFallbackPrices: repairAccentFallbackPrices,
+    repairSetMatchPrices: repairSetMatchPrices,
+    pricePlausibility: pricePlausibility,
+    snapshotLooksSane: snapshotLooksSane,
     /* Test seam: force the price_currency capability flag (the real value
      * comes from the runtime probe of the live schema). */
     _setPriceCurrencySupport: function (v) { HAS_PRICE_CURRENCY = !!v; }

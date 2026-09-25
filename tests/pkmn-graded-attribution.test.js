@@ -170,7 +170,13 @@ describe("gradedAttributionNeedsRepair", () => {
  * 00:27Z with a 01:00Z cutoff) was re-cleared on the next collection
  * read — wipe-looping every graded price until the top of the hour. The
  * repair is now one-shot via a localStorage flag: after a successful pass
- * later runs are a no-op, so fresh fixed prices are never re-cleared. */
+ * later runs are a no-op, so fresh fixed prices are never re-cleared.
+ *
+ * The 2026-09-25 continuity guardrail: the repair no longer deletes the
+ * displayed price at all — it clears the poisoned pkmn_id and forces the
+ * row stale, keeping the old price until the refresh overwrites it in a
+ * single write, so the collection total and value graph never dip
+ * mid-repair. */
 describe("repairGradedAttributionPrices one-shot flag", () => {
   const FLAG = "vd_graded_attribution_repaired_v1";
 
@@ -208,14 +214,20 @@ describe("repairGradedAttributionPrices one-shot flag", () => {
     };
   }
 
-  test("clears poisoned rows once, then leaves fresh prices alone", async () => {
+  test("forces reprice once (keeping the displayed price), then leaves fresh prices alone", async () => {
     window.localStorage.removeItem(FLAG);
     const { realAuth, realSb, updates } = stubApp();
     try {
-      await C.repairGradedAttributionPrices([badRow()]);
+      const row = badRow();
+      await C.repairGradedAttributionPrices([row]);
       expect(updates.length).toBe(1);
-      expect(updates[0].market_price).toBe(null);
+      // Continuity: the displayed price is never in the patch.
+      expect("market_price" in updates[0]).toBe(false);
+      expect("price_source" in updates[0]).toBe(false);
       expect(updates[0].pkmn_id).toBe(null);
+      expect(updates[0].price_updated_at).toBe("2000-01-01T00:00:00.000Z");
+      expect(row.market_price).toBe(5496.45);
+      expect(row.pkmn_id).toBe(null);
       expect(window.localStorage.getItem(FLAG)).toBe("1");
 
       // Second run: a freshly repriced row (fixed lookup, post-cutoff
