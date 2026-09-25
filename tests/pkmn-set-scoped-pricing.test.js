@@ -225,6 +225,28 @@ describe("findCardId without a mapping keeps the legacy path", () => {
     });
     expect(seenParams.set_id).toBe(undefined);
   });
+
+  test("unmapped set with only a number hit returns null (fallback removed 2026-09-25)", async () => {
+    stubApiWithMap((path) => {
+      if (path === "/v1/cards") {
+        return {
+          data: [
+            // A DIFFERENT set's card with the same number — the old
+            // number-only fallback would have priced the row as this.
+            { id: "52452", set: { name: "SV2D: Clay Burst" }, number: "017" },
+          ],
+        };
+      }
+      return { data: [] };
+    }, SET_MAP);
+    const id = await P.findCardId({
+      name: "PikachuFallbackProbe",
+      setName: "Ancient Origins", // unmapped: not in SET_MAP
+      number: "017",
+      lang: "en",
+    });
+    expect(id).toBe(null);
+  });
 });
 
 describe("oldNormSetName", () => {

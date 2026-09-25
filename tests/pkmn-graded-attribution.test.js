@@ -272,3 +272,56 @@ describe("repairGradedAttributionPrices one-shot flag", () => {
     }
   });
 });
+
+describe("gradedPriceForRow — unsupported-set guard (2026-09-25)", () => {
+  test("a residue pkmn_id on an M6a/MC/SM1p row is never graded off", async () => {
+    // gradedPriceForRow must not touch the network for unsupported sets:
+    // a residue pkmn_id here could only be cross-set (see LOW-3).
+    const p = await C.gradedPriceForRow({
+      id: "row-m6a",
+      card_name: "Pikachu",
+      set_name: "30th Celebration",
+      set_id: "ja-M6a",
+      number: "017",
+      pkmn_id: "52452", // residue: the old number-only fallback's Clay Burst hit
+      grading_company: "PSA",
+      grade: "10",
+    });
+    expect(p).toBe(null);
+  });
+  test("a supported-set graded row still resolves (no regression)", async () => {
+    const realFetch = window.App.util.fetchWithTimeout;
+    window.App.util.fetchWithTimeout = async (url) => {
+      const u = new URL(url, "https://x.test");
+      const path = u.searchParams.get("path");
+      if (path === "/v1/cards/21693/listings/ebay") {
+        return {
+          ok: true,
+          status: 200,
+          json: async () => ({
+            data: [
+              { price: 16300, currency: "USD", grader: "PSA", grade: "10", attribution: "exact", sold_at: "2026-09-01T00:00:00Z" },
+            ],
+          }),
+        };
+      }
+      return { ok: true, status: 200, json: async () => ({ data: [] }) };
+    };
+    try {
+      const p = await C.gradedPriceForRow({
+        id: "row-sm9",
+        card_name: "Latias & Latios GX",
+        set_name: "Team Up",
+        set_id: "sm9",
+        number: "170",
+        pkmn_id: "21693",
+        grading_company: "PSA",
+        grade: "10",
+      });
+      expect(p && p.price).toBe(16300);
+      expect(p && p.source).toBe("pkmnprices-graded");
+    } finally {
+      window.App.util.fetchWithTimeout = realFetch;
+    }
+  });
+});

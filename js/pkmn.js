@@ -134,8 +134,7 @@
    * opts.setId (the app's set id) scopes the search to the mapped
    * provider set — every candidate is then the right set and the card
    * number alone decides. Without a mapping the legacy name-normalized
-   * match runs, then the number-only fallback (skipped for sets the
-   * provider doesn't carry at all). */
+   * match runs; there is no number-only fallback. */
   async function findCardId(opts) {
     opts = opts || {};
     var key = cacheKey(opts.name, opts.setName, opts.number, opts.lang);
@@ -175,19 +174,11 @@
         if (normSetName(setName) === wantSet && normNumber(c.number) === wantNum) hit = c;
       });
     }
-    // Fallback: name + number matched but set name didn't normalize cleanly
-    // (e.g. promo sets) — take the first number-exact hit. Skipped for sets
-    // PkmnPrices doesn't carry at all: there the exact match already failed
-    // for good reason, and any number hit is necessarily another set's card.
-    // Also skipped when set-scoped: the scoped search already covers the
-    // whole right set, so a miss means the printing isn't carried — never
-    // another set's card.
-    if (!hit && !scoped && !pkmnMissingSet(opts.setName, opts.lang)) {
-      (json.data || []).forEach(function (c) {
-        if (hit) return;
-        if (normNumber(c.number) === wantNum) hit = c;
-      });
-    }
+    /* No number-only fallback (removed 2026-09-25): it priced cards as
+     * another set's printing — M6a Pikachu #017 as SV2D Clay Burst #017,
+     * SV Professor's Research #190 as the Professor Program promo. An
+     * unmapped set stays unpriced until it is mapped: a missing price is
+     * honest, a cross-set price is a lie. */
     idCache[key] = hit ? hit.id : null;
     return idCache[key];
   }
@@ -217,11 +208,27 @@
     return want !== "" && want === v;
   }
 
+  /* Whether nearMintPrice may price off any finish when the wanted finish
+   * has no listing: variant-agnostic callers (rowFromCard prices a known
+   * pkmnId without re-resolving the finish), plus the deliberate Cosmos
+   * Holo -> Holofoil alias — the provider carries no Cosmos Holo listing
+   * and Holo and Cosmos Holo share the base record. Any other finish
+   * mismatch is a miss, never a guess: an unpriced card is honest, a
+   * wrong-finish price is a lie (2026-09-25). */
+  function variantAgnostic(variantKey) {
+    if (!variantKey) return true;
+    try {
+      return App.tcg.normVLabel(variantKey) === "cosmosholo";
+    } catch { return false; }
+  }
+
   /* Near Mint market price for a PkmnPrices card id. Always Near Mint first. */
   async function nearMintPrice(pkmnId, variantKey) {
     var card = await api("/v1/cards/" + encodeURIComponent(pkmnId));
     var rows = (card.prices || []).filter(function (p) {
-      return p && p.condition === "Near Mint" && typeof p.market_price === "number";
+      /* A $0 provider price is not a price: it would silently zero the
+       * card's contribution on write (gradedPrice already requires > 0). */
+      return p && p.condition === "Near Mint" && typeof p.market_price === "number" && p.market_price > 0;
     });
     if (!rows.length) return null;
 
@@ -233,7 +240,8 @@
     }
 
     var exact = rows.filter(function (p) { return variantMatches(p.variant, variantKey); });
-    var row = pick(exact) || pick(rows);
+    var pool = exact.length ? exact : (variantAgnostic(variantKey) ? rows : []);
+    var row = pick(pool);
     if (!row) return null;
     return {
       price: row.market_price,
@@ -274,13 +282,8 @@
         return normSetName(c.set && c.set.name) === wantSet && normNumber(c.number) === wantNum;
       });
     }
-    if (!cands.length && !scoped && !pkmnMissingSet(opts.setName, opts.lang)) {
-      /* Number-only fallback for promo sets whose names normalize oddly.
-       * Never for unsupported sets: the exact match already failed for good
-       * reason, and any hit here is another set's printing. Never when
-       * set-scoped: the scoped search already covers the whole right set. */
-      cands = all.filter(function (c) { return normNumber(c.number) === wantNum; });
-    }
+    /* No number-only fallback (removed 2026-09-25, same reasoning as
+     * findCardId): an unmapped set stays unpriced until it is mapped. */
     if (!cands.length) return null;
     var nv = App.tcg.normVLabel;
     var want = nv(opts.pkmnLabel);

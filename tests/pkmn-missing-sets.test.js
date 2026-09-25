@@ -133,14 +133,19 @@ describe("priceForRow — unsupported Japanese rows stay unpriced", () => {
   });
 });
 
-describe("needsMissingSetRepair — repair predicate", () => {
+describe("needsMissingSetRepair — repair predicate (2026-09-25 hardening)", () => {
   const m6a = { set_name: "30th Celebration", set_id: "ja-M6a" };
   const m4 = { set_name: "Mega Evolution", set_id: "ja-M4" };
-  test("flags an M6a row priced with NO pkmn_id (the live bug shape)", () => {
-    expect(C.needsMissingSetRepair({ ...m6a, pkmn_id: null, market_price: 800, price_source: "pkmnprices" })).toBe(true);
+  const PRE_CUTOFF = "2026-09-20T00:00:00.000Z"; // before MISSINGSET_REPAIR_CUTOFF_MS
+  const POST_CUTOFF = "2026-09-26T00:00:00.000Z"; // after the cutoff
+  test("flags an M6a row with pkmnprices residue from the old fallback", () => {
+    expect(C.needsMissingSetRepair({ ...m6a, pkmn_id: null, market_price: 800, price_source: "pkmnprices", price_updated_at: PRE_CUTOFF })).toBe(true);
   });
   test("flags an M6a row with a stored pkmn_id", () => {
     expect(C.needsMissingSetRepair({ ...m6a, pkmn_id: "52452", market_price: 800 })).toBe(true);
+  });
+  test("flags a pkmn_id regardless of timestamp (fixed code never writes one here)", () => {
+    expect(C.needsMissingSetRepair({ ...m6a, pkmn_id: "52452", market_price: null, price_updated_at: POST_CUTOFF })).toBe(true);
   });
   test("leaves a clean M6a row alone (no id, no price)", () => {
     expect(C.needsMissingSetRepair({ ...m6a, pkmn_id: null, market_price: null })).toBe(false);
@@ -148,8 +153,78 @@ describe("needsMissingSetRepair — repair predicate", () => {
   test("leaves a priced supported-set row alone", () => {
     expect(C.needsMissingSetRepair({ ...m4, pkmn_id: "90001", market_price: 12.5, price_source: "pkmnprices" })).toBe(false);
   });
-  test("flags MC and SM1p rows too", () => {
-    expect(C.needsMissingSetRepair({ set_name: "Starter Decks 100 Battle Collection", set_id: "ja-MC", pkmn_id: null, market_price: 5 })).toBe(true);
-    expect(C.needsMissingSetRepair({ set_name: "Sun and Moon Plus", set_id: "ja-SM1p", pkmn_id: null, market_price: 5 })).toBe(true);
+  test("PRESERVES an honest legacy catalog price (price_source null)", () => {
+    // Newly added M6a/MC/SM1p cards get real TCGdex catalog prices via
+    // legacyMarket — the old predicate erased them on every load.
+    expect(C.needsMissingSetRepair({ ...m6a, pkmn_id: null, market_price: 5, price_source: null })).toBe(false);
+    expect(C.needsMissingSetRepair({ set_name: "Starter Decks 100 Battle Collection", set_id: "ja-MC", pkmn_id: null, market_price: 5, price_source: null })).toBe(false);
+    expect(C.needsMissingSetRepair({ set_name: "Sun and Moon Plus", set_id: "ja-SM1p", pkmn_id: null, market_price: 5, price_source: null })).toBe(false);
+  });
+  test("trusts a pkmnprices price written after the cutoff", () => {
+    expect(C.needsMissingSetRepair({ ...m6a, pkmn_id: null, market_price: 800, price_source: "pkmnprices", price_updated_at: POST_CUTOFF })).toBe(false);
+  });
+  test("does not null a graded-source price without a pkmn_id", () => {
+    expect(C.needsMissingSetRepair({ ...m6a, pkmn_id: null, market_price: 1200, price_source: "pkmnprices-graded" })).toBe(false);
+  });
+});
+
+describe("repairMissingSetPrices — one-shot, preserves honest prices", () => {
+  const FLAG = "vd_missingset_repair_v1";
+  const PRE_CUTOFF = "2026-09-20T00:00:00.000Z";
+  let realAuth, realSb;
+  const updates = [];
+  beforeEach(() => {
+    realAuth = window.App.auth;
+    realSb = window.App.sb;
+    updates.length = 0;
+    window.App.auth = { user: { id: "user-1" } };
+    window.App.sb = {
+      from: () => ({
+        update: (patch) => ({
+          eq: () => ({
+            eq: async (k, v) => {
+              updates.push(patch);
+              return { error: null };
+            },
+          }),
+        }),
+      }),
+    };
+    window.localStorage.removeItem(FLAG);
+  });
+  afterEach(() => {
+    window.App.auth = realAuth;
+    window.App.sb = realSb;
+    window.localStorage.removeItem(FLAG);
+  });
+
+  test("clears poisoned residue, keeps honest catalog prices, then never re-runs", async () => {
+    const poisoned = { id: "r1", card_name: "Pikachu", set_name: "30th Celebration", set_id: "ja-M6a", pkmn_id: "52452", market_price: 800, price_source: "pkmnprices", price_updated_at: PRE_CUTOFF, quantity: 1 };
+    const honest = { id: "r2", card_name: "Mew", set_name: "30th Celebration", set_id: "ja-M6a", pkmn_id: null, market_price: 5, price_source: null, price_updated_at: PRE_CUTOFF, quantity: 1 };
+    await C.repairMissingSetPrices([poisoned, honest]);
+    // One write: the poisoned row. The honest row is never touched.
+    expect(updates.length).toBe(1);
+    expect(updates[0].market_price).toBe(null);
+    expect(updates[0].pkmn_id).toBe(null);
+    expect(poisoned.market_price).toBe(null);
+    expect(poisoned.quantity).toBe(1); // ownership untouched
+    expect(honest.market_price).toBe(5); // honest catalog price survives
+    expect(window.localStorage.getItem(FLAG)).toBe("1");
+    // Second run is a no-op even with residue-looking rows.
+    updates.length = 0;
+    await C.repairMissingSetPrices([poisoned, honest]);
+    expect(updates.length).toBe(0);
+  });
+
+  test("a failed write does not set the flag (retries next boot)", async () => {
+    window.App.sb = {
+      from: () => ({
+        update: () => ({ eq: () => ({ eq: async () => ({ error: new Error("boom") }) }) }),
+      }),
+    };
+    await C.repairMissingSetPrices([
+      { id: "r9", card_name: "Pikachu", set_name: "30th Celebration", set_id: "ja-M6a", pkmn_id: "52452", market_price: 800, price_source: "pkmnprices", price_updated_at: PRE_CUTOFF },
+    ]);
+    expect(window.localStorage.getItem(FLAG)).toBe(null);
   });
 });

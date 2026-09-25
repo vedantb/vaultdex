@@ -125,6 +125,79 @@ describe("nearMintPrice variant selection", () => {
     expect(p.price).toBe(0.39);
     expect(p.variant).toBe("Holofoil");
   });
+
+  test("returns null when the wanted finish has no listing (no wrong-finish guess)", async () => {
+    stubApi((path) => {
+      if (path === "/v1/cards/424243") {
+        return {
+          prices: [
+            { variant: "Holofoil", condition: "Near Mint", currency: "USD", market_price: 1.25 },
+          ],
+        };
+      }
+      return { data: [] };
+    });
+    // A Reverse Holo row must NOT price off the Holofoil listing.
+    expect(await P.nearMintPrice("424243", "Reverse Holo")).toBe(null);
+  });
+
+  test("prices Cosmos Holo off the Holofoil row (deliberate alias)", async () => {
+    stubApi((path) => {
+      if (path === "/v1/cards/424244") {
+        return {
+          prices: [
+            { variant: "Holofoil", condition: "Near Mint", currency: "USD", market_price: 1.25 },
+          ],
+        };
+      }
+      return { data: [] };
+    });
+    // The provider carries no Cosmos Holo listing; Holo and Cosmos Holo
+    // share the base record, so the alias is intentional.
+    const p = await P.nearMintPrice("424244", "Cosmos Holo");
+    expect(p.price).toBe(1.25);
+    expect(p.variant).toBe("Holofoil");
+  });
+
+  test("ignores $0 provider rows (they would zero the card)", async () => {
+    stubApi((path) => {
+      if (path === "/v1/cards/424245") {
+        return {
+          prices: [
+            { variant: "Holofoil", condition: "Near Mint", currency: "USD", market_price: 0 },
+            { variant: "Holofoil", condition: "Near Mint", currency: "USD", market_price: 2.5 },
+          ],
+        };
+      }
+      if (path === "/v1/cards/424246") {
+        return {
+          prices: [
+            { variant: "Holofoil", condition: "Near Mint", currency: "USD", market_price: 0 },
+          ],
+        };
+      }
+      return { data: [] };
+    });
+    const p = await P.nearMintPrice("424245", "Holo");
+    expect(p.price).toBe(2.5);
+    expect(await P.nearMintPrice("424246", "Holo")).toBe(null);
+  });
+
+  test("variant-agnostic callers (null variant) still price off any finish", async () => {
+    stubApi((path) => {
+      if (path === "/v1/cards/424247") {
+        return {
+          prices: [
+            { variant: "Reverse Holofoil", condition: "Near Mint", currency: "USD", market_price: 0.46 },
+          ],
+        };
+      }
+      return { data: [] };
+    });
+    // rowFromCard prices a known pkmnId without re-resolving the finish.
+    const p = await P.nearMintPrice("424247", null);
+    expect(p.price).toBe(0.46);
+  });
 });
 
 describe("needsAccentRepair", () => {

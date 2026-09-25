@@ -699,6 +699,7 @@
         var pm = await App.pkmn.findVariantPrice({
           name: card.name,
           setName: card.set && card.set.name,
+          setId: card.set && card.set.id,
           number: card.number,
           lang: (card.set && card.set.lang) || "en",
           pkmnLabel: selectedBox.pkmnLabel,

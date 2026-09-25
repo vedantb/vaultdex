@@ -315,9 +315,11 @@
         .range(from, to);
     });
     await backfillRowImages(rows, true);
-    /* One-shot repair: unsupported Japanese sets (M6a/MC/SM1p) can hold a
-     * poisoned pkmn_id + price from the removed number-only fallback —
-     * e.g. M6a Pikachu #017 priced as SV2D Clay Burst #017. Clear them. */
+    /* One-shot repair (flag vd_missingset_repair_v1): unsupported Japanese
+     * sets (M6a/MC/SM1p) can hold cross-set residue from the removed
+     * number-only fallback (pkmn_id, or a pkmnprices-sourced price) — e.g.
+     * M6a Pikachu #017 priced as SV2D Clay Burst #017. Poisoned residue is
+     * cleared once; honest catalog prices (price_source null) survive. */
     await repairMissingSetPrices(rows);
     /* One-shot repair: accent-blind set matching let the number-only
      * fallback cross-price rows in accented sets (Pokémon GO Moltres #12
@@ -406,11 +408,6 @@
     return { added: true, priceSource: addedPriceSource };
   }
 
-  /* Pure predicate for the missing-set repair: a row from an unsupported
-   * set needs clearing when it carries any pricing residue — a stored
-   * pkmn_id OR a market_price written without an ID (the old number-only
-   * fallback priced rows via priceForRow without persisting pkmn_id).
-   * Exported for unit tests. */
   /* Continuity guard (2026-09-25): a repair NEVER deletes a displayed
    * price. The old value may be wrong, but nulling it drops the collection
    * total and carves a fake cliff into the value graph — strictly worse
@@ -418,8 +415,14 @@
    * clears only the poisoned identity (pkmn_id, mover history, any parked
    * plausibility candidate) and backdates price_updated_at past the refresh
    * horizon, forcing the next pass to reprice the row; the refresh then
-   * overwrites the price in a single atomic write. The total never dips. */
+   * overwrites the price in a single atomic write. The total never dips.
+   * (The missing-set repair is the one exception: for sets the provider
+   * doesn't carry at all no reprice can ever land, so poisoned residue is
+   * nulled once — see needsMissingSetRepair.) */
   var STALE_REPRICE_AT = "2000-01-01T00:00:00.000Z";
+  /* The kept price keeps its own currency: relabeling it (e.g. to USD)
+   * while the price itself is untouched mislabels the row until — and
+   * unless — its reprice lands (2026-09-25). */
   async function staleForReprice(u, row, hasCurrency, hasPending) {
     var patch = {
       pkmn_id: null,
@@ -427,7 +430,6 @@
       prev_price: null,
       prev_price_at: null
     };
-    if (hasCurrency) patch.price_currency = "USD";
     if (hasPending) { patch.price_pending = null; patch.price_pending_at = null; }
     try {
       var up = await App.sb
@@ -440,7 +442,6 @@
         row.price_updated_at = STALE_REPRICE_AT;
         row.prev_price = null;
         row.prev_price_at = null;
-        if (hasCurrency) row.price_currency = "USD";
         if (hasPending) { row.price_pending = null; row.price_pending_at = null; }
         return true;
       }
@@ -467,55 +468,85 @@
   }
   var ACCENT_REPAIR_FLAG = "vd_accent_repair_v1";
   var SETMATCH_REPAIR_FLAG = "vd_setmatch_repair_v1";
+  var MISSINGSET_REPAIR_FLAG = "vd_missingset_repair_v1";
 
+  /* Pure predicate for the missing-set repair: a row from an unsupported
+   * set carries cross-set pricing residue when it holds a stored pkmn_id
+   * or a pkmnprices-sourced market_price. The fixed code never writes
+   * either here — priceForRow returns null and backfillPkmnIds skips
+   * these sets — so both can only be residue from the removed
+   * number-only fallback (e.g. M6a Pikachu #017 priced as SV2D Clay
+   * Burst #017). Honest catalog prices (price_source null, written by
+   * legacyMarket for newly added cards) are NOT residue and must survive:
+   * the old predicate couldn't tell them apart and erased real displayed
+   * prices on every collection read. The timestamp cutoff scopes the
+   * price arm like the other repairs (see cutoffs above): prices written
+   * by fixed code are never re-cleared.
+   * Exported for unit tests. */
   function needsMissingSetRepair(row) {
     if (!row || !App.pkmn || typeof App.pkmn.pkmnMissingSet !== "function") return false;
     if (!App.pkmn.pkmnMissingSet(row.set_name, App.util.langOf(row))) return false;
-    return !!(row.pkmn_id || row.market_price != null);
+    if (row.pkmn_id) return true;
+    return row.market_price != null &&
+      row.price_source === "pkmnprices" &&
+      !priceIsPostFix(row, MISSINGSET_REPAIR_CUTOFF_MS);
   }
 
-  /* One-shot repair (2026-09-22): rows from Japanese sets PkmnPrices doesn't
-   * carry (M6a, MC, SM1p) can hold a pkmn_id + market_price from the unsafe
-   * number-only fallback — e.g. M6a Pikachu #017 priced as SV2D Clay Burst
-   * #017, which ranked M6a cards at the top of the collection by value.
-   * Some rows were priced without a pkmn_id, so any market_price on these
-   * sets is cross-set residue too. Clear them all — id and price
-   * fields plus mover history — while keeping quantity, ownership, variant,
-   * images, and grading data untouched. Idempotent: rows already clean are
-   * skipped, so later runs are a no-op. */
+  /* One-shot repair (2026-09-22, hardened 2026-09-25): rows from Japanese
+   * sets PkmnPrices doesn't carry (M6a, MC, SM1p) can hold a pkmn_id +
+   * pkmnprices price from the removed number-only fallback — e.g. M6a
+   * Pikachu #017 priced as SV2D Clay Burst #017, which ranked M6a cards
+   * at the top of the collection by value. For these sets no correct
+   * reprice can ever land (the provider carries no cards at all), so
+   * poisoned residue is nulled once: a cross-set price is a lie, a
+   * missing price is honest. Honest catalog prices (price_source null)
+   * are preserved. Quantity, ownership, variant, images, and grading are
+   * untouched. One-shot via MISSINGSET_REPAIR_FLAG (the pre-hardening
+   * version ran on every load with no flag and kept nulling prices,
+   * including honest ones); the cutoff in needsMissingSetRepair still
+   * scopes which rows qualify. The flag is set only after a fully
+   * successful pass; if anything fails the repair retries on the next
+   * boot. */
   async function repairMissingSetPrices(rows) {
     var u = App.auth.user;
     if (!u || !rows || !rows.length) return;
+    if (repairDone(MISSINGSET_REPAIR_FLAG)) return;
     var bad = rows.filter(needsMissingSetRepair);
-    if (!bad.length) return;
-    console.warn("[VaultDex] clearing cross-set prices from", bad.length, "unsupported-set row(s)");
-    for (var i = 0; i < bad.length; i++) {
-      var row = bad[i];
-      try {
-        var up = await App.sb
-          .from("collection_items")
-          .update({
-            pkmn_id: null,
-            market_price: null,
-            price_source: null,
-            price_updated_at: null,
-            prev_price: null,
-            prev_price_at: null
-          })
-          .eq("id", row.id)
-          .eq("user_id", u.id);
-        if (!up.error) {
-          row.pkmn_id = null;
-          row.market_price = null;
-          row.price_source = null;
-          row.price_updated_at = null;
-          row.prev_price = null;
-          row.prev_price_at = null;
+    var ok = true;
+    if (bad.length) {
+      console.warn("[VaultDex] clearing cross-set residue from", bad.length, "unsupported-set row(s)");
+      for (var i = 0; i < bad.length; i++) {
+        var row = bad[i];
+        try {
+          var up = await App.sb
+            .from("collection_items")
+            .update({
+              pkmn_id: null,
+              market_price: null,
+              price_source: null,
+              price_updated_at: null,
+              prev_price: null,
+              prev_price_at: null
+            })
+            .eq("id", row.id)
+            .eq("user_id", u.id);
+          if (!up.error) {
+            row.pkmn_id = null;
+            row.market_price = null;
+            row.price_source = null;
+            row.price_updated_at = null;
+            row.prev_price = null;
+            row.prev_price_at = null;
+          } else {
+            ok = false;
+          }
+        } catch (e) {
+          ok = false;
+          console.warn("[VaultDex] missing-set repair failed for", row.card_name, e && e.message);
         }
-      } catch (e) {
-        console.warn("[VaultDex] missing-set repair failed for", row.card_name, e && e.message);
       }
     }
+    if (ok) markRepairDone(MISSINGSET_REPAIR_FLAG);
   }
 
   /* Repair cutoffs — one-shot scoping (2026-09-24): the repairs below exist
@@ -531,6 +562,7 @@
   var ACCENT_REPAIR_CUTOFF_MS = Date.parse("2026-09-24T00:20:00Z");    /* 1fbc92e deployed 00:14:22Z */
   var SETMATCH_REPAIR_CUTOFF_MS = Date.parse("2026-09-24T01:00:00Z");  /* ce974ee deployed 00:41:20Z */
   var GRADED_REPAIR_CUTOFF_MS = Date.parse("2026-09-25T01:00:00Z");    /* graded exact-attribution fix, deploys ~00:20Z */
+  var MISSINGSET_REPAIR_CUTOFF_MS = Date.parse("2026-09-25T00:00:00Z"); /* one-shot hardening + fallback removal, deploys 2026-09-25 */
   function priceIsPostFix(row, cutoffMs) {
     var t = row.price_updated_at ? Date.parse(row.price_updated_at) : 0;
     return !(t < cutoffMs); /* NaN/0 -> false: old */
@@ -976,10 +1008,16 @@
 
   /* Graded rows re-price from company+grade eBay sold comps, never from
    * raw Near Mint. Resolves the PkmnPrices id when the row doesn't carry
-   * one yet. Returns the gradedPrice() shape or null (row keeps its
-   * existing price on miss — never clobber a real graded price). */
+   * one yet (and persists it, so later refreshes skip the lookup), then
+   * prices from the comps. Returns the gradedPrice() shape or null (row
+   * keeps its existing price on miss — never clobber a real graded price).
+   * Unsupported sets (M6a/MC/SM1p) return null up front: the provider
+   * carries no cards for them, so a residue pkmn_id here could only be
+   * cross-set — never grade off it (mirrors priceForRow). */
   async function gradedPriceForRow(row) {
     var lang = App.util.langOf(row);
+    if (App.pkmn && typeof App.pkmn.pkmnMissingSet === "function" &&
+        App.pkmn.pkmnMissingSet(row.set_name, lang)) return null;
     var gid = row.pkmn_id;
     if (!gid) {
       var number = row.number;
@@ -998,7 +1036,22 @@
       }
     }
     if (!gid) return null;
-    return App.pkmn.gradedPrice(gid, row.grading_company, row.grade, { lang: lang });
+    var gp = await App.pkmn.gradedPrice(gid, row.grading_company, row.grade, { lang: lang });
+    /* Persist the resolved id so later refreshes skip the lookup (credit
+     * saver) — only after a successful graded price, so a miss can never
+     * cement a wrong attribution. */
+    if (gp && !row.pkmn_id) {
+      row.pkmn_id = gid;
+      var u = App.auth && App.auth.user;
+      if (u && App.sb) {
+        try {
+          await App.sb.from("collection_items").update({ pkmn_id: gid }).eq("id", row.id).eq("user_id", u.id);
+        } catch (e) {
+          console.warn("[VaultDex] graded pkmn_id persist failed for", row.card_name, e && e.message);
+        }
+      }
+    }
+    return gp;
   }
 
   /* Pure: on a graded lookup miss (no exact company+grade comps), decide
@@ -1260,9 +1313,11 @@
     repairGradedAttributionPrices: repairGradedAttributionPrices,
     repairAccentFallbackPrices: repairAccentFallbackPrices,
     repairSetMatchPrices: repairSetMatchPrices,
+    repairMissingSetPrices: repairMissingSetPrices,
     pricePlausibility: pricePlausibility,
     snapshotLooksSane: snapshotLooksSane,
     gradedMissFallback: gradedMissFallback,
+    gradedPriceForRow: gradedPriceForRow,
     /* Test seam: force the price_currency capability flag (the real value
      * comes from the runtime probe of the live schema). */
     _setPriceCurrencySupport: function (v) { HAS_PRICE_CURRENCY = !!v; }
