@@ -155,10 +155,18 @@
     var wantNum = normNumber(opts.number);
     var hit = null;
     if (scoped) {
-      /* Set-scoped search: the provider filtered to our set already. */
+      /* Set-scoped search: the provider filtered to our set already, but
+       * verify the hit's set id when the result carries one — the provider
+       * has returned foreign-set cards for a scoped query before (the
+       * German "Teams Sind Trumpf" printing, set 2653, for an sm9 Team Up
+       * lookup), and the row was then priced from the wrong printing's
+       * comps (Latias & Latios GX PSA 10 at €5,496.45). */
       (json.data || []).forEach(function (c) {
         if (hit) return;
-        if (normNumber(c.number) === wantNum) hit = c;
+        if (normNumber(c.number) !== wantNum) return;
+        var hitSetId = c.set && c.set.id != null ? String(c.set.id) : null;
+        if (hitSetId && hitSetId !== String(entry.pp)) return;
+        hit = c;
       });
     } else {
       (json.data || []).forEach(function (c) {

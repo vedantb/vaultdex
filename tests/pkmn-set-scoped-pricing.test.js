@@ -34,6 +34,7 @@ const SET_MAP = {
   sv01: { pp: 511, ppName: "SV01: Scarlet & Violet Base Set" },
   fo: { pp: 437, ppName: "Fossil" },
   "ja-M4": { pp: 1001, ppName: "M4: Ninja Spinner" },
+  sm9: { pp: 543, ppName: "SM - Team Up" },
 };
 
 /* Serves the baked set-id map for the JSON fetch and the proxy handler
@@ -140,6 +141,49 @@ describe("findCardId with set_id scoping (the Professor's Research reproduction)
     expect(seenParams.set_id).toBe("1001");
     expect(seenParams.language).toBe("Japanese");
     expect(id).toBe("777001");
+  });
+});
+
+describe("findCardId scoped set-id verification (the Latias & Latios GX reproduction)", () => {
+  /* Live 2026-09-24: the provider returned the German "Teams Sind Trumpf"
+   * printing (set 2653, id 163023) for a scoped sm9/Team Up query, and the
+   * row was priced from its comps. The scoped branch now verifies the
+   * hit's set id when the result carries one. */
+  const GERMAN_170 = { id: "163023", set: { id: 2653, name: "Teams Sind Trumpf" }, number: "170", name: "Latias & Latios GX" };
+  const EN_170 = { id: "21693", set: { id: 543, name: "SM - Team Up" }, number: "170", name: "Latias & Latios GX (Alternate Full Art)" };
+
+  const latiasOpts = {
+    name: "Latias & Latios GX",
+    setName: "Team Up",
+    number: "170",
+    lang: "en",
+    setId: "sm9",
+  };
+
+  test("skips a foreign-set number match for the in-set printing", async () => {
+    stubApiWithMap((path, params) => {
+      if (path === "/v1/cards" && params.set_id === "543") return { data: [GERMAN_170, EN_170] };
+      return { data: [] };
+    }, SET_MAP);
+    expect(await P.findCardId(latiasOpts)).toBe("21693");
+  });
+
+  test("foreign-set-only results resolve to null, never the wrong printing", async () => {
+    stubApiWithMap((path, params) => {
+      if (path === "/v1/cards" && params.set_id === "543") return { data: [GERMAN_170] };
+      return { data: [] };
+    }, SET_MAP);
+    expect(await P.findCardId({ ...latiasOpts, number: "171" })).toBe(null);
+  });
+
+  test("results without a set id still match by number (verification skipped)", async () => {
+    stubApiWithMap((path, params) => {
+      if (path === "/v1/cards" && params.set_id === "543") {
+        return { data: [{ id: "21693", set: { name: "SM - Team Up" }, number: "172" }] };
+      }
+      return { data: [] };
+    }, SET_MAP);
+    expect(await P.findCardId({ ...latiasOpts, number: "172" })).toBe("21693");
   });
 });
 

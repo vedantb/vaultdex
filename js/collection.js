@@ -536,14 +536,17 @@
 
   /* One-shot repair (2026-09-24): rows holding a pkmnprices-graded price
    * from before the exact-attribution fix may be the median of
-   * unverified comps (e.g. Latias & Latios GX PSA 10 at €5,496.45).
-   * Clear the price fields; the next refresh re-prices each graded row
-   * with the fixed lookup — exact-attribution comps keep their graded
-   * price, anything else falls back to the raw Near Mint price with its
-   * explicit label. Quantity, ownership, variant, images, and grading
-   * are untouched. One-shot via the GRADED_REPAIR_CUTOFF_MS guard in
-   * gradedAttributionNeedsRepair: post-fix prices are never re-cleared,
-   * so later runs are a no-op. */
+   * unverified comps — e.g. Latias & Latios GX PSA 10 at €5,496.45 from
+   * six unknown-attribution German listings. The stored pkmn_id can be
+   * wrong too (that row pointed at the German "Teams Sind Trumpf"
+   * printing, set 2653, instead of the English Team Up printing), so it
+   * is cleared as well and the set-scoped lookup re-resolves it. The next
+   * refresh re-prices each graded row with the fixed lookup:
+   * exact-attribution comps keep their graded price, anything else falls
+   * back to the raw Near Mint price with its explicit label. Quantity,
+   * ownership, variant, images, and grading are untouched. One-shot via
+   * the GRADED_REPAIR_CUTOFF_MS guard in gradedAttributionNeedsRepair:
+   * post-fix prices are never re-cleared, so later runs are a no-op. */
   async function repairGradedAttributionPrices(rows) {
     var u = App.auth.user;
     if (!u || !rows || !rows.length) return;
@@ -554,6 +557,7 @@
     for (var i = 0; i < bad.length; i++) {
       var row = bad[i];
       var clear = {
+        pkmn_id: null,
         market_price: null,
         price_source: null,
         price_updated_at: null,
@@ -568,6 +572,7 @@
           .eq("id", row.id)
           .eq("user_id", u.id);
         if (!up.error) {
+          row.pkmn_id = null;
           row.market_price = null;
           row.price_source = null;
           row.price_updated_at = null;
