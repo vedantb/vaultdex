@@ -544,45 +544,61 @@
    * refresh re-prices each graded row with the fixed lookup:
    * exact-attribution comps keep their graded price, anything else falls
    * back to the raw Near Mint price with its explicit label. Quantity,
-   * ownership, variant, images, and grading are untouched. One-shot via
-   * the GRADED_REPAIR_CUTOFF_MS guard in gradedAttributionNeedsRepair:
-   * post-fix prices are never re-cleared, so later runs are a no-op. */
+   * ownership, variant, images, and grading are untouched.
+   *
+   * One-shot via a localStorage flag (not the timestamp cutoff): the
+   * cutoff alone re-clears prices the fixed code writes before the cutoff
+   * passes, wipe-looping them on every collection read until the top of
+   * the hour. The flag is set only after a fully successful pass; if
+   * anything fails it retries on the next boot. */
+  var GRADED_REPAIR_FLAG = "vd_graded_attribution_repaired_v1";
   async function repairGradedAttributionPrices(rows) {
     var u = App.auth.user;
     if (!u || !rows || !rows.length) return;
+    try {
+      if (localStorage.getItem(GRADED_REPAIR_FLAG)) return;
+    } catch (e) { /* no storage: fall through, the cutoff still bounds it */ }
     var bad = rows.filter(gradedAttributionNeedsRepair);
-    if (!bad.length) return;
-    var hasCurrency = await ensurePriceCurrencyProbe();
-    console.warn("[VaultDex] clearing unverified-attribution graded prices from", bad.length, "row(s)");
-    for (var i = 0; i < bad.length; i++) {
-      var row = bad[i];
-      var clear = {
-        pkmn_id: null,
-        market_price: null,
-        price_source: null,
-        price_updated_at: null,
-        prev_price: null,
-        prev_price_at: null
-      };
-      if (hasCurrency) clear.price_currency = "USD";
-      try {
-        var up = await App.sb
-          .from("collection_items")
-          .update(clear)
-          .eq("id", row.id)
-          .eq("user_id", u.id);
-        if (!up.error) {
-          row.pkmn_id = null;
-          row.market_price = null;
-          row.price_source = null;
-          row.price_updated_at = null;
-          row.prev_price = null;
-          row.prev_price_at = null;
-          if (hasCurrency) row.price_currency = "USD";
+    var ok = true;
+    if (bad.length) {
+      var hasCurrency = await ensurePriceCurrencyProbe();
+      console.warn("[VaultDex] clearing unverified-attribution graded prices from", bad.length, "row(s)");
+      for (var i = 0; i < bad.length; i++) {
+        var row = bad[i];
+        var clear = {
+          pkmn_id: null,
+          market_price: null,
+          price_source: null,
+          price_updated_at: null,
+          prev_price: null,
+          prev_price_at: null
+        };
+        if (hasCurrency) clear.price_currency = "USD";
+        try {
+          var up = await App.sb
+            .from("collection_items")
+            .update(clear)
+            .eq("id", row.id)
+            .eq("user_id", u.id);
+          if (!up.error) {
+            row.pkmn_id = null;
+            row.market_price = null;
+            row.price_source = null;
+            row.price_updated_at = null;
+            row.prev_price = null;
+            row.prev_price_at = null;
+            if (hasCurrency) row.price_currency = "USD";
+          } else {
+            ok = false;
+          }
+        } catch (e) {
+          ok = false;
+          console.warn("[VaultDex] graded-attribution repair failed for", row.card_name, e && e.message);
         }
-      } catch (e) {
-        console.warn("[VaultDex] graded-attribution repair failed for", row.card_name, e && e.message);
       }
+    }
+    if (ok) {
+      try { localStorage.setItem(GRADED_REPAIR_FLAG, "1"); } catch (e) { /* ignored */ }
     }
   }
 
@@ -1099,6 +1115,7 @@
     oldNormSetName: oldNormSetName,
     setMatchNeedsRepair: setMatchNeedsRepair,
     gradedAttributionNeedsRepair: gradedAttributionNeedsRepair,
+    repairGradedAttributionPrices: repairGradedAttributionPrices,
     /* Test seam: force the price_currency capability flag (the real value
      * comes from the runtime probe of the live schema). */
     _setPriceCurrencySupport: function (v) { HAS_PRICE_CURRENCY = !!v; }

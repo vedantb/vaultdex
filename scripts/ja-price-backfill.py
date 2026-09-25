@@ -139,8 +139,9 @@ def atomic_write_json(path, obj, **kwargs):
     """Write JSON atomically (tmp file + os.replace) so a crash or OOM
     mid-write can never leave a truncated file in place."""
     tmp = path + ".tmp"
+    kwargs.setdefault("ensure_ascii", False)
     with open(tmp, "w", encoding="utf-8") as f:
-        json.dump(obj, f, ensure_ascii=False, **kwargs)
+        json.dump(obj, f, **kwargs)
         f.flush()
         os.fsync(f.fileno())
     os.replace(tmp, path)

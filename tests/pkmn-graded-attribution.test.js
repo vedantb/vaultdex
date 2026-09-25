@@ -163,3 +163,100 @@ describe("gradedAttributionNeedsRepair", () => {
     ).toBe(true);
   });
 });
+
+/* The 2026-09-25 one-shot regression: the first version of the repair was
+ * guarded by the timestamp cutoff alone, so a price the FIXED code wrote
+ * before the cutoff passed (Latias & Latios GX at $16,338.17, written
+ * 00:27Z with a 01:00Z cutoff) was re-cleared on the next collection
+ * read — wipe-looping every graded price until the top of the hour. The
+ * repair is now one-shot via a localStorage flag: after a successful pass
+ * later runs are a no-op, so fresh fixed prices are never re-cleared. */
+describe("repairGradedAttributionPrices one-shot flag", () => {
+  const FLAG = "vd_graded_attribution_repaired_v1";
+
+  function stubApp() {
+    const realAuth = window.App.auth;
+    const realSb = window.App.sb;
+    window.App.auth = { user: { id: "user-1" } };
+    const updates = [];
+    window.App.sb = {
+      from: () => ({
+        select: () => ({ limit: async () => ({ error: null }) }),
+        update: (patch) => ({
+          eq: () => ({
+            eq: async () => {
+              updates.push(patch);
+              return { error: null };
+            },
+          }),
+        }),
+      }),
+    };
+    return { realAuth, realSb, updates };
+  }
+
+  function badRow() {
+    return {
+      id: "row-1",
+      card_name: "Latias & Latios GX",
+      price_source: "pkmnprices-graded",
+      market_price: 5496.45,
+      price_updated_at: "2026-09-24T00:00:00Z",
+      pkmn_id: 163023,
+      grading_company: "PSA",
+      grade: "10",
+    };
+  }
+
+  test("clears poisoned rows once, then leaves fresh prices alone", async () => {
+    window.localStorage.removeItem(FLAG);
+    const { realAuth, realSb, updates } = stubApp();
+    try {
+      await C.repairGradedAttributionPrices([badRow()]);
+      expect(updates.length).toBe(1);
+      expect(updates[0].market_price).toBe(null);
+      expect(updates[0].pkmn_id).toBe(null);
+      expect(window.localStorage.getItem(FLAG)).toBe("1");
+
+      // Second run: a freshly repriced row (fixed lookup, post-cutoff
+      // timestamp) must NOT be cleared again.
+      updates.length = 0;
+      await C.repairGradedAttributionPrices([
+        {
+          id: "row-1",
+          card_name: "Latias & Latios GX",
+          price_source: "pkmnprices-graded",
+          market_price: 16338.17,
+          price_updated_at: "2026-09-25T00:27:13.349+00:00",
+          pkmn_id: 21693,
+          grading_company: "PSA",
+          grade: "10",
+        },
+      ]);
+      expect(updates.length).toBe(0);
+    } finally {
+      window.App.auth = realAuth;
+      window.App.sb = realSb;
+      window.localStorage.removeItem(FLAG);
+    }
+  });
+
+  test("retries on the next boot when the clear fails", async () => {
+    window.localStorage.removeItem(FLAG);
+    const { realAuth, realSb } = stubApp();
+    window.App.sb = {
+      from: () => ({
+        select: () => ({ limit: async () => ({ error: null }) }),
+        update: () => ({ eq: () => ({ eq: async () => ({ error: new Error("boom") }) }) }),
+      }),
+    };
+    try {
+      await C.repairGradedAttributionPrices([badRow()]);
+      expect(window.localStorage.getItem(FLAG)).toBe(null);
+    } finally {
+      window.App.auth = realAuth;
+      window.App.sb = realSb;
+      window.localStorage.removeItem(FLAG);
+    }
+  });
+});
