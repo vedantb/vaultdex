@@ -1,1 +1,3126 @@
-{"set": {"id": "M6a", "name": "30th Celebration", "nameJa": "30th セレブレーション", "series": "ポケモンカードゲーム MEGA", "releaseDate": "2026-09-16", "logo": "/data/tcgdex/set-logos/ja/M6a.png", "symbol": null, "printedTotal": 103, "total": 173, "lang": "ja"}, "cards": [{"id": "M6a-001", "localId": "001", "name": "Exeggcute", "nameJa": "タマタマ", "rarity": null, "illustrator": "Nelnal", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/001.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/001.webp", "category": "Pokemon", "types": ["Grass"], "hp": "60", "variants_detailed": null, "pricing": null}, {"id": "M6a-002", "localId": "002", "name": "Alolan Exeggutor", "nameJa": "アローラ ナッシー", "rarity": null, "illustrator": "Oswaldo KATO", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/002.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/002.webp", "category": "Pokemon", "types": ["Grass"], "hp": "150", "variants_detailed": null, "pricing": null}, {"id": "M6a-003", "localId": "003", "name": "Volbeat", "nameJa": "バルビート", "rarity": null, "illustrator": "Yoriyuki Ikegami", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/003.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/003.webp", "category": "Pokemon", "types": ["Grass"], "hp": "80", "variants_detailed": null, "pricing": null}, {"id": "M6a-004", "localId": "004", "name": "Illumise", "nameJa": "イルミーゼ", "rarity": null, "illustrator": "Shibuzoh.", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/004.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/004.webp", "category": "Pokemon", "types": ["Grass"], "hp": "80", "variants_detailed": null, "pricing": null}, {"id": "M6a-005", "localId": "005", "name": "Vivillon", "nameJa": "ビビヨン", "rarity": null, "illustrator": "Jerky", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/005.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/005.webp", "category": "Pokemon", "types": ["Grass"], "hp": "120", "variants_detailed": null, "pricing": null}, {"id": "M6a-006", "localId": "006", "name": "Moltres", "nameJa": "ファイヤー", "rarity": null, "illustrator": "HYOGONOSUKE", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/006.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/006.webp", "category": "Pokemon", "types": ["Fire"], "hp": "120", "variants_detailed": null, "pricing": null}, {"id": "M6a-007", "localId": "007", "name": "Ho-Oh", "nameJa": "ホウオウ", "rarity": null, "illustrator": "Anesaki Dynamic", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/007.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/007.webp", "category": "Pokemon", "types": ["Fire"], "hp": "130", "variants_detailed": null, "pricing": null}, {"id": "M6a-008", "localId": "008", "name": "Reshiram", "nameJa": "レシラム", "rarity": null, "illustrator": "Uta", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/008.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/008.webp", "category": "Pokemon", "types": ["Fire"], "hp": "130", "variants_detailed": null, "pricing": null}, {"id": "M6a-009", "localId": "009", "name": "Fuecoco ex", "nameJa": "ホゲータex", "rarity": "Double Rare", "illustrator": "5ban Graphics", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/009.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/009.webp", "category": "Pokemon", "types": ["Fire"], "hp": "210", "variants_detailed": null, "pricing": null}, {"id": "M6a-010", "localId": "010", "name": "Slowpoke", "nameJa": "ヤドン", "rarity": null, "illustrator": "Uninori", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/010.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/010.webp", "category": "Pokemon", "types": ["Water"], "hp": "80", "variants_detailed": null, "pricing": null}, {"id": "M6a-011", "localId": "011", "name": "Lapras", "nameJa": "ラプラス", "rarity": null, "illustrator": "Masa", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/011.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/011.webp", "category": "Pokemon", "types": ["Water"], "hp": "130", "variants_detailed": null, "pricing": null}, {"id": "M6a-012", "localId": "012", "name": "Articuno", "nameJa": "フリーザー", "rarity": null, "illustrator": "HYOGONOSUKE", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/012.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/012.webp", "category": "Pokemon", "types": ["Water"], "hp": "120", "variants_detailed": null, "pricing": null}, {"id": "M6a-013", "localId": "013", "name": "Kyogre", "nameJa": "カイオーガ", "rarity": null, "illustrator": "Tonji Matsuno", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/013.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/013.webp", "category": "Pokemon", "types": ["Water"], "hp": "140", "variants_detailed": null, "pricing": null}, {"id": "M6a-014", "localId": "014", "name": "Palkia", "nameJa": "パルキア", "rarity": null, "illustrator": "kawayoo", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/014.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/014.webp", "category": "Pokemon", "types": ["Water"], "hp": "130", "variants_detailed": null, "pricing": null}, {"id": "M6a-015", "localId": "015", "name": "Greninja ex", "nameJa": "ゲッコウガex", "rarity": "Double Rare", "illustrator": "5ban Graphics", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/015.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/015.webp", "category": "Pokemon", "types": ["Water"], "hp": "300", "variants_detailed": null, "pricing": null}, {"id": "M6a-016", "localId": "016", "name": "Wishiwashi", "nameJa": "ヨワシ", "rarity": null, "illustrator": "Narano", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/016.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/016.webp", "category": "Pokemon", "types": ["Water"], "hp": "30", "variants_detailed": null, "pricing": null}, {"id": "M6a-017", "localId": "017", "name": "Pikachu", "nameJa": "ピカチュウ", "rarity": "Pikachu Rare", "illustrator": "Ken Sugimori", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/017.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/017.webp", "category": "Pokemon", "types": ["Lightning"], "hp": "70", "variants_detailed": null, "pricing": null}, {"id": "M6a-018", "localId": "018", "name": "Pikachu", "nameJa": "ピカチュウ", "rarity": "Pikachu Rare", "illustrator": "danciao", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/018.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/018.webp", "category": "Pokemon", "types": ["Lightning"], "hp": "70", "variants_detailed": null, "pricing": null}, {"id": "M6a-019", "localId": "019", "name": "Pikachu", "nameJa": "ピカチュウ", "rarity": "Pikachu Rare", "illustrator": "satoma", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/019.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/019.webp", "category": "Pokemon", "types": ["Lightning"], "hp": "70", "variants_detailed": null, "pricing": null}, {"id": "M6a-020", "localId": "020", "name": "Pikachu", "nameJa": "ピカチュウ", "rarity": "Pikachu Rare", "illustrator": "Takeshi Nakamura", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/020.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/020.webp", "category": "Pokemon", "types": ["Lightning"], "hp": "70", "variants_detailed": null, "pricing": null}, {"id": "M6a-021", "localId": "021", "name": "Pikachu", "nameJa": "ピカチュウ", "rarity": "Pikachu Rare", "illustrator": "Asako Ito", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/021.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/021.webp", "category": "Pokemon", "types": ["Lightning"], "hp": "80", "variants_detailed": null, "pricing": null}, {"id": "M6a-022", "localId": "022", "name": "Pikachu", "nameJa": "ピカチュウ", "rarity": "Pikachu Rare", "illustrator": "sowsow", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/022.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/022.webp", "category": "Pokemon", "types": ["Lightning"], "hp": "60", "variants_detailed": null, "pricing": null}, {"id": "M6a-023", "localId": "023", "name": "Pikachu", "nameJa": "ピカチュウ", "rarity": "Pikachu Rare", "illustrator": "James Turner", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/023.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/023.webp", "category": "Pokemon", "types": ["Lightning"], "hp": "60", "variants_detailed": null, "pricing": null}, {"id": "M6a-024", "localId": "024", "name": "Pikachu", "nameJa": "ピカチュウ", "rarity": "Pikachu Rare", "illustrator": "DOM", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/024.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/024.webp", "category": "Pokemon", "types": ["Lightning"], "hp": "60", "variants_detailed": null, "pricing": null}, {"id": "M6a-025", "localId": "025", "name": "Pikachu", "nameJa": "ピカチュウ", "rarity": "Pikachu Rare", "illustrator": "Atsushi Furusawa", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/025.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/025.webp", "category": "Pokemon", "types": ["Lightning"], "hp": "50", "variants_detailed": null, "pricing": null}, {"id": "M6a-026", "localId": "026", "name": "Pikachu", "nameJa": "ピカチュウ", "rarity": "Pikachu Rare", "illustrator": "Tomokazu Komiya", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/026.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/026.webp", "category": "Pokemon", "types": ["Lightning"], "hp": "50", "variants_detailed": null, "pricing": null}, {"id": "M6a-027", "localId": "027", "name": "Pikachu", "nameJa": "ピカチュウ", "rarity": "Pikachu Rare", "illustrator": "Narumi Sato", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/027.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/027.webp", "category": "Pokemon", "types": ["Lightning"], "hp": "60", "variants_detailed": null, "pricing": null}, {"id": "M6a-028", "localId": "028", "name": "Pikachu", "nameJa": "ピカチュウ", "rarity": "Pikachu Rare", "illustrator": "USGMEN", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/028.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/028.webp", "category": "Pokemon", "types": ["Lightning"], "hp": "70", "variants_detailed": null, "pricing": null}, {"id": "M6a-029", "localId": "029", "name": "Pikachu", "nameJa": "ピカチュウ", "rarity": "Pikachu Rare", "illustrator": "Susumu Maeya", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/029.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/029.webp", "category": "Pokemon", "types": ["Lightning"], "hp": "60", "variants_detailed": null, "pricing": null}, {"id": "M6a-030", "localId": "030", "name": "Pikachu", "nameJa": "ピカチュウ", "rarity": "Pikachu Rare", "illustrator": "OKACHEKE", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/030.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/030.webp", "category": "Pokemon", "types": ["Lightning"], "hp": "70", "variants_detailed": null, "pricing": null}, {"id": "M6a-031", "localId": "031", "name": "Pikachu", "nameJa": "ピカチュウ", "rarity": "Pikachu Rare", "illustrator": "Yuu Nishida", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/031.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/031.webp", "category": "Pokemon", "types": ["Lightning"], "hp": "70", "variants_detailed": null, "pricing": null}, {"id": "M6a-032", "localId": "032", "name": "Pikachu", "nameJa": "ピカチュウ", "rarity": "Pikachu Rare", "illustrator": "Tetsu Kayama", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/032.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/032.webp", "category": "Pokemon", "types": ["Lightning"], "hp": "60", "variants_detailed": null, "pricing": null}, {"id": "M6a-033", "localId": "033", "name": "Pikachu", "nameJa": "ピカチュウ", "rarity": "Pikachu Rare", "illustrator": "Teeziro", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/033.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/033.webp", "category": "Pokemon", "types": ["Lightning"], "hp": "70", "variants_detailed": null, "pricing": null}, {"id": "M6a-034", "localId": "034", "name": "Pikachu", "nameJa": "ピカチュウ", "rarity": "Pikachu Rare", "illustrator": "Shinji Kanda", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/034.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/034.webp", "category": "Pokemon", "types": ["Lightning"], "hp": "80", "variants_detailed": null, "pricing": null}, {"id": "M6a-035", "localId": "035", "name": "Pikachu", "nameJa": "ピカチュウ", "rarity": "Pikachu Rare", "illustrator": "Rianti Hidayat", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/035.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/035.webp", "category": "Pokemon", "types": ["Lightning"], "hp": "60", "variants_detailed": null, "pricing": null}, {"id": "M6a-036", "localId": "036", "name": "Pikachu", "nameJa": "ピカチュウ", "rarity": "Pikachu Rare", "illustrator": "Akira Komayama", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/036.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/036.webp", "category": "Pokemon", "types": ["Lightning"], "hp": "60", "variants_detailed": null, "pricing": null}, {"id": "M6a-037", "localId": "037", "name": "Pikachu", "nameJa": "ピカチュウ", "rarity": "Pikachu Rare", "illustrator": "OOYAMA", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/037.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/037.webp", "category": "Pokemon", "types": ["Lightning"], "hp": "70", "variants_detailed": null, "pricing": null}, {"id": "M6a-038", "localId": "038", "name": "Pikachu", "nameJa": "ピカチュウ", "rarity": "Pikachu Rare", "illustrator": "akagi", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/038.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/038.webp", "category": "Pokemon", "types": ["Lightning"], "hp": "60", "variants_detailed": null, "pricing": null}, {"id": "M6a-039", "localId": "039", "name": "Pikachu", "nameJa": "ピカチュウ", "rarity": "Pikachu Rare", "illustrator": "Naoyo Kimura", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/039.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/039.webp", "category": "Pokemon", "types": ["Lightning"], "hp": "60", "variants_detailed": null, "pricing": null}, {"id": "M6a-040", "localId": "040", "name": "Pikachu", "nameJa": "ピカチュウ", "rarity": "Pikachu Rare", "illustrator": "svlt", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/040.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/040.webp", "category": "Pokemon", "types": ["Lightning"], "hp": "60", "variants_detailed": null, "pricing": null}, {"id": "M6a-041", "localId": "041", "name": "Pikachu", "nameJa": "ピカチュウ", "rarity": "Pikachu Rare", "illustrator": "Atsuko Nishida", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/041.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/041.webp", "category": "Pokemon", "types": ["Lightning"], "hp": "70", "variants_detailed": null, "pricing": null}, {"id": "M6a-042", "localId": "042", "name": "Pikachu", "nameJa": "ピカチュウ", "rarity": "Pikachu Rare", "illustrator": "KIYOTAKA OSHIYAMA", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/042.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/042.webp", "category": "Pokemon", "types": ["Lightning"], "hp": "70", "variants_detailed": null, "pricing": null}, {"id": "M6a-043", "localId": "043", "name": "Pikachu", "nameJa": "ピカチュウ", "rarity": "Pikachu Rare", "illustrator": "Nurikabe", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/043.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/043.webp", "category": "Pokemon", "types": ["Lightning"], "hp": "80", "variants_detailed": null, "pricing": null}, {"id": "M6a-044", "localId": "044", "name": "Pikachu", "nameJa": "ピカチュウ", "rarity": "Pikachu Rare", "illustrator": "Shimaris Yukichi", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/044.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/044.webp", "category": "Pokemon", "types": ["Lightning"], "hp": "80", "variants_detailed": null, "pricing": null}, {"id": "M6a-045", "localId": "045", "name": "Pikachu", "nameJa": "ピカチュウ", "rarity": "Pikachu Rare", "illustrator": "nagimiso", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/045.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/045.webp", "category": "Pokemon", "types": ["Lightning"], "hp": "70", "variants_detailed": null, "pricing": null}, {"id": "M6a-046", "localId": "046", "name": "Pikachu", "nameJa": "ピカチュウ", "rarity": "Pikachu Rare", "illustrator": "Kazuki Minami", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/046.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/046.webp", "category": "Pokemon", "types": ["Lightning"], "hp": "70", "variants_detailed": null, "pricing": null}, {"id": "M6a-047", "localId": "047", "name": "Pikachu ex", "nameJa": "ピカチュウex", "rarity": "Double Rare", "illustrator": "5ban Graphics", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/047.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/047.webp", "category": "Pokemon", "types": ["Lightning"], "hp": "190", "variants_detailed": null, "pricing": null}, {"id": "M6a-048", "localId": "048", "name": "Pikachu ex", "nameJa": "ピカチュウex", "rarity": "Double Rare", "illustrator": "takuyoa", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/048.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/048.webp", "category": "Pokemon", "types": ["Lightning"], "hp": "190", "variants_detailed": null, "pricing": null}, {"id": "M6a-049", "localId": "049", "name": "Zapdos", "nameJa": "サンダー", "rarity": null, "illustrator": "HYOGONOSUKE", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/049.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/049.webp", "category": "Pokemon", "types": ["Lightning"], "hp": "120", "variants_detailed": null, "pricing": null}, {"id": "M6a-050", "localId": "050", "name": "Zekrom", "nameJa": "ゼクロム", "rarity": null, "illustrator": "akagi", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/050.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/050.webp", "category": "Pokemon", "types": ["Lightning"], "hp": "130", "variants_detailed": null, "pricing": null}, {"id": "M6a-051", "localId": "051", "name": "Toxtricity", "nameJa": "ストリンダー", "rarity": null, "illustrator": "Yuriko Akase", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/051.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/051.webp", "category": "Pokemon", "types": ["Lightning"], "hp": "140", "variants_detailed": null, "pricing": null}, {"id": "M6a-052", "localId": "052", "name": "Morpeko", "nameJa": "モルペコ", "rarity": null, "illustrator": "Naoki Saito", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/052.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/052.webp", "category": "Pokemon", "types": ["Lightning"], "hp": "70", "variants_detailed": null, "pricing": null}, {"id": "M6a-053", "localId": "053", "name": "Miraidon", "nameJa": "ミライドン", "rarity": null, "illustrator": "Kazumasa Yasukuni", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/053.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/053.webp", "category": "Pokemon", "types": ["Lightning"], "hp": "120", "variants_detailed": null, "pricing": null}, {"id": "M6a-054", "localId": "054", "name": "Mewtwo", "nameJa": "ミュウツー", "rarity": null, "illustrator": "nagimiso", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/054.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/054.webp", "category": "Pokemon", "types": ["Psychic"], "hp": "130", "variants_detailed": null, "pricing": null}, {"id": "M6a-055", "localId": "055", "name": "Mewtwo ex", "nameJa": "ミュウツーex", "rarity": "Double Rare", "illustrator": "5ban Graphics", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/055.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/055.webp", "category": "Pokemon", "types": ["Psychic"], "hp": "230", "variants_detailed": null, "pricing": null}, {"id": "M6a-056", "localId": "056", "name": "Mew", "nameJa": "ミュウ", "rarity": null, "illustrator": "danciao", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/056.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/056.webp", "category": "Pokemon", "types": ["Psychic"], "hp": "60", "variants_detailed": null, "pricing": null}, {"id": "M6a-057", "localId": "057", "name": "Mew ex", "nameJa": "ミュウex", "rarity": "Double Rare", "illustrator": "aky CG Works", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/057.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/057.webp", "category": "Pokemon", "types": ["Psychic"], "hp": "160", "variants_detailed": null, "pricing": null}, {"id": "M6a-058", "localId": "058", "name": "Espeon", "nameJa": "エーフィ", "rarity": null, "illustrator": "aspara", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/058.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/058.webp", "category": "Pokemon", "types": ["Psychic"], "hp": "110", "variants_detailed": null, "pricing": null}, {"id": "M6a-059", "localId": "059", "name": "Sylveon ex", "nameJa": "ニンフィアex", "rarity": "Double Rare", "illustrator": "5ban Graphics", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/059.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/059.webp", "category": "Pokemon", "types": ["Psychic"], "hp": "270", "variants_detailed": null, "pricing": null}, {"id": "M6a-060", "localId": "060", "name": "Unown", "nameJa": "アンノーン", "rarity": null, "illustrator": "mingo", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/060.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/060.webp", "category": "Pokemon", "types": ["Psychic"], "hp": "80", "variants_detailed": null, "pricing": null}, {"id": "M6a-061", "localId": "061", "name": "Drifloon", "nameJa": "フワンテ", "rarity": null, "illustrator": "Shinya Komatsu", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/061.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/061.webp", "category": "Pokemon", "types": ["Psychic"], "hp": "70", "variants_detailed": null, "pricing": null}, {"id": "M6a-062", "localId": "062", "name": "Chandelure", "nameJa": "シャンデラ", "rarity": null, "illustrator": "Yoshioka", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/062.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/062.webp", "category": "Pokemon", "types": ["Psychic"], "hp": "140", "variants_detailed": null, "pricing": null}, {"id": "M6a-063", "localId": "063", "name": "Xerneas", "nameJa": "ゼルネアス", "rarity": null, "illustrator": "kodama", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/063.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/063.webp", "category": "Pokemon", "types": ["Psychic"], "hp": "120", "variants_detailed": null, "pricing": null}, {"id": "M6a-064", "localId": "064", "name": "Cosmog", "nameJa": "コスモッグ", "rarity": null, "illustrator": "Mina Nakai", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/064.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/064.webp", "category": "Pokemon", "types": ["Psychic"], "hp": "60", "variants_detailed": null, "pricing": null}, {"id": "M6a-065", "localId": "065", "name": "Cosmoem", "nameJa": "コスモウム", "rarity": null, "illustrator": "Masako Tomii", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/065.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/065.webp", "category": "Pokemon", "types": ["Psychic"], "hp": "100", "variants_detailed": null, "pricing": null}, {"id": "M6a-066", "localId": "066", "name": "Lunala", "nameJa": "ルナアーラ", "rarity": null, "illustrator": "Bun Toujo", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/066.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/066.webp", "category": "Pokemon", "types": ["Psychic"], "hp": "160", "variants_detailed": null, "pricing": null}, {"id": "M6a-067", "localId": "067", "name": "Gimmighoul", "nameJa": "コレクレー", "rarity": null, "illustrator": "Fujimoto Gold", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/067.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/067.webp", "category": "Pokemon", "types": ["Psychic"], "hp": "60", "variants_detailed": null, "pricing": null}, {"id": "M6a-068", "localId": "068", "name": "Groudon", "nameJa": "グラードン", "rarity": null, "illustrator": "Takumi Wada", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/068.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/068.webp", "category": "Pokemon", "types": ["Fighting"], "hp": "140", "variants_detailed": null, "pricing": null}, {"id": "M6a-069", "localId": "069", "name": "Lucario", "nameJa": "ルカリオ", "rarity": null, "illustrator": "Hideki Ishikawa", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/069.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/069.webp", "category": "Pokemon", "types": ["Fighting"], "hp": "120", "variants_detailed": null, "pricing": null}, {"id": "M6a-070", "localId": "070", "name": "Seismitoad", "nameJa": "ガマゲロゲ", "rarity": null, "illustrator": "Kurata So", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/070.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/070.webp", "category": "Pokemon", "types": ["Fighting"], "hp": "160", "variants_detailed": null, "pricing": null}, {"id": "M6a-071", "localId": "071", "name": "Lycanroc", "nameJa": "ルガルガン", "rarity": null, "illustrator": "matazo", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/071.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/071.webp", "category": "Pokemon", "types": ["Fighting"], "hp": "130", "variants_detailed": null, "pricing": null}, {"id": "M6a-072", "localId": "072", "name": "Koraidon", "nameJa": "コライドン", "rarity": null, "illustrator": "Mitsuhiro Arita", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/072.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/072.webp", "category": "Pokemon", "types": ["Fighting"], "hp": "130", "variants_detailed": null, "pricing": null}, {"id": "M6a-073", "localId": "073", "name": "Nidoran ♀", "nameJa": "ニドラン♀", "rarity": null, "illustrator": "Taira Akitsu", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/073.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/073.webp", "category": "Pokemon", "types": ["Darkness"], "hp": "60", "variants_detailed": null, "pricing": null}, {"id": "M6a-074", "localId": "074", "name": "Nidorina", "nameJa": "ニドリーナ", "rarity": null, "illustrator": "Miki Tanaka", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/074.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/074.webp", "category": "Pokemon", "types": ["Darkness"], "hp": "90", "variants_detailed": null, "pricing": null}, {"id": "M6a-075", "localId": "075", "name": "Alolan Meowth", "nameJa": "アローラ ニャース", "rarity": null, "illustrator": "Natsumi Yoshida", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/075.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/075.webp", "category": "Pokemon", "types": ["Darkness"], "hp": "60", "variants_detailed": null, "pricing": null}, {"id": "M6a-076", "localId": "076", "name": "Gengar ex", "nameJa": "ゲンガーex", "rarity": "Double Rare", "illustrator": "5ban Graphics", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/076.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/076.webp", "category": "Pokemon", "types": ["Darkness"], "hp": "280", "variants_detailed": null, "pricing": null}, {"id": "M6a-077", "localId": "077", "name": "Umbreon", "nameJa": "ブラッキー", "rarity": null, "illustrator": "Iori Suzuki", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/077.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/077.webp", "category": "Pokemon", "types": ["Darkness"], "hp": "110", "variants_detailed": null, "pricing": null}, {"id": "M6a-078", "localId": "078", "name": "Scraggy", "nameJa": "ズルッグ", "rarity": null, "illustrator": "Souichirou Gunjima", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/078.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/078.webp", "category": "Pokemon", "types": ["Darkness"], "hp": "80", "variants_detailed": null, "pricing": null}, {"id": "M6a-079", "localId": "079", "name": "Yveltal", "nameJa": "イベルタル", "rarity": null, "illustrator": "hncl", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/079.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/079.webp", "category": "Pokemon", "types": ["Darkness"], "hp": "120", "variants_detailed": null, "pricing": null}, {"id": "M6a-080", "localId": "080", "name": "Galarian Meowth", "nameJa": "ガラル ニャース", "rarity": null, "illustrator": "Mékayu", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/080.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/080.webp", "category": "Pokemon", "types": ["Metal"], "hp": "70", "variants_detailed": null, "pricing": null}, {"id": "M6a-081", "localId": "081", "name": "Jirachi ex", "nameJa": "ジラーチex", "rarity": "Double Rare", "illustrator": "5ban Graphics", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/081.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/081.webp", "category": "Pokemon", "types": ["Metal"], "hp": "160", "variants_detailed": null, "pricing": null}, {"id": "M6a-082", "localId": "082", "name": "Dialga", "nameJa": "ディアルガ", "rarity": null, "illustrator": "toriyufu", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/082.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/082.webp", "category": "Pokemon", "types": ["Metal"], "hp": "130", "variants_detailed": null, "pricing": null}, {"id": "M6a-083", "localId": "083", "name": "Ferrothorn", "nameJa": "ナットレイ", "rarity": null, "illustrator": "Po-Suzuki", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/083.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/083.webp", "category": "Pokemon", "types": ["Metal"], "hp": "130", "variants_detailed": null, "pricing": null}, {"id": "M6a-084", "localId": "084", "name": "Solgaleo", "nameJa": "ソルガレオ", "rarity": null, "illustrator": "Nurikabe", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/084.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/084.webp", "category": "Pokemon", "types": ["Metal"], "hp": "170", "variants_detailed": null, "pricing": null}, {"id": "M6a-085", "localId": "085", "name": "Zacian", "nameJa": "ザシアン", "rarity": null, "illustrator": "AKIRA EGAWA", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/085.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/085.webp", "category": "Pokemon", "types": ["Metal"], "hp": "130", "variants_detailed": null, "pricing": null}, {"id": "M6a-086", "localId": "086", "name": "Zamazenta", "nameJa": "ザマゼンタ", "rarity": null, "illustrator": "Tsuyoshi Nagano", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/086.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/086.webp", "category": "Pokemon", "types": ["Metal"], "hp": "130", "variants_detailed": null, "pricing": null}, {"id": "M6a-087", "localId": "087", "name": "Gholdengo", "nameJa": "サーフゴー", "rarity": null, "illustrator": "Sanosuke Sakuma", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/087.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/087.webp", "category": "Pokemon", "types": ["Metal"], "hp": "130", "variants_detailed": null, "pricing": null}, {"id": "M6a-088", "localId": "088", "name": "Salamence ex", "nameJa": "ボーマンダex", "rarity": "Double Rare", "illustrator": "5ban Graphics", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/088.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/088.webp", "category": "Pokemon", "types": ["Dragon"], "hp": "330", "variants_detailed": null, "pricing": null}, {"id": "M6a-089", "localId": "089", "name": "Jangmo-o", "nameJa": "ジャラコ", "rarity": null, "illustrator": "miki kudo", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/089.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/089.webp", "category": "Pokemon", "types": ["Dragon"], "hp": "70", "variants_detailed": null, "pricing": null}, {"id": "M6a-090", "localId": "090", "name": "Hakamo-o", "nameJa": "ジャランゴ", "rarity": null, "illustrator": "Jiro Sasumo", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/090.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/090.webp", "category": "Pokemon", "types": ["Dragon"], "hp": "90", "variants_detailed": null, "pricing": null}, {"id": "M6a-091", "localId": "091", "name": "Kommo-o", "nameJa": "ジャラランガ", "rarity": null, "illustrator": "MARINA Chikazawa", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/091.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/091.webp", "category": "Pokemon", "types": ["Dragon"], "hp": "180", "variants_detailed": null, "pricing": null}, {"id": "M6a-092", "localId": "092", "name": "Meowth", "nameJa": "ニャース", "rarity": null, "illustrator": "MINAMINAMI Take", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/092.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/092.webp", "category": "Pokemon", "types": ["Colorless"], "hp": "60", "variants_detailed": null, "pricing": null}, {"id": "M6a-093", "localId": "093", "name": "Ditto", "nameJa": "メタモン", "rarity": null, "illustrator": "Toshinao Aoki", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/093.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/093.webp", "category": "Pokemon", "types": ["Colorless"], "hp": "70", "variants_detailed": null, "pricing": null}, {"id": "M6a-094", "localId": "094", "name": "Eevee", "nameJa": "イーブイ", "rarity": null, "illustrator": "Wintr Wandr", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/094.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/094.webp", "category": "Pokemon", "types": ["Colorless"], "hp": "70", "variants_detailed": null, "pricing": null}, {"id": "M6a-095", "localId": "095", "name": "Snorlax", "nameJa": "カビゴン", "rarity": null, "illustrator": "Aya Kusube", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/095.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/095.webp", "category": "Pokemon", "types": ["Colorless"], "hp": "160", "variants_detailed": null, "pricing": null}, {"id": "M6a-096", "localId": "096", "name": "Igglybuff", "nameJa": "ププリン", "rarity": null, "illustrator": "Kanami Ogata", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/096.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/096.webp", "category": "Pokemon", "types": ["Colorless"], "hp": "30", "variants_detailed": null, "pricing": null}, {"id": "M6a-097", "localId": "097", "name": "Lugia", "nameJa": "ルギア", "rarity": null, "illustrator": "Kazuki Minami", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/097.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/097.webp", "category": "Pokemon", "types": ["Colorless"], "hp": "120", "variants_detailed": null, "pricing": null}, {"id": "M6a-098", "localId": "098", "name": "Hisuian Zorua", "nameJa": "ヒスイ ゾロア", "rarity": null, "illustrator": "Megumi Mizutani", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/098.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/098.webp", "category": "Pokemon", "types": ["Colorless"], "hp": "60", "variants_detailed": null, "pricing": null}, {"id": "M6a-099", "localId": "099", "name": "Hisuian Zoroark", "nameJa": "ヒスイ ゾロアーク", "rarity": null, "illustrator": "Kamome Shirahama", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/099.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/099.webp", "category": "Pokemon", "types": ["Colorless"], "hp": "120", "variants_detailed": null, "pricing": null}, {"id": "M6a-100", "localId": "100", "name": "Maushold", "nameJa": "イッカネズミ", "rarity": null, "illustrator": "Kariya", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/100.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/100.webp", "category": "Pokemon", "types": ["Colorless"], "hp": "80", "variants_detailed": null, "pricing": null}, {"id": "M6a-101", "localId": "101", "name": "Ultra Ball", "nameJa": "ハイパーボール", "rarity": null, "illustrator": "Yuka Morii", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/101.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/101.webp", "category": "Trainer", "types": [], "hp": "", "variants_detailed": null, "pricing": null}, {"id": "M6a-102", "localId": "102", "name": "Poké Pad", "nameJa": "ポケパッド", "rarity": null, "illustrator": "Yuka Morii", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/102.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/102.webp", "category": "Trainer", "types": [], "hp": "", "variants_detailed": null, "pricing": null}, {"id": "M6a-103", "localId": "103", "name": "Switch", "nameJa": "ポケモンいれかえ", "rarity": null, "illustrator": "Yuka Morii", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/103.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/103.webp", "category": "Trainer", "types": [], "hp": "", "variants_detailed": null, "pricing": null}, {"id": "M6a-104", "localId": "104", "name": "Alolan Exeggutor", "nameJa": "アローラ ナッシー", "rarity": "Illustration rare", "illustrator": "AYUMI ODASHIMA", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/104.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/104.webp", "category": "Pokemon", "types": ["Grass"], "hp": "150", "variants_detailed": null, "pricing": null}, {"id": "M6a-105", "localId": "105", "name": "Moltres", "nameJa": "ファイヤー", "rarity": "Illustration rare", "illustrator": "mashu", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/105.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/105.webp", "category": "Pokemon", "types": ["Fire"], "hp": "120", "variants_detailed": null, "pricing": null}, {"id": "M6a-106", "localId": "106", "name": "Lapras", "nameJa": "ラプラス", "rarity": "Illustration rare", "illustrator": "Amelicart", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/106.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/106.webp", "category": "Pokemon", "types": ["Water"], "hp": "130", "variants_detailed": null, "pricing": null}, {"id": "M6a-107", "localId": "107", "name": "Articuno", "nameJa": "フリーザー", "rarity": "Illustration rare", "illustrator": "mashu", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/107.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/107.webp", "category": "Pokemon", "types": ["Water"], "hp": "120", "variants_detailed": null, "pricing": null}, {"id": "M6a-108", "localId": "108", "name": "Zapdos", "nameJa": "サンダー", "rarity": "Illustration rare", "illustrator": "mashu", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/108.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/108.webp", "category": "Pokemon", "types": ["Lightning"], "hp": "120", "variants_detailed": null, "pricing": null}, {"id": "M6a-109", "localId": "109", "name": "Toxtricity", "nameJa": "ストリンダー", "rarity": "Illustration rare", "illustrator": "Kazumasa Yasukuni", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/109.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/109.webp", "category": "Pokemon", "types": ["Lightning"], "hp": "140", "variants_detailed": null, "pricing": null}, {"id": "M6a-110", "localId": "110", "name": "Morpeko", "nameJa": "モルペコ", "rarity": "Illustration rare", "illustrator": "Yoshimi Miyoshi", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/110.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/110.webp", "category": "Pokemon", "types": ["Lightning"], "hp": "70", "variants_detailed": null, "pricing": null}, {"id": "M6a-111", "localId": "111", "name": "Drifloon", "nameJa": "フワンテ", "rarity": "Illustration rare", "illustrator": "Whisker", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/111.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/111.webp", "category": "Pokemon", "types": ["Psychic"], "hp": "70", "variants_detailed": null, "pricing": null}, {"id": "M6a-112", "localId": "112", "name": "Chandelure", "nameJa": "シャンデラ", "rarity": "Illustration rare", "illustrator": "YASHIRO Nanaco", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/112.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/112.webp", "category": "Pokemon", "types": ["Psychic"], "hp": "140", "variants_detailed": null, "pricing": null}, {"id": "M6a-113", "localId": "113", "name": "Lycanroc", "nameJa": "ルガルガン", "rarity": "Illustration rare", "illustrator": "Raita Kazama", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/113.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/113.webp", "category": "Pokemon", "types": ["Fighting"], "hp": "130", "variants_detailed": null, "pricing": null}, {"id": "M6a-114", "localId": "114", "name": "Nidorina", "nameJa": "ニドリーナ", "rarity": "Illustration rare", "illustrator": "Taiga Kasai", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/114.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/114.webp", "category": "Pokemon", "types": ["Darkness"], "hp": "90", "variants_detailed": null, "pricing": null}, {"id": "M6a-115", "localId": "115", "name": "Alolan Meowth", "nameJa": "アローラ ニャース", "rarity": "Illustration rare", "illustrator": "OKUBO", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/115.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/115.webp", "category": "Pokemon", "types": ["Darkness"], "hp": "60", "variants_detailed": null, "pricing": null}, {"id": "M6a-116", "localId": "116", "name": "Scraggy", "nameJa": "ズルッグ", "rarity": "Illustration rare", "illustrator": "GOSSAN", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/116.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/116.webp", "category": "Pokemon", "types": ["Darkness"], "hp": "80", "variants_detailed": null, "pricing": null}, {"id": "M6a-117", "localId": "117", "name": "Galarian Meowth", "nameJa": "ガラル ニャース", "rarity": "Illustration rare", "illustrator": "OKUBO", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/117.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/117.webp", "category": "Pokemon", "types": ["Metal"], "hp": "70", "variants_detailed": null, "pricing": null}, {"id": "M6a-118", "localId": "118", "name": "Gholdengo", "nameJa": "サーフゴー", "rarity": "Illustration rare", "illustrator": "toriyufu", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/118.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/118.webp", "category": "Pokemon", "types": ["Metal"], "hp": "130", "variants_detailed": null, "pricing": null}, {"id": "M6a-119", "localId": "119", "name": "Kommo-o", "nameJa": "ジャラランガ", "rarity": "Illustration rare", "illustrator": "Gemi", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/119.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/119.webp", "category": "Pokemon", "types": ["Dragon"], "hp": "180", "variants_detailed": null, "pricing": null}, {"id": "M6a-120", "localId": "120", "name": "Meowth", "nameJa": "ニャース", "rarity": "Illustration rare", "illustrator": "OKUBO", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/120.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/120.webp", "category": "Pokemon", "types": ["Colorless"], "hp": "60", "variants_detailed": null, "pricing": null}, {"id": "M6a-121", "localId": "121", "name": "Ditto", "nameJa": "メタモン", "rarity": "Illustration rare", "illustrator": "Ounishi", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/121.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/121.webp", "category": "Pokemon", "types": ["Colorless"], "hp": "70", "variants_detailed": null, "pricing": null}, {"id": "M6a-122", "localId": "122", "name": "Hisuian Zorua", "nameJa": "ヒスイ ゾロア", "rarity": "Illustration rare", "illustrator": "0313", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/122.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/122.webp", "category": "Pokemon", "types": ["Colorless"], "hp": "60", "variants_detailed": null, "pricing": null}, {"id": "M6a-123", "localId": "123", "name": "Maushold", "nameJa": "イッカネズミ", "rarity": "Illustration rare", "illustrator": "osare", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/123.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/123.webp", "category": "Pokemon", "types": ["Colorless"], "hp": "80", "variants_detailed": null, "pricing": null}, {"id": "M6a-124", "localId": "124", "name": "Fuecoco ex", "nameJa": "ホゲータex", "rarity": "Special illustration rare", "illustrator": "Atsushi Furusawa", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/124.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/124.webp", "category": "Pokemon", "types": ["Fire"], "hp": "210", "variants_detailed": null, "pricing": null}, {"id": "M6a-125", "localId": "125", "name": "Greninja ex", "nameJa": "ゲッコウガex", "rarity": "Special illustration rare", "illustrator": "GIDORA", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/125.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/125.webp", "category": "Pokemon", "types": ["Water"], "hp": "300", "variants_detailed": null, "pricing": null}, {"id": "M6a-126", "localId": "126", "name": "Pikachu ex", "nameJa": "ピカチュウex", "rarity": "Special illustration rare", "illustrator": "kantaro", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/126.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/126.webp", "category": "Pokemon", "types": ["Lightning"], "hp": "190", "variants_detailed": null, "pricing": null}, {"id": "M6a-127", "localId": "127", "name": "Pikachu ex", "nameJa": "ピカチュウex", "rarity": "Special illustration rare", "illustrator": "kantaro", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/127.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/127.webp", "category": "Pokemon", "types": ["Lightning"], "hp": "190", "variants_detailed": null, "pricing": null}, {"id": "M6a-128", "localId": "128", "name": "Mewtwo ex", "nameJa": "ミュウツーex", "rarity": "Special illustration rare", "illustrator": "Yano Keiji", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/128.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/128.webp", "category": "Pokemon", "types": ["Psychic"], "hp": "230", "variants_detailed": null, "pricing": null}, {"id": "M6a-129", "localId": "129", "name": "Mew ex", "nameJa": "ミュウex", "rarity": "Special illustration rare", "illustrator": "Kuroimori", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/129.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/129.webp", "category": "Pokemon", "types": ["Psychic"], "hp": "160", "variants_detailed": null, "pricing": null}, {"id": "M6a-130", "localId": "130", "name": "Sylveon ex", "nameJa": "ニンフィアex", "rarity": "Special illustration rare", "illustrator": "You Iribi", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/130.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/130.webp", "category": "Pokemon", "types": ["Psychic"], "hp": "270", "variants_detailed": null, "pricing": null}, {"id": "M6a-131", "localId": "131", "name": "Gengar ex", "nameJa": "ゲンガーex", "rarity": "Special illustration rare", "illustrator": "CHORISO", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/131.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/131.webp", "category": "Pokemon", "types": ["Darkness"], "hp": "280", "variants_detailed": null, "pricing": null}, {"id": "M6a-132", "localId": "132", "name": "Jirachi ex", "nameJa": "ジラーチex", "rarity": "Special illustration rare", "illustrator": "AKIRA EGAWA", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/132.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/132.webp", "category": "Pokemon", "types": ["Metal"], "hp": "160", "variants_detailed": null, "pricing": null}, {"id": "M6a-133", "localId": "133", "name": "Salamence ex", "nameJa": "ボーマンダex", "rarity": "Special illustration rare", "illustrator": "Ryota Murayama", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/133.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/133.webp", "category": "Pokemon", "types": ["Dragon"], "hp": "330", "variants_detailed": null, "pricing": null}, {"id": "M6a-134", "localId": "134", "name": "Mewtwo ex", "nameJa": "ミュウツーex", "rarity": "Futuristic Rare", "illustrator": "YOSHIROTTEN", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/134.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/134.webp", "category": "Pokemon", "types": ["Psychic"], "hp": "230", "variants_detailed": null, "pricing": null}, {"id": "M6a-135", "localId": "135", "name": "Mew ex", "nameJa": "ミュウex", "rarity": "Futuristic Rare", "illustrator": "YOSHIROTTEN", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/135.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/135.webp", "category": "Pokemon", "types": ["Psychic"], "hp": "160", "variants_detailed": null, "pricing": null}, {"id": "M6a-136", "localId": "136", "name": "Pikachu", "nameJa": "ピカチュウ", "rarity": null, "illustrator": "Mitsuhiro Arita", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/136.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/136.webp", "category": "Pokemon", "types": ["Lightning"], "hp": "40", "variants_detailed": null, "pricing": null}, {"id": "M6a-137", "localId": "137", "name": "Charizard", "nameJa": "リザードン", "rarity": null, "illustrator": "Mitsuhiro Arita", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/137.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/137.webp", "category": "Pokemon", "types": ["Fire"], "hp": "120", "variants_detailed": null, "pricing": null}, {"id": "M6a-138", "localId": "138", "name": "Misty", "nameJa": "カスミ", "rarity": null, "illustrator": "Ken Sugimori", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/138.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/138.webp", "category": "Trainer", "types": [], "hp": "", "variants_detailed": null, "pricing": null}, {"id": "M6a-139", "localId": "139", "name": "Erika's Jigglypuff", "nameJa": "エリカのプリン", "rarity": null, "illustrator": "Ken Sugimori", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/139.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/139.webp", "category": "Pokemon", "types": ["Colorless"], "hp": "50", "variants_detailed": null, "pricing": null}, {"id": "M6a-140", "localId": "140", "name": "Sneasel", "nameJa": "ニューラ", "rarity": null, "illustrator": "Ken Sugimori", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/140.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/140.webp", "category": "Pokemon", "types": ["Darkness"], "hp": "60", "variants_detailed": null, "pricing": null}, {"id": "M6a-141", "localId": "141", "name": "Shining Celebi", "nameJa": "ひかるセレビィ", "rarity": null, "illustrator": "Hironobu Yoshida", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/141.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/141.webp", "category": "Pokemon", "types": ["Grass"], "hp": "50", "variants_detailed": null, "pricing": null}, {"id": "M6a-142", "localId": "142", "name": "Lugia", "nameJa": "ルギア", "rarity": null, "illustrator": "Naoyo Kimura", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/142.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/142.webp", "category": "Pokemon", "types": ["Colorless"], "hp": "80", "variants_detailed": null, "pricing": null}, {"id": "M6a-143", "localId": "143", "name": "Delcatty", "nameJa": "エネコロロ", "rarity": null, "illustrator": "Atsuko Nishida", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/143.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/143.webp", "category": "Pokemon", "types": ["Colorless"], "hp": "70", "variants_detailed": null, "pricing": null}, {"id": "M6a-144", "localId": "144", "name": "Dark Tyranitar", "nameJa": "わるいバンギラス", "rarity": null, "illustrator": "Nakaoka", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/144.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/144.webp", "category": "Pokemon", "types": ["Darkness"], "hp": "120", "variants_detailed": null, "pricing": null}, {"id": "M6a-145", "localId": "145", "name": "Scizor ex", "nameJa": "ハッサムex", "rarity": null, "illustrator": "Mitsuhiro Arita", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/145.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/145.webp", "category": "Pokemon", "types": ["Metal"], "hp": "120", "variants_detailed": null, "pricing": null}, {"id": "M6a-146", "localId": "146", "name": "Metagross", "nameJa": "メタグロス", "rarity": null, "illustrator": "Masakazu Fukuda", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/146.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/146.webp", "category": "Pokemon", "types": ["Lightning", "Metal"], "hp": "100", "variants_detailed": null, "pricing": null}, {"id": "M6a-147", "localId": "147", "name": "Palkia LV.X", "nameJa": "パルキア", "rarity": null, "illustrator": "Ryo Ueda", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/147.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/147.webp", "category": "Pokemon", "types": ["Water"], "hp": "120", "variants_detailed": null, "pricing": null}, {"id": "M6a-148", "localId": "148", "name": "Uxie", "nameJa": "ユクシー", "rarity": null, "illustrator": "Ken Sugimori", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/148.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/148.webp", "category": "Pokemon", "types": ["Psychic"], "hp": "70", "variants_detailed": null, "pricing": null}, {"id": "M6a-149", "localId": "149", "name": "Crobat G", "nameJa": "クロバットG[ギンガ]", "rarity": null, "illustrator": "Makoto Imai", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/149.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/149.webp", "category": "Pokemon", "types": ["Psychic"], "hp": "80", "variants_detailed": null, "pricing": null}, {"id": "M6a-150", "localId": "150", "name": "Gengar", "nameJa": "ゲンガー", "rarity": null, "illustrator": "Takashi Yamaguchi", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/150.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/150.webp", "category": "Pokemon", "types": ["Psychic"], "hp": "130", "variants_detailed": null, "pricing": null}, {"id": "M6a-151", "localId": "151", "name": "Darkrai & Cresselia LEGEND", "nameJa": "ダークライ&クレセリアLEGEND", "rarity": null, "illustrator": "Noriko Takaya,                   \n                    \n                      Shinji Higuchi", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/151.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/151.webp", "category": "Pokemon", "types": ["Darkness", "Psychic"], "hp": "150", "variants_detailed": null, "pricing": null}, {"id": "M6a-152", "localId": "152", "name": "Darkrai & Cresselia LEGEND", "nameJa": "ダークライ&クレセリアLEGEND", "rarity": null, "illustrator": "Noriko Takaya,                   \n                    \n                      Shinji Higuchi", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/152.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/152.webp", "category": "Pokemon", "types": ["Darkness", "Psychic"], "hp": "150", "variants_detailed": null, "pricing": null}, {"id": "M6a-153", "localId": "153", "name": "N", "nameJa": "エヌ", "rarity": null, "illustrator": "Ken Sugimori", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/153.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/153.webp", "category": "Trainer", "types": [], "hp": "", "variants_detailed": null, "pricing": null}, {"id": "M6a-154", "localId": "154", "name": "Rayquaza-EX", "nameJa": "レックウザEX", "rarity": null, "illustrator": "Eske Yoshinob", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/154.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/154.webp", "category": "Pokemon", "types": ["Dragon"], "hp": "170", "variants_detailed": null, "pricing": null}, {"id": "M6a-155", "localId": "155", "name": "Genesect-EX", "nameJa": "ゲノセクトEX", "rarity": null, "illustrator": "Eske Yoshinob", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/155.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/155.webp", "category": "Pokemon", "types": ["Grass"], "hp": "170", "variants_detailed": null, "pricing": null}, {"id": "M6a-156", "localId": "156", "name": "M Gardevoir-EX", "nameJa": "サーナイトEX", "rarity": null, "illustrator": "5ban Graphics", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/156.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/156.webp", "category": "Pokemon", "types": ["Fairy"], "hp": "210", "variants_detailed": null, "pricing": null}, {"id": "M6a-157", "localId": "157", "name": "Greninja BREAK", "nameJa": "ゲッコウガBREAK", "rarity": null, "illustrator": "5ban Graphics", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/157.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/157.webp", "category": "Pokemon", "types": ["Water"], "hp": "170", "variants_detailed": null, "pricing": null}, {"id": "M6a-158", "localId": "158", "name": "Solgaleo-GX", "nameJa": "ソルガレオGX", "rarity": null, "illustrator": "PLANETA", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/158.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/158.webp", "category": "Pokemon", "types": ["Metal"], "hp": "250", "variants_detailed": null, "pricing": null}, {"id": "M6a-159", "localId": "159", "name": "Buzzwole-GX", "nameJa": "マッシブーンGX", "rarity": null, "illustrator": "5ban Graphics", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/159.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/159.webp", "category": "Pokemon", "types": ["Fighting"], "hp": "190", "variants_detailed": null, "pricing": null}, {"id": "M6a-160", "localId": "160", "name": "Pikachu & Zekrom-GX", "nameJa": "ピカチュウ&ゼクロムGX", "rarity": null, "illustrator": "Mitsuhiro Arita", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/160.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/160.webp", "category": "Pokemon", "types": ["Lightning"], "hp": "240", "variants_detailed": null, "pricing": null}, {"id": "M6a-161", "localId": "161", "name": "Zacian V", "nameJa": "ザシアンV", "rarity": null, "illustrator": "5ban Graphics", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/161.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/161.webp", "category": "Pokemon", "types": ["Metal"], "hp": "220", "variants_detailed": null, "pricing": null}, {"id": "M6a-162", "localId": "162", "name": "Raikou", "nameJa": "ライコウ", "rarity": null, "illustrator": "Hideki Ishikawa", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/162.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/162.webp", "category": "Pokemon", "types": ["Lightning"], "hp": "110", "variants_detailed": null, "pricing": null}, {"id": "M6a-163", "localId": "163", "name": "Mew VMAX", "nameJa": "ミュウVMAX", "rarity": null, "illustrator": "5ban Graphics", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/163.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/163.webp", "category": "Pokemon", "types": ["Psychic"], "hp": "310", "variants_detailed": null, "pricing": null}, {"id": "M6a-164", "localId": "164", "name": "Arceus VSTAR", "nameJa": "アルセウスVSTAR", "rarity": null, "illustrator": "5ban Graphics", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/164.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/164.webp", "category": "Pokemon", "types": ["Colorless"], "hp": "280", "variants_detailed": null, "pricing": null}, {"id": "M6a-165", "localId": "165", "name": "Magikarp", "nameJa": "コイキング", "rarity": null, "illustrator": "Shinji Kanda", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/165.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/165.webp", "category": "Pokemon", "types": ["Water"], "hp": "30", "variants_detailed": null, "pricing": null}, {"id": "M6a-166", "localId": "166", "name": "Basic Grass Energy", "nameJa": "基本草エネルギー", "rarity": null, "illustrator": "YOSHIROTTEN", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/166.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/166.webp", "category": "Energy", "types": ["Grass"], "hp": "", "variants_detailed": null, "pricing": null}, {"id": "M6a-167", "localId": "167", "name": "Basic Fire Energy", "nameJa": "基本炎エネルギー", "rarity": null, "illustrator": "YOSHIROTTEN", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/167.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/167.webp", "category": "Energy", "types": ["Fire"], "hp": "", "variants_detailed": null, "pricing": null}, {"id": "M6a-168", "localId": "168", "name": "Basic Water Energy", "nameJa": "基本水エネルギー", "rarity": null, "illustrator": "YOSHIROTTEN", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/168.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/168.webp", "category": "Energy", "types": ["Water"], "hp": "", "variants_detailed": null, "pricing": null}, {"id": "M6a-169", "localId": "169", "name": "Basic Lightning Energy", "nameJa": "基本雷エネルギー", "rarity": null, "illustrator": "YOSHIROTTEN", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/169.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/169.webp", "category": "Energy", "types": ["Lightning"], "hp": "", "variants_detailed": null, "pricing": null}, {"id": "M6a-170", "localId": "170", "name": "Basic Psychic Energy", "nameJa": "基本超エネルギー", "rarity": null, "illustrator": "YOSHIROTTEN", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/170.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/170.webp", "category": "Energy", "types": ["Psychic"], "hp": "", "variants_detailed": null, "pricing": null}, {"id": "M6a-171", "localId": "171", "name": "Basic Fighting Energy", "nameJa": "基本闘エネルギー", "rarity": null, "illustrator": "YOSHIROTTEN", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/171.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/171.webp", "category": "Energy", "types": ["Fighting"], "hp": "", "variants_detailed": null, "pricing": null}, {"id": "M6a-172", "localId": "172", "name": "Basic Darkness Energy", "nameJa": "基本悪エネルギー", "rarity": null, "illustrator": "YOSHIROTTEN", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/172.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/172.webp", "category": "Energy", "types": ["Darkness"], "hp": "", "variants_detailed": null, "pricing": null}, {"id": "M6a-173", "localId": "173", "name": "Basic Metal Energy", "nameJa": "基本鋼エネルギー", "rarity": null, "illustrator": "YOSHIROTTEN", "image": null, "imageSmall": "/data/tcgdex/card-images/ja/M6a/173.webp", "imageLarge": "/data/tcgdex/card-images/ja/M6a/173.webp", "category": "Energy", "types": ["Metal"], "hp": "", "variants_detailed": null, "pricing": null}], "generated_at": "2026-09-21", "source": "pkmn.gg", "source_url": "https://www.pkmn.gg/jp/series/mega-evolution/30th-celebration"}
+{
+ "set": {
+  "id": "M6a",
+  "name": "30th Celebration",
+  "nameJa": "30th セレブレーション",
+  "series": "ポケモンカードゲーム MEGA",
+  "releaseDate": "2026-09-16",
+  "logo": "/data/tcgdex/set-logos/ja/M6a.png",
+  "symbol": null,
+  "printedTotal": 103,
+  "total": 173,
+  "lang": "ja"
+ },
+ "cards": [
+  {
+   "id": "M6a-001",
+   "localId": "001",
+   "name": "Exeggcute",
+   "nameJa": "タマタマ",
+   "rarity": null,
+   "illustrator": "Nelnal",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/001.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/001.webp",
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": "60",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-002",
+   "localId": "002",
+   "name": "Alolan Exeggutor",
+   "nameJa": "アローラ ナッシー",
+   "rarity": null,
+   "illustrator": "Oswaldo KATO",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/002.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/002.webp",
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": "150",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-003",
+   "localId": "003",
+   "name": "Volbeat",
+   "nameJa": "バルビート",
+   "rarity": null,
+   "illustrator": "Yoriyuki Ikegami",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/003.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/003.webp",
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": "80",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-004",
+   "localId": "004",
+   "name": "Illumise",
+   "nameJa": "イルミーゼ",
+   "rarity": null,
+   "illustrator": "Shibuzoh.",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/004.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/004.webp",
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": "80",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-005",
+   "localId": "005",
+   "name": "Vivillon",
+   "nameJa": "ビビヨン",
+   "rarity": null,
+   "illustrator": "Jerky",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/005.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/005.webp",
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": "120",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-006",
+   "localId": "006",
+   "name": "Moltres",
+   "nameJa": "ファイヤー",
+   "rarity": null,
+   "illustrator": "HYOGONOSUKE",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/006.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/006.webp",
+   "category": "Pokemon",
+   "types": [
+    "Fire"
+   ],
+   "hp": "120",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-007",
+   "localId": "007",
+   "name": "Ho-Oh",
+   "nameJa": "ホウオウ",
+   "rarity": null,
+   "illustrator": "Anesaki Dynamic",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/007.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/007.webp",
+   "category": "Pokemon",
+   "types": [
+    "Fire"
+   ],
+   "hp": "130",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-008",
+   "localId": "008",
+   "name": "Reshiram",
+   "nameJa": "レシラム",
+   "rarity": null,
+   "illustrator": "Uta",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/008.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/008.webp",
+   "category": "Pokemon",
+   "types": [
+    "Fire"
+   ],
+   "hp": "130",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-009",
+   "localId": "009",
+   "name": "Fuecoco ex",
+   "nameJa": "ホゲータex",
+   "rarity": "Double Rare",
+   "illustrator": "5ban Graphics",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/009.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/009.webp",
+   "category": "Pokemon",
+   "types": [
+    "Fire"
+   ],
+   "hp": "210",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-010",
+   "localId": "010",
+   "name": "Slowpoke",
+   "nameJa": "ヤドン",
+   "rarity": null,
+   "illustrator": "Uninori",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/010.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/010.webp",
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": "80",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-011",
+   "localId": "011",
+   "name": "Lapras",
+   "nameJa": "ラプラス",
+   "rarity": null,
+   "illustrator": "Masa",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/011.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/011.webp",
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": "130",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-012",
+   "localId": "012",
+   "name": "Articuno",
+   "nameJa": "フリーザー",
+   "rarity": null,
+   "illustrator": "HYOGONOSUKE",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/012.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/012.webp",
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": "120",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-013",
+   "localId": "013",
+   "name": "Kyogre",
+   "nameJa": "カイオーガ",
+   "rarity": null,
+   "illustrator": "Tonji Matsuno",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/013.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/013.webp",
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": "140",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-014",
+   "localId": "014",
+   "name": "Palkia",
+   "nameJa": "パルキア",
+   "rarity": null,
+   "illustrator": "kawayoo",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/014.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/014.webp",
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": "130",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-015",
+   "localId": "015",
+   "name": "Greninja ex",
+   "nameJa": "ゲッコウガex",
+   "rarity": "Double Rare",
+   "illustrator": "5ban Graphics",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/015.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/015.webp",
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": "300",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-016",
+   "localId": "016",
+   "name": "Wishiwashi",
+   "nameJa": "ヨワシ",
+   "rarity": null,
+   "illustrator": "Narano",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/016.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/016.webp",
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": "30",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-017",
+   "localId": "017",
+   "name": "Pikachu",
+   "nameJa": "ピカチュウ",
+   "rarity": "Pikachu Rare",
+   "illustrator": "Ken Sugimori",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/017.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/017.webp",
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": "70",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-018",
+   "localId": "018",
+   "name": "Pikachu",
+   "nameJa": "ピカチュウ",
+   "rarity": "Pikachu Rare",
+   "illustrator": "danciao",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/018.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/018.webp",
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": "70",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-019",
+   "localId": "019",
+   "name": "Pikachu",
+   "nameJa": "ピカチュウ",
+   "rarity": "Pikachu Rare",
+   "illustrator": "satoma",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/019.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/019.webp",
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": "70",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-020",
+   "localId": "020",
+   "name": "Pikachu",
+   "nameJa": "ピカチュウ",
+   "rarity": "Pikachu Rare",
+   "illustrator": "Takeshi Nakamura",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/020.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/020.webp",
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": "70",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-021",
+   "localId": "021",
+   "name": "Pikachu",
+   "nameJa": "ピカチュウ",
+   "rarity": "Pikachu Rare",
+   "illustrator": "Asako Ito",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/021.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/021.webp",
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": "80",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-022",
+   "localId": "022",
+   "name": "Pikachu",
+   "nameJa": "ピカチュウ",
+   "rarity": "Pikachu Rare",
+   "illustrator": "sowsow",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/022.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/022.webp",
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": "60",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-023",
+   "localId": "023",
+   "name": "Pikachu",
+   "nameJa": "ピカチュウ",
+   "rarity": "Pikachu Rare",
+   "illustrator": "James Turner",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/023.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/023.webp",
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": "60",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-024",
+   "localId": "024",
+   "name": "Pikachu",
+   "nameJa": "ピカチュウ",
+   "rarity": "Pikachu Rare",
+   "illustrator": "DOM",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/024.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/024.webp",
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": "60",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-025",
+   "localId": "025",
+   "name": "Pikachu",
+   "nameJa": "ピカチュウ",
+   "rarity": "Pikachu Rare",
+   "illustrator": "Atsushi Furusawa",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/025.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/025.webp",
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": "50",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-026",
+   "localId": "026",
+   "name": "Pikachu",
+   "nameJa": "ピカチュウ",
+   "rarity": "Pikachu Rare",
+   "illustrator": "Tomokazu Komiya",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/026.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/026.webp",
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": "50",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-027",
+   "localId": "027",
+   "name": "Pikachu",
+   "nameJa": "ピカチュウ",
+   "rarity": "Pikachu Rare",
+   "illustrator": "Narumi Sato",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/027.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/027.webp",
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": "60",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-028",
+   "localId": "028",
+   "name": "Pikachu",
+   "nameJa": "ピカチュウ",
+   "rarity": "Pikachu Rare",
+   "illustrator": "USGMEN",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/028.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/028.webp",
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": "70",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-029",
+   "localId": "029",
+   "name": "Pikachu",
+   "nameJa": "ピカチュウ",
+   "rarity": "Pikachu Rare",
+   "illustrator": "Susumu Maeya",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/029.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/029.webp",
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": "60",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-030",
+   "localId": "030",
+   "name": "Pikachu",
+   "nameJa": "ピカチュウ",
+   "rarity": "Pikachu Rare",
+   "illustrator": "OKACHEKE",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/030.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/030.webp",
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": "70",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-031",
+   "localId": "031",
+   "name": "Pikachu",
+   "nameJa": "ピカチュウ",
+   "rarity": "Pikachu Rare",
+   "illustrator": "Yuu Nishida",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/031.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/031.webp",
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": "70",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-032",
+   "localId": "032",
+   "name": "Pikachu",
+   "nameJa": "ピカチュウ",
+   "rarity": "Pikachu Rare",
+   "illustrator": "Tetsu Kayama",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/032.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/032.webp",
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": "60",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-033",
+   "localId": "033",
+   "name": "Pikachu",
+   "nameJa": "ピカチュウ",
+   "rarity": "Pikachu Rare",
+   "illustrator": "Teeziro",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/033.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/033.webp",
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": "70",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-034",
+   "localId": "034",
+   "name": "Pikachu",
+   "nameJa": "ピカチュウ",
+   "rarity": "Pikachu Rare",
+   "illustrator": "Shinji Kanda",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/034.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/034.webp",
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": "80",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-035",
+   "localId": "035",
+   "name": "Pikachu",
+   "nameJa": "ピカチュウ",
+   "rarity": "Pikachu Rare",
+   "illustrator": "Rianti Hidayat",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/035.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/035.webp",
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": "60",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-036",
+   "localId": "036",
+   "name": "Pikachu",
+   "nameJa": "ピカチュウ",
+   "rarity": "Pikachu Rare",
+   "illustrator": "Akira Komayama",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/036.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/036.webp",
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": "60",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-037",
+   "localId": "037",
+   "name": "Pikachu",
+   "nameJa": "ピカチュウ",
+   "rarity": "Pikachu Rare",
+   "illustrator": "OOYAMA",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/037.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/037.webp",
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": "70",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-038",
+   "localId": "038",
+   "name": "Pikachu",
+   "nameJa": "ピカチュウ",
+   "rarity": "Pikachu Rare",
+   "illustrator": "akagi",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/038.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/038.webp",
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": "60",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-039",
+   "localId": "039",
+   "name": "Pikachu",
+   "nameJa": "ピカチュウ",
+   "rarity": "Pikachu Rare",
+   "illustrator": "Naoyo Kimura",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/039.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/039.webp",
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": "60",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-040",
+   "localId": "040",
+   "name": "Pikachu",
+   "nameJa": "ピカチュウ",
+   "rarity": "Pikachu Rare",
+   "illustrator": "svlt",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/040.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/040.webp",
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": "60",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-041",
+   "localId": "041",
+   "name": "Pikachu",
+   "nameJa": "ピカチュウ",
+   "rarity": "Pikachu Rare",
+   "illustrator": "Atsuko Nishida",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/041.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/041.webp",
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": "70",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-042",
+   "localId": "042",
+   "name": "Pikachu",
+   "nameJa": "ピカチュウ",
+   "rarity": "Pikachu Rare",
+   "illustrator": "KIYOTAKA OSHIYAMA",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/042.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/042.webp",
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": "70",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-043",
+   "localId": "043",
+   "name": "Pikachu",
+   "nameJa": "ピカチュウ",
+   "rarity": "Pikachu Rare",
+   "illustrator": "Nurikabe",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/043.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/043.webp",
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": "80",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-044",
+   "localId": "044",
+   "name": "Pikachu",
+   "nameJa": "ピカチュウ",
+   "rarity": "Pikachu Rare",
+   "illustrator": "Shimaris Yukichi",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/044.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/044.webp",
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": "80",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-045",
+   "localId": "045",
+   "name": "Pikachu",
+   "nameJa": "ピカチュウ",
+   "rarity": "Pikachu Rare",
+   "illustrator": "nagimiso",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/045.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/045.webp",
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": "70",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-046",
+   "localId": "046",
+   "name": "Pikachu",
+   "nameJa": "ピカチュウ",
+   "rarity": "Pikachu Rare",
+   "illustrator": "Kazuki Minami",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/046.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/046.webp",
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": "70",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-047",
+   "localId": "047",
+   "name": "Pikachu ex",
+   "nameJa": "ピカチュウex",
+   "rarity": "Double Rare",
+   "illustrator": "5ban Graphics",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/047.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/047.webp",
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": "190",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-048",
+   "localId": "048",
+   "name": "Pikachu ex",
+   "nameJa": "ピカチュウex",
+   "rarity": "Double Rare",
+   "illustrator": "takuyoa",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/048.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/048.webp",
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": "190",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-049",
+   "localId": "049",
+   "name": "Zapdos",
+   "nameJa": "サンダー",
+   "rarity": null,
+   "illustrator": "HYOGONOSUKE",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/049.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/049.webp",
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": "120",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-050",
+   "localId": "050",
+   "name": "Zekrom",
+   "nameJa": "ゼクロム",
+   "rarity": null,
+   "illustrator": "akagi",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/050.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/050.webp",
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": "130",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-051",
+   "localId": "051",
+   "name": "Toxtricity",
+   "nameJa": "ストリンダー",
+   "rarity": null,
+   "illustrator": "Yuriko Akase",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/051.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/051.webp",
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": "140",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-052",
+   "localId": "052",
+   "name": "Morpeko",
+   "nameJa": "モルペコ",
+   "rarity": null,
+   "illustrator": "Naoki Saito",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/052.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/052.webp",
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": "70",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-053",
+   "localId": "053",
+   "name": "Miraidon",
+   "nameJa": "ミライドン",
+   "rarity": null,
+   "illustrator": "Kazumasa Yasukuni",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/053.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/053.webp",
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": "120",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-054",
+   "localId": "054",
+   "name": "Mewtwo",
+   "nameJa": "ミュウツー",
+   "rarity": null,
+   "illustrator": "nagimiso",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/054.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/054.webp",
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": "130",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-055",
+   "localId": "055",
+   "name": "Mewtwo ex",
+   "nameJa": "ミュウツーex",
+   "rarity": "Double Rare",
+   "illustrator": "5ban Graphics",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/055.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/055.webp",
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": "230",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-056",
+   "localId": "056",
+   "name": "Mew",
+   "nameJa": "ミュウ",
+   "rarity": null,
+   "illustrator": "danciao",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/056.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/056.webp",
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": "60",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-057",
+   "localId": "057",
+   "name": "Mew ex",
+   "nameJa": "ミュウex",
+   "rarity": "Double Rare",
+   "illustrator": "aky CG Works",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/057.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/057.webp",
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": "160",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-058",
+   "localId": "058",
+   "name": "Espeon",
+   "nameJa": "エーフィ",
+   "rarity": null,
+   "illustrator": "aspara",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/058.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/058.webp",
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": "110",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-059",
+   "localId": "059",
+   "name": "Sylveon ex",
+   "nameJa": "ニンフィアex",
+   "rarity": "Double Rare",
+   "illustrator": "5ban Graphics",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/059.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/059.webp",
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": "270",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-060",
+   "localId": "060",
+   "name": "Unown",
+   "nameJa": "アンノーン",
+   "rarity": null,
+   "illustrator": "mingo",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/060.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/060.webp",
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": "80",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-061",
+   "localId": "061",
+   "name": "Drifloon",
+   "nameJa": "フワンテ",
+   "rarity": null,
+   "illustrator": "Shinya Komatsu",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/061.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/061.webp",
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": "70",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-062",
+   "localId": "062",
+   "name": "Chandelure",
+   "nameJa": "シャンデラ",
+   "rarity": null,
+   "illustrator": "Yoshioka",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/062.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/062.webp",
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": "140",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-063",
+   "localId": "063",
+   "name": "Xerneas",
+   "nameJa": "ゼルネアス",
+   "rarity": null,
+   "illustrator": "kodama",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/063.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/063.webp",
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": "120",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-064",
+   "localId": "064",
+   "name": "Cosmog",
+   "nameJa": "コスモッグ",
+   "rarity": null,
+   "illustrator": "Mina Nakai",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/064.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/064.webp",
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": "60",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-065",
+   "localId": "065",
+   "name": "Cosmoem",
+   "nameJa": "コスモウム",
+   "rarity": null,
+   "illustrator": "Masako Tomii",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/065.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/065.webp",
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": "100",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-066",
+   "localId": "066",
+   "name": "Lunala",
+   "nameJa": "ルナアーラ",
+   "rarity": null,
+   "illustrator": "Bun Toujo",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/066.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/066.webp",
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": "160",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-067",
+   "localId": "067",
+   "name": "Gimmighoul",
+   "nameJa": "コレクレー",
+   "rarity": null,
+   "illustrator": "Fujimoto Gold",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/067.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/067.webp",
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": "60",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-068",
+   "localId": "068",
+   "name": "Groudon",
+   "nameJa": "グラードン",
+   "rarity": null,
+   "illustrator": "Takumi Wada",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/068.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/068.webp",
+   "category": "Pokemon",
+   "types": [
+    "Fighting"
+   ],
+   "hp": "140",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-069",
+   "localId": "069",
+   "name": "Lucario",
+   "nameJa": "ルカリオ",
+   "rarity": null,
+   "illustrator": "Hideki Ishikawa",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/069.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/069.webp",
+   "category": "Pokemon",
+   "types": [
+    "Fighting"
+   ],
+   "hp": "120",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-070",
+   "localId": "070",
+   "name": "Seismitoad",
+   "nameJa": "ガマゲロゲ",
+   "rarity": null,
+   "illustrator": "Kurata So",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/070.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/070.webp",
+   "category": "Pokemon",
+   "types": [
+    "Fighting"
+   ],
+   "hp": "160",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-071",
+   "localId": "071",
+   "name": "Lycanroc",
+   "nameJa": "ルガルガン",
+   "rarity": null,
+   "illustrator": "matazo",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/071.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/071.webp",
+   "category": "Pokemon",
+   "types": [
+    "Fighting"
+   ],
+   "hp": "130",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-072",
+   "localId": "072",
+   "name": "Koraidon",
+   "nameJa": "コライドン",
+   "rarity": null,
+   "illustrator": "Mitsuhiro Arita",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/072.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/072.webp",
+   "category": "Pokemon",
+   "types": [
+    "Fighting"
+   ],
+   "hp": "130",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-073",
+   "localId": "073",
+   "name": "Nidoran ♀",
+   "nameJa": "ニドラン♀",
+   "rarity": null,
+   "illustrator": "Taira Akitsu",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/073.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/073.webp",
+   "category": "Pokemon",
+   "types": [
+    "Darkness"
+   ],
+   "hp": "60",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-074",
+   "localId": "074",
+   "name": "Nidorina",
+   "nameJa": "ニドリーナ",
+   "rarity": null,
+   "illustrator": "Miki Tanaka",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/074.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/074.webp",
+   "category": "Pokemon",
+   "types": [
+    "Darkness"
+   ],
+   "hp": "90",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-075",
+   "localId": "075",
+   "name": "Alolan Meowth",
+   "nameJa": "アローラ ニャース",
+   "rarity": null,
+   "illustrator": "Natsumi Yoshida",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/075.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/075.webp",
+   "category": "Pokemon",
+   "types": [
+    "Darkness"
+   ],
+   "hp": "60",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-076",
+   "localId": "076",
+   "name": "Gengar ex",
+   "nameJa": "ゲンガーex",
+   "rarity": "Double Rare",
+   "illustrator": "5ban Graphics",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/076.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/076.webp",
+   "category": "Pokemon",
+   "types": [
+    "Darkness"
+   ],
+   "hp": "280",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-077",
+   "localId": "077",
+   "name": "Umbreon",
+   "nameJa": "ブラッキー",
+   "rarity": null,
+   "illustrator": "Iori Suzuki",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/077.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/077.webp",
+   "category": "Pokemon",
+   "types": [
+    "Darkness"
+   ],
+   "hp": "110",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-078",
+   "localId": "078",
+   "name": "Scraggy",
+   "nameJa": "ズルッグ",
+   "rarity": null,
+   "illustrator": "Souichirou Gunjima",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/078.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/078.webp",
+   "category": "Pokemon",
+   "types": [
+    "Darkness"
+   ],
+   "hp": "80",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-079",
+   "localId": "079",
+   "name": "Yveltal",
+   "nameJa": "イベルタル",
+   "rarity": null,
+   "illustrator": "hncl",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/079.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/079.webp",
+   "category": "Pokemon",
+   "types": [
+    "Darkness"
+   ],
+   "hp": "120",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-080",
+   "localId": "080",
+   "name": "Galarian Meowth",
+   "nameJa": "ガラル ニャース",
+   "rarity": null,
+   "illustrator": "Mékayu",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/080.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/080.webp",
+   "category": "Pokemon",
+   "types": [
+    "Metal"
+   ],
+   "hp": "70",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-081",
+   "localId": "081",
+   "name": "Jirachi ex",
+   "nameJa": "ジラーチex",
+   "rarity": "Double Rare",
+   "illustrator": "5ban Graphics",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/081.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/081.webp",
+   "category": "Pokemon",
+   "types": [
+    "Metal"
+   ],
+   "hp": "160",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-082",
+   "localId": "082",
+   "name": "Dialga",
+   "nameJa": "ディアルガ",
+   "rarity": null,
+   "illustrator": "toriyufu",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/082.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/082.webp",
+   "category": "Pokemon",
+   "types": [
+    "Metal"
+   ],
+   "hp": "130",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-083",
+   "localId": "083",
+   "name": "Ferrothorn",
+   "nameJa": "ナットレイ",
+   "rarity": null,
+   "illustrator": "Po-Suzuki",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/083.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/083.webp",
+   "category": "Pokemon",
+   "types": [
+    "Metal"
+   ],
+   "hp": "130",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-084",
+   "localId": "084",
+   "name": "Solgaleo",
+   "nameJa": "ソルガレオ",
+   "rarity": null,
+   "illustrator": "Nurikabe",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/084.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/084.webp",
+   "category": "Pokemon",
+   "types": [
+    "Metal"
+   ],
+   "hp": "170",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-085",
+   "localId": "085",
+   "name": "Zacian",
+   "nameJa": "ザシアン",
+   "rarity": null,
+   "illustrator": "AKIRA EGAWA",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/085.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/085.webp",
+   "category": "Pokemon",
+   "types": [
+    "Metal"
+   ],
+   "hp": "130",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-086",
+   "localId": "086",
+   "name": "Zamazenta",
+   "nameJa": "ザマゼンタ",
+   "rarity": null,
+   "illustrator": "Tsuyoshi Nagano",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/086.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/086.webp",
+   "category": "Pokemon",
+   "types": [
+    "Metal"
+   ],
+   "hp": "130",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-087",
+   "localId": "087",
+   "name": "Gholdengo",
+   "nameJa": "サーフゴー",
+   "rarity": null,
+   "illustrator": "Sanosuke Sakuma",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/087.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/087.webp",
+   "category": "Pokemon",
+   "types": [
+    "Metal"
+   ],
+   "hp": "130",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-088",
+   "localId": "088",
+   "name": "Salamence ex",
+   "nameJa": "ボーマンダex",
+   "rarity": "Double Rare",
+   "illustrator": "5ban Graphics",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/088.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/088.webp",
+   "category": "Pokemon",
+   "types": [
+    "Dragon"
+   ],
+   "hp": "330",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-089",
+   "localId": "089",
+   "name": "Jangmo-o",
+   "nameJa": "ジャラコ",
+   "rarity": null,
+   "illustrator": "miki kudo",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/089.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/089.webp",
+   "category": "Pokemon",
+   "types": [
+    "Dragon"
+   ],
+   "hp": "70",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-090",
+   "localId": "090",
+   "name": "Hakamo-o",
+   "nameJa": "ジャランゴ",
+   "rarity": null,
+   "illustrator": "Jiro Sasumo",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/090.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/090.webp",
+   "category": "Pokemon",
+   "types": [
+    "Dragon"
+   ],
+   "hp": "90",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-091",
+   "localId": "091",
+   "name": "Kommo-o",
+   "nameJa": "ジャラランガ",
+   "rarity": null,
+   "illustrator": "MARINA Chikazawa",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/091.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/091.webp",
+   "category": "Pokemon",
+   "types": [
+    "Dragon"
+   ],
+   "hp": "180",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-092",
+   "localId": "092",
+   "name": "Meowth",
+   "nameJa": "ニャース",
+   "rarity": null,
+   "illustrator": "MINAMINAMI Take",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/092.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/092.webp",
+   "category": "Pokemon",
+   "types": [
+    "Colorless"
+   ],
+   "hp": "60",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-093",
+   "localId": "093",
+   "name": "Ditto",
+   "nameJa": "メタモン",
+   "rarity": null,
+   "illustrator": "Toshinao Aoki",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/093.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/093.webp",
+   "category": "Pokemon",
+   "types": [
+    "Colorless"
+   ],
+   "hp": "70",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-094",
+   "localId": "094",
+   "name": "Eevee",
+   "nameJa": "イーブイ",
+   "rarity": null,
+   "illustrator": "Wintr Wandr",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/094.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/094.webp",
+   "category": "Pokemon",
+   "types": [
+    "Colorless"
+   ],
+   "hp": "70",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-095",
+   "localId": "095",
+   "name": "Snorlax",
+   "nameJa": "カビゴン",
+   "rarity": null,
+   "illustrator": "Aya Kusube",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/095.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/095.webp",
+   "category": "Pokemon",
+   "types": [
+    "Colorless"
+   ],
+   "hp": "160",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-096",
+   "localId": "096",
+   "name": "Igglybuff",
+   "nameJa": "ププリン",
+   "rarity": null,
+   "illustrator": "Kanami Ogata",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/096.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/096.webp",
+   "category": "Pokemon",
+   "types": [
+    "Colorless"
+   ],
+   "hp": "30",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-097",
+   "localId": "097",
+   "name": "Lugia",
+   "nameJa": "ルギア",
+   "rarity": null,
+   "illustrator": "Kazuki Minami",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/097.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/097.webp",
+   "category": "Pokemon",
+   "types": [
+    "Colorless"
+   ],
+   "hp": "120",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-098",
+   "localId": "098",
+   "name": "Hisuian Zorua",
+   "nameJa": "ヒスイ ゾロア",
+   "rarity": null,
+   "illustrator": "Megumi Mizutani",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/098.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/098.webp",
+   "category": "Pokemon",
+   "types": [
+    "Colorless"
+   ],
+   "hp": "60",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-099",
+   "localId": "099",
+   "name": "Hisuian Zoroark",
+   "nameJa": "ヒスイ ゾロアーク",
+   "rarity": null,
+   "illustrator": "Kamome Shirahama",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/099.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/099.webp",
+   "category": "Pokemon",
+   "types": [
+    "Colorless"
+   ],
+   "hp": "120",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-100",
+   "localId": "100",
+   "name": "Maushold",
+   "nameJa": "イッカネズミ",
+   "rarity": null,
+   "illustrator": "Kariya",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/100.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/100.webp",
+   "category": "Pokemon",
+   "types": [
+    "Colorless"
+   ],
+   "hp": "80",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-101",
+   "localId": "101",
+   "name": "Ultra Ball",
+   "nameJa": "ハイパーボール",
+   "rarity": null,
+   "illustrator": "Yuka Morii",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/101.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/101.webp",
+   "category": "Trainer",
+   "types": [],
+   "hp": "",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-102",
+   "localId": "102",
+   "name": "Poké Pad",
+   "nameJa": "ポケパッド",
+   "rarity": null,
+   "illustrator": "Yuka Morii",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/102.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/102.webp",
+   "category": "Trainer",
+   "types": [],
+   "hp": "",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-103",
+   "localId": "103",
+   "name": "Switch",
+   "nameJa": "ポケモンいれかえ",
+   "rarity": null,
+   "illustrator": "Yuka Morii",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/103.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/103.webp",
+   "category": "Trainer",
+   "types": [],
+   "hp": "",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-104",
+   "localId": "104",
+   "name": "Alolan Exeggutor",
+   "nameJa": "アローラ ナッシー",
+   "rarity": "Illustration rare",
+   "illustrator": "AYUMI ODASHIMA",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/104.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/104.webp",
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": "150",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-105",
+   "localId": "105",
+   "name": "Moltres",
+   "nameJa": "ファイヤー",
+   "rarity": "Illustration rare",
+   "illustrator": "mashu",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/105.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/105.webp",
+   "category": "Pokemon",
+   "types": [
+    "Fire"
+   ],
+   "hp": "120",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-106",
+   "localId": "106",
+   "name": "Lapras",
+   "nameJa": "ラプラス",
+   "rarity": "Illustration rare",
+   "illustrator": "Amelicart",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/106.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/106.webp",
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": "130",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-107",
+   "localId": "107",
+   "name": "Articuno",
+   "nameJa": "フリーザー",
+   "rarity": "Illustration rare",
+   "illustrator": "mashu",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/107.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/107.webp",
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": "120",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-108",
+   "localId": "108",
+   "name": "Zapdos",
+   "nameJa": "サンダー",
+   "rarity": "Illustration rare",
+   "illustrator": "mashu",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/108.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/108.webp",
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": "120",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-109",
+   "localId": "109",
+   "name": "Toxtricity",
+   "nameJa": "ストリンダー",
+   "rarity": "Illustration rare",
+   "illustrator": "Kazumasa Yasukuni",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/109.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/109.webp",
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": "140",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-110",
+   "localId": "110",
+   "name": "Morpeko",
+   "nameJa": "モルペコ",
+   "rarity": "Illustration rare",
+   "illustrator": "Yoshimi Miyoshi",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/110.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/110.webp",
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": "70",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-111",
+   "localId": "111",
+   "name": "Drifloon",
+   "nameJa": "フワンテ",
+   "rarity": "Illustration rare",
+   "illustrator": "Whisker",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/111.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/111.webp",
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": "70",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-112",
+   "localId": "112",
+   "name": "Chandelure",
+   "nameJa": "シャンデラ",
+   "rarity": "Illustration rare",
+   "illustrator": "YASHIRO Nanaco",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/112.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/112.webp",
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": "140",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-113",
+   "localId": "113",
+   "name": "Lycanroc",
+   "nameJa": "ルガルガン",
+   "rarity": "Illustration rare",
+   "illustrator": "Raita Kazama",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/113.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/113.webp",
+   "category": "Pokemon",
+   "types": [
+    "Fighting"
+   ],
+   "hp": "130",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-114",
+   "localId": "114",
+   "name": "Nidorina",
+   "nameJa": "ニドリーナ",
+   "rarity": "Illustration rare",
+   "illustrator": "Taiga Kasai",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/114.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/114.webp",
+   "category": "Pokemon",
+   "types": [
+    "Darkness"
+   ],
+   "hp": "90",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-115",
+   "localId": "115",
+   "name": "Alolan Meowth",
+   "nameJa": "アローラ ニャース",
+   "rarity": "Illustration rare",
+   "illustrator": "OKUBO",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/115.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/115.webp",
+   "category": "Pokemon",
+   "types": [
+    "Darkness"
+   ],
+   "hp": "60",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-116",
+   "localId": "116",
+   "name": "Scraggy",
+   "nameJa": "ズルッグ",
+   "rarity": "Illustration rare",
+   "illustrator": "GOSSAN",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/116.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/116.webp",
+   "category": "Pokemon",
+   "types": [
+    "Darkness"
+   ],
+   "hp": "80",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-117",
+   "localId": "117",
+   "name": "Galarian Meowth",
+   "nameJa": "ガラル ニャース",
+   "rarity": "Illustration rare",
+   "illustrator": "OKUBO",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/117.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/117.webp",
+   "category": "Pokemon",
+   "types": [
+    "Metal"
+   ],
+   "hp": "70",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-118",
+   "localId": "118",
+   "name": "Gholdengo",
+   "nameJa": "サーフゴー",
+   "rarity": "Illustration rare",
+   "illustrator": "toriyufu",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/118.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/118.webp",
+   "category": "Pokemon",
+   "types": [
+    "Metal"
+   ],
+   "hp": "130",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-119",
+   "localId": "119",
+   "name": "Kommo-o",
+   "nameJa": "ジャラランガ",
+   "rarity": "Illustration rare",
+   "illustrator": "Gemi",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/119.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/119.webp",
+   "category": "Pokemon",
+   "types": [
+    "Dragon"
+   ],
+   "hp": "180",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-120",
+   "localId": "120",
+   "name": "Meowth",
+   "nameJa": "ニャース",
+   "rarity": "Illustration rare",
+   "illustrator": "OKUBO",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/120.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/120.webp",
+   "category": "Pokemon",
+   "types": [
+    "Colorless"
+   ],
+   "hp": "60",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-121",
+   "localId": "121",
+   "name": "Ditto",
+   "nameJa": "メタモン",
+   "rarity": "Illustration rare",
+   "illustrator": "Ounishi",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/121.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/121.webp",
+   "category": "Pokemon",
+   "types": [
+    "Colorless"
+   ],
+   "hp": "70",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-122",
+   "localId": "122",
+   "name": "Hisuian Zorua",
+   "nameJa": "ヒスイ ゾロア",
+   "rarity": "Illustration rare",
+   "illustrator": "0313",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/122.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/122.webp",
+   "category": "Pokemon",
+   "types": [
+    "Colorless"
+   ],
+   "hp": "60",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-123",
+   "localId": "123",
+   "name": "Maushold",
+   "nameJa": "イッカネズミ",
+   "rarity": "Illustration rare",
+   "illustrator": "osare",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/123.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/123.webp",
+   "category": "Pokemon",
+   "types": [
+    "Colorless"
+   ],
+   "hp": "80",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-124",
+   "localId": "124",
+   "name": "Fuecoco ex",
+   "nameJa": "ホゲータex",
+   "rarity": "Special illustration rare",
+   "illustrator": "Atsushi Furusawa",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/124.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/124.webp",
+   "category": "Pokemon",
+   "types": [
+    "Fire"
+   ],
+   "hp": "210",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-125",
+   "localId": "125",
+   "name": "Greninja ex",
+   "nameJa": "ゲッコウガex",
+   "rarity": "Special illustration rare",
+   "illustrator": "GIDORA",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/125.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/125.webp",
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": "300",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-126",
+   "localId": "126",
+   "name": "Pikachu ex",
+   "nameJa": "ピカチュウex",
+   "rarity": "Special illustration rare",
+   "illustrator": "kantaro",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/126.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/126.webp",
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": "190",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-127",
+   "localId": "127",
+   "name": "Pikachu ex",
+   "nameJa": "ピカチュウex",
+   "rarity": "Special illustration rare",
+   "illustrator": "kantaro",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/127.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/127.webp",
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": "190",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-128",
+   "localId": "128",
+   "name": "Mewtwo ex",
+   "nameJa": "ミュウツーex",
+   "rarity": "Special illustration rare",
+   "illustrator": "Yano Keiji",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/128.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/128.webp",
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": "230",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-129",
+   "localId": "129",
+   "name": "Mew ex",
+   "nameJa": "ミュウex",
+   "rarity": "Special illustration rare",
+   "illustrator": "Kuroimori",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/129.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/129.webp",
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": "160",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-130",
+   "localId": "130",
+   "name": "Sylveon ex",
+   "nameJa": "ニンフィアex",
+   "rarity": "Special illustration rare",
+   "illustrator": "You Iribi",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/130.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/130.webp",
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": "270",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-131",
+   "localId": "131",
+   "name": "Gengar ex",
+   "nameJa": "ゲンガーex",
+   "rarity": "Special illustration rare",
+   "illustrator": "CHORISO",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/131.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/131.webp",
+   "category": "Pokemon",
+   "types": [
+    "Darkness"
+   ],
+   "hp": "280",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-132",
+   "localId": "132",
+   "name": "Jirachi ex",
+   "nameJa": "ジラーチex",
+   "rarity": "Special illustration rare",
+   "illustrator": "AKIRA EGAWA",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/132.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/132.webp",
+   "category": "Pokemon",
+   "types": [
+    "Metal"
+   ],
+   "hp": "160",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-133",
+   "localId": "133",
+   "name": "Salamence ex",
+   "nameJa": "ボーマンダex",
+   "rarity": "Special illustration rare",
+   "illustrator": "Ryota Murayama",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/133.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/133.webp",
+   "category": "Pokemon",
+   "types": [
+    "Dragon"
+   ],
+   "hp": "330",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-134",
+   "localId": "134",
+   "name": "Mewtwo ex",
+   "nameJa": "ミュウツーex",
+   "rarity": "Futuristic Rare",
+   "illustrator": "YOSHIROTTEN",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/134.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/134.webp",
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": "230",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-135",
+   "localId": "135",
+   "name": "Mew ex",
+   "nameJa": "ミュウex",
+   "rarity": "Futuristic Rare",
+   "illustrator": "YOSHIROTTEN",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/135.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/135.webp",
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": "160",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-136",
+   "localId": "136",
+   "name": "Pikachu",
+   "nameJa": "ピカチュウ",
+   "rarity": null,
+   "illustrator": "Mitsuhiro Arita",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/136.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/136.webp",
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": "40",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-137",
+   "localId": "137",
+   "name": "Charizard",
+   "nameJa": "リザードン",
+   "rarity": null,
+   "illustrator": "Mitsuhiro Arita",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/137.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/137.webp",
+   "category": "Pokemon",
+   "types": [
+    "Fire"
+   ],
+   "hp": "120",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-138",
+   "localId": "138",
+   "name": "Misty",
+   "nameJa": "カスミ",
+   "rarity": null,
+   "illustrator": "Ken Sugimori",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/138.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/138.webp",
+   "category": "Trainer",
+   "types": [],
+   "hp": "",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-139",
+   "localId": "139",
+   "name": "Erika's Jigglypuff",
+   "nameJa": "エリカのプリン",
+   "rarity": null,
+   "illustrator": "Ken Sugimori",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/139.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/139.webp",
+   "category": "Pokemon",
+   "types": [
+    "Colorless"
+   ],
+   "hp": "50",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-140",
+   "localId": "140",
+   "name": "Sneasel",
+   "nameJa": "ニューラ",
+   "rarity": null,
+   "illustrator": "Ken Sugimori",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/140.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/140.webp",
+   "category": "Pokemon",
+   "types": [
+    "Darkness"
+   ],
+   "hp": "60",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-141",
+   "localId": "141",
+   "name": "Shining Celebi",
+   "nameJa": "ひかるセレビィ",
+   "rarity": null,
+   "illustrator": "Hironobu Yoshida",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/141.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/141.webp",
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": "50",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-142",
+   "localId": "142",
+   "name": "Lugia",
+   "nameJa": "ルギア",
+   "rarity": null,
+   "illustrator": "Naoyo Kimura",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/142.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/142.webp",
+   "category": "Pokemon",
+   "types": [
+    "Colorless"
+   ],
+   "hp": "80",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-143",
+   "localId": "143",
+   "name": "Delcatty",
+   "nameJa": "エネコロロ",
+   "rarity": null,
+   "illustrator": "Atsuko Nishida",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/143.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/143.webp",
+   "category": "Pokemon",
+   "types": [
+    "Colorless"
+   ],
+   "hp": "70",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-144",
+   "localId": "144",
+   "name": "Dark Tyranitar",
+   "nameJa": "わるいバンギラス",
+   "rarity": null,
+   "illustrator": "Nakaoka",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/144.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/144.webp",
+   "category": "Pokemon",
+   "types": [
+    "Darkness"
+   ],
+   "hp": "120",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-145",
+   "localId": "145",
+   "name": "Scizor ex",
+   "nameJa": "ハッサムex",
+   "rarity": null,
+   "illustrator": "Mitsuhiro Arita",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/145.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/145.webp",
+   "category": "Pokemon",
+   "types": [
+    "Metal"
+   ],
+   "hp": "120",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-146",
+   "localId": "146",
+   "name": "Metagross",
+   "nameJa": "メタグロス",
+   "rarity": null,
+   "illustrator": "Masakazu Fukuda",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/146.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/146.webp",
+   "category": "Pokemon",
+   "types": [
+    "Lightning",
+    "Metal"
+   ],
+   "hp": "100",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-147",
+   "localId": "147",
+   "name": "Palkia LV.X",
+   "nameJa": "パルキア",
+   "rarity": null,
+   "illustrator": "Ryo Ueda",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/147.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/147.webp",
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": "120",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-148",
+   "localId": "148",
+   "name": "Uxie",
+   "nameJa": "ユクシー",
+   "rarity": null,
+   "illustrator": "Ken Sugimori",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/148.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/148.webp",
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": "70",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-149",
+   "localId": "149",
+   "name": "Crobat G",
+   "nameJa": "クロバットG[ギンガ]",
+   "rarity": null,
+   "illustrator": "Makoto Imai",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/149.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/149.webp",
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": "80",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-150",
+   "localId": "150",
+   "name": "Gengar",
+   "nameJa": "ゲンガー",
+   "rarity": null,
+   "illustrator": "Takashi Yamaguchi",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/150.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/150.webp",
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": "130",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-151",
+   "localId": "151",
+   "name": "Darkrai & Cresselia LEGEND",
+   "nameJa": "ダークライ&クレセリアLEGEND",
+   "rarity": null,
+   "illustrator": "Noriko Takaya,                   \n                    \n                      Shinji Higuchi",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/151.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/151.webp",
+   "category": "Pokemon",
+   "types": [
+    "Darkness",
+    "Psychic"
+   ],
+   "hp": "150",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-152",
+   "localId": "152",
+   "name": "Darkrai & Cresselia LEGEND",
+   "nameJa": "ダークライ&クレセリアLEGEND",
+   "rarity": null,
+   "illustrator": "Noriko Takaya,                   \n                    \n                      Shinji Higuchi",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/152.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/152.webp",
+   "category": "Pokemon",
+   "types": [
+    "Darkness",
+    "Psychic"
+   ],
+   "hp": "150",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-153",
+   "localId": "153",
+   "name": "N",
+   "nameJa": "エヌ",
+   "rarity": null,
+   "illustrator": "Ken Sugimori",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/153.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/153.webp",
+   "category": "Trainer",
+   "types": [],
+   "hp": "",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-154",
+   "localId": "154",
+   "name": "Rayquaza-EX",
+   "nameJa": "レックウザEX",
+   "rarity": null,
+   "illustrator": "Eske Yoshinob",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/154.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/154.webp",
+   "category": "Pokemon",
+   "types": [
+    "Dragon"
+   ],
+   "hp": "170",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-155",
+   "localId": "155",
+   "name": "Genesect-EX",
+   "nameJa": "ゲノセクトEX",
+   "rarity": null,
+   "illustrator": "Eske Yoshinob",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/155.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/155.webp",
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": "170",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-156",
+   "localId": "156",
+   "name": "M Gardevoir-EX",
+   "nameJa": "サーナイトEX",
+   "rarity": null,
+   "illustrator": "5ban Graphics",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/156.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/156.webp",
+   "category": "Pokemon",
+   "types": [
+    "Fairy"
+   ],
+   "hp": "210",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-157",
+   "localId": "157",
+   "name": "Greninja BREAK",
+   "nameJa": "ゲッコウガBREAK",
+   "rarity": null,
+   "illustrator": "5ban Graphics",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/157.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/157.webp",
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": "170",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-158",
+   "localId": "158",
+   "name": "Solgaleo-GX",
+   "nameJa": "ソルガレオGX",
+   "rarity": null,
+   "illustrator": "PLANETA",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/158.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/158.webp",
+   "category": "Pokemon",
+   "types": [
+    "Metal"
+   ],
+   "hp": "250",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-159",
+   "localId": "159",
+   "name": "Buzzwole-GX",
+   "nameJa": "マッシブーンGX",
+   "rarity": null,
+   "illustrator": "5ban Graphics",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/159.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/159.webp",
+   "category": "Pokemon",
+   "types": [
+    "Fighting"
+   ],
+   "hp": "190",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-160",
+   "localId": "160",
+   "name": "Pikachu & Zekrom-GX",
+   "nameJa": "ピカチュウ&ゼクロムGX",
+   "rarity": null,
+   "illustrator": "Mitsuhiro Arita",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/160.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/160.webp",
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": "240",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-161",
+   "localId": "161",
+   "name": "Zacian V",
+   "nameJa": "ザシアンV",
+   "rarity": null,
+   "illustrator": "5ban Graphics",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/161.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/161.webp",
+   "category": "Pokemon",
+   "types": [
+    "Metal"
+   ],
+   "hp": "220",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-162",
+   "localId": "162",
+   "name": "Raikou",
+   "nameJa": "ライコウ",
+   "rarity": null,
+   "illustrator": "Hideki Ishikawa",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/162.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/162.webp",
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": "110",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-163",
+   "localId": "163",
+   "name": "Mew VMAX",
+   "nameJa": "ミュウVMAX",
+   "rarity": null,
+   "illustrator": "5ban Graphics",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/163.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/163.webp",
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": "310",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-164",
+   "localId": "164",
+   "name": "Arceus VSTAR",
+   "nameJa": "アルセウスVSTAR",
+   "rarity": null,
+   "illustrator": "5ban Graphics",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/164.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/164.webp",
+   "category": "Pokemon",
+   "types": [
+    "Colorless"
+   ],
+   "hp": "280",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-165",
+   "localId": "165",
+   "name": "Magikarp",
+   "nameJa": "コイキング",
+   "rarity": null,
+   "illustrator": "Shinji Kanda",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/165.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/165.webp",
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": "30",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-166",
+   "localId": "166",
+   "name": "Basic Grass Energy",
+   "nameJa": "基本草エネルギー",
+   "rarity": null,
+   "illustrator": "YOSHIROTTEN",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/166.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/166.webp",
+   "category": "Energy",
+   "types": [
+    "Grass"
+   ],
+   "hp": "",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-167",
+   "localId": "167",
+   "name": "Basic Fire Energy",
+   "nameJa": "基本炎エネルギー",
+   "rarity": null,
+   "illustrator": "YOSHIROTTEN",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/167.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/167.webp",
+   "category": "Energy",
+   "types": [
+    "Fire"
+   ],
+   "hp": "",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-168",
+   "localId": "168",
+   "name": "Basic Water Energy",
+   "nameJa": "基本水エネルギー",
+   "rarity": null,
+   "illustrator": "YOSHIROTTEN",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/168.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/168.webp",
+   "category": "Energy",
+   "types": [
+    "Water"
+   ],
+   "hp": "",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-169",
+   "localId": "169",
+   "name": "Basic Lightning Energy",
+   "nameJa": "基本雷エネルギー",
+   "rarity": null,
+   "illustrator": "YOSHIROTTEN",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/169.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/169.webp",
+   "category": "Energy",
+   "types": [
+    "Lightning"
+   ],
+   "hp": "",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-170",
+   "localId": "170",
+   "name": "Basic Psychic Energy",
+   "nameJa": "基本超エネルギー",
+   "rarity": null,
+   "illustrator": "YOSHIROTTEN",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/170.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/170.webp",
+   "category": "Energy",
+   "types": [
+    "Psychic"
+   ],
+   "hp": "",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-171",
+   "localId": "171",
+   "name": "Basic Fighting Energy",
+   "nameJa": "基本闘エネルギー",
+   "rarity": null,
+   "illustrator": "YOSHIROTTEN",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/171.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/171.webp",
+   "category": "Energy",
+   "types": [
+    "Fighting"
+   ],
+   "hp": "",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-172",
+   "localId": "172",
+   "name": "Basic Darkness Energy",
+   "nameJa": "基本悪エネルギー",
+   "rarity": null,
+   "illustrator": "YOSHIROTTEN",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/172.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/172.webp",
+   "category": "Energy",
+   "types": [
+    "Darkness"
+   ],
+   "hp": "",
+   "variants_detailed": null,
+   "pricing": null
+  },
+  {
+   "id": "M6a-173",
+   "localId": "173",
+   "name": "Basic Metal Energy",
+   "nameJa": "基本鋼エネルギー",
+   "rarity": null,
+   "illustrator": "YOSHIROTTEN",
+   "image": null,
+   "imageSmall": "/data/tcgdex/card-images/ja/M6a/173.webp",
+   "imageLarge": "/data/tcgdex/card-images/ja/M6a/173.webp",
+   "category": "Energy",
+   "types": [
+    "Metal"
+   ],
+   "hp": "",
+   "variants_detailed": null,
+   "pricing": null
+  }
+ ],
+ "generated_at": "2026-09-21",
+ "source": "pkmn.gg",
+ "source_url": "https://www.pkmn.gg/jp/series/mega-evolution/30th-celebration"
+}

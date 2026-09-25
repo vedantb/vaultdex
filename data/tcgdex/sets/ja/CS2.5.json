@@ -1,1 +1,2592 @@
-{"generated_at": "2026-09-16T01:44:25.342459+00:00", "set": {"id": "CS2.5", "name": "Triplet Beat", "series": "剣と盾", "releaseDate": "2024-04-26", "logo": null, "symbol": "/data/tcgdex/set-symbols/ja/CS2.5.png", "printedTotal": 101, "total": 101, "lang": "ja", "nameJa": "トリプレットビート"}, "cards": [{"id": "CS2.5-001", "localId": "001", "name": "Tropius", "nameJa": "", "rarity": "Common", "illustrator": "Taira Akitsu", "image": null, "category": "", "types": [], "hp": 110, "variants_detailed": [], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.13}}, "currency": "USD", "pricedAt": "2026-09-21T03:40:29Z"}, "imageSmall": "https://images.pkmnprices.com/cards/41a3d5da043aca5c.webp", "imageLarge": "https://images.pkmnprices.com/cards/41a3d5da043aca5c.webp", "ppId": 58603}, {"id": "CS2.5-002", "localId": "002", "name": "Foongus", "nameJa": "", "rarity": "Common", "illustrator": "You Iribi", "image": null, "category": "", "types": [], "hp": 50, "variants_detailed": [], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.13}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/fbd7683e36d914c4.webp", "imageLarge": "https://images.pkmnprices.com/cards/fbd7683e36d914c4.webp", "ppId": 58672}, {"id": "CS2.5-003", "localId": "003", "name": "Amoonguss", "nameJa": "", "rarity": "Uncommon", "illustrator": "Nobuhiro Imagawa", "image": null, "category": "", "types": [], "hp": 110, "variants_detailed": [], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.12}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/adb84589866afefa.webp", "imageLarge": "https://images.pkmnprices.com/cards/adb84589866afefa.webp", "ppId": 58639}, {"id": "CS2.5-004", "localId": "004", "name": "Sprigatito", "nameJa": "", "rarity": "Common", "illustrator": "Megumi Mizutani", "image": null, "category": "", "types": [], "hp": 60, "variants_detailed": [], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.18}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/6c7c77088eb038d2.webp", "imageLarge": "https://images.pkmnprices.com/cards/6c7c77088eb038d2.webp", "ppId": 58643}, {"id": "CS2.5-005", "localId": "005", "name": "Sprigatito", "nameJa": "", "rarity": "Common", "illustrator": "Naoyo Kimura", "image": null, "category": "", "types": [], "hp": 70, "variants_detailed": [], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.22}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/65e1767f4ce9a533.webp", "imageLarge": "https://images.pkmnprices.com/cards/65e1767f4ce9a533.webp", "ppId": 58590}, {"id": "CS2.5-006", "localId": "006", "name": "Floragato", "nameJa": "", "rarity": "Common", "illustrator": "nagimiso", "image": null, "category": "", "types": [], "hp": 90, "variants_detailed": [], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.15}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/ab09fb5aee4dc3e9.webp", "imageLarge": "https://images.pkmnprices.com/cards/ab09fb5aee4dc3e9.webp", "ppId": 58614}, {"id": "CS2.5-007", "localId": "007", "name": "Meowscarada ex", "nameJa": "", "rarity": "Double Rare", "illustrator": "5ban Graphics", "image": null, "category": "", "types": [], "hp": 310, "variants_detailed": [], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 0.45}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/7081233570c6375a.webp", "imageLarge": "https://images.pkmnprices.com/cards/7081233570c6375a.webp", "ppId": 58577}, {"id": "CS2.5-008", "localId": "008", "name": "Nymble", "nameJa": "", "rarity": "Common", "illustrator": "Shin Nagasawa", "image": null, "category": "", "types": [], "hp": 40, "variants_detailed": [], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.03}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/f45c097c75cc0580.webp", "imageLarge": "https://images.pkmnprices.com/cards/f45c097c75cc0580.webp", "ppId": 58636}, {"id": "CS2.5-009", "localId": "009", "name": "Nymble", "nameJa": "", "rarity": "Common", "illustrator": "Sekio", "image": null, "category": "", "types": [], "hp": 50, "variants_detailed": [], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.1}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/e9c1ebee1972f0cb.webp", "imageLarge": "https://images.pkmnprices.com/cards/e9c1ebee1972f0cb.webp", "ppId": 58666}, {"id": "CS2.5-010", "localId": "010", "name": "Lokix", "nameJa": "", "rarity": "Rare", "illustrator": "Anesaki Dynamic", "image": null, "category": "", "types": [], "hp": 120, "variants_detailed": [], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 0.21}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/5fc81b260505adb2.webp", "imageLarge": "https://images.pkmnprices.com/cards/5fc81b260505adb2.webp", "ppId": 58570}, {"id": "CS2.5-011", "localId": "011", "name": "Paldean Tauros", "nameJa": "", "rarity": "Uncommon", "illustrator": "", "image": null, "category": "", "types": [], "hp": 130, "variants_detailed": [], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.21}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/34d9599745172aad.webp", "imageLarge": "https://images.pkmnprices.com/cards/34d9599745172aad.webp", "ppId": 58566}, {"id": "CS2.5-012", "localId": "012", "name": "Larvesta", "nameJa": "", "rarity": "Common", "illustrator": "Yuka Morii", "image": null, "category": "", "types": [], "hp": 80, "variants_detailed": [], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.23}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/b9bd0908d2120cf6.webp", "imageLarge": "https://images.pkmnprices.com/cards/b9bd0908d2120cf6.webp", "ppId": 58632}, {"id": "CS2.5-013", "localId": "013", "name": "Volcarona", "nameJa": "", "rarity": "Common", "illustrator": "Yukiko Baba", "image": null, "category": "", "types": [], "hp": 140, "variants_detailed": [], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.17}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/bbe939c6b6d84d80.webp", "imageLarge": "https://images.pkmnprices.com/cards/bbe939c6b6d84d80.webp", "ppId": 58583}, {"id": "CS2.5-014", "localId": "014", "name": "Litleo", "nameJa": "", "rarity": "Common", "illustrator": "Yuu Nishida", "image": null, "category": "", "types": [], "hp": 70, "variants_detailed": [], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.13}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/7f88ebdb17b5cb9f.webp", "imageLarge": "https://images.pkmnprices.com/cards/7f88ebdb17b5cb9f.webp", "ppId": 58629}, {"id": "CS2.5-015", "localId": "015", "name": "Pyroar", "nameJa": "", "rarity": "Uncommon", "illustrator": "Uta", "image": null, "category": "", "types": [], "hp": 120, "variants_detailed": [], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.19}}, "currency": "USD", "pricedAt": "2026-09-21T09:07:51Z"}, "imageSmall": "https://images.pkmnprices.com/cards/d03c955d54338f96.webp", "imageLarge": "https://images.pkmnprices.com/cards/d03c955d54338f96.webp", "ppId": 58620}, {"id": "CS2.5-016", "localId": "016", "name": "Oricorio", "nameJa": "", "rarity": "Rare", "illustrator": "", "image": null, "category": "", "types": [], "hp": 90, "variants_detailed": [], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 0.22}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/f299d92a547175c3.webp", "imageLarge": "https://images.pkmnprices.com/cards/f299d92a547175c3.webp", "ppId": 58691}, {"id": "CS2.5-017", "localId": "017", "name": "Fuecoco", "nameJa": "", "rarity": "Common", "illustrator": "Ito Kyoko", "image": null, "category": "", "types": [], "hp": 80, "variants_detailed": [], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.14}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/c29256bf7746fa90.webp", "imageLarge": "https://images.pkmnprices.com/cards/c29256bf7746fa90.webp", "ppId": 58665}, {"id": "CS2.5-018", "localId": "018", "name": "Fuecoco", "nameJa": "", "rarity": "Common", "illustrator": "ryoma uratsuka", "image": null, "category": "", "types": [], "hp": 90, "variants_detailed": [], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.25}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/bc3cf2551f2116b5.webp", "imageLarge": "https://images.pkmnprices.com/cards/bc3cf2551f2116b5.webp", "ppId": 58594}, {"id": "CS2.5-019", "localId": "019", "name": "Crocalor", "nameJa": "", "rarity": "Common", "illustrator": "Hitoshi Ariga", "image": null, "category": "", "types": [], "hp": 110, "variants_detailed": [], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.14}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/00e10b4e0277e5f0.webp", "imageLarge": "https://images.pkmnprices.com/cards/00e10b4e0277e5f0.webp", "ppId": 58756}, {"id": "CS2.5-020", "localId": "020", "name": "Skeledirge ex", "nameJa": "", "rarity": "Double Rare", "illustrator": "5ban Graphics", "image": null, "category": "", "types": [], "hp": 340, "variants_detailed": [], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 0.34}}, "currency": "USD", "pricedAt": "2026-09-21T09:07:51Z"}, "imageSmall": "https://images.pkmnprices.com/cards/dfe70d5389332f34.webp", "imageLarge": "https://images.pkmnprices.com/cards/dfe70d5389332f34.webp", "ppId": 58738}, {"id": "CS2.5-021", "localId": "021", "name": "Paldean Tauros", "nameJa": "", "rarity": "Uncommon", "illustrator": "", "image": null, "category": "", "types": [], "hp": 130, "variants_detailed": [], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.14}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/32cdae0c4d7d5e9c.webp", "imageLarge": "https://images.pkmnprices.com/cards/32cdae0c4d7d5e9c.webp", "ppId": 58608}, {"id": "CS2.5-022", "localId": "022", "name": "Magikarp", "nameJa": "", "rarity": "Common", "illustrator": "HYOGONOSUKE", "image": null, "category": "", "types": [], "hp": 30, "variants_detailed": [], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.2}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/650cfe720045ab48.webp", "imageLarge": "https://images.pkmnprices.com/cards/650cfe720045ab48.webp", "ppId": 58598}, {"id": "CS2.5-023", "localId": "023", "name": "Gyarados", "nameJa": "", "rarity": "Rare", "illustrator": "Yuya Oka", "image": null, "category": "", "types": [], "hp": 180, "variants_detailed": [], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 0.39}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/b8265dbadd5c7f06.webp", "imageLarge": "https://images.pkmnprices.com/cards/b8265dbadd5c7f06.webp", "ppId": 58628}, {"id": "CS2.5-024", "localId": "024", "name": "Delibird", "nameJa": "", "rarity": "Common", "illustrator": "miki kudo", "image": null, "category": "", "types": [], "hp": 90, "variants_detailed": [], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.12}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/031a3eb8a5557daf.webp", "imageLarge": "https://images.pkmnprices.com/cards/031a3eb8a5557daf.webp", "ppId": 58645}, {"id": "CS2.5-025", "localId": "025", "name": "Buizel", "nameJa": "", "rarity": "Common", "illustrator": "Jerky", "image": null, "category": "", "types": [], "hp": 70, "variants_detailed": [], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.15}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/46f04beeb96a7d12.webp", "imageLarge": "https://images.pkmnprices.com/cards/46f04beeb96a7d12.webp", "ppId": 58631}, {"id": "CS2.5-026", "localId": "026", "name": "Floatzel", "nameJa": "", "rarity": "Uncommon", "illustrator": "Kouki Saitou", "image": null, "category": "", "types": [], "hp": 110, "variants_detailed": [], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.11}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/3f13d225d83a3483.webp", "imageLarge": "https://images.pkmnprices.com/cards/3f13d225d83a3483.webp", "ppId": 58637}, {"id": "CS2.5-027", "localId": "027", "name": "Quaxly", "nameJa": "", "rarity": "Common", "illustrator": "sui", "image": null, "category": "", "types": [], "hp": 60, "variants_detailed": [], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.18}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/3f4e5b587fdd2f04.webp", "imageLarge": "https://images.pkmnprices.com/cards/3f4e5b587fdd2f04.webp", "ppId": 58653}, {"id": "CS2.5-028", "localId": "028", "name": "Quaxly", "nameJa": "", "rarity": "Common", "illustrator": "", "image": null, "category": "", "types": [], "hp": 70, "variants_detailed": [], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.14}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/0b10572a14fd75f5.webp", "imageLarge": "https://images.pkmnprices.com/cards/0b10572a14fd75f5.webp", "ppId": 58753}, {"id": "CS2.5-029", "localId": "029", "name": "Quaxwell", "nameJa": "", "rarity": "Common", "illustrator": "Souichirou Gunjima", "image": null, "category": "", "types": [], "hp": 90, "variants_detailed": [], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.13}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/962bd5b120664382.webp", "imageLarge": "https://images.pkmnprices.com/cards/962bd5b120664382.webp", "ppId": 58701}, {"id": "CS2.5-030", "localId": "030", "name": "Quaquaval ex", "nameJa": "", "rarity": "Double Rare", "illustrator": "5ban Graphics", "image": null, "category": "", "types": [], "hp": 320, "variants_detailed": [], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 0.29}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/cce2ae171e8a32d0.webp", "imageLarge": "https://images.pkmnprices.com/cards/cce2ae171e8a32d0.webp", "ppId": 58591}, {"id": "CS2.5-031", "localId": "031", "name": "Wattrel", "nameJa": "", "rarity": "Common", "illustrator": "", "image": null, "category": "", "types": [], "hp": 60, "variants_detailed": [], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.08}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/62626b4de383747e.webp", "imageLarge": "https://images.pkmnprices.com/cards/62626b4de383747e.webp", "ppId": 58647}, {"id": "CS2.5-032", "localId": "032", "name": "Wattrel", "nameJa": "", "rarity": "Common", "illustrator": "sowsow", "image": null, "category": "", "types": [], "hp": 60, "variants_detailed": [], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.24}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/a953dbe8f35b4825.webp", "imageLarge": "https://images.pkmnprices.com/cards/a953dbe8f35b4825.webp", "ppId": 58651}, {"id": "CS2.5-033", "localId": "033", "name": "Kilowattrel", "nameJa": "", "rarity": "Uncommon", "illustrator": "Pani Kobayashi", "image": null, "category": "", "types": [], "hp": 120, "variants_detailed": [], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.09}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/538774f99a316fac.webp", "imageLarge": "https://images.pkmnprices.com/cards/538774f99a316fac.webp", "ppId": 58704}, {"id": "CS2.5-034", "localId": "034", "name": "Misdreavus", "nameJa": "", "rarity": "Common", "illustrator": "Megumi Higuchi", "image": null, "category": "", "types": [], "hp": 70, "variants_detailed": [], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.16}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/6bc4811e42f4a0ba.webp", "imageLarge": "https://images.pkmnprices.com/cards/6bc4811e42f4a0ba.webp", "ppId": 58602}, {"id": "CS2.5-035", "localId": "035", "name": "Mismagius", "nameJa": "", "rarity": "Uncommon", "illustrator": "Atsushi Furusawa", "image": null, "category": "", "types": [], "hp": 90, "variants_detailed": [], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.16}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/7f9e854f5da23fd5.webp", "imageLarge": "https://images.pkmnprices.com/cards/7f9e854f5da23fd5.webp", "ppId": 58658}, {"id": "CS2.5-036", "localId": "036", "name": "Spoink", "nameJa": "", "rarity": "Common", "illustrator": "GOSSAN", "image": null, "category": "", "types": [], "hp": 70, "variants_detailed": [], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.15}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/49807830648f2543.webp", "imageLarge": "https://images.pkmnprices.com/cards/49807830648f2543.webp", "ppId": 58609}, {"id": "CS2.5-037", "localId": "037", "name": "Grumpig", "nameJa": "", "rarity": "Uncommon", "illustrator": "Scav", "image": null, "category": "", "types": [], "hp": 120, "variants_detailed": [], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.13}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/6c5beeb75c49a90c.webp", "imageLarge": "https://images.pkmnprices.com/cards/6c5beeb75c49a90c.webp", "ppId": 58646}, {"id": "CS2.5-038", "localId": "038", "name": "Dedenne ex", "nameJa": "", "rarity": "Double Rare", "illustrator": "aky CG Works", "image": null, "category": "", "types": [], "hp": 170, "variants_detailed": [], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 0.56}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/3de4d724210a21ba.webp", "imageLarge": "https://images.pkmnprices.com/cards/3de4d724210a21ba.webp", "ppId": 58558}, {"id": "CS2.5-039", "localId": "039", "name": "Oranguru", "nameJa": "", "rarity": "Uncommon", "illustrator": "Toshinao Aoki", "image": null, "category": "", "types": [], "hp": 120, "variants_detailed": [], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.23}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/e56b22ac34c387c5.webp", "imageLarge": "https://images.pkmnprices.com/cards/e56b22ac34c387c5.webp", "ppId": 58595}, {"id": "CS2.5-040", "localId": "040", "name": "Tinkatink", "nameJa": "", "rarity": "Common", "illustrator": "Mizue", "image": null, "category": "", "types": [], "hp": 60, "variants_detailed": [], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.13}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/00dc7ee914a75cf0.webp", "imageLarge": "https://images.pkmnprices.com/cards/00dc7ee914a75cf0.webp", "ppId": 58650}, {"id": "CS2.5-041", "localId": "041", "name": "Tinkatink", "nameJa": "", "rarity": "Common", "illustrator": "Pani Kobayashi", "image": null, "category": "", "types": [], "hp": 70, "variants_detailed": [], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.18}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/626b9338b0fae2ff.webp", "imageLarge": "https://images.pkmnprices.com/cards/626b9338b0fae2ff.webp", "ppId": 58613}, {"id": "CS2.5-042", "localId": "042", "name": "Tinkatuff", "nameJa": "", "rarity": "Common", "illustrator": "Akira Komayama", "image": null, "category": "", "types": [], "hp": 80, "variants_detailed": [], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.15}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/e54b4bfed7e6f39f.webp", "imageLarge": "https://images.pkmnprices.com/cards/e54b4bfed7e6f39f.webp", "ppId": 58617}, {"id": "CS2.5-043", "localId": "043", "name": "Tinkaton", "nameJa": "", "rarity": "Rare", "illustrator": "", "image": null, "category": "", "types": [], "hp": 140, "variants_detailed": [], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 0.28}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/19c3ae5d9a55ed97.webp", "imageLarge": "https://images.pkmnprices.com/cards/19c3ae5d9a55ed97.webp", "ppId": 58576}, {"id": "CS2.5-044", "localId": "044", "name": "Diglett", "nameJa": "", "rarity": "Common", "illustrator": "OKACHEKE", "image": null, "category": "", "types": [], "hp": 50, "variants_detailed": [], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.24}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/c1924eba76bbe34c.webp", "imageLarge": "https://images.pkmnprices.com/cards/c1924eba76bbe34c.webp", "ppId": 58589}, {"id": "CS2.5-045", "localId": "045", "name": "Dugtrio", "nameJa": "", "rarity": "Uncommon", "illustrator": "Nelnal", "image": null, "category": "", "types": [], "hp": 90, "variants_detailed": [], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.14}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/8f9d79fb51253f65.webp", "imageLarge": "https://images.pkmnprices.com/cards/8f9d79fb51253f65.webp", "ppId": 58607}, {"id": "CS2.5-046", "localId": "046", "name": "Paldean Tauros", "nameJa": "", "rarity": "Uncommon", "illustrator": "", "image": null, "category": "", "types": [], "hp": 130, "variants_detailed": [], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.14}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/94ed8fb4ab9db3b7.webp", "imageLarge": "https://images.pkmnprices.com/cards/94ed8fb4ab9db3b7.webp", "ppId": 58627}, {"id": "CS2.5-047", "localId": "047", "name": "Makuhita", "nameJa": "", "rarity": "Common", "illustrator": "Kurata So", "image": null, "category": "", "types": [], "hp": 90, "variants_detailed": [], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.13}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/63f3ca7712bd8f80.webp", "imageLarge": "https://images.pkmnprices.com/cards/63f3ca7712bd8f80.webp", "ppId": 58612}, {"id": "CS2.5-048", "localId": "048", "name": "Hariyama", "nameJa": "", "rarity": "Rare", "illustrator": "Hasuno", "image": null, "category": "", "types": [], "hp": 140, "variants_detailed": [], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 0.24}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/937ce2a6efc143b7.webp", "imageLarge": "https://images.pkmnprices.com/cards/937ce2a6efc143b7.webp", "ppId": 58664}, {"id": "CS2.5-049", "localId": "049", "name": "Rockruff", "nameJa": "", "rarity": "Common", "illustrator": "313", "image": null, "category": "", "types": [], "hp": 70, "variants_detailed": [], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.11}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/928fd1b5b3a50503.webp", "imageLarge": "https://images.pkmnprices.com/cards/928fd1b5b3a50503.webp", "ppId": 58619}, {"id": "CS2.5-050", "localId": "050", "name": "Lycanroc ex", "nameJa": "", "rarity": "Double Rare", "illustrator": "kawayoo", "image": null, "category": "", "types": [], "hp": 260, "variants_detailed": [], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 0.39}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/43773ea1baf89be4.webp", "imageLarge": "https://images.pkmnprices.com/cards/43773ea1baf89be4.webp", "ppId": 58551}, {"id": "CS2.5-051", "localId": "051", "name": "Falinks", "nameJa": "", "rarity": "Common", "illustrator": "kurumitsu", "image": null, "category": "", "types": [], "hp": 110, "variants_detailed": [], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.16}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/c5c8b029716ba424.webp", "imageLarge": "https://images.pkmnprices.com/cards/c5c8b029716ba424.webp", "ppId": 58640}, {"id": "CS2.5-052", "localId": "052", "name": "Paldean Wooper", "nameJa": "", "rarity": "Common", "illustrator": "Saya Tsuruta", "image": null, "category": "", "types": [], "hp": 60, "variants_detailed": [], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.26}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/3f032413a20ee226.webp", "imageLarge": "https://images.pkmnprices.com/cards/3f032413a20ee226.webp", "ppId": 58618}, {"id": "CS2.5-053", "localId": "053", "name": "Paldean Wooper", "nameJa": "", "rarity": "Common", "illustrator": "Kouki Saitou", "image": null, "category": "", "types": [], "hp": 60, "variants_detailed": [], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.2}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/34b0e182c9ba9e08.webp", "imageLarge": "https://images.pkmnprices.com/cards/34b0e182c9ba9e08.webp", "ppId": 58625}, {"id": "CS2.5-054", "localId": "054", "name": "Paldean Clodsire ex", "nameJa": "", "rarity": "Double Rare", "illustrator": "PLANETA Mochizuki", "image": null, "category": "", "types": [], "hp": 280, "variants_detailed": [], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 0.45}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/a5efe55450de8618.webp", "imageLarge": "https://images.pkmnprices.com/cards/a5efe55450de8618.webp", "ppId": 58596}, {"id": "CS2.5-055", "localId": "055", "name": "Sableye", "nameJa": "", "rarity": "Rare", "illustrator": "", "image": null, "category": "", "types": [], "hp": 70, "variants_detailed": [], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 0.23}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/dc9663aff07f7b71.webp", "imageLarge": "https://images.pkmnprices.com/cards/dc9663aff07f7b71.webp", "ppId": 58720}, {"id": "CS2.5-056", "localId": "056", "name": "Seviper", "nameJa": "", "rarity": "Uncommon", "illustrator": "Nisota Niso", "image": null, "category": "", "types": [], "hp": 110, "variants_detailed": [], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.11}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/d4c46b2a5d479e7f.webp", "imageLarge": "https://images.pkmnprices.com/cards/d4c46b2a5d479e7f.webp", "ppId": 58634}, {"id": "CS2.5-057", "localId": "057", "name": "Deino", "nameJa": "", "rarity": "Common", "illustrator": "Narumi Sato", "image": null, "category": "", "types": [], "hp": 70, "variants_detailed": [], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.11}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/b2d9ad94e8b84ae3.webp", "imageLarge": "https://images.pkmnprices.com/cards/b2d9ad94e8b84ae3.webp", "ppId": 58752}, {"id": "CS2.5-058", "localId": "058", "name": "Zweilous", "nameJa": "", "rarity": "Common", "illustrator": "nagimiso", "image": null, "category": "", "types": [], "hp": 100, "variants_detailed": [], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.09}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/20f9121d3065b0ea.webp", "imageLarge": "https://images.pkmnprices.com/cards/20f9121d3065b0ea.webp", "ppId": 58669}, {"id": "CS2.5-059", "localId": "059", "name": "Hydreigon", "nameJa": "", "rarity": "Rare", "illustrator": "Teeziro", "image": null, "category": "", "types": [], "hp": 180, "variants_detailed": [], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 0.42}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/46ef8421fb0311da.webp", "imageLarge": "https://images.pkmnprices.com/cards/46ef8421fb0311da.webp", "ppId": 58759}, {"id": "CS2.5-060", "localId": "060", "name": "Salandit", "nameJa": "", "rarity": "Common", "illustrator": "Shiburingaru", "image": null, "category": "", "types": [], "hp": 70, "variants_detailed": [], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.06}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/e258951d68d447f4.webp", "imageLarge": "https://images.pkmnprices.com/cards/e258951d68d447f4.webp", "ppId": 58656}, {"id": "CS2.5-061", "localId": "061", "name": "Salazzle", "nameJa": "", "rarity": "Uncommon", "illustrator": "Shigenori Negishi", "image": null, "category": "", "types": [], "hp": 120, "variants_detailed": [], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.09}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/c73977b4dc94658a.webp", "imageLarge": "https://images.pkmnprices.com/cards/c73977b4dc94658a.webp", "ppId": 58624}, {"id": "CS2.5-062", "localId": "062", "name": "Yungoos", "nameJa": "", "rarity": "Common", "illustrator": "saino misaki", "image": null, "category": "", "types": [], "hp": 70, "variants_detailed": [], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.08}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/588bd7b244e762a9.webp", "imageLarge": "https://images.pkmnprices.com/cards/588bd7b244e762a9.webp", "ppId": 58649}, {"id": "CS2.5-063", "localId": "063", "name": "Gumshoos", "nameJa": "", "rarity": "Uncommon", "illustrator": "Eri Yamaki", "image": null, "category": "", "types": [], "hp": 120, "variants_detailed": [], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.11}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/3ebd5d9dc05daca2.webp", "imageLarge": "https://images.pkmnprices.com/cards/3ebd5d9dc05daca2.webp", "ppId": 58739}, {"id": "CS2.5-064", "localId": "064", "name": "Superior Energy Retrieval", "nameJa": "", "rarity": "Uncommon", "illustrator": "", "image": null, "category": "", "types": [], "hp": null, "variants_detailed": [], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.07}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/0fe48f3601a6fa94.webp", "imageLarge": "https://images.pkmnprices.com/cards/0fe48f3601a6fa94.webp", "ppId": 58722}, {"id": "CS2.5-065", "localId": "065", "name": "Great Ball", "nameJa": "", "rarity": "Uncommon", "illustrator": "", "image": null, "category": "", "types": [], "hp": null, "variants_detailed": [], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.06}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/9dbb3b360817bc71.webp", "imageLarge": "https://images.pkmnprices.com/cards/9dbb3b360817bc71.webp", "ppId": 58642}, {"id": "CS2.5-066", "localId": "066", "name": "Dendra", "nameJa": "", "rarity": "Uncommon", "illustrator": "yuu", "image": null, "category": "", "types": [], "hp": null, "variants_detailed": [], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.09}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/c2be6569ef8c9564.webp", "imageLarge": "https://images.pkmnprices.com/cards/c2be6569ef8c9564.webp", "ppId": 58633}, {"id": "CS2.5-067", "localId": "067", "name": "Clavell", "nameJa": "", "rarity": "Uncommon", "illustrator": "Hitoshi Ariga", "image": null, "category": "", "types": [], "hp": null, "variants_detailed": [], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.04}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/07fac5c0fae748c5.webp", "imageLarge": "https://images.pkmnprices.com/cards/07fac5c0fae748c5.webp", "ppId": 58696}, {"id": "CS2.5-068", "localId": "068", "name": "Falkner", "nameJa": "", "rarity": "Uncommon", "illustrator": "Ryuta Fuse", "image": null, "category": "", "types": [], "hp": null, "variants_detailed": [], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.09}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/fcec652a14abb105.webp", "imageLarge": "https://images.pkmnprices.com/cards/fcec652a14abb105.webp", "ppId": 58626}, {"id": "CS2.5-069", "localId": "069", "name": "Boss's Orders", "nameJa": "", "rarity": "Rare", "illustrator": "nagimiso", "image": null, "category": "", "types": [], "hp": null, "variants_detailed": [], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 0.26}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/fc4418b12a1415f8.webp", "imageLarge": "https://images.pkmnprices.com/cards/fc4418b12a1415f8.webp", "ppId": 58654}, {"id": "CS2.5-070", "localId": "070", "name": "Artazon", "nameJa": "", "rarity": "Uncommon", "illustrator": "", "image": null, "category": "", "types": [], "hp": null, "variants_detailed": [], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.19}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/e69c22e474fc6a5e.webp", "imageLarge": "https://images.pkmnprices.com/cards/e69c22e474fc6a5e.webp", "ppId": 58623}, {"id": "CS2.5-071", "localId": "071", "name": "Practice Studio", "nameJa": "", "rarity": "Uncommon", "illustrator": "AYUMI ODASHIMA", "image": null, "category": "", "types": [], "hp": null, "variants_detailed": [], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.1}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/1b5428ffe384cfdb.webp", "imageLarge": "https://images.pkmnprices.com/cards/1b5428ffe384cfdb.webp", "ppId": 58622}, {"id": "CS2.5-072", "localId": "072", "name": "Jet Energy", "nameJa": "", "rarity": "Uncommon", "illustrator": "", "image": null, "category": "", "types": [], "hp": null, "variants_detailed": [], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.14}}, "currency": "USD", "pricedAt": "2026-09-21T09:07:51Z"}, "imageSmall": "https://images.pkmnprices.com/cards/396dfd33290a023d.webp", "imageLarge": "https://images.pkmnprices.com/cards/396dfd33290a023d.webp", "ppId": 58671}, {"id": "CS2.5-073", "localId": "073", "name": "Luminous Energy", "nameJa": "", "rarity": "Uncommon", "illustrator": "", "image": null, "category": "", "types": [], "hp": null, "variants_detailed": [], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.13}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/026ea194f9da6607.webp", "imageLarge": "https://images.pkmnprices.com/cards/026ea194f9da6607.webp", "ppId": 58737}, {"id": "CS2.5-074", "localId": "074", "name": "Tropius", "nameJa": "", "rarity": "Art Rare", "illustrator": "Taira Akitsu", "image": null, "category": "", "types": [], "hp": 110, "variants_detailed": [], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 4.35}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/f8c562c26223ad5c.webp", "imageLarge": "https://images.pkmnprices.com/cards/f8c562c26223ad5c.webp", "ppId": 58597}, {"id": "CS2.5-075", "localId": "075", "name": "Sprigatito", "nameJa": "", "rarity": "Art Rare", "illustrator": "Megumi Mizutani", "image": null, "category": "", "types": [], "hp": 60, "variants_detailed": [], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 15.95}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/58177fbc60cf7c70.webp", "imageLarge": "https://images.pkmnprices.com/cards/58177fbc60cf7c70.webp", "ppId": 58542}, {"id": "CS2.5-076", "localId": "076", "name": "Floragato", "nameJa": "", "rarity": "Art Rare", "illustrator": " Kouki Saitou", "image": null, "category": "", "types": [], "hp": 90, "variants_detailed": [], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 7.02}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/ae465a96e3ae8a27.webp", "imageLarge": "https://images.pkmnprices.com/cards/ae465a96e3ae8a27.webp", "ppId": 58554}, {"id": "CS2.5-077", "localId": "077", "name": "Pyroar", "nameJa": "", "rarity": "Art Rare", "illustrator": "Uta", "image": null, "category": "", "types": [], "hp": 120, "variants_detailed": [], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 3.6}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/cfef2f83b07e7641.webp", "imageLarge": "https://images.pkmnprices.com/cards/cfef2f83b07e7641.webp", "ppId": 58610}, {"id": "CS2.5-078", "localId": "078", "name": "Fuecoco", "nameJa": "", "rarity": "Art Rare", "illustrator": "ryoma uratsuka", "image": null, "category": "", "types": [], "hp": 90, "variants_detailed": [], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 13.22}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/8b850e8d1ad35da5.webp", "imageLarge": "https://images.pkmnprices.com/cards/8b850e8d1ad35da5.webp", "ppId": 58578}, {"id": "CS2.5-079", "localId": "079", "name": "Crocalor", "nameJa": "", "rarity": "Art Rare", "illustrator": "Hitoshi Ariga", "image": null, "category": "", "types": [], "hp": 110, "variants_detailed": [], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 5.29}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/6a6994ed76f2814a.webp", "imageLarge": "https://images.pkmnprices.com/cards/6a6994ed76f2814a.webp", "ppId": 58534}, {"id": "CS2.5-080", "localId": "080", "name": "Magikarp", "nameJa": "", "rarity": "Art Rare", "illustrator": "Shinji Kanda", "image": null, "category": "", "types": [], "hp": 30, "variants_detailed": [], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 158.28}}, "currency": "USD", "pricedAt": "2026-09-21T09:07:51Z"}, "imageSmall": "https://images.pkmnprices.com/cards/b44cf7bb679471ad.webp", "imageLarge": "https://images.pkmnprices.com/cards/b44cf7bb679471ad.webp", "ppId": 58604}, {"id": "CS2.5-081", "localId": "081", "name": "Quaxly", "nameJa": "", "rarity": "Art Rare", "illustrator": "sui", "image": null, "category": "", "types": [], "hp": 60, "variants_detailed": [], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 4.44}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/21c9e55f77c05d47.webp", "imageLarge": "https://images.pkmnprices.com/cards/21c9e55f77c05d47.webp", "ppId": 58581}, {"id": "CS2.5-082", "localId": "082", "name": "Quaxwell", "nameJa": "", "rarity": "Art Rare", "illustrator": "Souichirou Gunjima", "image": null, "category": "", "types": [], "hp": 90, "variants_detailed": [], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 2.62}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/6fd2a41fad4aae67.webp", "imageLarge": "https://images.pkmnprices.com/cards/6fd2a41fad4aae67.webp", "ppId": 58556}, {"id": "CS2.5-083", "localId": "083", "name": "Mismagius", "nameJa": "", "rarity": "Art Rare", "illustrator": "Atsushi Furusawa", "image": null, "category": "", "types": [], "hp": 90, "variants_detailed": [], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 13.11}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/3ea27df3c64438fd.webp", "imageLarge": "https://images.pkmnprices.com/cards/3ea27df3c64438fd.webp", "ppId": 58543}, {"id": "CS2.5-084", "localId": "084", "name": "Paldean Tauros", "nameJa": "", "rarity": "Art Rare", "illustrator": "", "image": null, "category": "", "types": [], "hp": 130, "variants_detailed": [], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 3.74}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/f20e32be683f777a.webp", "imageLarge": "https://images.pkmnprices.com/cards/f20e32be683f777a.webp", "ppId": 58601}, {"id": "CS2.5-085", "localId": "085", "name": "Paldean Wooper", "nameJa": "", "rarity": "Art Rare", "illustrator": "Kouki Saitou", "image": null, "category": "", "types": [], "hp": 60, "variants_detailed": [], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 5.3}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/2dae6520027d434f.webp", "imageLarge": "https://images.pkmnprices.com/cards/2dae6520027d434f.webp", "ppId": 58537}, {"id": "CS2.5-086", "localId": "086", "name": "Meowscarada ex", "nameJa": "", "rarity": "Super Rare", "illustrator": "5ban Graphics", "image": null, "category": "", "types": [], "hp": 310, "variants_detailed": [], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 3.89}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/2daf79abececb292.webp", "imageLarge": "https://images.pkmnprices.com/cards/2daf79abececb292.webp", "ppId": 58676}, {"id": "CS2.5-087", "localId": "087", "name": "Skeledirge ex", "nameJa": "", "rarity": "Super Rare", "illustrator": "5ban Graphics", "image": null, "category": "", "types": [], "hp": 340, "variants_detailed": [], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 1.57}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/551fabda2a29e2e5.webp", "imageLarge": "https://images.pkmnprices.com/cards/551fabda2a29e2e5.webp", "ppId": 58574}, {"id": "CS2.5-088", "localId": "088", "name": "Quaquaval ex", "nameJa": "", "rarity": "Super Rare", "illustrator": "5ban Graphics", "image": null, "category": "", "types": [], "hp": 320, "variants_detailed": [], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 1.3}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/700b8ae0c356efe5.webp", "imageLarge": "https://images.pkmnprices.com/cards/700b8ae0c356efe5.webp", "ppId": 58611}, {"id": "CS2.5-089", "localId": "089", "name": "Dedenne ex", "nameJa": "", "rarity": "Super Rare", "illustrator": "aky CG Works", "image": null, "category": "", "types": [], "hp": 170, "variants_detailed": [], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 13.23}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/b4e941537679d350.webp", "imageLarge": "https://images.pkmnprices.com/cards/b4e941537679d350.webp", "ppId": 58621}, {"id": "CS2.5-090", "localId": "090", "name": "Lycanroc ex", "nameJa": "", "rarity": "Super Rare", "illustrator": "kawayoo", "image": null, "category": "", "types": [], "hp": 260, "variants_detailed": [], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 1.58}}, "currency": "USD", "pricedAt": "2026-09-21T09:07:51Z"}, "imageSmall": "https://images.pkmnprices.com/cards/9db9c2ed94dacf64.webp", "imageLarge": "https://images.pkmnprices.com/cards/9db9c2ed94dacf64.webp", "ppId": 58572}, {"id": "CS2.5-091", "localId": "091", "name": "Paldean Clodsire ex", "nameJa": "", "rarity": "Super Rare", "illustrator": "PLANETA Mochizuki", "image": null, "category": "", "types": [], "hp": 280, "variants_detailed": [], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 3.34}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/78a0651995970b36.webp", "imageLarge": "https://images.pkmnprices.com/cards/78a0651995970b36.webp", "ppId": 58644}, {"id": "CS2.5-092", "localId": "092", "name": "Dendra", "nameJa": "", "rarity": "Super Rare", "illustrator": "yuu", "image": null, "category": "", "types": [], "hp": null, "variants_detailed": [], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 3.96}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/a837cdfac47863e5.webp", "imageLarge": "https://images.pkmnprices.com/cards/a837cdfac47863e5.webp", "ppId": 58593}, {"id": "CS2.5-093", "localId": "093", "name": "Clavell", "nameJa": "", "rarity": "Super Rare", "illustrator": "Hitoshi Ariga", "image": null, "category": "", "types": [], "hp": null, "variants_detailed": [], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 1.09}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/62ff17d3920eb0d1.webp", "imageLarge": "https://images.pkmnprices.com/cards/62ff17d3920eb0d1.webp", "ppId": 58580}, {"id": "CS2.5-094", "localId": "094", "name": "Falkner", "nameJa": "", "rarity": "Super Rare", "illustrator": "Ryuta Fuse", "image": null, "category": "", "types": [], "hp": null, "variants_detailed": [], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 2.07}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/e3c0c7386f3e8273.webp", "imageLarge": "https://images.pkmnprices.com/cards/e3c0c7386f3e8273.webp", "ppId": 58725}, {"id": "CS2.5-095", "localId": "095", "name": "Boss's Orders", "nameJa": "", "rarity": "Super Rare", "illustrator": "nagimiso", "image": null, "category": "", "types": [], "hp": null, "variants_detailed": [], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 8.36}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/e411069e6a1fa881.webp", "imageLarge": "https://images.pkmnprices.com/cards/e411069e6a1fa881.webp", "ppId": 58587}, {"id": "CS2.5-096", "localId": "096", "name": "Meowscarada ex", "nameJa": "", "rarity": "Special Art Rare", "illustrator": "Kouki Saitou", "image": null, "category": "", "types": [], "hp": 310, "variants_detailed": [], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 50.35}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/5d3e233dd8123c47.webp", "imageLarge": "https://images.pkmnprices.com/cards/5d3e233dd8123c47.webp", "ppId": 58561}, {"id": "CS2.5-097", "localId": "097", "name": "Skeledirge ex", "nameJa": "", "rarity": "Special Art Rare", "illustrator": "5ban Graphics", "image": null, "category": "", "types": [], "hp": 340, "variants_detailed": [], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 51.11}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/ff92d77ba02b7388.webp", "imageLarge": "https://images.pkmnprices.com/cards/ff92d77ba02b7388.webp", "ppId": 58582}, {"id": "CS2.5-098", "localId": "098", "name": "Quaquaval ex", "nameJa": "", "rarity": "Special Art Rare", "illustrator": "5ban Graphics", "image": null, "category": "", "types": [], "hp": 320, "variants_detailed": [], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 23.22}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/68a8175816c48f42.webp", "imageLarge": "https://images.pkmnprices.com/cards/68a8175816c48f42.webp", "ppId": 58592}, {"id": "CS2.5-099", "localId": "099", "name": "Dendra", "nameJa": "", "rarity": "Special Art Rare", "illustrator": "yuu", "image": null, "category": "", "types": [], "hp": null, "variants_detailed": [], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 47.54}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/2b12e9e76d7bc128.webp", "imageLarge": "https://images.pkmnprices.com/cards/2b12e9e76d7bc128.webp", "ppId": 58635}, {"id": "CS2.5-100", "localId": "100", "name": "Boss's Orders", "nameJa": "", "rarity": "Special Art Rare", "illustrator": "nagimiso", "image": null, "category": "", "types": [], "hp": null, "variants_detailed": [], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 18.57}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/05c9a49ef2511708.webp", "imageLarge": "https://images.pkmnprices.com/cards/05c9a49ef2511708.webp", "ppId": 58652}, {"id": "CS2.5-101", "localId": "101", "name": "Meowscarada ex", "nameJa": "", "rarity": "Ultra Rare", "illustrator": "5ban Graphics", "image": null, "category": "", "types": [], "hp": 310, "variants_detailed": [], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 13.69}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/68494b8a84b20333.webp", "imageLarge": "https://images.pkmnprices.com/cards/68494b8a84b20333.webp", "ppId": 58615}, {"id": "CS2.5-102", "localId": "102", "name": "Skeledirge ex", "nameJa": "", "rarity": "Ultra Rare", "illustrator": "5ban Graphics", "image": null, "category": "", "types": [], "hp": 340, "variants_detailed": [], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 7.17}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/0f6e9a1bc58d5536.webp", "imageLarge": "https://images.pkmnprices.com/cards/0f6e9a1bc58d5536.webp", "ppId": 58630}, {"id": "CS2.5-103", "localId": "103", "name": "Quaquaval ex", "nameJa": "", "rarity": "Ultra Rare", "illustrator": "5ban Graphics", "image": null, "category": "", "types": [], "hp": 320, "variants_detailed": [], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 6.82}}, "currency": "USD", "pricedAt": "2026-09-21T01:14:45Z"}, "imageSmall": "https://images.pkmnprices.com/cards/2b8c0404858802af.webp", "imageLarge": "https://images.pkmnprices.com/cards/2b8c0404858802af.webp", "ppId": 58641}]}
+{
+ "generated_at": "2026-09-16T01:44:25.342459+00:00",
+ "set": {
+  "id": "CS2.5",
+  "name": "Triplet Beat",
+  "series": "剣と盾",
+  "releaseDate": "2024-04-26",
+  "logo": null,
+  "symbol": "/data/tcgdex/set-symbols/ja/CS2.5.png",
+  "printedTotal": 101,
+  "total": 101,
+  "lang": "ja",
+  "nameJa": "トリプレットビート"
+ },
+ "cards": [
+  {
+   "id": "CS2.5-001",
+   "localId": "001",
+   "name": "Tropius",
+   "nameJa": "",
+   "rarity": "Common",
+   "illustrator": "Taira Akitsu",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 110,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.13
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T03:40:29Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/41a3d5da043aca5c.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/41a3d5da043aca5c.webp",
+   "ppId": 58603
+  },
+  {
+   "id": "CS2.5-002",
+   "localId": "002",
+   "name": "Foongus",
+   "nameJa": "",
+   "rarity": "Common",
+   "illustrator": "You Iribi",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 50,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.13
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/fbd7683e36d914c4.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/fbd7683e36d914c4.webp",
+   "ppId": 58672
+  },
+  {
+   "id": "CS2.5-003",
+   "localId": "003",
+   "name": "Amoonguss",
+   "nameJa": "",
+   "rarity": "Uncommon",
+   "illustrator": "Nobuhiro Imagawa",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 110,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.12
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/adb84589866afefa.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/adb84589866afefa.webp",
+   "ppId": 58639
+  },
+  {
+   "id": "CS2.5-004",
+   "localId": "004",
+   "name": "Sprigatito",
+   "nameJa": "",
+   "rarity": "Common",
+   "illustrator": "Megumi Mizutani",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 60,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.18
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/6c7c77088eb038d2.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/6c7c77088eb038d2.webp",
+   "ppId": 58643
+  },
+  {
+   "id": "CS2.5-005",
+   "localId": "005",
+   "name": "Sprigatito",
+   "nameJa": "",
+   "rarity": "Common",
+   "illustrator": "Naoyo Kimura",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 70,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.22
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/65e1767f4ce9a533.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/65e1767f4ce9a533.webp",
+   "ppId": 58590
+  },
+  {
+   "id": "CS2.5-006",
+   "localId": "006",
+   "name": "Floragato",
+   "nameJa": "",
+   "rarity": "Common",
+   "illustrator": "nagimiso",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 90,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.15
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/ab09fb5aee4dc3e9.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/ab09fb5aee4dc3e9.webp",
+   "ppId": 58614
+  },
+  {
+   "id": "CS2.5-007",
+   "localId": "007",
+   "name": "Meowscarada ex",
+   "nameJa": "",
+   "rarity": "Double Rare",
+   "illustrator": "5ban Graphics",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 310,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 0.45
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/7081233570c6375a.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/7081233570c6375a.webp",
+   "ppId": 58577
+  },
+  {
+   "id": "CS2.5-008",
+   "localId": "008",
+   "name": "Nymble",
+   "nameJa": "",
+   "rarity": "Common",
+   "illustrator": "Shin Nagasawa",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 40,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.03
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/f45c097c75cc0580.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/f45c097c75cc0580.webp",
+   "ppId": 58636
+  },
+  {
+   "id": "CS2.5-009",
+   "localId": "009",
+   "name": "Nymble",
+   "nameJa": "",
+   "rarity": "Common",
+   "illustrator": "Sekio",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 50,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.1
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/e9c1ebee1972f0cb.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/e9c1ebee1972f0cb.webp",
+   "ppId": 58666
+  },
+  {
+   "id": "CS2.5-010",
+   "localId": "010",
+   "name": "Lokix",
+   "nameJa": "",
+   "rarity": "Rare",
+   "illustrator": "Anesaki Dynamic",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 120,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 0.21
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/5fc81b260505adb2.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/5fc81b260505adb2.webp",
+   "ppId": 58570
+  },
+  {
+   "id": "CS2.5-011",
+   "localId": "011",
+   "name": "Paldean Tauros",
+   "nameJa": "",
+   "rarity": "Uncommon",
+   "illustrator": "",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 130,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.21
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/34d9599745172aad.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/34d9599745172aad.webp",
+   "ppId": 58566
+  },
+  {
+   "id": "CS2.5-012",
+   "localId": "012",
+   "name": "Larvesta",
+   "nameJa": "",
+   "rarity": "Common",
+   "illustrator": "Yuka Morii",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 80,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.23
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/b9bd0908d2120cf6.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/b9bd0908d2120cf6.webp",
+   "ppId": 58632
+  },
+  {
+   "id": "CS2.5-013",
+   "localId": "013",
+   "name": "Volcarona",
+   "nameJa": "",
+   "rarity": "Common",
+   "illustrator": "Yukiko Baba",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 140,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.17
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/bbe939c6b6d84d80.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/bbe939c6b6d84d80.webp",
+   "ppId": 58583
+  },
+  {
+   "id": "CS2.5-014",
+   "localId": "014",
+   "name": "Litleo",
+   "nameJa": "",
+   "rarity": "Common",
+   "illustrator": "Yuu Nishida",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 70,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.13
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/7f88ebdb17b5cb9f.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/7f88ebdb17b5cb9f.webp",
+   "ppId": 58629
+  },
+  {
+   "id": "CS2.5-015",
+   "localId": "015",
+   "name": "Pyroar",
+   "nameJa": "",
+   "rarity": "Uncommon",
+   "illustrator": "Uta",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 120,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.19
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:07:51Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/d03c955d54338f96.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/d03c955d54338f96.webp",
+   "ppId": 58620
+  },
+  {
+   "id": "CS2.5-016",
+   "localId": "016",
+   "name": "Oricorio",
+   "nameJa": "",
+   "rarity": "Rare",
+   "illustrator": "",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 90,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 0.22
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/f299d92a547175c3.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/f299d92a547175c3.webp",
+   "ppId": 58691
+  },
+  {
+   "id": "CS2.5-017",
+   "localId": "017",
+   "name": "Fuecoco",
+   "nameJa": "",
+   "rarity": "Common",
+   "illustrator": "Ito Kyoko",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 80,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.14
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/c29256bf7746fa90.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/c29256bf7746fa90.webp",
+   "ppId": 58665
+  },
+  {
+   "id": "CS2.5-018",
+   "localId": "018",
+   "name": "Fuecoco",
+   "nameJa": "",
+   "rarity": "Common",
+   "illustrator": "ryoma uratsuka",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 90,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.25
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/bc3cf2551f2116b5.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/bc3cf2551f2116b5.webp",
+   "ppId": 58594
+  },
+  {
+   "id": "CS2.5-019",
+   "localId": "019",
+   "name": "Crocalor",
+   "nameJa": "",
+   "rarity": "Common",
+   "illustrator": "Hitoshi Ariga",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 110,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.14
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/00e10b4e0277e5f0.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/00e10b4e0277e5f0.webp",
+   "ppId": 58756
+  },
+  {
+   "id": "CS2.5-020",
+   "localId": "020",
+   "name": "Skeledirge ex",
+   "nameJa": "",
+   "rarity": "Double Rare",
+   "illustrator": "5ban Graphics",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 340,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 0.34
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:07:51Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/dfe70d5389332f34.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/dfe70d5389332f34.webp",
+   "ppId": 58738
+  },
+  {
+   "id": "CS2.5-021",
+   "localId": "021",
+   "name": "Paldean Tauros",
+   "nameJa": "",
+   "rarity": "Uncommon",
+   "illustrator": "",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 130,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.14
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/32cdae0c4d7d5e9c.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/32cdae0c4d7d5e9c.webp",
+   "ppId": 58608
+  },
+  {
+   "id": "CS2.5-022",
+   "localId": "022",
+   "name": "Magikarp",
+   "nameJa": "",
+   "rarity": "Common",
+   "illustrator": "HYOGONOSUKE",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 30,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.2
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/650cfe720045ab48.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/650cfe720045ab48.webp",
+   "ppId": 58598
+  },
+  {
+   "id": "CS2.5-023",
+   "localId": "023",
+   "name": "Gyarados",
+   "nameJa": "",
+   "rarity": "Rare",
+   "illustrator": "Yuya Oka",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 180,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 0.39
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/b8265dbadd5c7f06.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/b8265dbadd5c7f06.webp",
+   "ppId": 58628
+  },
+  {
+   "id": "CS2.5-024",
+   "localId": "024",
+   "name": "Delibird",
+   "nameJa": "",
+   "rarity": "Common",
+   "illustrator": "miki kudo",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 90,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.12
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/031a3eb8a5557daf.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/031a3eb8a5557daf.webp",
+   "ppId": 58645
+  },
+  {
+   "id": "CS2.5-025",
+   "localId": "025",
+   "name": "Buizel",
+   "nameJa": "",
+   "rarity": "Common",
+   "illustrator": "Jerky",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 70,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.15
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/46f04beeb96a7d12.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/46f04beeb96a7d12.webp",
+   "ppId": 58631
+  },
+  {
+   "id": "CS2.5-026",
+   "localId": "026",
+   "name": "Floatzel",
+   "nameJa": "",
+   "rarity": "Uncommon",
+   "illustrator": "Kouki Saitou",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 110,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.11
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/3f13d225d83a3483.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/3f13d225d83a3483.webp",
+   "ppId": 58637
+  },
+  {
+   "id": "CS2.5-027",
+   "localId": "027",
+   "name": "Quaxly",
+   "nameJa": "",
+   "rarity": "Common",
+   "illustrator": "sui",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 60,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.18
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/3f4e5b587fdd2f04.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/3f4e5b587fdd2f04.webp",
+   "ppId": 58653
+  },
+  {
+   "id": "CS2.5-028",
+   "localId": "028",
+   "name": "Quaxly",
+   "nameJa": "",
+   "rarity": "Common",
+   "illustrator": "",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 70,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.14
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/0b10572a14fd75f5.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/0b10572a14fd75f5.webp",
+   "ppId": 58753
+  },
+  {
+   "id": "CS2.5-029",
+   "localId": "029",
+   "name": "Quaxwell",
+   "nameJa": "",
+   "rarity": "Common",
+   "illustrator": "Souichirou Gunjima",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 90,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.13
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/962bd5b120664382.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/962bd5b120664382.webp",
+   "ppId": 58701
+  },
+  {
+   "id": "CS2.5-030",
+   "localId": "030",
+   "name": "Quaquaval ex",
+   "nameJa": "",
+   "rarity": "Double Rare",
+   "illustrator": "5ban Graphics",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 320,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 0.29
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/cce2ae171e8a32d0.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/cce2ae171e8a32d0.webp",
+   "ppId": 58591
+  },
+  {
+   "id": "CS2.5-031",
+   "localId": "031",
+   "name": "Wattrel",
+   "nameJa": "",
+   "rarity": "Common",
+   "illustrator": "",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 60,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.08
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/62626b4de383747e.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/62626b4de383747e.webp",
+   "ppId": 58647
+  },
+  {
+   "id": "CS2.5-032",
+   "localId": "032",
+   "name": "Wattrel",
+   "nameJa": "",
+   "rarity": "Common",
+   "illustrator": "sowsow",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 60,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.24
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/a953dbe8f35b4825.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/a953dbe8f35b4825.webp",
+   "ppId": 58651
+  },
+  {
+   "id": "CS2.5-033",
+   "localId": "033",
+   "name": "Kilowattrel",
+   "nameJa": "",
+   "rarity": "Uncommon",
+   "illustrator": "Pani Kobayashi",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 120,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.09
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/538774f99a316fac.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/538774f99a316fac.webp",
+   "ppId": 58704
+  },
+  {
+   "id": "CS2.5-034",
+   "localId": "034",
+   "name": "Misdreavus",
+   "nameJa": "",
+   "rarity": "Common",
+   "illustrator": "Megumi Higuchi",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 70,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.16
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/6bc4811e42f4a0ba.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/6bc4811e42f4a0ba.webp",
+   "ppId": 58602
+  },
+  {
+   "id": "CS2.5-035",
+   "localId": "035",
+   "name": "Mismagius",
+   "nameJa": "",
+   "rarity": "Uncommon",
+   "illustrator": "Atsushi Furusawa",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 90,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.16
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/7f9e854f5da23fd5.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/7f9e854f5da23fd5.webp",
+   "ppId": 58658
+  },
+  {
+   "id": "CS2.5-036",
+   "localId": "036",
+   "name": "Spoink",
+   "nameJa": "",
+   "rarity": "Common",
+   "illustrator": "GOSSAN",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 70,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.15
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/49807830648f2543.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/49807830648f2543.webp",
+   "ppId": 58609
+  },
+  {
+   "id": "CS2.5-037",
+   "localId": "037",
+   "name": "Grumpig",
+   "nameJa": "",
+   "rarity": "Uncommon",
+   "illustrator": "Scav",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 120,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.13
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/6c5beeb75c49a90c.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/6c5beeb75c49a90c.webp",
+   "ppId": 58646
+  },
+  {
+   "id": "CS2.5-038",
+   "localId": "038",
+   "name": "Dedenne ex",
+   "nameJa": "",
+   "rarity": "Double Rare",
+   "illustrator": "aky CG Works",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 170,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 0.56
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/3de4d724210a21ba.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/3de4d724210a21ba.webp",
+   "ppId": 58558
+  },
+  {
+   "id": "CS2.5-039",
+   "localId": "039",
+   "name": "Oranguru",
+   "nameJa": "",
+   "rarity": "Uncommon",
+   "illustrator": "Toshinao Aoki",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 120,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.23
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/e56b22ac34c387c5.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/e56b22ac34c387c5.webp",
+   "ppId": 58595
+  },
+  {
+   "id": "CS2.5-040",
+   "localId": "040",
+   "name": "Tinkatink",
+   "nameJa": "",
+   "rarity": "Common",
+   "illustrator": "Mizue",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 60,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.13
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/00dc7ee914a75cf0.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/00dc7ee914a75cf0.webp",
+   "ppId": 58650
+  },
+  {
+   "id": "CS2.5-041",
+   "localId": "041",
+   "name": "Tinkatink",
+   "nameJa": "",
+   "rarity": "Common",
+   "illustrator": "Pani Kobayashi",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 70,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.18
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/626b9338b0fae2ff.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/626b9338b0fae2ff.webp",
+   "ppId": 58613
+  },
+  {
+   "id": "CS2.5-042",
+   "localId": "042",
+   "name": "Tinkatuff",
+   "nameJa": "",
+   "rarity": "Common",
+   "illustrator": "Akira Komayama",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 80,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.15
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/e54b4bfed7e6f39f.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/e54b4bfed7e6f39f.webp",
+   "ppId": 58617
+  },
+  {
+   "id": "CS2.5-043",
+   "localId": "043",
+   "name": "Tinkaton",
+   "nameJa": "",
+   "rarity": "Rare",
+   "illustrator": "",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 140,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 0.28
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/19c3ae5d9a55ed97.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/19c3ae5d9a55ed97.webp",
+   "ppId": 58576
+  },
+  {
+   "id": "CS2.5-044",
+   "localId": "044",
+   "name": "Diglett",
+   "nameJa": "",
+   "rarity": "Common",
+   "illustrator": "OKACHEKE",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 50,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.24
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/c1924eba76bbe34c.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/c1924eba76bbe34c.webp",
+   "ppId": 58589
+  },
+  {
+   "id": "CS2.5-045",
+   "localId": "045",
+   "name": "Dugtrio",
+   "nameJa": "",
+   "rarity": "Uncommon",
+   "illustrator": "Nelnal",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 90,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.14
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/8f9d79fb51253f65.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/8f9d79fb51253f65.webp",
+   "ppId": 58607
+  },
+  {
+   "id": "CS2.5-046",
+   "localId": "046",
+   "name": "Paldean Tauros",
+   "nameJa": "",
+   "rarity": "Uncommon",
+   "illustrator": "",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 130,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.14
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/94ed8fb4ab9db3b7.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/94ed8fb4ab9db3b7.webp",
+   "ppId": 58627
+  },
+  {
+   "id": "CS2.5-047",
+   "localId": "047",
+   "name": "Makuhita",
+   "nameJa": "",
+   "rarity": "Common",
+   "illustrator": "Kurata So",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 90,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.13
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/63f3ca7712bd8f80.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/63f3ca7712bd8f80.webp",
+   "ppId": 58612
+  },
+  {
+   "id": "CS2.5-048",
+   "localId": "048",
+   "name": "Hariyama",
+   "nameJa": "",
+   "rarity": "Rare",
+   "illustrator": "Hasuno",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 140,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 0.24
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/937ce2a6efc143b7.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/937ce2a6efc143b7.webp",
+   "ppId": 58664
+  },
+  {
+   "id": "CS2.5-049",
+   "localId": "049",
+   "name": "Rockruff",
+   "nameJa": "",
+   "rarity": "Common",
+   "illustrator": "313",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 70,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.11
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/928fd1b5b3a50503.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/928fd1b5b3a50503.webp",
+   "ppId": 58619
+  },
+  {
+   "id": "CS2.5-050",
+   "localId": "050",
+   "name": "Lycanroc ex",
+   "nameJa": "",
+   "rarity": "Double Rare",
+   "illustrator": "kawayoo",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 260,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 0.39
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/43773ea1baf89be4.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/43773ea1baf89be4.webp",
+   "ppId": 58551
+  },
+  {
+   "id": "CS2.5-051",
+   "localId": "051",
+   "name": "Falinks",
+   "nameJa": "",
+   "rarity": "Common",
+   "illustrator": "kurumitsu",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 110,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.16
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/c5c8b029716ba424.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/c5c8b029716ba424.webp",
+   "ppId": 58640
+  },
+  {
+   "id": "CS2.5-052",
+   "localId": "052",
+   "name": "Paldean Wooper",
+   "nameJa": "",
+   "rarity": "Common",
+   "illustrator": "Saya Tsuruta",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 60,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.26
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/3f032413a20ee226.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/3f032413a20ee226.webp",
+   "ppId": 58618
+  },
+  {
+   "id": "CS2.5-053",
+   "localId": "053",
+   "name": "Paldean Wooper",
+   "nameJa": "",
+   "rarity": "Common",
+   "illustrator": "Kouki Saitou",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 60,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.2
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/34b0e182c9ba9e08.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/34b0e182c9ba9e08.webp",
+   "ppId": 58625
+  },
+  {
+   "id": "CS2.5-054",
+   "localId": "054",
+   "name": "Paldean Clodsire ex",
+   "nameJa": "",
+   "rarity": "Double Rare",
+   "illustrator": "PLANETA Mochizuki",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 280,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 0.45
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/a5efe55450de8618.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/a5efe55450de8618.webp",
+   "ppId": 58596
+  },
+  {
+   "id": "CS2.5-055",
+   "localId": "055",
+   "name": "Sableye",
+   "nameJa": "",
+   "rarity": "Rare",
+   "illustrator": "",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 70,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 0.23
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/dc9663aff07f7b71.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/dc9663aff07f7b71.webp",
+   "ppId": 58720
+  },
+  {
+   "id": "CS2.5-056",
+   "localId": "056",
+   "name": "Seviper",
+   "nameJa": "",
+   "rarity": "Uncommon",
+   "illustrator": "Nisota Niso",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 110,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.11
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/d4c46b2a5d479e7f.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/d4c46b2a5d479e7f.webp",
+   "ppId": 58634
+  },
+  {
+   "id": "CS2.5-057",
+   "localId": "057",
+   "name": "Deino",
+   "nameJa": "",
+   "rarity": "Common",
+   "illustrator": "Narumi Sato",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 70,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.11
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/b2d9ad94e8b84ae3.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/b2d9ad94e8b84ae3.webp",
+   "ppId": 58752
+  },
+  {
+   "id": "CS2.5-058",
+   "localId": "058",
+   "name": "Zweilous",
+   "nameJa": "",
+   "rarity": "Common",
+   "illustrator": "nagimiso",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 100,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.09
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/20f9121d3065b0ea.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/20f9121d3065b0ea.webp",
+   "ppId": 58669
+  },
+  {
+   "id": "CS2.5-059",
+   "localId": "059",
+   "name": "Hydreigon",
+   "nameJa": "",
+   "rarity": "Rare",
+   "illustrator": "Teeziro",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 180,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 0.42
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/46ef8421fb0311da.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/46ef8421fb0311da.webp",
+   "ppId": 58759
+  },
+  {
+   "id": "CS2.5-060",
+   "localId": "060",
+   "name": "Salandit",
+   "nameJa": "",
+   "rarity": "Common",
+   "illustrator": "Shiburingaru",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 70,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.06
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/e258951d68d447f4.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/e258951d68d447f4.webp",
+   "ppId": 58656
+  },
+  {
+   "id": "CS2.5-061",
+   "localId": "061",
+   "name": "Salazzle",
+   "nameJa": "",
+   "rarity": "Uncommon",
+   "illustrator": "Shigenori Negishi",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 120,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.09
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/c73977b4dc94658a.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/c73977b4dc94658a.webp",
+   "ppId": 58624
+  },
+  {
+   "id": "CS2.5-062",
+   "localId": "062",
+   "name": "Yungoos",
+   "nameJa": "",
+   "rarity": "Common",
+   "illustrator": "saino misaki",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 70,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.08
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/588bd7b244e762a9.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/588bd7b244e762a9.webp",
+   "ppId": 58649
+  },
+  {
+   "id": "CS2.5-063",
+   "localId": "063",
+   "name": "Gumshoos",
+   "nameJa": "",
+   "rarity": "Uncommon",
+   "illustrator": "Eri Yamaki",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 120,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.11
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/3ebd5d9dc05daca2.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/3ebd5d9dc05daca2.webp",
+   "ppId": 58739
+  },
+  {
+   "id": "CS2.5-064",
+   "localId": "064",
+   "name": "Superior Energy Retrieval",
+   "nameJa": "",
+   "rarity": "Uncommon",
+   "illustrator": "",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": null,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.07
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/0fe48f3601a6fa94.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/0fe48f3601a6fa94.webp",
+   "ppId": 58722
+  },
+  {
+   "id": "CS2.5-065",
+   "localId": "065",
+   "name": "Great Ball",
+   "nameJa": "",
+   "rarity": "Uncommon",
+   "illustrator": "",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": null,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.06
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/9dbb3b360817bc71.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/9dbb3b360817bc71.webp",
+   "ppId": 58642
+  },
+  {
+   "id": "CS2.5-066",
+   "localId": "066",
+   "name": "Dendra",
+   "nameJa": "",
+   "rarity": "Uncommon",
+   "illustrator": "yuu",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": null,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.09
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/c2be6569ef8c9564.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/c2be6569ef8c9564.webp",
+   "ppId": 58633
+  },
+  {
+   "id": "CS2.5-067",
+   "localId": "067",
+   "name": "Clavell",
+   "nameJa": "",
+   "rarity": "Uncommon",
+   "illustrator": "Hitoshi Ariga",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": null,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.04
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/07fac5c0fae748c5.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/07fac5c0fae748c5.webp",
+   "ppId": 58696
+  },
+  {
+   "id": "CS2.5-068",
+   "localId": "068",
+   "name": "Falkner",
+   "nameJa": "",
+   "rarity": "Uncommon",
+   "illustrator": "Ryuta Fuse",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": null,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.09
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/fcec652a14abb105.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/fcec652a14abb105.webp",
+   "ppId": 58626
+  },
+  {
+   "id": "CS2.5-069",
+   "localId": "069",
+   "name": "Boss's Orders",
+   "nameJa": "",
+   "rarity": "Rare",
+   "illustrator": "nagimiso",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": null,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 0.26
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/fc4418b12a1415f8.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/fc4418b12a1415f8.webp",
+   "ppId": 58654
+  },
+  {
+   "id": "CS2.5-070",
+   "localId": "070",
+   "name": "Artazon",
+   "nameJa": "",
+   "rarity": "Uncommon",
+   "illustrator": "",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": null,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.19
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/e69c22e474fc6a5e.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/e69c22e474fc6a5e.webp",
+   "ppId": 58623
+  },
+  {
+   "id": "CS2.5-071",
+   "localId": "071",
+   "name": "Practice Studio",
+   "nameJa": "",
+   "rarity": "Uncommon",
+   "illustrator": "AYUMI ODASHIMA",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": null,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.1
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/1b5428ffe384cfdb.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/1b5428ffe384cfdb.webp",
+   "ppId": 58622
+  },
+  {
+   "id": "CS2.5-072",
+   "localId": "072",
+   "name": "Jet Energy",
+   "nameJa": "",
+   "rarity": "Uncommon",
+   "illustrator": "",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": null,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.14
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:07:51Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/396dfd33290a023d.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/396dfd33290a023d.webp",
+   "ppId": 58671
+  },
+  {
+   "id": "CS2.5-073",
+   "localId": "073",
+   "name": "Luminous Energy",
+   "nameJa": "",
+   "rarity": "Uncommon",
+   "illustrator": "",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": null,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.13
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/026ea194f9da6607.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/026ea194f9da6607.webp",
+   "ppId": 58737
+  },
+  {
+   "id": "CS2.5-074",
+   "localId": "074",
+   "name": "Tropius",
+   "nameJa": "",
+   "rarity": "Art Rare",
+   "illustrator": "Taira Akitsu",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 110,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 4.35
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/f8c562c26223ad5c.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/f8c562c26223ad5c.webp",
+   "ppId": 58597
+  },
+  {
+   "id": "CS2.5-075",
+   "localId": "075",
+   "name": "Sprigatito",
+   "nameJa": "",
+   "rarity": "Art Rare",
+   "illustrator": "Megumi Mizutani",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 60,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 15.95
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/58177fbc60cf7c70.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/58177fbc60cf7c70.webp",
+   "ppId": 58542
+  },
+  {
+   "id": "CS2.5-076",
+   "localId": "076",
+   "name": "Floragato",
+   "nameJa": "",
+   "rarity": "Art Rare",
+   "illustrator": " Kouki Saitou",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 90,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 7.02
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/ae465a96e3ae8a27.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/ae465a96e3ae8a27.webp",
+   "ppId": 58554
+  },
+  {
+   "id": "CS2.5-077",
+   "localId": "077",
+   "name": "Pyroar",
+   "nameJa": "",
+   "rarity": "Art Rare",
+   "illustrator": "Uta",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 120,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 3.6
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/cfef2f83b07e7641.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/cfef2f83b07e7641.webp",
+   "ppId": 58610
+  },
+  {
+   "id": "CS2.5-078",
+   "localId": "078",
+   "name": "Fuecoco",
+   "nameJa": "",
+   "rarity": "Art Rare",
+   "illustrator": "ryoma uratsuka",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 90,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 13.22
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/8b850e8d1ad35da5.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/8b850e8d1ad35da5.webp",
+   "ppId": 58578
+  },
+  {
+   "id": "CS2.5-079",
+   "localId": "079",
+   "name": "Crocalor",
+   "nameJa": "",
+   "rarity": "Art Rare",
+   "illustrator": "Hitoshi Ariga",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 110,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 5.29
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/6a6994ed76f2814a.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/6a6994ed76f2814a.webp",
+   "ppId": 58534
+  },
+  {
+   "id": "CS2.5-080",
+   "localId": "080",
+   "name": "Magikarp",
+   "nameJa": "",
+   "rarity": "Art Rare",
+   "illustrator": "Shinji Kanda",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 30,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 158.28
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:07:51Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/b44cf7bb679471ad.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/b44cf7bb679471ad.webp",
+   "ppId": 58604
+  },
+  {
+   "id": "CS2.5-081",
+   "localId": "081",
+   "name": "Quaxly",
+   "nameJa": "",
+   "rarity": "Art Rare",
+   "illustrator": "sui",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 60,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 4.44
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/21c9e55f77c05d47.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/21c9e55f77c05d47.webp",
+   "ppId": 58581
+  },
+  {
+   "id": "CS2.5-082",
+   "localId": "082",
+   "name": "Quaxwell",
+   "nameJa": "",
+   "rarity": "Art Rare",
+   "illustrator": "Souichirou Gunjima",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 90,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 2.62
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/6fd2a41fad4aae67.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/6fd2a41fad4aae67.webp",
+   "ppId": 58556
+  },
+  {
+   "id": "CS2.5-083",
+   "localId": "083",
+   "name": "Mismagius",
+   "nameJa": "",
+   "rarity": "Art Rare",
+   "illustrator": "Atsushi Furusawa",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 90,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 13.11
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/3ea27df3c64438fd.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/3ea27df3c64438fd.webp",
+   "ppId": 58543
+  },
+  {
+   "id": "CS2.5-084",
+   "localId": "084",
+   "name": "Paldean Tauros",
+   "nameJa": "",
+   "rarity": "Art Rare",
+   "illustrator": "",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 130,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 3.74
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/f20e32be683f777a.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/f20e32be683f777a.webp",
+   "ppId": 58601
+  },
+  {
+   "id": "CS2.5-085",
+   "localId": "085",
+   "name": "Paldean Wooper",
+   "nameJa": "",
+   "rarity": "Art Rare",
+   "illustrator": "Kouki Saitou",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 60,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 5.3
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/2dae6520027d434f.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/2dae6520027d434f.webp",
+   "ppId": 58537
+  },
+  {
+   "id": "CS2.5-086",
+   "localId": "086",
+   "name": "Meowscarada ex",
+   "nameJa": "",
+   "rarity": "Super Rare",
+   "illustrator": "5ban Graphics",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 310,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 3.89
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/2daf79abececb292.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/2daf79abececb292.webp",
+   "ppId": 58676
+  },
+  {
+   "id": "CS2.5-087",
+   "localId": "087",
+   "name": "Skeledirge ex",
+   "nameJa": "",
+   "rarity": "Super Rare",
+   "illustrator": "5ban Graphics",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 340,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 1.57
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/551fabda2a29e2e5.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/551fabda2a29e2e5.webp",
+   "ppId": 58574
+  },
+  {
+   "id": "CS2.5-088",
+   "localId": "088",
+   "name": "Quaquaval ex",
+   "nameJa": "",
+   "rarity": "Super Rare",
+   "illustrator": "5ban Graphics",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 320,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 1.3
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/700b8ae0c356efe5.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/700b8ae0c356efe5.webp",
+   "ppId": 58611
+  },
+  {
+   "id": "CS2.5-089",
+   "localId": "089",
+   "name": "Dedenne ex",
+   "nameJa": "",
+   "rarity": "Super Rare",
+   "illustrator": "aky CG Works",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 170,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 13.23
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/b4e941537679d350.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/b4e941537679d350.webp",
+   "ppId": 58621
+  },
+  {
+   "id": "CS2.5-090",
+   "localId": "090",
+   "name": "Lycanroc ex",
+   "nameJa": "",
+   "rarity": "Super Rare",
+   "illustrator": "kawayoo",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 260,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 1.58
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:07:51Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/9db9c2ed94dacf64.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/9db9c2ed94dacf64.webp",
+   "ppId": 58572
+  },
+  {
+   "id": "CS2.5-091",
+   "localId": "091",
+   "name": "Paldean Clodsire ex",
+   "nameJa": "",
+   "rarity": "Super Rare",
+   "illustrator": "PLANETA Mochizuki",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 280,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 3.34
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/78a0651995970b36.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/78a0651995970b36.webp",
+   "ppId": 58644
+  },
+  {
+   "id": "CS2.5-092",
+   "localId": "092",
+   "name": "Dendra",
+   "nameJa": "",
+   "rarity": "Super Rare",
+   "illustrator": "yuu",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": null,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 3.96
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/a837cdfac47863e5.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/a837cdfac47863e5.webp",
+   "ppId": 58593
+  },
+  {
+   "id": "CS2.5-093",
+   "localId": "093",
+   "name": "Clavell",
+   "nameJa": "",
+   "rarity": "Super Rare",
+   "illustrator": "Hitoshi Ariga",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": null,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 1.09
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/62ff17d3920eb0d1.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/62ff17d3920eb0d1.webp",
+   "ppId": 58580
+  },
+  {
+   "id": "CS2.5-094",
+   "localId": "094",
+   "name": "Falkner",
+   "nameJa": "",
+   "rarity": "Super Rare",
+   "illustrator": "Ryuta Fuse",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": null,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 2.07
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/e3c0c7386f3e8273.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/e3c0c7386f3e8273.webp",
+   "ppId": 58725
+  },
+  {
+   "id": "CS2.5-095",
+   "localId": "095",
+   "name": "Boss's Orders",
+   "nameJa": "",
+   "rarity": "Super Rare",
+   "illustrator": "nagimiso",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": null,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 8.36
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/e411069e6a1fa881.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/e411069e6a1fa881.webp",
+   "ppId": 58587
+  },
+  {
+   "id": "CS2.5-096",
+   "localId": "096",
+   "name": "Meowscarada ex",
+   "nameJa": "",
+   "rarity": "Special Art Rare",
+   "illustrator": "Kouki Saitou",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 310,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 50.35
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/5d3e233dd8123c47.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/5d3e233dd8123c47.webp",
+   "ppId": 58561
+  },
+  {
+   "id": "CS2.5-097",
+   "localId": "097",
+   "name": "Skeledirge ex",
+   "nameJa": "",
+   "rarity": "Special Art Rare",
+   "illustrator": "5ban Graphics",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 340,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 51.11
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/ff92d77ba02b7388.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/ff92d77ba02b7388.webp",
+   "ppId": 58582
+  },
+  {
+   "id": "CS2.5-098",
+   "localId": "098",
+   "name": "Quaquaval ex",
+   "nameJa": "",
+   "rarity": "Special Art Rare",
+   "illustrator": "5ban Graphics",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 320,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 23.22
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/68a8175816c48f42.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/68a8175816c48f42.webp",
+   "ppId": 58592
+  },
+  {
+   "id": "CS2.5-099",
+   "localId": "099",
+   "name": "Dendra",
+   "nameJa": "",
+   "rarity": "Special Art Rare",
+   "illustrator": "yuu",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": null,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 47.54
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/2b12e9e76d7bc128.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/2b12e9e76d7bc128.webp",
+   "ppId": 58635
+  },
+  {
+   "id": "CS2.5-100",
+   "localId": "100",
+   "name": "Boss's Orders",
+   "nameJa": "",
+   "rarity": "Special Art Rare",
+   "illustrator": "nagimiso",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": null,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 18.57
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/05c9a49ef2511708.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/05c9a49ef2511708.webp",
+   "ppId": 58652
+  },
+  {
+   "id": "CS2.5-101",
+   "localId": "101",
+   "name": "Meowscarada ex",
+   "nameJa": "",
+   "rarity": "Ultra Rare",
+   "illustrator": "5ban Graphics",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 310,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 13.69
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/68494b8a84b20333.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/68494b8a84b20333.webp",
+   "ppId": 58615
+  },
+  {
+   "id": "CS2.5-102",
+   "localId": "102",
+   "name": "Skeledirge ex",
+   "nameJa": "",
+   "rarity": "Ultra Rare",
+   "illustrator": "5ban Graphics",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 340,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 7.17
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/0f6e9a1bc58d5536.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/0f6e9a1bc58d5536.webp",
+   "ppId": 58630
+  },
+  {
+   "id": "CS2.5-103",
+   "localId": "103",
+   "name": "Quaquaval ex",
+   "nameJa": "",
+   "rarity": "Ultra Rare",
+   "illustrator": "5ban Graphics",
+   "image": null,
+   "category": "",
+   "types": [],
+   "hp": 320,
+   "variants_detailed": [],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 6.82
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T01:14:45Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/2b8c0404858802af.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/2b8c0404858802af.webp",
+   "ppId": 58641
+  }
+ ]
+}

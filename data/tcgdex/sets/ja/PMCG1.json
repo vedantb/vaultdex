@@ -1,1 +1,3569 @@
-{"generated_at": "2026-09-16T02:10:36.444167+00:00", "set": {"id": "PMCG1", "name": "Expansion Pack", "series": "ポケットモンスターカードゲーム", "releaseDate": "1996-10-20", "logo": null, "symbol": "/data/tcgdex/set-symbols/ja/PMCG1.png", "printedTotal": 102, "total": 102, "lang": "ja", "nameJa": "拡張パック"}, "cards": [{"id": "PMCG1-001", "localId": "001", "name": "Bulbasaur", "rarity": "Common", "illustrator": "Mitsuhiro Arita", "image": null, "category": "Pokemon", "types": ["Grass"], "hp": 40, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 7.6}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "フシギダネ", "imageSmall": "https://archives.bulbagarden.net/media/upload/b/b2/BulbasaurBaseSet44.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/b/b2/BulbasaurBaseSet44.jpg", "ppId": 135558}, {"id": "PMCG1-002", "localId": "002", "name": "Caterpie", "rarity": "Common", "illustrator": "Ken Sugimori", "image": null, "category": "Pokemon", "types": ["Grass"], "hp": 40, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.91}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "キャタピー", "imageSmall": "https://archives.bulbagarden.net/media/upload/9/9f/CaterpieBaseSet45.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/9/9f/CaterpieBaseSet45.jpg", "ppId": 135544}, {"id": "PMCG1-003", "localId": "003", "name": "Metapod", "rarity": "Common", "illustrator": "Ken Sugimori", "image": null, "category": "Pokemon", "types": ["Grass"], "hp": 70, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 1.09}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "トランセル", "imageSmall": "https://archives.bulbagarden.net/media/upload/c/cb/MetapodBaseSet54.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/c/cb/MetapodBaseSet54.jpg", "ppId": 135561}, {"id": "PMCG1-004", "localId": "004", "name": "Weedle", "rarity": "Common", "illustrator": "Mitsuhiro Arita", "image": null, "category": "Pokemon", "types": ["Grass"], "hp": 40, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.72}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "ビードル", "imageSmall": "https://archives.bulbagarden.net/media/upload/6/63/WeedleBaseSet69.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/6/63/WeedleBaseSet69.jpg", "ppId": 135575}, {"id": "PMCG1-005", "localId": "005", "name": "Nidoran♂", "rarity": "Common", "illustrator": "Ken Sugimori", "image": null, "category": "Pokemon", "types": ["Grass"], "hp": 40, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": null, "nameJa": "ニドラン♂", "imageSmall": "https://archives.bulbagarden.net/media/upload/9/97/NidoranBaseSet55.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/9/97/NidoranBaseSet55.jpg"}, {"id": "PMCG1-006", "localId": "006", "name": "Koffing", "rarity": "Common", "illustrator": "Mitsuhiro Arita", "image": null, "category": "Pokemon", "types": ["Grass"], "hp": 50, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.91}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "ドガース", "imageSmall": "https://archives.bulbagarden.net/media/upload/9/96/KoffingBaseSet51.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/9/96/KoffingBaseSet51.jpg", "ppId": 135551}, {"id": "PMCG1-007", "localId": "007", "name": "Tangela", "rarity": "Common", "illustrator": "Mitsuhiro Arita", "image": null, "category": "Pokemon", "types": ["Grass"], "hp": 50, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.78}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "モンジャラ", "imageSmall": "https://archives.bulbagarden.net/media/upload/0/03/TangelaBaseSet66.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/0/03/TangelaBaseSet66.jpg", "ppId": 135593}, {"id": "PMCG1-008", "localId": "008", "name": "Ivysaur", "rarity": "Uncommon", "illustrator": "Ken Sugimori", "image": null, "category": "Pokemon", "types": ["Grass"], "hp": 60, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 6.32}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "フシギソウ", "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/b/b4/IvysaurBaseSet30.jpg/400px-IvysaurBaseSet30.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/b/b4/IvysaurBaseSet30.jpg", "ppId": 135588}, {"id": "PMCG1-009", "localId": "009", "name": "Kakuna", "rarity": "Uncommon", "illustrator": "Keiji Kinebuchi", "image": null, "category": "Pokemon", "types": ["Grass"], "hp": 80, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 2.14}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "コクーン", "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/4/40/KakunaBaseSet33.jpg/400px-KakunaBaseSet33.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/4/40/KakunaBaseSet33.jpg", "ppId": 135611}, {"id": "PMCG1-010", "localId": "010", "name": "Nidorino", "rarity": "Uncommon", "illustrator": "Mitsuhiro Arita", "image": null, "category": "Pokemon", "types": ["Grass"], "hp": 60, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 1.73}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "ニドリーノ", "imageSmall": "https://archives.bulbagarden.net/media/upload/b/b3/NidorinoBaseSet37.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/b/b3/NidorinoBaseSet37.jpg", "ppId": 135637}, {"id": "PMCG1-011", "localId": "011", "name": "Venusaur", "rarity": "Holo Rare", "illustrator": "Mitsuhiro Arita", "image": null, "category": "Pokemon", "types": ["Grass"], "hp": 100, "variants_detailed": [{"type": "holo", "foil": null}, {"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 124.99}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "フシギバナ", "imageSmall": "https://archives.bulbagarden.net/media/upload/a/a4/VenusaurBaseSet15.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/a/a4/VenusaurBaseSet15.jpg", "ppId": 135565}, {"id": "PMCG1-012", "localId": "012", "name": "Beedrill", "rarity": "Rare", "illustrator": "Ken Sugimori", "image": null, "category": "Pokemon", "types": ["Grass"], "hp": 80, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 30.84}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "スピアー", "imageSmall": "https://archives.bulbagarden.net/media/upload/7/7f/BeedrillBaseSet17.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/7/7f/BeedrillBaseSet17.jpg", "ppId": 135619}, {"id": "PMCG1-013", "localId": "013", "name": "Nidoking", "rarity": "Holo Rare", "illustrator": "Ken Sugimori", "image": null, "category": "Pokemon", "types": ["Grass"], "hp": 90, "variants_detailed": [{"type": "holo", "foil": null}, {"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 30.9}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "ニドキング", "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/f/f8/NidokingBaseSet11.jpg/400px-NidokingBaseSet11.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/f/f8/NidokingBaseSet11.jpg", "ppId": 135579}, {"id": "PMCG1-014", "localId": "014", "name": "Charmander", "rarity": "Common", "illustrator": "Mitsuhiro Arita", "image": null, "category": "Pokemon", "types": ["Fire"], "hp": 50, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 4.79}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "ヒトカゲ", "imageSmall": "https://archives.bulbagarden.net/media/upload/1/1d/CharmanderBaseSet46.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/1/1d/CharmanderBaseSet46.jpg", "ppId": 135543}, {"id": "PMCG1-015", "localId": "015", "name": "Vulpix", "rarity": "Common", "illustrator": "Ken Sugimori", "image": null, "category": "Pokemon", "types": ["Fire"], "hp": 50, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 1.48}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "ロコン", "imageSmall": "https://archives.bulbagarden.net/media/upload/8/8e/VulpixBaseSet68.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/8/8e/VulpixBaseSet68.jpg", "ppId": 135589}, {"id": "PMCG1-016", "localId": "016", "name": "Ponyta", "rarity": "Common", "illustrator": "Ken Sugimori", "image": null, "category": "Pokemon", "types": ["Fire"], "hp": 40, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 1.1}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "ポニータ", "imageSmall": "https://archives.bulbagarden.net/media/upload/1/13/PonytaBaseSet60.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/1/13/PonytaBaseSet60.jpg", "ppId": 135559}, {"id": "PMCG1-017", "localId": "017", "name": "Charmeleon", "rarity": "Uncommon", "illustrator": "Mitsuhiro Arita", "image": null, "category": "Pokemon", "types": ["Fire"], "hp": 80, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 6.55}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "リザード", "imageSmall": "https://archives.bulbagarden.net/media/upload/9/99/CharmeleonBaseSet24.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/9/99/CharmeleonBaseSet24.jpg", "ppId": 135603}, {"id": "PMCG1-018", "localId": "018", "name": "Growlithe", "rarity": "Uncommon", "illustrator": "Ken Sugimori", "image": null, "category": "Pokemon", "types": ["Fire"], "hp": 60, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 2.11}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "ガーディ", "imageSmall": "https://archives.bulbagarden.net/media/upload/b/b1/GrowlitheBaseSet28.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/b/b1/GrowlitheBaseSet28.jpg", "ppId": 135552}, {"id": "PMCG1-019", "localId": "019", "name": "Arcanine", "rarity": "Uncommon", "illustrator": "Ken Sugimori", "image": null, "category": "Pokemon", "types": ["Fire"], "hp": 100, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 3.91}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "ウィンディ", "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/4/48/ArcanineBaseSet23.jpg/400px-ArcanineBaseSet23.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/4/48/ArcanineBaseSet23.jpg", "ppId": 135629}, {"id": "PMCG1-020", "localId": "020", "name": "Magmar", "rarity": "Uncommon", "illustrator": "Ken Sugimori", "image": null, "category": "Pokemon", "types": ["Fire"], "hp": 50, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 2.11}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "ブーバー", "imageSmall": "https://archives.bulbagarden.net/media/upload/9/9f/MagmarBaseSet36.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/9/9f/MagmarBaseSet36.jpg", "ppId": 135616}, {"id": "PMCG1-021", "localId": "021", "name": "Charizard", "rarity": "Holo Rare", "illustrator": "Mitsuhiro Arita", "image": null, "category": "Pokemon", "types": ["Fire"], "hp": 120, "variants_detailed": [{"type": "holo", "foil": null}, {"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 800.0}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "リザードン", "imageSmall": "https://archives.bulbagarden.net/media/upload/4/4e/CharizardBaseSet4.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/4/4e/CharizardBaseSet4.jpg", "ppId": 135576}, {"id": "PMCG1-022", "localId": "022", "name": "Ninetales", "rarity": "Holo Rare", "illustrator": "Ken Sugimori", "image": null, "category": "Pokemon", "types": ["Fire"], "hp": 80, "variants_detailed": [{"type": "holo", "foil": null}, {"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 35.65}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "キュウコン", "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/8/8b/NinetalesBaseSet12.jpg/400px-NinetalesBaseSet12.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/8/8b/NinetalesBaseSet12.jpg", "ppId": 135545}, {"id": "PMCG1-023", "localId": "023", "name": "Squirtle", "rarity": "Common", "illustrator": "Mitsuhiro Arita", "image": null, "category": "Pokemon", "types": ["Water"], "hp": 40, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 10.17}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "ゼニガメ", "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/7/74/SquirtleBaseSet63.jpg/400px-SquirtleBaseSet63.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/7/74/SquirtleBaseSet63.jpg", "ppId": 135572}, {"id": "PMCG1-024", "localId": "024", "name": "Poliwag", "rarity": "Common", "illustrator": "Ken Sugimori", "image": null, "category": "Pokemon", "types": ["Water"], "hp": 40, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 1.09}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "ニョロモ", "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/7/79/PoliwagBaseSet59.jpg/400px-PoliwagBaseSet59.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/7/79/PoliwagBaseSet59.jpg", "ppId": 135583}, {"id": "PMCG1-025", "localId": "025", "name": "Staryu", "rarity": "Common", "illustrator": "Keiji Kinebuchi", "image": null, "category": "Pokemon", "types": ["Water"], "hp": 40, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.74}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "ヒトデマン", "imageSmall": "https://archives.bulbagarden.net/media/upload/b/b8/StaryuBaseSet65.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/b/b8/StaryuBaseSet65.jpg", "ppId": 135585}, {"id": "PMCG1-026", "localId": "026", "name": "Starmie", "rarity": "Common", "illustrator": "Keiji Kinebuchi", "image": null, "category": "Pokemon", "types": ["Water"], "hp": 60, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.92}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "スターミー", "imageSmall": "https://archives.bulbagarden.net/media/upload/8/8e/StarmieBaseSet64.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/8/8e/StarmieBaseSet64.jpg", "ppId": 135564}, {"id": "PMCG1-027", "localId": "027", "name": "Wartortle", "rarity": "Uncommon", "illustrator": "Ken Sugimori", "image": null, "category": "Pokemon", "types": ["Water"], "hp": 70, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 5.73}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "カメール", "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/6/64/WartortleBaseSet42.jpg/400px-WartortleBaseSet42.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/6/64/WartortleBaseSet42.jpg", "ppId": 135609}, {"id": "PMCG1-028", "localId": "028", "name": "Poliwhirl", "rarity": "Uncommon", "illustrator": "Ken Sugimori", "image": null, "category": "Pokemon", "types": ["Water"], "hp": 60, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 3.24}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "ニョロゾ", "imageSmall": "https://archives.bulbagarden.net/media/upload/4/46/PoliwhirlBaseSet38.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/4/46/PoliwhirlBaseSet38.jpg", "ppId": 135570}, {"id": "PMCG1-029", "localId": "029", "name": "Seel", "rarity": "Uncommon", "illustrator": "Ken Sugimori", "image": null, "category": "Pokemon", "types": ["Water"], "hp": 60, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 2.42}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "パウワウ", "imageSmall": "https://archives.bulbagarden.net/media/upload/8/8a/SeelBaseSet41.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/8/8a/SeelBaseSet41.jpg", "ppId": 135617}, {"id": "PMCG1-030", "localId": "030", "name": "Dewgong", "rarity": "Uncommon", "illustrator": "Mitsuhiro Arita", "image": null, "category": "Pokemon", "types": ["Water"], "hp": 80, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 2.9}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "ジュゴン", "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/d/dc/DewgongBaseSet25.jpg/400px-DewgongBaseSet25.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/d/dc/DewgongBaseSet25.jpg", "ppId": 135581}, {"id": "PMCG1-031", "localId": "031", "name": "Magikarp", "rarity": "Uncommon", "illustrator": "Mitsuhiro Arita", "image": null, "category": "Pokemon", "types": ["Water"], "hp": 30, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 6.37}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "コイキング", "imageSmall": "https://archives.bulbagarden.net/media/upload/7/76/MagikarpBaseSet35.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/7/76/MagikarpBaseSet35.jpg", "ppId": 135600}, {"id": "PMCG1-032", "localId": "032", "name": "Blastoise", "rarity": "Holo Rare", "illustrator": "Mitsuhiro Arita", "image": null, "category": "Pokemon", "types": ["Water"], "hp": 100, "variants_detailed": [{"type": "holo", "foil": null}, {"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 156.82}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "カメックス", "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/a/a5/BlastoiseBaseSet2.jpg/400px-BlastoiseBaseSet2.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/a/a5/BlastoiseBaseSet2.jpg", "ppId": 135573}, {"id": "PMCG1-033", "localId": "033", "name": "Poliwrath", "rarity": "Holo Rare", "illustrator": "Ken Sugimori", "image": null, "category": "Pokemon", "types": ["Water"], "hp": 90, "variants_detailed": [{"type": "holo", "foil": null}, {"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 27.32}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "ニョロボン", "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/b/b2/PoliwrathBaseSet13.jpg/400px-PoliwrathBaseSet13.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/b/b2/PoliwrathBaseSet13.jpg", "ppId": 135626}, {"id": "PMCG1-034", "localId": "034", "name": "Gyarados", "rarity": "Holo Rare", "illustrator": "Mitsuhiro Arita", "image": null, "category": "Pokemon", "types": ["Water"], "hp": 100, "variants_detailed": [{"type": "holo", "foil": null}, {"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 112.3}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "ギャラドス", "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/3/3d/GyaradosBaseSet6.jpg/400px-GyaradosBaseSet6.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/3/3d/GyaradosBaseSet6.jpg", "ppId": 135598}, {"id": "PMCG1-035", "localId": "035", "name": "Pikachu", "rarity": "Common", "illustrator": "Mitsuhiro Arita", "image": null, "category": "Pokemon", "types": ["Lightning"], "hp": 40, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 17.0}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "ピカチュウ", "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/7/76/PikachuBaseSet58.jpg/400px-PikachuBaseSet58.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/7/76/PikachuBaseSet58.jpg", "ppId": 135541}, {"id": "PMCG1-036", "localId": "036", "name": "Magnemite", "rarity": "Common", "illustrator": "Keiji Kinebuchi", "image": null, "category": "Pokemon", "types": ["Lightning"], "hp": 40, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.88}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "コイル", "imageSmall": "https://archives.bulbagarden.net/media/upload/3/3b/MagnemiteBaseSet53.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/3/3b/MagnemiteBaseSet53.jpg", "ppId": 135563}, {"id": "PMCG1-037", "localId": "037", "name": "Voltorb", "rarity": "Common", "illustrator": "Keiji Kinebuchi", "image": null, "category": "Pokemon", "types": ["Lightning"], "hp": 40, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.85}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "ビリリダマ", "imageSmall": "https://archives.bulbagarden.net/media/upload/2/2d/VoltorbBaseSet67.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/2/2d/VoltorbBaseSet67.jpg", "ppId": 135569}, {"id": "PMCG1-038", "localId": "038", "name": "Raichu", "rarity": "Holo Rare", "illustrator": "Ken Sugimori", "image": null, "category": "Pokemon", "types": ["Lightning"], "hp": 80, "variants_detailed": [{"type": "holo", "foil": null}, {"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 43.43}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "ライチュウ", "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/9/90/RaichuBaseSet14.jpg/400px-RaichuBaseSet14.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/9/90/RaichuBaseSet14.jpg", "ppId": 135587}, {"id": "PMCG1-039", "localId": "039", "name": "Magneton", "rarity": "Holo Rare", "illustrator": "Keiji Kinebuchi", "image": null, "category": "Pokemon", "types": ["Lightning"], "hp": 60, "variants_detailed": [{"type": "holo", "foil": null}, {"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 20.43}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "レアコイル", "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/b/b7/MagnetonBaseSet9.jpg/400px-MagnetonBaseSet9.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/b/b7/MagnetonBaseSet9.jpg", "ppId": 135607}, {"id": "PMCG1-040", "localId": "040", "name": "Electrode", "rarity": "Rare", "illustrator": "Keiji Kinebuchi", "image": null, "category": "Pokemon", "types": ["Lightning"], "hp": 80, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 11.55}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "マルマイン", "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/e/e7/ElectrodeBaseSet21.jpg/400px-ElectrodeBaseSet21.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/e/e7/ElectrodeBaseSet21.jpg", "ppId": 135632}, {"id": "PMCG1-041", "localId": "041", "name": "Electabuzz", "rarity": "Rare", "illustrator": "Ken Sugimori", "image": null, "category": "Pokemon", "types": ["Lightning"], "hp": 70, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 49.0}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "エレブー", "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/f/fe/ElectabuzzBaseSet20.jpg/400px-ElectabuzzBaseSet20.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/f/fe/ElectabuzzBaseSet20.jpg", "ppId": 135618}, {"id": "PMCG1-042", "localId": "042", "name": "Zapdos", "rarity": "Holo Rare", "illustrator": "Ken Sugimori", "image": null, "category": "Pokemon", "types": ["Lightning"], "hp": 90, "variants_detailed": [{"type": "holo", "foil": null}, {"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 38.04}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "サンダー", "imageSmall": "https://archives.bulbagarden.net/media/upload/7/78/ZapdosBaseSet16.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/7/78/ZapdosBaseSet16.jpg", "ppId": 135574}, {"id": "PMCG1-043", "localId": "043", "name": "Abra", "rarity": "Common", "illustrator": "Mitsuhiro Arita", "image": null, "category": "Pokemon", "types": ["Psychic"], "hp": 30, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 1.18}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "ケーシィ", "imageSmall": "https://archives.bulbagarden.net/media/upload/2/2d/AbraBaseSet43.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/2/2d/AbraBaseSet43.jpg", "ppId": 135549}, {"id": "PMCG1-044", "localId": "044", "name": "Gastly", "rarity": "Common", "illustrator": "Keiji Kinebuchi", "image": null, "category": "Pokemon", "types": ["Psychic"], "hp": 30, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.94}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "ゴース", "imageSmall": "https://archives.bulbagarden.net/media/upload/6/63/GastlyBaseSet50.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/6/63/GastlyBaseSet50.jpg", "ppId": 135547}, {"id": "PMCG1-045", "localId": "045", "name": "Drowzee", "rarity": "Common", "illustrator": "Ken Sugimori", "image": null, "category": "Pokemon", "types": ["Psychic"], "hp": 50, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 1.1}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "スリープ", "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/a/a1/DrowzeeBaseSet49.jpg/400px-DrowzeeBaseSet49.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/a/a1/DrowzeeBaseSet49.jpg", "ppId": 135562}, {"id": "PMCG1-046", "localId": "046", "name": "Kadabra", "rarity": "Uncommon", "illustrator": "Ken Sugimori", "image": null, "category": "Pokemon", "types": ["Psychic"], "hp": 60, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 3.27}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "ユンゲラー", "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/c/ce/KadabraBaseSet32.jpg/400px-KadabraBaseSet32.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/c/ce/KadabraBaseSet32.jpg", "ppId": 135550}, {"id": "PMCG1-047", "localId": "047", "name": "Haunter", "rarity": "Uncommon", "illustrator": "Keiji Kinebuchi", "image": null, "category": "Pokemon", "types": ["Psychic"], "hp": 60, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 3.99}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "ゴースト", "imageSmall": "https://archives.bulbagarden.net/media/upload/9/9b/HaunterBaseSet29.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/9/9b/HaunterBaseSet29.jpg", "ppId": 135542}, {"id": "PMCG1-048", "localId": "048", "name": "Jynx", "rarity": "Uncommon", "illustrator": "Ken Sugimori", "image": null, "category": "Pokemon", "types": ["Psychic"], "hp": 70, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 20.19}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "ルージュラ", "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/5/5d/JynxBaseSet31.jpg/400px-JynxBaseSet31.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/5/5d/JynxBaseSet31.jpg", "ppId": 135592}, {"id": "PMCG1-049", "localId": "049", "name": "Alakazam", "rarity": "Holo Rare", "illustrator": "Ken Sugimori", "image": null, "category": "Pokemon", "types": ["Psychic"], "hp": 80, "variants_detailed": [{"type": "holo", "foil": null}, {"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 53.83}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "フーディン", "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/9/94/AlakazamBaseSet1.jpg/400px-AlakazamBaseSet1.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/9/94/AlakazamBaseSet1.jpg", "ppId": 135590}, {"id": "PMCG1-050", "localId": "050", "name": "Mewtwo", "rarity": "Holo Rare", "illustrator": "Ken Sugimori", "image": null, "category": "Pokemon", "types": ["Psychic"], "hp": 60, "variants_detailed": [{"type": "holo", "foil": null}, {"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 108.33}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "ミュウツー", "imageSmall": "https://archives.bulbagarden.net/media/upload/8/84/MewtwoBaseSet10.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/8/84/MewtwoBaseSet10.jpg", "ppId": 135582}, {"id": "PMCG1-051", "localId": "051", "name": "Sandshrew", "rarity": "Common", "illustrator": "Ken Sugimori", "image": null, "category": "Pokemon", "types": ["Fighting"], "hp": 40, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.76}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "サンド", "imageSmall": "https://archives.bulbagarden.net/media/upload/f/f5/SandshrewBaseSet62.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/f/f5/SandshrewBaseSet62.jpg", "ppId": 135620}, {"id": "PMCG1-052", "localId": "052", "name": "Diglett", "rarity": "Common", "illustrator": "Keiji Kinebuchi", "image": null, "category": "Pokemon", "types": ["Fighting"], "hp": 30, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.81}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "ディグダ", "imageSmall": "https://archives.bulbagarden.net/media/upload/2/2d/DiglettBaseSet47.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/2/2d/DiglettBaseSet47.jpg", "ppId": 135556}, {"id": "PMCG1-053", "localId": "053", "name": "Machop", "rarity": "Common", "illustrator": "Mitsuhiro Arita", "image": null, "category": "Pokemon", "types": ["Fighting"], "hp": 50, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 1.22}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "ワンリキー", "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/e/e7/MachopBaseSet52.jpg/400px-MachopBaseSet52.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/e/e7/MachopBaseSet52.jpg", "ppId": 135577}, {"id": "PMCG1-054", "localId": "054", "name": "Onix", "rarity": "Common", "illustrator": "Ken Sugimori", "image": null, "category": "Pokemon", "types": ["Fighting"], "hp": 90, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 1.01}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "イワーク", "imageSmall": "https://archives.bulbagarden.net/media/upload/1/11/OnixBaseSet56.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/1/11/OnixBaseSet56.jpg", "ppId": 135557}, {"id": "PMCG1-055", "localId": "055", "name": "Machoke", "rarity": "Uncommon", "illustrator": "Ken Sugimori", "image": null, "category": "Pokemon", "types": ["Fighting"], "hp": 80, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 3.11}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "ゴーリキー", "imageSmall": "https://archives.bulbagarden.net/media/upload/e/ef/MachokeBaseSet34.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/e/ef/MachokeBaseSet34.jpg", "ppId": 135602}, {"id": "PMCG1-056", "localId": "056", "name": "Dugtrio", "rarity": "Rare", "illustrator": "Keiji Kinebuchi", "image": null, "category": "Pokemon", "types": ["Fighting"], "hp": 70, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 19.86}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "ダグトリオ", "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/3/35/DugtrioBaseSet19.jpg/400px-DugtrioBaseSet19.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/3/35/DugtrioBaseSet19.jpg", "ppId": 135630}, {"id": "PMCG1-057", "localId": "057", "name": "Machamp", "rarity": "Holo Rare", "illustrator": "Ken Sugimori", "image": null, "category": "Pokemon", "types": ["Fighting"], "hp": 100, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 41.32}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "カイリキー", "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/2/22/MachampBaseSet8.jpg/400px-MachampBaseSet8.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/2/22/MachampBaseSet8.jpg", "ppId": 135604}, {"id": "PMCG1-058", "localId": "058", "name": "Hitmonchan", "rarity": "Holo Rare", "illustrator": "Ken Sugimori", "image": null, "category": "Pokemon", "types": ["Fighting"], "hp": 70, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 27.7}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "エビワラー", "imageSmall": "https://archives.bulbagarden.net/media/upload/2/26/HitmonchanBaseSet7.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/2/26/HitmonchanBaseSet7.jpg", "ppId": 135584}, {"id": "PMCG1-059", "localId": "059", "name": "Pidgey", "rarity": "Common", "illustrator": "Ken Sugimori", "image": null, "category": "Pokemon", "types": ["Colorless"], "hp": 40, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.88}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "ポッポ", "imageSmall": "https://archives.bulbagarden.net/media/upload/5/58/PidgeyBaseSet57.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/5/58/PidgeyBaseSet57.jpg", "ppId": 135548}, {"id": "PMCG1-060", "localId": "060", "name": "Rattata", "rarity": "Common", "illustrator": "Mitsuhiro Arita", "image": null, "category": "Pokemon", "types": ["Colorless"], "hp": 30, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.79}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "コラッタ", "imageSmall": "https://archives.bulbagarden.net/media/upload/7/70/RattataBaseSet61.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/7/70/RattataBaseSet61.jpg", "ppId": 135621}, {"id": "PMCG1-061", "localId": "061", "name": "Doduo", "rarity": "Common", "illustrator": "Mitsuhiro Arita", "image": null, "category": "Pokemon", "types": ["Colorless"], "hp": 50, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.68}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "ドードー", "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/6/6e/DoduoBaseSet48.jpg/400px-DoduoBaseSet48.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/6/6e/DoduoBaseSet48.jpg", "ppId": 135555}, {"id": "PMCG1-062", "localId": "062", "name": "Raticate", "rarity": "Uncommon", "illustrator": "Ken Sugimori", "image": null, "category": "Pokemon", "types": ["Colorless"], "hp": 60, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 2.52}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "ラッタ", "imageSmall": "https://archives.bulbagarden.net/media/upload/c/cb/RaticateBaseSet40.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/c/cb/RaticateBaseSet40.jpg", "ppId": 135596}, {"id": "PMCG1-063", "localId": "063", "name": "Farfetch'd", "rarity": "Uncommon", "illustrator": "Tomokazu Komiya", "image": null, "category": "Pokemon", "types": ["Colorless"], "hp": 50, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 3.27}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "カモネギ", "imageSmall": "https://archives.bulbagarden.net/media/upload/6/65/Farfetch%27dBaseSet27.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/6/65/Farfetch%27dBaseSet27.jpg", "ppId": 135567}, {"id": "PMCG1-064", "localId": "064", "name": "Porygon", "rarity": "Uncommon", "illustrator": "Tomoaki Imakuni", "image": null, "category": "Pokemon", "types": ["Colorless"], "hp": 30, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 2.53}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "ポリゴン", "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/6/66/PorygonBaseSet39.jpg/400px-PorygonBaseSet39.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/6/66/PorygonBaseSet39.jpg", "ppId": 135599}, {"id": "PMCG1-065", "localId": "065", "name": "Dratini", "rarity": "Uncommon", "illustrator": "Ken Sugimori", "image": null, "category": "Pokemon", "types": ["Colorless"], "hp": 40, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 2.59}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "ミニリュウ", "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/8/84/DratiniBaseSet26.jpg/400px-DratiniBaseSet26.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/8/84/DratiniBaseSet26.jpg", "ppId": 135597}, {"id": "PMCG1-066", "localId": "066", "name": "Pidgeotto", "rarity": "Rare", "illustrator": "Ken Sugimori", "image": null, "category": "Pokemon", "types": ["Colorless"], "hp": 60, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 37.5}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "ピジョン", "imageSmall": "https://archives.bulbagarden.net/media/upload/3/3e/PidgeottoBaseSet22.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/3/3e/PidgeottoBaseSet22.jpg", "ppId": 135643}, {"id": "PMCG1-067", "localId": "067", "name": "Clefairy", "rarity": "Holo Rare", "illustrator": "Ken Sugimori", "image": null, "category": "Pokemon", "types": ["Colorless"], "hp": 40, "variants_detailed": [{"type": "holo", "foil": null}, {"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 17.11}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "ピッピ", "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/7/7f/ClefairyBaseSet5.jpg/400px-ClefairyBaseSet5.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/7/7f/ClefairyBaseSet5.jpg", "ppId": 135612}, {"id": "PMCG1-068", "localId": "068", "name": "Chansey", "rarity": "Holo Rare", "illustrator": "Ken Sugimori", "image": null, "category": "Pokemon", "types": ["Colorless"], "hp": 120, "variants_detailed": [{"type": "holo", "foil": null}, {"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 36.58}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "ラッキー", "imageSmall": "https://archives.bulbagarden.net/media/upload/f/fc/ChanseyBaseSet3.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/f/fc/ChanseyBaseSet3.jpg", "ppId": 135635}, {"id": "PMCG1-069", "localId": "069", "name": "Dragonair", "rarity": "Rare", "illustrator": "Mitsuhiro Arita", "image": null, "category": "Pokemon", "types": ["Colorless"], "hp": 80, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 43.68}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "ハクリュー", "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/c/c9/DragonairBaseSet18.jpg/400px-DragonairBaseSet18.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/c/c9/DragonairBaseSet18.jpg", "ppId": 135594}, {"id": "PMCG1-070", "localId": "070", "name": "Energy Removal", "rarity": "Common", "illustrator": "Keiji Kinebuchi", "image": null, "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.45}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "エネルギー・リムーブ", "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/5/50/EnergyRemovalBaseSet92.jpg/400px-EnergyRemovalBaseSet92.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/5/50/EnergyRemovalBaseSet92.jpg", "ppId": 64798}, {"id": "PMCG1-071", "localId": "071", "name": "Potion", "rarity": "Common", "illustrator": "Ayaka Yoshida", "image": null, "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.41}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "きずぐすり", "imageSmall": "https://archives.bulbagarden.net/media/upload/4/45/PotionBaseSet94.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/4/45/PotionBaseSet94.jpg", "ppId": 64918}, {"id": "PMCG1-072", "localId": "072", "name": "Gust of Wind", "rarity": "Common", "illustrator": "Keiji Kinebuchi", "image": null, "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.61}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "突風", "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/1/13/GustofWindBaseSet93.jpg/400px-GustofWindBaseSet93.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/1/13/GustofWindBaseSet93.jpg", "ppId": 135534}, {"id": "PMCG1-073", "localId": "073", "name": "Switch", "rarity": "Common", "illustrator": "Hideaki Hakozaki", "image": null, "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.6}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "ポケモンいれかえ", "imageSmall": "https://archives.bulbagarden.net/media/upload/b/be/SwitchBaseSet95.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/b/be/SwitchBaseSet95.jpg", "ppId": 135580}, {"id": "PMCG1-074", "localId": "074", "name": "Bill", "rarity": "Common", "illustrator": "Ken Sugimori", "image": null, "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.87}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "マサキ", "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/2/21/BillBaseSet91.jpg/400px-BillBaseSet91.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/2/21/BillBaseSet91.jpg", "ppId": 135578}, {"id": "PMCG1-075", "localId": "075", "name": "Super Potion", "rarity": "Uncommon", "illustrator": "Keiji Kinebuchi", "image": null, "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 1.61}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "いいきずぐすり", "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/f/fa/SuperPotionBaseSet90.jpg/400px-SuperPotionBaseSet90.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/f/fa/SuperPotionBaseSet90.jpg", "ppId": 64919}, {"id": "PMCG1-076", "localId": "076", "name": "Energy Retrieval", "rarity": "Uncommon", "illustrator": "Keiji Kinebuchi", "image": null, "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 2.06}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "エネルギー回収", "imageSmall": "https://archives.bulbagarden.net/media/upload/f/fa/EnergyRetrievalBaseSet81.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/f/fa/EnergyRetrievalBaseSet81.jpg", "ppId": 64803}, {"id": "PMCG1-077", "localId": "077", "name": "Professor Oak", "rarity": "Uncommon", "illustrator": "Ken Sugimori", "image": null, "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 3.22}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "オーキドはかせ", "imageSmall": "https://archives.bulbagarden.net/media/upload/a/a9/ProfessorOakBaseSet88.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/a/a9/ProfessorOakBaseSet88.jpg", "ppId": 135627}, {"id": "PMCG1-078", "localId": "078", "name": "Revive", "rarity": "Uncommon", "illustrator": "Keiji Kinebuchi", "image": null, "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 2.7}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "げんきのかけら", "imageSmall": "https://archives.bulbagarden.net/media/upload/9/90/ReviveBaseSet89.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/9/90/ReviveBaseSet89.jpg", "ppId": 135605}, {"id": "PMCG1-079", "localId": "079", "name": "Defender", "rarity": "Uncommon", "illustrator": "Keiji Kinebuchi", "image": null, "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 1.74}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "ディフェンダー", "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/9/90/DefenderBaseSet80.jpg/400px-DefenderBaseSet80.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/9/90/DefenderBaseSet80.jpg", "ppId": 135560}, {"id": "PMCG1-080", "localId": "080", "name": "Full Heal", "rarity": "Uncommon", "illustrator": "Keiji Kinebuchi", "image": null, "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 2.53}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "なんでもなおし", "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/1/1f/FullHealBaseSet82.jpg/400px-FullHealBaseSet82.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/1/1f/FullHealBaseSet82.jpg", "ppId": 135595}, {"id": "PMCG1-081", "localId": "081", "name": "PlusPower", "rarity": "Uncommon", "illustrator": "Ryo Ueda", "image": null, "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 2.71}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "プラスパワー", "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/e/e3/PlusPowerBaseSet84.jpg/400px-PlusPowerBaseSet84.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/e/e3/PlusPowerBaseSet84.jpg", "ppId": 135615}, {"id": "PMCG1-082", "localId": "082", "name": "Pokédex", "rarity": "Uncommon", "illustrator": "Keiji Kinebuchi", "image": null, "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 1.7}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "ポケモン図鑑", "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/e/e5/Pok%C3%A9dexBaseSet87.jpg/400px-Pok%C3%A9dexBaseSet87.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/e/e5/Pok%C3%A9dexBaseSet87.jpg", "ppId": 135625}, {"id": "PMCG1-083", "localId": "083", "name": "Pokémon Center", "rarity": "Uncommon", "illustrator": "\"Big Mama\" Tagawa", "image": null, "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": null, "nameJa": "ポケモンセンター", "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/4/4c/Pok%C3%A9monCenterBaseSet85.jpg/400px-Pok%C3%A9monCenterBaseSet85.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/4/4c/Pok%C3%A9monCenterBaseSet85.jpg"}, {"id": "PMCG1-084", "localId": "084", "name": "Pokémon Flute", "rarity": "Uncommon", "illustrator": "Keiji Kinebuchi", "image": null, "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": null, "nameJa": "ポケモンの笛", "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/d/d5/Pok%C3%A9monFluteBaseSet86.jpg/400px-Pok%C3%A9monFluteBaseSet86.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/d/d5/Pok%C3%A9monFluteBaseSet86.jpg"}, {"id": "PMCG1-085", "localId": "085", "name": "Maintenance", "rarity": "Uncommon", "illustrator": "Keiji Kinebuchi", "image": null, "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 2.34}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "メンテナンス", "imageSmall": "https://archives.bulbagarden.net/media/upload/4/4e/MaintenanceBaseSet83.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/4/4e/MaintenanceBaseSet83.jpg", "ppId": 135636}, {"id": "PMCG1-086", "localId": "086", "name": "Devolution Spray", "rarity": "Rare", "illustrator": "Ryo Ueda", "image": null, "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 9.03}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "退化スプレー", "imageSmall": "https://archives.bulbagarden.net/media/upload/b/be/DevolutionSprayBaseSet72.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/b/be/DevolutionSprayBaseSet72.jpg", "ppId": 135634}, {"id": "PMCG1-087", "localId": "087", "name": "Item Finder", "rarity": "Rare", "illustrator": "Keiji Kinebuchi", "image": null, "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 15.56}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "ダウジングマシーン", "imageSmall": "https://archives.bulbagarden.net/media/upload/f/f0/ItemFinderBaseSet74.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/f/f0/ItemFinderBaseSet74.jpg", "ppId": 135610}, {"id": "PMCG1-088", "localId": "088", "name": "Super Energy Removal", "rarity": "Rare", "illustrator": "Keiji Kinebuchi", "image": null, "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 19.25}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "超エネルギーリムーブ", "imageSmall": "https://archives.bulbagarden.net/media/upload/8/84/SuperEnergyRemovalBaseSet79.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/8/84/SuperEnergyRemovalBaseSet79.jpg", "ppId": 64807}, {"id": "PMCG1-089", "localId": "089", "name": "Impostor Professor Oak", "rarity": "Rare", "illustrator": "Ken Sugimori", "image": null, "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": null, "nameJa": "詐欺師オーク教授", "imageSmall": "https://archives.bulbagarden.net/media/upload/a/a8/ImposterProfessorOakBaseSet73.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/a/a8/ImposterProfessorOakBaseSet73.jpg"}, {"id": "PMCG1-090", "localId": "090", "name": "Computer Search", "rarity": "Rare", "illustrator": "Ryo Ueda", "image": null, "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 15.41}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "パソコン通信", "imageSmall": "https://archives.bulbagarden.net/media/upload/8/89/ComputerSearchBaseSet71.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/8/89/ComputerSearchBaseSet71.jpg", "ppId": 135601}, {"id": "PMCG1-091", "localId": "091", "name": "Clefairy Doll", "rarity": "Rare", "illustrator": "Keiji Kinebuchi", "image": null, "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 7.3}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "ピッピ人形", "imageSmall": "https://archives.bulbagarden.net/media/upload/5/53/ClefairyDollBaseSet70.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/5/53/ClefairyDollBaseSet70.jpg", "ppId": 135641}, {"id": "PMCG1-092", "localId": "092", "name": "Scoop Up", "rarity": "Rare", "illustrator": "Keiji Kinebuchi", "image": null, "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 15.22}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "ポケモン回収", "imageSmall": "https://archives.bulbagarden.net/media/upload/7/72/ScoopUpBaseSet78.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/7/72/ScoopUpBaseSet78.jpg", "ppId": 135633}, {"id": "PMCG1-093", "localId": "093", "name": "Pokémon Trader", "rarity": "Rare", "illustrator": "Ken Sugimori", "image": null, "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": null, "nameJa": "ポケモン交換おじさん", "imageSmall": "https://archives.bulbagarden.net/media/upload/2/2b/Pok%C3%A9monTraderBaseSet77.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/2/2b/Pok%C3%A9monTraderBaseSet77.jpg"}, {"id": "PMCG1-094", "localId": "094", "name": "Pokémon Breeder", "rarity": "Rare", "illustrator": "Ken Sugimori", "image": null, "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": null, "nameJa": "ポケモン育て屋さん", "imageSmall": "https://archives.bulbagarden.net/media/upload/5/56/Pok%C3%A9monBreederBaseSet76.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/5/56/Pok%C3%A9monBreederBaseSet76.jpg"}, {"id": "PMCG1-095", "localId": "095", "name": "Lass", "rarity": "Rare", "illustrator": "Ken Sugimori", "image": null, "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 16.0}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "ミニスカート", "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/b/b5/LassBaseSet75.jpg/400px-LassBaseSet75.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/b/b5/LassBaseSet75.jpg", "ppId": 135628}, {"id": "PMCG1-096", "localId": "096", "name": "Double Colorless Energy", "rarity": "Uncommon", "illustrator": "Keiji Kinebuchi", "image": null, "category": "Energy", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 7.67}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "ダブル無色エネルギー", "imageSmall": "https://archives.bulbagarden.net/media/upload/c/c1/DoubleColorlessEnergyBaseSet96.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/c/c1/DoubleColorlessEnergyBaseSet96.jpg", "ppId": 64806}, {"id": "PMCG1-097", "localId": "097", "name": "Grass Energy", "rarity": "Common", "illustrator": "Keiji Kinebuchi", "image": null, "category": "Energy", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.61}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "基本草エネルギー", "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/2/28/BasicGrassEnergyMEEEnergy1.jpg/400px-BasicGrassEnergyMEEEnergy1.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/2/28/BasicGrassEnergyMEEEnergy1.jpg", "ppId": 64799}, {"id": "PMCG1-098", "localId": "098", "name": "Fire Energy", "rarity": "Common", "illustrator": "Keiji Kinebuchi", "image": null, "category": "Energy", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.65}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "基本炎エネルギー", "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/1/17/BasicFireEnergyMEEEnergy2.jpg/400px-BasicFireEnergyMEEEnergy2.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/1/17/BasicFireEnergyMEEEnergy2.jpg", "ppId": 64802}, {"id": "PMCG1-099", "localId": "099", "name": "Water Energy", "rarity": "Common", "illustrator": "Keiji Kinebuchi", "image": null, "category": "Energy", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.56}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "基本水エネルギー", "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/d/d5/BasicWaterEnergyMEEEnergy3.jpg/400px-BasicWaterEnergyMEEEnergy3.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/d/d5/BasicWaterEnergyMEEEnergy3.jpg", "ppId": 64800}, {"id": "PMCG1-100", "localId": "100", "name": "Lightning Energy", "rarity": "Common", "illustrator": "Keiji Kinebuchi", "image": null, "category": "Energy", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.74}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "基本雷エネルギー", "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/9/9b/BasicLightningEnergyMEEEnergy4.jpg/400px-BasicLightningEnergyMEEEnergy4.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/9/9b/BasicLightningEnergyMEEEnergy4.jpg", "ppId": 64801}, {"id": "PMCG1-101", "localId": "101", "name": "Psychic Energy", "rarity": "Common", "illustrator": "Keiji Kinebuchi", "image": null, "category": "Energy", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.63}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "基本超エネルギー", "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/a/ad/BasicPsychicEnergyMEEEnergy5.jpg/400px-BasicPsychicEnergyMEEEnergy5.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/a/ad/BasicPsychicEnergyMEEEnergy5.jpg", "ppId": 64804}, {"id": "PMCG1-102", "localId": "102", "name": "Fighting Energy", "rarity": "Common", "illustrator": "Keiji Kinebuchi", "image": null, "category": "Energy", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.73}}, "currency": "USD", "pricedAt": "2026-09-22T08:56:01Z"}, "nameJa": "基本闘エネルギー", "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/6/6c/BasicFightingEnergyMEEEnergy6.jpg/400px-BasicFightingEnergyMEEEnergy6.jpg", "imageLarge": "https://archives.bulbagarden.net/media/upload/6/6c/BasicFightingEnergyMEEEnergy6.jpg", "ppId": 64805}]}
+{
+ "generated_at": "2026-09-16T02:10:36.444167+00:00",
+ "set": {
+  "id": "PMCG1",
+  "name": "Expansion Pack",
+  "series": "ポケットモンスターカードゲーム",
+  "releaseDate": "1996-10-20",
+  "logo": null,
+  "symbol": "/data/tcgdex/set-symbols/ja/PMCG1.png",
+  "printedTotal": 102,
+  "total": 102,
+  "lang": "ja",
+  "nameJa": "拡張パック"
+ },
+ "cards": [
+  {
+   "id": "PMCG1-001",
+   "localId": "001",
+   "name": "Bulbasaur",
+   "rarity": "Common",
+   "illustrator": "Mitsuhiro Arita",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 40,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 7.6
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "フシギダネ",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/b/b2/BulbasaurBaseSet44.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/b/b2/BulbasaurBaseSet44.jpg",
+   "ppId": 135558
+  },
+  {
+   "id": "PMCG1-002",
+   "localId": "002",
+   "name": "Caterpie",
+   "rarity": "Common",
+   "illustrator": "Ken Sugimori",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 40,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.91
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "キャタピー",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/9/9f/CaterpieBaseSet45.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/9/9f/CaterpieBaseSet45.jpg",
+   "ppId": 135544
+  },
+  {
+   "id": "PMCG1-003",
+   "localId": "003",
+   "name": "Metapod",
+   "rarity": "Common",
+   "illustrator": "Ken Sugimori",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 1.09
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "トランセル",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/c/cb/MetapodBaseSet54.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/c/cb/MetapodBaseSet54.jpg",
+   "ppId": 135561
+  },
+  {
+   "id": "PMCG1-004",
+   "localId": "004",
+   "name": "Weedle",
+   "rarity": "Common",
+   "illustrator": "Mitsuhiro Arita",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 40,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.72
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "ビードル",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/6/63/WeedleBaseSet69.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/6/63/WeedleBaseSet69.jpg",
+   "ppId": 135575
+  },
+  {
+   "id": "PMCG1-005",
+   "localId": "005",
+   "name": "Nidoran♂",
+   "rarity": "Common",
+   "illustrator": "Ken Sugimori",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 40,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "nameJa": "ニドラン♂",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/9/97/NidoranBaseSet55.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/9/97/NidoranBaseSet55.jpg"
+  },
+  {
+   "id": "PMCG1-006",
+   "localId": "006",
+   "name": "Koffing",
+   "rarity": "Common",
+   "illustrator": "Mitsuhiro Arita",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 50,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.91
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "ドガース",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/9/96/KoffingBaseSet51.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/9/96/KoffingBaseSet51.jpg",
+   "ppId": 135551
+  },
+  {
+   "id": "PMCG1-007",
+   "localId": "007",
+   "name": "Tangela",
+   "rarity": "Common",
+   "illustrator": "Mitsuhiro Arita",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 50,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.78
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "モンジャラ",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/0/03/TangelaBaseSet66.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/0/03/TangelaBaseSet66.jpg",
+   "ppId": 135593
+  },
+  {
+   "id": "PMCG1-008",
+   "localId": "008",
+   "name": "Ivysaur",
+   "rarity": "Uncommon",
+   "illustrator": "Ken Sugimori",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 60,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 6.32
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "フシギソウ",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/b/b4/IvysaurBaseSet30.jpg/400px-IvysaurBaseSet30.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/b/b4/IvysaurBaseSet30.jpg",
+   "ppId": 135588
+  },
+  {
+   "id": "PMCG1-009",
+   "localId": "009",
+   "name": "Kakuna",
+   "rarity": "Uncommon",
+   "illustrator": "Keiji Kinebuchi",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 80,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 2.14
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "コクーン",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/4/40/KakunaBaseSet33.jpg/400px-KakunaBaseSet33.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/4/40/KakunaBaseSet33.jpg",
+   "ppId": 135611
+  },
+  {
+   "id": "PMCG1-010",
+   "localId": "010",
+   "name": "Nidorino",
+   "rarity": "Uncommon",
+   "illustrator": "Mitsuhiro Arita",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 60,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 1.73
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "ニドリーノ",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/b/b3/NidorinoBaseSet37.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/b/b3/NidorinoBaseSet37.jpg",
+   "ppId": 135637
+  },
+  {
+   "id": "PMCG1-011",
+   "localId": "011",
+   "name": "Venusaur",
+   "rarity": "Holo Rare",
+   "illustrator": "Mitsuhiro Arita",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 100,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    },
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 124.99
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "フシギバナ",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/a/a4/VenusaurBaseSet15.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/a/a4/VenusaurBaseSet15.jpg",
+   "ppId": 135565
+  },
+  {
+   "id": "PMCG1-012",
+   "localId": "012",
+   "name": "Beedrill",
+   "rarity": "Rare",
+   "illustrator": "Ken Sugimori",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 80,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 30.84
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "スピアー",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/7/7f/BeedrillBaseSet17.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/7/7f/BeedrillBaseSet17.jpg",
+   "ppId": 135619
+  },
+  {
+   "id": "PMCG1-013",
+   "localId": "013",
+   "name": "Nidoking",
+   "rarity": "Holo Rare",
+   "illustrator": "Ken Sugimori",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 90,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    },
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 30.9
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "ニドキング",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/f/f8/NidokingBaseSet11.jpg/400px-NidokingBaseSet11.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/f/f8/NidokingBaseSet11.jpg",
+   "ppId": 135579
+  },
+  {
+   "id": "PMCG1-014",
+   "localId": "014",
+   "name": "Charmander",
+   "rarity": "Common",
+   "illustrator": "Mitsuhiro Arita",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Fire"
+   ],
+   "hp": 50,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 4.79
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "ヒトカゲ",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/1/1d/CharmanderBaseSet46.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/1/1d/CharmanderBaseSet46.jpg",
+   "ppId": 135543
+  },
+  {
+   "id": "PMCG1-015",
+   "localId": "015",
+   "name": "Vulpix",
+   "rarity": "Common",
+   "illustrator": "Ken Sugimori",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Fire"
+   ],
+   "hp": 50,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 1.48
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "ロコン",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/8/8e/VulpixBaseSet68.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/8/8e/VulpixBaseSet68.jpg",
+   "ppId": 135589
+  },
+  {
+   "id": "PMCG1-016",
+   "localId": "016",
+   "name": "Ponyta",
+   "rarity": "Common",
+   "illustrator": "Ken Sugimori",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Fire"
+   ],
+   "hp": 40,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 1.1
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "ポニータ",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/1/13/PonytaBaseSet60.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/1/13/PonytaBaseSet60.jpg",
+   "ppId": 135559
+  },
+  {
+   "id": "PMCG1-017",
+   "localId": "017",
+   "name": "Charmeleon",
+   "rarity": "Uncommon",
+   "illustrator": "Mitsuhiro Arita",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Fire"
+   ],
+   "hp": 80,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 6.55
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "リザード",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/9/99/CharmeleonBaseSet24.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/9/99/CharmeleonBaseSet24.jpg",
+   "ppId": 135603
+  },
+  {
+   "id": "PMCG1-018",
+   "localId": "018",
+   "name": "Growlithe",
+   "rarity": "Uncommon",
+   "illustrator": "Ken Sugimori",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Fire"
+   ],
+   "hp": 60,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 2.11
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "ガーディ",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/b/b1/GrowlitheBaseSet28.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/b/b1/GrowlitheBaseSet28.jpg",
+   "ppId": 135552
+  },
+  {
+   "id": "PMCG1-019",
+   "localId": "019",
+   "name": "Arcanine",
+   "rarity": "Uncommon",
+   "illustrator": "Ken Sugimori",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Fire"
+   ],
+   "hp": 100,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 3.91
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "ウィンディ",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/4/48/ArcanineBaseSet23.jpg/400px-ArcanineBaseSet23.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/4/48/ArcanineBaseSet23.jpg",
+   "ppId": 135629
+  },
+  {
+   "id": "PMCG1-020",
+   "localId": "020",
+   "name": "Magmar",
+   "rarity": "Uncommon",
+   "illustrator": "Ken Sugimori",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Fire"
+   ],
+   "hp": 50,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 2.11
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "ブーバー",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/9/9f/MagmarBaseSet36.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/9/9f/MagmarBaseSet36.jpg",
+   "ppId": 135616
+  },
+  {
+   "id": "PMCG1-021",
+   "localId": "021",
+   "name": "Charizard",
+   "rarity": "Holo Rare",
+   "illustrator": "Mitsuhiro Arita",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Fire"
+   ],
+   "hp": 120,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    },
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 800.0
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "リザードン",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/4/4e/CharizardBaseSet4.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/4/4e/CharizardBaseSet4.jpg",
+   "ppId": 135576
+  },
+  {
+   "id": "PMCG1-022",
+   "localId": "022",
+   "name": "Ninetales",
+   "rarity": "Holo Rare",
+   "illustrator": "Ken Sugimori",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Fire"
+   ],
+   "hp": 80,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    },
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 35.65
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "キュウコン",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/8/8b/NinetalesBaseSet12.jpg/400px-NinetalesBaseSet12.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/8/8b/NinetalesBaseSet12.jpg",
+   "ppId": 135545
+  },
+  {
+   "id": "PMCG1-023",
+   "localId": "023",
+   "name": "Squirtle",
+   "rarity": "Common",
+   "illustrator": "Mitsuhiro Arita",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 40,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 10.17
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "ゼニガメ",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/7/74/SquirtleBaseSet63.jpg/400px-SquirtleBaseSet63.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/7/74/SquirtleBaseSet63.jpg",
+   "ppId": 135572
+  },
+  {
+   "id": "PMCG1-024",
+   "localId": "024",
+   "name": "Poliwag",
+   "rarity": "Common",
+   "illustrator": "Ken Sugimori",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 40,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 1.09
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "ニョロモ",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/7/79/PoliwagBaseSet59.jpg/400px-PoliwagBaseSet59.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/7/79/PoliwagBaseSet59.jpg",
+   "ppId": 135583
+  },
+  {
+   "id": "PMCG1-025",
+   "localId": "025",
+   "name": "Staryu",
+   "rarity": "Common",
+   "illustrator": "Keiji Kinebuchi",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 40,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.74
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "ヒトデマン",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/b/b8/StaryuBaseSet65.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/b/b8/StaryuBaseSet65.jpg",
+   "ppId": 135585
+  },
+  {
+   "id": "PMCG1-026",
+   "localId": "026",
+   "name": "Starmie",
+   "rarity": "Common",
+   "illustrator": "Keiji Kinebuchi",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 60,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.92
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "スターミー",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/8/8e/StarmieBaseSet64.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/8/8e/StarmieBaseSet64.jpg",
+   "ppId": 135564
+  },
+  {
+   "id": "PMCG1-027",
+   "localId": "027",
+   "name": "Wartortle",
+   "rarity": "Uncommon",
+   "illustrator": "Ken Sugimori",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 5.73
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "カメール",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/6/64/WartortleBaseSet42.jpg/400px-WartortleBaseSet42.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/6/64/WartortleBaseSet42.jpg",
+   "ppId": 135609
+  },
+  {
+   "id": "PMCG1-028",
+   "localId": "028",
+   "name": "Poliwhirl",
+   "rarity": "Uncommon",
+   "illustrator": "Ken Sugimori",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 60,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 3.24
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "ニョロゾ",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/4/46/PoliwhirlBaseSet38.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/4/46/PoliwhirlBaseSet38.jpg",
+   "ppId": 135570
+  },
+  {
+   "id": "PMCG1-029",
+   "localId": "029",
+   "name": "Seel",
+   "rarity": "Uncommon",
+   "illustrator": "Ken Sugimori",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 60,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 2.42
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "パウワウ",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/8/8a/SeelBaseSet41.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/8/8a/SeelBaseSet41.jpg",
+   "ppId": 135617
+  },
+  {
+   "id": "PMCG1-030",
+   "localId": "030",
+   "name": "Dewgong",
+   "rarity": "Uncommon",
+   "illustrator": "Mitsuhiro Arita",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 80,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 2.9
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "ジュゴン",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/d/dc/DewgongBaseSet25.jpg/400px-DewgongBaseSet25.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/d/dc/DewgongBaseSet25.jpg",
+   "ppId": 135581
+  },
+  {
+   "id": "PMCG1-031",
+   "localId": "031",
+   "name": "Magikarp",
+   "rarity": "Uncommon",
+   "illustrator": "Mitsuhiro Arita",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 30,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 6.37
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "コイキング",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/7/76/MagikarpBaseSet35.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/7/76/MagikarpBaseSet35.jpg",
+   "ppId": 135600
+  },
+  {
+   "id": "PMCG1-032",
+   "localId": "032",
+   "name": "Blastoise",
+   "rarity": "Holo Rare",
+   "illustrator": "Mitsuhiro Arita",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 100,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    },
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 156.82
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "カメックス",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/a/a5/BlastoiseBaseSet2.jpg/400px-BlastoiseBaseSet2.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/a/a5/BlastoiseBaseSet2.jpg",
+   "ppId": 135573
+  },
+  {
+   "id": "PMCG1-033",
+   "localId": "033",
+   "name": "Poliwrath",
+   "rarity": "Holo Rare",
+   "illustrator": "Ken Sugimori",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 90,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    },
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 27.32
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "ニョロボン",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/b/b2/PoliwrathBaseSet13.jpg/400px-PoliwrathBaseSet13.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/b/b2/PoliwrathBaseSet13.jpg",
+   "ppId": 135626
+  },
+  {
+   "id": "PMCG1-034",
+   "localId": "034",
+   "name": "Gyarados",
+   "rarity": "Holo Rare",
+   "illustrator": "Mitsuhiro Arita",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 100,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    },
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 112.3
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "ギャラドス",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/3/3d/GyaradosBaseSet6.jpg/400px-GyaradosBaseSet6.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/3/3d/GyaradosBaseSet6.jpg",
+   "ppId": 135598
+  },
+  {
+   "id": "PMCG1-035",
+   "localId": "035",
+   "name": "Pikachu",
+   "rarity": "Common",
+   "illustrator": "Mitsuhiro Arita",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": 40,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 17.0
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "ピカチュウ",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/7/76/PikachuBaseSet58.jpg/400px-PikachuBaseSet58.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/7/76/PikachuBaseSet58.jpg",
+   "ppId": 135541
+  },
+  {
+   "id": "PMCG1-036",
+   "localId": "036",
+   "name": "Magnemite",
+   "rarity": "Common",
+   "illustrator": "Keiji Kinebuchi",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": 40,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.88
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "コイル",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/3/3b/MagnemiteBaseSet53.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/3/3b/MagnemiteBaseSet53.jpg",
+   "ppId": 135563
+  },
+  {
+   "id": "PMCG1-037",
+   "localId": "037",
+   "name": "Voltorb",
+   "rarity": "Common",
+   "illustrator": "Keiji Kinebuchi",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": 40,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.85
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "ビリリダマ",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/2/2d/VoltorbBaseSet67.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/2/2d/VoltorbBaseSet67.jpg",
+   "ppId": 135569
+  },
+  {
+   "id": "PMCG1-038",
+   "localId": "038",
+   "name": "Raichu",
+   "rarity": "Holo Rare",
+   "illustrator": "Ken Sugimori",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": 80,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    },
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 43.43
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "ライチュウ",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/9/90/RaichuBaseSet14.jpg/400px-RaichuBaseSet14.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/9/90/RaichuBaseSet14.jpg",
+   "ppId": 135587
+  },
+  {
+   "id": "PMCG1-039",
+   "localId": "039",
+   "name": "Magneton",
+   "rarity": "Holo Rare",
+   "illustrator": "Keiji Kinebuchi",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": 60,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    },
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 20.43
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "レアコイル",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/b/b7/MagnetonBaseSet9.jpg/400px-MagnetonBaseSet9.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/b/b7/MagnetonBaseSet9.jpg",
+   "ppId": 135607
+  },
+  {
+   "id": "PMCG1-040",
+   "localId": "040",
+   "name": "Electrode",
+   "rarity": "Rare",
+   "illustrator": "Keiji Kinebuchi",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": 80,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 11.55
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "マルマイン",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/e/e7/ElectrodeBaseSet21.jpg/400px-ElectrodeBaseSet21.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/e/e7/ElectrodeBaseSet21.jpg",
+   "ppId": 135632
+  },
+  {
+   "id": "PMCG1-041",
+   "localId": "041",
+   "name": "Electabuzz",
+   "rarity": "Rare",
+   "illustrator": "Ken Sugimori",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 49.0
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "エレブー",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/f/fe/ElectabuzzBaseSet20.jpg/400px-ElectabuzzBaseSet20.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/f/fe/ElectabuzzBaseSet20.jpg",
+   "ppId": 135618
+  },
+  {
+   "id": "PMCG1-042",
+   "localId": "042",
+   "name": "Zapdos",
+   "rarity": "Holo Rare",
+   "illustrator": "Ken Sugimori",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": 90,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    },
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 38.04
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "サンダー",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/7/78/ZapdosBaseSet16.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/7/78/ZapdosBaseSet16.jpg",
+   "ppId": 135574
+  },
+  {
+   "id": "PMCG1-043",
+   "localId": "043",
+   "name": "Abra",
+   "rarity": "Common",
+   "illustrator": "Mitsuhiro Arita",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": 30,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 1.18
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "ケーシィ",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/2/2d/AbraBaseSet43.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/2/2d/AbraBaseSet43.jpg",
+   "ppId": 135549
+  },
+  {
+   "id": "PMCG1-044",
+   "localId": "044",
+   "name": "Gastly",
+   "rarity": "Common",
+   "illustrator": "Keiji Kinebuchi",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": 30,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.94
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "ゴース",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/6/63/GastlyBaseSet50.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/6/63/GastlyBaseSet50.jpg",
+   "ppId": 135547
+  },
+  {
+   "id": "PMCG1-045",
+   "localId": "045",
+   "name": "Drowzee",
+   "rarity": "Common",
+   "illustrator": "Ken Sugimori",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": 50,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 1.1
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "スリープ",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/a/a1/DrowzeeBaseSet49.jpg/400px-DrowzeeBaseSet49.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/a/a1/DrowzeeBaseSet49.jpg",
+   "ppId": 135562
+  },
+  {
+   "id": "PMCG1-046",
+   "localId": "046",
+   "name": "Kadabra",
+   "rarity": "Uncommon",
+   "illustrator": "Ken Sugimori",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": 60,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 3.27
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "ユンゲラー",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/c/ce/KadabraBaseSet32.jpg/400px-KadabraBaseSet32.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/c/ce/KadabraBaseSet32.jpg",
+   "ppId": 135550
+  },
+  {
+   "id": "PMCG1-047",
+   "localId": "047",
+   "name": "Haunter",
+   "rarity": "Uncommon",
+   "illustrator": "Keiji Kinebuchi",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": 60,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 3.99
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "ゴースト",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/9/9b/HaunterBaseSet29.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/9/9b/HaunterBaseSet29.jpg",
+   "ppId": 135542
+  },
+  {
+   "id": "PMCG1-048",
+   "localId": "048",
+   "name": "Jynx",
+   "rarity": "Uncommon",
+   "illustrator": "Ken Sugimori",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 20.19
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "ルージュラ",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/5/5d/JynxBaseSet31.jpg/400px-JynxBaseSet31.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/5/5d/JynxBaseSet31.jpg",
+   "ppId": 135592
+  },
+  {
+   "id": "PMCG1-049",
+   "localId": "049",
+   "name": "Alakazam",
+   "rarity": "Holo Rare",
+   "illustrator": "Ken Sugimori",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": 80,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    },
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 53.83
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "フーディン",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/9/94/AlakazamBaseSet1.jpg/400px-AlakazamBaseSet1.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/9/94/AlakazamBaseSet1.jpg",
+   "ppId": 135590
+  },
+  {
+   "id": "PMCG1-050",
+   "localId": "050",
+   "name": "Mewtwo",
+   "rarity": "Holo Rare",
+   "illustrator": "Ken Sugimori",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": 60,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    },
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 108.33
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "ミュウツー",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/8/84/MewtwoBaseSet10.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/8/84/MewtwoBaseSet10.jpg",
+   "ppId": 135582
+  },
+  {
+   "id": "PMCG1-051",
+   "localId": "051",
+   "name": "Sandshrew",
+   "rarity": "Common",
+   "illustrator": "Ken Sugimori",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Fighting"
+   ],
+   "hp": 40,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.76
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "サンド",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/f/f5/SandshrewBaseSet62.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/f/f5/SandshrewBaseSet62.jpg",
+   "ppId": 135620
+  },
+  {
+   "id": "PMCG1-052",
+   "localId": "052",
+   "name": "Diglett",
+   "rarity": "Common",
+   "illustrator": "Keiji Kinebuchi",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Fighting"
+   ],
+   "hp": 30,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.81
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "ディグダ",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/2/2d/DiglettBaseSet47.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/2/2d/DiglettBaseSet47.jpg",
+   "ppId": 135556
+  },
+  {
+   "id": "PMCG1-053",
+   "localId": "053",
+   "name": "Machop",
+   "rarity": "Common",
+   "illustrator": "Mitsuhiro Arita",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Fighting"
+   ],
+   "hp": 50,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 1.22
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "ワンリキー",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/e/e7/MachopBaseSet52.jpg/400px-MachopBaseSet52.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/e/e7/MachopBaseSet52.jpg",
+   "ppId": 135577
+  },
+  {
+   "id": "PMCG1-054",
+   "localId": "054",
+   "name": "Onix",
+   "rarity": "Common",
+   "illustrator": "Ken Sugimori",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Fighting"
+   ],
+   "hp": 90,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 1.01
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "イワーク",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/1/11/OnixBaseSet56.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/1/11/OnixBaseSet56.jpg",
+   "ppId": 135557
+  },
+  {
+   "id": "PMCG1-055",
+   "localId": "055",
+   "name": "Machoke",
+   "rarity": "Uncommon",
+   "illustrator": "Ken Sugimori",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Fighting"
+   ],
+   "hp": 80,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 3.11
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "ゴーリキー",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/e/ef/MachokeBaseSet34.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/e/ef/MachokeBaseSet34.jpg",
+   "ppId": 135602
+  },
+  {
+   "id": "PMCG1-056",
+   "localId": "056",
+   "name": "Dugtrio",
+   "rarity": "Rare",
+   "illustrator": "Keiji Kinebuchi",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Fighting"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 19.86
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "ダグトリオ",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/3/35/DugtrioBaseSet19.jpg/400px-DugtrioBaseSet19.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/3/35/DugtrioBaseSet19.jpg",
+   "ppId": 135630
+  },
+  {
+   "id": "PMCG1-057",
+   "localId": "057",
+   "name": "Machamp",
+   "rarity": "Holo Rare",
+   "illustrator": "Ken Sugimori",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Fighting"
+   ],
+   "hp": 100,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 41.32
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "カイリキー",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/2/22/MachampBaseSet8.jpg/400px-MachampBaseSet8.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/2/22/MachampBaseSet8.jpg",
+   "ppId": 135604
+  },
+  {
+   "id": "PMCG1-058",
+   "localId": "058",
+   "name": "Hitmonchan",
+   "rarity": "Holo Rare",
+   "illustrator": "Ken Sugimori",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Fighting"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 27.7
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "エビワラー",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/2/26/HitmonchanBaseSet7.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/2/26/HitmonchanBaseSet7.jpg",
+   "ppId": 135584
+  },
+  {
+   "id": "PMCG1-059",
+   "localId": "059",
+   "name": "Pidgey",
+   "rarity": "Common",
+   "illustrator": "Ken Sugimori",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Colorless"
+   ],
+   "hp": 40,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.88
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "ポッポ",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/5/58/PidgeyBaseSet57.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/5/58/PidgeyBaseSet57.jpg",
+   "ppId": 135548
+  },
+  {
+   "id": "PMCG1-060",
+   "localId": "060",
+   "name": "Rattata",
+   "rarity": "Common",
+   "illustrator": "Mitsuhiro Arita",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Colorless"
+   ],
+   "hp": 30,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.79
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "コラッタ",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/7/70/RattataBaseSet61.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/7/70/RattataBaseSet61.jpg",
+   "ppId": 135621
+  },
+  {
+   "id": "PMCG1-061",
+   "localId": "061",
+   "name": "Doduo",
+   "rarity": "Common",
+   "illustrator": "Mitsuhiro Arita",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Colorless"
+   ],
+   "hp": 50,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.68
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "ドードー",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/6/6e/DoduoBaseSet48.jpg/400px-DoduoBaseSet48.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/6/6e/DoduoBaseSet48.jpg",
+   "ppId": 135555
+  },
+  {
+   "id": "PMCG1-062",
+   "localId": "062",
+   "name": "Raticate",
+   "rarity": "Uncommon",
+   "illustrator": "Ken Sugimori",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Colorless"
+   ],
+   "hp": 60,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 2.52
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "ラッタ",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/c/cb/RaticateBaseSet40.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/c/cb/RaticateBaseSet40.jpg",
+   "ppId": 135596
+  },
+  {
+   "id": "PMCG1-063",
+   "localId": "063",
+   "name": "Farfetch'd",
+   "rarity": "Uncommon",
+   "illustrator": "Tomokazu Komiya",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Colorless"
+   ],
+   "hp": 50,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 3.27
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "カモネギ",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/6/65/Farfetch%27dBaseSet27.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/6/65/Farfetch%27dBaseSet27.jpg",
+   "ppId": 135567
+  },
+  {
+   "id": "PMCG1-064",
+   "localId": "064",
+   "name": "Porygon",
+   "rarity": "Uncommon",
+   "illustrator": "Tomoaki Imakuni",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Colorless"
+   ],
+   "hp": 30,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 2.53
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "ポリゴン",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/6/66/PorygonBaseSet39.jpg/400px-PorygonBaseSet39.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/6/66/PorygonBaseSet39.jpg",
+   "ppId": 135599
+  },
+  {
+   "id": "PMCG1-065",
+   "localId": "065",
+   "name": "Dratini",
+   "rarity": "Uncommon",
+   "illustrator": "Ken Sugimori",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Colorless"
+   ],
+   "hp": 40,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 2.59
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "ミニリュウ",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/8/84/DratiniBaseSet26.jpg/400px-DratiniBaseSet26.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/8/84/DratiniBaseSet26.jpg",
+   "ppId": 135597
+  },
+  {
+   "id": "PMCG1-066",
+   "localId": "066",
+   "name": "Pidgeotto",
+   "rarity": "Rare",
+   "illustrator": "Ken Sugimori",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Colorless"
+   ],
+   "hp": 60,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 37.5
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "ピジョン",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/3/3e/PidgeottoBaseSet22.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/3/3e/PidgeottoBaseSet22.jpg",
+   "ppId": 135643
+  },
+  {
+   "id": "PMCG1-067",
+   "localId": "067",
+   "name": "Clefairy",
+   "rarity": "Holo Rare",
+   "illustrator": "Ken Sugimori",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Colorless"
+   ],
+   "hp": 40,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    },
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 17.11
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "ピッピ",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/7/7f/ClefairyBaseSet5.jpg/400px-ClefairyBaseSet5.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/7/7f/ClefairyBaseSet5.jpg",
+   "ppId": 135612
+  },
+  {
+   "id": "PMCG1-068",
+   "localId": "068",
+   "name": "Chansey",
+   "rarity": "Holo Rare",
+   "illustrator": "Ken Sugimori",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Colorless"
+   ],
+   "hp": 120,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    },
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 36.58
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "ラッキー",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/f/fc/ChanseyBaseSet3.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/f/fc/ChanseyBaseSet3.jpg",
+   "ppId": 135635
+  },
+  {
+   "id": "PMCG1-069",
+   "localId": "069",
+   "name": "Dragonair",
+   "rarity": "Rare",
+   "illustrator": "Mitsuhiro Arita",
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Colorless"
+   ],
+   "hp": 80,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 43.68
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "ハクリュー",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/c/c9/DragonairBaseSet18.jpg/400px-DragonairBaseSet18.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/c/c9/DragonairBaseSet18.jpg",
+   "ppId": 135594
+  },
+  {
+   "id": "PMCG1-070",
+   "localId": "070",
+   "name": "Energy Removal",
+   "rarity": "Common",
+   "illustrator": "Keiji Kinebuchi",
+   "image": null,
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.45
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "エネルギー・リムーブ",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/5/50/EnergyRemovalBaseSet92.jpg/400px-EnergyRemovalBaseSet92.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/5/50/EnergyRemovalBaseSet92.jpg",
+   "ppId": 64798
+  },
+  {
+   "id": "PMCG1-071",
+   "localId": "071",
+   "name": "Potion",
+   "rarity": "Common",
+   "illustrator": "Ayaka Yoshida",
+   "image": null,
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.41
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "きずぐすり",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/4/45/PotionBaseSet94.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/4/45/PotionBaseSet94.jpg",
+   "ppId": 64918
+  },
+  {
+   "id": "PMCG1-072",
+   "localId": "072",
+   "name": "Gust of Wind",
+   "rarity": "Common",
+   "illustrator": "Keiji Kinebuchi",
+   "image": null,
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.61
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "突風",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/1/13/GustofWindBaseSet93.jpg/400px-GustofWindBaseSet93.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/1/13/GustofWindBaseSet93.jpg",
+   "ppId": 135534
+  },
+  {
+   "id": "PMCG1-073",
+   "localId": "073",
+   "name": "Switch",
+   "rarity": "Common",
+   "illustrator": "Hideaki Hakozaki",
+   "image": null,
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.6
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "ポケモンいれかえ",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/b/be/SwitchBaseSet95.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/b/be/SwitchBaseSet95.jpg",
+   "ppId": 135580
+  },
+  {
+   "id": "PMCG1-074",
+   "localId": "074",
+   "name": "Bill",
+   "rarity": "Common",
+   "illustrator": "Ken Sugimori",
+   "image": null,
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.87
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "マサキ",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/2/21/BillBaseSet91.jpg/400px-BillBaseSet91.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/2/21/BillBaseSet91.jpg",
+   "ppId": 135578
+  },
+  {
+   "id": "PMCG1-075",
+   "localId": "075",
+   "name": "Super Potion",
+   "rarity": "Uncommon",
+   "illustrator": "Keiji Kinebuchi",
+   "image": null,
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 1.61
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "いいきずぐすり",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/f/fa/SuperPotionBaseSet90.jpg/400px-SuperPotionBaseSet90.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/f/fa/SuperPotionBaseSet90.jpg",
+   "ppId": 64919
+  },
+  {
+   "id": "PMCG1-076",
+   "localId": "076",
+   "name": "Energy Retrieval",
+   "rarity": "Uncommon",
+   "illustrator": "Keiji Kinebuchi",
+   "image": null,
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 2.06
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "エネルギー回収",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/f/fa/EnergyRetrievalBaseSet81.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/f/fa/EnergyRetrievalBaseSet81.jpg",
+   "ppId": 64803
+  },
+  {
+   "id": "PMCG1-077",
+   "localId": "077",
+   "name": "Professor Oak",
+   "rarity": "Uncommon",
+   "illustrator": "Ken Sugimori",
+   "image": null,
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 3.22
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "オーキドはかせ",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/a/a9/ProfessorOakBaseSet88.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/a/a9/ProfessorOakBaseSet88.jpg",
+   "ppId": 135627
+  },
+  {
+   "id": "PMCG1-078",
+   "localId": "078",
+   "name": "Revive",
+   "rarity": "Uncommon",
+   "illustrator": "Keiji Kinebuchi",
+   "image": null,
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 2.7
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "げんきのかけら",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/9/90/ReviveBaseSet89.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/9/90/ReviveBaseSet89.jpg",
+   "ppId": 135605
+  },
+  {
+   "id": "PMCG1-079",
+   "localId": "079",
+   "name": "Defender",
+   "rarity": "Uncommon",
+   "illustrator": "Keiji Kinebuchi",
+   "image": null,
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 1.74
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "ディフェンダー",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/9/90/DefenderBaseSet80.jpg/400px-DefenderBaseSet80.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/9/90/DefenderBaseSet80.jpg",
+   "ppId": 135560
+  },
+  {
+   "id": "PMCG1-080",
+   "localId": "080",
+   "name": "Full Heal",
+   "rarity": "Uncommon",
+   "illustrator": "Keiji Kinebuchi",
+   "image": null,
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 2.53
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "なんでもなおし",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/1/1f/FullHealBaseSet82.jpg/400px-FullHealBaseSet82.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/1/1f/FullHealBaseSet82.jpg",
+   "ppId": 135595
+  },
+  {
+   "id": "PMCG1-081",
+   "localId": "081",
+   "name": "PlusPower",
+   "rarity": "Uncommon",
+   "illustrator": "Ryo Ueda",
+   "image": null,
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 2.71
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "プラスパワー",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/e/e3/PlusPowerBaseSet84.jpg/400px-PlusPowerBaseSet84.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/e/e3/PlusPowerBaseSet84.jpg",
+   "ppId": 135615
+  },
+  {
+   "id": "PMCG1-082",
+   "localId": "082",
+   "name": "Pokédex",
+   "rarity": "Uncommon",
+   "illustrator": "Keiji Kinebuchi",
+   "image": null,
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 1.7
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "ポケモン図鑑",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/e/e5/Pok%C3%A9dexBaseSet87.jpg/400px-Pok%C3%A9dexBaseSet87.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/e/e5/Pok%C3%A9dexBaseSet87.jpg",
+   "ppId": 135625
+  },
+  {
+   "id": "PMCG1-083",
+   "localId": "083",
+   "name": "Pokémon Center",
+   "rarity": "Uncommon",
+   "illustrator": "\"Big Mama\" Tagawa",
+   "image": null,
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "nameJa": "ポケモンセンター",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/4/4c/Pok%C3%A9monCenterBaseSet85.jpg/400px-Pok%C3%A9monCenterBaseSet85.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/4/4c/Pok%C3%A9monCenterBaseSet85.jpg"
+  },
+  {
+   "id": "PMCG1-084",
+   "localId": "084",
+   "name": "Pokémon Flute",
+   "rarity": "Uncommon",
+   "illustrator": "Keiji Kinebuchi",
+   "image": null,
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "nameJa": "ポケモンの笛",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/d/d5/Pok%C3%A9monFluteBaseSet86.jpg/400px-Pok%C3%A9monFluteBaseSet86.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/d/d5/Pok%C3%A9monFluteBaseSet86.jpg"
+  },
+  {
+   "id": "PMCG1-085",
+   "localId": "085",
+   "name": "Maintenance",
+   "rarity": "Uncommon",
+   "illustrator": "Keiji Kinebuchi",
+   "image": null,
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 2.34
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "メンテナンス",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/4/4e/MaintenanceBaseSet83.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/4/4e/MaintenanceBaseSet83.jpg",
+   "ppId": 135636
+  },
+  {
+   "id": "PMCG1-086",
+   "localId": "086",
+   "name": "Devolution Spray",
+   "rarity": "Rare",
+   "illustrator": "Ryo Ueda",
+   "image": null,
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 9.03
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "退化スプレー",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/b/be/DevolutionSprayBaseSet72.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/b/be/DevolutionSprayBaseSet72.jpg",
+   "ppId": 135634
+  },
+  {
+   "id": "PMCG1-087",
+   "localId": "087",
+   "name": "Item Finder",
+   "rarity": "Rare",
+   "illustrator": "Keiji Kinebuchi",
+   "image": null,
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 15.56
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "ダウジングマシーン",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/f/f0/ItemFinderBaseSet74.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/f/f0/ItemFinderBaseSet74.jpg",
+   "ppId": 135610
+  },
+  {
+   "id": "PMCG1-088",
+   "localId": "088",
+   "name": "Super Energy Removal",
+   "rarity": "Rare",
+   "illustrator": "Keiji Kinebuchi",
+   "image": null,
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 19.25
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "超エネルギーリムーブ",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/8/84/SuperEnergyRemovalBaseSet79.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/8/84/SuperEnergyRemovalBaseSet79.jpg",
+   "ppId": 64807
+  },
+  {
+   "id": "PMCG1-089",
+   "localId": "089",
+   "name": "Impostor Professor Oak",
+   "rarity": "Rare",
+   "illustrator": "Ken Sugimori",
+   "image": null,
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "nameJa": "詐欺師オーク教授",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/a/a8/ImposterProfessorOakBaseSet73.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/a/a8/ImposterProfessorOakBaseSet73.jpg"
+  },
+  {
+   "id": "PMCG1-090",
+   "localId": "090",
+   "name": "Computer Search",
+   "rarity": "Rare",
+   "illustrator": "Ryo Ueda",
+   "image": null,
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 15.41
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "パソコン通信",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/8/89/ComputerSearchBaseSet71.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/8/89/ComputerSearchBaseSet71.jpg",
+   "ppId": 135601
+  },
+  {
+   "id": "PMCG1-091",
+   "localId": "091",
+   "name": "Clefairy Doll",
+   "rarity": "Rare",
+   "illustrator": "Keiji Kinebuchi",
+   "image": null,
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 7.3
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "ピッピ人形",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/5/53/ClefairyDollBaseSet70.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/5/53/ClefairyDollBaseSet70.jpg",
+   "ppId": 135641
+  },
+  {
+   "id": "PMCG1-092",
+   "localId": "092",
+   "name": "Scoop Up",
+   "rarity": "Rare",
+   "illustrator": "Keiji Kinebuchi",
+   "image": null,
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 15.22
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "ポケモン回収",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/7/72/ScoopUpBaseSet78.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/7/72/ScoopUpBaseSet78.jpg",
+   "ppId": 135633
+  },
+  {
+   "id": "PMCG1-093",
+   "localId": "093",
+   "name": "Pokémon Trader",
+   "rarity": "Rare",
+   "illustrator": "Ken Sugimori",
+   "image": null,
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "nameJa": "ポケモン交換おじさん",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/2/2b/Pok%C3%A9monTraderBaseSet77.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/2/2b/Pok%C3%A9monTraderBaseSet77.jpg"
+  },
+  {
+   "id": "PMCG1-094",
+   "localId": "094",
+   "name": "Pokémon Breeder",
+   "rarity": "Rare",
+   "illustrator": "Ken Sugimori",
+   "image": null,
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": null,
+   "nameJa": "ポケモン育て屋さん",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/5/56/Pok%C3%A9monBreederBaseSet76.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/5/56/Pok%C3%A9monBreederBaseSet76.jpg"
+  },
+  {
+   "id": "PMCG1-095",
+   "localId": "095",
+   "name": "Lass",
+   "rarity": "Rare",
+   "illustrator": "Ken Sugimori",
+   "image": null,
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 16.0
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "ミニスカート",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/b/b5/LassBaseSet75.jpg/400px-LassBaseSet75.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/b/b5/LassBaseSet75.jpg",
+   "ppId": 135628
+  },
+  {
+   "id": "PMCG1-096",
+   "localId": "096",
+   "name": "Double Colorless Energy",
+   "rarity": "Uncommon",
+   "illustrator": "Keiji Kinebuchi",
+   "image": null,
+   "category": "Energy",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 7.67
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "ダブル無色エネルギー",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/c/c1/DoubleColorlessEnergyBaseSet96.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/c/c1/DoubleColorlessEnergyBaseSet96.jpg",
+   "ppId": 64806
+  },
+  {
+   "id": "PMCG1-097",
+   "localId": "097",
+   "name": "Grass Energy",
+   "rarity": "Common",
+   "illustrator": "Keiji Kinebuchi",
+   "image": null,
+   "category": "Energy",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.61
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "基本草エネルギー",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/2/28/BasicGrassEnergyMEEEnergy1.jpg/400px-BasicGrassEnergyMEEEnergy1.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/2/28/BasicGrassEnergyMEEEnergy1.jpg",
+   "ppId": 64799
+  },
+  {
+   "id": "PMCG1-098",
+   "localId": "098",
+   "name": "Fire Energy",
+   "rarity": "Common",
+   "illustrator": "Keiji Kinebuchi",
+   "image": null,
+   "category": "Energy",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.65
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "基本炎エネルギー",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/1/17/BasicFireEnergyMEEEnergy2.jpg/400px-BasicFireEnergyMEEEnergy2.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/1/17/BasicFireEnergyMEEEnergy2.jpg",
+   "ppId": 64802
+  },
+  {
+   "id": "PMCG1-099",
+   "localId": "099",
+   "name": "Water Energy",
+   "rarity": "Common",
+   "illustrator": "Keiji Kinebuchi",
+   "image": null,
+   "category": "Energy",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.56
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "基本水エネルギー",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/d/d5/BasicWaterEnergyMEEEnergy3.jpg/400px-BasicWaterEnergyMEEEnergy3.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/d/d5/BasicWaterEnergyMEEEnergy3.jpg",
+   "ppId": 64800
+  },
+  {
+   "id": "PMCG1-100",
+   "localId": "100",
+   "name": "Lightning Energy",
+   "rarity": "Common",
+   "illustrator": "Keiji Kinebuchi",
+   "image": null,
+   "category": "Energy",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.74
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "基本雷エネルギー",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/9/9b/BasicLightningEnergyMEEEnergy4.jpg/400px-BasicLightningEnergyMEEEnergy4.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/9/9b/BasicLightningEnergyMEEEnergy4.jpg",
+   "ppId": 64801
+  },
+  {
+   "id": "PMCG1-101",
+   "localId": "101",
+   "name": "Psychic Energy",
+   "rarity": "Common",
+   "illustrator": "Keiji Kinebuchi",
+   "image": null,
+   "category": "Energy",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.63
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "基本超エネルギー",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/a/ad/BasicPsychicEnergyMEEEnergy5.jpg/400px-BasicPsychicEnergyMEEEnergy5.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/a/ad/BasicPsychicEnergyMEEEnergy5.jpg",
+   "ppId": 64804
+  },
+  {
+   "id": "PMCG1-102",
+   "localId": "102",
+   "name": "Fighting Energy",
+   "rarity": "Common",
+   "illustrator": "Keiji Kinebuchi",
+   "image": null,
+   "category": "Energy",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.73
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T08:56:01Z"
+   },
+   "nameJa": "基本闘エネルギー",
+   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/6/6c/BasicFightingEnergyMEEEnergy6.jpg/400px-BasicFightingEnergyMEEEnergy6.jpg",
+   "imageLarge": "https://archives.bulbagarden.net/media/upload/6/6c/BasicFightingEnergyMEEEnergy6.jpg",
+   "ppId": 64805
+  }
+ ]
+}

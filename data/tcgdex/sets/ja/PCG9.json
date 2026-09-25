@@ -1,1 +1,2363 @@
-{"generated_at": "2026-09-16T02:06:29.162343+00:00", "set": {"id": "PCG9", "name": "Offense and Defense of the Furthest Ends", "series": "PCG", "releaseDate": "2006-06-29", "logo": null, "symbol": "/data/tcgdex/set-symbols/ja/PCG9.png", "printedTotal": 68, "total": 68, "lang": "ja", "nameJa": "さいはての攻防"}, "cards": [{"id": "PCG9-001", "localId": "001", "name": "Snorlax (Delta Species)", "rarity": "Holo Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Grass"], "hp": 80, "variants_detailed": [{"type": "holo", "foil": null}, {"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 74.99}}, "currency": "USD", "pricedAt": "2026-09-22T05:39:29Z"}, "imageSmall": "https://images.pkmnprices.com/cards/58a206e6ac7623d4.webp", "imageLarge": "https://images.pkmnprices.com/cards/58a206e6ac7623d4.webp", "ppId": 38378}, {"id": "PCG9-002", "localId": "002", "name": "Dratini (Delta Species)", "rarity": "Common", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Grass"], "hp": 40, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 6.44}}, "currency": "USD", "pricedAt": "2026-09-22T05:39:29Z"}, "imageSmall": "https://images.pkmnprices.com/cards/fe037ec1e488b08c.webp", "imageLarge": "https://images.pkmnprices.com/cards/fe037ec1e488b08c.webp", "ppId": 38386}, {"id": "PCG9-003", "localId": "003", "name": "Dragonair (Delta Species)", "rarity": "Uncommon", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Grass"], "hp": 70, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 10.0}}, "currency": "USD", "pricedAt": "2026-09-22T05:39:29Z"}, "imageSmall": "https://images.pkmnprices.com/cards/2d8724c431dac34a.webp", "imageLarge": "https://images.pkmnprices.com/cards/2d8724c431dac34a.webp", "ppId": 38381}, {"id": "PCG9-004", "localId": "004", "name": "Dragonite ex (Delta Species)", "rarity": "Holo Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Grass"], "hp": 150, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 200.0}}, "currency": "USD", "pricedAt": "2026-09-22T05:39:29Z"}, "imageSmall": "https://images.pkmnprices.com/cards/6b7e12a5bcec221f.webp", "imageLarge": "https://images.pkmnprices.com/cards/6b7e12a5bcec221f.webp", "ppId": 38403}, {"id": "PCG9-005", "localId": "005", "name": "Wooper (Delta Species)", "rarity": "Common", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Grass"], "hp": 40, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 17.91}}, "currency": "USD", "pricedAt": "2026-09-22T05:39:29Z"}, "imageSmall": "https://images.pkmnprices.com/cards/db2bcb4afd0e6255.webp", "imageLarge": "https://images.pkmnprices.com/cards/db2bcb4afd0e6255.webp", "ppId": 38384}, {"id": "PCG9-006", "localId": "006", "name": "Quagsire (Delta Species)", "rarity": "Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Grass"], "hp": 80, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {}, "currency": "USD", "pricedAt": "2026-09-22T05:39:29Z"}, "imageSmall": "https://images.pkmnprices.com/cards/632cf686508e58cb.webp", "imageLarge": "https://images.pkmnprices.com/cards/632cf686508e58cb.webp", "ppId": 38559}, {"id": "PCG9-007", "localId": "007", "name": "Ekans (Delta Species)", "rarity": "Common", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Fire"], "hp": 50, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 5.26}}, "currency": "USD", "pricedAt": "2026-09-22T05:39:29Z"}, "imageSmall": "https://images.pkmnprices.com/cards/7630c79e844653bd.webp", "imageLarge": "https://images.pkmnprices.com/cards/7630c79e844653bd.webp", "ppId": 38804}, {"id": "PCG9-008", "localId": "008", "name": "Arbok (Delta Species)", "rarity": "Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Fire"], "hp": 80, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 7.98}}, "currency": "EUR", "pricedAt": "2026-09-22T05:39:29Z"}, "imageSmall": "https://images.pkmnprices.com/cards/32a834637c511868.webp", "imageLarge": "https://images.pkmnprices.com/cards/32a834637c511868.webp", "ppId": 38417}, {"id": "PCG9-009", "localId": "009", "name": "Heracross (Delta Species)", "rarity": "Holo Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Fire"], "hp": 70, "variants_detailed": [{"type": "holo", "foil": null}, {"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 26.66}}, "currency": "USD", "pricedAt": "2026-09-22T07:18:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/3a059a95d3e600dd.webp", "imageLarge": "https://images.pkmnprices.com/cards/3a059a95d3e600dd.webp", "ppId": 38404}, {"id": "PCG9-010", "localId": "010", "name": "Taillow (Delta Species)", "rarity": "Common", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Fire"], "hp": 40, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 3.0}}, "currency": "USD", "pricedAt": "2026-09-22T07:18:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/982fd7a7eca47d0b.webp", "imageLarge": "https://images.pkmnprices.com/cards/982fd7a7eca47d0b.webp", "ppId": 38424}, {"id": "PCG9-011", "localId": "011", "name": "Swellow (Delta Species)", "rarity": "Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Fire"], "hp": 70, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 6.5}}, "currency": "EUR", "pricedAt": "2026-09-22T05:39:29Z"}, "imageSmall": "https://images.pkmnprices.com/cards/6b0794207e8042a4.webp", "imageLarge": "https://images.pkmnprices.com/cards/6b0794207e8042a4.webp", "ppId": 38783}, {"id": "PCG9-012", "localId": "012", "name": "Feebas (Delta Species)", "rarity": "Common", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Fire"], "hp": 30, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 5.17}}, "currency": "USD", "pricedAt": "2026-09-22T05:39:29Z"}, "imageSmall": "https://images.pkmnprices.com/cards/a5d38acdd4bc84e6.webp", "imageLarge": "https://images.pkmnprices.com/cards/a5d38acdd4bc84e6.webp", "ppId": 39252}, {"id": "PCG9-013", "localId": "013", "name": "Milotic (Delta Species)", "rarity": "Holo Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Fire"], "hp": 90, "variants_detailed": [{"type": "holo", "foil": null}, {"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 38.0}}, "currency": "EUR", "pricedAt": "2026-09-22T05:39:29Z"}, "imageSmall": "https://images.pkmnprices.com/cards/85265139d1c8f6ba.webp", "imageLarge": "https://images.pkmnprices.com/cards/85265139d1c8f6ba.webp", "ppId": 38758}, {"id": "PCG9-014", "localId": "014", "name": "Latias ex (Delta Species)", "rarity": "Holo Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Fire"], "hp": 100, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {}, "currency": "USD", "pricedAt": "2026-09-22T05:39:29Z"}, "imageSmall": "https://images.pkmnprices.com/cards/2719bd9c981922f0.webp", "imageLarge": "https://images.pkmnprices.com/cards/2719bd9c981922f0.webp", "ppId": 38564}, {"id": "PCG9-015", "localId": "015", "name": "Mew Star (Delta Species)", "rarity": "Shiny rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Water"], "hp": 70, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {}, "currency": "USD", "pricedAt": "2026-09-22T05:39:29Z"}, "imageSmall": "https://images.pkmnprices.com/cards/0f56c87ac4cc4453.webp", "imageLarge": "https://images.pkmnprices.com/cards/0f56c87ac4cc4453.webp", "ppId": 38423}, {"id": "PCG9-016", "localId": "016", "name": "Togepi (Delta Species)", "rarity": "Uncommon", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Water"], "hp": 40, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 10.0}}, "currency": "USD", "pricedAt": "2026-09-22T07:18:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/db76fb6a5a298145.webp", "imageLarge": "https://images.pkmnprices.com/cards/db76fb6a5a298145.webp", "ppId": 38369}, {"id": "PCG9-017", "localId": "017", "name": "Togetic (Delta Species)", "rarity": "Holo Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Water"], "hp": 60, "variants_detailed": [{"type": "holo", "foil": null}, {"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 49.95}}, "currency": "USD", "pricedAt": "2026-09-22T05:39:29Z"}, "imageSmall": "https://images.pkmnprices.com/cards/cd4763d6a365adab.webp", "imageLarge": "https://images.pkmnprices.com/cards/cd4763d6a365adab.webp", "ppId": 38412}, {"id": "PCG9-018", "localId": "018", "name": "Swablu (Delta Species)", "rarity": "Common", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Water"], "hp": 40, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 4.0}}, "currency": "USD", "pricedAt": "2026-09-22T05:39:29Z"}, "imageSmall": "https://images.pkmnprices.com/cards/67920a244be0c056.webp", "imageLarge": "https://images.pkmnprices.com/cards/67920a244be0c056.webp", "ppId": 38379}, {"id": "PCG9-019", "localId": "019", "name": "Altaria ex (Delta Species)", "rarity": "Holo Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Water"], "hp": 100, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 74.99}}, "currency": "USD", "pricedAt": "2026-09-22T05:39:29Z"}, "imageSmall": "https://images.pkmnprices.com/cards/9e5d39458c831f95.webp", "imageLarge": "https://images.pkmnprices.com/cards/9e5d39458c831f95.webp", "ppId": 38391}, {"id": "PCG9-020", "localId": "020", "name": "Bagon (Delta Species)", "rarity": "Common", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Water"], "hp": 50, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 2.8}}, "currency": "USD", "pricedAt": "2026-09-22T07:18:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/b68a40eacf3a2b5c.webp", "imageLarge": "https://images.pkmnprices.com/cards/b68a40eacf3a2b5c.webp", "ppId": 38394}, {"id": "PCG9-021", "localId": "021", "name": "Shelgon (Delta Species)", "rarity": "Uncommon", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Water"], "hp": 70, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 4.0}}, "currency": "USD", "pricedAt": "2026-09-22T05:39:29Z"}, "imageSmall": "https://images.pkmnprices.com/cards/bfd164e9e89fd70f.webp", "imageLarge": "https://images.pkmnprices.com/cards/bfd164e9e89fd70f.webp", "ppId": 38389}, {"id": "PCG9-022", "localId": "022", "name": "Salamence ex (Delta Species)", "rarity": "Holo Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Water"], "hp": 160, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 85.99}}, "currency": "EUR", "pricedAt": "2026-09-22T05:39:29Z"}, "imageSmall": "https://images.pkmnprices.com/cards/6e0cb9112885c3fd.webp", "imageLarge": "https://images.pkmnprices.com/cards/6e0cb9112885c3fd.webp", "ppId": 38749}, {"id": "PCG9-023", "localId": "023", "name": "Latios ex (Delta Species)", "rarity": "Holo Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Water"], "hp": 100, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 320.0}}, "currency": "EUR", "pricedAt": "2026-09-22T05:39:29Z"}, "imageSmall": "https://images.pkmnprices.com/cards/644215b3ed6d258c.webp", "imageLarge": "https://images.pkmnprices.com/cards/644215b3ed6d258c.webp", "ppId": 38425}, {"id": "PCG9-024", "localId": "024", "name": "Totodile (Delta Species)", "rarity": "Common", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Lightning"], "hp": 40, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 10.33}}, "currency": "USD", "pricedAt": "2026-09-22T05:39:29Z"}, "imageSmall": "https://images.pkmnprices.com/cards/4a0202a9099a888c.webp", "imageLarge": "https://images.pkmnprices.com/cards/4a0202a9099a888c.webp", "ppId": 38401}, {"id": "PCG9-025", "localId": "025", "name": "Croconaw (Delta Species)", "rarity": "Uncommon", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Lightning"], "hp": 70, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 10.0}}, "currency": "USD", "pricedAt": "2026-09-22T05:39:29Z"}, "imageSmall": "https://images.pkmnprices.com/cards/8fc03b70d4aaff50.webp", "imageLarge": "https://images.pkmnprices.com/cards/8fc03b70d4aaff50.webp", "ppId": 38407}, {"id": "PCG9-026", "localId": "026", "name": "Feraligatr (Delta Species)", "rarity": "Holo Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Lightning"], "hp": 120, "variants_detailed": [{"type": "holo", "foil": null}, {"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 55.0}}, "currency": "USD", "pricedAt": "2026-09-22T05:39:29Z"}, "imageSmall": "https://images.pkmnprices.com/cards/d7fd913541245a78.webp", "imageLarge": "https://images.pkmnprices.com/cards/d7fd913541245a78.webp", "ppId": 38408}, {"id": "PCG9-027", "localId": "027", "name": "Mantine (Delta Species)", "rarity": "Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Lightning"], "hp": 50, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 10.0}}, "currency": "USD", "pricedAt": "2026-09-22T05:39:29Z"}, "imageSmall": "https://images.pkmnprices.com/cards/3280b31a97022cbd.webp", "imageLarge": "https://images.pkmnprices.com/cards/3280b31a97022cbd.webp", "ppId": 38755}, {"id": "PCG9-028", "localId": "028", "name": "Rayquaza ex (Delta Species)", "rarity": "Holo Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Lightning"], "hp": 110, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 790.0}}, "currency": "EUR", "pricedAt": "2026-09-22T05:39:29Z"}, "imageSmall": "https://images.pkmnprices.com/cards/59570e2db79f9e7b.webp", "imageLarge": "https://images.pkmnprices.com/cards/59570e2db79f9e7b.webp", "ppId": 38523}, {"id": "PCG9-029", "localId": "029", "name": "Vulpix (Delta Species)", "rarity": "Uncommon", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Psychic"], "hp": 50, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 10.0}}, "currency": "USD", "pricedAt": "2026-09-22T05:39:29Z"}, "imageSmall": "https://images.pkmnprices.com/cards/97f3786563986e27.webp", "imageLarge": "https://images.pkmnprices.com/cards/97f3786563986e27.webp", "ppId": 38371}, {"id": "PCG9-030", "localId": "030", "name": "Ninetales (Delta Species)", "rarity": "Holo Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Psychic"], "hp": 70, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 80.0}}, "currency": "EUR", "pricedAt": "2026-09-22T05:39:29Z"}, "imageSmall": "https://images.pkmnprices.com/cards/e75563c8b8a9263e.webp", "imageLarge": "https://images.pkmnprices.com/cards/e75563c8b8a9263e.webp", "ppId": 38400}, {"id": "PCG9-031", "localId": "031", "name": "Lickitung (Delta Species)", "rarity": "Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Psychic"], "hp": 60, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 14.99}}, "currency": "EUR", "pricedAt": "2026-09-22T05:39:29Z"}, "imageSmall": "https://images.pkmnprices.com/cards/ac7d1d21ed0f8ae1.webp", "imageLarge": "https://images.pkmnprices.com/cards/ac7d1d21ed0f8ae1.webp", "ppId": 38427}, {"id": "PCG9-032", "localId": "032", "name": "Cyndaquil (Delta Species)", "rarity": "Common", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Psychic"], "hp": 40, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 10.66}}, "currency": "USD", "pricedAt": "2026-09-22T07:18:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/cb6c673125329a9c.webp", "imageLarge": "https://images.pkmnprices.com/cards/cb6c673125329a9c.webp", "ppId": 38446}, {"id": "PCG9-033", "localId": "033", "name": "Quilava (Delta Species)", "rarity": "Uncommon", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Psychic"], "hp": 70, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 10.0}}, "currency": "USD", "pricedAt": "2026-09-22T05:39:29Z"}, "imageSmall": "https://images.pkmnprices.com/cards/b18ce66b8435126c.webp", "imageLarge": "https://images.pkmnprices.com/cards/b18ce66b8435126c.webp", "ppId": 38390}, {"id": "PCG9-034", "localId": "034", "name": "Typhlosion (Delta Species)", "rarity": "Holo Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Psychic"], "hp": 100, "variants_detailed": [{"type": "holo", "foil": null}, {"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 25.0}}, "currency": "USD", "pricedAt": "2026-09-22T05:39:29Z"}, "imageSmall": "https://images.pkmnprices.com/cards/71fe7042e70001e3.webp", "imageLarge": "https://images.pkmnprices.com/cards/71fe7042e70001e3.webp", "ppId": 38393}, {"id": "PCG9-035", "localId": "035", "name": "Trapinch (Delta Species)", "rarity": "Common", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Psychic"], "hp": 40, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 5.33}}, "currency": "USD", "pricedAt": "2026-09-22T07:18:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/b4991929a03e23c7.webp", "imageLarge": "https://images.pkmnprices.com/cards/b4991929a03e23c7.webp", "ppId": 38405}, {"id": "PCG9-036", "localId": "036", "name": "Vibrava (Delta Species)", "rarity": "Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Psychic"], "hp": 70, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 11.0}}, "currency": "USD", "pricedAt": "2026-09-22T05:39:29Z"}, "imageSmall": "https://images.pkmnprices.com/cards/b1d623294f9a2467.webp", "imageLarge": "https://images.pkmnprices.com/cards/b1d623294f9a2467.webp", "ppId": 38428}, {"id": "PCG9-037", "localId": "037", "name": "Flygon ex (Delta Species)", "rarity": "Holo Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Psychic"], "hp": 150, "variants_detailed": [{"type": "holo", "foil": null}, {"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 69.0}}, "currency": "EUR", "pricedAt": "2026-09-22T05:39:29Z"}, "imageSmall": "https://images.pkmnprices.com/cards/553029c75b8f5ba0.webp", "imageLarge": "https://images.pkmnprices.com/cards/553029c75b8f5ba0.webp", "ppId": 38416}, {"id": "PCG9-038", "localId": "038", "name": "Shellder (Delta Species)", "rarity": "Common", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Fighting"], "hp": 40, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 5.6}}, "currency": "USD", "pricedAt": "2026-09-22T05:39:29Z"}, "imageSmall": "https://images.pkmnprices.com/cards/4ffece5e33a37c43.webp", "imageLarge": "https://images.pkmnprices.com/cards/4ffece5e33a37c43.webp", "ppId": 38833}, {"id": "PCG9-039", "localId": "039", "name": "Cloyster (Delta Species)", "rarity": "Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Fighting"], "hp": 70, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 4.5}}, "currency": "USD", "pricedAt": "2026-09-22T05:39:29Z"}, "imageSmall": "https://images.pkmnprices.com/cards/ba2877f54883b3e8.webp", "imageLarge": "https://images.pkmnprices.com/cards/ba2877f54883b3e8.webp", "ppId": 38411}, {"id": "PCG9-040", "localId": "040", "name": "Horsea (Delta Species)", "rarity": "Uncommon", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Fighting"], "hp": 40, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 4.0}}, "currency": "USD", "pricedAt": "2026-09-22T05:39:29Z"}, "imageSmall": "https://images.pkmnprices.com/cards/f658ba9e8d940484.webp", "imageLarge": "https://images.pkmnprices.com/cards/f658ba9e8d940484.webp", "ppId": 38406}, {"id": "PCG9-041", "localId": "041", "name": "Seadra (Delta Species)", "rarity": "Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Fighting"], "hp": 70, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 5.0}}, "currency": "USD", "pricedAt": "2026-09-22T05:39:29Z"}, "imageSmall": "https://images.pkmnprices.com/cards/2e185c6d197a0f5d.webp", "imageLarge": "https://images.pkmnprices.com/cards/2e185c6d197a0f5d.webp", "ppId": 38410}, {"id": "PCG9-042", "localId": "042", "name": "Pinsir (Delta Species)", "rarity": "Holo Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Fighting"], "hp": 60, "variants_detailed": [{"type": "holo", "foil": null}, {"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 12.45}}, "currency": "EUR", "pricedAt": "2026-09-22T05:39:29Z"}, "imageSmall": "https://images.pkmnprices.com/cards/75f74230ee959654.webp", "imageLarge": "https://images.pkmnprices.com/cards/75f74230ee959654.webp", "ppId": 38796}, {"id": "PCG9-043", "localId": "043", "name": "Chikorita (Delta Species)", "rarity": "Common", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Fighting"], "hp": 40, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 9.83}}, "currency": "USD", "pricedAt": "2026-09-22T05:39:29Z"}, "imageSmall": "https://images.pkmnprices.com/cards/6a482c33702ec6fb.webp", "imageLarge": "https://images.pkmnprices.com/cards/6a482c33702ec6fb.webp", "ppId": 38377}, {"id": "PCG9-044", "localId": "044", "name": "Bayleef (Delta Species)", "rarity": "Uncommon", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Fighting"], "hp": 70, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 8.0}}, "currency": "USD", "pricedAt": "2026-09-22T07:18:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/869dd3927e08ff04.webp", "imageLarge": "https://images.pkmnprices.com/cards/869dd3927e08ff04.webp", "ppId": 38420}, {"id": "PCG9-045", "localId": "045", "name": "Meganium (Delta Species)", "rarity": "Holo Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Fighting"], "hp": 110, "variants_detailed": [{"type": "holo", "foil": null}, {"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 39.95}}, "currency": "USD", "pricedAt": "2026-09-22T05:39:29Z"}, "imageSmall": "https://images.pkmnprices.com/cards/2adcfcbc158bd857.webp", "imageLarge": "https://images.pkmnprices.com/cards/2adcfcbc158bd857.webp", "ppId": 38374}, {"id": "PCG9-046", "localId": "046", "name": "Kingdra ex (Delta Species)", "rarity": "Holo Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Fighting"], "hp": 140, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 59.99}}, "currency": "USD", "pricedAt": "2026-09-22T05:39:29Z"}, "imageSmall": "https://images.pkmnprices.com/cards/54903f8317c1f92b.webp", "imageLarge": "https://images.pkmnprices.com/cards/54903f8317c1f92b.webp", "ppId": 38398}, {"id": "PCG9-047", "localId": "047", "name": "Seel (Delta Species)", "rarity": "Common", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Colorless"], "hp": 40, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 1.95}}, "currency": "EUR", "pricedAt": "2026-09-22T05:39:29Z"}, "imageSmall": "https://images.pkmnprices.com/cards/72845f065d21cfce.webp", "imageLarge": "https://images.pkmnprices.com/cards/72845f065d21cfce.webp", "ppId": 38388}, {"id": "PCG9-048", "localId": "048", "name": "Dewgong (Delta Species)", "rarity": "Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Colorless"], "hp": 80, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 7.5}}, "currency": "EUR", "pricedAt": "2026-09-22T05:39:29Z"}, "imageSmall": "https://images.pkmnprices.com/cards/3b5a030b7a17eb9f.webp", "imageLarge": "https://images.pkmnprices.com/cards/3b5a030b7a17eb9f.webp", "ppId": 38402}, {"id": "PCG9-049", "localId": "049", "name": "Mareep (Delta Species)", "rarity": "Common", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Colorless"], "hp": 40, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 10.22}}, "currency": "USD", "pricedAt": "2026-09-22T05:39:29Z"}, "imageSmall": "https://images.pkmnprices.com/cards/e96891a18ddfb8c7.webp", "imageLarge": "https://images.pkmnprices.com/cards/e96891a18ddfb8c7.webp", "ppId": 38382}, {"id": "PCG9-050", "localId": "050", "name": "Flaaffy (Delta Species)", "rarity": "Uncommon", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Colorless"], "hp": 70, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 9.79}}, "currency": "USD", "pricedAt": "2026-09-22T05:39:29Z"}, "imageSmall": "https://images.pkmnprices.com/cards/a38257cdaf62c63b.webp", "imageLarge": "https://images.pkmnprices.com/cards/a38257cdaf62c63b.webp", "ppId": 38395}, {"id": "PCG9-051", "localId": "051", "name": "Ampharos (Delta Species)", "rarity": "Holo Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Colorless"], "hp": 120, "variants_detailed": [{"type": "holo", "foil": null}, {"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 32.99}}, "currency": "EUR", "pricedAt": "2026-09-22T05:39:29Z"}, "imageSmall": "https://images.pkmnprices.com/cards/31b9bad11d507068.webp", "imageLarge": "https://images.pkmnprices.com/cards/31b9bad11d507068.webp", "ppId": 38764}, {"id": "PCG9-052", "localId": "052", "name": "Charizard Star (Delta Species)", "rarity": "Shiny rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Darkness"], "hp": 90, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {}, "currency": "USD", "pricedAt": "2026-09-22T05:39:29Z"}, "imageSmall": "https://images.pkmnprices.com/cards/a71d67954836fea5.webp", "imageLarge": "https://images.pkmnprices.com/cards/a71d67954836fea5.webp", "ppId": 38455}, {"id": "PCG9-053", "localId": "053", "name": "Nidoran (Delta Species)", "rarity": "Common", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Darkness"], "hp": 40, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 5.06}}, "currency": "USD", "pricedAt": "2026-09-22T05:39:29Z"}, "imageSmall": "https://images.pkmnprices.com/cards/236eb443dc1f06b5.webp", "imageLarge": "https://images.pkmnprices.com/cards/236eb443dc1f06b5.webp", "ppId": 38375}, {"id": "PCG9-054", "localId": "054", "name": "Nidorino (Delta Species)", "rarity": "Uncommon", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Darkness"], "hp": 70, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 5.55}}, "currency": "USD", "pricedAt": "2026-09-22T05:39:29Z"}, "imageSmall": "https://images.pkmnprices.com/cards/2b95093b19a9167f.webp", "imageLarge": "https://images.pkmnprices.com/cards/2b95093b19a9167f.webp", "ppId": 38415}, {"id": "PCG9-055", "localId": "055", "name": "Nidoking (Delta Species)", "rarity": "Holo Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Darkness"], "hp": 120, "variants_detailed": [{"type": "holo", "foil": null}, {"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 45.0}}, "currency": "EUR", "pricedAt": "2026-09-22T05:39:29Z"}, "imageSmall": "https://images.pkmnprices.com/cards/56ca266bd3186fc7.webp", "imageLarge": "https://images.pkmnprices.com/cards/56ca266bd3186fc7.webp", "ppId": 38443}, {"id": "PCG9-056", "localId": "056", "name": "Natu (Delta Species)", "rarity": "Common", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Darkness"], "hp": 40, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 1.8}}, "currency": "EUR", "pricedAt": "2026-09-22T05:39:29Z"}, "imageSmall": "https://images.pkmnprices.com/cards/f28915fd3982293d.webp", "imageLarge": "https://images.pkmnprices.com/cards/f28915fd3982293d.webp", "ppId": 38429}, {"id": "PCG9-057", "localId": "057", "name": "Xatu (Delta Species)", "rarity": "Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Darkness"], "hp": 70, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 5.0}}, "currency": "USD", "pricedAt": "2026-09-22T05:39:29Z"}, "imageSmall": "https://images.pkmnprices.com/cards/2498175313cdb9fa.webp", "imageLarge": "https://images.pkmnprices.com/cards/2498175313cdb9fa.webp", "ppId": 38399}, {"id": "PCG9-058", "localId": "058", "name": "Nidoran (Delta Species)", "rarity": "Common", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Metal"], "hp": 40, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 4.0}}, "currency": "USD", "pricedAt": "2026-09-22T07:18:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/6deff615fa01b1f2.webp", "imageLarge": "https://images.pkmnprices.com/cards/6deff615fa01b1f2.webp", "ppId": 38414}, {"id": "PCG9-059", "localId": "059", "name": "Nidorina (Delta Species)", "rarity": "Uncommon", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Metal"], "hp": 70, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 3.2}}, "currency": "EUR", "pricedAt": "2026-09-22T05:39:29Z"}, "imageSmall": "https://images.pkmnprices.com/cards/d66cc543acf38ba7.webp", "imageLarge": "https://images.pkmnprices.com/cards/d66cc543acf38ba7.webp", "ppId": 38433}, {"id": "PCG9-060", "localId": "060", "name": "Nidoqueen (Delta Species)", "rarity": "Holo Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Metal"], "hp": 100, "variants_detailed": [{"type": "holo", "foil": null}, {"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 24.95}}, "currency": "USD", "pricedAt": "2026-09-22T05:39:29Z"}, "imageSmall": "https://images.pkmnprices.com/cards/ce8d8f3da9d94c98.webp", "imageLarge": "https://images.pkmnprices.com/cards/ce8d8f3da9d94c98.webp", "ppId": 38409}, {"id": "PCG9-061", "localId": "061", "name": "Ledyba (Delta Species)", "rarity": "Common", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Metal"], "hp": 40, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 2.0}}, "currency": "EUR", "pricedAt": "2026-09-22T05:39:29Z"}, "imageSmall": "https://images.pkmnprices.com/cards/a46be4361b282d51.webp", "imageLarge": "https://images.pkmnprices.com/cards/a46be4361b282d51.webp", "ppId": 38396}, {"id": "PCG9-062", "localId": "062", "name": "Ledian (Delta Species)", "rarity": "Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Metal"], "hp": 70, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {}, "currency": "USD", "pricedAt": "2026-09-22T05:39:29Z"}, "imageSmall": "https://images.pkmnprices.com/cards/ee262e967999cd51.webp", "imageLarge": "https://images.pkmnprices.com/cards/ee262e967999cd51.webp", "ppId": 38437}, {"id": "PCG9-063", "localId": "063", "name": "Tropius (Delta Species)", "rarity": "Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Metal"], "hp": 70, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 3.99}}, "currency": "USD", "pricedAt": "2026-09-22T05:39:29Z"}, "imageSmall": "https://images.pkmnprices.com/cards/4693c1cb4d73eb14.webp", "imageLarge": "https://images.pkmnprices.com/cards/4693c1cb4d73eb14.webp", "ppId": 38421}, {"id": "PCG9-064", "localId": "064", "name": "Old Rod", "rarity": "Uncommon", "illustrator": null, "image": null, "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 3.0}}, "currency": "EUR", "pricedAt": "2026-09-22T05:39:29Z"}, "imageSmall": "https://images.pkmnprices.com/cards/641ccb9a068d8038.webp", "imageLarge": "https://images.pkmnprices.com/cards/641ccb9a068d8038.webp", "ppId": 38422}, {"id": "PCG9-065", "localId": "065", "name": "Island Hermit", "rarity": "Uncommon", "illustrator": null, "image": null, "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 5.0}}, "currency": "EUR", "pricedAt": "2026-09-22T05:39:29Z"}, "imageSmall": "https://images.pkmnprices.com/cards/293ad530ae34e222.webp", "imageLarge": "https://images.pkmnprices.com/cards/293ad530ae34e222.webp", "ppId": 38435}, {"id": "PCG9-066", "localId": "066", "name": "Strength Charm", "rarity": "Uncommon", "illustrator": null, "image": null, "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {}, "currency": "USD", "pricedAt": "2026-09-22T05:39:29Z"}, "imageSmall": "https://images.pkmnprices.com/cards/91edebfc8906c5af.webp", "imageLarge": "https://images.pkmnprices.com/cards/91edebfc8906c5af.webp", "ppId": 38418}, {"id": "PCG9-067", "localId": "067", "name": "Holon Legacy", "rarity": "Uncommon", "illustrator": null, "image": null, "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 3.0}}, "currency": "EUR", "pricedAt": "2026-09-22T05:39:29Z"}, "imageSmall": "https://images.pkmnprices.com/cards/4e1a2190f803b4f5.webp", "imageLarge": "https://images.pkmnprices.com/cards/4e1a2190f803b4f5.webp", "ppId": 38432}, {"id": "PCG9-068", "localId": "068", "name": "Scramble Energy", "rarity": "Uncommon", "illustrator": null, "image": null, "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 3.0}}, "currency": "EUR", "pricedAt": "2026-09-22T05:39:29Z"}, "imageSmall": "https://images.pkmnprices.com/cards/bc72b0b3d782a028.webp", "imageLarge": "https://images.pkmnprices.com/cards/bc72b0b3d782a028.webp", "ppId": 38426}]}
+{
+ "generated_at": "2026-09-16T02:06:29.162343+00:00",
+ "set": {
+  "id": "PCG9",
+  "name": "Offense and Defense of the Furthest Ends",
+  "series": "PCG",
+  "releaseDate": "2006-06-29",
+  "logo": null,
+  "symbol": "/data/tcgdex/set-symbols/ja/PCG9.png",
+  "printedTotal": 68,
+  "total": 68,
+  "lang": "ja",
+  "nameJa": "さいはての攻防"
+ },
+ "cards": [
+  {
+   "id": "PCG9-001",
+   "localId": "001",
+   "name": "Snorlax (Delta Species)",
+   "rarity": "Holo Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 80,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    },
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 74.99
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T05:39:29Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/58a206e6ac7623d4.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/58a206e6ac7623d4.webp",
+   "ppId": 38378
+  },
+  {
+   "id": "PCG9-002",
+   "localId": "002",
+   "name": "Dratini (Delta Species)",
+   "rarity": "Common",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 40,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 6.44
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T05:39:29Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/fe037ec1e488b08c.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/fe037ec1e488b08c.webp",
+   "ppId": 38386
+  },
+  {
+   "id": "PCG9-003",
+   "localId": "003",
+   "name": "Dragonair (Delta Species)",
+   "rarity": "Uncommon",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 10.0
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T05:39:29Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/2d8724c431dac34a.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/2d8724c431dac34a.webp",
+   "ppId": 38381
+  },
+  {
+   "id": "PCG9-004",
+   "localId": "004",
+   "name": "Dragonite ex (Delta Species)",
+   "rarity": "Holo Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 150,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 200.0
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T05:39:29Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/6b7e12a5bcec221f.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/6b7e12a5bcec221f.webp",
+   "ppId": 38403
+  },
+  {
+   "id": "PCG9-005",
+   "localId": "005",
+   "name": "Wooper (Delta Species)",
+   "rarity": "Common",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 40,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 17.91
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T05:39:29Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/db2bcb4afd0e6255.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/db2bcb4afd0e6255.webp",
+   "ppId": 38384
+  },
+  {
+   "id": "PCG9-006",
+   "localId": "006",
+   "name": "Quagsire (Delta Species)",
+   "rarity": "Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 80,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {},
+    "currency": "USD",
+    "pricedAt": "2026-09-22T05:39:29Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/632cf686508e58cb.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/632cf686508e58cb.webp",
+   "ppId": 38559
+  },
+  {
+   "id": "PCG9-007",
+   "localId": "007",
+   "name": "Ekans (Delta Species)",
+   "rarity": "Common",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Fire"
+   ],
+   "hp": 50,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 5.26
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T05:39:29Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/7630c79e844653bd.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/7630c79e844653bd.webp",
+   "ppId": 38804
+  },
+  {
+   "id": "PCG9-008",
+   "localId": "008",
+   "name": "Arbok (Delta Species)",
+   "rarity": "Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Fire"
+   ],
+   "hp": 80,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 7.98
+     }
+    },
+    "currency": "EUR",
+    "pricedAt": "2026-09-22T05:39:29Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/32a834637c511868.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/32a834637c511868.webp",
+   "ppId": 38417
+  },
+  {
+   "id": "PCG9-009",
+   "localId": "009",
+   "name": "Heracross (Delta Species)",
+   "rarity": "Holo Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Fire"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    },
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 26.66
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T07:18:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/3a059a95d3e600dd.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/3a059a95d3e600dd.webp",
+   "ppId": 38404
+  },
+  {
+   "id": "PCG9-010",
+   "localId": "010",
+   "name": "Taillow (Delta Species)",
+   "rarity": "Common",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Fire"
+   ],
+   "hp": 40,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 3.0
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T07:18:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/982fd7a7eca47d0b.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/982fd7a7eca47d0b.webp",
+   "ppId": 38424
+  },
+  {
+   "id": "PCG9-011",
+   "localId": "011",
+   "name": "Swellow (Delta Species)",
+   "rarity": "Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Fire"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 6.5
+     }
+    },
+    "currency": "EUR",
+    "pricedAt": "2026-09-22T05:39:29Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/6b0794207e8042a4.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/6b0794207e8042a4.webp",
+   "ppId": 38783
+  },
+  {
+   "id": "PCG9-012",
+   "localId": "012",
+   "name": "Feebas (Delta Species)",
+   "rarity": "Common",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Fire"
+   ],
+   "hp": 30,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 5.17
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T05:39:29Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/a5d38acdd4bc84e6.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/a5d38acdd4bc84e6.webp",
+   "ppId": 39252
+  },
+  {
+   "id": "PCG9-013",
+   "localId": "013",
+   "name": "Milotic (Delta Species)",
+   "rarity": "Holo Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Fire"
+   ],
+   "hp": 90,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    },
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 38.0
+     }
+    },
+    "currency": "EUR",
+    "pricedAt": "2026-09-22T05:39:29Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/85265139d1c8f6ba.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/85265139d1c8f6ba.webp",
+   "ppId": 38758
+  },
+  {
+   "id": "PCG9-014",
+   "localId": "014",
+   "name": "Latias ex (Delta Species)",
+   "rarity": "Holo Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Fire"
+   ],
+   "hp": 100,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {},
+    "currency": "USD",
+    "pricedAt": "2026-09-22T05:39:29Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/2719bd9c981922f0.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/2719bd9c981922f0.webp",
+   "ppId": 38564
+  },
+  {
+   "id": "PCG9-015",
+   "localId": "015",
+   "name": "Mew Star (Delta Species)",
+   "rarity": "Shiny rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {},
+    "currency": "USD",
+    "pricedAt": "2026-09-22T05:39:29Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/0f56c87ac4cc4453.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/0f56c87ac4cc4453.webp",
+   "ppId": 38423
+  },
+  {
+   "id": "PCG9-016",
+   "localId": "016",
+   "name": "Togepi (Delta Species)",
+   "rarity": "Uncommon",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 40,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 10.0
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T07:18:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/db76fb6a5a298145.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/db76fb6a5a298145.webp",
+   "ppId": 38369
+  },
+  {
+   "id": "PCG9-017",
+   "localId": "017",
+   "name": "Togetic (Delta Species)",
+   "rarity": "Holo Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 60,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    },
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 49.95
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T05:39:29Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/cd4763d6a365adab.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/cd4763d6a365adab.webp",
+   "ppId": 38412
+  },
+  {
+   "id": "PCG9-018",
+   "localId": "018",
+   "name": "Swablu (Delta Species)",
+   "rarity": "Common",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 40,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 4.0
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T05:39:29Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/67920a244be0c056.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/67920a244be0c056.webp",
+   "ppId": 38379
+  },
+  {
+   "id": "PCG9-019",
+   "localId": "019",
+   "name": "Altaria ex (Delta Species)",
+   "rarity": "Holo Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 100,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 74.99
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T05:39:29Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/9e5d39458c831f95.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/9e5d39458c831f95.webp",
+   "ppId": 38391
+  },
+  {
+   "id": "PCG9-020",
+   "localId": "020",
+   "name": "Bagon (Delta Species)",
+   "rarity": "Common",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 50,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 2.8
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T07:18:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/b68a40eacf3a2b5c.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/b68a40eacf3a2b5c.webp",
+   "ppId": 38394
+  },
+  {
+   "id": "PCG9-021",
+   "localId": "021",
+   "name": "Shelgon (Delta Species)",
+   "rarity": "Uncommon",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 4.0
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T05:39:29Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/bfd164e9e89fd70f.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/bfd164e9e89fd70f.webp",
+   "ppId": 38389
+  },
+  {
+   "id": "PCG9-022",
+   "localId": "022",
+   "name": "Salamence ex (Delta Species)",
+   "rarity": "Holo Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 160,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 85.99
+     }
+    },
+    "currency": "EUR",
+    "pricedAt": "2026-09-22T05:39:29Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/6e0cb9112885c3fd.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/6e0cb9112885c3fd.webp",
+   "ppId": 38749
+  },
+  {
+   "id": "PCG9-023",
+   "localId": "023",
+   "name": "Latios ex (Delta Species)",
+   "rarity": "Holo Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 100,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 320.0
+     }
+    },
+    "currency": "EUR",
+    "pricedAt": "2026-09-22T05:39:29Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/644215b3ed6d258c.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/644215b3ed6d258c.webp",
+   "ppId": 38425
+  },
+  {
+   "id": "PCG9-024",
+   "localId": "024",
+   "name": "Totodile (Delta Species)",
+   "rarity": "Common",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": 40,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 10.33
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T05:39:29Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/4a0202a9099a888c.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/4a0202a9099a888c.webp",
+   "ppId": 38401
+  },
+  {
+   "id": "PCG9-025",
+   "localId": "025",
+   "name": "Croconaw (Delta Species)",
+   "rarity": "Uncommon",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 10.0
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T05:39:29Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/8fc03b70d4aaff50.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/8fc03b70d4aaff50.webp",
+   "ppId": 38407
+  },
+  {
+   "id": "PCG9-026",
+   "localId": "026",
+   "name": "Feraligatr (Delta Species)",
+   "rarity": "Holo Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": 120,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    },
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 55.0
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T05:39:29Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/d7fd913541245a78.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/d7fd913541245a78.webp",
+   "ppId": 38408
+  },
+  {
+   "id": "PCG9-027",
+   "localId": "027",
+   "name": "Mantine (Delta Species)",
+   "rarity": "Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": 50,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 10.0
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T05:39:29Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/3280b31a97022cbd.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/3280b31a97022cbd.webp",
+   "ppId": 38755
+  },
+  {
+   "id": "PCG9-028",
+   "localId": "028",
+   "name": "Rayquaza ex (Delta Species)",
+   "rarity": "Holo Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": 110,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 790.0
+     }
+    },
+    "currency": "EUR",
+    "pricedAt": "2026-09-22T05:39:29Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/59570e2db79f9e7b.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/59570e2db79f9e7b.webp",
+   "ppId": 38523
+  },
+  {
+   "id": "PCG9-029",
+   "localId": "029",
+   "name": "Vulpix (Delta Species)",
+   "rarity": "Uncommon",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": 50,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 10.0
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T05:39:29Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/97f3786563986e27.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/97f3786563986e27.webp",
+   "ppId": 38371
+  },
+  {
+   "id": "PCG9-030",
+   "localId": "030",
+   "name": "Ninetales (Delta Species)",
+   "rarity": "Holo Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 80.0
+     }
+    },
+    "currency": "EUR",
+    "pricedAt": "2026-09-22T05:39:29Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/e75563c8b8a9263e.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/e75563c8b8a9263e.webp",
+   "ppId": 38400
+  },
+  {
+   "id": "PCG9-031",
+   "localId": "031",
+   "name": "Lickitung (Delta Species)",
+   "rarity": "Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": 60,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 14.99
+     }
+    },
+    "currency": "EUR",
+    "pricedAt": "2026-09-22T05:39:29Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/ac7d1d21ed0f8ae1.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/ac7d1d21ed0f8ae1.webp",
+   "ppId": 38427
+  },
+  {
+   "id": "PCG9-032",
+   "localId": "032",
+   "name": "Cyndaquil (Delta Species)",
+   "rarity": "Common",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": 40,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 10.66
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T07:18:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/cb6c673125329a9c.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/cb6c673125329a9c.webp",
+   "ppId": 38446
+  },
+  {
+   "id": "PCG9-033",
+   "localId": "033",
+   "name": "Quilava (Delta Species)",
+   "rarity": "Uncommon",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 10.0
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T05:39:29Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/b18ce66b8435126c.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/b18ce66b8435126c.webp",
+   "ppId": 38390
+  },
+  {
+   "id": "PCG9-034",
+   "localId": "034",
+   "name": "Typhlosion (Delta Species)",
+   "rarity": "Holo Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": 100,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    },
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 25.0
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T05:39:29Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/71fe7042e70001e3.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/71fe7042e70001e3.webp",
+   "ppId": 38393
+  },
+  {
+   "id": "PCG9-035",
+   "localId": "035",
+   "name": "Trapinch (Delta Species)",
+   "rarity": "Common",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": 40,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 5.33
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T07:18:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/b4991929a03e23c7.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/b4991929a03e23c7.webp",
+   "ppId": 38405
+  },
+  {
+   "id": "PCG9-036",
+   "localId": "036",
+   "name": "Vibrava (Delta Species)",
+   "rarity": "Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 11.0
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T05:39:29Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/b1d623294f9a2467.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/b1d623294f9a2467.webp",
+   "ppId": 38428
+  },
+  {
+   "id": "PCG9-037",
+   "localId": "037",
+   "name": "Flygon ex (Delta Species)",
+   "rarity": "Holo Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": 150,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    },
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 69.0
+     }
+    },
+    "currency": "EUR",
+    "pricedAt": "2026-09-22T05:39:29Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/553029c75b8f5ba0.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/553029c75b8f5ba0.webp",
+   "ppId": 38416
+  },
+  {
+   "id": "PCG9-038",
+   "localId": "038",
+   "name": "Shellder (Delta Species)",
+   "rarity": "Common",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Fighting"
+   ],
+   "hp": 40,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 5.6
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T05:39:29Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/4ffece5e33a37c43.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/4ffece5e33a37c43.webp",
+   "ppId": 38833
+  },
+  {
+   "id": "PCG9-039",
+   "localId": "039",
+   "name": "Cloyster (Delta Species)",
+   "rarity": "Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Fighting"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 4.5
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T05:39:29Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/ba2877f54883b3e8.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/ba2877f54883b3e8.webp",
+   "ppId": 38411
+  },
+  {
+   "id": "PCG9-040",
+   "localId": "040",
+   "name": "Horsea (Delta Species)",
+   "rarity": "Uncommon",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Fighting"
+   ],
+   "hp": 40,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 4.0
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T05:39:29Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/f658ba9e8d940484.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/f658ba9e8d940484.webp",
+   "ppId": 38406
+  },
+  {
+   "id": "PCG9-041",
+   "localId": "041",
+   "name": "Seadra (Delta Species)",
+   "rarity": "Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Fighting"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 5.0
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T05:39:29Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/2e185c6d197a0f5d.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/2e185c6d197a0f5d.webp",
+   "ppId": 38410
+  },
+  {
+   "id": "PCG9-042",
+   "localId": "042",
+   "name": "Pinsir (Delta Species)",
+   "rarity": "Holo Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Fighting"
+   ],
+   "hp": 60,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    },
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 12.45
+     }
+    },
+    "currency": "EUR",
+    "pricedAt": "2026-09-22T05:39:29Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/75f74230ee959654.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/75f74230ee959654.webp",
+   "ppId": 38796
+  },
+  {
+   "id": "PCG9-043",
+   "localId": "043",
+   "name": "Chikorita (Delta Species)",
+   "rarity": "Common",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Fighting"
+   ],
+   "hp": 40,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 9.83
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T05:39:29Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/6a482c33702ec6fb.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/6a482c33702ec6fb.webp",
+   "ppId": 38377
+  },
+  {
+   "id": "PCG9-044",
+   "localId": "044",
+   "name": "Bayleef (Delta Species)",
+   "rarity": "Uncommon",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Fighting"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 8.0
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T07:18:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/869dd3927e08ff04.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/869dd3927e08ff04.webp",
+   "ppId": 38420
+  },
+  {
+   "id": "PCG9-045",
+   "localId": "045",
+   "name": "Meganium (Delta Species)",
+   "rarity": "Holo Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Fighting"
+   ],
+   "hp": 110,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    },
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 39.95
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T05:39:29Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/2adcfcbc158bd857.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/2adcfcbc158bd857.webp",
+   "ppId": 38374
+  },
+  {
+   "id": "PCG9-046",
+   "localId": "046",
+   "name": "Kingdra ex (Delta Species)",
+   "rarity": "Holo Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Fighting"
+   ],
+   "hp": 140,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 59.99
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T05:39:29Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/54903f8317c1f92b.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/54903f8317c1f92b.webp",
+   "ppId": 38398
+  },
+  {
+   "id": "PCG9-047",
+   "localId": "047",
+   "name": "Seel (Delta Species)",
+   "rarity": "Common",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Colorless"
+   ],
+   "hp": 40,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 1.95
+     }
+    },
+    "currency": "EUR",
+    "pricedAt": "2026-09-22T05:39:29Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/72845f065d21cfce.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/72845f065d21cfce.webp",
+   "ppId": 38388
+  },
+  {
+   "id": "PCG9-048",
+   "localId": "048",
+   "name": "Dewgong (Delta Species)",
+   "rarity": "Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Colorless"
+   ],
+   "hp": 80,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 7.5
+     }
+    },
+    "currency": "EUR",
+    "pricedAt": "2026-09-22T05:39:29Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/3b5a030b7a17eb9f.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/3b5a030b7a17eb9f.webp",
+   "ppId": 38402
+  },
+  {
+   "id": "PCG9-049",
+   "localId": "049",
+   "name": "Mareep (Delta Species)",
+   "rarity": "Common",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Colorless"
+   ],
+   "hp": 40,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 10.22
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T05:39:29Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/e96891a18ddfb8c7.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/e96891a18ddfb8c7.webp",
+   "ppId": 38382
+  },
+  {
+   "id": "PCG9-050",
+   "localId": "050",
+   "name": "Flaaffy (Delta Species)",
+   "rarity": "Uncommon",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Colorless"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 9.79
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T05:39:29Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/a38257cdaf62c63b.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/a38257cdaf62c63b.webp",
+   "ppId": 38395
+  },
+  {
+   "id": "PCG9-051",
+   "localId": "051",
+   "name": "Ampharos (Delta Species)",
+   "rarity": "Holo Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Colorless"
+   ],
+   "hp": 120,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    },
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 32.99
+     }
+    },
+    "currency": "EUR",
+    "pricedAt": "2026-09-22T05:39:29Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/31b9bad11d507068.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/31b9bad11d507068.webp",
+   "ppId": 38764
+  },
+  {
+   "id": "PCG9-052",
+   "localId": "052",
+   "name": "Charizard Star (Delta Species)",
+   "rarity": "Shiny rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Darkness"
+   ],
+   "hp": 90,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {},
+    "currency": "USD",
+    "pricedAt": "2026-09-22T05:39:29Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/a71d67954836fea5.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/a71d67954836fea5.webp",
+   "ppId": 38455
+  },
+  {
+   "id": "PCG9-053",
+   "localId": "053",
+   "name": "Nidoran (Delta Species)",
+   "rarity": "Common",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Darkness"
+   ],
+   "hp": 40,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 5.06
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T05:39:29Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/236eb443dc1f06b5.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/236eb443dc1f06b5.webp",
+   "ppId": 38375
+  },
+  {
+   "id": "PCG9-054",
+   "localId": "054",
+   "name": "Nidorino (Delta Species)",
+   "rarity": "Uncommon",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Darkness"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 5.55
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T05:39:29Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/2b95093b19a9167f.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/2b95093b19a9167f.webp",
+   "ppId": 38415
+  },
+  {
+   "id": "PCG9-055",
+   "localId": "055",
+   "name": "Nidoking (Delta Species)",
+   "rarity": "Holo Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Darkness"
+   ],
+   "hp": 120,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    },
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 45.0
+     }
+    },
+    "currency": "EUR",
+    "pricedAt": "2026-09-22T05:39:29Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/56ca266bd3186fc7.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/56ca266bd3186fc7.webp",
+   "ppId": 38443
+  },
+  {
+   "id": "PCG9-056",
+   "localId": "056",
+   "name": "Natu (Delta Species)",
+   "rarity": "Common",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Darkness"
+   ],
+   "hp": 40,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 1.8
+     }
+    },
+    "currency": "EUR",
+    "pricedAt": "2026-09-22T05:39:29Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/f28915fd3982293d.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/f28915fd3982293d.webp",
+   "ppId": 38429
+  },
+  {
+   "id": "PCG9-057",
+   "localId": "057",
+   "name": "Xatu (Delta Species)",
+   "rarity": "Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Darkness"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 5.0
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T05:39:29Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/2498175313cdb9fa.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/2498175313cdb9fa.webp",
+   "ppId": 38399
+  },
+  {
+   "id": "PCG9-058",
+   "localId": "058",
+   "name": "Nidoran (Delta Species)",
+   "rarity": "Common",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Metal"
+   ],
+   "hp": 40,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 4.0
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T07:18:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/6deff615fa01b1f2.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/6deff615fa01b1f2.webp",
+   "ppId": 38414
+  },
+  {
+   "id": "PCG9-059",
+   "localId": "059",
+   "name": "Nidorina (Delta Species)",
+   "rarity": "Uncommon",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Metal"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 3.2
+     }
+    },
+    "currency": "EUR",
+    "pricedAt": "2026-09-22T05:39:29Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/d66cc543acf38ba7.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/d66cc543acf38ba7.webp",
+   "ppId": 38433
+  },
+  {
+   "id": "PCG9-060",
+   "localId": "060",
+   "name": "Nidoqueen (Delta Species)",
+   "rarity": "Holo Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Metal"
+   ],
+   "hp": 100,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    },
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 24.95
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T05:39:29Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/ce8d8f3da9d94c98.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/ce8d8f3da9d94c98.webp",
+   "ppId": 38409
+  },
+  {
+   "id": "PCG9-061",
+   "localId": "061",
+   "name": "Ledyba (Delta Species)",
+   "rarity": "Common",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Metal"
+   ],
+   "hp": 40,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 2.0
+     }
+    },
+    "currency": "EUR",
+    "pricedAt": "2026-09-22T05:39:29Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/a46be4361b282d51.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/a46be4361b282d51.webp",
+   "ppId": 38396
+  },
+  {
+   "id": "PCG9-062",
+   "localId": "062",
+   "name": "Ledian (Delta Species)",
+   "rarity": "Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Metal"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {},
+    "currency": "USD",
+    "pricedAt": "2026-09-22T05:39:29Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/ee262e967999cd51.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/ee262e967999cd51.webp",
+   "ppId": 38437
+  },
+  {
+   "id": "PCG9-063",
+   "localId": "063",
+   "name": "Tropius (Delta Species)",
+   "rarity": "Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Metal"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 3.99
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T05:39:29Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/4693c1cb4d73eb14.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/4693c1cb4d73eb14.webp",
+   "ppId": 38421
+  },
+  {
+   "id": "PCG9-064",
+   "localId": "064",
+   "name": "Old Rod",
+   "rarity": "Uncommon",
+   "illustrator": null,
+   "image": null,
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 3.0
+     }
+    },
+    "currency": "EUR",
+    "pricedAt": "2026-09-22T05:39:29Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/641ccb9a068d8038.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/641ccb9a068d8038.webp",
+   "ppId": 38422
+  },
+  {
+   "id": "PCG9-065",
+   "localId": "065",
+   "name": "Island Hermit",
+   "rarity": "Uncommon",
+   "illustrator": null,
+   "image": null,
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 5.0
+     }
+    },
+    "currency": "EUR",
+    "pricedAt": "2026-09-22T05:39:29Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/293ad530ae34e222.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/293ad530ae34e222.webp",
+   "ppId": 38435
+  },
+  {
+   "id": "PCG9-066",
+   "localId": "066",
+   "name": "Strength Charm",
+   "rarity": "Uncommon",
+   "illustrator": null,
+   "image": null,
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {},
+    "currency": "USD",
+    "pricedAt": "2026-09-22T05:39:29Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/91edebfc8906c5af.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/91edebfc8906c5af.webp",
+   "ppId": 38418
+  },
+  {
+   "id": "PCG9-067",
+   "localId": "067",
+   "name": "Holon Legacy",
+   "rarity": "Uncommon",
+   "illustrator": null,
+   "image": null,
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 3.0
+     }
+    },
+    "currency": "EUR",
+    "pricedAt": "2026-09-22T05:39:29Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/4e1a2190f803b4f5.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/4e1a2190f803b4f5.webp",
+   "ppId": 38432
+  },
+  {
+   "id": "PCG9-068",
+   "localId": "068",
+   "name": "Scramble Energy",
+   "rarity": "Uncommon",
+   "illustrator": null,
+   "image": null,
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 3.0
+     }
+    },
+    "currency": "EUR",
+    "pricedAt": "2026-09-22T05:39:29Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/bc72b0b3d782a028.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/bc72b0b3d782a028.webp",
+   "ppId": 38426
+  }
+ ]
+}

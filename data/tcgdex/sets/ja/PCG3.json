@@ -1,1 +1,2902 @@
-{"generated_at": "2026-09-16T02:04:45.656717+00:00", "set": {"id": "PCG3", "name": "Rocket Gang Strikes Back", "series": "PCG", "releaseDate": "2004-10-15", "logo": null, "symbol": "/data/tcgdex/set-symbols/ja/PCG3.png", "printedTotal": 84, "total": 85, "lang": "ja", "nameJa": "ロケット団の逆襲"}, "cards": [{"id": "PCG3-001", "localId": "001", "name": "Ekans", "rarity": "Common", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Grass"], "hp": 60, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 4.0}}, "currency": "USD", "pricedAt": "2026-09-22T03:39:09Z"}, "imageSmall": "https://images.pkmnprices.com/cards/7333a069b793d448.webp", "imageLarge": "https://images.pkmnprices.com/cards/7333a069b793d448.webp", "ppId": 47235}, {"id": "PCG3-002", "localId": "002", "name": "Zubat", "rarity": "Common", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Grass"], "hp": 50, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 5.0}}, "currency": "USD", "pricedAt": "2026-09-22T05:39:29Z"}, "imageSmall": "https://images.pkmnprices.com/cards/d32fed2b6b283b78.webp", "imageLarge": "https://images.pkmnprices.com/cards/d32fed2b6b283b78.webp", "ppId": 47188}, {"id": "PCG3-003", "localId": "003", "name": "Grimer", "rarity": "Common", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Grass"], "hp": 50, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 3.0}}, "currency": "EUR", "pricedAt": "2026-09-22T03:39:09Z"}, "imageSmall": "https://images.pkmnprices.com/cards/a19717c6a9c71109.webp", "imageLarge": "https://images.pkmnprices.com/cards/a19717c6a9c71109.webp", "ppId": 47265}, {"id": "PCG3-004", "localId": "004", "name": "Koffing", "rarity": "Common", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Grass"], "hp": 50, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 2.5}}, "currency": "USD", "pricedAt": "2026-09-22T03:39:09Z"}, "imageSmall": "https://images.pkmnprices.com/cards/9521b536e46af2e2.webp", "imageLarge": "https://images.pkmnprices.com/cards/9521b536e46af2e2.webp", "ppId": 47150}, {"id": "PCG3-005", "localId": "005", "name": "Ledyba", "rarity": "Common", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Grass"], "hp": 50, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 2.0}}, "currency": "EUR", "pricedAt": "2026-09-22T07:18:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/43a847d3d2786ab8.webp", "imageLarge": "https://images.pkmnprices.com/cards/43a847d3d2786ab8.webp", "ppId": 47116}, {"id": "PCG3-006", "localId": "006", "name": "Ledian", "rarity": "Holo Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Grass"], "hp": 70, "variants_detailed": [{"type": "holo", "foil": null}, {"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 9.95}}, "currency": "EUR", "pricedAt": "2026-09-22T03:39:09Z"}, "imageSmall": "https://images.pkmnprices.com/cards/fcbe043bdc891445.webp", "imageLarge": "https://images.pkmnprices.com/cards/fcbe043bdc891445.webp", "ppId": 47195}, {"id": "PCG3-007", "localId": "007", "name": "Hoppip", "rarity": "Common", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Grass"], "hp": 30, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 3.0}}, "currency": "USD", "pricedAt": "2026-09-22T03:39:09Z"}, "imageSmall": "https://images.pkmnprices.com/cards/07783a49e1289a6c.webp", "imageLarge": "https://images.pkmnprices.com/cards/07783a49e1289a6c.webp", "ppId": 47160}, {"id": "PCG3-008", "localId": "008", "name": "Skiploom", "rarity": "Uncommon", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Grass"], "hp": 60, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 4.75}}, "currency": "USD", "pricedAt": "2026-09-22T03:39:09Z"}, "imageSmall": "https://images.pkmnprices.com/cards/4a5d4a24d9630abc.webp", "imageLarge": "https://images.pkmnprices.com/cards/4a5d4a24d9630abc.webp", "ppId": 47142}, {"id": "PCG3-009", "localId": "009", "name": "Jumpluff", "rarity": "Holo Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Grass"], "hp": 90, "variants_detailed": [{"type": "holo", "foil": null}, {"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 19.5}}, "currency": "EUR", "pricedAt": "2026-09-22T03:39:09Z"}, "imageSmall": "https://images.pkmnprices.com/cards/d2cd8521fea82b29.webp", "imageLarge": "https://images.pkmnprices.com/cards/d2cd8521fea82b29.webp", "ppId": 47179}, {"id": "PCG3-010", "localId": "010", "name": "Yanma", "rarity": "Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Grass"], "hp": 70, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 24.0}}, "currency": "EUR", "pricedAt": "2026-09-22T03:39:09Z"}, "imageSmall": "https://images.pkmnprices.com/cards/70fb1e0f2f0839f5.webp", "imageLarge": "https://images.pkmnprices.com/cards/70fb1e0f2f0839f5.webp", "ppId": 47361}, {"id": "PCG3-011", "localId": "011", "name": "Treecko Star", "rarity": "Shiny rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Grass"], "hp": 70, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {}, "currency": "USD", "pricedAt": "2026-09-22T03:39:09Z"}, "imageSmall": "https://images.pkmnprices.com/cards/264bb415fdfd05a0.webp", "imageLarge": "https://images.pkmnprices.com/cards/264bb415fdfd05a0.webp", "ppId": 47223}, {"id": "PCG3-012", "localId": "012", "name": "Dark Arbok", "rarity": "Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Grass"], "hp": 90, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 10.0}}, "currency": "USD", "pricedAt": "2026-09-22T03:39:09Z"}, "imageSmall": "https://images.pkmnprices.com/cards/86ff1a1f6a384ae7.webp", "imageLarge": "https://images.pkmnprices.com/cards/86ff1a1f6a384ae7.webp", "ppId": 47155}, {"id": "PCG3-013", "localId": "013", "name": "Dark Golbat", "rarity": "Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Grass"], "hp": 70, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 5.0}}, "currency": "EUR", "pricedAt": "2026-09-22T03:39:09Z"}, "imageSmall": "https://images.pkmnprices.com/cards/bf430a0dc1dd51fa.webp", "imageLarge": "https://images.pkmnprices.com/cards/bf430a0dc1dd51fa.webp", "ppId": 47268}, {"id": "PCG3-014", "localId": "014", "name": "Dark Muk", "rarity": "Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Grass"], "hp": 70, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 18.0}}, "currency": "EUR", "pricedAt": "2026-09-22T03:39:09Z"}, "imageSmall": "https://images.pkmnprices.com/cards/6756023502ac6d7c.webp", "imageLarge": "https://images.pkmnprices.com/cards/6756023502ac6d7c.webp", "ppId": 47185}, {"id": "PCG3-015", "localId": "015", "name": "Dark Weezing", "rarity": "Holo Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Grass"], "hp": 80, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 50.0}}, "currency": "EUR", "pricedAt": "2026-09-22T03:39:09Z"}, "imageSmall": "https://images.pkmnprices.com/cards/8512ad0735232a93.webp", "imageLarge": "https://images.pkmnprices.com/cards/8512ad0735232a93.webp", "ppId": 47136}, {"id": "PCG3-016", "localId": "016", "name": "Dark Crobat", "rarity": "Holo Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Grass"], "hp": 90, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 33.0}}, "currency": "EUR", "pricedAt": "2026-09-22T05:39:29Z"}, "imageSmall": "https://images.pkmnprices.com/cards/751271b10669d9ad.webp", "imageLarge": "https://images.pkmnprices.com/cards/751271b10669d9ad.webp", "ppId": 47164}, {"id": "PCG3-017", "localId": "017", "name": "Magmar", "rarity": "Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Fire"], "hp": 70, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {}, "currency": "USD", "pricedAt": "2026-09-22T03:39:09Z"}, "imageSmall": "https://images.pkmnprices.com/cards/3bb82b7db97c28f8.webp", "imageLarge": "https://images.pkmnprices.com/cards/3bb82b7db97c28f8.webp", "ppId": 47199}, {"id": "PCG3-018", "localId": "018", "name": "Houndour", "rarity": "Common", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Fire"], "hp": 50, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 34.94}}, "currency": "EUR", "pricedAt": "2026-09-22T03:39:09Z"}, "imageSmall": "https://images.pkmnprices.com/cards/ab7f7db23c234ede.webp", "imageLarge": "https://images.pkmnprices.com/cards/ab7f7db23c234ede.webp", "ppId": 47254}, {"id": "PCG3-019", "localId": "019", "name": "Magby", "rarity": "Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Fire"], "hp": 50, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 9.48}}, "currency": "EUR", "pricedAt": "2026-09-22T03:39:09Z"}, "imageSmall": "https://images.pkmnprices.com/cards/1fb2ebb671a608bd.webp", "imageLarge": "https://images.pkmnprices.com/cards/1fb2ebb671a608bd.webp", "ppId": 47238}, {"id": "PCG3-020", "localId": "020", "name": "Torchic Star", "rarity": "Shiny rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Fire"], "hp": 70, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {}, "currency": "USD", "pricedAt": "2026-09-22T03:39:09Z"}, "imageSmall": "https://images.pkmnprices.com/cards/65068052181260e5.webp", "imageLarge": "https://images.pkmnprices.com/cards/65068052181260e5.webp", "ppId": 47174}, {"id": "PCG3-021", "localId": "021", "name": "Dark Houndoom", "rarity": "Holo Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Fire"], "hp": 70, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 70.0}}, "currency": "USD", "pricedAt": "2026-09-22T03:39:09Z"}, "imageSmall": "https://images.pkmnprices.com/cards/a063dbb9ba6f2858.webp", "imageLarge": "https://images.pkmnprices.com/cards/a063dbb9ba6f2858.webp", "ppId": 47197}, {"id": "PCG3-022", "localId": "022", "name": "Horsea", "rarity": "Common", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Water"], "hp": 50, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 2.0}}, "currency": "EUR", "pricedAt": "2026-09-22T03:39:09Z"}, "imageSmall": "https://images.pkmnprices.com/cards/102b1d88ab0eb322.webp", "imageLarge": "https://images.pkmnprices.com/cards/102b1d88ab0eb322.webp", "ppId": 47182}, {"id": "PCG3-023", "localId": "023", "name": "Seadra", "rarity": "Uncommon", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Water"], "hp": 70, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 2.5}}, "currency": "EUR", "pricedAt": "2026-09-22T03:39:09Z"}, "imageSmall": "https://images.pkmnprices.com/cards/6a341f9bf5522b16.webp", "imageLarge": "https://images.pkmnprices.com/cards/6a341f9bf5522b16.webp", "ppId": 47212}, {"id": "PCG3-024", "localId": "024", "name": "Marill", "rarity": "Common", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Water"], "hp": 50, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 4.0}}, "currency": "USD", "pricedAt": "2026-09-22T03:39:09Z"}, "imageSmall": "https://images.pkmnprices.com/cards/a7f147ef943ce2b8.webp", "imageLarge": "https://images.pkmnprices.com/cards/a7f147ef943ce2b8.webp", "ppId": 47147}, {"id": "PCG3-025", "localId": "025", "name": "Azumarill", "rarity": "Holo Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Water"], "hp": 80, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 30.0}}, "currency": "EUR", "pricedAt": "2026-09-22T03:39:09Z"}, "imageSmall": "https://images.pkmnprices.com/cards/910530d703c012db.webp", "imageLarge": "https://images.pkmnprices.com/cards/910530d703c012db.webp", "ppId": 47187}, {"id": "PCG3-026", "localId": "026", "name": "Wooper", "rarity": "Common", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Water"], "hp": 50, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 2.0}}, "currency": "EUR", "pricedAt": "2026-09-22T03:39:09Z"}, "imageSmall": "https://images.pkmnprices.com/cards/6d66d4b90831423a.webp", "imageLarge": "https://images.pkmnprices.com/cards/6d66d4b90831423a.webp", "ppId": 47173}, {"id": "PCG3-027", "localId": "027", "name": "quagsire", "rarity": "Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Water"], "hp": 80, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 30.0}}, "currency": "USD", "pricedAt": "2026-09-22T03:39:09Z"}, "imageSmall": "https://images.pkmnprices.com/cards/4d2c4de0b49130a1.webp", "imageLarge": "https://images.pkmnprices.com/cards/4d2c4de0b49130a1.webp", "ppId": 47137}, {"id": "PCG3-028", "localId": "028", "name": "qwilfish", "rarity": "Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Water"], "hp": 60, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 6.0}}, "currency": "USD", "pricedAt": "2026-09-22T03:39:09Z"}, "imageSmall": "https://images.pkmnprices.com/cards/c9aee15580bae02c.webp", "imageLarge": "https://images.pkmnprices.com/cards/c9aee15580bae02c.webp", "ppId": 47167}, {"id": "PCG3-029", "localId": "029", "name": "REMORAID", "rarity": "Common", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Water"], "hp": 50, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 1.24}}, "currency": "EUR", "pricedAt": "2026-09-22T03:39:09Z"}, "imageSmall": "https://images.pkmnprices.com/cards/db53310a838f1926.webp", "imageLarge": "https://images.pkmnprices.com/cards/db53310a838f1926.webp", "ppId": 47180}, {"id": "PCG3-030", "localId": "030", "name": "Delibird", "rarity": "Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Water"], "hp": 70, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 40.0}}, "currency": "EUR", "pricedAt": "2026-09-22T03:39:09Z"}, "imageSmall": "https://images.pkmnprices.com/cards/7d94d7249d077ef4.webp", "imageLarge": "https://images.pkmnprices.com/cards/7d94d7249d077ef4.webp", "ppId": 47152}, {"id": "PCG3-031", "localId": "031", "name": "Mantine", "rarity": "Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Water"], "hp": 70, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 8.0}}, "currency": "USD", "pricedAt": "2026-09-22T03:39:09Z"}, "imageSmall": "https://images.pkmnprices.com/cards/6a1513066cb02908.webp", "imageLarge": "https://images.pkmnprices.com/cards/6a1513066cb02908.webp", "ppId": 47221}, {"id": "PCG3-032", "localId": "032", "name": "Kingdra", "rarity": "Holo Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Water"], "hp": 120, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 50.0}}, "currency": "EUR", "pricedAt": "2026-09-22T03:39:09Z"}, "imageSmall": "https://images.pkmnprices.com/cards/3bd4ea91f5132bb8.webp", "imageLarge": "https://images.pkmnprices.com/cards/3bd4ea91f5132bb8.webp", "ppId": 47138}, {"id": "PCG3-033", "localId": "033", "name": "Mudkip Star", "rarity": "Shiny rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Water"], "hp": 70, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {}, "currency": "USD", "pricedAt": "2026-09-22T03:39:09Z"}, "imageSmall": "https://images.pkmnprices.com/cards/39f56c07be97463d.webp", "imageLarge": "https://images.pkmnprices.com/cards/39f56c07be97463d.webp", "ppId": 47172}, {"id": "PCG3-034", "localId": "034", "name": "Dark Octillery", "rarity": "Holo Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Water"], "hp": 70, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 29.33}}, "currency": "USD", "pricedAt": "2026-09-22T03:39:09Z"}, "imageSmall": "https://images.pkmnprices.com/cards/27e89c866abb8ddc.webp", "imageLarge": "https://images.pkmnprices.com/cards/27e89c866abb8ddc.webp", "ppId": 47153}, {"id": "PCG3-035", "localId": "035", "name": "Voltorb", "rarity": "Common", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Lightning"], "hp": 40, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 9.99}}, "currency": "USD", "pricedAt": "2026-09-22T03:39:09Z"}, "imageSmall": "https://images.pkmnprices.com/cards/2f0b5c4fdd02b355.webp", "imageLarge": "https://images.pkmnprices.com/cards/2f0b5c4fdd02b355.webp", "ppId": 47168}, {"id": "PCG3-036", "localId": "036", "name": "Mareep", "rarity": "Common", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Lightning"], "hp": 50, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 1.75}}, "currency": "EUR", "pricedAt": "2026-09-22T03:39:09Z"}, "imageSmall": "https://images.pkmnprices.com/cards/45d43346ee2c1efc.webp", "imageLarge": "https://images.pkmnprices.com/cards/45d43346ee2c1efc.webp", "ppId": 47148}, {"id": "PCG3-037", "localId": "037", "name": "Dark Electrode", "rarity": "Holo Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Lightning"], "hp": 70, "variants_detailed": [{"type": "holo", "foil": null}, {"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 39.99}}, "currency": "USD", "pricedAt": "2026-09-22T03:39:09Z"}, "imageSmall": "https://images.pkmnprices.com/cards/8f633af04b5f1d54.webp", "imageLarge": "https://images.pkmnprices.com/cards/8f633af04b5f1d54.webp", "ppId": 47128}, {"id": "PCG3-038", "localId": "038", "name": "Dark Flaaffy", "rarity": "Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Lightning"], "hp": 80, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 14.99}}, "currency": "EUR", "pricedAt": "2026-09-22T03:39:09Z"}, "imageSmall": "https://images.pkmnprices.com/cards/63b63d097ac87277.webp", "imageLarge": "https://images.pkmnprices.com/cards/63b63d097ac87277.webp", "ppId": 47156}, {"id": "PCG3-039", "localId": "039", "name": "Dark Ampharos", "rarity": "Holo Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Lightning"], "hp": 120, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 75.0}}, "currency": "EUR", "pricedAt": "2026-09-22T05:39:29Z"}, "imageSmall": "https://images.pkmnprices.com/cards/3445b882ac50d279.webp", "imageLarge": "https://images.pkmnprices.com/cards/3445b882ac50d279.webp", "ppId": 47140}, {"id": "PCG3-040", "localId": "040", "name": "slowpoke", "rarity": "Common", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Psychic"], "hp": 50, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 13.0}}, "currency": "USD", "pricedAt": "2026-09-22T03:39:09Z"}, "imageSmall": "https://images.pkmnprices.com/cards/f760482ed61fb1e9.webp", "imageLarge": "https://images.pkmnprices.com/cards/f760482ed61fb1e9.webp", "ppId": 47121}, {"id": "PCG3-041", "localId": "041", "name": "Drowzee", "rarity": "Common", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Psychic"], "hp": 50, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 5.66}}, "currency": "USD", "pricedAt": "2026-09-22T03:39:09Z"}, "imageSmall": "https://images.pkmnprices.com/cards/d9647edffd5c6104.webp", "imageLarge": "https://images.pkmnprices.com/cards/d9647edffd5c6104.webp", "ppId": 47119}, {"id": "PCG3-042", "localId": "042", "name": "Misdreavus", "rarity": "Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Psychic"], "hp": 60, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {}, "currency": "USD", "pricedAt": "2026-09-22T03:39:09Z"}, "imageSmall": "https://images.pkmnprices.com/cards/609bfbfc37af55cf.webp", "imageLarge": "https://images.pkmnprices.com/cards/609bfbfc37af55cf.webp", "ppId": 47171}, {"id": "PCG3-043", "localId": "043", "name": "Dark Hypno", "rarity": "Holo Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Psychic"], "hp": 70, "variants_detailed": [{"type": "holo", "foil": null}, {"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 37.99}}, "currency": "EUR", "pricedAt": "2026-09-22T03:39:09Z"}, "imageSmall": "https://images.pkmnprices.com/cards/f27024e777e7f1b8.webp", "imageLarge": "https://images.pkmnprices.com/cards/f27024e777e7f1b8.webp", "ppId": 47122}, {"id": "PCG3-044", "localId": "044", "name": "Dark Slowking", "rarity": "Holo Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Psychic"], "hp": 80, "variants_detailed": [{"type": "holo", "foil": null}, {"type": "holo", "foil": null}], "pricing": {"tcgplayer": {}, "currency": "USD", "pricedAt": "2026-09-22T03:39:09Z"}, "imageSmall": "https://images.pkmnprices.com/cards/604054c372fdfd07.webp", "imageLarge": "https://images.pkmnprices.com/cards/604054c372fdfd07.webp", "ppId": 47176}, {"id": "PCG3-045", "localId": "045", "name": "Sandshrew", "rarity": "Common", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Fighting"], "hp": 50, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 9.0}}, "currency": "USD", "pricedAt": "2026-09-22T03:39:09Z"}, "imageSmall": "https://images.pkmnprices.com/cards/418d4525895120ac.webp", "imageLarge": "https://images.pkmnprices.com/cards/418d4525895120ac.webp", "ppId": 47149}, {"id": "PCG3-046", "localId": "046", "name": "onix", "rarity": "Uncommon", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Fighting"], "hp": 80, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 3.5}}, "currency": "EUR", "pricedAt": "2026-09-22T05:39:29Z"}, "imageSmall": "https://images.pkmnprices.com/cards/c19b0536f4a99330.webp", "imageLarge": "https://images.pkmnprices.com/cards/c19b0536f4a99330.webp", "ppId": 47154}, {"id": "PCG3-047", "localId": "047", "name": "Cubone", "rarity": "Common", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Fighting"], "hp": 50, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 9.0}}, "currency": "USD", "pricedAt": "2026-09-22T03:39:09Z"}, "imageSmall": "https://images.pkmnprices.com/cards/06b506fe269fdeec.webp", "imageLarge": "https://images.pkmnprices.com/cards/06b506fe269fdeec.webp", "ppId": 47186}, {"id": "PCG3-048", "localId": "048", "name": "Heracross", "rarity": "Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Fighting"], "hp": 70, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {}, "currency": "USD", "pricedAt": "2026-09-22T03:39:09Z"}, "imageSmall": "https://images.pkmnprices.com/cards/adba09e877b7a492.webp", "imageLarge": "https://images.pkmnprices.com/cards/adba09e877b7a492.webp", "ppId": 47229}, {"id": "PCG3-049", "localId": "049", "name": "swinub", "rarity": "Common", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Fighting"], "hp": 50, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 10.0}}, "currency": "USD", "pricedAt": "2026-09-22T03:39:09Z"}, "imageSmall": "https://images.pkmnprices.com/cards/84ba724e96fb1a4c.webp", "imageLarge": "https://images.pkmnprices.com/cards/84ba724e96fb1a4c.webp", "ppId": 47334}, {"id": "PCG3-050", "localId": "050", "name": "Piloswine", "rarity": "Holo Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Fighting"], "hp": 100, "variants_detailed": [{"type": "holo", "foil": null}, {"type": "holo", "foil": null}], "pricing": {"tcgplayer": {}, "currency": "USD", "pricedAt": "2026-09-22T03:39:09Z"}, "imageSmall": "https://images.pkmnprices.com/cards/e7dd693a6701339d.webp", "imageLarge": "https://images.pkmnprices.com/cards/e7dd693a6701339d.webp", "ppId": 47274}, {"id": "PCG3-051", "localId": "051", "name": "Dark Sandslash", "rarity": "Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Fighting"], "hp": 70, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 12.0}}, "currency": "EUR", "pricedAt": "2026-09-22T03:39:09Z"}, "imageSmall": "https://images.pkmnprices.com/cards/e0edb380f5e8397a.webp", "imageLarge": "https://images.pkmnprices.com/cards/e0edb380f5e8397a.webp", "ppId": 47194}, {"id": "PCG3-052", "localId": "052", "name": "Dark Marowak", "rarity": "Holo Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Fighting"], "hp": 70, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 89.0}}, "currency": "EUR", "pricedAt": "2026-09-22T03:39:09Z"}, "imageSmall": "https://images.pkmnprices.com/cards/e4f82d7a4a725fb5.webp", "imageLarge": "https://images.pkmnprices.com/cards/e4f82d7a4a725fb5.webp", "ppId": 47193}, {"id": "PCG3-053", "localId": "053", "name": "Rattata", "rarity": "Common", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Colorless"], "hp": 40, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 5.0}}, "currency": "USD", "pricedAt": "2026-09-22T03:39:09Z"}, "imageSmall": "https://images.pkmnprices.com/cards/4c9b65a675dc024e.webp", "imageLarge": "https://images.pkmnprices.com/cards/4c9b65a675dc024e.webp", "ppId": 47145}, {"id": "PCG3-054", "localId": "054", "name": "Sentret", "rarity": "Common", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Colorless"], "hp": 50, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 8.0}}, "currency": "USD", "pricedAt": "2026-09-22T07:18:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/bf55e6b0b09ab101.webp", "imageLarge": "https://images.pkmnprices.com/cards/bf55e6b0b09ab101.webp", "ppId": 47124}, {"id": "PCG3-055", "localId": "055", "name": "Furret", "rarity": "Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Colorless"], "hp": 80, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {}, "currency": "USD", "pricedAt": "2026-09-22T03:39:09Z"}, "imageSmall": "https://images.pkmnprices.com/cards/c377d7e7b3bdf542.webp", "imageLarge": "https://images.pkmnprices.com/cards/c377d7e7b3bdf542.webp", "ppId": 47201}, {"id": "PCG3-056", "localId": "056", "name": "togepi", "rarity": "Uncommon", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Colorless"], "hp": 40, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 20.0}}, "currency": "USD", "pricedAt": "2026-09-22T03:39:09Z"}, "imageSmall": "https://images.pkmnprices.com/cards/305d22688ace1077.webp", "imageLarge": "https://images.pkmnprices.com/cards/305d22688ace1077.webp", "ppId": 47169}, {"id": "PCG3-057", "localId": "057", "name": "togetic", "rarity": "Holo Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Colorless"], "hp": 70, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 99.0}}, "currency": "EUR", "pricedAt": "2026-09-22T03:39:09Z"}, "imageSmall": "https://images.pkmnprices.com/cards/c83fd47de462ca43.webp", "imageLarge": "https://images.pkmnprices.com/cards/c83fd47de462ca43.webp", "ppId": 47162}, {"id": "PCG3-058", "localId": "058", "name": "Dark Raticate", "rarity": "Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Darkness"], "hp": 70, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 4.0}}, "currency": "USD", "pricedAt": "2026-09-22T03:39:09Z"}, "imageSmall": "https://images.pkmnprices.com/cards/ef43574f6b1ea20b.webp", "imageLarge": "https://images.pkmnprices.com/cards/ef43574f6b1ea20b.webp", "ppId": 47204}, {"id": "PCG3-059", "localId": "059", "name": "Rocket's Meowth", "rarity": "Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Darkness"], "hp": 60, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 50.0}}, "currency": "EUR", "pricedAt": "2026-09-22T03:39:09Z"}, "imageSmall": "https://images.pkmnprices.com/cards/e5e10396bdee09d3.webp", "imageLarge": "https://images.pkmnprices.com/cards/e5e10396bdee09d3.webp", "ppId": 47196}, {"id": "PCG3-060", "localId": "060", "name": "Rocket's Hitmonchan ex", "rarity": "Holo Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Darkness"], "hp": 100, "variants_detailed": [{"type": "holo", "foil": null}, {"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 150.0}}, "currency": "USD", "pricedAt": "2026-09-22T05:39:29Z"}, "imageSmall": "https://images.pkmnprices.com/cards/e8b7c85df7e45650.webp", "imageLarge": "https://images.pkmnprices.com/cards/e8b7c85df7e45650.webp", "ppId": 47163}, {"id": "PCG3-061", "localId": "061", "name": "Rocket's Scyther Ex", "rarity": "Holo Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Darkness"], "hp": 80, "variants_detailed": [{"type": "holo", "foil": null}, {"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 350.0}}, "currency": "EUR", "pricedAt": "2026-09-22T03:39:09Z"}, "imageSmall": "https://images.pkmnprices.com/cards/448892c842ecfde9.webp", "imageLarge": "https://images.pkmnprices.com/cards/448892c842ecfde9.webp", "ppId": 47227}, {"id": "PCG3-062", "localId": "062", "name": "Rocket's Snorlax Ex", "rarity": "Holo Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Darkness"], "hp": 100, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {}, "currency": "USD", "pricedAt": "2026-09-22T03:39:09Z"}, "imageSmall": "https://images.pkmnprices.com/cards/810b53d57772b4ca.webp", "imageLarge": "https://images.pkmnprices.com/cards/810b53d57772b4ca.webp", "ppId": 47189}, {"id": "PCG3-063", "localId": "063", "name": "Rocket's Zapdos Ex", "rarity": "Holo Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Darkness"], "hp": 100, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {}, "currency": "USD", "pricedAt": "2026-09-22T03:39:09Z"}, "imageSmall": "https://images.pkmnprices.com/cards/be4e88d2f92f8a6c.webp", "imageLarge": "https://images.pkmnprices.com/cards/be4e88d2f92f8a6c.webp", "ppId": 47184}, {"id": "PCG3-064", "localId": "064", "name": "Rocket's Mewtwo ex", "rarity": "Holo Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Darkness"], "hp": 100, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 399.99}}, "currency": "USD", "pricedAt": "2026-09-22T05:39:29Z"}, "imageSmall": "https://images.pkmnprices.com/cards/f15e51cfd59c7990.webp", "imageLarge": "https://images.pkmnprices.com/cards/f15e51cfd59c7990.webp", "ppId": 47181}, {"id": "PCG3-065", "localId": "065", "name": "Rocket's Wobbuffet", "rarity": "Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Darkness"], "hp": 70, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 30.0}}, "currency": "EUR", "pricedAt": "2026-09-22T03:39:09Z"}, "imageSmall": "https://images.pkmnprices.com/cards/09c0ca61b8cb4dbb.webp", "imageLarge": "https://images.pkmnprices.com/cards/09c0ca61b8cb4dbb.webp", "ppId": 47288}, {"id": "PCG3-066", "localId": "066", "name": "Rocket's Scizor Ex", "rarity": "Holo Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Darkness"], "hp": 120, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {}, "currency": "USD", "pricedAt": "2026-09-22T03:39:09Z"}, "imageSmall": "https://images.pkmnprices.com/cards/aa44255f45842138.webp", "imageLarge": "https://images.pkmnprices.com/cards/aa44255f45842138.webp", "ppId": 47143}, {"id": "PCG3-067", "localId": "067", "name": "Rocket's Sneasel Ex", "rarity": "Holo Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Darkness"], "hp": 90, "variants_detailed": [{"type": "holo", "foil": null}, {"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 155.0}}, "currency": "EUR", "pricedAt": "2026-09-22T03:39:09Z"}, "imageSmall": "https://images.pkmnprices.com/cards/a5e0a78cdb5aa73f.webp", "imageLarge": "https://images.pkmnprices.com/cards/a5e0a78cdb5aa73f.webp", "ppId": 47165}, {"id": "PCG3-068", "localId": "068", "name": "Rocket's Entei Ex", "rarity": "Holo Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Darkness"], "hp": 100, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {}, "currency": "USD", "pricedAt": "2026-09-22T03:39:09Z"}, "imageSmall": "https://images.pkmnprices.com/cards/7b7031254623771a.webp", "imageLarge": "https://images.pkmnprices.com/cards/7b7031254623771a.webp", "ppId": 47245}, {"id": "PCG3-069", "localId": "069", "name": "Rocket's Suicune Ex", "rarity": "Holo Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Darkness"], "hp": 100, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 399.99}}, "currency": "EUR", "pricedAt": "2026-09-22T03:39:09Z"}, "imageSmall": "https://images.pkmnprices.com/cards/df60ccb9144579e7.webp", "imageLarge": "https://images.pkmnprices.com/cards/df60ccb9144579e7.webp", "ppId": 47303}, {"id": "PCG3-070", "localId": "070", "name": "Dark Tyranitar", "rarity": "Holo Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Darkness"], "hp": 120, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 333.33}}, "currency": "EUR", "pricedAt": "2026-09-22T05:39:29Z"}, "imageSmall": "https://images.pkmnprices.com/cards/0f17177ee03a0cf5.webp", "imageLarge": "https://images.pkmnprices.com/cards/0f17177ee03a0cf5.webp", "ppId": 47126}, {"id": "PCG3-071", "localId": "071", "name": "Rocket's Celebi", "rarity": "Holo Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Darkness"], "hp": 70, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 80.0}}, "currency": "EUR", "pricedAt": "2026-09-22T03:39:09Z"}, "imageSmall": "https://images.pkmnprices.com/cards/f1105606e8fa1669.webp", "imageLarge": "https://images.pkmnprices.com/cards/f1105606e8fa1669.webp", "ppId": 47161}, {"id": "PCG3-072", "localId": "072", "name": "Dark Steelix", "rarity": "Holo Rare", "illustrator": null, "image": null, "category": "Pokemon", "types": ["Darkness"], "hp": 110, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 44.44}}, "currency": "EUR", "pricedAt": "2026-09-22T03:39:09Z"}, "imageSmall": "https://images.pkmnprices.com/cards/ce32d9bec0c2d07e.webp", "imageLarge": "https://images.pkmnprices.com/cards/ce32d9bec0c2d07e.webp", "ppId": 47157}, {"id": "PCG3-073", "localId": "073", "name": "Pow! Hand Extension", "rarity": "Uncommon", "illustrator": null, "image": null, "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {}, "currency": "USD", "pricedAt": "2026-09-22T03:39:09Z"}, "imageSmall": "https://images.pkmnprices.com/cards/783c494770ca4650.webp", "imageLarge": "https://images.pkmnprices.com/cards/783c494770ca4650.webp", "ppId": 47127}, {"id": "PCG3-074", "localId": "074", "name": "Swoop! Teleporter", "rarity": "Uncommon", "illustrator": null, "image": null, "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 7.0}}, "currency": "EUR", "pricedAt": "2026-09-22T03:39:09Z"}, "imageSmall": "https://images.pkmnprices.com/cards/8ff988421deecfa3.webp", "imageLarge": "https://images.pkmnprices.com/cards/8ff988421deecfa3.webp", "ppId": 47192}, {"id": "PCG3-075", "localId": "075", "name": "Surprise!  Time Machine", "rarity": "Uncommon", "illustrator": null, "image": null, "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 2.0}}, "currency": "EUR", "pricedAt": "2026-09-22T03:39:09Z"}, "imageSmall": "https://images.pkmnprices.com/cards/262928a1ff7460c3.webp", "imageLarge": "https://images.pkmnprices.com/cards/262928a1ff7460c3.webp", "ppId": 47205}, {"id": "PCG3-076", "localId": "076", "name": "Venture Bomb", "rarity": "Uncommon", "illustrator": null, "image": null, "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 6.0}}, "currency": "USD", "pricedAt": "2026-09-22T03:39:09Z"}, "imageSmall": "https://images.pkmnprices.com/cards/e75e2733a9b5e8a4.webp", "imageLarge": "https://images.pkmnprices.com/cards/e75e2733a9b5e8a4.webp", "ppId": 47131}, {"id": "PCG3-077", "localId": "077", "name": "Pokemon Retriever", "rarity": "Uncommon", "illustrator": null, "image": null, "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {}, "currency": "USD", "pricedAt": "2026-09-22T03:39:09Z"}, "imageSmall": "https://images.pkmnprices.com/cards/187b2191244ab358.webp", "imageLarge": "https://images.pkmnprices.com/cards/187b2191244ab358.webp", "ppId": 47151}, {"id": "PCG3-078", "localId": "078", "name": "Copycat", "rarity": "Uncommon", "illustrator": null, "image": null, "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 4.0}}, "currency": "USD", "pricedAt": "2026-09-22T05:39:29Z"}, "imageSmall": "https://images.pkmnprices.com/cards/21da006c4b6d3594.webp", "imageLarge": "https://images.pkmnprices.com/cards/21da006c4b6d3594.webp", "ppId": 47198}, {"id": "PCG3-079", "localId": "079", "name": "Rocket's Admin.", "rarity": "Uncommon", "illustrator": null, "image": null, "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 6.99}}, "currency": "USD", "pricedAt": "2026-09-22T03:39:09Z"}, "imageSmall": "https://images.pkmnprices.com/cards/3408d29778c7c353.webp", "imageLarge": "https://images.pkmnprices.com/cards/3408d29778c7c353.webp", "ppId": 47175}, {"id": "PCG3-080", "localId": "080", "name": "Rocket's Mission", "rarity": "Uncommon", "illustrator": null, "image": null, "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 2.99}}, "currency": "USD", "pricedAt": "2026-09-22T05:39:29Z"}, "imageSmall": "https://images.pkmnprices.com/cards/643e096bbfd1d82a.webp", "imageLarge": "https://images.pkmnprices.com/cards/643e096bbfd1d82a.webp", "ppId": 47134}, {"id": "PCG3-081", "localId": "081", "name": "Rocket's Hideout", "rarity": "Uncommon", "illustrator": null, "image": null, "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 3.0}}, "currency": "EUR", "pricedAt": "2026-09-22T03:39:09Z"}, "imageSmall": "https://images.pkmnprices.com/cards/30c7d92c5f296e31.webp", "imageLarge": "https://images.pkmnprices.com/cards/30c7d92c5f296e31.webp", "ppId": 47146}, {"id": "PCG3-082", "localId": "082", "name": "Rocket's Tricky Gym", "rarity": "Uncommon", "illustrator": null, "image": null, "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 2.0}}, "currency": "EUR", "pricedAt": "2026-09-22T03:39:09Z"}, "imageSmall": "https://images.pkmnprices.com/cards/ce3ac1d81725fe77.webp", "imageLarge": "https://images.pkmnprices.com/cards/ce3ac1d81725fe77.webp", "ppId": 47166}, {"id": "PCG3-083", "localId": "083", "name": "R Energy", "rarity": "Uncommon", "illustrator": null, "image": null, "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 4.95}}, "currency": "EUR", "pricedAt": "2026-09-22T03:39:09Z"}, "imageSmall": "https://images.pkmnprices.com/cards/f92f5e789bd80b8d.webp", "imageLarge": "https://images.pkmnprices.com/cards/f92f5e789bd80b8d.webp", "ppId": 47144}, {"id": "PCG3-084", "localId": "084", "name": "Dark Metal Energy", "rarity": "Uncommon", "illustrator": null, "image": null, "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 3.0}}, "currency": "EUR", "pricedAt": "2026-09-22T03:39:09Z"}, "imageSmall": "https://images.pkmnprices.com/cards/a955172602055902.webp", "imageLarge": "https://images.pkmnprices.com/cards/a955172602055902.webp", "ppId": 47209}, {"id": "PCG3-085", "localId": "085", "name": "Here Comes Team Rocket!", "rarity": "Holo Rare", "illustrator": null, "image": null, "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "normal", "foil": null}], "pricing": {"tcgplayer": {}, "currency": "USD", "pricedAt": "2026-09-22T03:39:09Z"}, "imageSmall": "https://images.pkmnprices.com/cards/c2772ca7aa03a239.webp", "imageLarge": "https://images.pkmnprices.com/cards/c2772ca7aa03a239.webp", "ppId": 47190}]}
+{
+ "generated_at": "2026-09-16T02:04:45.656717+00:00",
+ "set": {
+  "id": "PCG3",
+  "name": "Rocket Gang Strikes Back",
+  "series": "PCG",
+  "releaseDate": "2004-10-15",
+  "logo": null,
+  "symbol": "/data/tcgdex/set-symbols/ja/PCG3.png",
+  "printedTotal": 84,
+  "total": 85,
+  "lang": "ja",
+  "nameJa": "ロケット団の逆襲"
+ },
+ "cards": [
+  {
+   "id": "PCG3-001",
+   "localId": "001",
+   "name": "Ekans",
+   "rarity": "Common",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 60,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 4.0
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T03:39:09Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/7333a069b793d448.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/7333a069b793d448.webp",
+   "ppId": 47235
+  },
+  {
+   "id": "PCG3-002",
+   "localId": "002",
+   "name": "Zubat",
+   "rarity": "Common",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 50,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 5.0
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T05:39:29Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/d32fed2b6b283b78.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/d32fed2b6b283b78.webp",
+   "ppId": 47188
+  },
+  {
+   "id": "PCG3-003",
+   "localId": "003",
+   "name": "Grimer",
+   "rarity": "Common",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 50,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 3.0
+     }
+    },
+    "currency": "EUR",
+    "pricedAt": "2026-09-22T03:39:09Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/a19717c6a9c71109.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/a19717c6a9c71109.webp",
+   "ppId": 47265
+  },
+  {
+   "id": "PCG3-004",
+   "localId": "004",
+   "name": "Koffing",
+   "rarity": "Common",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 50,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 2.5
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T03:39:09Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/9521b536e46af2e2.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/9521b536e46af2e2.webp",
+   "ppId": 47150
+  },
+  {
+   "id": "PCG3-005",
+   "localId": "005",
+   "name": "Ledyba",
+   "rarity": "Common",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 50,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 2.0
+     }
+    },
+    "currency": "EUR",
+    "pricedAt": "2026-09-22T07:18:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/43a847d3d2786ab8.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/43a847d3d2786ab8.webp",
+   "ppId": 47116
+  },
+  {
+   "id": "PCG3-006",
+   "localId": "006",
+   "name": "Ledian",
+   "rarity": "Holo Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    },
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 9.95
+     }
+    },
+    "currency": "EUR",
+    "pricedAt": "2026-09-22T03:39:09Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/fcbe043bdc891445.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/fcbe043bdc891445.webp",
+   "ppId": 47195
+  },
+  {
+   "id": "PCG3-007",
+   "localId": "007",
+   "name": "Hoppip",
+   "rarity": "Common",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 30,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 3.0
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T03:39:09Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/07783a49e1289a6c.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/07783a49e1289a6c.webp",
+   "ppId": 47160
+  },
+  {
+   "id": "PCG3-008",
+   "localId": "008",
+   "name": "Skiploom",
+   "rarity": "Uncommon",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 60,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 4.75
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T03:39:09Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/4a5d4a24d9630abc.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/4a5d4a24d9630abc.webp",
+   "ppId": 47142
+  },
+  {
+   "id": "PCG3-009",
+   "localId": "009",
+   "name": "Jumpluff",
+   "rarity": "Holo Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 90,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    },
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 19.5
+     }
+    },
+    "currency": "EUR",
+    "pricedAt": "2026-09-22T03:39:09Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/d2cd8521fea82b29.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/d2cd8521fea82b29.webp",
+   "ppId": 47179
+  },
+  {
+   "id": "PCG3-010",
+   "localId": "010",
+   "name": "Yanma",
+   "rarity": "Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 24.0
+     }
+    },
+    "currency": "EUR",
+    "pricedAt": "2026-09-22T03:39:09Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/70fb1e0f2f0839f5.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/70fb1e0f2f0839f5.webp",
+   "ppId": 47361
+  },
+  {
+   "id": "PCG3-011",
+   "localId": "011",
+   "name": "Treecko Star",
+   "rarity": "Shiny rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {},
+    "currency": "USD",
+    "pricedAt": "2026-09-22T03:39:09Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/264bb415fdfd05a0.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/264bb415fdfd05a0.webp",
+   "ppId": 47223
+  },
+  {
+   "id": "PCG3-012",
+   "localId": "012",
+   "name": "Dark Arbok",
+   "rarity": "Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 90,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 10.0
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T03:39:09Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/86ff1a1f6a384ae7.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/86ff1a1f6a384ae7.webp",
+   "ppId": 47155
+  },
+  {
+   "id": "PCG3-013",
+   "localId": "013",
+   "name": "Dark Golbat",
+   "rarity": "Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 5.0
+     }
+    },
+    "currency": "EUR",
+    "pricedAt": "2026-09-22T03:39:09Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/bf430a0dc1dd51fa.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/bf430a0dc1dd51fa.webp",
+   "ppId": 47268
+  },
+  {
+   "id": "PCG3-014",
+   "localId": "014",
+   "name": "Dark Muk",
+   "rarity": "Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 18.0
+     }
+    },
+    "currency": "EUR",
+    "pricedAt": "2026-09-22T03:39:09Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/6756023502ac6d7c.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/6756023502ac6d7c.webp",
+   "ppId": 47185
+  },
+  {
+   "id": "PCG3-015",
+   "localId": "015",
+   "name": "Dark Weezing",
+   "rarity": "Holo Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 80,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 50.0
+     }
+    },
+    "currency": "EUR",
+    "pricedAt": "2026-09-22T03:39:09Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/8512ad0735232a93.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/8512ad0735232a93.webp",
+   "ppId": 47136
+  },
+  {
+   "id": "PCG3-016",
+   "localId": "016",
+   "name": "Dark Crobat",
+   "rarity": "Holo Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 90,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 33.0
+     }
+    },
+    "currency": "EUR",
+    "pricedAt": "2026-09-22T05:39:29Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/751271b10669d9ad.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/751271b10669d9ad.webp",
+   "ppId": 47164
+  },
+  {
+   "id": "PCG3-017",
+   "localId": "017",
+   "name": "Magmar",
+   "rarity": "Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Fire"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {},
+    "currency": "USD",
+    "pricedAt": "2026-09-22T03:39:09Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/3bb82b7db97c28f8.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/3bb82b7db97c28f8.webp",
+   "ppId": 47199
+  },
+  {
+   "id": "PCG3-018",
+   "localId": "018",
+   "name": "Houndour",
+   "rarity": "Common",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Fire"
+   ],
+   "hp": 50,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 34.94
+     }
+    },
+    "currency": "EUR",
+    "pricedAt": "2026-09-22T03:39:09Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/ab7f7db23c234ede.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/ab7f7db23c234ede.webp",
+   "ppId": 47254
+  },
+  {
+   "id": "PCG3-019",
+   "localId": "019",
+   "name": "Magby",
+   "rarity": "Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Fire"
+   ],
+   "hp": 50,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 9.48
+     }
+    },
+    "currency": "EUR",
+    "pricedAt": "2026-09-22T03:39:09Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/1fb2ebb671a608bd.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/1fb2ebb671a608bd.webp",
+   "ppId": 47238
+  },
+  {
+   "id": "PCG3-020",
+   "localId": "020",
+   "name": "Torchic Star",
+   "rarity": "Shiny rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Fire"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {},
+    "currency": "USD",
+    "pricedAt": "2026-09-22T03:39:09Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/65068052181260e5.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/65068052181260e5.webp",
+   "ppId": 47174
+  },
+  {
+   "id": "PCG3-021",
+   "localId": "021",
+   "name": "Dark Houndoom",
+   "rarity": "Holo Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Fire"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 70.0
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T03:39:09Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/a063dbb9ba6f2858.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/a063dbb9ba6f2858.webp",
+   "ppId": 47197
+  },
+  {
+   "id": "PCG3-022",
+   "localId": "022",
+   "name": "Horsea",
+   "rarity": "Common",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 50,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 2.0
+     }
+    },
+    "currency": "EUR",
+    "pricedAt": "2026-09-22T03:39:09Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/102b1d88ab0eb322.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/102b1d88ab0eb322.webp",
+   "ppId": 47182
+  },
+  {
+   "id": "PCG3-023",
+   "localId": "023",
+   "name": "Seadra",
+   "rarity": "Uncommon",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 2.5
+     }
+    },
+    "currency": "EUR",
+    "pricedAt": "2026-09-22T03:39:09Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/6a341f9bf5522b16.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/6a341f9bf5522b16.webp",
+   "ppId": 47212
+  },
+  {
+   "id": "PCG3-024",
+   "localId": "024",
+   "name": "Marill",
+   "rarity": "Common",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 50,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 4.0
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T03:39:09Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/a7f147ef943ce2b8.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/a7f147ef943ce2b8.webp",
+   "ppId": 47147
+  },
+  {
+   "id": "PCG3-025",
+   "localId": "025",
+   "name": "Azumarill",
+   "rarity": "Holo Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 80,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 30.0
+     }
+    },
+    "currency": "EUR",
+    "pricedAt": "2026-09-22T03:39:09Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/910530d703c012db.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/910530d703c012db.webp",
+   "ppId": 47187
+  },
+  {
+   "id": "PCG3-026",
+   "localId": "026",
+   "name": "Wooper",
+   "rarity": "Common",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 50,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 2.0
+     }
+    },
+    "currency": "EUR",
+    "pricedAt": "2026-09-22T03:39:09Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/6d66d4b90831423a.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/6d66d4b90831423a.webp",
+   "ppId": 47173
+  },
+  {
+   "id": "PCG3-027",
+   "localId": "027",
+   "name": "quagsire",
+   "rarity": "Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 80,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 30.0
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T03:39:09Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/4d2c4de0b49130a1.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/4d2c4de0b49130a1.webp",
+   "ppId": 47137
+  },
+  {
+   "id": "PCG3-028",
+   "localId": "028",
+   "name": "qwilfish",
+   "rarity": "Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 60,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 6.0
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T03:39:09Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/c9aee15580bae02c.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/c9aee15580bae02c.webp",
+   "ppId": 47167
+  },
+  {
+   "id": "PCG3-029",
+   "localId": "029",
+   "name": "REMORAID",
+   "rarity": "Common",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 50,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 1.24
+     }
+    },
+    "currency": "EUR",
+    "pricedAt": "2026-09-22T03:39:09Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/db53310a838f1926.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/db53310a838f1926.webp",
+   "ppId": 47180
+  },
+  {
+   "id": "PCG3-030",
+   "localId": "030",
+   "name": "Delibird",
+   "rarity": "Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 40.0
+     }
+    },
+    "currency": "EUR",
+    "pricedAt": "2026-09-22T03:39:09Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/7d94d7249d077ef4.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/7d94d7249d077ef4.webp",
+   "ppId": 47152
+  },
+  {
+   "id": "PCG3-031",
+   "localId": "031",
+   "name": "Mantine",
+   "rarity": "Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 8.0
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T03:39:09Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/6a1513066cb02908.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/6a1513066cb02908.webp",
+   "ppId": 47221
+  },
+  {
+   "id": "PCG3-032",
+   "localId": "032",
+   "name": "Kingdra",
+   "rarity": "Holo Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 120,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 50.0
+     }
+    },
+    "currency": "EUR",
+    "pricedAt": "2026-09-22T03:39:09Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/3bd4ea91f5132bb8.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/3bd4ea91f5132bb8.webp",
+   "ppId": 47138
+  },
+  {
+   "id": "PCG3-033",
+   "localId": "033",
+   "name": "Mudkip Star",
+   "rarity": "Shiny rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {},
+    "currency": "USD",
+    "pricedAt": "2026-09-22T03:39:09Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/39f56c07be97463d.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/39f56c07be97463d.webp",
+   "ppId": 47172
+  },
+  {
+   "id": "PCG3-034",
+   "localId": "034",
+   "name": "Dark Octillery",
+   "rarity": "Holo Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 29.33
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T03:39:09Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/27e89c866abb8ddc.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/27e89c866abb8ddc.webp",
+   "ppId": 47153
+  },
+  {
+   "id": "PCG3-035",
+   "localId": "035",
+   "name": "Voltorb",
+   "rarity": "Common",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": 40,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 9.99
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T03:39:09Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/2f0b5c4fdd02b355.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/2f0b5c4fdd02b355.webp",
+   "ppId": 47168
+  },
+  {
+   "id": "PCG3-036",
+   "localId": "036",
+   "name": "Mareep",
+   "rarity": "Common",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": 50,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 1.75
+     }
+    },
+    "currency": "EUR",
+    "pricedAt": "2026-09-22T03:39:09Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/45d43346ee2c1efc.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/45d43346ee2c1efc.webp",
+   "ppId": 47148
+  },
+  {
+   "id": "PCG3-037",
+   "localId": "037",
+   "name": "Dark Electrode",
+   "rarity": "Holo Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    },
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 39.99
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T03:39:09Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/8f633af04b5f1d54.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/8f633af04b5f1d54.webp",
+   "ppId": 47128
+  },
+  {
+   "id": "PCG3-038",
+   "localId": "038",
+   "name": "Dark Flaaffy",
+   "rarity": "Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": 80,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 14.99
+     }
+    },
+    "currency": "EUR",
+    "pricedAt": "2026-09-22T03:39:09Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/63b63d097ac87277.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/63b63d097ac87277.webp",
+   "ppId": 47156
+  },
+  {
+   "id": "PCG3-039",
+   "localId": "039",
+   "name": "Dark Ampharos",
+   "rarity": "Holo Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": 120,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 75.0
+     }
+    },
+    "currency": "EUR",
+    "pricedAt": "2026-09-22T05:39:29Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/3445b882ac50d279.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/3445b882ac50d279.webp",
+   "ppId": 47140
+  },
+  {
+   "id": "PCG3-040",
+   "localId": "040",
+   "name": "slowpoke",
+   "rarity": "Common",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": 50,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 13.0
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T03:39:09Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/f760482ed61fb1e9.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/f760482ed61fb1e9.webp",
+   "ppId": 47121
+  },
+  {
+   "id": "PCG3-041",
+   "localId": "041",
+   "name": "Drowzee",
+   "rarity": "Common",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": 50,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 5.66
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T03:39:09Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/d9647edffd5c6104.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/d9647edffd5c6104.webp",
+   "ppId": 47119
+  },
+  {
+   "id": "PCG3-042",
+   "localId": "042",
+   "name": "Misdreavus",
+   "rarity": "Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": 60,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {},
+    "currency": "USD",
+    "pricedAt": "2026-09-22T03:39:09Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/609bfbfc37af55cf.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/609bfbfc37af55cf.webp",
+   "ppId": 47171
+  },
+  {
+   "id": "PCG3-043",
+   "localId": "043",
+   "name": "Dark Hypno",
+   "rarity": "Holo Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    },
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 37.99
+     }
+    },
+    "currency": "EUR",
+    "pricedAt": "2026-09-22T03:39:09Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/f27024e777e7f1b8.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/f27024e777e7f1b8.webp",
+   "ppId": 47122
+  },
+  {
+   "id": "PCG3-044",
+   "localId": "044",
+   "name": "Dark Slowking",
+   "rarity": "Holo Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": 80,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    },
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {},
+    "currency": "USD",
+    "pricedAt": "2026-09-22T03:39:09Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/604054c372fdfd07.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/604054c372fdfd07.webp",
+   "ppId": 47176
+  },
+  {
+   "id": "PCG3-045",
+   "localId": "045",
+   "name": "Sandshrew",
+   "rarity": "Common",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Fighting"
+   ],
+   "hp": 50,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 9.0
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T03:39:09Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/418d4525895120ac.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/418d4525895120ac.webp",
+   "ppId": 47149
+  },
+  {
+   "id": "PCG3-046",
+   "localId": "046",
+   "name": "onix",
+   "rarity": "Uncommon",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Fighting"
+   ],
+   "hp": 80,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 3.5
+     }
+    },
+    "currency": "EUR",
+    "pricedAt": "2026-09-22T05:39:29Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/c19b0536f4a99330.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/c19b0536f4a99330.webp",
+   "ppId": 47154
+  },
+  {
+   "id": "PCG3-047",
+   "localId": "047",
+   "name": "Cubone",
+   "rarity": "Common",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Fighting"
+   ],
+   "hp": 50,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 9.0
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T03:39:09Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/06b506fe269fdeec.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/06b506fe269fdeec.webp",
+   "ppId": 47186
+  },
+  {
+   "id": "PCG3-048",
+   "localId": "048",
+   "name": "Heracross",
+   "rarity": "Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Fighting"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {},
+    "currency": "USD",
+    "pricedAt": "2026-09-22T03:39:09Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/adba09e877b7a492.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/adba09e877b7a492.webp",
+   "ppId": 47229
+  },
+  {
+   "id": "PCG3-049",
+   "localId": "049",
+   "name": "swinub",
+   "rarity": "Common",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Fighting"
+   ],
+   "hp": 50,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 10.0
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T03:39:09Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/84ba724e96fb1a4c.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/84ba724e96fb1a4c.webp",
+   "ppId": 47334
+  },
+  {
+   "id": "PCG3-050",
+   "localId": "050",
+   "name": "Piloswine",
+   "rarity": "Holo Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Fighting"
+   ],
+   "hp": 100,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    },
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {},
+    "currency": "USD",
+    "pricedAt": "2026-09-22T03:39:09Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/e7dd693a6701339d.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/e7dd693a6701339d.webp",
+   "ppId": 47274
+  },
+  {
+   "id": "PCG3-051",
+   "localId": "051",
+   "name": "Dark Sandslash",
+   "rarity": "Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Fighting"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 12.0
+     }
+    },
+    "currency": "EUR",
+    "pricedAt": "2026-09-22T03:39:09Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/e0edb380f5e8397a.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/e0edb380f5e8397a.webp",
+   "ppId": 47194
+  },
+  {
+   "id": "PCG3-052",
+   "localId": "052",
+   "name": "Dark Marowak",
+   "rarity": "Holo Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Fighting"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 89.0
+     }
+    },
+    "currency": "EUR",
+    "pricedAt": "2026-09-22T03:39:09Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/e4f82d7a4a725fb5.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/e4f82d7a4a725fb5.webp",
+   "ppId": 47193
+  },
+  {
+   "id": "PCG3-053",
+   "localId": "053",
+   "name": "Rattata",
+   "rarity": "Common",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Colorless"
+   ],
+   "hp": 40,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 5.0
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T03:39:09Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/4c9b65a675dc024e.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/4c9b65a675dc024e.webp",
+   "ppId": 47145
+  },
+  {
+   "id": "PCG3-054",
+   "localId": "054",
+   "name": "Sentret",
+   "rarity": "Common",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Colorless"
+   ],
+   "hp": 50,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 8.0
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T07:18:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/bf55e6b0b09ab101.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/bf55e6b0b09ab101.webp",
+   "ppId": 47124
+  },
+  {
+   "id": "PCG3-055",
+   "localId": "055",
+   "name": "Furret",
+   "rarity": "Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Colorless"
+   ],
+   "hp": 80,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {},
+    "currency": "USD",
+    "pricedAt": "2026-09-22T03:39:09Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/c377d7e7b3bdf542.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/c377d7e7b3bdf542.webp",
+   "ppId": 47201
+  },
+  {
+   "id": "PCG3-056",
+   "localId": "056",
+   "name": "togepi",
+   "rarity": "Uncommon",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Colorless"
+   ],
+   "hp": 40,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 20.0
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T03:39:09Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/305d22688ace1077.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/305d22688ace1077.webp",
+   "ppId": 47169
+  },
+  {
+   "id": "PCG3-057",
+   "localId": "057",
+   "name": "togetic",
+   "rarity": "Holo Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Colorless"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 99.0
+     }
+    },
+    "currency": "EUR",
+    "pricedAt": "2026-09-22T03:39:09Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/c83fd47de462ca43.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/c83fd47de462ca43.webp",
+   "ppId": 47162
+  },
+  {
+   "id": "PCG3-058",
+   "localId": "058",
+   "name": "Dark Raticate",
+   "rarity": "Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Darkness"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 4.0
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T03:39:09Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/ef43574f6b1ea20b.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/ef43574f6b1ea20b.webp",
+   "ppId": 47204
+  },
+  {
+   "id": "PCG3-059",
+   "localId": "059",
+   "name": "Rocket's Meowth",
+   "rarity": "Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Darkness"
+   ],
+   "hp": 60,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 50.0
+     }
+    },
+    "currency": "EUR",
+    "pricedAt": "2026-09-22T03:39:09Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/e5e10396bdee09d3.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/e5e10396bdee09d3.webp",
+   "ppId": 47196
+  },
+  {
+   "id": "PCG3-060",
+   "localId": "060",
+   "name": "Rocket's Hitmonchan ex",
+   "rarity": "Holo Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Darkness"
+   ],
+   "hp": 100,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    },
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 150.0
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T05:39:29Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/e8b7c85df7e45650.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/e8b7c85df7e45650.webp",
+   "ppId": 47163
+  },
+  {
+   "id": "PCG3-061",
+   "localId": "061",
+   "name": "Rocket's Scyther Ex",
+   "rarity": "Holo Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Darkness"
+   ],
+   "hp": 80,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    },
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 350.0
+     }
+    },
+    "currency": "EUR",
+    "pricedAt": "2026-09-22T03:39:09Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/448892c842ecfde9.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/448892c842ecfde9.webp",
+   "ppId": 47227
+  },
+  {
+   "id": "PCG3-062",
+   "localId": "062",
+   "name": "Rocket's Snorlax Ex",
+   "rarity": "Holo Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Darkness"
+   ],
+   "hp": 100,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {},
+    "currency": "USD",
+    "pricedAt": "2026-09-22T03:39:09Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/810b53d57772b4ca.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/810b53d57772b4ca.webp",
+   "ppId": 47189
+  },
+  {
+   "id": "PCG3-063",
+   "localId": "063",
+   "name": "Rocket's Zapdos Ex",
+   "rarity": "Holo Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Darkness"
+   ],
+   "hp": 100,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {},
+    "currency": "USD",
+    "pricedAt": "2026-09-22T03:39:09Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/be4e88d2f92f8a6c.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/be4e88d2f92f8a6c.webp",
+   "ppId": 47184
+  },
+  {
+   "id": "PCG3-064",
+   "localId": "064",
+   "name": "Rocket's Mewtwo ex",
+   "rarity": "Holo Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Darkness"
+   ],
+   "hp": 100,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 399.99
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T05:39:29Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/f15e51cfd59c7990.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/f15e51cfd59c7990.webp",
+   "ppId": 47181
+  },
+  {
+   "id": "PCG3-065",
+   "localId": "065",
+   "name": "Rocket's Wobbuffet",
+   "rarity": "Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Darkness"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 30.0
+     }
+    },
+    "currency": "EUR",
+    "pricedAt": "2026-09-22T03:39:09Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/09c0ca61b8cb4dbb.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/09c0ca61b8cb4dbb.webp",
+   "ppId": 47288
+  },
+  {
+   "id": "PCG3-066",
+   "localId": "066",
+   "name": "Rocket's Scizor Ex",
+   "rarity": "Holo Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Darkness"
+   ],
+   "hp": 120,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {},
+    "currency": "USD",
+    "pricedAt": "2026-09-22T03:39:09Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/aa44255f45842138.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/aa44255f45842138.webp",
+   "ppId": 47143
+  },
+  {
+   "id": "PCG3-067",
+   "localId": "067",
+   "name": "Rocket's Sneasel Ex",
+   "rarity": "Holo Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Darkness"
+   ],
+   "hp": 90,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    },
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 155.0
+     }
+    },
+    "currency": "EUR",
+    "pricedAt": "2026-09-22T03:39:09Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/a5e0a78cdb5aa73f.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/a5e0a78cdb5aa73f.webp",
+   "ppId": 47165
+  },
+  {
+   "id": "PCG3-068",
+   "localId": "068",
+   "name": "Rocket's Entei Ex",
+   "rarity": "Holo Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Darkness"
+   ],
+   "hp": 100,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {},
+    "currency": "USD",
+    "pricedAt": "2026-09-22T03:39:09Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/7b7031254623771a.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/7b7031254623771a.webp",
+   "ppId": 47245
+  },
+  {
+   "id": "PCG3-069",
+   "localId": "069",
+   "name": "Rocket's Suicune Ex",
+   "rarity": "Holo Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Darkness"
+   ],
+   "hp": 100,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 399.99
+     }
+    },
+    "currency": "EUR",
+    "pricedAt": "2026-09-22T03:39:09Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/df60ccb9144579e7.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/df60ccb9144579e7.webp",
+   "ppId": 47303
+  },
+  {
+   "id": "PCG3-070",
+   "localId": "070",
+   "name": "Dark Tyranitar",
+   "rarity": "Holo Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Darkness"
+   ],
+   "hp": 120,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 333.33
+     }
+    },
+    "currency": "EUR",
+    "pricedAt": "2026-09-22T05:39:29Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/0f17177ee03a0cf5.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/0f17177ee03a0cf5.webp",
+   "ppId": 47126
+  },
+  {
+   "id": "PCG3-071",
+   "localId": "071",
+   "name": "Rocket's Celebi",
+   "rarity": "Holo Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Darkness"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 80.0
+     }
+    },
+    "currency": "EUR",
+    "pricedAt": "2026-09-22T03:39:09Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/f1105606e8fa1669.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/f1105606e8fa1669.webp",
+   "ppId": 47161
+  },
+  {
+   "id": "PCG3-072",
+   "localId": "072",
+   "name": "Dark Steelix",
+   "rarity": "Holo Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Pokemon",
+   "types": [
+    "Darkness"
+   ],
+   "hp": 110,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 44.44
+     }
+    },
+    "currency": "EUR",
+    "pricedAt": "2026-09-22T03:39:09Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/ce32d9bec0c2d07e.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/ce32d9bec0c2d07e.webp",
+   "ppId": 47157
+  },
+  {
+   "id": "PCG3-073",
+   "localId": "073",
+   "name": "Pow! Hand Extension",
+   "rarity": "Uncommon",
+   "illustrator": null,
+   "image": null,
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {},
+    "currency": "USD",
+    "pricedAt": "2026-09-22T03:39:09Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/783c494770ca4650.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/783c494770ca4650.webp",
+   "ppId": 47127
+  },
+  {
+   "id": "PCG3-074",
+   "localId": "074",
+   "name": "Swoop! Teleporter",
+   "rarity": "Uncommon",
+   "illustrator": null,
+   "image": null,
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 7.0
+     }
+    },
+    "currency": "EUR",
+    "pricedAt": "2026-09-22T03:39:09Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/8ff988421deecfa3.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/8ff988421deecfa3.webp",
+   "ppId": 47192
+  },
+  {
+   "id": "PCG3-075",
+   "localId": "075",
+   "name": "Surprise!  Time Machine",
+   "rarity": "Uncommon",
+   "illustrator": null,
+   "image": null,
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 2.0
+     }
+    },
+    "currency": "EUR",
+    "pricedAt": "2026-09-22T03:39:09Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/262928a1ff7460c3.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/262928a1ff7460c3.webp",
+   "ppId": 47205
+  },
+  {
+   "id": "PCG3-076",
+   "localId": "076",
+   "name": "Venture Bomb",
+   "rarity": "Uncommon",
+   "illustrator": null,
+   "image": null,
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 6.0
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T03:39:09Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/e75e2733a9b5e8a4.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/e75e2733a9b5e8a4.webp",
+   "ppId": 47131
+  },
+  {
+   "id": "PCG3-077",
+   "localId": "077",
+   "name": "Pokemon Retriever",
+   "rarity": "Uncommon",
+   "illustrator": null,
+   "image": null,
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {},
+    "currency": "USD",
+    "pricedAt": "2026-09-22T03:39:09Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/187b2191244ab358.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/187b2191244ab358.webp",
+   "ppId": 47151
+  },
+  {
+   "id": "PCG3-078",
+   "localId": "078",
+   "name": "Copycat",
+   "rarity": "Uncommon",
+   "illustrator": null,
+   "image": null,
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 4.0
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T05:39:29Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/21da006c4b6d3594.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/21da006c4b6d3594.webp",
+   "ppId": 47198
+  },
+  {
+   "id": "PCG3-079",
+   "localId": "079",
+   "name": "Rocket's Admin.",
+   "rarity": "Uncommon",
+   "illustrator": null,
+   "image": null,
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 6.99
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T03:39:09Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/3408d29778c7c353.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/3408d29778c7c353.webp",
+   "ppId": 47175
+  },
+  {
+   "id": "PCG3-080",
+   "localId": "080",
+   "name": "Rocket's Mission",
+   "rarity": "Uncommon",
+   "illustrator": null,
+   "image": null,
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 2.99
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-22T05:39:29Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/643e096bbfd1d82a.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/643e096bbfd1d82a.webp",
+   "ppId": 47134
+  },
+  {
+   "id": "PCG3-081",
+   "localId": "081",
+   "name": "Rocket's Hideout",
+   "rarity": "Uncommon",
+   "illustrator": null,
+   "image": null,
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 3.0
+     }
+    },
+    "currency": "EUR",
+    "pricedAt": "2026-09-22T03:39:09Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/30c7d92c5f296e31.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/30c7d92c5f296e31.webp",
+   "ppId": 47146
+  },
+  {
+   "id": "PCG3-082",
+   "localId": "082",
+   "name": "Rocket's Tricky Gym",
+   "rarity": "Uncommon",
+   "illustrator": null,
+   "image": null,
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 2.0
+     }
+    },
+    "currency": "EUR",
+    "pricedAt": "2026-09-22T03:39:09Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/ce3ac1d81725fe77.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/ce3ac1d81725fe77.webp",
+   "ppId": 47166
+  },
+  {
+   "id": "PCG3-083",
+   "localId": "083",
+   "name": "R Energy",
+   "rarity": "Uncommon",
+   "illustrator": null,
+   "image": null,
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 4.95
+     }
+    },
+    "currency": "EUR",
+    "pricedAt": "2026-09-22T03:39:09Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/f92f5e789bd80b8d.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/f92f5e789bd80b8d.webp",
+   "ppId": 47144
+  },
+  {
+   "id": "PCG3-084",
+   "localId": "084",
+   "name": "Dark Metal Energy",
+   "rarity": "Uncommon",
+   "illustrator": null,
+   "image": null,
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 3.0
+     }
+    },
+    "currency": "EUR",
+    "pricedAt": "2026-09-22T03:39:09Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/a955172602055902.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/a955172602055902.webp",
+   "ppId": 47209
+  },
+  {
+   "id": "PCG3-085",
+   "localId": "085",
+   "name": "Here Comes Team Rocket!",
+   "rarity": "Holo Rare",
+   "illustrator": null,
+   "image": null,
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "normal",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {},
+    "currency": "USD",
+    "pricedAt": "2026-09-22T03:39:09Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/c2772ca7aa03a239.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/c2772ca7aa03a239.webp",
+   "ppId": 47190
+  }
+ ]
+}

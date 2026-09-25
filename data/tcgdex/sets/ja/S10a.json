@@ -1,1 +1,3244 @@
-{"generated_at": "2026-09-16T01:47:44.467506+00:00", "set": {"id": "S10a", "name": "Dark Phantasma", "series": "剣と盾", "releaseDate": "2022-05-13", "logo": null, "symbol": "/data/tcgdex/set-symbols/ja/S10a.png", "printedTotal": 71, "total": 99, "lang": "ja", "nameJa": "ダークファンタズマ"}, "cards": [{"id": "S10a-001", "localId": "001", "name": "Paras", "rarity": "Common", "illustrator": "Mizue", "image": "https://assets.tcgdex.net/ja/S/S10a/001", "category": "Pokemon", "types": ["Grass"], "hp": 70, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "reverse", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.16}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/2552f63aea25ce09.webp", "imageLarge": "https://images.pkmnprices.com/cards/2552f63aea25ce09.webp", "ppId": 40318}, {"id": "S10a-002", "localId": "002", "name": "Parasect - 002/071 (Mirror Holofoil)", "rarity": "Uncommon", "illustrator": "Pani Kobayashi", "image": "https://assets.tcgdex.net/ja/S/S10a/002", "category": "Pokemon", "types": ["Grass"], "hp": 120, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "reverse", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 0.42}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/613108d96a4b5492.webp", "imageLarge": "https://images.pkmnprices.com/cards/613108d96a4b5492.webp", "ppId": 40261}, {"id": "S10a-003", "localId": "003", "name": "Hisuian Electrode V", "rarity": "Double rare", "illustrator": "5ban Graphics", "image": "https://assets.tcgdex.net/ja/S/S10a/003", "category": "Pokemon", "types": ["Grass"], "hp": 210, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 0.41}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/6a119a70562fd4fd.webp", "imageLarge": "https://images.pkmnprices.com/cards/6a119a70562fd4fd.webp", "ppId": 40187}, {"id": "S10a-004", "localId": "004", "name": "Wurmple", "rarity": "Common", "illustrator": "ryoma uratsuka", "image": "https://assets.tcgdex.net/ja/S/S10a/004", "category": "Pokemon", "types": ["Grass"], "hp": 60, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "reverse", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.27}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/028f6c4cd1aeb3fa.webp", "imageLarge": "https://images.pkmnprices.com/cards/028f6c4cd1aeb3fa.webp", "ppId": 40272}, {"id": "S10a-005", "localId": "005", "name": "Silcoon (Mirror Holofoil)", "rarity": "Common", "illustrator": "Kagemaru Himeno", "image": "https://assets.tcgdex.net/ja/S/S10a/005", "category": "Pokemon", "types": ["Grass"], "hp": 80, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "reverse", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 0.35}}, "currency": "USD", "pricedAt": "2026-09-21T10:58:49Z"}, "imageSmall": "https://images.pkmnprices.com/cards/792728c3e1978f08.webp", "imageLarge": "https://images.pkmnprices.com/cards/792728c3e1978f08.webp", "ppId": 40288}, {"id": "S10a-006", "localId": "006", "name": "Beautifly", "rarity": "Rare", "illustrator": "Yuu Nishida", "image": "https://assets.tcgdex.net/ja/S/S10a/006", "category": "Pokemon", "types": ["Grass"], "hp": 130, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 0.34}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/03e8c0a250d07cc1.webp", "imageLarge": "https://images.pkmnprices.com/cards/03e8c0a250d07cc1.webp", "ppId": 40273}, {"id": "S10a-007", "localId": "007", "name": "Cascoon (Mirror Holofoil)", "rarity": "Common", "illustrator": "GOSSAN", "image": "https://assets.tcgdex.net/ja/S/S10a/007", "category": "Pokemon", "types": ["Grass"], "hp": 80, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "reverse", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 0.39}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/b0b808d75f4c6021.webp", "imageLarge": "https://images.pkmnprices.com/cards/b0b808d75f4c6021.webp", "ppId": 40252}, {"id": "S10a-008", "localId": "008", "name": "Dustox", "rarity": "Uncommon", "illustrator": "Mitsuhiro Arita", "image": "https://assets.tcgdex.net/ja/S/S10a/008", "category": "Pokemon", "types": ["Grass"], "hp": 140, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "reverse", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.16}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/d194496bada6e895.webp", "imageLarge": "https://images.pkmnprices.com/cards/d194496bada6e895.webp", "ppId": 40293}, {"id": "S10a-009", "localId": "009", "name": "Snover (Mirror Holofoil)", "rarity": "Common", "illustrator": "Mitsuhiro Arita", "image": "https://assets.tcgdex.net/ja/S/S10a/009", "category": "Pokemon", "types": ["Water"], "hp": 80, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "reverse", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 0.41}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/e300025079ac1404.webp", "imageLarge": "https://images.pkmnprices.com/cards/e300025079ac1404.webp", "ppId": 40309}, {"id": "S10a-010", "localId": "010", "name": "Abomasnow (Mirror Holofoil)", "rarity": "Common", "illustrator": "kodama", "image": "https://assets.tcgdex.net/ja/S/S10a/010", "category": "Pokemon", "types": ["Water"], "hp": 140, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "reverse", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 0.39}}, "currency": "USD", "pricedAt": "2026-09-21T10:58:49Z"}, "imageSmall": "https://images.pkmnprices.com/cards/e6bf749561e8a85e.webp", "imageLarge": "https://images.pkmnprices.com/cards/e6bf749561e8a85e.webp", "ppId": 40230}, {"id": "S10a-011", "localId": "011", "name": "Phione (Mirror Holofoil)", "rarity": "Uncommon", "illustrator": "Jiro Sasumo", "image": "https://assets.tcgdex.net/ja/S/S10a/011", "category": "Pokemon", "types": ["Water"], "hp": 70, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "reverse", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 0.73}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/6e8c6a201f30a6da.webp", "imageLarge": "https://images.pkmnprices.com/cards/6e8c6a201f30a6da.webp", "ppId": 40284}, {"id": "S10a-012", "localId": "012", "name": "Hisuian Basculin", "rarity": "Common", "illustrator": "Oswaldo KATO", "image": "https://assets.tcgdex.net/ja/S/S10a/012", "category": "Pokemon", "types": ["Water"], "hp": 50, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "reverse", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.16}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/78ab1737863323d0.webp", "imageLarge": "https://images.pkmnprices.com/cards/78ab1737863323d0.webp", "ppId": 40271}, {"id": "S10a-013", "localId": "013", "name": "Hisuian Basculegion", "rarity": "Rare", "illustrator": "AKIRA EGAWA", "image": "https://assets.tcgdex.net/ja/S/S10a/013", "category": "Pokemon", "types": ["Water"], "hp": 110, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 0.24}}, "currency": "USD", "pricedAt": "2026-09-21T10:58:49Z"}, "imageSmall": "https://images.pkmnprices.com/cards/a791e65132207782.webp", "imageLarge": "https://images.pkmnprices.com/cards/a791e65132207782.webp", "ppId": 40294}, {"id": "S10a-014", "localId": "014", "name": "Pikachu", "rarity": "Common", "illustrator": "kurumitsu", "image": "https://assets.tcgdex.net/ja/S/S10a/014", "category": "Pokemon", "types": ["Lightning"], "hp": 60, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "reverse", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 5.33}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/97ec3adeb53a8b1a.webp", "imageLarge": "https://images.pkmnprices.com/cards/97ec3adeb53a8b1a.webp", "ppId": 40235}, {"id": "S10a-015", "localId": "015", "name": "Raichu (Mirror Holofoil)", "rarity": "Uncommon", "illustrator": "GIDORA", "image": "https://assets.tcgdex.net/ja/S/S10a/015", "category": "Pokemon", "types": ["Lightning"], "hp": 120, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "reverse", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 1.26}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/c1c930cdb4a81e85.webp", "imageLarge": "https://images.pkmnprices.com/cards/c1c930cdb4a81e85.webp", "ppId": 40278}, {"id": "S10a-016", "localId": "016", "name": "Magnezone V", "rarity": "Double rare", "illustrator": "N-DESIGN Inc.", "image": "https://assets.tcgdex.net/ja/S/S10a/016", "category": "Pokemon", "types": ["Lightning"], "hp": 210, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 0.42}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/a3499f05f5dad6be.webp", "imageLarge": "https://images.pkmnprices.com/cards/a3499f05f5dad6be.webp", "ppId": 40198}, {"id": "S10a-017", "localId": "017", "name": "Magnezone VSTAR", "rarity": "Triple Rare", "illustrator": "PLANETA Mochizuki", "image": "https://assets.tcgdex.net/ja/S/S10a/017", "category": "Pokemon", "types": ["Lightning"], "hp": 270, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 0.6}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/09fd3f0e0eb1b63a.webp", "imageLarge": "https://images.pkmnprices.com/cards/09fd3f0e0eb1b63a.webp", "ppId": 40206}, {"id": "S10a-018", "localId": "018", "name": "Rotom", "rarity": "Common", "illustrator": "Taira Akitsu", "image": "https://assets.tcgdex.net/ja/S/S10a/018", "category": "Pokemon", "types": ["Lightning"], "hp": 80, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "reverse", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.2}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/eecb0c552905c23f.webp", "imageLarge": "https://images.pkmnprices.com/cards/eecb0c552905c23f.webp", "ppId": 40234}, {"id": "S10a-019", "localId": "019", "name": "Clefairy (Mirror Holofoil)", "rarity": "Common", "illustrator": "Kouki Saitou", "image": "https://assets.tcgdex.net/ja/S/S10a/019", "category": "Pokemon", "types": ["Psychic"], "hp": 60, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "reverse", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 0.8}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/2b790a452055bf1c.webp", "imageLarge": "https://images.pkmnprices.com/cards/2b790a452055bf1c.webp", "ppId": 40244}, {"id": "S10a-020", "localId": "020", "name": "Clefable (Mirror Holofoil)", "rarity": "Uncommon", "illustrator": "Sekio", "image": "https://assets.tcgdex.net/ja/S/S10a/020", "category": "Pokemon", "types": ["Psychic"], "hp": 100, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "reverse", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 0.64}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/bb0b928f74c19ab5.webp", "imageLarge": "https://images.pkmnprices.com/cards/bb0b928f74c19ab5.webp", "ppId": 40223}, {"id": "S10a-021", "localId": "021", "name": "Gastly", "rarity": "Common", "illustrator": "Tika Matsuno", "image": "https://assets.tcgdex.net/ja/S/S10a/021", "category": "Pokemon", "types": ["Psychic"], "hp": 40, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "reverse", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.24}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/0da69ab2de7a358c.webp", "imageLarge": "https://images.pkmnprices.com/cards/0da69ab2de7a358c.webp", "ppId": 40193}, {"id": "S10a-022", "localId": "022", "name": "Haunter", "rarity": "Common", "illustrator": "Kouki Saitou", "image": "https://assets.tcgdex.net/ja/S/S10a/022", "category": "Pokemon", "types": ["Psychic"], "hp": 70, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "reverse", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.24}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/6ceb2bcd2a2d8de2.webp", "imageLarge": "https://images.pkmnprices.com/cards/6ceb2bcd2a2d8de2.webp", "ppId": 40246}, {"id": "S10a-023", "localId": "023", "name": "Gengar", "rarity": "Rare", "illustrator": "Narumi Sato", "image": "https://assets.tcgdex.net/ja/S/S10a/023", "category": "Pokemon", "types": ["Psychic"], "hp": 120, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 3.23}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/790b55388136c7b2.webp", "imageLarge": "https://images.pkmnprices.com/cards/790b55388136c7b2.webp", "ppId": 40226}, {"id": "S10a-024", "localId": "024", "name": "Mr. Mime", "rarity": "Uncommon", "illustrator": "Souichirou Gunjima", "image": "https://assets.tcgdex.net/ja/S/S10a/024", "category": "Pokemon", "types": ["Psychic"], "hp": 90, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "reverse", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.24}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/93566874b38120c9.webp", "imageLarge": "https://images.pkmnprices.com/cards/93566874b38120c9.webp", "ppId": 40250}, {"id": "S10a-025", "localId": "025", "name": "Misdreavus (Mirror Holofoil)", "rarity": "Common", "illustrator": "HYOGONOSUKE", "image": "https://assets.tcgdex.net/ja/S/S10a/025", "category": "Pokemon", "types": ["Psychic"], "hp": 60, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "reverse", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 0.45}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/4809add4dac52441.webp", "imageLarge": "https://images.pkmnprices.com/cards/4809add4dac52441.webp", "ppId": 40275}, {"id": "S10a-026", "localId": "026", "name": "Mismagius (Mirror Holofoil)", "rarity": "Uncommon", "illustrator": "kawayoo", "image": "https://assets.tcgdex.net/ja/S/S10a/026", "category": "Pokemon", "types": ["Psychic"], "hp": 90, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "reverse", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 0.51}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/1aca5e952f49f00d.webp", "imageLarge": "https://images.pkmnprices.com/cards/1aca5e952f49f00d.webp", "ppId": 40300}, {"id": "S10a-027", "localId": "027", "name": "Radiant Gardevoir", "rarity": "Radiant Rare", "illustrator": "Ryuta Fuse", "image": "https://assets.tcgdex.net/ja/S/S10a/027", "category": "Pokemon", "types": ["Psychic"], "hp": 130, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 1.95}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/a872b714d362a6f8.webp", "imageLarge": "https://images.pkmnprices.com/cards/a872b714d362a6f8.webp", "ppId": 40196}, {"id": "S10a-028", "localId": "028", "name": "Chimecho (Mirror Holofoil)", "rarity": "Common", "illustrator": "Naoyo Kimura", "image": "https://assets.tcgdex.net/ja/S/S10a/028", "category": "Pokemon", "types": ["Psychic"], "hp": 70, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "reverse", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 0.54}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/2b9c8e61dd4e7be1.webp", "imageLarge": "https://images.pkmnprices.com/cards/2b9c8e61dd4e7be1.webp", "ppId": 40241}, {"id": "S10a-029", "localId": "029", "name": "Hisuian Zorua (Mirror Holofoil)", "rarity": "Common", "illustrator": "Akira Komayama", "image": "https://assets.tcgdex.net/ja/S/S10a/029", "category": "Pokemon", "types": ["Psychic"], "hp": 60, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "reverse", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 1.24}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/91b675c76c3a5522.webp", "imageLarge": "https://images.pkmnprices.com/cards/91b675c76c3a5522.webp", "ppId": 40205}, {"id": "S10a-030", "localId": "030", "name": "Hisuian Zoroark", "rarity": "Rare", "illustrator": "Kouki Saitou", "image": "https://assets.tcgdex.net/ja/S/S10a/030", "category": "Pokemon", "types": ["Psychic"], "hp": 120, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 0.33}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/77afb44883072861.webp", "imageLarge": "https://images.pkmnprices.com/cards/77afb44883072861.webp", "ppId": 40296}, {"id": "S10a-031", "localId": "031", "name": "Enamorus V", "rarity": "Double rare", "illustrator": "5ban Graphics", "image": "https://assets.tcgdex.net/ja/S/S10a/031", "category": "Pokemon", "types": ["Psychic"], "hp": 210, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 0.41}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/7c26fca378a318cd.webp", "imageLarge": "https://images.pkmnprices.com/cards/7c26fca378a318cd.webp", "ppId": 40202}, {"id": "S10a-032", "localId": "032", "name": "Hisuian Growlithe (Mirror Holofoil)", "rarity": "Common", "illustrator": "Kouki Saitou", "image": "https://assets.tcgdex.net/ja/S/S10a/032", "category": "Pokemon", "types": ["Fighting"], "hp": 70, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "reverse", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 0.58}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/1e1ffeca1720a41b.webp", "imageLarge": "https://images.pkmnprices.com/cards/1e1ffeca1720a41b.webp", "ppId": 40242}, {"id": "S10a-033", "localId": "033", "name": "Hisuian Arcanine", "rarity": "Rare", "illustrator": "Oswaldo KATO", "image": "https://assets.tcgdex.net/ja/S/S10a/033", "category": "Pokemon", "types": ["Fighting"], "hp": 130, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 0.34}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/6eb9f465823b3ae4.webp", "imageLarge": "https://images.pkmnprices.com/cards/6eb9f465823b3ae4.webp", "ppId": 40213}, {"id": "S10a-034", "localId": "034", "name": "Machop (Mirror Holofoil)", "rarity": "Common", "illustrator": "Yuka Morii", "image": "https://assets.tcgdex.net/ja/S/S10a/034", "category": "Pokemon", "types": ["Fighting"], "hp": 70, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "reverse", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 0.79}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/9da958ae81ce40db.webp", "imageLarge": "https://images.pkmnprices.com/cards/9da958ae81ce40db.webp", "ppId": 40236}, {"id": "S10a-035", "localId": "035", "name": "Machoke (Mirror Holofoil)", "rarity": "Uncommon", "illustrator": "Mitsuhiro Arita", "image": "https://assets.tcgdex.net/ja/S/S10a/035", "category": "Pokemon", "types": ["Fighting"], "hp": 100, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "reverse", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 0.68}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/5514bcc2a2070efd.webp", "imageLarge": "https://images.pkmnprices.com/cards/5514bcc2a2070efd.webp", "ppId": 40224}, {"id": "S10a-036", "localId": "036", "name": "Machamp", "rarity": "Rare", "illustrator": "Nisota Niso", "image": "https://assets.tcgdex.net/ja/S/S10a/036", "category": "Pokemon", "types": ["Fighting"], "hp": 150, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 0.39}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/571129320054a4a8.webp", "imageLarge": "https://images.pkmnprices.com/cards/571129320054a4a8.webp", "ppId": 40324}, {"id": "S10a-037", "localId": "037", "name": "Sudowoodo", "rarity": "Common", "illustrator": "AKIRA EGAWA", "image": "https://assets.tcgdex.net/ja/S/S10a/037", "category": "Pokemon", "types": ["Fighting"], "hp": 110, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "reverse", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.22}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/6ee17e3c9c3e1644.webp", "imageLarge": "https://images.pkmnprices.com/cards/6ee17e3c9c3e1644.webp", "ppId": 40313}, {"id": "S10a-038", "localId": "038", "name": "Gligar (Mirror Holofoil)", "rarity": "Common", "illustrator": "Miki Tanaka", "image": "https://assets.tcgdex.net/ja/S/S10a/038", "category": "Pokemon", "types": ["Fighting"], "hp": 60, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "reverse", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 0.31}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/94deda6286332266.webp", "imageLarge": "https://images.pkmnprices.com/cards/94deda6286332266.webp", "ppId": 40238}, {"id": "S10a-039", "localId": "039", "name": "Gliscor (Mirror Holofoil)", "rarity": "Uncommon", "illustrator": "Shiburingaru", "image": "https://assets.tcgdex.net/ja/S/S10a/039", "category": "Pokemon", "types": ["Fighting"], "hp": 120, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "reverse", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 0.64}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/5ee34f967a8f0a9f.webp", "imageLarge": "https://images.pkmnprices.com/cards/5ee34f967a8f0a9f.webp", "ppId": 40264}, {"id": "S10a-040", "localId": "040", "name": "Gallade V", "rarity": "Double rare", "illustrator": "Ryota Murayama", "image": "https://assets.tcgdex.net/ja/S/S10a/040", "category": "Pokemon", "types": ["Fighting"], "hp": 220, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 0.58}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/b2a867cfb8e0320e.webp", "imageLarge": "https://images.pkmnprices.com/cards/b2a867cfb8e0320e.webp", "ppId": 40221}, {"id": "S10a-041", "localId": "041", "name": "Zubat (Mirror Holofoil)", "rarity": "Common", "illustrator": "Shigenori Negishi", "image": "https://assets.tcgdex.net/ja/S/S10a/041", "category": "Pokemon", "types": ["Darkness"], "hp": 40, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "reverse", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 0.44}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/416dd6ba00e9901b.webp", "imageLarge": "https://images.pkmnprices.com/cards/416dd6ba00e9901b.webp", "ppId": 40305}, {"id": "S10a-042", "localId": "042", "name": "Golbat", "rarity": "Common", "illustrator": "Anesaki Dynamic", "image": "https://assets.tcgdex.net/ja/S/S10a/042", "category": "Pokemon", "types": ["Darkness"], "hp": 70, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "reverse", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.18}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/e7e22938759d92db.webp", "imageLarge": "https://images.pkmnprices.com/cards/e7e22938759d92db.webp", "ppId": 40334}, {"id": "S10a-043", "localId": "043", "name": "Crobat", "rarity": "Rare", "illustrator": "Yuya Oka", "image": "https://assets.tcgdex.net/ja/S/S10a/043", "category": "Pokemon", "types": ["Darkness"], "hp": 130, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 0.4}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/8254a9d767a572d7.webp", "imageLarge": "https://images.pkmnprices.com/cards/8254a9d767a572d7.webp", "ppId": 40322}, {"id": "S10a-044", "localId": "044", "name": "Murkrow", "rarity": "Common", "illustrator": "Ligton", "image": "https://assets.tcgdex.net/ja/S/S10a/044", "category": "Pokemon", "types": ["Darkness"], "hp": 60, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "reverse", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.19}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/34bd92f0fa8fad98.webp", "imageLarge": "https://images.pkmnprices.com/cards/34bd92f0fa8fad98.webp", "ppId": 40251}, {"id": "S10a-045", "localId": "045", "name": "Honchkrow", "rarity": "Uncommon", "illustrator": "aoki", "image": "https://assets.tcgdex.net/ja/S/S10a/045", "category": "Pokemon", "types": ["Darkness"], "hp": 120, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "reverse", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.15}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/0ea6db620c552910.webp", "imageLarge": "https://images.pkmnprices.com/cards/0ea6db620c552910.webp", "ppId": 40281}, {"id": "S10a-046", "localId": "046", "name": "Radiant Hisuian Sneasler", "rarity": "Radiant Rare", "illustrator": "Akira Komayama", "image": "https://assets.tcgdex.net/ja/S/S10a/046", "category": "Pokemon", "types": ["Darkness"], "hp": 130, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 0.95}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/e86898a7c233ee44.webp", "imageLarge": "https://images.pkmnprices.com/cards/e86898a7c233ee44.webp", "ppId": 40240}, {"id": "S10a-047", "localId": "047", "name": "Spiritomb - 047/071 (Mirror Holofoil)", "rarity": "Uncommon", "illustrator": "sui", "image": "https://assets.tcgdex.net/ja/S/S10a/047", "category": "Pokemon", "types": ["Darkness"], "hp": 60, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "reverse", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 0.36}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/9260520488f37b94.webp", "imageLarge": "https://images.pkmnprices.com/cards/9260520488f37b94.webp", "ppId": 40259}, {"id": "S10a-048", "localId": "048", "name": "Croagunk (Mirror Holofoil)", "rarity": "Common", "illustrator": "Shin Nagasawa", "image": "https://assets.tcgdex.net/ja/S/S10a/048", "category": "Pokemon", "types": ["Darkness"], "hp": 80, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "reverse", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 0.45}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/1c92f375bd506aeb.webp", "imageLarge": "https://images.pkmnprices.com/cards/1c92f375bd506aeb.webp", "ppId": 40222}, {"id": "S10a-049", "localId": "049", "name": "Toxicroak (Mirror Holofoil)", "rarity": "Uncommon", "illustrator": "Uta", "image": "https://assets.tcgdex.net/ja/S/S10a/049", "category": "Pokemon", "types": ["Darkness"], "hp": 120, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "reverse", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 0.43}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/22bad869fa097e81.webp", "imageLarge": "https://images.pkmnprices.com/cards/22bad869fa097e81.webp", "ppId": 40289}, {"id": "S10a-050", "localId": "050", "name": "Radiant Steelix", "rarity": "Radiant Rare", "illustrator": "Sanosuke Sakuma", "image": "https://assets.tcgdex.net/ja/S/S10a/050", "category": "Pokemon", "types": ["Metal"], "hp": 170, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 2.73}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/3bca4c099958444b.webp", "imageLarge": "https://images.pkmnprices.com/cards/3bca4c099958444b.webp", "ppId": 40260}, {"id": "S10a-051", "localId": "051", "name": "Bronzor", "rarity": "Common", "illustrator": "Tomokazu Komiya", "image": "https://assets.tcgdex.net/ja/S/S10a/051", "category": "Pokemon", "types": ["Metal"], "hp": 70, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "reverse", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.19}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/02e1066d1d55579d.webp", "imageLarge": "https://images.pkmnprices.com/cards/02e1066d1d55579d.webp", "ppId": 40343}, {"id": "S10a-052", "localId": "052", "name": "Bronzong", "rarity": "Uncommon", "illustrator": "AKIRA EGAWA", "image": "https://assets.tcgdex.net/ja/S/S10a/052", "category": "Pokemon", "types": ["Metal"], "hp": 130, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "reverse", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.18}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/3d0aec3164123bf3.webp", "imageLarge": "https://images.pkmnprices.com/cards/3d0aec3164123bf3.webp", "ppId": 40306}, {"id": "S10a-053", "localId": "053", "name": "Goomy (Mirror Holofoil)", "rarity": "Common", "illustrator": "Oswaldo KATO", "image": "https://assets.tcgdex.net/ja/S/S10a/053", "category": "Pokemon", "types": ["Dragon"], "hp": 60, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "reverse", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 0.46}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/0cc16f37298a7270.webp", "imageLarge": "https://images.pkmnprices.com/cards/0cc16f37298a7270.webp", "ppId": 40291}, {"id": "S10a-054", "localId": "054", "name": "Hisuian Sliggoo (Mirror Holofoil)", "rarity": "Uncommon", "illustrator": "Kouki Saitou", "image": "https://assets.tcgdex.net/ja/S/S10a/054", "category": "Pokemon", "types": ["Dragon"], "hp": 90, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "reverse", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 0.6}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/3eec5eba0a8f36e5.webp", "imageLarge": "https://images.pkmnprices.com/cards/3eec5eba0a8f36e5.webp", "ppId": 40297}, {"id": "S10a-055", "localId": "055", "name": "Hisuian Goodra", "rarity": "Rare", "illustrator": "Akira Komayama", "image": "https://assets.tcgdex.net/ja/S/S10a/055", "category": "Pokemon", "types": ["Dragon"], "hp": 160, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 0.2}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/62edc260bfbc0aa0.webp", "imageLarge": "https://images.pkmnprices.com/cards/62edc260bfbc0aa0.webp", "ppId": 40239}, {"id": "S10a-056", "localId": "056", "name": "Hisuian Goodra V", "rarity": "Double rare", "illustrator": "5ban Graphics", "image": "https://assets.tcgdex.net/ja/S/S10a/056", "category": "Pokemon", "types": ["Dragon"], "hp": 220, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 0.47}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/1de7d975a6f7655b.webp", "imageLarge": "https://images.pkmnprices.com/cards/1de7d975a6f7655b.webp", "ppId": 40214}, {"id": "S10a-057", "localId": "057", "name": "Hisuian Goodra VSTAR", "rarity": "Triple Rare", "illustrator": "5ban Graphics", "image": "https://assets.tcgdex.net/ja/S/S10a/057", "category": "Pokemon", "types": ["Dragon"], "hp": 270, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 0.7}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/6cb6450ae47d7a5f.webp", "imageLarge": "https://images.pkmnprices.com/cards/6cb6450ae47d7a5f.webp", "ppId": 40210}, {"id": "S10a-058", "localId": "058", "name": "Snorlax", "rarity": "Rare", "illustrator": "0313", "image": "https://assets.tcgdex.net/ja/S/S10a/058", "category": "Pokemon", "types": ["Colorless"], "hp": 150, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 2.62}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/c48fe9a60bb3495c.webp", "imageLarge": "https://images.pkmnprices.com/cards/c48fe9a60bb3495c.webp", "ppId": 40225}, {"id": "S10a-059", "localId": "059", "name": "Aipom (Mirror Holofoil)", "rarity": "Common", "illustrator": "Kouki Saitou", "image": "https://assets.tcgdex.net/ja/S/S10a/059", "category": "Pokemon", "types": ["Colorless"], "hp": 60, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "reverse", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 0.51}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/b24c8fc396720454.webp", "imageLarge": "https://images.pkmnprices.com/cards/b24c8fc396720454.webp", "ppId": 40315}, {"id": "S10a-060", "localId": "060", "name": "Ambipom (Mirror Holofoil)", "rarity": "Uncommon", "illustrator": "Atsushi Furusawa", "image": "https://assets.tcgdex.net/ja/S/S10a/060", "category": "Pokemon", "types": ["Colorless"], "hp": 90, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "reverse", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 0.36}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/87edc66ecb6bf58f.webp", "imageLarge": "https://images.pkmnprices.com/cards/87edc66ecb6bf58f.webp", "ppId": 40232}, {"id": "S10a-061", "localId": "061", "name": "Hisuian Zoroark V", "rarity": "Double rare", "illustrator": "aky CG Works", "image": "https://assets.tcgdex.net/ja/S/S10a/061", "category": "Pokemon", "types": ["Colorless"], "hp": 210, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 0.51}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/ae5856a61ff59d23.webp", "imageLarge": "https://images.pkmnprices.com/cards/ae5856a61ff59d23.webp", "ppId": 40228}, {"id": "S10a-062", "localId": "062", "name": "Hisuian Zoroark VSTAR", "rarity": "Triple Rare", "illustrator": "aky CG Works", "image": "https://assets.tcgdex.net/ja/S/S10a/062", "category": "Pokemon", "types": ["Colorless"], "hp": 270, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 0.7}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/10ecaf148f444d9a.webp", "imageLarge": "https://images.pkmnprices.com/cards/10ecaf148f444d9a.webp", "ppId": 40218}, {"id": "S10a-063", "localId": "063", "name": "Arc Phone", "rarity": "Uncommon", "illustrator": "5ban Graphics", "image": "https://assets.tcgdex.net/ja/S/S10a/063", "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "reverse", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.15}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/e2b43bed7fefa70c.webp", "imageLarge": "https://images.pkmnprices.com/cards/e2b43bed7fefa70c.webp", "ppId": 40312}, {"id": "S10a-064", "localId": "064", "name": "Damage Pump (Mirror Holofoil)", "rarity": "Uncommon", "illustrator": "sadaji", "image": "https://assets.tcgdex.net/ja/S/S10a/064", "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "reverse", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 0.1}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/106690a7540d943d.webp", "imageLarge": "https://images.pkmnprices.com/cards/106690a7540d943d.webp", "ppId": 40279}, {"id": "S10a-065", "localId": "065", "name": "Windup Arm (Mirror Holofoil)", "rarity": "Uncommon", "illustrator": "Toyste Beach", "image": "https://assets.tcgdex.net/ja/S/S10a/065", "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "reverse", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 0.32}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/72816146b93115a8.webp", "imageLarge": "https://images.pkmnprices.com/cards/72816146b93115a8.webp", "ppId": 40265}, {"id": "S10a-066", "localId": "066", "name": "Box of Disaster", "rarity": "Uncommon", "illustrator": "Toyste Beach", "image": "https://assets.tcgdex.net/ja/S/S10a/066", "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "reverse", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.08}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/8053842fe3b964ac.webp", "imageLarge": "https://images.pkmnprices.com/cards/8053842fe3b964ac.webp", "ppId": 40340}, {"id": "S10a-067", "localId": "067", "name": "Volo", "rarity": "Rare", "illustrator": "kirisAki", "image": "https://assets.tcgdex.net/ja/S/S10a/067", "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 0.18}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/ec66352c41ab36e4.webp", "imageLarge": "https://images.pkmnprices.com/cards/ec66352c41ab36e4.webp", "ppId": 40307}, {"id": "S10a-068", "localId": "068", "name": "Iscan", "rarity": "Uncommon", "illustrator": "Akira Komayama", "image": "https://assets.tcgdex.net/ja/S/S10a/068", "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "reverse", "foil": null}], "pricing": {"tcgplayer": {"normal": {"marketPrice": 0.16}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/14061abb45d37095.webp", "imageLarge": "https://images.pkmnprices.com/cards/14061abb45d37095.webp", "ppId": 40295}, {"id": "S10a-069", "localId": "069", "name": "Arezu - 069/071 (Mirror Holofoil)", "rarity": "Uncommon", "illustrator": "kirisAki", "image": "https://assets.tcgdex.net/ja/S/S10a/069", "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "reverse", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 0.44}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/35e38ca6762f4d45.webp", "imageLarge": "https://images.pkmnprices.com/cards/35e38ca6762f4d45.webp", "ppId": 40233}, {"id": "S10a-070", "localId": "070", "name": "Miss Fortune Sisters - 070/071 (Mirror Holofoil)", "rarity": "Uncommon", "illustrator": "Souichirou Gunjima", "image": "https://assets.tcgdex.net/ja/S/S10a/070", "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "reverse", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 0.32}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/ccb720505d913c35.webp", "imageLarge": "https://images.pkmnprices.com/cards/ccb720505d913c35.webp", "ppId": 40280}, {"id": "S10a-071", "localId": "071", "name": "Lake Acuity (Mirror Holofoil)", "rarity": "Uncommon", "illustrator": "Oswaldo KATO", "image": "https://assets.tcgdex.net/ja/S/S10a/071", "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "normal", "foil": null}, {"type": "reverse", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 0.76}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/f5079b472fd9bf6a.webp", "imageLarge": "https://images.pkmnprices.com/cards/f5079b472fd9bf6a.webp", "ppId": 40298}, {"id": "S10a-072", "localId": "072", "name": "Parasect", "rarity": "Character Rare", "illustrator": "Oswaldo KATO", "image": "https://assets.tcgdex.net/ja/S/S10a/072", "category": "Pokemon", "types": ["Grass"], "hp": 120, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 2.81}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/ccd80e3a3c8694c9.webp", "imageLarge": "https://images.pkmnprices.com/cards/ccd80e3a3c8694c9.webp", "ppId": 40219}, {"id": "S10a-073", "localId": "073", "name": "Pikachu", "rarity": "Character Rare", "illustrator": "Atsushi Furusawa", "image": "https://assets.tcgdex.net/ja/S/S10a/073", "category": "Pokemon", "types": ["Lightning"], "hp": 60, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 56.19}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/2049f78b7b38da05.webp", "imageLarge": "https://images.pkmnprices.com/cards/2049f78b7b38da05.webp", "ppId": 40227}, {"id": "S10a-074", "localId": "074", "name": "Gengar", "rarity": "Character Rare", "illustrator": "Akira Komayama", "image": "https://assets.tcgdex.net/ja/S/S10a/074", "category": "Pokemon", "types": ["Psychic"], "hp": 120, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 40.28}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/ac13167fc2f6e528.webp", "imageLarge": "https://images.pkmnprices.com/cards/ac13167fc2f6e528.webp", "ppId": 40190}, {"id": "S10a-075", "localId": "075", "name": "Hisuian Arcanine", "rarity": "Character Rare", "illustrator": "You Iribi", "image": "https://assets.tcgdex.net/ja/S/S10a/075", "category": "Pokemon", "types": ["Fighting"], "hp": 130, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 5.43}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/79ddff8176d5ed53.webp", "imageLarge": "https://images.pkmnprices.com/cards/79ddff8176d5ed53.webp", "ppId": 40209}, {"id": "S10a-076", "localId": "076", "name": "Spiritomb", "rarity": "Character Rare", "illustrator": "Hitoshi Ariga", "image": "https://assets.tcgdex.net/ja/S/S10a/076", "category": "Pokemon", "types": ["Darkness"], "hp": 60, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 2.62}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/bc63592f27aa60c9.webp", "imageLarge": "https://images.pkmnprices.com/cards/bc63592f27aa60c9.webp", "ppId": 40216}, {"id": "S10a-077", "localId": "077", "name": "Snorlax", "rarity": "Character Rare", "illustrator": "Kouki Saitou", "image": "https://assets.tcgdex.net/ja/S/S10a/077", "category": "Pokemon", "types": ["Colorless"], "hp": 150, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 15.55}}, "currency": "USD", "pricedAt": "2026-09-21T10:58:49Z"}, "imageSmall": "https://images.pkmnprices.com/cards/5f285bb1141d0510.webp", "imageLarge": "https://images.pkmnprices.com/cards/5f285bb1141d0510.webp", "ppId": 40249}, {"id": "S10a-078", "localId": "078", "name": "Hisuian Electrode V", "rarity": "Ultra Rare", "illustrator": "5ban Graphics", "image": "https://assets.tcgdex.net/ja/S/S10a/078", "category": "Pokemon", "types": ["Grass"], "hp": 210, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 2.04}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/ce7e7a82f41bd444.webp", "imageLarge": "https://images.pkmnprices.com/cards/ce7e7a82f41bd444.webp", "ppId": 40263}, {"id": "S10a-079", "localId": "079", "name": "Magnezone V", "rarity": "Ultra Rare", "illustrator": "N-DESIGN Inc.", "image": "https://assets.tcgdex.net/ja/S/S10a/079", "category": "Pokemon", "types": ["Lightning"], "hp": 210, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 2.3}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/e3a5d52bafa3d11f.webp", "imageLarge": "https://images.pkmnprices.com/cards/e3a5d52bafa3d11f.webp", "ppId": 40262}, {"id": "S10a-080", "localId": "080", "name": "Enamorus V", "rarity": "Ultra Rare", "illustrator": "5ban Graphics", "image": "https://assets.tcgdex.net/ja/S/S10a/080", "category": "Pokemon", "types": ["Psychic"], "hp": 210, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 4.62}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/5ea02b663729d311.webp", "imageLarge": "https://images.pkmnprices.com/cards/5ea02b663729d311.webp", "ppId": 40237}, {"id": "S10a-081", "localId": "081", "name": "Gallade V", "rarity": "Ultra Rare", "illustrator": "takuyoa", "image": "https://assets.tcgdex.net/ja/S/S10a/081", "category": "Pokemon", "types": ["Fighting"], "hp": 220, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 2.85}}, "currency": "USD", "pricedAt": "2026-09-21T10:58:49Z"}, "imageSmall": "https://images.pkmnprices.com/cards/58e3e5023247cf32.webp", "imageLarge": "https://images.pkmnprices.com/cards/58e3e5023247cf32.webp", "ppId": 40372}, {"id": "S10a-082", "localId": "082", "name": "Hisuian Goodra V", "rarity": "Ultra Rare", "illustrator": "5ban Graphics", "image": "https://assets.tcgdex.net/ja/S/S10a/082", "category": "Pokemon", "types": ["Dragon"], "hp": 220, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 4.52}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/c1dfdd094faac9f3.webp", "imageLarge": "https://images.pkmnprices.com/cards/c1dfdd094faac9f3.webp", "ppId": 40266}, {"id": "S10a-083", "localId": "083", "name": "Hisuian Zoroark V", "rarity": "Ultra Rare", "illustrator": "aky CG Works", "image": "https://assets.tcgdex.net/ja/S/S10a/083", "category": "Pokemon", "types": ["Colorless"], "hp": 210, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 5.25}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/411fc5c067c0bbd8.webp", "imageLarge": "https://images.pkmnprices.com/cards/411fc5c067c0bbd8.webp", "ppId": 40332}, {"id": "S10a-084", "localId": "084", "name": "Volo", "rarity": "Ultra Rare", "illustrator": "kirisAki", "image": "https://assets.tcgdex.net/ja/S/S10a/084", "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 3.38}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/77ee0b5aeb59082d.webp", "imageLarge": "https://images.pkmnprices.com/cards/77ee0b5aeb59082d.webp", "ppId": 40243}, {"id": "S10a-085", "localId": "085", "name": "Iscan", "rarity": "Ultra Rare", "illustrator": "Hitoshi Ariga", "image": "https://assets.tcgdex.net/ja/S/S10a/085", "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 1.19}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/f876025dfe5274e2.webp", "imageLarge": "https://images.pkmnprices.com/cards/f876025dfe5274e2.webp", "ppId": 40282}, {"id": "S10a-086", "localId": "086", "name": "Arezu", "rarity": "Ultra Rare", "illustrator": "You Iribi", "image": "https://assets.tcgdex.net/ja/S/S10a/086", "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 6.63}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/d451fd85676f2758.webp", "imageLarge": "https://images.pkmnprices.com/cards/d451fd85676f2758.webp", "ppId": 40299}, {"id": "S10a-087", "localId": "087", "name": "Miss Fortune Sisters", "rarity": "Ultra Rare", "illustrator": "Souichirou Gunjima", "image": "https://assets.tcgdex.net/ja/S/S10a/087", "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 5.25}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/4c8515c91b1efa47.webp", "imageLarge": "https://images.pkmnprices.com/cards/4c8515c91b1efa47.webp", "ppId": 40257}, {"id": "S10a-088", "localId": "088", "name": "Enamorus V", "rarity": "Character Super Rare", "illustrator": "AKIRA EGAWA", "image": "https://assets.tcgdex.net/ja/S/S10a/088", "category": "Pokemon", "types": ["Psychic"], "hp": 210, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 17.96}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/eddea0745bd45694.webp", "imageLarge": "https://images.pkmnprices.com/cards/eddea0745bd45694.webp", "ppId": 40270}, {"id": "S10a-089", "localId": "089", "name": "Gallade V", "rarity": "Character Super Rare", "illustrator": "Souichirou Gunjima", "image": "https://assets.tcgdex.net/ja/S/S10a/089", "category": "Pokemon", "types": ["Fighting"], "hp": 220, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 13.13}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/abbc21e5e8e6b339.webp", "imageLarge": "https://images.pkmnprices.com/cards/abbc21e5e8e6b339.webp", "ppId": 40204}, {"id": "S10a-090", "localId": "090", "name": "Magnezone VSTAR", "rarity": "Holo Rare", "illustrator": "PLANETA Mochizuki", "image": "https://assets.tcgdex.net/ja/S/S10a/090", "category": "Pokemon", "types": ["Lightning"], "hp": 270, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 6.32}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/1d52933ef487165b.webp", "imageLarge": "https://images.pkmnprices.com/cards/1d52933ef487165b.webp", "ppId": 40277}, {"id": "S10a-091", "localId": "091", "name": "Hisuian Goodra VSTAR", "rarity": "Holo Rare", "illustrator": "5ban Graphics", "image": "https://assets.tcgdex.net/ja/S/S10a/091", "category": "Pokemon", "types": ["Dragon"], "hp": 270, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 11.22}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/ca590b461032882b.webp", "imageLarge": "https://images.pkmnprices.com/cards/ca590b461032882b.webp", "ppId": 40253}, {"id": "S10a-092", "localId": "092", "name": "Hisuian Zoroark VSTAR", "rarity": "Holo Rare", "illustrator": "aky CG Works", "image": "https://assets.tcgdex.net/ja/S/S10a/092", "category": "Pokemon", "types": ["Colorless"], "hp": 270, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 7.87}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/8900dfe205c05917.webp", "imageLarge": "https://images.pkmnprices.com/cards/8900dfe205c05917.webp", "ppId": 40330}, {"id": "S10a-093", "localId": "093", "name": "Volo", "rarity": "Holo Rare", "illustrator": "kirisAki", "image": "https://assets.tcgdex.net/ja/S/S10a/093", "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 5.9}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/e5d1bbb0c1f2613c.webp", "imageLarge": "https://images.pkmnprices.com/cards/e5d1bbb0c1f2613c.webp", "ppId": 40317}, {"id": "S10a-094", "localId": "094", "name": "Iscan", "rarity": "Holo Rare", "illustrator": "Hitoshi Ariga", "image": "https://assets.tcgdex.net/ja/S/S10a/094", "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 3.41}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/cdf47cfc284ddb44.webp", "imageLarge": "https://images.pkmnprices.com/cards/cdf47cfc284ddb44.webp", "ppId": 40304}, {"id": "S10a-095", "localId": "095", "name": "Arezu", "rarity": "Holo Rare", "illustrator": "You Iribi", "image": "https://assets.tcgdex.net/ja/S/S10a/095", "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 6.26}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/7af105d55a32cb1b.webp", "imageLarge": "https://images.pkmnprices.com/cards/7af105d55a32cb1b.webp", "ppId": 40231}, {"id": "S10a-096", "localId": "096", "name": "Miss Fortune Sisters", "rarity": "Holo Rare", "illustrator": "Souichirou Gunjima", "image": "https://assets.tcgdex.net/ja/S/S10a/096", "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 10.75}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/04c04f1d657b532d.webp", "imageLarge": "https://images.pkmnprices.com/cards/04c04f1d657b532d.webp", "ppId": 40301}, {"id": "S10a-097", "localId": "097", "name": "Hisuian Zoroark VSTAR", "rarity": "Mega Hyper Rare", "illustrator": "aky CG Works", "image": "https://assets.tcgdex.net/ja/S/S10a/097", "category": "Pokemon", "types": ["Colorless"], "hp": 270, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 9.52}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/61c0f0bdfe20cbac.webp", "imageLarge": "https://images.pkmnprices.com/cards/61c0f0bdfe20cbac.webp", "ppId": 40302}, {"id": "S10a-098", "localId": "098", "name": "Dark Patch", "rarity": "Mega Hyper Rare", "illustrator": "Ryo Ueda", "image": "https://assets.tcgdex.net/ja/S/S10a/098", "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 8.26}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/8c746d9338c45951.webp", "imageLarge": "https://images.pkmnprices.com/cards/8c746d9338c45951.webp", "ppId": 40274}, {"id": "S10a-099", "localId": "099", "name": "Box of Disaster", "rarity": "Mega Hyper Rare", "illustrator": "Toyste Beach", "image": "https://assets.tcgdex.net/ja/S/S10a/099", "category": "Trainer", "types": null, "hp": null, "variants_detailed": [{"type": "holo", "foil": null}], "pricing": {"tcgplayer": {"holofoil": {"marketPrice": 5.15}}, "currency": "USD", "pricedAt": "2026-09-21T09:38:48Z"}, "imageSmall": "https://images.pkmnprices.com/cards/5c4c3cab70b4ff7e.webp", "imageLarge": "https://images.pkmnprices.com/cards/5c4c3cab70b4ff7e.webp", "ppId": 40311}]}
+{
+ "generated_at": "2026-09-16T01:47:44.467506+00:00",
+ "set": {
+  "id": "S10a",
+  "name": "Dark Phantasma",
+  "series": "剣と盾",
+  "releaseDate": "2022-05-13",
+  "logo": null,
+  "symbol": "/data/tcgdex/set-symbols/ja/S10a.png",
+  "printedTotal": 71,
+  "total": 99,
+  "lang": "ja",
+  "nameJa": "ダークファンタズマ"
+ },
+ "cards": [
+  {
+   "id": "S10a-001",
+   "localId": "001",
+   "name": "Paras",
+   "rarity": "Common",
+   "illustrator": "Mizue",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/001",
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "reverse",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.16
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/2552f63aea25ce09.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/2552f63aea25ce09.webp",
+   "ppId": 40318
+  },
+  {
+   "id": "S10a-002",
+   "localId": "002",
+   "name": "Parasect - 002/071 (Mirror Holofoil)",
+   "rarity": "Uncommon",
+   "illustrator": "Pani Kobayashi",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/002",
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 120,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "reverse",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 0.42
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/613108d96a4b5492.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/613108d96a4b5492.webp",
+   "ppId": 40261
+  },
+  {
+   "id": "S10a-003",
+   "localId": "003",
+   "name": "Hisuian Electrode V",
+   "rarity": "Double rare",
+   "illustrator": "5ban Graphics",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/003",
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 210,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 0.41
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/6a119a70562fd4fd.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/6a119a70562fd4fd.webp",
+   "ppId": 40187
+  },
+  {
+   "id": "S10a-004",
+   "localId": "004",
+   "name": "Wurmple",
+   "rarity": "Common",
+   "illustrator": "ryoma uratsuka",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/004",
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 60,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "reverse",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.27
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/028f6c4cd1aeb3fa.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/028f6c4cd1aeb3fa.webp",
+   "ppId": 40272
+  },
+  {
+   "id": "S10a-005",
+   "localId": "005",
+   "name": "Silcoon (Mirror Holofoil)",
+   "rarity": "Common",
+   "illustrator": "Kagemaru Himeno",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/005",
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 80,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "reverse",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 0.35
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T10:58:49Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/792728c3e1978f08.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/792728c3e1978f08.webp",
+   "ppId": 40288
+  },
+  {
+   "id": "S10a-006",
+   "localId": "006",
+   "name": "Beautifly",
+   "rarity": "Rare",
+   "illustrator": "Yuu Nishida",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/006",
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 130,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 0.34
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/03e8c0a250d07cc1.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/03e8c0a250d07cc1.webp",
+   "ppId": 40273
+  },
+  {
+   "id": "S10a-007",
+   "localId": "007",
+   "name": "Cascoon (Mirror Holofoil)",
+   "rarity": "Common",
+   "illustrator": "GOSSAN",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/007",
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 80,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "reverse",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 0.39
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/b0b808d75f4c6021.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/b0b808d75f4c6021.webp",
+   "ppId": 40252
+  },
+  {
+   "id": "S10a-008",
+   "localId": "008",
+   "name": "Dustox",
+   "rarity": "Uncommon",
+   "illustrator": "Mitsuhiro Arita",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/008",
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 140,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "reverse",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.16
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/d194496bada6e895.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/d194496bada6e895.webp",
+   "ppId": 40293
+  },
+  {
+   "id": "S10a-009",
+   "localId": "009",
+   "name": "Snover (Mirror Holofoil)",
+   "rarity": "Common",
+   "illustrator": "Mitsuhiro Arita",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/009",
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 80,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "reverse",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 0.41
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/e300025079ac1404.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/e300025079ac1404.webp",
+   "ppId": 40309
+  },
+  {
+   "id": "S10a-010",
+   "localId": "010",
+   "name": "Abomasnow (Mirror Holofoil)",
+   "rarity": "Common",
+   "illustrator": "kodama",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/010",
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 140,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "reverse",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 0.39
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T10:58:49Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/e6bf749561e8a85e.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/e6bf749561e8a85e.webp",
+   "ppId": 40230
+  },
+  {
+   "id": "S10a-011",
+   "localId": "011",
+   "name": "Phione (Mirror Holofoil)",
+   "rarity": "Uncommon",
+   "illustrator": "Jiro Sasumo",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/011",
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "reverse",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 0.73
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/6e8c6a201f30a6da.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/6e8c6a201f30a6da.webp",
+   "ppId": 40284
+  },
+  {
+   "id": "S10a-012",
+   "localId": "012",
+   "name": "Hisuian Basculin",
+   "rarity": "Common",
+   "illustrator": "Oswaldo KATO",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/012",
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 50,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "reverse",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.16
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/78ab1737863323d0.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/78ab1737863323d0.webp",
+   "ppId": 40271
+  },
+  {
+   "id": "S10a-013",
+   "localId": "013",
+   "name": "Hisuian Basculegion",
+   "rarity": "Rare",
+   "illustrator": "AKIRA EGAWA",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/013",
+   "category": "Pokemon",
+   "types": [
+    "Water"
+   ],
+   "hp": 110,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 0.24
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T10:58:49Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/a791e65132207782.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/a791e65132207782.webp",
+   "ppId": 40294
+  },
+  {
+   "id": "S10a-014",
+   "localId": "014",
+   "name": "Pikachu",
+   "rarity": "Common",
+   "illustrator": "kurumitsu",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/014",
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": 60,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "reverse",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 5.33
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/97ec3adeb53a8b1a.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/97ec3adeb53a8b1a.webp",
+   "ppId": 40235
+  },
+  {
+   "id": "S10a-015",
+   "localId": "015",
+   "name": "Raichu (Mirror Holofoil)",
+   "rarity": "Uncommon",
+   "illustrator": "GIDORA",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/015",
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": 120,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "reverse",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 1.26
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/c1c930cdb4a81e85.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/c1c930cdb4a81e85.webp",
+   "ppId": 40278
+  },
+  {
+   "id": "S10a-016",
+   "localId": "016",
+   "name": "Magnezone V",
+   "rarity": "Double rare",
+   "illustrator": "N-DESIGN Inc.",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/016",
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": 210,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 0.42
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/a3499f05f5dad6be.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/a3499f05f5dad6be.webp",
+   "ppId": 40198
+  },
+  {
+   "id": "S10a-017",
+   "localId": "017",
+   "name": "Magnezone VSTAR",
+   "rarity": "Triple Rare",
+   "illustrator": "PLANETA Mochizuki",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/017",
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": 270,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 0.6
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/09fd3f0e0eb1b63a.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/09fd3f0e0eb1b63a.webp",
+   "ppId": 40206
+  },
+  {
+   "id": "S10a-018",
+   "localId": "018",
+   "name": "Rotom",
+   "rarity": "Common",
+   "illustrator": "Taira Akitsu",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/018",
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": 80,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "reverse",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.2
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/eecb0c552905c23f.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/eecb0c552905c23f.webp",
+   "ppId": 40234
+  },
+  {
+   "id": "S10a-019",
+   "localId": "019",
+   "name": "Clefairy (Mirror Holofoil)",
+   "rarity": "Common",
+   "illustrator": "Kouki Saitou",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/019",
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": 60,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "reverse",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 0.8
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/2b790a452055bf1c.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/2b790a452055bf1c.webp",
+   "ppId": 40244
+  },
+  {
+   "id": "S10a-020",
+   "localId": "020",
+   "name": "Clefable (Mirror Holofoil)",
+   "rarity": "Uncommon",
+   "illustrator": "Sekio",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/020",
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": 100,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "reverse",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 0.64
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/bb0b928f74c19ab5.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/bb0b928f74c19ab5.webp",
+   "ppId": 40223
+  },
+  {
+   "id": "S10a-021",
+   "localId": "021",
+   "name": "Gastly",
+   "rarity": "Common",
+   "illustrator": "Tika Matsuno",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/021",
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": 40,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "reverse",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.24
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/0da69ab2de7a358c.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/0da69ab2de7a358c.webp",
+   "ppId": 40193
+  },
+  {
+   "id": "S10a-022",
+   "localId": "022",
+   "name": "Haunter",
+   "rarity": "Common",
+   "illustrator": "Kouki Saitou",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/022",
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "reverse",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.24
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/6ceb2bcd2a2d8de2.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/6ceb2bcd2a2d8de2.webp",
+   "ppId": 40246
+  },
+  {
+   "id": "S10a-023",
+   "localId": "023",
+   "name": "Gengar",
+   "rarity": "Rare",
+   "illustrator": "Narumi Sato",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/023",
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": 120,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 3.23
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/790b55388136c7b2.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/790b55388136c7b2.webp",
+   "ppId": 40226
+  },
+  {
+   "id": "S10a-024",
+   "localId": "024",
+   "name": "Mr. Mime",
+   "rarity": "Uncommon",
+   "illustrator": "Souichirou Gunjima",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/024",
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": 90,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "reverse",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.24
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/93566874b38120c9.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/93566874b38120c9.webp",
+   "ppId": 40250
+  },
+  {
+   "id": "S10a-025",
+   "localId": "025",
+   "name": "Misdreavus (Mirror Holofoil)",
+   "rarity": "Common",
+   "illustrator": "HYOGONOSUKE",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/025",
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": 60,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "reverse",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 0.45
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/4809add4dac52441.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/4809add4dac52441.webp",
+   "ppId": 40275
+  },
+  {
+   "id": "S10a-026",
+   "localId": "026",
+   "name": "Mismagius (Mirror Holofoil)",
+   "rarity": "Uncommon",
+   "illustrator": "kawayoo",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/026",
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": 90,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "reverse",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 0.51
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/1aca5e952f49f00d.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/1aca5e952f49f00d.webp",
+   "ppId": 40300
+  },
+  {
+   "id": "S10a-027",
+   "localId": "027",
+   "name": "Radiant Gardevoir",
+   "rarity": "Radiant Rare",
+   "illustrator": "Ryuta Fuse",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/027",
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": 130,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 1.95
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/a872b714d362a6f8.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/a872b714d362a6f8.webp",
+   "ppId": 40196
+  },
+  {
+   "id": "S10a-028",
+   "localId": "028",
+   "name": "Chimecho (Mirror Holofoil)",
+   "rarity": "Common",
+   "illustrator": "Naoyo Kimura",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/028",
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "reverse",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 0.54
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/2b9c8e61dd4e7be1.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/2b9c8e61dd4e7be1.webp",
+   "ppId": 40241
+  },
+  {
+   "id": "S10a-029",
+   "localId": "029",
+   "name": "Hisuian Zorua (Mirror Holofoil)",
+   "rarity": "Common",
+   "illustrator": "Akira Komayama",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/029",
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": 60,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "reverse",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 1.24
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/91b675c76c3a5522.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/91b675c76c3a5522.webp",
+   "ppId": 40205
+  },
+  {
+   "id": "S10a-030",
+   "localId": "030",
+   "name": "Hisuian Zoroark",
+   "rarity": "Rare",
+   "illustrator": "Kouki Saitou",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/030",
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": 120,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 0.33
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/77afb44883072861.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/77afb44883072861.webp",
+   "ppId": 40296
+  },
+  {
+   "id": "S10a-031",
+   "localId": "031",
+   "name": "Enamorus V",
+   "rarity": "Double rare",
+   "illustrator": "5ban Graphics",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/031",
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": 210,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 0.41
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/7c26fca378a318cd.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/7c26fca378a318cd.webp",
+   "ppId": 40202
+  },
+  {
+   "id": "S10a-032",
+   "localId": "032",
+   "name": "Hisuian Growlithe (Mirror Holofoil)",
+   "rarity": "Common",
+   "illustrator": "Kouki Saitou",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/032",
+   "category": "Pokemon",
+   "types": [
+    "Fighting"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "reverse",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 0.58
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/1e1ffeca1720a41b.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/1e1ffeca1720a41b.webp",
+   "ppId": 40242
+  },
+  {
+   "id": "S10a-033",
+   "localId": "033",
+   "name": "Hisuian Arcanine",
+   "rarity": "Rare",
+   "illustrator": "Oswaldo KATO",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/033",
+   "category": "Pokemon",
+   "types": [
+    "Fighting"
+   ],
+   "hp": 130,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 0.34
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/6eb9f465823b3ae4.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/6eb9f465823b3ae4.webp",
+   "ppId": 40213
+  },
+  {
+   "id": "S10a-034",
+   "localId": "034",
+   "name": "Machop (Mirror Holofoil)",
+   "rarity": "Common",
+   "illustrator": "Yuka Morii",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/034",
+   "category": "Pokemon",
+   "types": [
+    "Fighting"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "reverse",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 0.79
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/9da958ae81ce40db.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/9da958ae81ce40db.webp",
+   "ppId": 40236
+  },
+  {
+   "id": "S10a-035",
+   "localId": "035",
+   "name": "Machoke (Mirror Holofoil)",
+   "rarity": "Uncommon",
+   "illustrator": "Mitsuhiro Arita",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/035",
+   "category": "Pokemon",
+   "types": [
+    "Fighting"
+   ],
+   "hp": 100,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "reverse",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 0.68
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/5514bcc2a2070efd.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/5514bcc2a2070efd.webp",
+   "ppId": 40224
+  },
+  {
+   "id": "S10a-036",
+   "localId": "036",
+   "name": "Machamp",
+   "rarity": "Rare",
+   "illustrator": "Nisota Niso",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/036",
+   "category": "Pokemon",
+   "types": [
+    "Fighting"
+   ],
+   "hp": 150,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 0.39
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/571129320054a4a8.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/571129320054a4a8.webp",
+   "ppId": 40324
+  },
+  {
+   "id": "S10a-037",
+   "localId": "037",
+   "name": "Sudowoodo",
+   "rarity": "Common",
+   "illustrator": "AKIRA EGAWA",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/037",
+   "category": "Pokemon",
+   "types": [
+    "Fighting"
+   ],
+   "hp": 110,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "reverse",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.22
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/6ee17e3c9c3e1644.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/6ee17e3c9c3e1644.webp",
+   "ppId": 40313
+  },
+  {
+   "id": "S10a-038",
+   "localId": "038",
+   "name": "Gligar (Mirror Holofoil)",
+   "rarity": "Common",
+   "illustrator": "Miki Tanaka",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/038",
+   "category": "Pokemon",
+   "types": [
+    "Fighting"
+   ],
+   "hp": 60,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "reverse",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 0.31
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/94deda6286332266.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/94deda6286332266.webp",
+   "ppId": 40238
+  },
+  {
+   "id": "S10a-039",
+   "localId": "039",
+   "name": "Gliscor (Mirror Holofoil)",
+   "rarity": "Uncommon",
+   "illustrator": "Shiburingaru",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/039",
+   "category": "Pokemon",
+   "types": [
+    "Fighting"
+   ],
+   "hp": 120,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "reverse",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 0.64
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/5ee34f967a8f0a9f.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/5ee34f967a8f0a9f.webp",
+   "ppId": 40264
+  },
+  {
+   "id": "S10a-040",
+   "localId": "040",
+   "name": "Gallade V",
+   "rarity": "Double rare",
+   "illustrator": "Ryota Murayama",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/040",
+   "category": "Pokemon",
+   "types": [
+    "Fighting"
+   ],
+   "hp": 220,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 0.58
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/b2a867cfb8e0320e.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/b2a867cfb8e0320e.webp",
+   "ppId": 40221
+  },
+  {
+   "id": "S10a-041",
+   "localId": "041",
+   "name": "Zubat (Mirror Holofoil)",
+   "rarity": "Common",
+   "illustrator": "Shigenori Negishi",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/041",
+   "category": "Pokemon",
+   "types": [
+    "Darkness"
+   ],
+   "hp": 40,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "reverse",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 0.44
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/416dd6ba00e9901b.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/416dd6ba00e9901b.webp",
+   "ppId": 40305
+  },
+  {
+   "id": "S10a-042",
+   "localId": "042",
+   "name": "Golbat",
+   "rarity": "Common",
+   "illustrator": "Anesaki Dynamic",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/042",
+   "category": "Pokemon",
+   "types": [
+    "Darkness"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "reverse",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.18
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/e7e22938759d92db.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/e7e22938759d92db.webp",
+   "ppId": 40334
+  },
+  {
+   "id": "S10a-043",
+   "localId": "043",
+   "name": "Crobat",
+   "rarity": "Rare",
+   "illustrator": "Yuya Oka",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/043",
+   "category": "Pokemon",
+   "types": [
+    "Darkness"
+   ],
+   "hp": 130,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 0.4
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/8254a9d767a572d7.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/8254a9d767a572d7.webp",
+   "ppId": 40322
+  },
+  {
+   "id": "S10a-044",
+   "localId": "044",
+   "name": "Murkrow",
+   "rarity": "Common",
+   "illustrator": "Ligton",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/044",
+   "category": "Pokemon",
+   "types": [
+    "Darkness"
+   ],
+   "hp": 60,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "reverse",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.19
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/34bd92f0fa8fad98.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/34bd92f0fa8fad98.webp",
+   "ppId": 40251
+  },
+  {
+   "id": "S10a-045",
+   "localId": "045",
+   "name": "Honchkrow",
+   "rarity": "Uncommon",
+   "illustrator": "aoki",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/045",
+   "category": "Pokemon",
+   "types": [
+    "Darkness"
+   ],
+   "hp": 120,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "reverse",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.15
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/0ea6db620c552910.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/0ea6db620c552910.webp",
+   "ppId": 40281
+  },
+  {
+   "id": "S10a-046",
+   "localId": "046",
+   "name": "Radiant Hisuian Sneasler",
+   "rarity": "Radiant Rare",
+   "illustrator": "Akira Komayama",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/046",
+   "category": "Pokemon",
+   "types": [
+    "Darkness"
+   ],
+   "hp": 130,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 0.95
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/e86898a7c233ee44.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/e86898a7c233ee44.webp",
+   "ppId": 40240
+  },
+  {
+   "id": "S10a-047",
+   "localId": "047",
+   "name": "Spiritomb - 047/071 (Mirror Holofoil)",
+   "rarity": "Uncommon",
+   "illustrator": "sui",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/047",
+   "category": "Pokemon",
+   "types": [
+    "Darkness"
+   ],
+   "hp": 60,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "reverse",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 0.36
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/9260520488f37b94.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/9260520488f37b94.webp",
+   "ppId": 40259
+  },
+  {
+   "id": "S10a-048",
+   "localId": "048",
+   "name": "Croagunk (Mirror Holofoil)",
+   "rarity": "Common",
+   "illustrator": "Shin Nagasawa",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/048",
+   "category": "Pokemon",
+   "types": [
+    "Darkness"
+   ],
+   "hp": 80,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "reverse",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 0.45
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/1c92f375bd506aeb.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/1c92f375bd506aeb.webp",
+   "ppId": 40222
+  },
+  {
+   "id": "S10a-049",
+   "localId": "049",
+   "name": "Toxicroak (Mirror Holofoil)",
+   "rarity": "Uncommon",
+   "illustrator": "Uta",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/049",
+   "category": "Pokemon",
+   "types": [
+    "Darkness"
+   ],
+   "hp": 120,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "reverse",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 0.43
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/22bad869fa097e81.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/22bad869fa097e81.webp",
+   "ppId": 40289
+  },
+  {
+   "id": "S10a-050",
+   "localId": "050",
+   "name": "Radiant Steelix",
+   "rarity": "Radiant Rare",
+   "illustrator": "Sanosuke Sakuma",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/050",
+   "category": "Pokemon",
+   "types": [
+    "Metal"
+   ],
+   "hp": 170,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 2.73
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/3bca4c099958444b.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/3bca4c099958444b.webp",
+   "ppId": 40260
+  },
+  {
+   "id": "S10a-051",
+   "localId": "051",
+   "name": "Bronzor",
+   "rarity": "Common",
+   "illustrator": "Tomokazu Komiya",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/051",
+   "category": "Pokemon",
+   "types": [
+    "Metal"
+   ],
+   "hp": 70,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "reverse",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.19
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/02e1066d1d55579d.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/02e1066d1d55579d.webp",
+   "ppId": 40343
+  },
+  {
+   "id": "S10a-052",
+   "localId": "052",
+   "name": "Bronzong",
+   "rarity": "Uncommon",
+   "illustrator": "AKIRA EGAWA",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/052",
+   "category": "Pokemon",
+   "types": [
+    "Metal"
+   ],
+   "hp": 130,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "reverse",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.18
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/3d0aec3164123bf3.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/3d0aec3164123bf3.webp",
+   "ppId": 40306
+  },
+  {
+   "id": "S10a-053",
+   "localId": "053",
+   "name": "Goomy (Mirror Holofoil)",
+   "rarity": "Common",
+   "illustrator": "Oswaldo KATO",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/053",
+   "category": "Pokemon",
+   "types": [
+    "Dragon"
+   ],
+   "hp": 60,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "reverse",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 0.46
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/0cc16f37298a7270.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/0cc16f37298a7270.webp",
+   "ppId": 40291
+  },
+  {
+   "id": "S10a-054",
+   "localId": "054",
+   "name": "Hisuian Sliggoo (Mirror Holofoil)",
+   "rarity": "Uncommon",
+   "illustrator": "Kouki Saitou",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/054",
+   "category": "Pokemon",
+   "types": [
+    "Dragon"
+   ],
+   "hp": 90,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "reverse",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 0.6
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/3eec5eba0a8f36e5.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/3eec5eba0a8f36e5.webp",
+   "ppId": 40297
+  },
+  {
+   "id": "S10a-055",
+   "localId": "055",
+   "name": "Hisuian Goodra",
+   "rarity": "Rare",
+   "illustrator": "Akira Komayama",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/055",
+   "category": "Pokemon",
+   "types": [
+    "Dragon"
+   ],
+   "hp": 160,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 0.2
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/62edc260bfbc0aa0.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/62edc260bfbc0aa0.webp",
+   "ppId": 40239
+  },
+  {
+   "id": "S10a-056",
+   "localId": "056",
+   "name": "Hisuian Goodra V",
+   "rarity": "Double rare",
+   "illustrator": "5ban Graphics",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/056",
+   "category": "Pokemon",
+   "types": [
+    "Dragon"
+   ],
+   "hp": 220,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 0.47
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/1de7d975a6f7655b.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/1de7d975a6f7655b.webp",
+   "ppId": 40214
+  },
+  {
+   "id": "S10a-057",
+   "localId": "057",
+   "name": "Hisuian Goodra VSTAR",
+   "rarity": "Triple Rare",
+   "illustrator": "5ban Graphics",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/057",
+   "category": "Pokemon",
+   "types": [
+    "Dragon"
+   ],
+   "hp": 270,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 0.7
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/6cb6450ae47d7a5f.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/6cb6450ae47d7a5f.webp",
+   "ppId": 40210
+  },
+  {
+   "id": "S10a-058",
+   "localId": "058",
+   "name": "Snorlax",
+   "rarity": "Rare",
+   "illustrator": "0313",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/058",
+   "category": "Pokemon",
+   "types": [
+    "Colorless"
+   ],
+   "hp": 150,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 2.62
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/c48fe9a60bb3495c.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/c48fe9a60bb3495c.webp",
+   "ppId": 40225
+  },
+  {
+   "id": "S10a-059",
+   "localId": "059",
+   "name": "Aipom (Mirror Holofoil)",
+   "rarity": "Common",
+   "illustrator": "Kouki Saitou",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/059",
+   "category": "Pokemon",
+   "types": [
+    "Colorless"
+   ],
+   "hp": 60,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "reverse",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 0.51
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/b24c8fc396720454.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/b24c8fc396720454.webp",
+   "ppId": 40315
+  },
+  {
+   "id": "S10a-060",
+   "localId": "060",
+   "name": "Ambipom (Mirror Holofoil)",
+   "rarity": "Uncommon",
+   "illustrator": "Atsushi Furusawa",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/060",
+   "category": "Pokemon",
+   "types": [
+    "Colorless"
+   ],
+   "hp": 90,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "reverse",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 0.36
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/87edc66ecb6bf58f.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/87edc66ecb6bf58f.webp",
+   "ppId": 40232
+  },
+  {
+   "id": "S10a-061",
+   "localId": "061",
+   "name": "Hisuian Zoroark V",
+   "rarity": "Double rare",
+   "illustrator": "aky CG Works",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/061",
+   "category": "Pokemon",
+   "types": [
+    "Colorless"
+   ],
+   "hp": 210,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 0.51
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/ae5856a61ff59d23.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/ae5856a61ff59d23.webp",
+   "ppId": 40228
+  },
+  {
+   "id": "S10a-062",
+   "localId": "062",
+   "name": "Hisuian Zoroark VSTAR",
+   "rarity": "Triple Rare",
+   "illustrator": "aky CG Works",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/062",
+   "category": "Pokemon",
+   "types": [
+    "Colorless"
+   ],
+   "hp": 270,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 0.7
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/10ecaf148f444d9a.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/10ecaf148f444d9a.webp",
+   "ppId": 40218
+  },
+  {
+   "id": "S10a-063",
+   "localId": "063",
+   "name": "Arc Phone",
+   "rarity": "Uncommon",
+   "illustrator": "5ban Graphics",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/063",
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "reverse",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.15
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/e2b43bed7fefa70c.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/e2b43bed7fefa70c.webp",
+   "ppId": 40312
+  },
+  {
+   "id": "S10a-064",
+   "localId": "064",
+   "name": "Damage Pump (Mirror Holofoil)",
+   "rarity": "Uncommon",
+   "illustrator": "sadaji",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/064",
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "reverse",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 0.1
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/106690a7540d943d.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/106690a7540d943d.webp",
+   "ppId": 40279
+  },
+  {
+   "id": "S10a-065",
+   "localId": "065",
+   "name": "Windup Arm (Mirror Holofoil)",
+   "rarity": "Uncommon",
+   "illustrator": "Toyste Beach",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/065",
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "reverse",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 0.32
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/72816146b93115a8.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/72816146b93115a8.webp",
+   "ppId": 40265
+  },
+  {
+   "id": "S10a-066",
+   "localId": "066",
+   "name": "Box of Disaster",
+   "rarity": "Uncommon",
+   "illustrator": "Toyste Beach",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/066",
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "reverse",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.08
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/8053842fe3b964ac.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/8053842fe3b964ac.webp",
+   "ppId": 40340
+  },
+  {
+   "id": "S10a-067",
+   "localId": "067",
+   "name": "Volo",
+   "rarity": "Rare",
+   "illustrator": "kirisAki",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/067",
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 0.18
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/ec66352c41ab36e4.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/ec66352c41ab36e4.webp",
+   "ppId": 40307
+  },
+  {
+   "id": "S10a-068",
+   "localId": "068",
+   "name": "Iscan",
+   "rarity": "Uncommon",
+   "illustrator": "Akira Komayama",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/068",
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "reverse",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "normal": {
+      "marketPrice": 0.16
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/14061abb45d37095.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/14061abb45d37095.webp",
+   "ppId": 40295
+  },
+  {
+   "id": "S10a-069",
+   "localId": "069",
+   "name": "Arezu - 069/071 (Mirror Holofoil)",
+   "rarity": "Uncommon",
+   "illustrator": "kirisAki",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/069",
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "reverse",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 0.44
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/35e38ca6762f4d45.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/35e38ca6762f4d45.webp",
+   "ppId": 40233
+  },
+  {
+   "id": "S10a-070",
+   "localId": "070",
+   "name": "Miss Fortune Sisters - 070/071 (Mirror Holofoil)",
+   "rarity": "Uncommon",
+   "illustrator": "Souichirou Gunjima",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/070",
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "reverse",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 0.32
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/ccb720505d913c35.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/ccb720505d913c35.webp",
+   "ppId": 40280
+  },
+  {
+   "id": "S10a-071",
+   "localId": "071",
+   "name": "Lake Acuity (Mirror Holofoil)",
+   "rarity": "Uncommon",
+   "illustrator": "Oswaldo KATO",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/071",
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "normal",
+     "foil": null
+    },
+    {
+     "type": "reverse",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 0.76
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/f5079b472fd9bf6a.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/f5079b472fd9bf6a.webp",
+   "ppId": 40298
+  },
+  {
+   "id": "S10a-072",
+   "localId": "072",
+   "name": "Parasect",
+   "rarity": "Character Rare",
+   "illustrator": "Oswaldo KATO",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/072",
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 120,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 2.81
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/ccd80e3a3c8694c9.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/ccd80e3a3c8694c9.webp",
+   "ppId": 40219
+  },
+  {
+   "id": "S10a-073",
+   "localId": "073",
+   "name": "Pikachu",
+   "rarity": "Character Rare",
+   "illustrator": "Atsushi Furusawa",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/073",
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": 60,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 56.19
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/2049f78b7b38da05.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/2049f78b7b38da05.webp",
+   "ppId": 40227
+  },
+  {
+   "id": "S10a-074",
+   "localId": "074",
+   "name": "Gengar",
+   "rarity": "Character Rare",
+   "illustrator": "Akira Komayama",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/074",
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": 120,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 40.28
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/ac13167fc2f6e528.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/ac13167fc2f6e528.webp",
+   "ppId": 40190
+  },
+  {
+   "id": "S10a-075",
+   "localId": "075",
+   "name": "Hisuian Arcanine",
+   "rarity": "Character Rare",
+   "illustrator": "You Iribi",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/075",
+   "category": "Pokemon",
+   "types": [
+    "Fighting"
+   ],
+   "hp": 130,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 5.43
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/79ddff8176d5ed53.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/79ddff8176d5ed53.webp",
+   "ppId": 40209
+  },
+  {
+   "id": "S10a-076",
+   "localId": "076",
+   "name": "Spiritomb",
+   "rarity": "Character Rare",
+   "illustrator": "Hitoshi Ariga",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/076",
+   "category": "Pokemon",
+   "types": [
+    "Darkness"
+   ],
+   "hp": 60,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 2.62
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/bc63592f27aa60c9.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/bc63592f27aa60c9.webp",
+   "ppId": 40216
+  },
+  {
+   "id": "S10a-077",
+   "localId": "077",
+   "name": "Snorlax",
+   "rarity": "Character Rare",
+   "illustrator": "Kouki Saitou",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/077",
+   "category": "Pokemon",
+   "types": [
+    "Colorless"
+   ],
+   "hp": 150,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 15.55
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T10:58:49Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/5f285bb1141d0510.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/5f285bb1141d0510.webp",
+   "ppId": 40249
+  },
+  {
+   "id": "S10a-078",
+   "localId": "078",
+   "name": "Hisuian Electrode V",
+   "rarity": "Ultra Rare",
+   "illustrator": "5ban Graphics",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/078",
+   "category": "Pokemon",
+   "types": [
+    "Grass"
+   ],
+   "hp": 210,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 2.04
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/ce7e7a82f41bd444.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/ce7e7a82f41bd444.webp",
+   "ppId": 40263
+  },
+  {
+   "id": "S10a-079",
+   "localId": "079",
+   "name": "Magnezone V",
+   "rarity": "Ultra Rare",
+   "illustrator": "N-DESIGN Inc.",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/079",
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": 210,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 2.3
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/e3a5d52bafa3d11f.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/e3a5d52bafa3d11f.webp",
+   "ppId": 40262
+  },
+  {
+   "id": "S10a-080",
+   "localId": "080",
+   "name": "Enamorus V",
+   "rarity": "Ultra Rare",
+   "illustrator": "5ban Graphics",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/080",
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": 210,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 4.62
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/5ea02b663729d311.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/5ea02b663729d311.webp",
+   "ppId": 40237
+  },
+  {
+   "id": "S10a-081",
+   "localId": "081",
+   "name": "Gallade V",
+   "rarity": "Ultra Rare",
+   "illustrator": "takuyoa",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/081",
+   "category": "Pokemon",
+   "types": [
+    "Fighting"
+   ],
+   "hp": 220,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 2.85
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T10:58:49Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/58e3e5023247cf32.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/58e3e5023247cf32.webp",
+   "ppId": 40372
+  },
+  {
+   "id": "S10a-082",
+   "localId": "082",
+   "name": "Hisuian Goodra V",
+   "rarity": "Ultra Rare",
+   "illustrator": "5ban Graphics",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/082",
+   "category": "Pokemon",
+   "types": [
+    "Dragon"
+   ],
+   "hp": 220,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 4.52
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/c1dfdd094faac9f3.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/c1dfdd094faac9f3.webp",
+   "ppId": 40266
+  },
+  {
+   "id": "S10a-083",
+   "localId": "083",
+   "name": "Hisuian Zoroark V",
+   "rarity": "Ultra Rare",
+   "illustrator": "aky CG Works",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/083",
+   "category": "Pokemon",
+   "types": [
+    "Colorless"
+   ],
+   "hp": 210,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 5.25
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/411fc5c067c0bbd8.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/411fc5c067c0bbd8.webp",
+   "ppId": 40332
+  },
+  {
+   "id": "S10a-084",
+   "localId": "084",
+   "name": "Volo",
+   "rarity": "Ultra Rare",
+   "illustrator": "kirisAki",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/084",
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 3.38
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/77ee0b5aeb59082d.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/77ee0b5aeb59082d.webp",
+   "ppId": 40243
+  },
+  {
+   "id": "S10a-085",
+   "localId": "085",
+   "name": "Iscan",
+   "rarity": "Ultra Rare",
+   "illustrator": "Hitoshi Ariga",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/085",
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 1.19
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/f876025dfe5274e2.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/f876025dfe5274e2.webp",
+   "ppId": 40282
+  },
+  {
+   "id": "S10a-086",
+   "localId": "086",
+   "name": "Arezu",
+   "rarity": "Ultra Rare",
+   "illustrator": "You Iribi",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/086",
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 6.63
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/d451fd85676f2758.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/d451fd85676f2758.webp",
+   "ppId": 40299
+  },
+  {
+   "id": "S10a-087",
+   "localId": "087",
+   "name": "Miss Fortune Sisters",
+   "rarity": "Ultra Rare",
+   "illustrator": "Souichirou Gunjima",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/087",
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 5.25
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/4c8515c91b1efa47.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/4c8515c91b1efa47.webp",
+   "ppId": 40257
+  },
+  {
+   "id": "S10a-088",
+   "localId": "088",
+   "name": "Enamorus V",
+   "rarity": "Character Super Rare",
+   "illustrator": "AKIRA EGAWA",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/088",
+   "category": "Pokemon",
+   "types": [
+    "Psychic"
+   ],
+   "hp": 210,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 17.96
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/eddea0745bd45694.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/eddea0745bd45694.webp",
+   "ppId": 40270
+  },
+  {
+   "id": "S10a-089",
+   "localId": "089",
+   "name": "Gallade V",
+   "rarity": "Character Super Rare",
+   "illustrator": "Souichirou Gunjima",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/089",
+   "category": "Pokemon",
+   "types": [
+    "Fighting"
+   ],
+   "hp": 220,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 13.13
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/abbc21e5e8e6b339.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/abbc21e5e8e6b339.webp",
+   "ppId": 40204
+  },
+  {
+   "id": "S10a-090",
+   "localId": "090",
+   "name": "Magnezone VSTAR",
+   "rarity": "Holo Rare",
+   "illustrator": "PLANETA Mochizuki",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/090",
+   "category": "Pokemon",
+   "types": [
+    "Lightning"
+   ],
+   "hp": 270,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 6.32
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/1d52933ef487165b.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/1d52933ef487165b.webp",
+   "ppId": 40277
+  },
+  {
+   "id": "S10a-091",
+   "localId": "091",
+   "name": "Hisuian Goodra VSTAR",
+   "rarity": "Holo Rare",
+   "illustrator": "5ban Graphics",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/091",
+   "category": "Pokemon",
+   "types": [
+    "Dragon"
+   ],
+   "hp": 270,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 11.22
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/ca590b461032882b.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/ca590b461032882b.webp",
+   "ppId": 40253
+  },
+  {
+   "id": "S10a-092",
+   "localId": "092",
+   "name": "Hisuian Zoroark VSTAR",
+   "rarity": "Holo Rare",
+   "illustrator": "aky CG Works",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/092",
+   "category": "Pokemon",
+   "types": [
+    "Colorless"
+   ],
+   "hp": 270,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 7.87
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/8900dfe205c05917.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/8900dfe205c05917.webp",
+   "ppId": 40330
+  },
+  {
+   "id": "S10a-093",
+   "localId": "093",
+   "name": "Volo",
+   "rarity": "Holo Rare",
+   "illustrator": "kirisAki",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/093",
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 5.9
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/e5d1bbb0c1f2613c.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/e5d1bbb0c1f2613c.webp",
+   "ppId": 40317
+  },
+  {
+   "id": "S10a-094",
+   "localId": "094",
+   "name": "Iscan",
+   "rarity": "Holo Rare",
+   "illustrator": "Hitoshi Ariga",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/094",
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 3.41
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/cdf47cfc284ddb44.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/cdf47cfc284ddb44.webp",
+   "ppId": 40304
+  },
+  {
+   "id": "S10a-095",
+   "localId": "095",
+   "name": "Arezu",
+   "rarity": "Holo Rare",
+   "illustrator": "You Iribi",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/095",
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 6.26
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/7af105d55a32cb1b.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/7af105d55a32cb1b.webp",
+   "ppId": 40231
+  },
+  {
+   "id": "S10a-096",
+   "localId": "096",
+   "name": "Miss Fortune Sisters",
+   "rarity": "Holo Rare",
+   "illustrator": "Souichirou Gunjima",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/096",
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 10.75
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/04c04f1d657b532d.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/04c04f1d657b532d.webp",
+   "ppId": 40301
+  },
+  {
+   "id": "S10a-097",
+   "localId": "097",
+   "name": "Hisuian Zoroark VSTAR",
+   "rarity": "Mega Hyper Rare",
+   "illustrator": "aky CG Works",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/097",
+   "category": "Pokemon",
+   "types": [
+    "Colorless"
+   ],
+   "hp": 270,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 9.52
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/61c0f0bdfe20cbac.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/61c0f0bdfe20cbac.webp",
+   "ppId": 40302
+  },
+  {
+   "id": "S10a-098",
+   "localId": "098",
+   "name": "Dark Patch",
+   "rarity": "Mega Hyper Rare",
+   "illustrator": "Ryo Ueda",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/098",
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 8.26
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/8c746d9338c45951.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/8c746d9338c45951.webp",
+   "ppId": 40274
+  },
+  {
+   "id": "S10a-099",
+   "localId": "099",
+   "name": "Box of Disaster",
+   "rarity": "Mega Hyper Rare",
+   "illustrator": "Toyste Beach",
+   "image": "https://assets.tcgdex.net/ja/S/S10a/099",
+   "category": "Trainer",
+   "types": null,
+   "hp": null,
+   "variants_detailed": [
+    {
+     "type": "holo",
+     "foil": null
+    }
+   ],
+   "pricing": {
+    "tcgplayer": {
+     "holofoil": {
+      "marketPrice": 5.15
+     }
+    },
+    "currency": "USD",
+    "pricedAt": "2026-09-21T09:38:48Z"
+   },
+   "imageSmall": "https://images.pkmnprices.com/cards/5c4c3cab70b4ff7e.webp",
+   "imageLarge": "https://images.pkmnprices.com/cards/5c4c3cab70b4ff7e.webp",
+   "ppId": 40311
+  }
+ ]
+}
