@@ -174,6 +174,66 @@
     return (rows || []).slice().sort(rarityComparator);
   }
 
+  /* ---------------- binder default ordering (2026-09-28) ----------------
+   * The owner's binder order: a binder holding a single set sorts by set
+   * number, like slotting cards into a physical binder. Mixed-set binders
+   * sort common/uncommon → rare → double rare → ultra rare → special
+   * illustration rare → anything else, with set + number breaking ties
+   * inside each tier. Pure + unit-tested. */
+
+  /* Sortable key for a card's number within its set: numeric when the
+   * number leads with digits ("001" < "25"), lexical otherwise. */
+  function setNumberKey(row) {
+    var n = row.number;
+    if (n == null || n === "") {
+      var m = String(row.card_id || "").match(/-([A-Za-z0-9]+)$/);
+      n = m ? m[1] : "";
+    }
+    n = String(n);
+    var digits = n.match(/^\d+/);
+    return { num: digits ? parseInt(digits[0], 10) : Infinity, str: n };
+  }
+
+  function cmpSetNumber(a, b) {
+    var ka = setNumberKey(a), kb = setNumberKey(b);
+    if (ka.num !== kb.num) return ka.num - kb.num;
+    if (ka.str === kb.str) return 0;
+    return ka.str < kb.str ? -1 : 1;
+  }
+
+  function binderTier(rarity) {
+    var r = String(rarity || "").trim().toLowerCase();
+    if (r === "common" || r === "uncommon") return 0;
+    if (r === "rare" || r === "rare holo") return 1;
+    if (r === "double rare") return 2;
+    if (r === "ultra rare") return 3;
+    if (r === "special illustration rare") return 4;
+    return 5;
+  }
+
+  function cmpBinderTier(a, b) {
+    var d = binderTier(a.rarity) - binderTier(b.rarity);
+    if (d) return d;
+    var sa = a.set_name || "", sb = b.set_name || "";
+    if (sa !== sb) return sa < sb ? -1 : 1;
+    d = cmpSetNumber(a, b);
+    if (d) return d;
+    var na = a.card_name || "", nb = b.card_name || "";
+    return na < nb ? -1 : na > nb ? 1 : 0;
+  }
+
+  function sortByBinderRarity(rows) {
+    return (rows || []).slice().sort(cmpBinderTier);
+  }
+
+  function sortBinderDefault(rows) {
+    var arr = (rows || []).slice();
+    var first = arr.length ? arr[0].set_id : null;
+    var singleSet = !!first && arr.every(function (r) { return r.set_id === first; });
+    if (singleSet) return arr.sort(cmpSetNumber);
+    return arr.sort(cmpBinderTier);
+  }
+
   App.binders = {
     list: list,
     byId: byId,
@@ -187,6 +247,9 @@
     RARITY_ORDER: RARITY_ORDER,
     rarityRank: rarityRank,
     rarityComparator: rarityComparator,
-    sortByRarity: sortByRarity
+    sortByRarity: sortByRarity,
+    binderTier: binderTier,
+    sortByBinderRarity: sortByBinderRarity,
+    sortBinderDefault: sortBinderDefault
   };
 })();

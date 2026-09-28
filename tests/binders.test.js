@@ -290,3 +290,55 @@ describe("groupUnshelvedBySet (binders-view.js) — Add-cards modal", () => {
     expect(groupUnshelvedBySet(null)).toEqual([]);
   });
 });
+
+describe("binderTier + sortBinderDefault (binders.js) — binder ordering", () => {
+  test("tiers follow the owner's order", () => {
+    expect(B.binderTier("Common")).toBe(0);
+    expect(B.binderTier("uncommon")).toBe(0);
+    expect(B.binderTier("Rare")).toBe(1);
+    expect(B.binderTier("Rare Holo")).toBe(1);
+    expect(B.binderTier("Double Rare")).toBe(2);
+    expect(B.binderTier("Ultra Rare")).toBe(3);
+    expect(B.binderTier("Special Illustration Rare")).toBe(4);
+    expect(B.binderTier("Illustration Rare")).toBe(5);
+    expect(B.binderTier("Hyper Rare")).toBe(5);
+    expect(B.binderTier(null)).toBe(5);
+  });
+
+  test("single-set binder sorts by set number", () => {
+    const rows = [
+      brow({ id: 1, set_id: "ja-M6a", number: "103" }),
+      brow({ id: 2, set_id: "ja-M6a", number: "9" }),
+      brow({ id: 3, set_id: "ja-M6a", number: "25" }),
+    ];
+    expect(B.sortBinderDefault(rows).map((r) => r.id)).toEqual([2, 3, 1]);
+  });
+
+  test("single-set binder falls back to card_id when number is missing", () => {
+    const rows = [
+      brow({ id: 1, set_id: "ja-M6a", number: null, card_id: "M6a-104" }),
+      brow({ id: 2, set_id: "ja-M6a", number: null, card_id: "M6a-099" }),
+    ];
+    expect(B.sortBinderDefault(rows).map((r) => r.id)).toEqual([2, 1]);
+  });
+
+  test("mixed-set binder sorts by tier, then set, then number", () => {
+    const rows = [
+      brow({ id: 1, set_id: "sv01", set_name: "Scarlet & Violet", rarity: "Ultra Rare", number: "1" }),
+      brow({ id: 2, set_id: "ja-M6a", set_name: "30th Celebration", rarity: "Common", number: "50" }),
+      brow({ id: 3, set_id: "sv01", set_name: "Scarlet & Violet", rarity: "Common", number: "10" }),
+      brow({ id: 4, set_id: "sv01", set_name: "Scarlet & Violet", rarity: "Common", number: "2" }),
+      brow({ id: 5, set_id: "ja-M6a", set_name: "30th Celebration", rarity: "Special Illustration Rare", number: "150" }),
+      brow({ id: 6, set_id: "sv01", set_name: "Scarlet & Violet", rarity: "Double Rare", number: "3" }),
+    ];
+    expect(B.sortBinderDefault(rows).map((r) => r.id)).toEqual([2, 4, 3, 6, 1, 5]);
+  });
+
+  test("sortByBinderRarity always uses tiers, even for a single set", () => {
+    const rows = [
+      brow({ id: 1, set_id: "ja-M6a", rarity: "Ultra Rare", number: "1" }),
+      brow({ id: 2, set_id: "ja-M6a", rarity: "Common", number: "99" }),
+    ];
+    expect(B.sortByBinderRarity(rows).map((r) => r.id)).toEqual([2, 1]);
+  });
+});

@@ -174,6 +174,7 @@
   /* ---------- /binder/<id> flip-through view ---------- */
 
   var SORTS = [
+    { id: "binder", label: "Binder order" },
     { id: "rarity", label: "Rarity" },
     { id: "value", label: "Value" },
     { id: "name", label: "Name" },
@@ -194,8 +195,10 @@
         var x = (a.set_name || "") + (a.card_name || ""), y = (b.set_name || "") + (b.card_name || "");
         return x < y ? -1 : x > y ? 1 : 0;
       });
+    } else if (sortId === "rarity") {
+      arr = App.binders.sortByBinderRarity(arr);
     } else {
-      arr = App.binders.sortByRarity(arr);
+      arr = App.binders.sortBinderDefault(arr);
     }
     return arr;
   }
@@ -214,7 +217,7 @@
       '<button class="btn btn-ghost" id="bdet-next" aria-label="Next page">→</button></div></div>' +
       '<div id="bdet-grid" class="binder-sheet"><div class="loading">Loading binder…</div></div>';
 
-    var state = { sort: "rarity", page: 0, items: [], name: "" };
+    var state = { sort: "binder", page: 0, items: [], name: "" };
     var nameEl = root.querySelector("#bdet-name");
     var gridEl = root.querySelector("#bdet-grid");
     var pageEl = root.querySelector("#bdet-page");
