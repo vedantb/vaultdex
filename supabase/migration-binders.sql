@@ -1,5 +1,6 @@
 -- VaultDex: physical binder tracking.
 -- Run once in the Supabase dashboard: SQL Editor → paste → Run.
+-- Requires Postgres 15+ (Supabase default) for UNIQUE NULLS NOT DISTINCT.
 -- Idempotent: every statement uses IF NOT EXISTS / drop-if-exists.
 --
 -- APPLY THIS BEFORE the binder UI can save anything. The app code is
@@ -35,12 +36,49 @@ create index if not exists collection_items_binder_id_idx
 
 -- Split copies: the same card+variant+grade can live in two binders as
 -- two rows, so binder_id joins the row-identity unique constraint.
--- (NULL binder_ids never conflict in Postgres, and every existing row is
--- NULL here, so this loosens — never tightens — and always applies cleanly.)
+--
+-- NULL-SAFETY: grading_company, grade, and binder_id are all nullable, and
+-- plain UNIQUE treats NULLs as never-equal — so two unshelved ungraded
+-- rows for the same card would NOT conflict. NULLS NOT DISTINCT (PG 15+)
+-- makes NULL = NULL for the constraint, which is what the app's row
+-- identity actually means.
+--
+-- DEDUPE FIRST: a past UI bug (2026-09-17) could insert duplicate rows, and
+-- the old non-null-safe constraint never caught them. Merge exact-identity
+-- duplicates now (GROUP BY already treats NULLs as equal) by summing
+-- quantities into the earliest row, so the new constraint applies cleanly.
+-- These statements are no-ops when no duplicates exist.
+with dupes as (
+  select min(id::text)::uuid as keep_id,
+         sum(quantity) as total_qty
+  from public.collection_items
+  group by user_id, card_id, variant, grading_company, grade, binder_id
+  having count(*) > 1
+)
+update public.collection_items ci
+set quantity = d.total_qty
+from dupes d
+where ci.id = d.keep_id;
+
+with dupes as (
+  select min(id::text)::uuid as keep_id,
+         array_agg(id) as ids
+  from public.collection_items
+  group by user_id, card_id, variant, grading_company, grade, binder_id
+  having count(*) > 1
+)
+delete from public.collection_items ci
+using dupes d
+where ci.id = any(d.ids) and ci.id <> d.keep_id;
+
+-- Replace the old row-identity constraints with the binder-aware,
+-- null-safe one.
 alter table public.collection_items
   drop constraint if exists collection_items_user_card_variant_grade_key;
 alter table public.collection_items
   drop constraint if exists collection_items_user_id_card_id_variant_key;
 alter table public.collection_items
+  drop constraint if exists collection_items_user_card_variant_grade_binder_key;
+alter table public.collection_items
   add constraint collection_items_user_card_variant_grade_binder_key
-  unique (user_id, card_id, variant, grading_company, grade, binder_id);
+  unique nulls not distinct (user_id, card_id, variant, grading_company, grade, binder_id);
