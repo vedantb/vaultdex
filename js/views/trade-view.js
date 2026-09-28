@@ -125,12 +125,15 @@
 
   // Same tile look as Browse / the collection's set tiles, but the count is
   // trade listings, not set-completion progress.
+  // NOTE: the tile is keyed by set appId, not by name — EN/JA sets can share
+  // a display name (e.g. "30th Celebration" for both 30th and ja-M6a), and
+  // name-keying mixed both languages into one grid.
   function setTile(s, listed, setName) {
     var simg = s.images || {};
     var img = simg.logo || simg.symbol;
     var cls = !simg.logo && img ? ' class="symbol"' : "";
     return (
-      '<div class="set-tile" data-trade-set="' + App.esc(setName) + '" tabindex="0" role="button"' +
+      '<div class="set-tile" data-trade-set="' + App.esc(s.appId) + '" data-trade-set-title="' + App.esc(setName) + '" tabindex="0" role="button"' +
         ' aria-label="Show trade listings from ' + App.esc(s.name) + '">' +
         '<div class="logo">' + (img ? '<img loading="lazy" src="' + App.esc(img) + '" alt=""' + cls + ">" : "") + "</div>" +
         "<h3>" + App.esc(s.name) + "</h3>" +
@@ -209,7 +212,7 @@
       rows.forEach(function (r) {
         c[langOf(r)]++;
         BUDGETS.forEach(function (b, i) { if (inBudget(r, b)) c.budgets[i]++; });
-        if (r.set_name) c.sets[r.set_name] = (c.sets[r.set_name] || 0) + 1;
+        if (r.set_id) c.sets[r.set_id] = (c.sets[r.set_id] || 0) + 1;
       });
       return c;
     }
@@ -241,8 +244,8 @@
         var midTop = topImage(rows.filter(function (r) { return inBudget(r, BUDGETS[1]); }), used)
           || topImage(rows.filter(function (r) { return inBudget(r, BUDGETS[2]); }), used)
           || topImage(rows, used);
-        var topSetName = Object.keys(c.sets).sort(function (a, b) { return c.sets[b] - c.sets[a]; })[0];
-        var setTop = (topSetName ? topImage(rows.filter(function (r) { return r.set_name === topSetName; }), used) : "")
+        var topSetId = Object.keys(c.sets).sort(function (a, b) { return c.sets[b] - c.sets[a]; })[0];
+        var setTop = (topSetId ? topImage(rows.filter(function (r) { return r.set_id === topSetId; }), used) : "")
           || topImage(rows, used);
         html +=
           '<div class="hub-row-3">' +
@@ -341,8 +344,9 @@
         var bindSetTiles = function () {
           eraWrap.querySelectorAll("[data-trade-set]").forEach(function (t) {
             function go() {
-              var sn = t.getAttribute("data-trade-set");
-              showGrid(sn, function (r) { return r.set_name === sn; });
+              var id = t.getAttribute("data-trade-set");
+              var title = t.getAttribute("data-trade-set-title") || id;
+              showGrid(title, function (r) { return r.set_id === id; });
             }
             t.addEventListener("click", go);
             t.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); go(); } });
