@@ -209,7 +209,7 @@
       '<div class="binder-pages"><button class="btn btn-ghost" id="bdet-prev" aria-label="Previous page">←</button>' +
       '<span id="bdet-page"></span>' +
       '<button class="btn btn-ghost" id="bdet-next" aria-label="Next page">→</button></div></div>' +
-      '<div id="bdet-grid" class="card-grid binder-sheet"><div class="loading">Loading binder…</div></div>';
+      '<div id="bdet-grid" class="binder-sheet"><div class="loading">Loading binder…</div></div>';
 
     var state = { sort: "rarity", page: 0, items: [], name: "" };
     var nameEl = root.querySelector("#bdet-name");
@@ -238,7 +238,9 @@
         });
         return;
       }
-      gridEl.innerHTML = slice.map(function (it) { return detailTile(it); }).join("");
+      var empties = "";
+      for (var i = slice.length; i < PAGE_SIZE; i++) empties += emptyPocket();
+      gridEl.innerHTML = slice.map(function (it) { return detailTile(it); }).join("") + empties;
       /* Page-turn feel: a quick flip on every page change. */
       gridEl.classList.remove("binder-flip");
       void gridEl.offsetWidth;
@@ -283,33 +285,30 @@
     }
   };
 
-  /* Card tile for the flip view: mirrors the collection tile, plus a
-   * move-copies action that splits quantities across binders. */
+  /* Pocket tile for the flip view: a clear sleeve holding just the card
+   * art, like a physical 9-pocket page. Tap opens the card; the small
+   * tag button moves copies to another binder. */
   function detailTile(item) {
-    var value = rowValue(item);
     var gradeBadge = item.grading_company
-      ? '<span class="grade-badge">' + App.esc(item.grading_company) + " " + App.esc(item.grade || "") + "</span>"
+      ? '<span class="pocket-grade">' + App.esc(item.grading_company) + " " + App.esc(item.grade || "") + "</span>"
       : "";
-    var qtyBadge = item.quantity > 1 ? '<span class="qty-badge">×' + item.quantity + "</span>" : "";
-    var controls =
-      '<div class="tile-controls">' +
-      '<button class="icon-btn-sm" data-act="move" aria-label="Move copies of ' + App.esc(item.card_name) + ' to another binder" title="Move copies">' + App.ui.icon("tag") + "</button>" +
-      "</div>";
-    return App.ui.tileHtml(item, {
-      dataRow: item.id,
-      dataCard: item.card_id,
-      qty: item.quantity,
-      activatable: false,
-      setHtml: App.esc(item.set_name || ""),
-      priceHtml:
-        '<span class="price-badge">' + App.ui.money(value, item.price_currency) + "</span>" +
-        '<span class="price-chips">' + gradeBadge + qtyBadge + '<span class="variant-chip">' + App.esc(item.variant) + "</span></span>",
-      postPrice: controls
-    });
+    var qtyBadge = item.quantity > 1 ? '<span class="pocket-qty">×' + item.quantity + "</span>" : "";
+    var img = item.image_small || "";
+    return '<div class="binder-pocket" data-row="' + App.esc(item.id) + '" data-card="' + App.esc(item.card_id) + '">' +
+      '<div class="art"><img loading="lazy" src="' + App.esc(img) + '" alt="' + App.esc((item.card_name || "") + " card art") + '">' +
+      qtyBadge + gradeBadge +
+      '<button class="pocket-move" data-act="move" aria-label="Move copies of ' + App.esc(item.card_name) + ' to another binder" title="Move copies">' + App.ui.icon("tag") + "</button>" +
+      "</div></div>";
+  }
+
+  /* Empty sleeves round a partial page out to 9 pockets, like a real
+   * binder page that isn't full yet. */
+  function emptyPocket() {
+    return '<div class="binder-pocket empty" aria-hidden="true"><div class="art"></div></div>';
   }
 
   function wireTiles(gridEl, items) {
-    gridEl.querySelectorAll(".card-tile").forEach(function (tile) {
+    gridEl.querySelectorAll(".binder-pocket:not(.empty)").forEach(function (tile) {
       var art = tile.querySelector(".art");
       if (art) art.addEventListener("click", function () {
         var rowId = tile.getAttribute("data-row");
