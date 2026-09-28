@@ -33,12 +33,13 @@
 
   /* Deterministic cover hue per binder, so empty binders still get a
    * rich, visible cover in both light and dark mode. */
-  /* Deterministic cover hue per binder, so empty binders still get a
-   * rich, visible cover in both light and dark mode. */
-  function binderHue(id) {
+  /* Binder cover artwork: four physical-binder designs shipped with the
+   * app, picked deterministically per binder so each binder keeps its look. */
+  var BINDER_COVERS = ["binder-black", "binder-blue", "binder-purple", "binder-red"];
+  function binderCover(id) {
     var h = 0, s = String(id || "");
-    for (var i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) % 360;
-    return h;
+    for (var i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) >>> 0;
+    return "/images/binder-covers/" + BINDER_COVERS[h % BINDER_COVERS.length] + ".webp";
   }
 
   /* ---------- /binders hub ---------- */
@@ -77,15 +78,7 @@
           var items = grouped[bdr.id] || [];
           var copies = items.reduce(function (n, r) { return n + (r.quantity || 0); }, 0);
           var total = items.reduce(function (n, r) { return n + rowValue(r); }, 0);
-          var cover = items.slice().sort(function (a, c) { return rowValue(c) - rowValue(a); })[0];
-          var art;
-          if (cover && cover.image_small) {
-            art = '<img class="binder-art-img" src="' + App.esc(cover.image_small) + '" alt="" loading="lazy">';
-          } else {
-            var hue = binderHue(bdr.id), hue2 = (hue + 50) % 360;
-            art = '<div class="binder-art-empty" style="background:linear-gradient(150deg,hsl(' + hue + ',55%,44%),hsl(' + hue2 + ',62%,24%))">' +
-              App.ui.icon("cards") + "</div>";
-          }
+          var art = '<img class="binder-art-img" src="' + binderCover(bdr.id) + '" alt="" loading="lazy">';
           return '<a class="binder-tile" href="/binder/' + App.esc(bdr.id) + '" data-binder="' + App.esc(bdr.id) + '">' +
             '<div class="binder-art">' + art + '<div class="binder-scrim"></div></div>' +
             '<div class="binder-overlay"><div class="binder-name">' + App.esc(bdr.name) + "</div>" +
