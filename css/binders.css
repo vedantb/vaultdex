@@ -224,6 +224,57 @@
   100% { transform: rotateY(0deg); opacity: 1; }
 }
 
+/* ---------- detail: add-cards modal ---------- */
+.ac-list {
+  max-height: 320px;
+  overflow-y: auto;
+  margin: 12px 0 4px;
+  border: 1px solid var(--border, #e5e5e5);
+  border-radius: 12px;
+}
+.ac-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  cursor: pointer;
+  border-bottom: 1px solid var(--border, #eee);
+}
+.ac-row:last-child { border-bottom: none; }
+.ac-row input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  accent-color: var(--accent, #3366cc);
+}
+.ac-name {
+  flex: 1;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.35;
+  min-width: 0;
+}
+.ac-setid {
+  font-weight: 400;
+  font-size: 12px;
+  color: var(--muted, #666);
+}
+.ac-meta {
+  flex-shrink: 0;
+  font-size: 12px;
+  color: var(--muted, #666);
+}
+.ac-count {
+  flex: 1;
+  min-width: 0;
+  font-size: 13px;
+  color: var(--muted, #666);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#ac-go { flex-shrink: 0; }
+
 /* ---------- mobile ---------- */
 @media (max-width: 640px) {
   .binder-grid {

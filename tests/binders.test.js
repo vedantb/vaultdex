@@ -12,6 +12,7 @@ import "../js/binders.js";
 import "../js/ui.js"; // App.esc, used by card-modal.js at load
 import "../js/components/card-modal.js";
 import "../js/collection.js";
+import "../js/views/binders-view.js";
 
 const B = window.App.binders;
 const { findMatchingRow } = window.App.collection;
@@ -241,5 +242,51 @@ describe("splitRow (collection.js) — transactional RPC", () => {
   test("real RPC errors are not swallowed by the fallback", async () => {
     stubApp(async () => ({ data: null, error: { code: "42501", message: "Not your collection." } }));
     await expect(splitRow("row-1", 1, "binder-a")).rejects.toThrow("Not your collection.");
+  });
+});
+
+describe("groupUnshelvedBySet (binders-view.js) — Add-cards modal", () => {
+  const { groupUnshelvedBySet } = window.App.views.binderDetail;
+
+  test("groups unshelved rows by set and sums copies", () => {
+    const rows = [
+      brow({ id: 1, set_id: "ja-M6a", set_name: "30th Celebration", quantity: 2 }),
+      brow({ id: 2, set_id: "ja-M6a", set_name: "30th Celebration", quantity: 1 }),
+      brow({ id: 3, set_id: "30th", set_name: "30th Celebration", quantity: 4 }),
+    ];
+    const groups = groupUnshelvedBySet(rows);
+    expect(groups).toHaveLength(2);
+    const m6a = groups.filter((g) => g.set_id === "ja-M6a")[0];
+    expect(m6a.rows).toHaveLength(2);
+    expect(m6a.copies).toBe(3);
+  });
+
+  test("excludes rows already shelved in any binder", () => {
+    const rows = [
+      brow({ id: 1, set_id: "ja-M6a", binder_id: null }),
+      brow({ id: 2, set_id: "ja-M6a", binder_id: "binder-a" }),
+    ];
+    const groups = groupUnshelvedBySet(rows);
+    expect(groups).toHaveLength(1);
+    expect(groups[0].rows.map((r) => r.id)).toEqual([1]);
+  });
+
+  test("sorts groups by set name, case-insensitive", () => {
+    const rows = [
+      brow({ id: 1, set_id: "sv01", set_name: "Scarlet & Violet" }),
+      brow({ id: 2, set_id: "ja-M6a", set_name: "30th Celebration" }),
+    ];
+    expect(groupUnshelvedBySet(rows).map((g) => g.set_id)).toEqual(["ja-M6a", "sv01"]);
+  });
+
+  test("falls back to set_id when the set name is missing", () => {
+    const rows = [brow({ id: 1, set_id: "ja-M6a", set_name: null })];
+    const groups = groupUnshelvedBySet(rows);
+    expect(groups[0].set_name).toBe("ja-M6a");
+  });
+
+  test("empty collection yields no groups", () => {
+    expect(groupUnshelvedBySet([])).toEqual([]);
+    expect(groupUnshelvedBySet(null)).toEqual([]);
   });
 });

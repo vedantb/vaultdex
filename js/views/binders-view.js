@@ -3,6 +3,8 @@
 (function () {
   "use strict";
 
+  App.views = App.views || {};
+
   var PAGE_SIZE = 9;
 
   function isOwner() {
@@ -203,7 +205,8 @@
     root.innerHTML =
       '<div class="page-head"><a class="btn btn-ghost" href="/binders">← Binders</a>' +
       '<h1 id="bdet-name">…</h1></div>' +
-      '<div class="binder-bar"><label>Sort <select id="bdet-sort">' +
+      '<div class="binder-bar"><button class="btn btn-ghost" id="bdet-add">Add cards</button>' +
+      '<label>Sort <select id="bdet-sort">' +
       SORTS.map(function (s) { return '<option value="' + s.id + '">' + s.label + "</option>"; }).join("") +
       "</select></label>" +
       '<div class="binder-pages"><button class="btn btn-ghost" id="bdet-prev" aria-label="Previous page">←</button>' +
@@ -261,6 +264,12 @@
       state.sort = sortSel.value;
       state.page = 0;
       renderPage(0);
+    });
+    root.querySelector("#bdet-add").addEventListener("click", function () {
+      /* Pre-check sets already shelved here — "shelve more like these". */
+      var present = {};
+      state.items.forEach(function (r) { if (r.set_id) present[r.set_id] = true; });
+      openAddCardsModal(binderId, state.name || "this binder", Object.keys(present));
     });
     function onKey(e) {
       if (e.key === "ArrowLeft") go(-1);
@@ -365,4 +374,101 @@
       } catch (e) { App.handleApiError(e); }
     });
   }
+  /* Pure: group unshelved collection rows by set, for the Add-cards modal.
+   * Rows already in any binder are excluded — shelving never rips cards
+   * out of another binder. */
+  function groupUnshelvedBySet(rows) {
+    var map = {};
+    (rows || []).forEach(function (r) {
+      if (r.binder_id) return;
+      var sid = r.set_id || "unknown";
+      var g = map[sid];
+      if (!g) g = map[sid] = { set_id: sid, set_name: r.set_name || sid, rows: [], copies: 0 };
+      g.rows.push(r);
+      g.copies += r.quantity || 0;
+    });
+    return Object.keys(map).map(function (k) { return map[k]; }).sort(function (a, b) {
+      var x = a.set_name.toLowerCase(), y = b.set_name.toLowerCase();
+      return x < y ? -1 : x > y ? 1 : 0;
+    });
+  }
+
+  /* Bulk-shelve unshelved cards into a binder, picked by set. */
+  function openAddCardsModal(binderId, binderName, preselect) {
+    preselect = preselect || [];
+    var m = App.ui.openModal(
+      "<h2>Add cards</h2>" +
+      '<p class="modal-sub">Shelve unshelved cards into "' + App.esc(binderName) + '". Only cards not in a binder are listed.</p>' +
+      '<div id="ac-list" class="ac-list"><div class="loading">Loading your collection…</div></div>' +
+      '<div class="modal-actions"><span id="ac-count" class="ac-count"></span>' +
+      '<button class="btn btn-primary" id="ac-go" disabled>Shelve</button></div>'
+    );
+    var listEl = m.el.querySelector("#ac-list");
+    var goBtn = m.el.querySelector("#ac-go");
+    var countEl = m.el.querySelector("#ac-count");
+    var groups = [];
+
+    function selectedRows() {
+      var out = [];
+      listEl.querySelectorAll('input[type="checkbox"]:checked').forEach(function (cb) {
+        var g = groups.filter(function (x) { return x.set_id === cb.value; })[0];
+        if (g) out.push.apply(out, g.rows);
+      });
+      return out;
+    }
+    function cardWord(n) { return n === 1 ? "card" : "cards"; }
+    function copyWord(n) { return n === 1 ? "copy" : "copies"; }
+    function refreshCount() {
+      var rows = selectedRows();
+      var copies = rows.reduce(function (n, r) { return n + (r.quantity || 0); }, 0);
+      countEl.textContent = rows.length ? rows.length + " " + cardWord(rows.length) + " · " + copies + " " + copyWord(copies) : "";
+      goBtn.disabled = !rows.length;
+      goBtn.textContent = rows.length ? "Shelve " + rows.length + " " + cardWord(rows.length) : "Shelve";
+    }
+
+    App.collection.list().then(function (rows) {
+      if (!m.el.isConnected) return;
+      groups = groupUnshelvedBySet(rows);
+      if (!groups.length) {
+        listEl.innerHTML = "<p>Every card in your collection is already in a binder.</p>";
+        return;
+      }
+      listEl.innerHTML = groups.map(function (g) {
+        var checked = preselect.indexOf(g.set_id) !== -1 ? " checked" : "";
+        return '<label class="ac-row"><input type="checkbox" value="' + App.esc(g.set_id) + '"' + checked + ">" +
+          '<span class="ac-name">' + App.esc(g.set_name) + ' <span class="ac-setid">' + App.esc(g.set_id) + "</span></span>" +
+          '<span class="ac-meta">' + g.rows.length + " " + cardWord(g.rows.length) + " · " + g.copies + " " + copyWord(g.copies) + "</span></label>";
+      }).join("");
+      listEl.querySelectorAll('input[type="checkbox"]').forEach(function (cb) {
+        cb.addEventListener("change", refreshCount);
+      });
+      refreshCount();
+    }).catch(function () {
+      if (listEl.isConnected) listEl.innerHTML = "<p>Couldn't load your collection.</p>";
+    });
+
+    goBtn.addEventListener("click", async function () {
+      var rows = selectedRows();
+      if (!rows.length) return;
+      goBtn.disabled = true;
+      try {
+        var done = 0, CHUNK = 25;
+        for (var i = 0; i < rows.length; i += CHUNK) {
+          var chunk = rows.slice(i, i + CHUNK);
+          await Promise.all(chunk.map(function (r) { return App.binders.setBinder(r.id, binderId); }));
+          done += chunk.length;
+          goBtn.textContent = "Shelving " + done + "/" + rows.length + "…";
+        }
+        m.close();
+        App.ui.toast("Shelved " + rows.length + " " + cardWord(rows.length) + ' in "' + binderName + '".', "success");
+        App.navigate(window.location.pathname, { replace: true });
+      } catch (e) {
+        goBtn.disabled = false;
+        refreshCount();
+        App.handleApiError(e);
+      }
+    });
+  }
+  /* Exposed for unit tests. */
+  App.views.binderDetail.groupUnshelvedBySet = groupUnshelvedBySet;
 })();
