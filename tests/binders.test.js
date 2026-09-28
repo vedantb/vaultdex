@@ -128,3 +128,118 @@ describe("findBoundRow (card-modal.js) — binder-aware binding", () => {
     expect(findBoundRow(rows, "Holo", null, null, C)).toBeNull();
   });
 });
+
+describe("pickMoveSource (card-modal.js) — picker switch means move", () => {
+  const { pickMoveSource } = window.App.cardModal;
+  const A = "binder-a", B = "binder-b";
+
+  test("returns the source row when copies sit under the old binder", () => {
+    const rows = [brow({ id: 1, binder_id: null, quantity: 2 })];
+    expect(pickMoveSource(rows, "Holo", null, null, A).id).toBe(1);
+  });
+
+  test("returns null when switching to the same binder", () => {
+    const rows = [brow({ id: 1, binder_id: A, quantity: 2 })];
+    expect(pickMoveSource(rows, "Holo", null, A, A)).toBeNull();
+  });
+
+  test("returns null when nothing is shelved under the old binder", () => {
+    const rows = [brow({ id: 1, binder_id: B, quantity: 2 })];
+    expect(pickMoveSource(rows, "Holo", null, null, A)).toBeNull();
+  });
+
+  test("treats empty-string and null binders as the same unshelved slot", () => {
+    const rows = [brow({ id: 1, binder_id: null, quantity: 2 })];
+    expect(pickMoveSource(rows, "Holo", null, "", "")).toBeNull();
+    expect(pickMoveSource(rows, "Holo", null, null, A).id).toBe(1);
+  });
+
+  test("respects variant and grading isolation", () => {
+    const rows = [brow({ id: 1, binder_id: null, quantity: 2, variant: "Reverse Holo" })];
+    expect(pickMoveSource(rows, "Holo", null, null, A)).toBeNull();
+    const graded = [brow({ id: 2, binder_id: null, quantity: 1, grading_company: "PSA", grade: "10" })];
+    expect(pickMoveSource(graded, "Holo", null, null, A)).toBeNull();
+    expect(pickMoveSource(graded, "Holo", { company: "PSA", grade: "10" }, null, A).id).toBe(2);
+  });
+});
+
+describe("splitRow (collection.js) — transactional RPC", () => {
+  const { splitRow } = window.App.collection;
+
+  function stubApp(rpcImpl) {
+    window.App.auth = { user: { id: "user-1" } };
+    window.App.emit = function () {};
+    const calls = [];
+    window.App.sb = {
+      rpc: async function (fn, args) {
+        calls.push({ fn: fn, args: args });
+        return rpcImpl(args);
+      },
+    };
+    return calls;
+  }
+
+  test("calls move_binder_copies with row id, qty and target", async () => {
+    const calls = stubApp(async () => ({ data: { ok: true }, error: null }));
+    const ok = await splitRow("row-1", 2, "binder-a");
+    expect(ok).toBe(true);
+    expect(calls).toEqual([
+      { fn: "move_binder_copies", args: { p_row_id: "row-1", p_move_qty: 2, p_target_binder_id: "binder-a" } },
+    ]);
+  });
+
+  test("null target means unshelve", async () => {
+    const calls = stubApp(async () => ({ data: { ok: true }, error: null }));
+    await splitRow("row-1", 1, null);
+    expect(calls[0].args.p_target_binder_id).toBeNull();
+  });
+
+  test("rejects zero/negative quantities client-side", async () => {
+    stubApp(async () => ({ data: { ok: true }, error: null }));
+    await expect(splitRow("row-1", 0, "binder-a")).rejects.toThrow("Move at least 1 copy");
+    await expect(splitRow("row-1", -3, "binder-a")).rejects.toThrow("Move at least 1 copy");
+  });
+
+  test("falls back to the legacy two-write move when the RPC is missing", async () => {
+    window.App.auth = { user: { id: "user-1" } };
+    window.App.emit = function () {};
+    const writes = [];
+    const srcRow = brow({ id: "row-1", quantity: 2, binder_id: null });
+    window.App.sb = {
+      rpc: async () => ({
+        data: null,
+        error: { code: "PGRST202", status: 404, message: "Could not find the function public.move_binder_copies" },
+      }),
+      from: function () {
+        const b = {
+          _op: null,
+          select: function () { if (!this._op) this._op = "select"; return this; },
+          insert: function (row) { writes.push(["insert", row]); this._op = "insert"; return this; },
+          update: function (patch) { writes.push(["update", patch]); this._op = "update"; return this; },
+          eq: function () { return this; },
+          single: async function () {
+            if (this._op === "insert") {
+              return { data: Object.assign({}, srcRow, { id: "row-2", quantity: 1, binder_id: "binder-a" }), error: null };
+            }
+            return { data: srcRow, error: null };
+          },
+        };
+        /* supabase-js builders are thenable: plain await works on update() */
+        b.then = function (resolve) { resolve({ data: null, error: null }); };
+        return b;
+      },
+    };
+    const res = await splitRow("row-1", 1, "binder-a");
+    expect(res.id).toBe("row-2");
+    expect(writes[0][0]).toBe("insert");
+    expect(writes[0][1].quantity).toBe(1);
+    expect(writes[0][1].binder_id).toBe("binder-a");
+    expect(writes[1][0]).toBe("update");
+    expect(writes[1][1]).toEqual({ quantity: 1 });
+  });
+
+  test("real RPC errors are not swallowed by the fallback", async () => {
+    stubApp(async () => ({ data: null, error: { code: "42501", message: "Not your collection." } }));
+    await expect(splitRow("row-1", 1, "binder-a")).rejects.toThrow("Not your collection.");
+  });
+});

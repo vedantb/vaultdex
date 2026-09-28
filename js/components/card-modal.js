@@ -152,7 +152,18 @@
     var wantP = pkmnId || null;
     return cands.filter(function (r) { return (r.pkmn_id || null) === wantP; })[0] || cands[0];
   }
-  App.cardModal = { findBoundRow: findBoundRow, flipTransform: flipTransform, priceBoxHtml: priceBoxHtml, priceUpgradeFor: priceUpgradeFor,
+  /* Pure: when the binder picker switches from prevBinderId to nextBinderId,
+   * decide whether the user means to MOVE copies. Returns the source row
+   * when copies of the current variant+grading are shelved under the old
+   * binder — otherwise the switch is just a rebind (nothing to move).
+   * Splitting across binders works because the move dialog lets the user
+   * pick how many of the source row's copies travel. Exposed for tests. */
+  function pickMoveSource(rows, variantLabel, grading, prevBinderId, nextBinderId) {
+    if ((prevBinderId || null) === (nextBinderId || null)) return null;
+    var src = findBoundRow(rows, variantLabel, null, grading, prevBinderId || null);
+    return (src && src.quantity > 0) ? src : null;
+  }
+  App.cardModal = { findBoundRow: findBoundRow, pickMoveSource: pickMoveSource, flipTransform: flipTransform, priceBoxHtml: priceBoxHtml, priceUpgradeFor: priceUpgradeFor,
     navIndex: navIndex, classifySwipe: classifySwipe,
     /* FLIP flight duration in ms. Slower reads as the same card traveling
      * into the modal. Writable so QA can sweep speeds without rebuilding. */
@@ -893,18 +904,111 @@
     /* Keep the stepper in sync when the collection changes behind the
      * modal — handled by the collection:changed subscription above. */
     refreshOwnedRows().then(function () {
-      if (m.el.isConnected) { preselectBinder(); paintStepper(); paintBinder(); }
+      if (m.el.isConnected) {
+        preselectBinder();
+        if (typeof m._syncPickerBinder === "function") m._syncPickerBinder();
+        paintStepper();
+        paintBinder();
+      }
     }, function (e) {
       console.warn("[VaultDex] owned rows failed:", e && e.message);
     });
     /* Binder picker wiring: the picker is a row-selection dimension (like the
      * variant pills) — switching it just rebinds the stepper to that
      * binder's row. "+ New binder…" opens the inline creator. */
+    /* Binder picker wiring: switching binders usually means "shelve my
+     * copies there", not "show me the other binder's empty row". The
+     * picker remembers which binder the stepper was showing; when copies
+     * of the current variant+grading sit under the old binder, a switch
+     * offers to move some or all of them (the split-copies case) instead
+     * of silently rebinding to a 0-quantity row. */
     (function bindBinderPicker() {
       var sel = m.el.querySelector("#cm-binder");
       if (!sel || !App.binders) return;
       var newBox = m.el.querySelector("#cm-binder-new");
       var nameInput = m.el.querySelector("#cm-binder-name");
+      /* Which binder the stepper is currently showing. Synced after the
+       * initial preselect and on every committed switch; paintBinder()
+       * preserves sel.value, so it never drifts on repaint. */
+      var pickerBinder = "";
+      function syncPickerBinder() { pickerBinder = currentBinder() || ""; }
+      function commitSwitch(target) {
+        pickerBinder = target || "";
+        rebindStepper();
+      }
+      /* Move-copies dialog: some/all of srcRow's copies travel to
+       * targetBinderId. Cancelling (or dismissing) leaves everything
+       * untouched and snaps the picker back to prevBinderId — unless
+       * keepTarget is set (freshly created binder), which keeps the new
+       * binder selected so the user can add copies into it. */
+      function offerMoveCopies(srcRow, targetBinderId, prevBinderId, keepTarget) {
+        App.binders.list().then(function (binders) {
+          if (!m.el.isConnected) return;
+          var names = {};
+          binders.forEach(function (b) { names[b.id] = b.name; });
+          var fromName = prevBinderId ? (names[prevBinderId] || "a binder") : "No binder";
+          var toName = targetBinderId ? (names[targetBinderId] || "a binder") : "No binder";
+          var max = srcRow.quantity;
+          var settled = false;
+          function done(moved) {
+            if (settled) return;
+            settled = true;
+            if (moved) {
+              pickerBinder = targetBinderId || "";
+            } else if (!keepTarget) {
+              sel.value = prevBinderId || "";
+              syncPickerBinder();
+            } else {
+              syncPickerBinder();
+            }
+            rebindStepper();
+          }
+          var dm = App.ui.openModal(
+            "<h2>Move copies</h2>" +
+            '<p class="modal-sub">' + App.esc(card.name) + " · ×" + max + " in " + App.esc(fromName) + "</p>" +
+            '<div class="field"><label for="cm-mv-qty">Copies to move to ' + App.esc(toName) + "</label>" +
+            '<input id="cm-mv-qty" type="number" min="1" max="' + max + '" value="' + max + '"></div>' +
+            '<div class="modal-actions"><button class="btn" id="cm-mv-cancel">Keep where they are</button>' +
+            '<button class="btn btn-primary" id="cm-mv-go">Move</button></div>',
+            {
+              narrow: true,
+              onClose: function () { done(false); }
+            }
+          );
+          dm.el.querySelector("#cm-mv-cancel").addEventListener("click", function () { dm.close(); });
+          dm.el.querySelector("#cm-mv-go").addEventListener("click", function () {
+            var qty = Math.floor(Number(dm.el.querySelector("#cm-mv-qty").value));
+            if (!isFinite(qty) || qty < 1 || qty > max) {
+              App.ui.toast("Move between 1 and " + max + " copies.", "info");
+              return;
+            }
+            dm.el.querySelector("#cm-mv-go").disabled = true;
+            enqueue(async function () {
+              await App.collection.splitRow(srcRow.id, qty, targetBinderId);
+              await afterWrite();
+              /* done() before close(): close() fires onClose → done(false),
+               * which must not win over the successful move. */
+              done(true);
+              dm.close();
+              App.ui.toast(
+                qty === max
+                  ? "Moved to " + toName + "."
+                  : "Split — " + qty + " moved to " + toName + ", " + (max - qty) + " stayed in " + fromName + ".",
+                "success"
+              );
+            }).then(function () {
+              /* enqueue surfaces errors itself via handleApiError; on
+               * failure the dialog is still open, so re-enable for retry.
+               * (On success the dialog is already closed — harmless.) */
+              var go = dm.el.querySelector("#cm-mv-go");
+              if (go) go.disabled = false;
+            });
+          });
+        }, function (e) {
+          console.warn("[VaultDex] binders failed:", e && e.message);
+          commitSwitch(targetBinderId);
+        });
+      }
       sel.addEventListener("change", function () {
         var val = sel.value;
         if (val === "__new") {
@@ -913,10 +1017,18 @@
           if (nameInput) { nameInput.value = ""; nameInput.focus(); }
           return;
         }
-        /* Selection dimension changed — repaint the stepper against the
-         * (variant, grading, binder) row, same as the pill handler does. */
-        rebindStepper();
+        var target = val || null;
+        var src = App.cardModal.pickMoveSource(ownedRows, currentVariantLabel(), currentGrading(), pickerBinder, target);
+        if (src) {
+          /* Copies are shelved under the old binder — offer the move.
+           * sel already shows the new binder; a cancel snaps it back. */
+          offerMoveCopies(src, target, pickerBinder || null, false);
+          return;
+        }
+        /* Nothing shelved here — pure rebind, same as the pill handler. */
+        commitSwitch(target);
       });
+      m._syncPickerBinder = syncPickerBinder;
       var addBtn = m.el.querySelector("#cm-binder-add");
       if (addBtn) addBtn.addEventListener("click", function () {
         var name = nameInput ? nameInput.value.trim() : "";
@@ -925,14 +1037,26 @@
           try {
             var b = await App.binders.create(name);
             sel.value = b.id;
-            App.ui.toast('Created "' + name + '". Add a copy to shelve it there.', "success");
+            /* A fresh binder usually means "shelve my copies there" —
+             * offer the move when copies sit under the previous binder,
+             * otherwise just rebind so the user can add copies into it. */
+            var src = App.cardModal.pickMoveSource(ownedRows, currentVariantLabel(), currentGrading(), pickerBinder, b.id);
+            if (newBox) newBox.hidden = true;
+            sel.hidden = false;
+            paintBinder();
+            if (src) {
+              sel.value = b.id;
+              offerMoveCopies(src, b.id, pickerBinder || null, true);
+            } else {
+              App.ui.toast('Created "' + name + '". Add a copy to shelve it there.', "success");
+              commitSwitch(b.id);
+            }
           } catch (e) {
             App.handleApiError(e);
+            if (newBox) newBox.hidden = true;
+            sel.hidden = false;
+            paintBinder();
           }
-          if (newBox) newBox.hidden = true;
-          sel.hidden = false;
-          paintBinder();
-          rebindStepper();
         });
       });
       var cancelBtn = m.el.querySelector("#cm-binder-cancel");

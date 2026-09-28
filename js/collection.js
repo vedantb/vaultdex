@@ -999,14 +999,48 @@
   }
 
   /* Split copies between binders: moves moveQty copies of a row into
-   * targetBinderId (null = unshelved). The moved copies become their own
-   * row — binder_id is part of row identity, so the two rows never merge.
-   * Pricing/identity columns carry over verbatim; only quantity and binder
-   * change. Moving ALL copies is just a setBinder (no split needed). */
+   * targetBinderId (null = unshelved). Runs as one atomic database
+   * transaction (the move_binder_copies RPC): the moved copies become
+   * their own row — binder_id is part of row identity, so the two rows
+   * never merge — and when an identical row already sits in the target
+   * binder the copies merge into it instead of colliding. Pricing and
+   * identity columns carry over verbatim; only quantity and binder
+   * change. Moving ALL copies just re-shelves the row (merging too).
+   *
+   * If the RPC hasn't been deployed yet (migration pending), falls back
+   * to the legacy client-side two-write move so the UI keeps working. */
   async function splitRow(rowId, moveQty, targetBinderId) {
     var u = needUser();
     if (!u) return false;
     moveQty = Math.floor(Number(moveQty));
+    if (!isFinite(moveQty) || moveQty < 1) {
+      throw new Error("Move at least 1 copy.");
+    }
+    var res = await App.sb.rpc("move_binder_copies", {
+      p_row_id: rowId,
+      p_move_qty: moveQty,
+      p_target_binder_id: targetBinderId || null
+    });
+    if (res.error) {
+      if (isMissingFunction(res.error)) return splitRowLegacy(rowId, moveQty, targetBinderId);
+      throw res.error;
+    }
+    App.emit("collection:changed", { binder: true });
+    return true;
+  }
+
+  /* PostgREST reports an unknown RPC as 404 / PGRST202. */
+  function isMissingFunction(err) {
+    var msg = String((err && (err.message || err.code)) || "");
+    return err && (err.code === "PGRST202" || err.status === 404 ||
+      /move_binder_copies/i.test(msg) && /not found|could not find|does not exist/i.test(msg));
+  }
+
+  /* Pre-RPC move: two client writes, no merge. Kept only as a fallback
+   * until the move_binder_copies migration has run everywhere. */
+  async function splitRowLegacy(rowId, moveQty, targetBinderId) {
+    var u = needUser();
+    if (!u) return false;
     var got = await App.sb
       .from("collection_items")
       .select("*")
