@@ -342,3 +342,41 @@ describe("binderTier + sortBinderDefault (binders.js) — binder ordering", () =
     expect(B.sortByBinderRarity(rows).map((r) => r.id)).toEqual([2, 1]);
   });
 });
+
+describe("expandSlots (binders-view.js) — one sleeve per copy", () => {
+  const { expandSlots } = window.App.views.binderDetail;
+
+  test("a x3 row becomes three adjacent slots", () => {
+    const row = brow({ id: 7, quantity: 3 });
+    const slots = expandSlots([row]);
+    expect(slots).toHaveLength(3);
+    expect(slots.map((s) => s.copy)).toEqual([1, 2, 3]);
+    expect(slots.every((s) => s.of === 3)).toBe(true);
+    expect(slots.every((s) => s.row === row)).toBe(true);
+  });
+
+  test("a x1 row becomes a single slot", () => {
+    const slots = expandSlots([brow({ id: 1, quantity: 1 })]);
+    expect(slots).toHaveLength(1);
+    expect(slots[0].copy).toBe(1);
+    expect(slots[0].of).toBe(1);
+  });
+
+  test("missing or zero quantity is treated as one copy", () => {
+    expect(expandSlots([brow({ id: 1, quantity: 0 })])).toHaveLength(1);
+    expect(expandSlots([brow({ id: 2, quantity: null })])).toHaveLength(1);
+  });
+
+  test("rows keep their order with copies adjacent", () => {
+    const slots = expandSlots([
+      brow({ id: 1, quantity: 2 }),
+      brow({ id: 2, quantity: 1 }),
+    ]);
+    expect(slots.map((s) => s.row.id)).toEqual([1, 1, 2]);
+  });
+
+  test("empty input yields no slots", () => {
+    expect(expandSlots([])).toEqual([]);
+    expect(expandSlots(null)).toEqual([]);
+  });
+});

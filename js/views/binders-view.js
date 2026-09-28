@@ -225,15 +225,18 @@
     var nextBtn = root.querySelector("#bdet-next");
     var sortSel = root.querySelector("#bdet-sort");
 
-    function pageCount() { return Math.max(1, Math.ceil(state.items.length / PAGE_SIZE)); }
+    function pageCount() { return Math.max(1, Math.ceil(currentSlots().length / PAGE_SIZE)); }
+
+    /* One slot per copy: a ×3 row fills three sleeves, copies adjacent. */
+    function currentSlots() { return expandSlots(sortRows(state.items, state.sort)); }
 
     function renderPage(dir) {
       if (!gridEl.isConnected) return;
-      var sorted = sortRows(state.items, state.sort);
+      var slots = currentSlots();
       var pages = pageCount();
       if (state.page >= pages) state.page = pages - 1;
       if (state.page < 0) state.page = 0;
-      var slice = sorted.slice(state.page * PAGE_SIZE, state.page * PAGE_SIZE + PAGE_SIZE);
+      var slice = slots.slice(state.page * PAGE_SIZE, state.page * PAGE_SIZE + PAGE_SIZE);
       pageEl.textContent = "Page " + (state.page + 1) + " of " + pages;
       prevBtn.disabled = state.page === 0;
       nextBtn.disabled = state.page >= pages - 1;
@@ -246,12 +249,11 @@
       }
       var empties = "";
       for (var i = slice.length; i < PAGE_SIZE; i++) empties += emptyPocket();
-      gridEl.innerHTML = slice.map(function (it) { return detailTile(it); }).join("") + empties;
+      gridEl.innerHTML = slice.map(function (s) { return detailTile(s); }).join("") + empties;
       /* Page-turn feel: a quick flip on every page change. */
       gridEl.classList.remove("binder-flip");
       void gridEl.offsetWidth;
       if (dir) gridEl.classList.add("binder-flip");
-      wireTiles(gridEl, state.items);
     }
 
     function go(delta) {
@@ -297,20 +299,30 @@
     }
   };
 
+  /* Pure: expand collection rows into one slot per copy, so a ×3 row
+   * fills three sleeves. Copies of a row stay adjacent, in sort order. */
+  function expandSlots(items) {
+    var slots = [];
+    (items || []).forEach(function (row) {
+      var q = Math.max(1, Math.floor(row.quantity || 1));
+      for (var i = 0; i < q; i++) slots.push({ row: row, copy: i + 1, of: q });
+    });
+    return slots;
+  }
+
   /* Pocket tile for the flip view: a clear sleeve holding just the card
-   * art, like a physical 9-pocket page. Tap opens the card; the small
-   * tag button moves copies to another binder. */
-  function detailTile(item) {
+   * art, like a physical 9-pocket page. One slot per copy; the view is
+   * purely visual — taps do nothing, card management lives in the
+   * collection views. */
+  function detailTile(slot) {
+    var item = slot.row;
     var gradeBadge = item.grading_company
       ? '<span class="pocket-grade">' + App.esc(item.grading_company) + " " + App.esc(item.grade || "") + "</span>"
       : "";
-    var qtyBadge = item.quantity > 1 ? '<span class="pocket-qty">×' + item.quantity + "</span>" : "";
     var img = item.image_small || "";
-    return '<div class="binder-pocket" data-row="' + App.esc(item.id) + '" data-card="' + App.esc(item.card_id) + '">' +
-      '<div class="art"><img loading="lazy" src="' + App.esc(img) + '" alt="' + App.esc((item.card_name || "") + " card art") + '">' +
-      qtyBadge + gradeBadge +
-      '<button class="pocket-move" data-act="move" aria-label="Move copies of ' + App.esc(item.card_name) + ' to another binder" title="Move copies">' + App.ui.icon("tag") + "</button>" +
-      "</div></div>";
+    return '<div class="binder-pocket"><div class="art">' +
+      '<img loading="lazy" src="' + App.esc(img) + '" alt="' + App.esc((item.card_name || "") + " card art") + '">' +
+      gradeBadge + "</div></div>";
   }
 
   /* Empty sleeves round a partial page out to 9 pockets, like a real
@@ -319,64 +331,6 @@
     return '<div class="binder-pocket empty" aria-hidden="true"><div class="art"></div></div>';
   }
 
-  function wireTiles(gridEl, items) {
-    gridEl.querySelectorAll(".binder-pocket:not(.empty)").forEach(function (tile) {
-      var art = tile.querySelector(".art");
-      if (art) art.addEventListener("click", function () {
-        var rowId = tile.getAttribute("data-row");
-        var item = items.filter(function (x) { return x.id === rowId; })[0];
-        var cid = tile.getAttribute("data-card");
-        var lang = (App.util.isJa(item) || App.util.isJa(cid)) ? "ja" : "en";
-        App.openCardModal(cid, lang, item, art);
-      });
-      tile.querySelectorAll('[data-act="move"]').forEach(function (btn) {
-        btn.addEventListener("click", function (e) {
-          e.stopPropagation();
-          var rowId = tile.getAttribute("data-row");
-          var item = items.filter(function (x) { return x.id === rowId; })[0];
-          if (item) openMoveModal(item);
-        });
-      });
-    });
-  }
-
-  /* Move N copies of a row to another binder. Moving all copies just
-   * re-shelves the row; moving fewer splits it into two rows. */
-  function openMoveModal(item) {
-    var m = App.ui.openModal(
-      '<h2>Move copies</h2>' +
-      '<p class="modal-sub">' + App.esc(item.card_name) + " · ×" + item.quantity + " in this binder</p>" +
-      '<div class="field"><label for="mv-qty">Copies to move</label>' +
-      '<input id="mv-qty" type="number" min="1" max="' + item.quantity + '" value="' + Math.min(1, item.quantity) + '"></div>' +
-      '<div class="field"><label for="mv-binder">To binder</label><select id="mv-binder"><option value="">No binder (unshelve)</option></select></div>' +
-      '<div class="modal-actions"><button class="btn btn-primary" id="mv-go">Move</button></div>',
-      { narrow: true }
-    );
-    var sel = m.el.querySelector("#mv-binder");
-    App.binders.list().then(function (binders) {
-      if (!m.el.isConnected) return;
-      binders.filter(function (b) { return b.id !== item.binder_id; }).forEach(function (b) {
-        var opt = document.createElement("option");
-        opt.value = b.id;
-        opt.textContent = b.name;
-        sel.appendChild(opt);
-      });
-    });
-    m.el.querySelector("#mv-go").addEventListener("click", async function () {
-      var qty = Math.floor(Number(m.el.querySelector("#mv-qty").value));
-      var target = sel.value || null;
-      if (!isFinite(qty) || qty < 1 || qty > item.quantity) {
-        App.ui.toast("Move between 1 and " + item.quantity + " copies.", "info");
-        return;
-      }
-      try {
-        await App.collection.splitRow(item.id, qty, target);
-        m.close();
-        App.ui.toast(qty === item.quantity ? "Moved." : "Split — " + qty + " moved.", "success");
-        App.navigate(window.location.pathname, { replace: true });
-      } catch (e) { App.handleApiError(e); }
-    });
-  }
   /* Pure: group unshelved collection rows by set, for the Add-cards modal.
    * Rows already in any binder are excluded — shelving never rips cards
    * out of another binder. */
@@ -474,4 +428,5 @@
   }
   /* Exposed for unit tests. */
   App.views.binderDetail.groupUnshelvedBySet = groupUnshelvedBySet;
+  App.views.binderDetail.expandSlots = expandSlots;
 })();
