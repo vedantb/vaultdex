@@ -33,9 +33,10 @@
 
   /* Deterministic cover hue per binder, so empty binders still get a
    * rich, visible cover in both light and dark mode. */
-  /* Binder cover artwork: four physical-binder designs shipped with the
-   * app, picked deterministically per binder so each binder keeps its look. */
-  var BINDER_COVERS = ["binder-black", "binder-blue", "binder-purple", "binder-red"];
+  /* Binder cover artwork: official Vault X Exo-Tec zip binder product
+   * shots (Signature Black, Royal Blue, Forest Green, Fire Red), picked
+   * deterministically per binder so each binder keeps its look. */
+  var BINDER_COVERS = ["binder-black", "binder-blue", "binder-green", "binder-red"];
   function binderCover(id) {
     var h = 0, s = String(id || "");
     for (var i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) >>> 0;

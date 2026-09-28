@@ -35,6 +35,8 @@
   height: 100%;
   object-fit: cover;
   display: block;
+  /* Slight bleed so no source-image edge pixels ever peek through. */
+  transform: scale(1.04);
 }
 /* Dark scrim so the overlaid name reads over any artwork. */
 .binder-scrim {
