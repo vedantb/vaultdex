@@ -58,6 +58,14 @@
     {
       "destination": "/index.html",
       "source": "/scan"
+    },
+    {
+      "destination": "/index.html",
+      "source": "/binders"
+    },
+    {
+      "destination": "/index.html",
+      "source": "/binder/:id"
     }
   ]
 }
