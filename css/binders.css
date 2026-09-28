@@ -1,0 +1,136 @@
+/* Binders: /binders hub + /binder/<id> flip-through view. */
+
+/* ---------- hub ---------- */
+.binder-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+.binder-tile {
+  display: block;
+  border: 1px solid var(--border, #e5e5e5);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--card-bg, #fff);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.binder-tile:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+.binder-cover {
+  width: 100%;
+  aspect-ratio: 5 / 3;
+  object-fit: cover;
+  display: block;
+  background: var(--tile-bg, #f4f4f5);
+}
+.binder-cover-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted, #999);
+}
+.binder-cover-empty svg {
+  width: 40px;
+  height: 40px;
+}
+.binder-meta {
+  padding: 10px 12px 12px;
+}
+.binder-name {
+  font-weight: 600;
+  font-size: 15px;
+  margin-bottom: 2px;
+}
+.binder-stats {
+  font-size: 13px;
+  color: var(--muted, #666);
+}
+
+/* ---------- manage modal ---------- */
+.mb-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border, #eee);
+}
+.mb-row:last-child {
+  border-bottom: none;
+}
+.mb-name {
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.mb-actions {
+  display: flex;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+/* ---------- detail: sort + pagination bar ---------- */
+.binder-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 12px 0 16px;
+  flex-wrap: wrap;
+}
+.binder-bar label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+.binder-pages {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.binder-pages span {
+  font-size: 14px;
+  color: var(--muted, #666);
+  min-width: 90px;
+  text-align: center;
+}
+
+/* ---------- detail: the 3x3 sheet + page flip ---------- */
+.binder-sheet.card-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+.binder-flip {
+  animation: binder-page-flip 0.45s ease;
+  transform-origin: left center;
+}
+@keyframes binder-page-flip {
+  0% { transform: rotateY(-70deg); opacity: 0.2; }
+  100% { transform: rotateY(0deg); opacity: 1; }
+}
+.qty-badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 1px 6px;
+  border-radius: 999px;
+  background: var(--accent-bg, #eef);
+  color: var(--accent, #3366cc);
+}
+
+/* ---------- mobile ---------- */
+@media (max-width: 640px) {
+  .binder-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .binder-bar {
+    margin: 8px 0 12px;
+  }
+}

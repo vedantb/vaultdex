@@ -129,20 +129,23 @@
   }
 
   /* Row identity for the live stepper: (normalized variant label, pkmn_id,
-   * grading company, grade) — mirrors addItem's duplicate check in
+   * grading company, grade, binder_id) — mirrors addItem's duplicate check in
    * js/collection.js so the stepper always binds the exact row addItem
-   * would bump. Pure; exposed on App.cardModal for unit tests. */
+   * would bump. Split copies: the same card in two binders is two rows.
+   * Pure; exposed on App.cardModal for unit tests. */
   function normVLabel(v) {
     if (App.tcg && App.tcg.normVLabel) return App.tcg.normVLabel(v);
     return String(v || "").toLowerCase().replace(/[^a-z0-9]/g, "");
   }
-  function findBoundRow(rows, variantLabel, pkmnId, grading) {
+  function findBoundRow(rows, variantLabel, pkmnId, grading, binderId) {
     var wantV = normVLabel(variantLabel);
     var gC = (grading && grading.company) || null;
     var gG = (grading && grading.grade) || null;
+    var wantB = binderId || null;
     var cands = (rows || []).filter(function (r) {
       return normVLabel(r.variant) === wantV &&
-        (r.grading_company || null) === gC && (r.grade || null) === gG;
+        (r.grading_company || null) === gC && (r.grade || null) === gG &&
+        (r.binder_id || null) === wantB;
     });
     if (!cands.length) return null;
     if (cands.length === 1) return cands[0];
@@ -403,6 +406,17 @@
                   '<span class="qty" id="cm-qty">0</span>' +
                   '<button id="cm-plus" aria-label="Add one copy">' + App.ui.icon("plus") + "</button>" +
                 "</div>" +
+              "</div>" +
+              /* Binder tracking: which physical binder this row lives in.
+               * Bound to the same row the stepper edits (variant + grading).
+               * "+ New binder…" swaps in a small inline creator. */
+              '<div class="field" style="margin-bottom:10px"><label for="cm-binder">Binder</label>' +
+                '<select id="cm-binder" aria-label="Binder"><option value="">No binder</option></select>' +
+                '<div id="cm-binder-new" hidden style="display:flex;gap:6px;margin-top:6px">' +
+                  '<input id="cm-binder-name" type="text" placeholder="New binder name" maxlength="60" autocomplete="off" style="flex:1;min-width:0">' +
+                  '<button type="button" class="btn btn-sm btn-primary" id="cm-binder-add">Add</button>' +
+                  '<button type="button" class="btn btn-sm btn-ghost" id="cm-binder-cancel">Cancel</button>' +
+                "</div>" +
               "</div>"
             : '<p style="font-size:0.85rem;color:var(--muted);margin:12px 0 0">Only the owner can add to this collection.</p>') +
           '<p style="font-size:0.78rem;color:var(--muted);margin:12px 0 0">' +
@@ -658,8 +672,22 @@
       if (selectedBox) return selectedBox.label;
       return VARIANT_LABELS[selected] || selected;
     }
+    /* Binder picker: which physical binder's row the stepper edits — a row
+     * selection dimension just like the variant pills and grading toggle.
+     * "" = unshelved; "__new" is transient (inline creator), treated as null. */
+    function currentBinder() {
+      var sel = m.el.querySelector("#cm-binder");
+      var v = sel ? sel.value : "";
+      return (v && v !== "__new") ? v : null;
+    }
+    function currentBinderName() {
+      var sel = m.el.querySelector("#cm-binder");
+      if (!sel || !sel.value || sel.value === "__new") return null;
+      var opt = sel.querySelector('option[value="' + sel.value + '"]');
+      return opt ? opt.textContent : null;
+    }
     function boundRow(pkmnId) {
-      return findBoundRow(ownedRows, currentVariantLabel(), pkmnId || null, currentGrading());
+      return findBoundRow(ownedRows, currentVariantLabel(), pkmnId || null, currentGrading(), currentBinder());
     }
     async function refreshOwnedRows() {
       var u = App.auth && App.auth.user;
@@ -674,6 +702,8 @@
     function stepperLabel(row) {
       var grading = currentGrading();
       var ctx = grading ? grading.company + " " + grading.grade : currentVariantLabel();
+      var bName = currentBinderName();
+      if (bName) ctx += ' · "' + bName + '"';
       if (row && row.quantity > 0) return ctx + " · ×" + row.quantity + " owned";
       return ctx + " · not owned yet";
     }
@@ -689,6 +719,45 @@
       if (labelEl) labelEl.textContent = stepperLabel(row);
       if (minus) minus.disabled = writing || q <= 0;
       if (plus) plus.disabled = writing;
+    }
+    /* Binder picker: which physical binder the bound row lives in.
+     * Repainted alongside the stepper since both follow the same row. */
+    /* The picker is a row-selection dimension, so repaints must preserve the
+     * user's choice — never snap it to some row. "__new" is transient and
+     * never survives a repaint; a deleted binder falls back to unshelved. */
+    function paintBinder() {
+      var sel = m.el.querySelector("#cm-binder");
+      if (!sel || !App.binders) return;
+      var cur = sel.value || "";
+      App.binders.list().then(function (binders) {
+        if (!m.el.isConnected) return;
+        sel.innerHTML = '<option value="">No binder</option>' + binders.map(function (b) {
+          return '<option value="' + App.esc(b.id) + '"' +
+            (cur === b.id ? " selected" : "") + ">" +
+            App.esc(b.name) + "</option>";
+        }).join("") + '<option value="__new">+ New binder…</option>';
+        if (cur === "__new" || (cur && sel.value !== cur)) sel.value = "";
+      }, function (e) {
+        console.warn("[VaultDex] binders failed:", e && e.message);
+      });
+    }
+    /* On open, default the picker to the holding with the most copies of the
+     * current variant+grading (the "main" row), so the stepper shows owned
+     * quantities immediately instead of "not owned yet". */
+    function preselectBinder() {
+      var sel = m.el.querySelector("#cm-binder");
+      if (!sel || sel.value) return;
+      var vlabel = currentVariantLabel();
+      var grading = currentGrading();
+      var gC = (grading && grading.company) || null;
+      var gG = (grading && grading.grade) || null;
+      var best = null;
+      (ownedRows || []).forEach(function (r) {
+        if (normVLabel(r.variant) !== normVLabel(vlabel)) return;
+        if ((r.grading_company || null) !== gC || (r.grade || null) !== gG) return;
+        if (!best || r.quantity > best.quantity) best = r;
+      });
+      if (best && best.binder_id) sel.value = best.binder_id;
     }
     /* Lazy exact PkmnPrices match for the chosen printing (a few credits) —
      * only when creating a brand-new row; bumps never re-resolve pricing.
@@ -754,7 +823,7 @@
               pkmnId: pm.pkmnId,
               label: vlabel,
               resolved: pm
-            } : null, grading);
+            } : null, grading, currentBinder());
           }
         }
       } else {
@@ -786,8 +855,9 @@
     m.el.querySelector("#cm-plus").addEventListener("click", function () { enqueue(function () { return doAdjust(1); }); });
     function rebindStepper() {
       /* Variant pills and the grading controls choose which row the
-       * stepper edits — repaint the binding instantly. */
-      if (m.el.isConnected) paintStepper();
+       * stepper edits — repaint the binding instantly. The binder picker
+       * follows the same row, so it repaints too. */
+      if (m.el.isConnected) { paintStepper(); paintBinder(); }
     }
     function bindPills() {
       m.el.querySelectorAll(".variant-pill").forEach(function (btn) {
@@ -823,10 +893,55 @@
     /* Keep the stepper in sync when the collection changes behind the
      * modal — handled by the collection:changed subscription above. */
     refreshOwnedRows().then(function () {
-      if (m.el.isConnected) paintStepper();
+      if (m.el.isConnected) { preselectBinder(); paintStepper(); paintBinder(); }
     }, function (e) {
       console.warn("[VaultDex] owned rows failed:", e && e.message);
     });
+    /* Binder picker wiring: the picker is a row-selection dimension (like the
+     * variant pills) — switching it just rebinds the stepper to that
+     * binder's row. "+ New binder…" opens the inline creator. */
+    (function bindBinderPicker() {
+      var sel = m.el.querySelector("#cm-binder");
+      if (!sel || !App.binders) return;
+      var newBox = m.el.querySelector("#cm-binder-new");
+      var nameInput = m.el.querySelector("#cm-binder-name");
+      sel.addEventListener("change", function () {
+        var val = sel.value;
+        if (val === "__new") {
+          sel.hidden = true;
+          if (newBox) { newBox.hidden = false; }
+          if (nameInput) { nameInput.value = ""; nameInput.focus(); }
+          return;
+        }
+        /* Selection dimension changed — repaint the stepper against the
+         * (variant, grading, binder) row, same as the pill handler does. */
+        rebindStepper();
+      });
+      var addBtn = m.el.querySelector("#cm-binder-add");
+      if (addBtn) addBtn.addEventListener("click", function () {
+        var name = nameInput ? nameInput.value.trim() : "";
+        if (!name) { if (nameInput) nameInput.focus(); return; }
+        enqueue(async function () {
+          try {
+            var b = await App.binders.create(name);
+            sel.value = b.id;
+            App.ui.toast('Created "' + name + '". Add a copy to shelve it there.', "success");
+          } catch (e) {
+            App.handleApiError(e);
+          }
+          if (newBox) newBox.hidden = true;
+          sel.hidden = false;
+          paintBinder();
+          rebindStepper();
+        });
+      });
+      var cancelBtn = m.el.querySelector("#cm-binder-cancel");
+      if (cancelBtn) cancelBtn.addEventListener("click", function () {
+        if (newBox) newBox.hidden = true;
+        sel.hidden = false;
+        paintBinder();
+      });
+    })();
     /* Wishlist heart (owner-only): toggles this card for the currently
      * selected variant pill. Fully separate from the stepper flow above —
      * neither can break the other. */

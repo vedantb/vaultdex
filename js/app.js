@@ -87,6 +87,7 @@
     ]},
     { heading: "My Vault", items: [
       { key: "browse", href: "/browse", label: "Browse", icon: "search" },
+      { key: "binders", href: "/binders", label: "Binders", icon: "binder" },
       { key: "wishlist", href: "/wishlist", label: "Wishlist", icon: "heart" },
       { key: "trophies", href: "/trophies", label: "Trophies", icon: "trophy" },
       { key: "movers", href: "/movers", label: "Price Movers", icon: "chart" }
@@ -151,7 +152,7 @@
   function updateNavVisibility() {
     // The catalog is owner-only; visitors get the public collection page.
     var show = App.auth.isOwner();
-    ["browse", "trophies", "wishlist"].forEach(function (k) {
+    ["browse", "trophies", "wishlist", "binders"].forEach(function (k) {
       document.querySelectorAll('[data-nav="' + k + '"]').forEach(function (a) {
         a.style.display = show ? "" : "none";
       });
@@ -209,6 +210,7 @@
       : path === "/pokedex" ? "pokedex"
       : path === "/trophies" ? "trophies"
       : path === "/wishlist" ? "wishlist"
+      : path === "/binders" || path.indexOf("/binder/") === 0 ? "binders"
       : path === "/movers" ? "movers"
       : (path === "/games" || path.indexOf("/games/") === 0) ? "games"
       : "collection";
@@ -224,6 +226,7 @@
     window.scrollTo(0, 0);
 
     var setMatch = path.match(/^\/set\/([\w.-]+)$/);
+    var binderMatch = path.match(/^\/binder\/([\w-]+)$/);
     // Legacy set-id aliases (old catalog used me2pt5 for Ascended Heroes).
     var SET_ALIASES = { me2pt5: "me02.5" };
     // Each navigation renders into its own staging node. The node's
@@ -254,6 +257,10 @@
         viewPromise = App.views.movers(stage);
       } else if (path === "/trade") {
         viewPromise = App.views.trade(stage);
+      } else if (path === "/binders") {
+        viewPromise = App.views.binders(stage);
+      } else if (binderMatch) {
+        viewPromise = App.views.binderDetail(stage, binderMatch[1]);
       } else if (path === "/pokedex") {
         viewPromise = App.views.pokedex(stage);
       } else if (path === "/trophies") {
@@ -382,7 +389,8 @@
       var href = a.getAttribute("href");
       if (href === "/" || href === "/login" || href === "/collection" || href === "/browse" ||
           href === "/wishlist" || href === "/movers" || href === "/trade" ||
-          href === "/pokedex" || href === "/trophies" ||
+          href === "/pokedex" || href === "/trophies" || href === "/binders" ||
+          href.indexOf("/binder/") === 0 ||
           href === "/games" || href.indexOf("/games/") === 0 ||
           href.indexOf("/set/") === 0) {
         e.preventDefault();

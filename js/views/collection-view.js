@@ -22,6 +22,11 @@
       ? ' title="Near Mint raw price — graded price unavailable"' : "";
     /* Trade binder toggle state: trade-on (explicit), trade-auto (surplus
      * rule), trade-off (excluded/none). Defensive when js/trade.js is absent. */
+    /* Binder chip on owned tiles (owner-only surface): which physical
+     * binder this row is shelved in. binderName is a sync cache lookup. */
+    var binderChip = (!readOnly && App.binders && item.binder_id)
+      ? (function () { var n = App.binders.binderName(item); return n ? '<span class="binder-chip">' + App.esc(n) + "</span>" : ""; })()
+      : "";
     var tradeState = (App.trade && !readOnly) ? App.trade.tradeState(item) : "";
     var controls = readOnly ? "" :
         '<div class="tile-controls">' +
@@ -41,7 +46,7 @@
       setHtml: App.esc(item.set_name || ""),
       priceHtml:
         '<span class="price-badge"' + priceTitle + ">" + App.ui.money(value, item.price_currency) + "</span>" +
-        '<span class="price-chips">' + gradeBadge + '<span class="variant-chip">' + App.esc(item.variant) + "</span></span>",
+        '<span class="price-chips">' + gradeBadge + binderChip + '<span class="variant-chip">' + App.esc(item.variant) + "</span></span>",
       postPrice: controls
     });
   }
@@ -62,7 +67,7 @@
     var readOnly = !App.auth.isOwner();
 
     var items = [];
-    var state = { q: "", artist: "", set: "", min: "", max: "", sort: "value", lang: "", limit: 0 };
+    var state = { q: "", artist: "", set: "", binder: "", min: "", max: "", sort: "value", lang: "", limit: 0 };
     var GRID_PAGE = 120; /* tiles rendered per page — keeps the DOM light on big collections */
 
     function el(id) { return root.querySelector("#" + id); }
@@ -113,6 +118,7 @@
         '<div class="filter-panel" id="c-filters" hidden>' +
           '<div class="field"><label for="c-artist">Artist</label><input id="c-artist" type="text" placeholder="Artist name" autocomplete="off" list="c-artist-list"><datalist id="c-artist-list"></datalist></div>' +
           '<div class="field"><label for="c-set">Set</label><select id="c-set"><option value="">All sets</option></select></div>' +
+          (readOnly ? "" : '<div class="field"><label for="c-binder">Binder</label><select id="c-binder"><option value="">All binders</option><option value="__none">No binder</option></select></div>') +
           '<div class="field"><label>Price range</label><div class="price-presets" id="c-price-presets">' +
             '<button type="button" data-min="" data-max="">Any</button>' +
             '<button type="button" data-min="" data-max="10">Under $10</button>' +
@@ -164,6 +170,10 @@
         if (artist && (it.artist || "").toLowerCase().indexOf(artist) === -1) return false;
         if (state.set && it.set_name !== state.set) return false;
         if (state.lang && App.util.langOf(it) !== state.lang) return false;
+        /* Binder filter (owner-only surface): a specific binder, or "__none"
+         * for unshelved cards. */
+        if (state.binder === "__none") { if (it.binder_id) return false; }
+        else if (state.binder && it.binder_id !== state.binder) return false;
         var v = rowValue(it);
         if (min !== null && (v === null || v < min)) return false;
         if (max !== null && (v === null || v > max)) return false;
@@ -272,6 +282,7 @@
       state.q = el("c-q").value;
       state.artist = el("c-artist").value;
       state.set = el("c-set").value;
+      state.binder = el("c-binder") ? el("c-binder").value : "";
       state.min = el("c-min").value;
       state.max = el("c-max").value;
       state.sort = el("c-sort").value;
@@ -317,6 +328,7 @@
       var n = 0;
       if (state.artist.trim()) n++;
       if (state.set) n++;
+      if (state.binder) n++;
       if (state.min !== "") n++;
       if (state.max !== "") n++;
       var filterCount = el("c-filter-count");
@@ -337,8 +349,9 @@
       ["c-q", "c-artist", "c-min", "c-max"].forEach(function (id) {
         el(id).addEventListener("input", debounced);
       });
-      ["c-set", "c-sort"].forEach(function (id) {
-        el(id).addEventListener("change", function () { readFilters(); renderGrid(); updateFilterBadge(); });
+      ["c-set", "c-sort", "c-binder"].forEach(function (id) {
+        var c = el(id);
+        if (c) c.addEventListener("change", function () { readFilters(); renderGrid(); updateFilterBadge(); });
       });
 
       el("c-back").addEventListener("click", function () { App.navigate("/"); });
@@ -367,6 +380,7 @@
         el("c-min").value = "";
         el("c-max").value = "";
         el("c-set").value = "";
+        if (el("c-binder")) el("c-binder").value = "";
         el("c-sort").value = "value";
         state.lang = "";
         renderLangPills();
@@ -416,9 +430,30 @@
       el("c-q").value = state.q;
       el("c-artist").value = state.artist;
       el("c-set").value = state.set;
+      if (el("c-binder")) el("c-binder").value = state.binder;
       el("c-min").value = state.min;
       el("c-max").value = state.max;
       el("c-sort").value = state.sort;
+    }
+
+    /* Owner-only: fill the binder filter with the user's binders. Async and
+     * defensive — the filter simply stays "All binders" if it fails. */
+    function populateBinderFilter() {
+      var sel = el("c-binder");
+      if (!sel || !App.binders) return;
+      App.binders.list().then(function (binders) {
+        if (!sel.isConnected) return;
+        var cur = sel.value;
+        sel.innerHTML = '<option value="">All binders</option>' +
+          binders.map(function (b) {
+            return '<option value="' + App.esc(b.id) + '">' + App.esc(b.name) + "</option>";
+          }).join("") +
+          '<option value="__none">No binder</option>';
+        sel.value = cur;
+        if (sel.value !== cur) sel.value = "";
+      }, function (e) {
+        console.warn("[VaultDex] binder filter failed:", e && e.message);
+      });
     }
 
     function showGrid(preset) {
@@ -426,6 +461,7 @@
       wireGrid();
       el("c-back").innerHTML = App.ui.icon("chev-l") + " Home";
       populateGridInputs();
+      populateBinderFilter();
       renderStats();
       renderLangPills();
       renderGrid();

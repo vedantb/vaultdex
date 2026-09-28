@@ -168,22 +168,27 @@
   }
 
   /* Row identity for addItem's duplicate check: (normalized variant label,
-   * pkmn_id). Two printings can share one PkmnPrices record (Holo and Cosmos
-   * Holo both price off the base record when the provider carries no cosmos
-   * listing), and one printing can be stored under different label spellings
-   * ("Holo" vs "holofoil"). Pure so it can be unit-tested. */
-  function findMatchingRow(rows, variant, pkmnId) {
+   * pkmn_id, binder_id). Two printings can share one PkmnPrices record (Holo
+   * and Cosmos Holo both price off the base record when the provider carries
+   * no cosmos listing), and one printing can be stored under different label
+   * spellings ("Holo" vs "holofoil"). Split copies: the same card+variant in
+   * two binders is two rows, so binder_id is part of the identity (null-safe).
+   * Pure so it can be unit-tested. */
+  function findMatchingRow(rows, variant, pkmnId, binderId) {
     var wantV = App.tcg.normVLabel(variant);
     var wantP = pkmnId || null;
+    var wantB = binderId || null;
     return (rows || []).find(function (r) {
-      return App.tcg.normVLabel(r.variant) === wantV && (r.pkmn_id || null) === wantP;
+      return App.tcg.normVLabel(r.variant) === wantV &&
+        (r.pkmn_id || null) === wantP &&
+        (r.binder_id || null) === wantB;
     }) || null;
   }
 
   /* pkmn: optional { pkmnId, label } for a PkmnPrices print variant
    * (per-variant set-page checkboxes). Prices directly against that exact
    * record; the row keeps the variant's human label. */
-  async function rowFromCard(u, card, variant, quantity, pkmn, grading) {
+  async function rowFromCard(u, card, variant, quantity, pkmn, grading, binderId) {
     var market = null;
     var priceSource = null;
     var priceCurrency = "USD";
@@ -274,6 +279,7 @@
       artist: card.artist || null,
       rarity: card.rarity || null,
       variant: label,
+      binder_id: binderId || null,
       pkmn_id: pkmnId,
       grading_company: gradingCompany,
       grade: gradingGrade,
@@ -359,16 +365,19 @@
     return rows;
   }
 
-  async function addItem(card, variant, quantity, pkmn, grading) {
+  async function addItem(card, variant, quantity, pkmn, grading, binderId) {
     var u = needUser();
     if (!u) return false;
     variant = variant || defaultVariant(card);
     quantity = clampQuantity(quantity);
     var pkmnId = (pkmn && pkmn.pkmnId) || null;
+    /* Split copies: binder_id is part of row identity — the same card+variant
+     * shelved in two binders is two rows. NULL-safe like the grading filters. */
+    var wantBinder = binderId || null;
 
     var lookup = App.sb
       .from("collection_items")
-      .select("id,quantity,variant,pkmn_id")
+      .select("id,quantity,variant,pkmn_id,binder_id")
       .eq("user_id", u.id)
       .eq("card_id", card.id);
     var gCompany = (grading && grading.company) || null;
@@ -377,16 +386,17 @@
     // NULL-safe: pre-migration rows have NULL grading columns.
     lookup = gCompany === null ? lookup.is("grading_company", null) : lookup.eq("grading_company", gCompany);
     lookup = gGrade === null ? lookup.is("grade", null) : lookup.eq("grade", gGrade);
+    lookup = wantBinder === null ? lookup.is("binder_id", null) : lookup.eq("binder_id", wantBinder);
     var found = await lookup;
     if (found.error) throw found.error;
-    /* Row identity is (normalized variant label, pkmn_id): two printings can
+    /* Row identity is (normalized variant label, pkmn_id, binder_id): two printings can
      * share one PkmnPrices record — e.g. Holo and Cosmos Holo both price off
      * the base record when the provider carries no cosmos listing — and the
      * same printing can be stored under different label spellings ("Holo"
      * vs "holofoil"). Matching on pkmn_id alone merged distinct printings,
      * so checking Holo made Cosmos Holo uncheckable (it just bumped the
      * Holo row's quantity). */
-    var ex = findMatchingRow(found.data, variant, pkmnId);
+    var ex = findMatchingRow(found.data, variant, pkmnId, wantBinder);
 
     var addedPriceSource = null;
     if (ex) {
@@ -396,7 +406,7 @@
         .eq("id", ex.id);
       if (up.error) throw up.error;
     } else {
-      var newRow = await rowFromCard(u, card, variant, quantity, pkmn, grading);
+      var newRow = await rowFromCard(u, card, variant, quantity, pkmn, grading, wantBinder);
       var ins = await App.sb.from("collection_items").insert(newRow);
       if (ins.error) throw ins.error;
       addedPriceSource = newRow.price_source;
@@ -988,6 +998,55 @@
     return true;
   }
 
+  /* Split copies between binders: moves moveQty copies of a row into
+   * targetBinderId (null = unshelved). The moved copies become their own
+   * row — binder_id is part of row identity, so the two rows never merge.
+   * Pricing/identity columns carry over verbatim; only quantity and binder
+   * change. Moving ALL copies is just a setBinder (no split needed). */
+  async function splitRow(rowId, moveQty, targetBinderId) {
+    var u = needUser();
+    if (!u) return false;
+    moveQty = Math.floor(Number(moveQty));
+    var got = await App.sb
+      .from("collection_items")
+      .select("*")
+      .eq("id", rowId)
+      .eq("user_id", u.id)
+      .single();
+    if (got.error) throw got.error;
+    var row = got.data;
+    if (!row) throw new Error("Card not found.");
+    if (!isFinite(moveQty) || moveQty < 1 || moveQty > row.quantity) {
+      throw new Error("Move between 1 and " + row.quantity + " copies.");
+    }
+    var target = targetBinderId || null;
+    if (moveQty === row.quantity) {
+      /* Whole row moves — no split, just re-shelve. */
+      var mv = await App.sb
+        .from("collection_items")
+        .update({ binder_id: target })
+        .eq("id", rowId)
+        .eq("user_id", u.id);
+      if (mv.error) throw mv.error;
+      App.emit("collection:changed", { cardId: row.card_id, binder: true });
+      return row;
+    }
+    var copy = Object.assign({}, row);
+    delete copy.id;
+    copy.quantity = moveQty;
+    copy.binder_id = target;
+    var ins = await App.sb.from("collection_items").insert(copy).select().single();
+    if (ins.error) throw ins.error;
+    var up = await App.sb
+      .from("collection_items")
+      .update({ quantity: row.quantity - moveQty })
+      .eq("id", rowId)
+      .eq("user_id", u.id);
+    if (up.error) throw up.error;
+    App.emit("collection:changed", { cardId: row.card_id, binder: true });
+    return ins.data;
+  }
+
   async function remove(id) {
     var u = needUser();
     if (!u) return false;
@@ -1287,6 +1346,7 @@
     setQuantity: setQuantity,
     remove: remove,
     restoreRow: restoreRow,
+    splitRow: splitRow,
     refreshPrices: refreshPrices,
     recordValueSnapshot: recordValueSnapshot,
     valueHistory: valueHistory,
