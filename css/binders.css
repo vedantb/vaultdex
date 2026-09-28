@@ -7,48 +7,81 @@
   gap: 16px;
   margin-top: 16px;
 }
+/* Full-bleed cover tile: artwork fills the tile, binder name sits on top
+ * of a bottom scrim — always legible in light and dark mode. */
 .binder-tile {
+  position: relative;
   display: block;
-  border: 1px solid var(--border, #e5e5e5);
-  border-radius: 12px;
+  aspect-ratio: 3 / 4;
+  border-radius: 16px;
   overflow: hidden;
-  background: var(--card-bg, #fff);
+  border: 1px solid var(--border, #e5e5e5);
   text-decoration: none;
-  color: inherit;
+  color: #fff;
+  background: var(--surface-2, #222);
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 .binder-tile:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28);
 }
-.binder-cover {
+.binder-art {
+  position: absolute;
+  inset: 0;
+}
+.binder-art-img {
   width: 100%;
-  aspect-ratio: 5 / 3;
+  height: 100%;
   object-fit: cover;
   display: block;
-  background: var(--tile-bg, #f4f4f5);
 }
-.binder-cover-empty {
+.binder-art-empty {
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--muted, #999);
 }
-.binder-cover-empty svg {
-  width: 40px;
-  height: 40px;
+.binder-art-empty svg {
+  width: 56px;
+  height: 56px;
+  color: rgba(255, 255, 255, 0.8);
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.35));
 }
-.binder-meta {
-  padding: 10px 12px 12px;
+/* Dark scrim so the overlaid name reads over any artwork. */
+.binder-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.82) 0%,
+    rgba(0, 0, 0, 0.38) 42%,
+    rgba(0, 0, 0, 0) 68%
+  );
+}
+.binder-overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 14px 14px 12px;
 }
 .binder-name {
-  font-weight: 600;
-  font-size: 15px;
-  margin-bottom: 2px;
+  font-weight: 700;
+  font-size: 17px;
+  line-height: 1.25;
+  color: #fff;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.55);
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 .binder-stats {
+  margin-top: 2px;
   font-size: 13px;
-  color: var(--muted, #666);
+  color: rgba(255, 255, 255, 0.85);
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
 }
 
 /* ---------- manage modal ---------- */

@@ -31,6 +31,16 @@
     return map;
   }
 
+  /* Deterministic cover hue per binder, so empty binders still get a
+   * rich, visible cover in both light and dark mode. */
+  /* Deterministic cover hue per binder, so empty binders still get a
+   * rich, visible cover in both light and dark mode. */
+  function binderHue(id) {
+    var h = 0, s = String(id || "");
+    for (var i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) % 360;
+    return h;
+  }
+
   /* ---------- /binders hub ---------- */
 
   App.views.binders = async function (root) {
@@ -68,12 +78,17 @@
           var copies = items.reduce(function (n, r) { return n + (r.quantity || 0); }, 0);
           var total = items.reduce(function (n, r) { return n + rowValue(r); }, 0);
           var cover = items.slice().sort(function (a, c) { return rowValue(c) - rowValue(a); })[0];
-          var art = cover && cover.image_small
-            ? '<img class="binder-cover" src="' + App.esc(cover.image_small) + '" alt="" loading="lazy">'
-            : '<div class="binder-cover binder-cover-empty">' + App.ui.icon("cards") + "</div>";
+          var art;
+          if (cover && cover.image_small) {
+            art = '<img class="binder-art-img" src="' + App.esc(cover.image_small) + '" alt="" loading="lazy">';
+          } else {
+            var hue = binderHue(bdr.id), hue2 = (hue + 50) % 360;
+            art = '<div class="binder-art-empty" style="background:linear-gradient(150deg,hsl(' + hue + ',55%,44%),hsl(' + hue2 + ',62%,24%))">' +
+              App.ui.icon("cards") + "</div>";
+          }
           return '<a class="binder-tile" href="/binder/' + App.esc(bdr.id) + '" data-binder="' + App.esc(bdr.id) + '">' +
-            art +
-            '<div class="binder-meta"><div class="binder-name">' + App.esc(bdr.name) + "</div>" +
+            '<div class="binder-art">' + art + '<div class="binder-scrim"></div></div>' +
+            '<div class="binder-overlay"><div class="binder-name">' + App.esc(bdr.name) + "</div>" +
             '<div class="binder-stats">' + copies + (copies === 1 ? " card" : " cards") +
             " · " + App.ui.money(total) + "</div></div></a>";
         }).join("");
