@@ -1,5 +1,7 @@
 /* Binders views: the /binders hub and the /binder/<id> flip-through view.
- * Owner-only — signed-out visitors never see binder information. */
+ * Public and view-only for signed-out visitors: they can browse the
+ * binders and flip through pages, but every editing affordance (new /
+ * manage binders, add cards, drag-and-drop) is owner-only. */
 (function () {
   "use strict";
 
@@ -9,14 +11,6 @@
 
   function isOwner() {
     return App.auth && App.auth.isOwner && App.auth.isOwner();
-  }
-
-  function privateState(root) {
-    root.innerHTML = App.ui.emptyState({
-      title: "Binders are private",
-      body: "Sign in as the owner to browse the physical binder collection.",
-      icon: "cards"
-    });
   }
 
   function rowValue(row) {
@@ -48,30 +42,34 @@
   /* ---------- /binders hub ---------- */
 
   App.views.binders = async function (root) {
-    if (!isOwner()) { privateState(root); return; }
+    var readOnly = !isOwner();
     root.innerHTML =
       '<div class="page-head"><h1>Binders</h1>' +
-      '<div class="page-actions">' +
-      '<button class="btn btn-ghost" id="bd-manage">Manage</button>' +
-      '<button class="btn btn-primary" id="bd-new">New binder</button>' +
-      "</div></div>" +
+      (readOnly ? "" :
+        '<div class="page-actions">' +
+        '<button class="btn btn-ghost" id="bd-manage">Manage</button>' +
+        '<button class="btn btn-primary" id="bd-new">New binder</button>' +
+        "</div>") + "</div>" +
       '<div id="bd-grid" class="binder-grid"><div class="loading">Loading binders…</div></div>';
 
-    root.querySelector("#bd-new").addEventListener("click", function () { openNewBinderModal(render); });
-    root.querySelector("#bd-manage").addEventListener("click", function () { openManageModal(render); });
+    if (!readOnly) {
+      root.querySelector("#bd-new").addEventListener("click", function () { openNewBinderModal(render); });
+      root.querySelector("#bd-manage").addEventListener("click", function () { openManageModal(render); });
+    }
 
     async function render() {
       var grid = root.querySelector("#bd-grid");
       if (!grid || !grid.isConnected) return;
       try {
-        var binders = await App.binders.list();
-        var rows = await App.collection.list();
+        var binders = readOnly ? await App.binders.listPublic() : await App.binders.list();
+        var rows = readOnly ? await App.collection.listPublic() : await App.collection.list();
         var grouped = rowsByBinder(rows);
         if (!binders.length) {
           grid.innerHTML = App.ui.emptyState({
             title: "No binders yet",
-            body: "Create a binder to start shelving your physical collection.",
-            actionHtml: '<button class="btn btn-primary" id="bd-empty-new">New binder</button>'
+            body: readOnly ? "The owner hasn't created any binders yet."
+              : "Create a binder to start shelving your physical collection.",
+            actionHtml: readOnly ? "" : '<button class="btn btn-primary" id="bd-empty-new">New binder</button>'
           });
           var b = grid.querySelector("#bd-empty-new");
           if (b) b.addEventListener("click", function () { openNewBinderModal(render); });
@@ -220,12 +218,16 @@
   }
 
   App.views.binderDetail = async function (root, binderId) {
-    if (!isOwner()) { privateState(root); return; }
+    var readOnly = !isOwner();
     root.innerHTML =
       '<div class="page-head"><a class="btn btn-ghost" href="/binders">← Binders</a>' +
       '<h1 id="bdet-name">…</h1></div>' +
-      '<div class="binder-bar"><button class="btn btn-ghost" id="bdet-add">Add cards</button>' +
-      '<span class="binder-hint">Drag a card to move it — swap with another card or drop it in an empty pocket, even on another page.</span>' +
+      '<div class="binder-bar">' +
+      (readOnly ? "" : '<button class="btn btn-ghost" id="bdet-add">Add cards</button>') +
+      '<span class="binder-hint">' +
+      (readOnly ? "Flip through the pages to browse this binder."
+        : "Drag a card to move it — swap with another card or drop it in an empty pocket, even on another page.") +
+      "</span>" +
       '<div class="binder-pages"><button class="btn btn-ghost" id="bdet-prev" aria-label="Previous">←</button>' +
       '<span id="bdet-page"></span>' +
       '<button class="btn btn-ghost" id="bdet-next" aria-label="Next">→</button></div></div>' +
@@ -680,9 +682,10 @@
       if (cand && e.pointerId === cand.pointerId) cancelCand();
     }
 
-    bookEl.addEventListener("pointerdown", onPointerDown);
+    if (!readOnly) bookEl.addEventListener("pointerdown", onPointerDown);
     bookEl.addEventListener("dragstart", function (e) { e.preventDefault(); });
-    root.querySelector("#bdet-add").addEventListener("click", function () {
+    var addBtn = root.querySelector("#bdet-add");
+    if (addBtn) addBtn.addEventListener("click", function () {
       /* Pre-check sets already shelved here — "shelve more like these". */
       var present = {};
       state.items.forEach(function (r) { if (r.set_id) present[r.set_id] = true; });
@@ -703,7 +706,8 @@
     });
 
     try {
-      await App.binders.list(); /* warm the cache so direct loads work too */
+      if (readOnly) await App.binders.listPublic(); /* warm the cache so direct loads work too */
+      else await App.binders.list();
       var binder = App.binders.byId(binderId);
       if (!binder) {
         root.innerHTML = App.ui.emptyState({ title: "Binder not found", body: "It may have been deleted.", actionHtml: '<a class="btn btn-ghost" href="/binders">Back to binders</a>' });
@@ -714,12 +718,12 @@
       /* The slot_order column only exists after migration-binder-slot-order;
        * without it the arrangement lives in memory for this session. */
       slotOrderReady = binder && ("slot_order" in binder);
-      var rows = await App.collection.list();
+      var rows = readOnly ? await App.collection.listPublic() : await App.collection.list();
       state.items = (rows || []).filter(function (r) { return r.binder_id === binderId; });
       var stored = slotOrderReady ? binder.slot_order : null;
       state.order = reconcileSlotOrder(stored, state.items);
       rerender();
-      if (slotOrderReady && JSON.stringify(stored || null) !== JSON.stringify(state.order)) {
+      if (!readOnly && slotOrderReady && JSON.stringify(stored || null) !== JSON.stringify(state.order)) {
         /* First run after the migration, or cards shelved/moved outside
          * this view: persist the reconciled order. */
         persistOrder();

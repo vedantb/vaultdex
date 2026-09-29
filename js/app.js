@@ -150,9 +150,10 @@
 
   /* ---------- header auth area ---------- */
   function updateNavVisibility() {
-    // The catalog is owner-only; visitors get the public collection page.
+    // The catalog, trophies, and wishlist are owner-only; visitors get the
+    // public collection page and the public (view-only) binders.
     var show = App.auth.isOwner();
-    ["browse", "trophies", "wishlist", "binders"].forEach(function (k) {
+    ["browse", "trophies", "wishlist"].forEach(function (k) {
       document.querySelectorAll('[data-nav="' + k + '"]').forEach(function (a) {
         a.style.display = show ? "" : "none";
       });

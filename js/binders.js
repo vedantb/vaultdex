@@ -54,6 +54,29 @@
     return cache;
   }
 
+  /* Public read for signed-out visitors: the owner's binders only.
+   * Requires the "binders_public_owner_read" RLS policy
+   * (supabase/migration-public-binders.sql). Shares the same cache so
+   * byId/binderName keep working in public views. */
+  async function listPublic() {
+    var ownerId = (window.APP_CONFIG && window.APP_CONFIG.OWNER_USER_ID) || "";
+    if (!ownerId || ownerId.indexOf("00000000") === 0) return [];
+    if (cache && cacheUser === ownerId) return cache;
+    var res = await App.sb
+      .from("binders")
+      .select("*")
+      .eq("user_id", ownerId)
+      .order("position", { ascending: true })
+      .order("name", { ascending: true });
+    if (res.error) {
+      if (res.error.code === "42P01") { cache = []; cacheUser = ownerId; return cache; }
+      throw friendlyError(res.error);
+    }
+    cache = res.data || [];
+    cacheUser = ownerId;
+    return cache;
+  }
+
   function byId(id) {
     if (!id || !cache) return null;
     for (var i = 0; i < cache.length; i++) if (cache[i].id === id) return cache[i];
@@ -257,6 +280,7 @@
 
   App.binders = {
     list: list,
+    listPublic: listPublic,
     byId: byId,
     binderName: binderName,
     create: create,
