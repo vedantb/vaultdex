@@ -28,7 +28,9 @@ const fs = require("fs");
 const path = require("path");
 
 const ROOT = path.join(__dirname, "..");
-const DATA = path.join(ROOT, "data");
+// Staging isolation: the sharded refresh driver sets VAULTDEX_DATA_DIR so all
+// catalog I/O redirects into the staging dir. Unset = live tree.
+const DATA = process.env.VAULTDEX_DATA_DIR || path.join(ROOT, "data");
 
 /* species.js is a browser IIFE that attaches to window.App — shim it so
  * the exact same normalizer code runs in node. */

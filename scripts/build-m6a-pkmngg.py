@@ -12,10 +12,14 @@ import json, os, subprocess, sys
 from datetime import datetime, timezone
 
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-RAW_LIST = os.path.join(HERE, "data", "pkmn-gg-m6a.json")
-CACHE_DIR = os.path.join(HERE, "data", "pkmn-gg-cache")
-SET_PATH = os.path.join(HERE, "data", "tcgdex", "sets", "ja", "M6a.json")
-SETS_JA = os.path.join(HERE, "data", "tcgdex", "sets-ja.json")
+# Staging isolation (scripts/sharded-refresh.py sets VAULTDEX_DATA_DIR):
+# SET_PATH/SETS_JA redirect into staging; RAW_LIST/CACHE_DIR resolve
+# through the driver's symlinks (read-only inputs).
+_DATA_ROOT = os.environ.get("VAULTDEX_DATA_DIR", os.path.join(HERE, "data"))
+RAW_LIST = os.path.join(_DATA_ROOT, "pkmn-gg-m6a.json")
+CACHE_DIR = os.path.join(_DATA_ROOT, "pkmn-gg-cache")
+SET_PATH = os.path.join(_DATA_ROOT, "tcgdex", "sets", "ja", "M6a.json")
+SETS_JA = os.path.join(_DATA_ROOT, "tcgdex", "sets-ja.json")
 IMG_URL = "/data/tcgdex/card-images/ja/M6a/{num}.webp"
 
 RARITY_MAP = {

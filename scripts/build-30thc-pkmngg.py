@@ -32,9 +32,12 @@ import time
 import unicodedata
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DATA = os.path.join(ROOT, "data", "tcgdex")
+# Staging isolation (scripts/sharded-refresh.py sets VAULTDEX_DATA_DIR):
+# all catalog I/O redirects into the staging dir. Unset = live tree.
+_DATA_ROOT = os.environ.get("VAULTDEX_DATA_DIR", os.path.join(ROOT, "data"))
+DATA = os.path.join(_DATA_ROOT, "tcgdex")
 IMG_ROOT = os.path.join(DATA, "card-images", "en")
-PAGE_CACHE = os.path.join(ROOT, "data", "pkmn-gg-cache")
+PAGE_CACHE = os.path.join(_DATA_ROOT, "pkmn-gg-cache")
 UA = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120 Safari/537.36"
 
 PAGES = {

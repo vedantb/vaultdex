@@ -45,9 +45,13 @@ import urllib.request
 from datetime import datetime, timedelta, timezone
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-JA_DIR = os.path.join(ROOT, "data", "tcgdex", "sets", "ja")
-SETS_JA = os.path.join(ROOT, "data", "tcgdex", "sets-ja.json")
-CACHE = os.path.join(ROOT, "data", "pkmn-cache")
+# Staging isolation (scripts/sharded-refresh.py sets VAULTDEX_DATA_DIR).
+# Note: CACHE (pkmn-cache) is symlinked into staging by the driver, so the
+# shared PkmnPrices credit ledger stays single.
+_DATA_ROOT = os.environ.get("VAULTDEX_DATA_DIR", os.path.join(ROOT, "data"))
+JA_DIR = os.path.join(_DATA_ROOT, "tcgdex", "sets", "ja")
+SETS_JA = os.path.join(_DATA_ROOT, "tcgdex", "sets-ja.json")
+CACHE = os.path.join(_DATA_ROOT, "pkmn-cache")
 PROXY = "https://vaultdex-three.vercel.app/api/pkmnprices"
 
 # Shared secret for the Vercel proxy's caller check (api/pkmnprices.js).

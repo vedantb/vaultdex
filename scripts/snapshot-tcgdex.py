@@ -56,7 +56,13 @@ from datetime import datetime, timezone
 
 API_ROOT = "https://api.tcgdex.net/v2"
 BASE = API_ROOT + "/en"
-OUT = "data/tcgdex"
+_HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# Staging isolation (scripts/sharded-refresh.py sets VAULTDEX_DATA_DIR):
+# the driver runs every stage against a staging dir and promotes only
+# verified output into the live tree. Unset = live tree (weekly driver,
+# manual runs — behavior unchanged).
+OUT = os.path.join(
+    os.environ.get("VAULTDEX_DATA_DIR", os.path.join(_HERE, "data")), "tcgdex")
 RATE = 4  # requests per second across workers
 LANG = "en"
 

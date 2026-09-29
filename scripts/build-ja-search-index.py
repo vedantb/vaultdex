@@ -9,8 +9,10 @@ Run after any JA snapshot/enrichment change (weekly refresh included).
 import json, glob, os, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-JA_DIR = os.path.join(ROOT, "data", "tcgdex", "sets", "ja")
-OUT = os.path.join(ROOT, "data", "tcgdex", "index-ja.json")
+# Staging isolation (scripts/sharded-refresh.py sets VAULTDEX_DATA_DIR).
+_DATA_ROOT = os.environ.get("VAULTDEX_DATA_DIR", os.path.join(ROOT, "data"))
+JA_DIR = os.path.join(_DATA_ROOT, "tcgdex", "sets", "ja")
+OUT = os.path.join(_DATA_ROOT, "tcgdex", "index-ja.json")
 
 def main():
     entries = []
