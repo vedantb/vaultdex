@@ -158,7 +158,7 @@ test.describe("sidebar nav — signed in (local only)", () => {
     await gotoSignedIn(page, "/");
     expect(await visibleNavLabels(page)).toEqual([
       "Home", "My Collection", "Pokédex", "Trade Binder", "Games",
-      "Browse", "Wishlist", "Trophies", "Price Movers",
+      "Browse", "Binders", "Wishlist", "Trophies", "Price Movers",
     ]);
 
     await gotoSignedIn(page, "/wishlist");
