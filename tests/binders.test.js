@@ -414,6 +414,39 @@ describe("chunkPages / spreadCount / spreadSides (binders-view.js)", () => {
   });
 });
 
+describe("neighborPages (binders-view.js) — adjacent-page preload targets", () => {
+  const { neighborPages } = window.App.views.binderDetail;
+
+  test("wide: middle spread warms both neighbors, cover excluded", () => {
+    // 5 pages -> spreads: [cover|0] [1|2] [3|4]
+    expect(neighborPages(true, 1, 5)).toEqual([0, 3, 4]);
+  });
+
+  test("wide: first spread warms only the next spread", () => {
+    expect(neighborPages(true, 0, 5)).toEqual([1, 2]);
+  });
+
+  test("wide: last spread warms only the previous spread", () => {
+    expect(neighborPages(true, 2, 5)).toEqual([1, 2]);
+  });
+
+  test("wide: empty binder has no neighbors", () => {
+    expect(neighborPages(true, 0, 0)).toEqual([]);
+  });
+
+  test("mobile: middle page warms both neighbors", () => {
+    expect(neighborPages(false, 2, 5)).toEqual([0, 2]);
+  });
+
+  test("mobile: cover has only the next page", () => {
+    expect(neighborPages(false, 0, 5)).toEqual([0]);
+  });
+
+  test("mobile: last page has only the previous page", () => {
+    expect(neighborPages(false, 5, 5)).toEqual([3]);
+  });
+});
+
 describe("seedSlotOrder (binders-view.js) — default pocket order", () => {
   const { seedSlotOrder } = window.App.views.binderDetail;
 

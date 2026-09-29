@@ -130,6 +130,7 @@
  * binder itself: two 9-pocket pages around a spine. On phones the
  * spread collapses to one page at a time (cover, then pages). */
 .binder-desk {
+  position: relative;
   margin: 14px auto 0;
   max-width: 1100px;
   padding: clamp(10px, 2.5vw, 26px);
@@ -137,6 +138,42 @@
   background: radial-gradient(120% 90% at 50% 0%, #1b1e27 0%, #101218 55%, #0a0c10 100%);
   border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+/* Floating page-turn chevrons overlaid on the binder's outer edges, so
+ * pages can be turned without reaching for the top bar. They sit under
+ * the turning leaf (z-index 5) while a flip is in flight. */
+.book-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 4;
+  width: 44px;
+  height: 44px;
+  padding: 0 0 3px 0;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(10, 12, 17, 0.62);
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 24px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0.8;
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+.book-nav:hover { opacity: 1; background: rgba(22, 26, 36, 0.8); }
+.book-nav:active { transform: translateY(-50%) scale(0.94); }
+.book-nav:disabled { opacity: 0.22; cursor: default; }
+.book-nav-prev { left: 8px; }
+.book-nav-next { right: 8px; }
+.book-nav:focus-visible { outline: 2px solid rgba(255, 255, 255, 0.55); outline-offset: 2px; }
+@media (max-width: 700px) {
+  .book-nav { width: 38px; height: 38px; font-size: 20px; }
+  .book-nav-prev { left: 5px; }
+  .book-nav-next { right: 5px; }
 }
 .binder-book {
   position: relative;

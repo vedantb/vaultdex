@@ -279,16 +279,23 @@
 
     function syncChrome() {
       var n = state.pages.length;
+      var disPrev, disNext;
       if (wide()) {
         var total = spreadCount(n);
         pageEl.textContent = "Spread " + (state.spread + 1) + " of " + total;
-        prevBtn.disabled = state.spread === 0;
-        nextBtn.disabled = state.spread >= total - 1;
+        disPrev = state.spread === 0;
+        disNext = state.spread >= total - 1;
       } else {
         pageEl.textContent = state.mpage === 0 ? "Cover" : "Page " + state.mpage + " of " + n;
-        prevBtn.disabled = state.mpage === 0;
-        nextBtn.disabled = state.mpage >= n;
+        disPrev = state.mpage === 0;
+        disNext = state.mpage >= n;
       }
+      prevBtn.disabled = disPrev;
+      nextBtn.disabled = disNext;
+      var sidePrev = bookEl.querySelector('[data-nav="-1"]');
+      var sideNext = bookEl.querySelector('[data-nav="1"]');
+      if (sidePrev) sidePrev.disabled = disPrev;
+      if (sideNext) sideNext.disabled = disNext;
     }
 
     function renderSpread() {
@@ -301,8 +308,9 @@
         '<div class="book-page book-left">' + sideHtml(sides.left) + "</div>" +
         '<div class="book-spine"></div>' +
         '<div class="book-page book-right">' + sideHtml(sides.right) + "</div>" +
-        "</div>";
+        "</div>" + navHtml();
       syncChrome();
+      scheduleWarm();
     }
 
     function renderMobile() {
@@ -311,13 +319,46 @@
       if (state.mpage < 0) state.mpage = 0;
       var side = state.mpage === 0 ? "cover" : state.mpage - 1;
       bookEl.innerHTML = '<div class="binder-book mobile"><div class="book-page book-single">' +
-        sideHtml(side) + "</div></div>";
+        sideHtml(side) + "</div></div>" + navHtml();
       syncChrome();
+      scheduleWarm();
+    }
+
+    /* Floating page-turn chevrons overlaid on the binder's outer edges,
+     * so pages can be turned without reaching for the top bar. */
+    function navHtml() {
+      return '<button type="button" class="book-nav book-nav-prev" data-nav="-1" aria-label="Previous page">‹</button>' +
+        '<button type="button" class="book-nav book-nav-next" data-nav="1" aria-label="Next page">›</button>';
     }
 
     function render() {
       if (!bookEl.isConnected) return;
       if (wide()) renderSpread(); else renderMobile();
+    }
+
+    /* Keep the neighboring pages' card art warm: once the visible page
+     * has had a beat to claim the network, preload the pages the reader
+     * will turn to next, so the flip starts with painted images instead
+     * of fetching them mid-turn. Deduped per URL; bounded by the
+     * binder's own card count. */
+    var warmedUrls = {};
+    var warmTimer = null;
+    function scheduleWarm() {
+      if (warmTimer) clearTimeout(warmTimer);
+      warmTimer = setTimeout(warmAdjacent, 700);
+    }
+    function warmAdjacent() {
+      warmTimer = null;
+      if (!bookEl.isConnected) return;
+      var idx = wide() ? state.spread : state.mpage;
+      var fresh = [];
+      neighborPages(wide(), idx, state.pages.length).forEach(function (pi) {
+        (state.pages[pi] || []).forEach(function (row) {
+          var u = row && row.image_small;
+          if (u && !warmedUrls[u]) { warmedUrls[u] = 1; fresh.push(u); }
+        });
+      });
+      fresh.forEach(function (u) { var im = new Image(); im.src = u; });
     }
 
     /* A physical page-turn: a leaf carrying the outgoing page on its
@@ -405,6 +446,7 @@
         state.spread = ns;
         if (landEl && landEl.isConnected) landEl.innerHTML = sideHtml(landSide);
         syncChrome();
+        scheduleWarm();
       }
       if (delta === 1) {
         var rightEl = book.querySelector(".book-right");
@@ -450,6 +492,13 @@
     }
     prevBtn.addEventListener("click", function () { go(-1); });
     nextBtn.addEventListener("click", function () { go(1); });
+    /* Side chevrons are re-created on every render, so one delegated
+     * listener on the desk covers them all. */
+    bookEl.addEventListener("click", function (e) {
+      var nav = e.target && e.target.closest ? e.target.closest("[data-nav]") : null;
+      if (!nav || nav.disabled) return;
+      go(parseInt(nav.getAttribute("data-nav"), 10) || 0);
+    });
 
     /* ---------- drag-and-drop arranging ----------
      * Pointer-based so mouse and touch share one code path. Mouse:
@@ -710,6 +759,29 @@
     return { left: 2 * spread - 1, right: 2 * spread < pageCount ? 2 * spread : null };
   }
 
+  /* Pure: page indices whose card art should be preloaded for the given
+   * position — the neighbors the reader will turn to next. Wide mode
+   * takes a spread index, mobile a page position (0 = cover). */
+  function neighborPages(isWide, idx, pageCount) {
+    var out = [], i;
+    if (isWide) {
+      var total = spreadCount(pageCount);
+      for (i = -1; i <= 1; i += 2) {
+        var sp = idx + i;
+        if (sp < 0 || sp >= total) continue;
+        var sides = spreadSides(sp, pageCount);
+        if (typeof sides.left === "number") out.push(sides.left);
+        if (typeof sides.right === "number") out.push(sides.right);
+      }
+    } else {
+      for (i = -1; i <= 1; i += 2) {
+        var m = idx + i;
+        if (m >= 1 && m <= pageCount) out.push(m - 1);
+      }
+    }
+    return out;
+  }
+
   /* Pocket tile for the flip view: a clear sleeve holding just the card
    * art, like a physical 9-pocket page. One slot per copy; the tiles are
    * draggable to rearrange the binder — card management itself lives in
@@ -831,6 +903,7 @@
   App.views.binderDetail.chunkPages = chunkPages;
   App.views.binderDetail.spreadCount = spreadCount;
   App.views.binderDetail.spreadSides = spreadSides;
+  App.views.binderDetail.neighborPages = neighborPages;
   App.views.binderDetail.seedSlotOrder = seedSlotOrder;
   App.views.binderDetail.reconcileSlotOrder = reconcileSlotOrder;
   App.views.binderDetail.applyDrop = applyDrop;
