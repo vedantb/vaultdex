@@ -98,7 +98,7 @@
   flex-shrink: 0;
 }
 
-/* ---------- detail: sort + pagination bar ---------- */
+/* ---------- detail: action + pagination bar ---------- */
 .binder-bar {
   display: flex;
   align-items: center;
@@ -247,6 +247,61 @@
   cursor: default;
   box-shadow: none;
 }
+
+/* ---------- detail: drag-and-drop arranging ---------- */
+.binder-hint {
+  font-size: 13px;
+  color: var(--muted, #8a8f9d);
+}
+.binder-pocket {
+  cursor: grab;
+  touch-action: pan-y; /* vertical scroll still works; the drag takes it from there */
+  -webkit-touch-callout: none;
+}
+.binder-pocket .art {
+  user-select: none;
+  -webkit-user-select: none;
+}
+.binder-pocket .art img {
+  -webkit-user-drag: none; /* no native image drag: we run a custom pointer drag */
+}
+.binder-pocket.empty { cursor: default; }
+.binder-pocket.drag-src { opacity: 0.3; }
+.binder-pocket.drop-target .art {
+  outline: 2px solid #6ea8fe;
+  outline-offset: 2px;
+}
+.binder-pocket.drop-target.drop-swap .art {
+  outline-color: #f0b429; /* occupied pocket: this drop swaps the two cards */
+}
+.drag-ghost {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 9999;
+  pointer-events: none;
+  filter: drop-shadow(0 18px 28px rgba(0, 0, 0, 0.55));
+}
+.drag-ghost .art {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+.drag-ghost .art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+body.binder-dragging {
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: grabbing;
+}
+body.binder-dragging .binder-pocket { cursor: grabbing; }
 .pocket-grade {
   position: absolute;
   left: 5px;

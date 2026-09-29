@@ -116,6 +116,27 @@
     invalidate();
   }
 
+  /* Owner-only: persist the manual pocket order for a binder. order is an
+   * array of collection row ids (uuid strings) or nulls, where the array
+   * index is the pocket index across the binder's pages. Throws a friendly
+   * error pointing at migration-binder-slot-order.sql when the column is
+   * missing so the view can degrade to in-memory arranging. */
+  async function saveSlotOrder(id, order) {
+    if (!App.auth.isOwner()) throw new Error("Only the owner can arrange binders.");
+    var res = await App.sb.from("binders").update({ slot_order: order || [] }).eq("id", id);
+    if (res.error) {
+      var msg = (res.error && res.error.message) || "";
+      if (res.error.code === "42703" || msg.indexOf("slot_order") !== -1) {
+        throw new Error("Binder slots aren't set up yet — run supabase/migration-binder-slot-order.sql in the Supabase dashboard, then try again.");
+      }
+      throw friendlyError(res.error);
+    }
+    if (cache) {
+      for (var i = 0; i < cache.length; i++) {
+        if (cache[i].id === id) { cache[i].slot_order = order || []; break; }
+      }
+    }
+  }
   /* Owner-only: assign a collection row to a binder (null = unshelved).
    * Never touches prices, quantities, or any other column. */
   async function setBinder(rowId, binderId) {
@@ -243,6 +264,7 @@
     remove: remove,
     reorder: reorder,
     setBinder: setBinder,
+    saveSlotOrder: saveSlotOrder,
     invalidate: invalidate,
     RARITY_ORDER: RARITY_ORDER,
     rarityRank: rarityRank,

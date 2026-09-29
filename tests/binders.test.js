@@ -413,3 +413,112 @@ describe("chunkPages / spreadCount / spreadSides (binders-view.js)", () => {
     expect(v.spreadSides(2, 5)).toEqual({ left: 3, right: 4 });
   });
 });
+
+describe("seedSlotOrder (binders-view.js) — default pocket order", () => {
+  const { seedSlotOrder } = window.App.views.binderDetail;
+
+  test("single-set binder seeds in card-number order", () => {
+    const rows = [
+      brow({ id: "a", set_id: "s1", number: "010", quantity: 1 }),
+      brow({ id: "b", set_id: "s1", number: "002", quantity: 1 }),
+      brow({ id: "c", set_id: "s1", number: "001", quantity: 1 }),
+    ];
+    expect(seedSlotOrder(rows)).toEqual(["c", "b", "a"]);
+  });
+
+  test("one entry per copy, copies adjacent", () => {
+    const rows = [brow({ id: "a", set_id: "s1", number: "001", quantity: 2 })];
+    expect(seedSlotOrder(rows)).toEqual(["a", "a"]);
+  });
+
+  test("mixed-set binder seeds in rarity-tier order", () => {
+    const rows = [
+      brow({ id: "rare", set_id: "s1", number: "001", rarity: "Rare Holo", card_name: "Zed", quantity: 1 }),
+      brow({ id: "common", set_id: "s2", number: "001", rarity: "Common", card_name: "Alf", quantity: 1 }),
+    ];
+    expect(seedSlotOrder(rows)).toEqual(["common", "rare"]);
+  });
+
+  test("empty input seeds empty", () => {
+    expect(seedSlotOrder([])).toEqual([]);
+  });
+});
+
+describe("reconcileSlotOrder (binders-view.js) — stored order vs shelved rows", () => {
+  const { reconcileSlotOrder } = window.App.views.binderDetail;
+  const rows123 = () => [
+    brow({ id: "r1", set_id: "s1", number: "001", quantity: 1 }),
+    brow({ id: "r2", set_id: "s1", number: "002", quantity: 1 }),
+    brow({ id: "r3", set_id: "s1", number: "003", quantity: 1 }),
+  ];
+
+  test("null stored order seeds the default order", () => {
+    expect(reconcileSlotOrder(null, rows123())).toEqual(["r1", "r2", "r3"]);
+  });
+
+  test("keeps the owner's custom arrangement untouched", () => {
+    expect(reconcileSlotOrder(["r3", "r1", "r2"], rows123())).toEqual(["r3", "r1", "r2"]);
+  });
+
+  test("unknown ids become empty sleeves, not crashes", () => {
+    expect(reconcileSlotOrder(["gone", "r1"], rows123())).toEqual([null, "r1", "r2", "r3"]);
+  });
+
+  test("copies past a row's current quantity become empty sleeves", () => {
+    // r1 shelved x1 but the stored order still holds two copies of it
+    expect(reconcileSlotOrder(["r1", "r1", "r2"], rows123())).toEqual(["r1", null, "r2", "r3"]);
+  });
+
+  test("newly shelved rows append at the end in default order", () => {
+    const rows = rows123();
+    expect(reconcileSlotOrder(["r3"], rows)).toEqual(["r3", "r1", "r2"]);
+  });
+
+  test("new copies of an existing row append after the kept ones", () => {
+    const rows = [brow({ id: "r1", set_id: "s1", number: "001", quantity: 3 })];
+    expect(reconcileSlotOrder(["r1"], rows)).toEqual(["r1", "r1", "r1"]);
+  });
+
+  test("interior holes are preserved, trailing empties trimmed", () => {
+    expect(reconcileSlotOrder(["r1", null, "r2", null, null], rows123()))
+      .toEqual(["r1", null, "r2", null, null, "r3"]);
+    expect(reconcileSlotOrder(["r1", "r2", "r3", null, null], rows123()))
+      .toEqual(["r1", "r2", "r3"]);
+  });
+
+  test("a fully emptied binder reconciles to no slots", () => {
+    expect(reconcileSlotOrder(["r9", null], [])).toEqual([]);
+  });
+});
+
+describe("applyDrop (binders-view.js) — swap vs move", () => {
+  const { applyDrop } = window.App.views.binderDetail;
+
+  test("dropping on an occupied pocket swaps the two cards", () => {
+    expect(applyDrop(["a", "b", "c"], 0, 2)).toEqual(["c", "b", "a"]);
+  });
+
+  test("dropping on an empty pocket moves, leaving the old sleeve empty", () => {
+    expect(applyDrop(["a", "b"], 0, 4)).toEqual([null, "b", null, null, "a"]);
+  });
+
+  test("dropping on its own pocket is a no-op", () => {
+    expect(applyDrop(["a", "b"], 1, 1)).toEqual(["a", "b"]);
+  });
+
+  test("dragging from an empty sleeve is a no-op", () => {
+    expect(applyDrop(["a"], 3, 0)).toEqual(["a"]);
+    expect(applyDrop([null, "a"], 0, 1)).toEqual([null, "a"]);
+  });
+
+  test("moving the last card off the end trims trailing empties", () => {
+    expect(applyDrop(["a", "b", "c"], 2, 0)).toEqual(["c", "b", "a"]);
+    expect(applyDrop(["a", "b"], 1, 5)).toEqual(["a", null, null, null, null, "b"]);
+  });
+
+  test("does not mutate the input order", () => {
+    const order = ["a", "b", "c"];
+    applyDrop(order, 0, 2);
+    expect(order).toEqual(["a", "b", "c"]);
+  });
+});

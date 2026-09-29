@@ -173,34 +173,50 @@
 
   /* ---------- /binder/<id> flip-through view ---------- */
 
-  var SORTS = [
-    { id: "binder", label: "Binder order" },
-    { id: "rarity", label: "Rarity" },
-    { id: "value", label: "Value" },
-    { id: "name", label: "Name" },
-    { id: "set", label: "Set" }
-  ];
+  /* Pure: the default pocket order — one entry per copy, in the default
+   * binder order — used to seed a binder's slot_order the first time it
+   * is arranged. */
+  function seedSlotOrder(items) {
+    return expandSlots(App.binders.sortBinderDefault(items)).map(function (s) { return s.row.id; });
+  }
 
-  function sortRows(items, sortId) {
-    var arr = items.slice();
-    if (sortId === "value") {
-      arr.sort(function (a, b) { return rowValue(b) - rowValue(a); });
-    } else if (sortId === "name") {
-      arr.sort(function (a, b) {
-        var x = (a.card_name || ""), y = (b.card_name || "");
-        return x < y ? -1 : x > y ? 1 : 0;
-      });
-    } else if (sortId === "set") {
-      arr.sort(function (a, b) {
-        var x = (a.set_name || "") + (a.card_name || ""), y = (b.set_name || "") + (b.card_name || "");
-        return x < y ? -1 : x > y ? 1 : 0;
-      });
-    } else if (sortId === "rarity") {
-      arr = App.binders.sortByBinderRarity(arr);
-    } else {
-      arr = App.binders.sortBinderDefault(arr);
-    }
-    return arr;
+  /* Pure: merge a stored slot_order with the rows currently shelved.
+   * Keeps the owner's arrangement; drops ids that are gone or beyond a
+   * row's current quantity (each copy past the row's quantity becomes an
+   * empty sleeve); appends new copies at the end in default binder order;
+   * keeps interior empty sleeves; trims trailing empties. */
+  function reconcileSlotOrder(stored, items) {
+    var counts = {}, used = {}, id;
+    (items || []).forEach(function (r) {
+      counts[r.id] = (counts[r.id] || 0) + Math.max(1, Math.floor(r.quantity || 1));
+    });
+    var out = [];
+    (stored || []).forEach(function (sid) {
+      if (sid == null || (counts[sid] || 0) <= (used[sid] || 0)) { out.push(null); return; }
+      out.push(sid);
+      used[sid] = (used[sid] || 0) + 1;
+    });
+    expandSlots(App.binders.sortBinderDefault(items)).forEach(function (s) {
+      id = s.row.id;
+      if ((used[id] || 0) < (counts[id] || 0)) { out.push(id); used[id] = (used[id] || 0) + 1; }
+    });
+    while (out.length && out[out.length - 1] == null) out.pop();
+    return out;
+  }
+
+  /* Pure: apply a drag-and-drop to a slot order. Dropping on an occupied
+   * pocket swaps the two cards; dropping on an empty pocket moves the
+   * card there and leaves its old sleeve empty. */
+  function applyDrop(order, from, to) {
+    var next = (order || []).slice(), tmp;
+    if (from === to) return next;
+    if (from >= next.length || next[from] == null) return next;
+    while (next.length <= to) next.push(null);
+    var moving = next[from];
+    if (next[to] == null) { next[to] = moving; next[from] = null; }
+    else { tmp = next[to]; next[to] = moving; next[from] = tmp; }
+    while (next.length && next[next.length - 1] == null) next.pop();
+    return next;
   }
 
   App.views.binderDetail = async function (root, binderId) {
@@ -209,35 +225,48 @@
       '<div class="page-head"><a class="btn btn-ghost" href="/binders">← Binders</a>' +
       '<h1 id="bdet-name">…</h1></div>' +
       '<div class="binder-bar"><button class="btn btn-ghost" id="bdet-add">Add cards</button>' +
-      '<label>Sort <select id="bdet-sort">' +
-      SORTS.map(function (s) { return '<option value="' + s.id + '">' + s.label + "</option>"; }).join("") +
-      "</select></label>" +
+      '<span class="binder-hint">Drag a card to move it — swap with another card or drop it in an empty pocket, even on another page.</span>' +
       '<div class="binder-pages"><button class="btn btn-ghost" id="bdet-prev" aria-label="Previous">←</button>' +
       '<span id="bdet-page"></span>' +
       '<button class="btn btn-ghost" id="bdet-next" aria-label="Next">→</button></div></div>' +
       '<div id="bdet-book" class="binder-desk"><div class="loading">Loading binder…</div></div>';
 
-    var state = { sort: "binder", spread: 0, mpage: 0, items: [], pages: [], name: "", flipping: false };
+    var state = { spread: 0, mpage: 0, items: [], order: [], pages: [], name: "", flipping: false };
     var nameEl = root.querySelector("#bdet-name");
     var bookEl = root.querySelector("#bdet-book");
     var pageEl = root.querySelector("#bdet-page");
     var prevBtn = root.querySelector("#bdet-prev");
     var nextBtn = root.querySelector("#bdet-next");
-    var sortSel = root.querySelector("#bdet-sort");
     var mqWide = window.matchMedia("(min-width: 700px)");
     var mqCalm = window.matchMedia("(prefers-reduced-motion: reduce)");
     function wide() { return mqWide.matches; }
 
-    function refreshPages() { state.pages = chunkPages(expandSlots(sortRows(state.items, state.sort))); }
+    /* Pocket order → rendered pages. While dragging a completely full
+     * binder, one extra blank page appears at the end so there is always
+     * an empty pocket to drop into. */
+    function refreshPages() {
+      var rowById = {};
+      state.items.forEach(function (r) { rowById[r.id] = r; });
+      var order = state.order.slice(), i;
+      if (drag && order.length % PAGE_SIZE === 0) {
+        for (i = 0; i < PAGE_SIZE; i++) order.push(null);
+      }
+      state.pages = chunkPages(order.map(function (id) {
+        return id == null ? null : (rowById[id] || null);
+      }));
+    }
+
+    function rerender() { refreshPages(); render(); }
 
     /* One side of the open binder: the black cover, a 9-pocket card
-     * page, or a blank black page rounding out the last spread. */
+     * page, or a blank black page rounding out the last spread. Every
+     * pocket carries its global slot index for drag-and-drop. */
     function sideHtml(side) {
       if (side === "cover") return coverHtml();
       if (side === null || side === undefined) return '<div class="book-blank"></div>';
-      var slots = state.pages[side] || [], html = "", i;
-      for (i = 0; i < slots.length; i++) html += detailTile(slots[i]);
-      for (i = slots.length; i < PAGE_SIZE; i++) html += emptyPocket();
+      var slots = state.pages[side] || [], html = "", i, base = side * PAGE_SIZE;
+      for (i = 0; i < slots.length; i++) html += slots[i] ? detailTile(slots[i], base + i) : emptyPocket(base + i);
+      for (i = slots.length; i < PAGE_SIZE; i++) html += emptyPocket(base + i);
       return '<div class="sheet9">' + html + "</div>";
     }
 
@@ -314,6 +343,7 @@
 
     function go(delta) {
       if (!bookEl.isConnected || state.flipping) return;
+      if (drag) { step(delta); return; } /* instant turn while holding a card */
       var book = bookEl.querySelector(".binder-book");
       if (!book || mqCalm.matches) { step(delta); return; }
       if (wide()) goSpread(book, delta); else goSingle(book, delta);
@@ -383,12 +413,189 @@
     }
     prevBtn.addEventListener("click", function () { go(-1); });
     nextBtn.addEventListener("click", function () { go(1); });
-    sortSel.addEventListener("change", function () {
-      state.sort = sortSel.value;
-      refreshPages();
-      state.spread = 0; state.mpage = 0;
-      render();
-    });
+
+    /* ---------- drag-and-drop arranging ----------
+     * Pointer-based so mouse and touch share one code path. Mouse:
+     * press and move to pick a card up. Touch: long-press (~350ms) to
+     * pick up, so a scroll gesture never starts a drag. While holding a
+     * card, hovering near a page edge (or pressing ←/→) turns pages —
+     * the drag survives re-renders because it only holds slot indices.
+     * Dropping on an occupied pocket swaps; on an empty pocket moves;
+     * anywhere else (or Escape) cancels. */
+    var drag = null;   // {slotIndex, rowId, ghost, pointerId, target, edgeTimer, edgeWant}
+    var cand = null;   // press that may become a drag
+    var saveTimer = null;
+    var slotOrderReady = true;  // false when the slot_order column is missing
+    var saveWarned = false;
+
+    /* Debounced write-back of the pocket order after a drop. */
+    function persistOrder() {
+      if (!slotOrderReady) return;
+      clearTimeout(saveTimer);
+      saveTimer = setTimeout(function () {
+        App.binders.saveSlotOrder(binderId, state.order).catch(function (e) {
+          var msg = (e && e.message) || "Couldn't save the arrangement.";
+          if (msg.indexOf("migration-binder-slot-order") !== -1) {
+            slotOrderReady = false;
+            if (!saveWarned) { saveWarned = true; App.ui.toast(msg, "error"); }
+            return;
+          }
+          App.ui.toast(msg, "error");
+        });
+      }, 400);
+    }
+
+    function pocketFromPoint(x, y) {
+      var el = document.elementFromPoint(x, y);
+      if (!el || !el.closest) return null;
+      return el.closest(".binder-pocket");
+    }
+
+    function clearTarget() {
+      if (!drag) return;
+      bookEl.querySelectorAll(".binder-pocket.drop-target").forEach(function (p) {
+        p.classList.remove("drop-target", "drop-swap");
+      });
+      drag.target = -1;
+    }
+
+    function setTarget(pocket) {
+      if (!drag) return;
+      var idx = pocket ? parseInt(pocket.getAttribute("data-slot"), 10) : NaN;
+      if (isNaN(idx)) idx = -1;
+      if (idx === drag.target) return;
+      clearTarget();
+      if (idx < 0) return;
+      drag.target = idx;
+      pocket.classList.add("drop-target");
+      if (idx !== drag.slotIndex && state.order[idx] != null) pocket.classList.add("drop-swap");
+    }
+
+    function moveGhost(x, y) {
+      if (!drag) return;
+      var w = drag.ghost.offsetWidth, h = drag.ghost.offsetHeight;
+      drag.ghost.style.transform =
+        "translate(" + (x - w / 2) + "px," + (y - h / 2) + "px) rotate(3deg) scale(1.06)";
+    }
+
+    function edgeWant(x) {
+      var book = bookEl.querySelector(".binder-book");
+      if (!book) return 0;
+      var r = book.getBoundingClientRect();
+      if (x < r.left + 56) return -1;
+      if (x > r.right - 56) return 1;
+      return 0;
+    }
+
+    function armEdgeTurn(want) {
+      if (!drag) return;
+      if (drag.edgeWant === want) return;
+      if (drag.edgeTimer) { clearTimeout(drag.edgeTimer); drag.edgeTimer = null; }
+      drag.edgeWant = want;
+      if (!want) return;
+      drag.edgeTimer = setTimeout(function () {
+        drag.edgeTimer = null;
+        if (!drag || !bookEl.isConnected) return;
+        step(want); /* instant turn while holding a card */
+        drag.edgeWant = 0;
+      }, 550);
+    }
+
+    function cancelCand() {
+      if (cand && cand.timer) clearTimeout(cand.timer);
+      cand = null;
+      window.removeEventListener("pointermove", onPointerMove);
+      window.removeEventListener("pointerup", onPointerUp);
+      window.removeEventListener("pointercancel", onPointerUp);
+    }
+
+    function startDrag(x, y) {
+      if (!cand || !bookEl.isConnected) { cancelCand(); return; }
+      var rowId = state.order[cand.slotIndex];
+      var pocket = bookEl.querySelector('.binder-pocket[data-slot="' + cand.slotIndex + '"]');
+      if (rowId == null || !pocket) { cancelCand(); return; }
+      var art = pocket.querySelector(".art");
+      var rect = art.getBoundingClientRect();
+      var ghost = document.createElement("div");
+      ghost.className = "drag-ghost";
+      ghost.style.width = rect.width + "px";
+      ghost.style.height = rect.height + "px";
+      ghost.appendChild(art.cloneNode(true));
+      document.body.appendChild(ghost);
+      pocket.classList.add("drag-src");
+      document.body.classList.add("binder-dragging");
+      drag = {
+        slotIndex: cand.slotIndex, rowId: rowId, ghost: ghost,
+        pointerId: cand.pointerId, target: -1, edgeTimer: null, edgeWant: 0
+      };
+      if (cand.timer) clearTimeout(cand.timer);
+      cand = null; /* keep the window pointer listeners: the drag still needs them */
+      moveGhost(x, y);
+      if (state.order.length % PAGE_SIZE === 0) rerender(); /* full binder: grow a blank page to drop into */
+    }
+
+    function endDrag(x, y) {
+      var d = drag;
+      drag = null;
+      if (!d) return;
+      if (d.edgeTimer) clearTimeout(d.edgeTimer);
+      document.body.classList.remove("binder-dragging");
+      if (d.ghost.parentNode) d.ghost.parentNode.removeChild(d.ghost);
+      if (!bookEl.isConnected) return;
+      var pocket = pocketFromPoint(x, y);
+      var idx = pocket ? parseInt(pocket.getAttribute("data-slot"), 10) : NaN;
+      if (pocket && !isNaN(idx) && idx !== d.slotIndex) {
+        state.order = applyDrop(state.order, d.slotIndex, idx);
+        persistOrder();
+      }
+      rerender();
+    }
+
+    function onPointerDown(e) {
+      if (drag || cand || state.flipping || !bookEl.isConnected) return;
+      if (e.pointerType === "mouse" && e.button !== 0) return;
+      /* Mouse only: suppress the browser's native image drag so our pointerup fires.
+         (Touch keeps its default so page scrolling still works pre-long-press.) */
+      if (e.pointerType === "mouse" && e.cancelable) e.preventDefault();
+      var pocket = e.target && e.target.closest ? e.target.closest(".binder-pocket") : null;
+      if (!pocket || pocket.classList.contains("empty")) return;
+      var idx = parseInt(pocket.getAttribute("data-slot"), 10);
+      if (isNaN(idx)) return;
+      cand = { slotIndex: idx, x: e.clientX, y: e.clientY, pointerId: e.pointerId, timer: null };
+      window.addEventListener("pointermove", onPointerMove);
+      window.addEventListener("pointerup", onPointerUp);
+      window.addEventListener("pointercancel", onPointerUp);
+      if (e.pointerType !== "mouse") {
+        cand.timer = setTimeout(function () { if (cand) startDrag(cand.x, cand.y); }, 350);
+      }
+    }
+
+    function onPointerMove(e) {
+      if (!bookEl.isConnected) { if (drag) endDrag(e.clientX, e.clientY); else cancelCand(); return; }
+      if (drag) {
+        if (e.pointerId !== drag.pointerId) return;
+        if (e.pointerType === "mouse" && e.cancelable) e.preventDefault();
+        moveGhost(e.clientX, e.clientY);
+        setTarget(pocketFromPoint(e.clientX, e.clientY));
+        armEdgeTurn(edgeWant(e.clientX));
+        return;
+      }
+      if (!cand || e.pointerId !== cand.pointerId) return;
+      var moved = Math.hypot(e.clientX - cand.x, e.clientY - cand.y);
+      if (e.pointerType === "mouse") {
+        if (moved > 8) startDrag(e.clientX, e.clientY);
+      } else if (moved > 12) {
+        cancelCand(); /* a scroll, not a press */
+      }
+    }
+
+    function onPointerUp(e) {
+      if (drag && e.pointerId === drag.pointerId) { endDrag(e.clientX, e.clientY); cancelCand(); return; }
+      if (cand && e.pointerId === cand.pointerId) cancelCand();
+    }
+
+    bookEl.addEventListener("pointerdown", onPointerDown);
+    bookEl.addEventListener("dragstart", function (e) { e.preventDefault(); });
     root.querySelector("#bdet-add").addEventListener("click", function () {
       /* Pre-check sets already shelved here — "shelve more like these". */
       var present = {};
@@ -396,6 +603,7 @@
       openAddCardsModal(binderId, state.name || "this binder", Object.keys(present));
     });
     function onKey(e) {
+      if (e.key === "Escape" && drag) { endDrag(-10, -10); return; }
       if (e.key === "ArrowLeft") go(-1);
       else if (e.key === "ArrowRight") go(1);
     }
@@ -409,17 +617,27 @@
     });
 
     try {
-      var binder = await App.binders.byId(binderId);
+      await App.binders.list(); /* warm the cache so direct loads work too */
+      var binder = App.binders.byId(binderId);
       if (!binder) {
         root.innerHTML = App.ui.emptyState({ title: "Binder not found", body: "It may have been deleted.", actionHtml: '<a class="btn btn-ghost" href="/binders">Back to binders</a>' });
         return;
       }
       state.name = binder.name;
       nameEl.textContent = binder.name;
+      /* The slot_order column only exists after migration-binder-slot-order;
+       * without it the arrangement lives in memory for this session. */
+      slotOrderReady = binder && ("slot_order" in binder);
       var rows = await App.collection.list();
       state.items = (rows || []).filter(function (r) { return r.binder_id === binderId; });
-      refreshPages();
-      render();
+      var stored = slotOrderReady ? binder.slot_order : null;
+      state.order = reconcileSlotOrder(stored, state.items);
+      rerender();
+      if (slotOrderReady && JSON.stringify(stored || null) !== JSON.stringify(state.order)) {
+        /* First run after the migration, or cards shelved/moved outside
+         * this view: persist the reconciled order. */
+        persistOrder();
+      }
     } catch (e) {
       console.warn("[VaultDex] binder detail failed:", e && e.message);
       bookEl.innerHTML = App.ui.emptyState({ title: "Couldn't load this binder", body: "Check your connection and try again." });
@@ -456,24 +674,23 @@
   }
 
   /* Pocket tile for the flip view: a clear sleeve holding just the card
-   * art, like a physical 9-pocket page. One slot per copy; the view is
-   * purely visual — taps do nothing, card management lives in the
-   * collection views. */
-  function detailTile(slot) {
-    var item = slot.row;
+   * art, like a physical 9-pocket page. One slot per copy; the tiles are
+   * draggable to rearrange the binder — card management itself lives in
+   * the collection views. */
+  function detailTile(item, slotIndex) {
     var gradeBadge = item.grading_company
       ? '<span class="pocket-grade">' + App.esc(item.grading_company) + " " + App.esc(item.grade || "") + "</span>"
       : "";
     var img = item.image_small || "";
-    return '<div class="binder-pocket"><div class="art">' +
+    return '<div class="binder-pocket" data-slot="' + slotIndex + '"><div class="art">' +
       '<img loading="lazy" src="' + App.esc(img) + '" alt="' + App.esc((item.card_name || "") + " card art") + '">' +
       gradeBadge + "</div></div>";
   }
 
   /* Empty sleeves round a partial page out to 9 pockets, like a real
-   * binder page that isn't full yet. */
-  function emptyPocket() {
-    return '<div class="binder-pocket empty" aria-hidden="true"><div class="art"></div></div>';
+   * binder page that isn't full yet. They are drop targets. */
+  function emptyPocket(slotIndex) {
+    return '<div class="binder-pocket empty" data-slot="' + slotIndex + '" aria-hidden="true"><div class="art"></div></div>';
   }
 
   /* Pure: group unshelved collection rows by set, for the Add-cards modal.
@@ -577,4 +794,7 @@
   App.views.binderDetail.chunkPages = chunkPages;
   App.views.binderDetail.spreadCount = spreadCount;
   App.views.binderDetail.spreadSides = spreadSides;
+  App.views.binderDetail.seedSlotOrder = seedSlotOrder;
+  App.views.binderDetail.reconcileSlotOrder = reconcileSlotOrder;
+  App.views.binderDetail.applyDrop = applyDrop;
 })();
