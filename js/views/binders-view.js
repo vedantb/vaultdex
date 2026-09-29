@@ -127,7 +127,7 @@
       if (!listEl.isConnected) return;
       var binders;
       try { binders = await App.binders.list(); }
-      catch (e) { listEl.innerHTML = "<p>Couldn't load binders.</p>"; return; }
+      catch { listEl.innerHTML = "<p>Couldn't load binders.</p>"; return; }
       if (!binders.length) { listEl.innerHTML = "<p>No binders yet.</p>"; return; }
       listEl.innerHTML = binders.map(function (b, i) {
         return '<div class="mb-row" data-id="' + App.esc(b.id) + '">' +
@@ -393,7 +393,7 @@
           img.addEventListener("load", fin, { once: true });
           img.addEventListener("error", fin, { once: true });
           if (typeof img.decode === "function") {
-            try { img.decode().then(fin, fin); } catch (e) { /* events cover it */ }
+            try { img.decode().then(fin, fin); } catch { /* events cover it */ }
           }
           setTimeout(fin, 350);
         }));

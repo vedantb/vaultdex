@@ -471,10 +471,10 @@
    * boot. The cutoffs in the predicates below still scope WHICH rows each
    * repair may touch; the flag scopes HOW OFTEN. */
   function repairDone(key) {
-    try { return localStorage.getItem(key) === "1"; } catch (e) { return false; }
+    try { return localStorage.getItem(key) === "1"; } catch { return false; }
   }
   function markRepairDone(key) {
-    try { localStorage.setItem(key, "1"); } catch (e) { /* ignored */ }
+    try { localStorage.setItem(key, "1"); } catch { /* ignored */ }
   }
   var ACCENT_REPAIR_FLAG = "vd_accent_repair_v1";
   var SETMATCH_REPAIR_FLAG = "vd_setmatch_repair_v1";
@@ -670,8 +670,8 @@
         if (dash > 0) sid = row.card_id.slice(0, dash);
       }
       if (!sid) continue;
-      var entry = null;
-      try { entry = await App.pkmn.ppSetEntry(sid); } catch (e) { entry = null; }
+      var entry;
+      try { entry = await App.pkmn.ppSetEntry(sid); } catch { entry = null; }
       if (setMatchNeedsRepair(row, entry)) bad.push(row);
     }
     var ok = true;
@@ -1330,7 +1330,7 @@
             return null;
           }
         }
-      } catch (e) { /* history check failed: record anyway, don't lose the point */ }
+      } catch { /* history check failed: record anyway, don't lose the point */ }
       var res = await App.sb
         .from("collection_value_snapshots")
         .upsert({

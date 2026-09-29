@@ -182,7 +182,7 @@ describe("repairMissingSetPrices — one-shot, preserves honest prices", () => {
       from: () => ({
         update: (patch) => ({
           eq: () => ({
-            eq: async (k, v) => {
+            eq: async () => {
               updates.push(patch);
               return { error: null };
             },
