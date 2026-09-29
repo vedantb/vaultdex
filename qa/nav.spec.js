@@ -59,11 +59,11 @@ test.describe("sidebar nav — signed out", () => {
       // Signed-out: Browse / Wishlist / Trophies are owner-only.
       expect(await visibleNavLabels(page)).toEqual([
         "Home", "Vedant's Collection", "Pokédex", "Trade Binder", "Games",
-        "Price Movers",
+        "Binders", "Price Movers",
       ]);
       // Every nav item carries an icon.
       const iconCount = await sidebar.locator(".nav-item:visible .nav-ico svg").count();
-      expect(iconCount).toBe(6);
+      expect(iconCount).toBe(7);
 
       // Active route highlight follows navigation.
       await page.goto("/games");
@@ -123,7 +123,7 @@ test.describe("sidebar nav — signed out", () => {
         .toBeCloseTo(0, 0);
       expect(await visibleNavLabels(page)).toEqual([
         "Home", "Vedant's Collection", "Pokédex", "Trade Binder", "Games",
-        "Price Movers",
+        "Binders", "Price Movers",
       ]);
 
       // Navigating closes the drawer.
