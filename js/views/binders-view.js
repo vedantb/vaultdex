@@ -322,7 +322,12 @@
 
     /* A physical page-turn: a leaf carrying the outgoing page on its
      * front and the incoming page on its back swings around the spine.
-     * The far side swaps while the leaf is edge-on (invisible). */
+     * The far side is pre-swapped under the leaf (invisible there), so
+     * the incoming page is revealed progressively as the leaf swings
+     * instead of popping in mid-turn. The leaf's front is cloned from
+     * the live page, whose images are already painted, and the back
+     * face's images are decoded before the swing starts — no image
+     * pop-in flashes either way. */
     function flipLeaf(book, opts) {
       var leaf = document.createElement("div");
       leaf.className = "flip-leaf f-" + opts.side + (opts.dir === 1 ? " f-next" : " f-prev");
@@ -335,10 +340,32 @@
         leaf.remove();
         if (opts.done) opts.done();
       }
-      void leaf.offsetWidth; /* settle so the transition runs */
-      leaf.classList.add("f-go");
-      var midT = setTimeout(function () { if (opts.mid) opts.mid(); }, 280);
-      setTimeout(function () { clearTimeout(midT); finish(); }, 600);
+      /* Warm the incoming face's images while the leaf still sits
+       * exactly over the turning page (an invisible seam). A slow
+       * image never stalls the flip. */
+      var waits = [];
+      leaf.querySelectorAll(".leaf-back img").forEach(function (img) {
+        if (img.complete && img.naturalWidth) return;
+        waits.push(new Promise(function (resolve) {
+          var settled = false;
+          function fin() { if (!settled) { settled = true; resolve(); } }
+          img.addEventListener("load", fin, { once: true });
+          img.addEventListener("error", fin, { once: true });
+          if (typeof img.decode === "function") {
+            try { img.decode().then(fin, fin); } catch (e) { /* events cover it */ }
+          }
+          setTimeout(fin, 350);
+        }));
+      });
+      Promise.all(waits).then(function () {
+        if (!leaf.isConnected) return;
+        requestAnimationFrame(function () {
+          if (!leaf.isConnected) return;
+          void leaf.offsetWidth; /* settle so the transition runs */
+          leaf.classList.add("f-go");
+          setTimeout(finish, 600);
+        });
+      });
     }
 
     function go(delta) {
@@ -368,28 +395,36 @@
       var ns = state.spread + delta;
       if (ns < 0 || ns >= total) return;
       state.flipping = true;
-      var cur = spreadSides(state.spread, n), nxt = spreadSides(ns, n);
-      function after() {
+      var nxt = spreadSides(ns, n);
+      /* The far side was pre-swapped under the leaf at turn start; only
+       * the side the leaf landed on still needs its final content, so
+       * the settled side's nodes are never churned. */
+      function after(landEl, landSide) {
         state.flipping = false;
         if (!bookEl.isConnected) return;
         state.spread = ns;
-        renderSpread();
+        if (landEl && landEl.isConnected) landEl.innerHTML = sideHtml(landSide);
+        syncChrome();
       }
       if (delta === 1) {
         var rightEl = book.querySelector(".book-right");
+        var leftEl = book.querySelector(".book-left");
+        var frontHtml = rightEl.innerHTML; /* live page: images already painted */
+        rightEl.innerHTML = sideHtml(nxt.right); /* hidden behind the leaf until it swings away */
         flipLeaf(book, {
           side: "right", dir: 1,
-          frontHtml: sideHtml(cur.right), backHtml: sideHtml(nxt.left),
-          mid: function () { if (rightEl.isConnected) rightEl.innerHTML = sideHtml(nxt.right); },
-          done: after
+          frontHtml: frontHtml, backHtml: sideHtml(nxt.left),
+          done: function () { after(leftEl, nxt.left); }
         });
       } else {
-        var leftEl = book.querySelector(".book-left");
+        var leftEl2 = book.querySelector(".book-left");
+        var rightEl2 = book.querySelector(".book-right");
+        var frontHtml2 = leftEl2.innerHTML; /* live page: images already painted */
+        leftEl2.innerHTML = sideHtml(nxt.left); /* hidden behind the leaf until it swings away */
         flipLeaf(book, {
           side: "left", dir: -1,
-          frontHtml: sideHtml(cur.left), backHtml: sideHtml(nxt.right),
-          mid: function () { if (leftEl.isConnected) leftEl.innerHTML = sideHtml(nxt.left); },
-          done: after
+          frontHtml: frontHtml2, backHtml: sideHtml(nxt.right),
+          done: function () { after(rightEl2, nxt.right); }
         });
       }
     }
@@ -400,9 +435,11 @@
       state.flipping = true;
       var curSide = state.mpage === 0 ? "cover" : state.mpage - 1;
       var nxtSide = nm === 0 ? "cover" : nm - 1;
+      var singleEl = book.querySelector(".book-single");
       flipLeaf(book, {
         side: "single", dir: delta,
-        frontHtml: sideHtml(curSide), backHtml: sideHtml(nxtSide),
+        frontHtml: singleEl ? singleEl.innerHTML : sideHtml(curSide), /* live page: images already painted */
+        backHtml: sideHtml(nxtSide),
         done: function () {
           state.flipping = false;
           if (!bookEl.isConnected) return;
