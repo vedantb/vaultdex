@@ -380,3 +380,36 @@ describe("expandSlots (binders-view.js) — one sleeve per copy", () => {
     expect(expandSlots(null)).toEqual([]);
   });
 });
+
+describe("chunkPages / spreadCount / spreadSides (binders-view.js)", () => {
+  const v = window.App.views.binderDetail;
+
+  test("chunkPages splits slots into 9s", () => {
+    const slots = Array.from({ length: 20 }, (_, i) => ({ copy: i + 1 }));
+    expect(v.chunkPages(slots).map((p) => p.length)).toEqual([9, 9, 2]);
+  });
+
+  test("chunkPages keeps order and handles empty", () => {
+    const slots = Array.from({ length: 9 }, (_, i) => ({ copy: i + 1 }));
+    const pages = v.chunkPages(slots);
+    expect(pages).toHaveLength(1);
+    expect(pages[0][0].copy).toBe(1);
+    expect(v.chunkPages([])).toEqual([]);
+  });
+
+  test("spreadCount includes the cover spread", () => {
+    expect(v.spreadCount(0)).toBe(1); // cover + blank
+    expect(v.spreadCount(1)).toBe(1); // cover | p0
+    expect(v.spreadCount(2)).toBe(2); // cover|p0, p1|blank
+    expect(v.spreadCount(3)).toBe(2);
+    expect(v.spreadCount(4)).toBe(3);
+  });
+
+  test("spreadSides maps spreads to cover/pages", () => {
+    expect(v.spreadSides(0, 0)).toEqual({ left: "cover", right: null });
+    expect(v.spreadSides(0, 2)).toEqual({ left: "cover", right: 0 });
+    expect(v.spreadSides(1, 2)).toEqual({ left: 1, right: null });
+    expect(v.spreadSides(1, 3)).toEqual({ left: 1, right: 2 });
+    expect(v.spreadSides(2, 5)).toEqual({ left: 3, right: 4 });
+  });
+});

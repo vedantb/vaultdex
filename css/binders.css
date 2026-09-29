@@ -125,21 +125,106 @@
   text-align: center;
 }
 
-/* ---------- detail: the 3x3 binder page ---------- */
-/* A dark page with nine clear sleeves, like a physical 9-pocket sheet.
- * Kept narrow on purpose so the cards stay small and binder-like. */
-.binder-sheet {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  max-width: 680px;
-  margin: 0 auto;
-  padding: 14px;
-  border-radius: 18px;
+/* ---------- detail: the open binder ---------- */
+/* The desk is the inside of the binder cover; the book is the open
+ * binder itself: two 9-pocket pages around a spine. On phones the
+ * spread collapses to one page at a time (cover, then pages). */
+.binder-desk {
+  margin: 14px auto 0;
+  max-width: 1100px;
+  padding: clamp(10px, 2.5vw, 26px);
+  border-radius: 22px;
+  background: radial-gradient(120% 90% at 50% 0%, #1b1e27 0%, #101218 55%, #0a0c10 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+.binder-book {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  perspective: 2400px;
+}
+.binder-book.mobile { display: block; }
+.book-page {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  border-radius: 14px;
+  padding: clamp(8px, 1.6vw, 14px);
   background: linear-gradient(165deg, #272c3a 0%, #181c26 100%);
   border: 1px solid rgba(255, 255, 255, 0.09);
   box-shadow: 0 18px 44px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
+.book-page > * { flex: 1 1 auto; }
+.binder-book.mobile .book-page { width: 100%; }
+.sheet9 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  align-content: start;
+}
+.book-spine {
+  flex: 0 0 22px;
+  margin: 6px 3px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #05060a 0%, #333947 28%, #14171f 50%, #333947 72%, #05060a 100%);
+  box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.8);
+}
+.book-cover, .book-blank { border-radius: 10px; min-height: 320px; }
+.book-cover {
+  background: radial-gradient(100% 100% at 50% 18%, #17181d 0%, #060607 70%);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 24px;
+  gap: 12px;
+}
+.cover-name {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.34);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.06), 0 -1px 1px rgba(0, 0, 0, 0.8);
+}
+.cover-hint { color: rgba(255, 255, 255, 0.45); font-size: 13px; max-width: 30ch; }
+.book-blank { background: #060607; border: 1px solid rgba(255, 255, 255, 0.05); }
+
+/* The turning leaf: outgoing page on the front face, incoming page on
+ * the back face, swinging around the spine. */
+.flip-leaf {
+  position: absolute;
+  top: 0; bottom: 0;
+  z-index: 5;
+  transform-style: preserve-3d;
+  transition: transform 0.58s cubic-bezier(0.35, 0.08, 0.3, 1);
+}
+.flip-leaf.f-right { left: calc(50% + 14px); right: 0; transform-origin: left center; }
+.flip-leaf.f-left { left: 0; right: calc(50% + 14px); transform-origin: right center; }
+.flip-leaf.f-single { left: 0; right: 0; }
+.flip-leaf.f-single.f-next { transform-origin: left center; }
+.flip-leaf.f-single.f-prev { transform-origin: right center; }
+.flip-leaf.f-next.f-go { transform: rotateY(-180deg); }
+.flip-leaf.f-prev.f-go { transform: rotateY(180deg); }
+.leaf-face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 14px;
+  padding: clamp(8px, 1.6vw, 14px);
+  background: linear-gradient(165deg, #272c3a 0%, #181c26 100%);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.leaf-face > * { flex: 1 1 auto; }
+.leaf-face.leaf-back { transform: rotateY(180deg); }
 .binder-pocket .art {
   position: relative;
   aspect-ratio: 63 / 88;
@@ -175,14 +260,6 @@
   background: rgba(10, 12, 18, 0.78);
   color: #ffd76a;
   border: 1px solid rgba(255, 215, 106, 0.4);
-}
-.binder-flip {
-  animation: binder-page-flip 0.45s ease;
-  transform-origin: left center;
-}
-@keyframes binder-page-flip {
-  0% { transform: rotateY(-70deg); opacity: 0.2; }
-  100% { transform: rotateY(0deg); opacity: 1; }
 }
 
 /* ---------- detail: add-cards modal ---------- */

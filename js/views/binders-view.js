@@ -212,63 +212,182 @@
       '<label>Sort <select id="bdet-sort">' +
       SORTS.map(function (s) { return '<option value="' + s.id + '">' + s.label + "</option>"; }).join("") +
       "</select></label>" +
-      '<div class="binder-pages"><button class="btn btn-ghost" id="bdet-prev" aria-label="Previous page">←</button>' +
+      '<div class="binder-pages"><button class="btn btn-ghost" id="bdet-prev" aria-label="Previous">←</button>' +
       '<span id="bdet-page"></span>' +
-      '<button class="btn btn-ghost" id="bdet-next" aria-label="Next page">→</button></div></div>' +
-      '<div id="bdet-grid" class="binder-sheet"><div class="loading">Loading binder…</div></div>';
+      '<button class="btn btn-ghost" id="bdet-next" aria-label="Next">→</button></div></div>' +
+      '<div id="bdet-book" class="binder-desk"><div class="loading">Loading binder…</div></div>';
 
-    var state = { sort: "binder", page: 0, items: [], name: "" };
+    var state = { sort: "binder", spread: 0, mpage: 0, items: [], pages: [], name: "", flipping: false };
     var nameEl = root.querySelector("#bdet-name");
-    var gridEl = root.querySelector("#bdet-grid");
+    var bookEl = root.querySelector("#bdet-book");
     var pageEl = root.querySelector("#bdet-page");
     var prevBtn = root.querySelector("#bdet-prev");
     var nextBtn = root.querySelector("#bdet-next");
     var sortSel = root.querySelector("#bdet-sort");
+    var mqWide = window.matchMedia("(min-width: 700px)");
+    var mqCalm = window.matchMedia("(prefers-reduced-motion: reduce)");
+    function wide() { return mqWide.matches; }
 
-    function pageCount() { return Math.max(1, Math.ceil(currentSlots().length / PAGE_SIZE)); }
+    function refreshPages() { state.pages = chunkPages(expandSlots(sortRows(state.items, state.sort))); }
 
-    /* One slot per copy: a ×3 row fills three sleeves, copies adjacent. */
-    function currentSlots() { return expandSlots(sortRows(state.items, state.sort)); }
+    /* One side of the open binder: the black cover, a 9-pocket card
+     * page, or a blank black page rounding out the last spread. */
+    function sideHtml(side) {
+      if (side === "cover") return coverHtml();
+      if (side === null || side === undefined) return '<div class="book-blank"></div>';
+      var slots = state.pages[side] || [], html = "", i;
+      for (i = 0; i < slots.length; i++) html += detailTile(slots[i]);
+      for (i = slots.length; i < PAGE_SIZE; i++) html += emptyPocket();
+      return '<div class="sheet9">' + html + "</div>";
+    }
 
-    function renderPage(dir) {
-      if (!gridEl.isConnected) return;
-      var slots = currentSlots();
-      var pages = pageCount();
-      if (state.page >= pages) state.page = pages - 1;
-      if (state.page < 0) state.page = 0;
-      var slice = slots.slice(state.page * PAGE_SIZE, state.page * PAGE_SIZE + PAGE_SIZE);
-      pageEl.textContent = "Page " + (state.page + 1) + " of " + pages;
-      prevBtn.disabled = state.page === 0;
-      nextBtn.disabled = state.page >= pages - 1;
-      if (!slice.length) {
-        gridEl.innerHTML = App.ui.emptyState({
-          title: "Nothing shelved here",
-          body: "Open any card and pick this binder to shelve copies in it."
-        });
-        return;
+    function coverHtml() {
+      var hint = state.pages.length ? "" :
+        '<p class="cover-hint">Open any card and pick this binder to shelve copies in it.</p>';
+      return '<div class="book-cover"><div class="cover-name">' +
+        App.esc(state.name || "Binder") + "</div>" + hint + "</div>";
+    }
+
+    function syncChrome() {
+      var n = state.pages.length;
+      if (wide()) {
+        var total = spreadCount(n);
+        pageEl.textContent = "Spread " + (state.spread + 1) + " of " + total;
+        prevBtn.disabled = state.spread === 0;
+        nextBtn.disabled = state.spread >= total - 1;
+      } else {
+        pageEl.textContent = state.mpage === 0 ? "Cover" : "Page " + state.mpage + " of " + n;
+        prevBtn.disabled = state.mpage === 0;
+        nextBtn.disabled = state.mpage >= n;
       }
-      var empties = "";
-      for (var i = slice.length; i < PAGE_SIZE; i++) empties += emptyPocket();
-      gridEl.innerHTML = slice.map(function (s) { return detailTile(s); }).join("") + empties;
-      /* Page-turn feel: a quick flip on every page change. */
-      gridEl.classList.remove("binder-flip");
-      void gridEl.offsetWidth;
-      if (dir) gridEl.classList.add("binder-flip");
+    }
+
+    function renderSpread() {
+      var n = state.pages.length, total = spreadCount(n);
+      if (state.spread >= total) state.spread = total - 1;
+      if (state.spread < 0) state.spread = 0;
+      var sides = spreadSides(state.spread, n);
+      bookEl.innerHTML =
+        '<div class="binder-book">' +
+        '<div class="book-page book-left">' + sideHtml(sides.left) + "</div>" +
+        '<div class="book-spine"></div>' +
+        '<div class="book-page book-right">' + sideHtml(sides.right) + "</div>" +
+        "</div>";
+      syncChrome();
+    }
+
+    function renderMobile() {
+      var n = state.pages.length;
+      if (state.mpage > n) state.mpage = n;
+      if (state.mpage < 0) state.mpage = 0;
+      var side = state.mpage === 0 ? "cover" : state.mpage - 1;
+      bookEl.innerHTML = '<div class="binder-book mobile"><div class="book-page book-single">' +
+        sideHtml(side) + "</div></div>";
+      syncChrome();
+    }
+
+    function render() {
+      if (!bookEl.isConnected) return;
+      if (wide()) renderSpread(); else renderMobile();
+    }
+
+    /* A physical page-turn: a leaf carrying the outgoing page on its
+     * front and the incoming page on its back swings around the spine.
+     * The far side swaps while the leaf is edge-on (invisible). */
+    function flipLeaf(book, opts) {
+      var leaf = document.createElement("div");
+      leaf.className = "flip-leaf f-" + opts.side + (opts.dir === 1 ? " f-next" : " f-prev");
+      leaf.innerHTML = '<div class="leaf-face leaf-front">' + opts.frontHtml + "</div>" +
+        '<div class="leaf-face leaf-back">' + opts.backHtml + "</div>";
+      book.appendChild(leaf);
+      var done = false;
+      function finish() {
+        if (done) return; done = true;
+        leaf.remove();
+        if (opts.done) opts.done();
+      }
+      void leaf.offsetWidth; /* settle so the transition runs */
+      leaf.classList.add("f-go");
+      var midT = setTimeout(function () { if (opts.mid) opts.mid(); }, 280);
+      setTimeout(function () { clearTimeout(midT); finish(); }, 600);
     }
 
     function go(delta) {
-      var pages = pageCount();
-      var next = state.page + delta;
-      if (next < 0 || next >= pages) return;
-      state.page = next;
-      renderPage(delta);
+      if (!bookEl.isConnected || state.flipping) return;
+      var book = bookEl.querySelector(".binder-book");
+      if (!book || mqCalm.matches) { step(delta); return; }
+      if (wide()) goSpread(book, delta); else goSingle(book, delta);
+    }
+
+    /* Instant step for reduced-motion or when the book isn't mounted. */
+    function step(delta) {
+      if (wide()) {
+        var ns = state.spread + delta, total = spreadCount(state.pages.length);
+        if (ns < 0 || ns >= total) return;
+        state.spread = ns;
+      } else {
+        var nm = state.mpage + delta;
+        if (nm < 0 || nm > state.pages.length) return;
+        state.mpage = nm;
+      }
+      render();
+    }
+
+    function goSpread(book, delta) {
+      var n = state.pages.length, total = spreadCount(n);
+      var ns = state.spread + delta;
+      if (ns < 0 || ns >= total) return;
+      state.flipping = true;
+      var cur = spreadSides(state.spread, n), nxt = spreadSides(ns, n);
+      function after() {
+        state.flipping = false;
+        if (!bookEl.isConnected) return;
+        state.spread = ns;
+        renderSpread();
+      }
+      if (delta === 1) {
+        var rightEl = book.querySelector(".book-right");
+        flipLeaf(book, {
+          side: "right", dir: 1,
+          frontHtml: sideHtml(cur.right), backHtml: sideHtml(nxt.left),
+          mid: function () { if (rightEl.isConnected) rightEl.innerHTML = sideHtml(nxt.right); },
+          done: after
+        });
+      } else {
+        var leftEl = book.querySelector(".book-left");
+        flipLeaf(book, {
+          side: "left", dir: -1,
+          frontHtml: sideHtml(cur.left), backHtml: sideHtml(nxt.right),
+          mid: function () { if (leftEl.isConnected) leftEl.innerHTML = sideHtml(nxt.left); },
+          done: after
+        });
+      }
+    }
+
+    function goSingle(book, delta) {
+      var n = state.pages.length, nm = state.mpage + delta;
+      if (nm < 0 || nm > n) return;
+      state.flipping = true;
+      var curSide = state.mpage === 0 ? "cover" : state.mpage - 1;
+      var nxtSide = nm === 0 ? "cover" : nm - 1;
+      flipLeaf(book, {
+        side: "single", dir: delta,
+        frontHtml: sideHtml(curSide), backHtml: sideHtml(nxtSide),
+        done: function () {
+          state.flipping = false;
+          if (!bookEl.isConnected) return;
+          state.mpage = nm;
+          renderMobile();
+        }
+      });
     }
     prevBtn.addEventListener("click", function () { go(-1); });
     nextBtn.addEventListener("click", function () { go(1); });
     sortSel.addEventListener("change", function () {
       state.sort = sortSel.value;
-      state.page = 0;
-      renderPage(0);
+      refreshPages();
+      state.spread = 0; state.mpage = 0;
+      render();
     });
     root.querySelector("#bdet-add").addEventListener("click", function () {
       /* Pre-check sets already shelved here — "shelve more like these". */
@@ -281,6 +400,13 @@
       else if (e.key === "ArrowRight") go(1);
     }
     document.addEventListener("keydown", onKey);
+    mqWide.addEventListener("change", function () {
+      if (state.flipping || !bookEl.isConnected) return;
+      /* Carry the reader's place across the breakpoint. */
+      if (mqWide.matches) state.spread = state.mpage === 0 ? 0 : Math.ceil((state.mpage - 1) / 2);
+      else state.mpage = state.spread === 0 ? 0 : 2 * state.spread;
+      render();
+    });
 
     try {
       var binder = await App.binders.byId(binderId);
@@ -292,10 +418,11 @@
       nameEl.textContent = binder.name;
       var rows = await App.collection.list();
       state.items = (rows || []).filter(function (r) { return r.binder_id === binderId; });
-      renderPage(0);
+      refreshPages();
+      render();
     } catch (e) {
       console.warn("[VaultDex] binder detail failed:", e && e.message);
-      gridEl.innerHTML = App.ui.emptyState({ title: "Couldn't load this binder", body: "Check your connection and try again." });
+      bookEl.innerHTML = App.ui.emptyState({ title: "Couldn't load this binder", body: "Check your connection and try again." });
     }
   };
 
@@ -308,6 +435,24 @@
       for (var i = 0; i < q; i++) slots.push({ row: row, copy: i + 1, of: q });
     });
     return slots;
+  }
+
+  /* Pure: chunk slots into 9-pocket pages. */
+  function chunkPages(slots) {
+    var pages = [];
+    (slots || []).forEach(function (s, i) {
+      if (i % PAGE_SIZE === 0) pages.push([]);
+      pages[pages.length - 1].push(s);
+    });
+    return pages;
+  }
+
+  /* Pure: an open binder shows two pages per spread; spread 0 pairs a
+   * black cover (left) with the first card page (right). */
+  function spreadCount(pageCount) { return Math.max(1, Math.ceil((pageCount + 1) / 2)); }
+  function spreadSides(spread, pageCount) {
+    if (spread === 0) return { left: "cover", right: pageCount > 0 ? 0 : null };
+    return { left: 2 * spread - 1, right: 2 * spread < pageCount ? 2 * spread : null };
   }
 
   /* Pocket tile for the flip view: a clear sleeve holding just the card
@@ -429,4 +574,7 @@
   /* Exposed for unit tests. */
   App.views.binderDetail.groupUnshelvedBySet = groupUnshelvedBySet;
   App.views.binderDetail.expandSlots = expandSlots;
+  App.views.binderDetail.chunkPages = chunkPages;
+  App.views.binderDetail.spreadCount = spreadCount;
+  App.views.binderDetail.spreadSides = spreadSides;
 })();
