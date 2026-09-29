@@ -28,9 +28,9 @@ test.describe("PkmnPrices upstream contract", () => {
   const headers = { Referer: "https://vaultdex-three.vercel.app/" };
 
   test("GET /v1/cards returns a data array of card records", async ({ request }) => {
-    const resp = await request.get(BASE + "/api/pkmnprices/v1/cards", {
+    const resp = await request.get(BASE + "/api/pkmnprices", {
       headers,
-      params: { name: "Pikachu", per_page: 1 },
+      params: { path: "/v1/cards", name: "Pikachu", per_page: 1 },
     });
     expect(resp.status(), "proxy should admit the browser-caller check").toBe(200);
     const json = await resp.json();
@@ -47,14 +47,15 @@ test.describe("PkmnPrices upstream contract", () => {
   test("GET /v1/cards/{id} returns a prices array the refresh loop reads", async ({
     request,
   }) => {
-    const search = await request.get(BASE + "/api/pkmnprices/v1/cards", {
+    const search = await request.get(BASE + "/api/pkmnprices", {
       headers,
-      params: { name: "Pikachu", per_page: 1 },
+      params: { path: "/v1/cards", name: "Pikachu", per_page: 1 },
     });
     const id = (await search.json()).data[0].id;
 
-    const resp = await request.get(BASE + "/api/pkmnprices/v1/cards/" + encodeURIComponent(id), {
+    const resp = await request.get(BASE + "/api/pkmnprices", {
       headers,
+      params: { path: "/v1/cards/" + id },
     });
     expect(resp.status()).toBe(200);
     const card = await resp.json();
