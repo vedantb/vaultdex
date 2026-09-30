@@ -735,10 +735,13 @@
      * Repainted alongside the stepper since both follow the same row. */
     /* The picker is a row-selection dimension, so repaints must preserve the
      * user's choice — never snap it to some row. "__new" is transient and
-     * never survives a repaint; a deleted binder falls back to unshelved. */
-    function paintBinder() {
+     * never survives a repaint; a deleted binder falls back to unshelved.
+     * `done` (optional) runs after the options are rebuilt, so callers that
+     * need a real option present — e.g. the initial preselect of the best
+     * holding's binder — can wait for it instead of racing the async list. */
+    function paintBinder(done) {
       var sel = m.el.querySelector("#cm-binder");
-      if (!sel || !App.binders) return;
+      if (!sel || !App.binders) { if (typeof done === "function") done(); return; }
       var cur = sel.value || "";
       App.binders.list().then(function (binders) {
         if (!m.el.isConnected) return;
@@ -748,8 +751,10 @@
             App.esc(b.name) + "</option>";
         }).join("") + '<option value="__new">+ New binder…</option>';
         if (cur === "__new" || (cur && sel.value !== cur)) sel.value = "";
+        if (typeof done === "function") done();
       }, function (e) {
         console.warn("[VaultDex] binders failed:", e && e.message);
+        if (typeof done === "function") done();
       });
     }
     /* On open, default the picker to the holding with the most copies of the
@@ -904,12 +909,18 @@
     /* Keep the stepper in sync when the collection changes behind the
      * modal — handled by the collection:changed subscription above. */
     refreshOwnedRows().then(function () {
-      if (m.el.isConnected) {
+      if (!m.el.isConnected) return;
+      /* The binder options load asynchronously — preselecting the best
+       * holding's binder only sticks once its <option> exists. Setting
+       * sel.value before that is a silent no-op that leaves the picker on
+       * "No binder" and the stepper bound to the (empty) unshelved row,
+       * so the initial paint waits for the options. */
+      paintBinder(function () {
+        if (!m.el.isConnected) return;
         preselectBinder();
         if (typeof m._syncPickerBinder === "function") m._syncPickerBinder();
         paintStepper();
-        paintBinder();
-      }
+      });
     }, function (e) {
       console.warn("[VaultDex] owned rows failed:", e && e.message);
     });

@@ -168,6 +168,29 @@ test.describe("signed-in collection flows (stubbed Supabase)", () => {
     expect(normal.quantity).toBe(3);
   });
 
+  test("card modal preselects the binder holding the copies (no 0/No-binder flash)", async ({ page }) => {
+    /* Regression: preselectBinder() used to run before the binder <select>
+     * options existed, so sel.value = binderId was a silent no-op — a card
+     * shelved in a binder opened with the picker on "No binder" and the
+     * stepper showing 0 / "not owned yet" despite owned copies. */
+    const { db } = await gotoSignedIn(page, SET, [
+      seedRow({ id: 1, card_id: "me02-001", variant: "Normal", quantity: 2, binder_id: "b1" })
+    ]);
+    db.tables.binders = [
+      { id: "b1", user_id: OWNER, name: "Test Binder", position: 0 }
+    ];
+    await page.waitForSelector('.card-tile[data-id="me02-001"]');
+
+    await page.locator('.card-tile[data-id="me02-001"] .art img').click();
+    await page.waitForSelector("#cm-minus", { timeout: 15000 });
+
+    // The picker lands on the holding binder and the stepper binds its row.
+    await expect(page.locator("#cm-binder")).toHaveValue("b1", { timeout: 10000 });
+    await expect(page.locator("#cm-qty")).toHaveText("2", { timeout: 10000 });
+    await expect(page.locator("#cm-own-label")).toContainText("Test Binder");
+    await expect(page.locator("#cm-own-label")).toContainText("×2 owned");
+  });
+
   test("card modal - at 1 removes the row; Undo restores it", async ({ page }) => {
     const { db } = await gotoSignedIn(page, SET, [
       seedRow({ id: 1, card_id: "me02-001", variant: "Normal", quantity: 1 })
