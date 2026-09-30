@@ -473,7 +473,7 @@
             '<span class="home-entry-art">' + (collArt ? '<img loading="lazy" src="' + App.esc(collArt) + '" alt="">' : "") + "</span>" +
             '<span class="home-entry-body">' +
               '<span class="home-kicker">Browse</span>' +
-              '<span class="home-entry-title">' + App.esc(readOnly ? "Vedant's Collection" : "My Collection") + "</span>" +
+              '<span class="home-entry-title">' + App.esc(readOnly ? "The Collection" : "My Collection") + "</span>" +
               '<span class="home-entry-meta">' + totals.count.toLocaleString() + " cards · " + App.ui.money(totalValue) + "</span>" +
             "</span>" +
             '<span class="home-entry-arrow" aria-hidden="true">' + App.ui.icon("chev-r") + "</span>" +

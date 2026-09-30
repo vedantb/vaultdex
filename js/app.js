@@ -158,8 +158,8 @@
         a.style.display = show ? "" : "none";
       });
     });
-    // Visitors see whose collection this is; the owner sees "My Collection".
-    var label = show ? "My Collection" : "Vedant's Collection";
+    // Visitors get the neutral "The Collection"; the owner sees "My Collection".
+    var label = show ? "My Collection" : "The Collection";
     document.querySelectorAll('[data-nav="collection"] .nav-label').forEach(function (el) {
       el.textContent = label;
     });

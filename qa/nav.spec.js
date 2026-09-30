@@ -58,7 +58,7 @@ test.describe("sidebar nav — signed out", () => {
 
       // Signed-out: Browse / Wishlist / Trophies are owner-only.
       expect(await visibleNavLabels(page)).toEqual([
-        "Home", "Vedant's Collection", "Pokédex", "Trade Binder", "Games",
+        "Home", "The Collection", "Pokédex", "Trade Binder", "Games",
         "Binders", "Price Movers",
       ]);
       // Every nav item carries an icon.
@@ -122,7 +122,7 @@ test.describe("sidebar nav — signed out", () => {
         .poll(async () => page.locator("#sidebar").evaluate((el) => el.getBoundingClientRect().x), { timeout: 5000 })
         .toBeCloseTo(0, 0);
       expect(await visibleNavLabels(page)).toEqual([
-        "Home", "Vedant's Collection", "Pokédex", "Trade Binder", "Games",
+        "Home", "The Collection", "Pokédex", "Trade Binder", "Games",
         "Binders", "Price Movers",
       ]);
 
