@@ -9,21 +9,25 @@
 }
 /* Full-bleed cover tile: artwork fills the tile, binder name sits on top
  * of a bottom scrim — always legible in light and dark mode. */
+/* Binder on a shelf: the cover photo is a real binder, so the tile carries
+ * no card chrome — no border, no card-lift hover. It sits with a soft
+ * grounding shadow like an object resting on the page. */
 .binder-tile {
   position: relative;
   display: block;
   aspect-ratio: 3 / 4;
-  border-radius: 16px;
+  border-radius: 10px;
   overflow: hidden;
-  border: 1px solid var(--border, #e5e5e5);
+  border: none;
   text-decoration: none;
   color: #fff;
   background: var(--surface-2, #222);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.22);
+  transition: box-shadow 0.15s ease;
 }
 .binder-tile:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28);
+  transform: none;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.32);
 }
 .binder-art {
   position: absolute;
