@@ -154,7 +154,7 @@
         var up = await App.sb.from("binders").update({ cover: nc }).eq("id", res.data.id);
         if (!up.error) res.data.cover = nc;
       }
-    } catch (e) { /* column not migrated yet — hub render assigns it later */ }
+    } catch { /* column not migrated yet — hub render assigns it later */ }
     return res.data;
   }
 
