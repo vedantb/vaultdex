@@ -13,11 +13,6 @@
     return App.auth && App.auth.isOwner && App.auth.isOwner();
   }
 
-  function rowValue(row) {
-    var p = row.market_price;
-    return (p === null || p === undefined) ? 0 : Number(p) * (row.quantity || 0);
-  }
-
   function rowsByBinder(rows) {
     var map = {};
     (rows || []).forEach(function (r) {
@@ -78,13 +73,12 @@
         grid.innerHTML = binders.map(function (bdr) {
           var items = grouped[bdr.id] || [];
           var copies = items.reduce(function (n, r) { return n + (r.quantity || 0); }, 0);
-          var total = items.reduce(function (n, r) { return n + rowValue(r); }, 0);
           var art = '<img class="binder-art-img" src="' + binderCover(bdr.id) + '" alt="" loading="lazy">';
           return '<a class="binder-tile" href="/binder/' + App.esc(bdr.id) + '" data-binder="' + App.esc(bdr.id) + '">' +
             '<div class="binder-art">' + art + '<div class="binder-scrim"></div></div>' +
             '<div class="binder-overlay"><div class="binder-name">' + App.esc(bdr.name) + "</div>" +
             '<div class="binder-stats">' + copies + (copies === 1 ? " card" : " cards") +
-            " · " + App.ui.money(total) + "</div></div></a>";
+            "</div></div></a>";
         }).join("");
       } catch (e) {
         console.warn("[VaultDex] binders hub failed:", e && e.message);
