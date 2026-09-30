@@ -22,20 +22,6 @@
     return map;
   }
 
-  /* Deterministic cover hue per binder, so empty binders still get a
-   * rich, visible cover in both light and dark mode. */
-  /* Binder cover artwork: official Vault X Exo-Tec zip binder product
-   * shots (Signature Black, Royal Blue, Forest Green, Fire Red) plus
-   * hue-shifted variants (Purple, Pink, Teal, Brown), picked
-   * deterministically per binder so each binder keeps its look. */
-  var BINDER_COVERS = ["binder-black", "binder-blue", "binder-green", "binder-red",
-    "binder-purple", "binder-pink", "binder-teal", "binder-brown"];
-  function binderCover(id) {
-    var h = 0, s = String(id || "");
-    for (var i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) >>> 0;
-    return "/images/binder-covers/" + BINDER_COVERS[h % BINDER_COVERS.length] + ".webp";
-  }
-
   /* ---------- /binders hub ---------- */
 
   App.views.binders = async function (root) {
@@ -59,6 +45,7 @@
       if (!grid || !grid.isConnected) return;
       try {
         var binders = readOnly ? await App.binders.listPublic() : await App.binders.list();
+        if (!readOnly) await App.binders.ensureCovers(binders);
         var rows = readOnly ? await App.collection.listPublic() : await App.collection.list();
         var grouped = rowsByBinder(rows);
         if (!binders.length) {
@@ -75,7 +62,7 @@
         grid.innerHTML = binders.map(function (bdr) {
           var items = grouped[bdr.id] || [];
           var copies = items.reduce(function (n, r) { return n + (r.quantity || 0); }, 0);
-          var art = '<img class="binder-art-img" src="' + binderCover(bdr.id) + '" alt="" loading="lazy">';
+          var art = '<img class="binder-art-img" src="' + App.binders.coverOf(bdr) + '" alt="" loading="lazy">';
           return '<a class="binder-tile" href="/binder/' + App.esc(bdr.id) + '" data-binder="' + App.esc(bdr.id) + '">' +
             '<div class="binder-art">' + art + '<div class="binder-scrim"></div></div>' +
             '<div class="binder-overlay"><div class="binder-name">' + App.esc(bdr.name) + "</div>" +

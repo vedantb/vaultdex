@@ -89,6 +89,47 @@
     return b ? b.name : null;
   }
 
+  /* Binder cover art. The assigned cover is stored on the binder row so it
+   * never changes, no matter how many covers join the rotation later.
+   * pickCover is only the first-assignment fallback (and the read-only
+   * fallback for visitors when a row somehow has no cover yet). */
+  var BINDER_COVERS = ["binder-black", "binder-blue", "binder-green", "binder-red",
+    "binder-purple", "binder-pink", "binder-teal", "binder-brown"];
+  function pickCover(id) {
+    var h = 0, s = String(id || "");
+    for (var i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) >>> 0;
+    return BINDER_COVERS[h % BINDER_COVERS.length];
+  }
+  function coverOf(binder) {
+    var name = (binder && binder.cover) || pickCover(binder && binder.id);
+    return "/images/binder-covers/" + name + ".webp";
+  }
+  /* Owner-only: give every cover-less binder its deterministic cover and
+   * persist it, so the color is frozen from here on. Safe to call on every
+   * hub render — binders that already have a cover are untouched. */
+  async function ensureCovers(binders) {
+    if (!App.auth.isOwner()) return;
+    var missing = (binders || []).filter(function (b) { return b && !b.cover; });
+    if (!missing.length) return;
+    for (var i = 0; i < missing.length; i++) {
+      var b = missing[i];
+      var name = pickCover(b.id);
+      var res = await App.sb.from("binders").update({ cover: name }).eq("id", b.id);
+      if (res.error) {
+        var msg = (res.error && res.error.message) || "";
+        /* Column not migrated yet: keep the in-memory fallback, stay quiet. */
+        if (res.error.code === "42703" || msg.indexOf("cover") !== -1) return;
+        throw friendlyError(res.error);
+      }
+      b.cover = name;
+    }
+    if (cache) {
+      for (var j = 0; j < cache.length; j++) {
+        if (!cache[j].cover) cache[j].cover = pickCover(cache[j].id);
+      }
+    }
+  }
+
   async function create(name) {
     var u = needUser();
     if (!u) throw new Error("Sign in first.");
@@ -105,6 +146,15 @@
       .single();
     if (res.error) throw friendlyError(res.error);
     invalidate();
+    /* Freeze a cover at birth so its color never shifts under palette growth.
+     * Best-effort: the hub's ensureCovers pass assigns one anyway. */
+    try {
+      if (res.data && res.data.id) {
+        var nc = pickCover(res.data.id);
+        var up = await App.sb.from("binders").update({ cover: nc }).eq("id", res.data.id);
+        if (!up.error) res.data.cover = nc;
+      }
+    } catch (e) { /* column not migrated yet — hub render assigns it later */ }
     return res.data;
   }
 
@@ -283,6 +333,8 @@
     listPublic: listPublic,
     byId: byId,
     binderName: binderName,
+    coverOf: coverOf,
+    ensureCovers: ensureCovers,
     create: create,
     rename: rename,
     remove: remove,
