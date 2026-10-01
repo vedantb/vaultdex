@@ -122,6 +122,8 @@
   align-items: center;
   gap: 8px;
 }
+/* Top prev/next pills: full 44px tap target height. */
+#bdet-prev, #bdet-next { min-height: 44px; min-width: 44px; }
 .binder-pages span {
   font-size: 14px;
   color: var(--muted, #666);
@@ -188,7 +190,7 @@
 }
 /* Phones: compact chevrons hugging the desk's outer edge. */
 @media (max-width: 700px) {
-  .book-nav { width: 34px; height: 34px; font-size: 18px; }
+  .book-nav { width: 40px; height: 40px; font-size: 20px; }
   .book-nav-prev { left: 3px; }
   .book-nav-next { right: 3px; }
 }

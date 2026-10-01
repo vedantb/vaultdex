@@ -69,6 +69,8 @@ body.sidebar-collapsed .sidebar-collapse { justify-content: center; padding: 10p
     position: fixed; left: 0; top: 0; bottom: 0; height: 100dvh; width: 284px;
     transform: translateX(-105%); transition: transform 0.26s ease;
     z-index: 100; box-shadow: 12px 0 40px rgba(0, 0, 0, 0.18);
+    /* Notched phones: keep drawer content clear of the home indicator. */
+    padding-bottom: calc(12px + env(safe-area-inset-bottom));
   }
   body.drawer-open .sidebar { transform: none; }
   .sidebar-scrim {

@@ -109,3 +109,23 @@
 }
 .target-actions { display: flex; align-items: center; margin-top: 16px; }
 .target-spacer { flex: 1; }
+
+/* ---------- mobile ---------- */
+@media (max-width: 640px) {
+  /* Deal tiles are narrow on phones: let the price row wrap so the variant
+   * chip drops to its own line instead of being clipped off the tile edge. */
+  .wishlist-tile .price-row { flex-wrap: wrap; gap: 6px; }
+  .wishlist-tile .variant-chip {
+    max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  /* Target-price icon buttons over the art: full 44px touch target. */
+  .wishlist-remove.wishlist-remove,
+  .wishlist-target.wishlist-target { width: 44px; height: 44px; }
+  /* Target editor: roomy controls. */
+  .target-input-wrap input { min-height: 44px; }
+  .target-actions .btn { min-height: 44px; }
+}
+@media (pointer: coarse) {
+  /* Modal wishlist heart: full 44px touch target. */
+  .wish-btn { width: 44px; height: 44px; }
+}

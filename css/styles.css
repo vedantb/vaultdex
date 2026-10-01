@@ -176,6 +176,11 @@ main#app { flex: 1; padding: 28px 20px 64px; }
   transition: all 0.18s ease;
 }
 .btn-icon:hover { background: var(--bg-soft); color: var(--text); border-color: var(--border); }
+/* Touch devices: icon buttons (hamburger, theme toggle, banner dismiss)
+ * get a full 44px target. Desktop keeps the compact 40px. */
+@media (pointer: coarse) {
+  .btn-icon { width: 44px; height: 44px; }
+}
 .btn svg { width: 16px; height: 16px; flex: none; }
 .btn-icon svg { width: 20px; height: 20px; }
 
@@ -224,7 +229,7 @@ main#app { flex: 1; padding: 28px 20px 64px; }
 .value-range input { text-align: center; }
 .filter-actions { display: flex; gap: 10px; align-items: flex-end; }
 .search-row { display: flex; gap: 10px; margin-bottom: 14px; }
-.search-row .field { flex: 1; }
+.search-row .field { flex: 1; min-width: 0; }
 .search-row input {
   background: var(--surface); border: 1px solid var(--border); color: var(--text);
   border-radius: 999px; padding: 13px 20px; width: 100%; font-size: 1rem;
@@ -390,7 +395,7 @@ main#app { flex: 1; padding: 28px 20px 64px; }
 .set-back { display: none; }
 
 /* ---------- browse: language picker + era sections ---------- */
-.lang-grid { display: grid; gap: 32px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); max-width: 880px; margin: 64px auto; }
+.lang-grid { display: grid; gap: 32px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); max-width: 880px; width: 100%; margin: 64px auto; min-width: 0; }
 .lang-card {
   background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
   padding: 64px 36px; cursor: pointer; text-align: center;
@@ -563,7 +568,7 @@ main#app { flex: 1; padding: 28px 20px 64px; }
 /* Grid view bar (back to hub + active view title) */
 .view-bar { display: flex; align-items: center; gap: 12px; margin: 0 0 12px; }
 .view-title { font: 700 1.2rem var(--font-display); color: var(--text); }
-.view-links { margin-left: auto; display: flex; gap: 8px; align-items: center; }
+.view-links { margin-left: auto; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; justify-content: flex-end; }
 
 /* Language quick pills (collection): All cards / English / 日本語 */
 .lang-pills { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 16px; }
@@ -606,12 +611,22 @@ main#app { flex: 1; padding: 28px 20px 64px; }
   transition: all 0.15s ease;
 }
 .stepper button:hover { background: var(--accent); color: #fff; }
+/* Touch devices: stepper +/- are the primary add/remove control — give them
+ * a full 44px tap target. Desktop (fine pointer) keeps the compact 28px. */
+@media (pointer: coarse) {
+  .stepper button { width: 44px; height: 44px; font-size: 1.2rem; }
+}
 .stepper .qty { min-width: 30px; text-align: center; font-weight: 700; font-size: 0.9rem; }
 .tile-controls { display: flex; align-items: center; justify-content: space-between; margin-top: 8px; }
 .icon-btn-sm {
   width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--border);
   background: var(--surface); color: var(--muted);
   display: inline-flex; align-items: center; justify-content: center; transition: all 0.15s ease;
+}
+/* Touch devices: icon buttons (tile trash/trade, manage-modal row actions)
+ * get a full 44px target. Desktop keeps the compact 32px. */
+@media (pointer: coarse) {
+  .icon-btn-sm { width: 44px; height: 44px; }
 }
 .icon-btn-sm:hover { color: var(--danger); border-color: var(--danger); background: color-mix(in srgb, var(--danger) 8%, transparent); }
 .icon-btn-sm svg { width: 15px; height: 15px; }
@@ -743,6 +758,13 @@ main#app { flex: 1; padding: 28px 20px 64px; }
   .toolbar .field { min-width: 100%; }
   .filter-panel .field { min-width: 100%; }
   .user-chip span { display: none; }
+  /* collection header: let the view links drop below the title instead of
+   * clipping the Wishlist button off the right edge */
+  .view-bar { flex-wrap: wrap; }
+  /* iOS Safari auto-zooms on focus when an input is <16px — keep text
+   * inputs and selects at 16px on phones (desktop untouched) */
+  input[type="text"], input[type="search"], input[type="number"],
+  input[type="email"], input:not([type]), select, textarea { font-size: 16px; }
 }
 
 

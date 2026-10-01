@@ -358,7 +358,7 @@
     /* Graded collection rows: carry the slab onto the card so render()
      * shows the gold grade badge next to the title. */
     var gradeBadgeHtml = card.gradingCompany
-      ? ' <span class="grade-badge">' + App.esc(card.gradingCompany) + " " + App.esc(card.grade || "") + "</span>"
+      ? ' <span class="grade-badge">' + App.esc(card.gradingCompany) + " " + App.esc(card.gradingGrade || "") + "</span>"
       : "";
 
     var html =
