@@ -761,8 +761,11 @@ main#app { flex: 1; padding: 28px 20px 64px; }
   /* collection header: let the view links drop below the title instead of
    * clipping the Wishlist button off the right edge */
   .view-bar { flex-wrap: wrap; }
+}
+@media (max-width: 640px) and (pointer: coarse) {
   /* iOS Safari auto-zooms on focus when an input is <16px — keep text
-   * inputs and selects at 16px on phones (desktop untouched) */
+   * inputs and selects at 16px on real touch devices (desktop-class
+   * rendering, incl. narrow windows, untouched) */
   input[type="text"], input[type="search"], input[type="number"],
   input[type="email"], input:not([type]), select, textarea { font-size: 16px; }
 }
