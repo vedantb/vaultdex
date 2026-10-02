@@ -81,4 +81,4 @@ pokemon-tcg-app/
 
 ## Contributing
 
-`main` is protected: changes land via pull request with the `lint-and-syntax` and `smoke` checks green (no required approvals — solo project). Direct pushes are reserved for the repo owner and the weekly catalog-refresh automation.
+`main` is protected, owners included: every change lands via pull request with the `lint-and-syntax` and `smoke` checks green (no required approvals — solo project). No direct pushes to `main`, no force-pushes. Automated jobs (e.g. the catalog refresh) open pull requests like everyone else.
