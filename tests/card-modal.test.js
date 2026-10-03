@@ -228,3 +228,59 @@ describe("swipe navigation math + gesture classifier (2026-09-21)", () => {
     expect(classifySwipe(30, -150, 250)).toBe(0);
   });
 });
+
+describe("holoTier (rarity-aware foil tiers, 2026-10-02)", () => {
+  const { holoTier, isHoloRarity } = window.App.cardModal;
+
+  test("matte: commons, uncommons, plain rares and unknown rarities get no foil", () => {
+    expect(holoTier(null)).toBe(0);
+    expect(holoTier("")).toBe(0);
+    expect(holoTier("Common")).toBe(0);
+    expect(holoTier("Uncommon")).toBe(0);
+    expect(holoTier("Rare")).toBe(0);
+    expect(holoTier("Promo")).toBe(0);
+  });
+
+  test("tier 1: holo and double rares get the starfield sparkle", () => {
+    expect(holoTier("Rare Holo")).toBe(1);
+    expect(holoTier("Holo Rare")).toBe(1);
+    expect(holoTier("Double Rare")).toBe(1);
+    expect(holoTier("Radiant Rare")).toBe(1);
+    expect(holoTier("ACE SPEC Rare")).toBe(1);
+  });
+
+  test("tier 2: ultra rares get the rainbow band", () => {
+    expect(holoTier("Ultra Rare")).toBe(2);
+    expect(holoTier("Rare Ultra")).toBe(2);
+    expect(holoTier("Rare Holo VMAX")).toBe(2);
+    expect(holoTier("Prism Rare")).toBe(2);
+    expect(holoTier("Shiny Rare")).toBe(2);
+  });
+
+  test("tier 3: illustration rares get the cosmic swirl", () => {
+    expect(holoTier("Illustration Rare")).toBe(3);
+    expect(holoTier("Special Illustration Rare")).toBe(3);
+    expect(holoTier("Art Rare")).toBe(3);
+    expect(holoTier("Amazing Rare")).toBe(3);
+  });
+
+  test("tier 4: secret and hyper rares get the gold crosshatch", () => {
+    expect(holoTier("Secret Rare")).toBe(4);
+    expect(holoTier("Hyper Rare")).toBe(4);
+    expect(holoTier("Mega Hyper Rare")).toBe(4);
+  });
+
+  test("matching is case-insensitive and trims whitespace", () => {
+    expect(holoTier("  ultra rare ")).toBe(2);
+    expect(holoTier("SECRET RARE")).toBe(4);
+  });
+
+  test("isHoloRarity parity: true exactly when tier > 0", () => {
+    expect(isHoloRarity(null)).toBe(false);
+    expect(isHoloRarity("Rare")).toBe(false);
+    expect(isHoloRarity("Common")).toBe(false);
+    expect(isHoloRarity("Double Rare")).toBe(true);
+    expect(isHoloRarity("Rare Holo")).toBe(true);
+    expect(isHoloRarity("Secret Rare")).toBe(true);
+  });
+});
