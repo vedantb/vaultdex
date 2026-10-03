@@ -34,12 +34,38 @@
 /* ---------- 5. animated progress sweeps ---------- */
 .cp-fill { transition: width 0.7s cubic-bezier(0.22, 0.8, 0.3, 1); }
 
-/* ---------- 7/8. modal card tilt + glare + holo ---------- */
+/* ---------- 7/8. modal card tilt + glare + tiered holo + flip ---------- */
+/* width: 100% matters: the faces are absolutely positioned, so without it
+ * the mobile margin: 0 auto rule shrinks .art to its (zero) in-flow size. */
+.card-detail .art { position: relative; aspect-ratio: 63 / 88; width: 100%; }
+.card-detail .art .flip-inner {
+  position: absolute; inset: 0; border-radius: 14px; box-shadow: var(--shadow);
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.3, 0.7, 0.3, 1);
+}
+.card-detail .art.flipped .flip-inner { transform: rotateY(180deg); }
+.card-detail .art .face {
+  position: absolute; inset: 0; border-radius: 14px; overflow: hidden;
+  backface-visibility: hidden; -webkit-backface-visibility: hidden;
+}
+.card-detail .art .face img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.card-detail .art .face-back { transform: rotateY(180deg); }
+/* corner tools (Holo toggle, Flip) float over the art */
+.card-detail .art .art-tools {
+  position: absolute; right: 10px; bottom: 10px; z-index: 4;
+  display: flex; gap: 6px;
+}
+.card-detail .art .art-tool {
+  font: inherit; font-size: 0.72rem; font-weight: 700;
+  color: #fff; background: rgba(12, 16, 26, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.35); border-radius: 999px;
+  padding: 6px 11px; cursor: pointer; backdrop-filter: blur(6px);
+}
+.card-detail .art .art-tool.off { opacity: 0.5; }
 .card-detail .art.tilt-wrap { perspective: 1000px; }
 /* Touch: vertical page scroll stays native while horizontal drags tilt. */
 .card-detail .art.tilt { touch-action: pan-y; }
 .card-detail .art.tilt {
-  position: relative;
   --mx: 50; --my: 50;
   transform:
     rotateX(calc((50 - var(--my)) * 0.24deg))
@@ -47,10 +73,9 @@
   transition: transform 0.12s ease-out;
   will-change: transform;
 }
-.card-detail .art.tilt img { display: block; }
-/* glare sweep that follows the pointer */
-.card-detail .art.tilt .glare {
-  position: absolute; inset: 0; border-radius: 14px; pointer-events: none;
+/* glare sweep on the front face that follows the pointer */
+.card-detail .art .face-front .glare {
+  position: absolute; inset: 0; pointer-events: none;
   background: radial-gradient(
     circle at calc(var(--mx) * 1%) calc(var(--my) * 1%),
     rgba(255, 255, 255, 0.45), transparent 55%);
@@ -58,14 +83,33 @@
   opacity: 0; transition: opacity 0.25s ease;
 }
 @media (hover: hover) {
-  .card-detail .art.tilt:hover .glare { opacity: 1; }
+  .card-detail .art.tilt:hover .face-front .glare { opacity: 1; }
 }
-/* touch: the glare + holo follow the finger while it is down */
-.card-detail .art.tilt.touching .glare { opacity: 1; }
-.card-detail .art.tilt.holo.touching::after { opacity: 0.85; }
-/* holographic foil layer — rare cards only, desktop hover only */
-.card-detail .art.tilt.holo::after {
-  content: ""; position: absolute; inset: 0; border-radius: 14px; pointer-events: none;
+/* touch: the glare + foil follow the finger while it is down */
+.card-detail .art.tilt.touching .face-front .glare { opacity: 1; }
+
+/* Foil layers (front face only), texture keyed to data-tier. ::after is the
+ * main sheen; ::before adds sparkle/crosshatch where the tier calls for it.
+ * Everything stays at opacity 0 until the pointer hovers or a finger is
+ * down; .no-holo (the Holo toggle) suppresses both layers entirely. */
+.card-detail .art[data-tier] .face-front::before,
+.card-detail .art[data-tier] .face-front::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  opacity: 0; transition: opacity 0.3s ease;
+}
+/* tier 1 — holo / double rare: starfield sparkle over a soft sheen */
+.card-detail .art[data-tier="1"] .face-front::after {
+  --foil-o: 0.5;
+  background:
+    radial-gradient(rgba(255, 255, 255, 0.55) 0.8px, transparent 1.4px),
+    linear-gradient(115deg, transparent 30%, rgba(255, 255, 255, 0.16) 48%, transparent 62%);
+  background-size: 22px 22px, 280% 280%;
+  background-position: 0 0, calc(var(--mx) * 1%) calc(var(--my) * 1%);
+  mix-blend-mode: overlay;
+}
+/* tier 2 — ultra rare: the rainbow band */
+.card-detail .art[data-tier="2"] .face-front::after {
+  --foil-o: 0.85;
   background: linear-gradient(115deg,
     transparent 15%,
     rgba(255, 0, 128, 0.28) 30%,
@@ -76,11 +120,56 @@
   background-size: 280% 280%;
   background-position: calc(var(--mx) * 1%) calc(var(--my) * 1%);
   mix-blend-mode: color-dodge;
-  opacity: 0; transition: opacity 0.3s ease;
+}
+/* tier 3 — illustration rare: dense starfield + cosmic nebula */
+.card-detail .art[data-tier="3"] .face-front::before {
+  --spark-o: 0.55;
+  background:
+    radial-gradient(rgba(255, 255, 255, 0.8) 0.8px, transparent 1.5px),
+    radial-gradient(rgba(170, 220, 255, 0.7) 0.8px, transparent 1.5px);
+  background-size: 26px 26px, 38px 38px;
+  background-position: 0 0, 9px 14px;
+  mix-blend-mode: screen;
+}
+.card-detail .art[data-tier="3"] .face-front::after {
+  --foil-o: 0.9;
+  background: linear-gradient(125deg,
+    transparent 8%,
+    rgba(150, 60, 255, 0.32) 28%,
+    rgba(0, 210, 255, 0.30) 46%,
+    rgba(255, 90, 190, 0.30) 62%,
+    rgba(255, 215, 90, 0.24) 78%,
+    transparent 94%);
+  background-size: 300% 300%;
+  background-position: calc(var(--mx) * 1%) calc(var(--my) * 1%);
+  mix-blend-mode: color-dodge;
+}
+/* tier 4 — secret / hyper rare: gold crosshatch over a gold sweep */
+.card-detail .art[data-tier="4"] .face-front::before {
+  --spark-o: 0.6;
+  background:
+    repeating-linear-gradient(45deg, rgba(255, 205, 80, 0.30) 0 1.5px, transparent 1.5px 7px),
+    repeating-linear-gradient(-45deg, rgba(255, 205, 80, 0.30) 0 1.5px, transparent 1.5px 7px);
+  mix-blend-mode: overlay;
+}
+.card-detail .art[data-tier="4"] .face-front::after {
+  --foil-o: 0.95;
+  background: linear-gradient(120deg,
+    transparent 12%,
+    rgba(255, 170, 30, 0.38) 32%,
+    rgba(255, 240, 190, 0.42) 48%,
+    rgba(255, 190, 60, 0.36) 64%,
+    transparent 86%);
+  background-size: 280% 280%;
+  background-position: calc(var(--mx) * 1%) calc(var(--my) * 1%);
+  mix-blend-mode: color-dodge;
 }
 @media (hover: hover) {
-  .card-detail .art.tilt.holo:hover::after { opacity: 0.85; }
+  .card-detail .art.tilt[data-tier]:not(.no-holo):hover .face-front::after { opacity: var(--foil-o, 0.85); }
+  .card-detail .art.tilt[data-tier]:not(.no-holo):hover .face-front::before { opacity: var(--spark-o, 0); }
 }
+.card-detail .art.tilt[data-tier]:not(.no-holo).touching .face-front::after { opacity: var(--foil-o, 0.85); }
+.card-detail .art.tilt[data-tier]:not(.no-holo).touching .face-front::before { opacity: var(--spark-o, 0); }
 
 /* ---------- 9. scroll-snap spotlight rail ---------- */
 .rail-section { margin: 26px 0 6px; }

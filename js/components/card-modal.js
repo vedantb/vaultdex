@@ -120,12 +120,23 @@
     }
   }
 
-  /* Rarities that earn the holographic foil layer on the modal art.
-   * Plain "Rare" stays flat; everything fancier gets the rainbow. */
-  function isHoloRarity(rarity) {
+  /* Rarity → holo foil tier for the modal art. 0 = matte (no foil layer);
+   * then the foil texture escalates with pull rarity: 1 = starfield
+   * sparkle (holo / double rares), 2 = rainbow band (ultra rares),
+   * 3 = cosmic swirl (illustration rares), 4 = gold crosshatch (secret /
+   * hyper rares). isHoloRarity keeps its original contract — anything
+   * fancier than a plain Rare earns light. */
+  function holoTier(rarity) {
     var r = String(rarity || "").toLowerCase().trim();
-    if (!r || r === "rare") return false;
-    return /holo|double rare|ultra rare|illustration|hyper|secret|amazing|radiant|shiny|prism|ace spec/.test(r);
+    if (!r || r === "rare" || r === "common" || r === "uncommon") return 0;
+    if (/hyper|secret/.test(r)) return 4;
+    if (/illustration|amazing|art rare/.test(r)) return 3;
+    if (/ultra|prism|shiny|super rare|holo v/.test(r)) return 2;
+    if (/double rare|radiant|ace spec|holo/.test(r)) return 1;
+    return 0;
+  }
+  function isHoloRarity(rarity) {
+    return holoTier(rarity) > 0;
   }
 
   /* Row identity for the live stepper: (normalized variant label, pkmn_id,
@@ -164,7 +175,7 @@
     return (src && src.quantity > 0) ? src : null;
   }
   App.cardModal = { findBoundRow: findBoundRow, pickMoveSource: pickMoveSource, flipTransform: flipTransform, priceBoxHtml: priceBoxHtml, priceUpgradeFor: priceUpgradeFor,
-    navIndex: navIndex, classifySwipe: classifySwipe,
+    navIndex: navIndex, classifySwipe: classifySwipe, holoTier: holoTier, isHoloRarity: isHoloRarity,
     /* FLIP flight duration in ms. Slower reads as the same card traveling
      * into the modal. Writable so QA can sweep speeds without rebuilding. */
     flipFlightMs: 700 };
@@ -363,7 +374,16 @@
 
     var html =
       '<div class="card-detail">' +
-        '<div class="art"><img src="' + App.esc(card.images && (card.images.large || card.images.small)) + '" alt="' + App.esc(card.name) + ' card artwork" loading="eager" fetchpriority="high"></div>' +
+        '<div class="art">' +
+          '<div class="flip-inner">' +
+            '<div class="face face-front"><img src="' + App.esc(card.images && (card.images.large || card.images.small)) + '" alt="' + App.esc(card.name) + ' card artwork" loading="eager" fetchpriority="high"><span class="glare"></span></div>' +
+            '<div class="face face-back"><img src="/images/card-back.png" alt="" aria-hidden="true"></div>' +
+          "</div>" +
+          '<div class="art-tools">' +
+            '<button type="button" class="art-tool" data-holo-toggle aria-pressed="true">Holo</button>' +
+            '<button type="button" class="art-tool" data-flip-card aria-pressed="false">Flip</button>' +
+          "</div>" +
+        "</div>" +
         "<div>" +
           /* Graded copies name the slab next to the title; the wishlist heart
            * (owner-only) stays as-is beside it. */
@@ -586,20 +606,47 @@
         }, function () { /* keep last known state */ });
       });
     }
-    /* Pointer-reactive 3D tilt + glare on the card art (+ holo foil for rare
-     * cards). Desktop tracks the cursor; touch tracks the finger — a quick
+    /* Card art effects: a persisted Holo on/off toggle, a flip to the card
+     * back, and pointer-reactive 3D tilt + glare with a rarity-tiered foil
+     * texture. Desktop tracks the cursor; touch tracks the finger — a quick
      * horizontal flick on the art swipes to the next/previous card instead
-     * (see navTo above), while slow drags just tilt. Skipped entirely when
-     * the user prefers reduced motion. */
+     * (see navTo above), while slow drags just tilt. The buttons work even
+     * under reduced motion; the tilt itself is skipped there. */
     (function tiltArt() {
-      if (App.ui.reduceMotion) return;
       var art = m.el.querySelector(".card-detail .art");
       if (!art) return;
+      /* Rarity tier drives the foil texture (see motion.css); the Holo
+       * toggle persists across cards and visits. */
+      var tier = holoTier(card.rarity);
+      if (tier > 0) art.dataset.tier = String(tier);
+      var holoOn = true;
+      try { holoOn = window.localStorage.getItem("vaultdex.holo") !== "0"; } catch { /* storage unavailable */ }
+      var holoBtn = art.querySelector("[data-holo-toggle]");
+      function paintHolo() {
+        art.classList.toggle("no-holo", !holoOn);
+        if (holoBtn) {
+          holoBtn.setAttribute("aria-pressed", holoOn ? "true" : "false");
+          holoBtn.classList.toggle("off", !holoOn);
+        }
+      }
+      paintHolo();
+      if (holoBtn) {
+        holoBtn.addEventListener("click", function () {
+          holoOn = !holoOn;
+          try { window.localStorage.setItem("vaultdex.holo", holoOn ? "1" : "0"); } catch { /* keep going */ }
+          paintHolo();
+        });
+      }
+      /* Flip to the card back (the tilt keeps working on the back). */
+      var flipBtn = art.querySelector("[data-flip-card]");
+      if (flipBtn) {
+        flipBtn.addEventListener("click", function () {
+          var on = art.classList.toggle("flipped");
+          flipBtn.setAttribute("aria-pressed", on ? "true" : "false");
+        });
+      }
+      if (App.ui.reduceMotion) return;
       art.classList.add("tilt-wrap", "tilt");
-      var glare = document.createElement("span");
-      glare.className = "glare";
-      art.insertBefore(glare, art.firstChild);
-      if (isHoloRarity(card.rarity)) art.classList.add("holo");
       function setTilt(mx, my) {
         art.style.setProperty("--mx", Math.max(0, Math.min(100, mx)).toFixed(1));
         art.style.setProperty("--my", Math.max(0, Math.min(100, my)).toFixed(1));
