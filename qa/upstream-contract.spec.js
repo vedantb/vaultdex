@@ -38,7 +38,12 @@ test.describe("PkmnPrices upstream contract", () => {
     expect(Array.isArray(json.data), "json.data must be an array").toBe(true);
     expect(json.data.length).toBeGreaterThan(0);
     const card = json.data[0];
-    expect(typeof card.id).toBe("string");
+    // 2026-10-04: PkmnPrices changed card.id from string to number (live
+    // verified via the production proxy — ids like 10179). The app is
+    // compatible (pkmn_id is an integer column; ids are only ever used in
+    // URL paths), so the contract now expects a number and will flag any
+    // further drift.
+    expect(typeof card.id).toBe("number");
     expect(typeof card.name).toBe("string");
     expect(card.number, "card.number must be present (set matching)").toBeDefined();
     expect(card.set && typeof card.set.name, "card.set.name must be present").toBe("string");
