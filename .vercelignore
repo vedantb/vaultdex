@@ -1,0 +1,40 @@
+# Deploy hygiene: the production domain should serve the app, not the whole repo.
+# Everything excluded here is public on GitHub anyway (the repo is public);
+# this stops vaultdex-three.vercel.app from doubling as a file browser for
+# dev-only material. Verified 2026-10-05: /qa/*, /scripts/*, /supabase/*.sql
+# all returned 200 on production before this file existed.
+#
+# Kept deployed: index.html, js/, css/, images/, data/ (the local-first
+# catalog and JSON the app fetches at runtime), api/ (serverless functions),
+# sw.js, manifest.webmanifest, package.json. None of the excluded paths are
+# referenced by the app at runtime (checked 2026-10-05).
+
+# QA + test harnesses (local and CI only)
+qa/
+tests/
+test-results/
+playwright-report/
+
+# Catalog pipeline (runs on the VM; the deployed site never executes it)
+scripts/
+
+# Database migrations (schema DDL; applied via Supabase dashboard/SQL)
+supabase/
+
+# Internal notes and runbooks
+hidden-promo-sets/
+ja-promo-set-audit.md
+SETUP.md
+
+# CI/build config (public on GitHub; not needed by the deployed site)
+.github/
+playwright.config.js
+vitest.config.mjs
+eslint.config.mjs
+
+# Bulk scrape caches committed for rebuilds (read from disk on the VM only)
+data/pkmn-gg-cache/
+
+# Never deployed anyway (gitignored); listed so the intent is explicit
+node_modules/
+.snapshot-logs/
