@@ -310,3 +310,36 @@ test.describe("signed-in collection flows (stubbed Supabase)", () => {
     expect(errors).toEqual([]);
   });
 });
+
+test.describe("set page: Still need filter + print need list (2026-10-05)", () => {
+  test("Still need hides owned cards; print sheet lists the missing ones", async ({ page }) => {
+    const errors = [];
+    page.on("pageerror", e => errors.push(String(e && e.message || e)));
+    await gotoSignedIn(page, SET, [
+      seedRow({ id: 1, card_id: "me02-001", card_name: "Bulbasaur", set_id: "me02", number: "001", variant: "Normal" }),
+      seedRow({ id: 2, card_id: "me02-002", card_name: "Ivysaur", set_id: "me02", number: "002", variant: "Holo", quantity: 2 }),
+    ]);
+    await page.waitForSelector(".card-tile", { timeout: 20000 });
+    await expect(page.locator(".card-tile")).toHaveCount(48); // full first page
+    await page.locator("#set-stillneed").check();
+    await page.waitForFunction(
+      () => !document.querySelector('.card-tile[data-id="me02-001"]'),
+      null, { timeout: 15000 }
+    );
+    // Owned cards leave the grid; the count reflects the full missing list.
+    await expect(page.locator("#pg-info")).toContainText("128 cards");
+    // The progress bar still tracks whole-set completion.
+    await expect(page.locator("#cp-count")).toContainText("you own 2 of 130");
+    // Print sheet: one checklist row + one placeholder slip per missing card.
+    await page.locator("#set-print-need").click();
+    await page.waitForSelector("#print-overlay", { timeout: 15000 });
+    expect(await page.locator(".ps-checklist tr").count()).toBe(128);
+    expect(await page.locator(".ps-slip").count()).toBe(128);
+    // Print media hides the toolbar, keeps the sheet.
+    await page.emulateMedia({ media: "print" });
+    expect(await page.locator("#print-overlay .print-bar").isHidden()).toBe(true);
+    expect(await page.locator("#print-sheet").isVisible()).toBe(true);
+    await page.emulateMedia({ media: "screen" });
+    expect(errors).toEqual([]);
+  });
+});
