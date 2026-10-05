@@ -49,6 +49,7 @@
     var query = ""; // in-set card search text
     var sort = "number"; // number | priceDesc | priceAsc | name
     var rarity = ""; // "" = all rarities, else exact rarity label
+    var stillNeed = false; // "Still need" checkbox: hide cards already in the collection
     var owned = {}; // cardId -> [{ id, vlabel }] (this set)
     var setInfo = null;
     var toggling = {}; // cardId|vlabel -> true while a toggle is in flight
@@ -73,6 +74,8 @@
           '<option value="name">Name A–Z</option>' +
         "</select></div>" +
         '<div class="field shrink"><select id="set-rarity" aria-label="Filter by rarity"><option value="">All rarities</option></select></div>' +
+        '<div class="field shrink check-field"><label class="check-pill"><input type="checkbox" id="set-stillneed"> Still need</label></div>' +
+        '<div class="field shrink"><button type="button" class="btn btn-ghost btn-sm" id="set-print-need">Print need list</button></div>' +
       "</div>" +
       '<div class="variant-legend" aria-label="Checkbox colors by variant">' +
         '<span><i class="sw vc-normal"></i>Normal</span>' +
@@ -111,6 +114,77 @@
       root.querySelector("#cp-count").textContent = "you own " + n + " of " + progressTotal;
       root.querySelector("#cp-pct").textContent = pct + "%";
       root.querySelector("#cp-fill").style.width = pct + "%";
+    }
+
+    /* Print need list: builds a print sheet with a checklist plus
+     * 9-per-page binder-placeholder slips for the cards missing from the
+     * current filtered view (search + rarity are honored; the list always
+     * covers every matching card, not just the visible page). */
+    async function printNeedList() {
+      var btn = root.querySelector("#set-print-need");
+      btn.disabled = true;
+      try {
+        var json = await App.tcg.getSetCards(setId, 1, 100000, { name: query, sort: "number", rarity: rarity });
+        var missing = (json.data || []).filter(function (c) { return !((owned[c.id] || []).length); });
+        if (!missing.length) {
+          App.ui.toast("Nothing missing — this set is complete for the current filters.");
+          return;
+        }
+        buildPrintSheet(missing);
+        document.body.classList.add("printing");
+      } catch {
+        App.ui.toast("Couldn't build the need list — check your connection and try again.");
+      } finally {
+        btn.disabled = false;
+      }
+    }
+
+    function closePrintSheet() {
+      var ov = document.getElementById("print-overlay");
+      if (ov) ov.remove();
+      document.body.classList.remove("printing");
+      document.removeEventListener("keydown", printEscClose);
+    }
+
+    function printEscClose(e) {
+      if (e.key === "Escape") closePrintSheet();
+    }
+
+    function buildPrintSheet(missing) {
+      closePrintSheet(); // never stack two sheets
+      var setName = (setInfo && setInfo.name) || "Set";
+      var date = new Date().toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" });
+      var rows = missing.map(function (c) {
+        var price = App.tcg.marketOf(c);
+        return '<tr><td class="ps-box">☐</td>' +
+          '<td class="ps-num">#' + App.esc(c.number || "?") + "</td>" +
+          "<td>" + App.esc(c.name || "?") + "</td>" +
+          "<td>" + App.esc(c.rarity || "") + "</td>" +
+          '<td class="ps-price">' + (price == null ? "—" : App.esc(App.ui.money(price, c.priceCurrency))) + "</td></tr>";
+      }).join("");
+      var slips = missing.map(function (c) {
+        return '<div class="ps-slip"><div class="ps-slip-set">' + App.esc(setName) + "</div>" +
+          '<div class="ps-slip-num">#' + App.esc(c.number || "?") + "</div>" +
+          '<div class="ps-slip-name">' + App.esc(c.name || "?") + "</div>" +
+          '<div class="ps-slip-tag">MISSING</div></div>';
+      }).join("");
+      var ov = document.createElement("div");
+      ov.id = "print-overlay";
+      ov.innerHTML =
+        '<div class="print-bar no-print"><strong>' + App.esc(setName) + " — need list</strong>" +
+        "<span>" + missing.length + " missing</span>" +
+        '<button type="button" class="btn btn-primary btn-sm" id="ps-print">Print</button>' +
+        '<button type="button" class="btn btn-ghost btn-sm" id="ps-close">Close</button></div>' +
+        '<div id="print-sheet">' +
+        '<div class="ps-head"><h1>' + App.esc(setName) + ' — need list</h1><div class="ps-meta">' +
+        missing.length + " cards missing · " + App.esc(date) + "</div></div>" +
+        '<h2 class="ps-h">Checklist</h2><table class="ps-checklist">' + rows + "</table>" +
+        '<h2 class="ps-h ps-break">Binder placeholders</h2><div class="ps-slips">' + slips + "</div>" +
+        "</div>";
+      document.body.appendChild(ov);
+      ov.querySelector("#ps-print").addEventListener("click", function () { window.print(); });
+      ov.querySelector("#ps-close").addEventListener("click", closePrintSheet);
+      document.addEventListener("keydown", printEscClose);
     }
 
     /* (Re)load the shared owned-by-set index and repaint the header.
@@ -414,12 +488,15 @@
 
     async function loadPage() {      App.ui.skeletonGrid(gridWrap, 16);
       try {
-        var json = await App.tcg.getSetCards(setId, page, PAGE_SIZE, { name: query, sort: sort, rarity: rarity });
+        var json = await App.tcg.getSetCards(setId, page, PAGE_SIZE, {
+          name: query, sort: sort, rarity: rarity,
+          stillNeed: stillNeed ? owned : null
+        });
         var cards = json.data || [];
         totalCount = json.totalCount || 0;
-        // The progress bar tracks whole-set completion, so only an
+        // The progress bar tracks whole-set completion, so only a fully
         // unfiltered query may set its denominator (sort never changes it).
-        if (!query && !rarity) progressTotal = totalCount;
+        if (!query && !rarity && !stillNeed) progressTotal = totalCount;
         totalPages = Math.max(1, Math.ceil(totalCount / PAGE_SIZE));
         if (!cards.length && query) {
           gridWrap.innerHTML = App.ui.emptyState({
@@ -486,6 +563,19 @@
       loadPage();
     });
 
+    // "Still need" checkbox: hide cards already in the collection.
+    root.querySelector("#set-stillneed").addEventListener("change", function (e) {
+      stillNeed = !!e.target.checked;
+      page = 1;
+      loadPage();
+    });
+
+    // Print need list: checklist + binder-placeholder slips for the cards
+    // missing from the current filtered view.
+    root.querySelector("#set-print-need").addEventListener("click", function () {
+      printNeedList();
+    });
+
     // Rarity options come from the set's own cards (order of first
     // appearance, so commons first); the filter stays "All rarities"
     // if the list can't be read.
@@ -506,6 +596,10 @@
     // stale closures don't refetch for a page that's gone.
     if (App._setViewUnsub) { try { App._setViewUnsub(); } catch { /* ignored */ } App._setViewUnsub = null; }
     App._setViewUnsub = App.on("collection:changed", function (ev) {
+      // While "Still need" is on, a checkbox toggle changes membership —
+      // re-read owned rows, then re-run the filtered query from page 1 so
+      // the just-added card leaves the grid (or a removed one returns).
+      if (stillNeed) { page = 1; refreshOwned().then(loadPage); return; }
       refreshOwned(ev && ev.cardId);
     });
 

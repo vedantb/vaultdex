@@ -236,3 +236,55 @@ describe("getCard image backfill (2026-09-20)", () => {
     }
   });
 });
+
+describe("getSetCards stillNeed filter (2026-10-05)", () => {
+  const snapCards = [
+    { id: "tneed-1", name: "Alpha", localId: "1", rarity: "Common" },
+    { id: "tneed-2", name: "Beta", localId: "2", rarity: "Common" },
+    { id: "tneed-3", name: "Gamma", localId: "3", rarity: "Rare" },
+  ];
+  let seq = 0;
+  async function withSnap(fn) {
+    const setId = "tneed" + (seq++);
+    const orig = window.App.util.fetchWithTimeout;
+    window.App.util.fetchWithTimeout = async (url) => {
+      if (String(url).includes("sets/" + setId + ".json")) {
+        return { ok: true, json: async () => ({ set: { id: setId, name: "Test Need" }, cards: snapCards }) };
+      }
+      throw new Error("unexpected fetch: " + url);
+    };
+    try { return await fn(setId); }
+    finally { window.App.util.fetchWithTimeout = orig; }
+  }
+
+  test("without stillNeed returns every card", async () => {
+    await withSnap(async (setId) => {
+      const res = await window.App.tcg.getSetCards(setId, 1, 48, {});
+      expect(res.data.map((c) => c.id)).toEqual(["tneed-1", "tneed-2", "tneed-3"]);
+    });
+  });
+
+  test("stillNeed drops cards that have owned rows", async () => {
+    await withSnap(async (setId) => {
+      const res = await window.App.tcg.getSetCards(setId, 1, 48, {
+        stillNeed: {
+          "tneed-1": [{ id: "row1", vlabel: "normal", qty: 1 }],
+          // an empty row list is not ownership — the card stays needed
+          "tneed-3": [],
+        },
+      });
+      expect(res.data.map((c) => c.id)).toEqual(["tneed-2", "tneed-3"]);
+      expect(res.totalCount).toBe(2);
+    });
+  });
+
+  test("stillNeed composes with the rarity filter", async () => {
+    await withSnap(async (setId) => {
+      const res = await window.App.tcg.getSetCards(setId, 1, 48, {
+        rarity: "Common",
+        stillNeed: { "tneed-2": [{ id: "row2", vlabel: "holo", qty: 2 }] },
+      });
+      expect(res.data.map((c) => c.id)).toEqual(["tneed-1"]);
+    });
+  });
+});

@@ -314,6 +314,13 @@
     if (rar) {
       list = list.filter(function (c) { return (c.rarity || "Unknown") === rar; });
     }
+    // Optional "still need" filter: an object keyed by owned card ids (the
+    // set view passes its tile-level owned map) — keeps only cards with no
+    // owned rows. An empty array doesn't count as owned.
+    var need = opts && opts.stillNeed;
+    if (need) {
+      list = list.filter(function (c) { return !((need[c.id] || []).length); });
+    }
     // Optional sort: "number" (default), "priceDesc", "priceAsc", "name".
     // Unpriced cards always sort last, whichever direction prices run.
     var sort = (opts && opts.sort) || "number";

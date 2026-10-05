@@ -774,3 +774,76 @@ main#app { flex: 1; padding: 28px 20px 64px; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }
+
+/* ---------- set page: "Still need" checkbox pill ---------- */
+.set-card-search .check-field { display: flex; align-items: center; }
+.check-pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 0.85rem; font-weight: 600; color: var(--muted);
+  cursor: pointer; white-space: nowrap; padding: 8px 4px;
+}
+.check-pill input { width: 18px; height: 18px; accent-color: var(--accent); cursor: pointer; margin: 0; }
+.check-pill:hover { color: var(--text); }
+
+/* ---------- print: need list + binder placeholders ---------- */
+#print-overlay {
+  position: fixed; inset: 0; z-index: 200; overflow-y: auto;
+  background: var(--bg); padding: 24px;
+}
+.print-bar {
+  position: sticky; top: 0; z-index: 2;
+  display: flex; align-items: center; gap: 12px;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 10px 16px; margin-bottom: 20px;
+}
+.print-bar span { color: var(--muted); font-size: 0.85rem; }
+.print-bar #ps-print { margin-left: auto; }
+/* The sheet is light-on-white so it prints true on any printer. */
+#print-sheet {
+  max-width: 800px; margin: 0 auto 40px; padding: 36px;
+  background: #fff; color: #141414; border-radius: 8px;
+  font-size: 0.9rem;
+}
+#print-sheet h1 { font-size: 1.4rem; margin: 0 0 4px; }
+.ps-meta { color: #666; font-size: 0.85rem; margin-bottom: 20px; }
+.ps-h { font-size: 1.05rem; margin: 0 0 10px; }
+.ps-checklist { width: 100%; border-collapse: collapse; margin-bottom: 8px; }
+.ps-checklist td { padding: 5px 8px; border-bottom: 1px solid #e5e5e5; vertical-align: baseline; }
+.ps-checklist .ps-box { width: 1.5em; color: #888; }
+.ps-checklist .ps-num { white-space: nowrap; font-variant-numeric: tabular-nums; color: #555; }
+.ps-checklist .ps-price { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+/* 3x3 card-sized slips: nine per page, dashed cut lines. minmax(0, 1fr)
+ * so the tracks shrink on narrow screens instead of overflowing. */
+.ps-slips { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.ps-slip {
+  aspect-ratio: 63 / 88; border: 2px dashed #999; border-radius: 10px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; padding: 12px; gap: 4px; min-width: 0;
+}
+.ps-slip > * { min-width: 0; overflow-wrap: anywhere; }
+.ps-slip-set { font-size: 0.68rem; color: #777; text-transform: uppercase; letter-spacing: 0.06em; }
+.ps-slip-num { font-size: 1.15rem; font-weight: 800; font-variant-numeric: tabular-nums; }
+.ps-slip-name { font-size: 0.85rem; font-weight: 600; }
+.ps-slip-tag {
+  margin-top: 6px; font-size: 0.62rem; font-weight: 800; letter-spacing: 0.12em;
+  border: 1.5px solid #999; border-radius: 999px; padding: 2px 10px; color: #777;
+}
+@media print {
+  body.printing > *:not(#print-overlay) { display: none !important; }
+  body.printing #print-overlay { position: static; padding: 0; overflow: visible; background: #fff; }
+  body.printing .no-print { display: none !important; }
+  body.printing #print-sheet { max-width: none; margin: 0; padding: 0; border-radius: 0; }
+  .ps-h.ps-break { break-before: page; }
+  .ps-slip, .ps-checklist tr { break-inside: avoid; }
+}
+/* Narrow screens: the checklist's minimum content width overflows the
+ * sheet, so pin the narrow columns and let name/rarity wrap. */
+@media (max-width: 640px) {
+  #print-overlay { padding: 12px; }
+  #print-sheet { padding: 20px 14px; }
+  .ps-checklist { table-layout: fixed; }
+  .ps-checklist td { padding: 4px 5px; overflow-wrap: anywhere; }
+  .ps-checklist .ps-box { width: 1.8em; }
+  .ps-checklist .ps-num { width: 3.4em; }
+  .ps-checklist .ps-price { width: 4em; }
+}
