@@ -163,7 +163,10 @@
           '<td class="ps-price">' + (price == null ? "—" : App.esc(App.ui.money(price, c.priceCurrency))) + "</td></tr>";
       }).join("");
       var slips = missing.map(function (c) {
-        return '<div class="ps-slip"><div class="ps-slip-set">' + App.esc(setName) + "</div>" +
+        var img = (c.images && c.images.small) || null;
+        return '<div class="ps-slip">' +
+          (img ? '<img class="ps-slip-img" src="' + App.esc(img) + '" alt="" loading="lazy">' : "") +
+          '<div class="ps-slip-set">' + App.esc(setName) + "</div>" +
           '<div class="ps-slip-num">#' + App.esc(c.number || "?") + "</div>" +
           '<div class="ps-slip-name">' + App.esc(c.name || "?") + "</div>" +
           '<div class="ps-slip-tag">MISSING</div></div>';
@@ -182,7 +185,22 @@
         '<h2 class="ps-h ps-break">Binder placeholders</h2><div class="ps-slips">' + slips + "</div>" +
         "</div>";
       document.body.appendChild(ov);
-      ov.querySelector("#ps-print").addEventListener("click", function () { window.print(); });
+      ov.querySelector("#ps-print").addEventListener("click", async function () {
+        // Lazy images below the fold may not have loaded yet — pull them
+        // in before printing so no placeholder prints blank. Never wedge
+        // the dialog on a stalled image.
+        var imgs = Array.from(ov.querySelectorAll(".ps-slip-img"));
+        await Promise.all(imgs.map(function (img) {
+          if (img.complete && img.naturalWidth) return null;
+          img.loading = "eager";
+          return new Promise(function (res) {
+            img.addEventListener("load", res, { once: true });
+            img.addEventListener("error", res, { once: true });
+            setTimeout(res, 8000);
+          });
+        }));
+        window.print();
+      });
       ov.querySelector("#ps-close").addEventListener("click", closePrintSheet);
       document.addEventListener("keydown", printEscClose);
     }

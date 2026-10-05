@@ -335,6 +335,8 @@ test.describe("set page: Still need filter + print need list (2026-10-05)", () =
     await page.waitForSelector("#print-overlay", { timeout: 15000 });
     expect(await page.locator(".ps-checklist tr").count()).toBe(128);
     expect(await page.locator(".ps-slip").count()).toBe(128);
+    // Placeholder slips carry the card's art (grayscale via CSS).
+    expect(await page.locator(".ps-slip-img").count()).toBe(128);
     // Print media hides the toolbar, keeps the sheet.
     await page.emulateMedia({ media: "print" });
     expect(await page.locator("#print-overlay .print-bar").isHidden()).toBe(true);
