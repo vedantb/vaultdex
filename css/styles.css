@@ -819,8 +819,16 @@ main#app { flex: 1; padding: 28px 20px 64px; }
   aspect-ratio: 63 / 88; border: 2px dashed #999; border-radius: 10px;
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   text-align: center; padding: 12px; gap: 4px; min-width: 0;
+  position: relative; overflow: hidden; background: #fff;
 }
 .ps-slip > * { min-width: 0; overflow-wrap: anywhere; }
+/* Faded black-and-white card art behind the placeholder text. Cards
+ * without a scan keep the plain white slip. */
+.ps-slip-img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; filter: grayscale(1); opacity: 0.25; pointer-events: none;
+}
+.ps-slip-set, .ps-slip-num, .ps-slip-name, .ps-slip-tag { position: relative; }
 .ps-slip-set { font-size: 0.68rem; color: #777; text-transform: uppercase; letter-spacing: 0.06em; }
 .ps-slip-num { font-size: 1.15rem; font-weight: 800; font-variant-numeric: tabular-nums; }
 .ps-slip-name { font-size: 0.85rem; font-weight: 600; }
