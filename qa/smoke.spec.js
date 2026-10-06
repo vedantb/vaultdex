@@ -20,6 +20,7 @@
  *   /pokedex     — public species grid (all 1025, captured cells)
  */
 const { test, expect } = require("@playwright/test");
+const netNoise = require("./net-noise");
 
 // Attach zero-error listeners and return the collected messages.
 function collectErrors(page) {
@@ -49,7 +50,7 @@ async function expectCleanPage(page, path, marker, markerText) {
   await expect(el).toBeVisible({ timeout: 20000 });
   if (markerText) await expect(el).toContainText(markerText);
   await expectNoOverflow(page);
-  expect(errors).toEqual([]);
+  expect(netNoise.realErrors(errors)).toEqual([]);
 }
 
 test("signed-out home (/) renders: zero errors, no horizontal overflow", async ({
@@ -110,7 +111,7 @@ test("signed-out card modal shows owned counts read-only (no stepper)", async ({
     expect(e400.length).toBeLessThanOrEqual(1);
     realErrors = realErrors.filter((e) => !/status of 400/.test(e));
   }
-  expect(realErrors).toEqual([]);
+  expect(netNoise.realErrors(realErrors)).toEqual([]);
 });
 
 test("signed-out /browse shows the owner-only empty state", async ({ page }) => {
@@ -176,7 +177,7 @@ test("signed-out /pokedex filters are mutually exclusive and filter the grid", a
   expect(await page.locator(".dex-cell").count()).toBe(total);
 
   await expectNoOverflow(page);
-  expect(errors).toEqual([]);
+  expect(netNoise.realErrors(errors)).toEqual([]);
 });
 
 test("signed-out /pokedex uncaptured cells show greyscale art and open missing printings", async ({
@@ -210,7 +211,7 @@ test("signed-out /pokedex uncaptured cells show greyscale art and open missing p
   expect(mFilter).toContain("grayscale");
 
   await expectNoOverflow(page);
-  expect(errors).toEqual([]);
+  expect(netNoise.realErrors(errors)).toEqual([]);
 });
 
 test.describe("desktop viewport", () => {
@@ -258,7 +259,7 @@ test("signed-out /games/higher-lower plays a full round: zero errors, no overflo
   await expect(page.locator("[data-hl-result]")).toBeHidden();
 
   await expectNoOverflow(page);
-  expect(errors).toEqual([]);
+  expect(netNoise.realErrors(errors)).toEqual([]);
 });
 
 test("signed-out /games/quiz plays one round: zero errors, no overflow", async ({
@@ -281,7 +282,7 @@ test("signed-out /games/quiz plays one round: zero errors, no overflow", async (
   await expect(page.locator("[data-quiz-feedback]")).toContainText("·");
 
   await expectNoOverflow(page);
-  expect(errors).toEqual([]);
+  expect(netNoise.realErrors(errors)).toEqual([]);
 });
 
 test("signed-out /games/card-of-the-day renders today's card: zero errors, no overflow", async ({

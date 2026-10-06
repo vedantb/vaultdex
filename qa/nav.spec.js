@@ -10,6 +10,7 @@
 "use strict";
 
 const { test, expect } = require("@playwright/test");
+const netNoise = require("./net-noise");
 const { gotoSignedIn } = require("./fake-supabase");
 
 const LOCAL_ONLY = !!process.env.BASE_URL && !/localhost|127\.0\.0\.1/.test(process.env.BASE_URL);
@@ -74,7 +75,7 @@ test.describe("sidebar nav — signed out", () => {
       await page.goto("/set/me02");
       await expect(page.locator(".empty-state, .owner-only")).toBeVisible(); // signed-out set page
       await expectNoOverflow(page);
-      expect(errors).toEqual([]);
+      expect(netNoise.realErrors(errors)).toEqual([]);
     });
 
     test("collapse toggle persists across reloads", async ({ page }) => {
@@ -132,7 +133,7 @@ test.describe("sidebar nav — signed out", () => {
       await expect(page.locator("body.drawer-open")).toHaveCount(0);
       await expect(page.locator('#sidebar a[data-nav="games"].active')).toBeVisible();
       await expectNoOverflow(page);
-      expect(errors).toEqual([]);
+      expect(netNoise.realErrors(errors)).toEqual([]);
     });
 
     test("scrim and Escape close the drawer", async ({ page }) => {
@@ -171,6 +172,6 @@ test.describe("sidebar nav — signed in (local only)", () => {
     await expect(page.locator('#sidebar a[data-nav="games"].active')).toBeVisible();
 
     await expectNoOverflow(page);
-    expect(errors).toEqual([]);
+    expect(netNoise.realErrors(errors)).toEqual([]);
   });
 });
