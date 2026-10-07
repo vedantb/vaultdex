@@ -394,3 +394,20 @@ describe("sortRefreshQueue (refresh priority)", () => {
     expect(C.sortRefreshQueue([])).toEqual([]);
   });
 });
+
+describe("isCreditExhausted (429 classification, 2026-10-07)", () => {
+  test("detects PkmnPrices credit_limit_exceeded", () => {
+    expect(C.isCreditExhausted({ status: 429, message: "PkmnPrices error (HTTP 429). credit_limit_exceeded" })).toBe(true);
+    expect(C.isCreditExhausted({ status: 429, message: "CREDIT_LIMIT_EXCEEDED" })).toBe(true);
+  });
+
+  test("proxy's own per-IP 429 is throttling, not budget", () => {
+    expect(C.isCreditExhausted({ status: 429, message: "PkmnPrices error (HTTP 429). Too many requests." })).toBe(false);
+  });
+
+  test("non-429 and empty errors are not budget exhaustion", () => {
+    expect(C.isCreditExhausted({ status: 500, message: "boom" })).toBe(false);
+    expect(C.isCreditExhausted(null)).toBe(false);
+    expect(C.isCreditExhausted({})).toBe(false);
+  });
+});

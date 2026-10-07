@@ -399,7 +399,13 @@
           if (res) {
             localStorage.setItem(PRICE_KEY, res.at);
             updateTimestampNote();
-            App.ui.toast("Updated prices for " + res.updated + " card" + (res.updated === 1 ? "" : "s") + ".", "success");
+            if (res.stopped === "budget") {
+              App.ui.toast("Daily price budget used up — prices resume after midnight UTC.", "info");
+            } else if (res.stopped === "throttled") {
+              App.ui.toast("Rate-limited — updated " + res.updated + "; the rest continue on your next visit.", "info");
+            } else {
+              App.ui.toast("Updated prices for " + res.updated + " card" + (res.updated === 1 ? "" : "s") + ".", "success");
+            }
             items = (await reloadItems()) || [];
             refreshViews();
           }
@@ -501,7 +507,7 @@
           items = (await reloadItems()) || [];
           refreshViews();
           updateTimestampNote();
-          App.ui.toast("Prices refreshed.", "success");
+          if (!res.stopped) App.ui.toast("Prices refreshed.", "success");
         }
       } catch {
         updateTimestampNote(); /* stay quiet; manual refresh still available */

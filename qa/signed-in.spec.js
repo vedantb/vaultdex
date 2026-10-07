@@ -345,3 +345,78 @@ test.describe("set page: Still need filter + print need list (2026-10-05)", () =
     expect(errors).toEqual([]);
   });
 });
+
+test.describe("price refresh 429 handling (2026-10-07)", () => {
+  const stale = new Date(Date.now() - 48 * 60 * 60 * 1000).toISOString();
+  function staleRow(over) {
+    return Object.assign({
+      id: 1,
+      user_id: OWNER,
+      card_id: "me02-003",
+      card_name: "Vileplume",
+      set_id: "me02",
+      set_name: "Phantasmal Flames",
+      number: "003",
+      variant: "Holo",
+      quantity: 1,
+      market_price: 0.5,
+      price_updated_at: stale,
+      pkmn_id: 999001,
+    }, over);
+  }
+
+  test("concurrent refreshPrices calls share one pass; a 429 backs off and retries the row", async ({ page }) => {
+    const errors = [];
+    page.on("pageerror", e => errors.push(String(e && e.message || e)));
+    await gotoSignedIn(page, SET, [
+      staleRow({ id: 1, card_id: "me02-003", pkmn_id: 999001 }),
+      staleRow({ id: 2, card_id: "me02-004", card_name: "Oddish", number: "004", pkmn_id: 999002 }),
+    ]);
+    await page.waitForSelector(".card-tile", { timeout: 20000 });
+    // Stub the pricing call: first call 429s (proxy-style "Too many
+    // requests."), then succeeds. Count calls to prove the guard.
+    await page.evaluate(() => {
+      window.__priceCalls = 0;
+      window.App.pkmn.priceForRow = async () => {
+        window.__priceCalls++;
+        if (window.__priceCalls === 1) {
+          const e = new Error('PkmnPrices error (HTTP 429). Too many requests.');
+          e.status = 429;
+          throw e;
+        }
+        return { price: 1.23, currency: "USD" };
+      };
+    });
+    const [r1, r2] = await Promise.all([
+      page.evaluate(() => window.App.collection.refreshPrices()),
+      page.evaluate(() => window.App.collection.refreshPrices()),
+    ]);
+    const calls = await page.evaluate(() => window.__priceCalls);
+    // One pass, not two: row 1 needed 429 -> backoff(10s) -> retry (2
+    // calls), row 2 succeeded first try (1 call). Two unguarded passes
+    // would have made 6.
+    expect(calls).toBe(3);
+    expect(r1.stopped).toBe(null);
+    expect(r2.stopped).toBe(null);
+    expect(r1.updated).toBe(2);
+    expect(errors).toEqual([]);
+  });
+
+  test("credit_limit_exceeded stops the pass with stopped='budget'", async ({ page }) => {
+    const errors = [];
+    page.on("pageerror", e => errors.push(String(e && e.message || e)));
+    await gotoSignedIn(page, SET, [staleRow({ id: 1 })]);
+    await page.waitForSelector(".card-tile", { timeout: 20000 });
+    await page.evaluate(() => {
+      window.App.pkmn.priceForRow = async () => {
+        const e = new Error("PkmnPrices error (HTTP 429). credit_limit_exceeded");
+        e.status = 429;
+        throw e;
+      };
+    });
+    const res = await page.evaluate(() => window.App.collection.refreshPrices());
+    expect(res.stopped).toBe("budget");
+    expect(res.updated).toBe(0);
+    expect(errors).toEqual([]);
+  });
+});
