@@ -27,7 +27,34 @@
   }
   PkmnError.prototype = Object.create(Error.prototype);
 
+  /* Global request pacer: api() is the single funnel for ALL browser→proxy
+   * traffic (refresh loop, set-page pkmn_id backfill, modal price lookups,
+   * graded eBay comps), so spacing calls here caps the whole app at ~100
+   * req/min — comfortably under the proxy's 120/min per-IP limit. Before
+   * this, individually-paced features could still burst together (a refresh
+   * pass plus a set-page backfill, or rows making 2–3 back-to-back calls)
+   * and 429 as a group. A quiet moment costs nothing: an isolated call
+   * waits 0ms. */
+  var PACER_MIN_GAP_MS = 600;
+  var pacerLastStart = 0;
+  var pacerQueue = Promise.resolve();
+
+  function pacerTicket() {
+    var ticket = pacerQueue.then(function () {
+      var now = Date.now();
+      var wait = pacerLastStart + PACER_MIN_GAP_MS - now;
+      if (wait > 0) pacerLastStart += PACER_MIN_GAP_MS;
+      else pacerLastStart = now;
+      if (wait > 0) return new Promise(function (r) { setTimeout(r, wait); });
+      return null;
+    });
+    /* A failed call must never wedge the queue for later callers. */
+    pacerQueue = ticket.then(function () {}, function () {});
+    return ticket;
+  }
+
   async function api(path, params) {
+    await pacerTicket();
     var q = new URLSearchParams({ path: path });
     Object.keys(params || {}).forEach(function (k) {
       if (params[k] !== undefined && params[k] !== null) q.set(k, String(params[k]));

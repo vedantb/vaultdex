@@ -419,4 +419,29 @@ test.describe("price refresh 429 handling (2026-10-07)", () => {
     expect(res.updated).toBe(0);
     expect(errors).toEqual([]);
   });
+
+  test("refreshPrices({ onlyIds }) prices only the listed rows (view-scoped refresh)", async ({ page }) => {
+    const errors = [];
+    page.on("pageerror", e => errors.push(String(e && e.message || e)));
+    await gotoSignedIn(page, SET, [
+      staleRow({ id: 1, card_id: "me02-003", pkmn_id: 999001 }),
+      staleRow({ id: 2, card_id: "me02-004", card_name: "Oddish", number: "004", pkmn_id: 999002 }),
+      staleRow({ id: 3, card_id: "me02-005", card_name: "Gloom", number: "005", pkmn_id: 999003 }),
+    ]);
+    await page.waitForSelector(".card-tile", { timeout: 20000 });
+    await page.evaluate(() => {
+      window.__pricedIds = [];
+      window.App.pkmn.priceForRow = async (row) => {
+        window.__pricedIds.push(row.id);
+        return { price: 1.23, currency: "USD" };
+      };
+    });
+    const res = await page.evaluate(() => window.App.collection.refreshPrices(null, { onlyIds: [2] }));
+    const priced = await page.evaluate(() => window.__pricedIds);
+    // All three rows are stale, but only row 2 was in the view scope.
+    expect(priced).toEqual([2]);
+    expect(res.updated).toBe(1);
+    expect(res.stopped || null).toBe(null);
+    expect(errors).toEqual([]);
+  });
 });

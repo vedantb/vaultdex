@@ -1176,13 +1176,35 @@
    * joins the running pass. */
   var refreshInFlight = null;
 
+  /* Pure: does this pass currently have a live refresh running? The view
+   * uses it to label the button honestly when a click joins an existing
+   * pass instead of starting a new one. */
+  function refreshActive() { return !!refreshInFlight; }
+
+  /* Pure: restrict a refresh queue to an explicit id allow-list (the
+   * "Refresh prices" button passes only the visible stale rows). A null
+   * allow-list means the whole queue; an empty one means nothing matched,
+   * which is still a restriction — never fall through to a full pass. */
+  function scopeRefreshQueue(items, onlyIds) {
+    if (!onlyIds) return items;
+    var only = {};
+    onlyIds.forEach(function (id) { only[id] = true; });
+    return items.filter(function (row) { return only[row.id]; });
+  }
+
+  /* Throttle backoff schedule for the refresh pass. The pass already runs
+   * in the background, so waiting minutes for a provider per-minute
+   * throttle to clear beats dying: 10s, 30s, 1m, 2m, 5m (~8.5 min of
+   * patience) before the pass admits defeat as "throttled". */
+  var THROTTLE_BACKOFF_MS = [10000, 30000, 60000, 120000, 300000];
+
   /* Re-fetch market prices via PkmnPrices, one row at a time.
    * Each row is mapped to its exact printing by set + card number, and the
    * price picked is always the Near Mint row (USD preferred) — except
    * graded rows, which re-price from exact company+grade eBay sold comps. */
-  async function refreshPrices(onProgress) {
+  async function refreshPrices(onProgress, opts) {
     if (refreshInFlight) return refreshInFlight;
-    refreshInFlight = runRefreshPass(onProgress);
+    refreshInFlight = runRefreshPass(onProgress, opts);
     try {
       return await refreshInFlight;
     } finally {
@@ -1190,7 +1212,7 @@
     }
   }
 
-  async function runRefreshPass(onProgress) {
+  async function runRefreshPass(onProgress, opts) {
     var u = needUser();
     if (!u) return null;
     var all = await list();
@@ -1204,6 +1226,10 @@
     /* Most visible cards first: a partial pass still fixes the top of the
      * collection (see sortRefreshQueue). */
     items = sortRefreshQueue(items);
+    /* View-scoped refresh: the "Refresh prices" button passes only the
+     * currently visible stale row ids — a handful of requests that can
+     * never 429 — instead of queueing the whole collection. */
+    items = scopeRefreshQueue(items, opts && opts.onlyIds);
 
     var updated = 0;
     var now = new Date().toISOString();
@@ -1285,13 +1311,13 @@
               stopReason = "budget";
               break;
             }
-            if (backoffs < 3) {
+            if (backoffs < THROTTLE_BACKOFF_MS.length) {
               // Throttled (proxy per-IP or provider per-minute): back off
               // and retry the same row instead of abandoning the pass.
               // A backoff is not a failed attempt — don't consume the
               // transient-retry budget below.
+              var waitMs = THROTTLE_BACKOFF_MS[backoffs];
               backoffs++;
-              var waitMs = 10000 * backoffs; // 10s, 20s, 30s
               console.warn("[VaultDex] price refresh throttled (429) for", row.card_name,
                 "- backing off " + (waitMs / 1000) + "s before retrying");
               await new Promise(function (r) { setTimeout(r, waitMs); });
@@ -1445,6 +1471,8 @@
     needsPriceRefresh: needsPriceRefresh,
     isCreditExhausted: isCreditExhausted,
     sortRefreshQueue: sortRefreshQueue,
+    scopeRefreshQueue: scopeRefreshQueue,
+    refreshActive: refreshActive,
     moverUpdate: moverUpdate,
     fetchAllPages: fetchAllPages,
     legacyMarket: legacyMarket,
