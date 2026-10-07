@@ -387,15 +387,49 @@
         readFilters(); renderGrid(); updateFilterBadge(); markPricePreset();
       });
 
+    /* Row ids with stale prices among the currently rendered tiles — the
+     * "Refresh prices" button prices exactly these, one at a time, instead
+     * of the whole collection. */
+    function visibleStaleRowIds() {
+      var ids = [];
+      var gridEl = el("c-grid");
+      if (!gridEl) return ids;
+      var nowMs = Date.now();
+      gridEl.querySelectorAll(".card-tile[data-row]").forEach(function (tile) {
+        var rowId = String(tile.getAttribute("data-row"));
+        var item = null;
+        for (var i = 0; i < items.length; i++) {
+          if (String(items[i].id) === rowId) { item = items[i]; break; }
+        }
+        if (item && App.collection.needsPriceRefresh(item, nowMs)) ids.push(item.id);
+      });
+      return ids;
+    }
+
       var refreshBtn = el("c-refresh");
       if (refreshBtn) refreshBtn.addEventListener("click", async function () {
         var btn = el("c-refresh");
+        /* Joining an already-running pass: the button can't start a second
+         * one, so label what's actually happening instead of a fake counter.
+         * onlyIds is passed unconditionally: a join ignores it, but if the
+         * pass finished in the gap above the new pass stays view-scoped. */
+        var onlyIds = visibleStaleRowIds();
+        var joined = App.collection.refreshActive();
+        if (!joined && !onlyIds.length) {
+          App.ui.toast("Prices are already up to date.", "success");
+          return;
+        }
         btn.disabled = true;
         var label = btn.innerHTML;
         try {
+          /* View-scoped refresh: only the stale rows among the currently
+           * rendered tiles — a handful of requests that can't 429 — instead
+           * of queueing the whole collection. The daily auto-refresh still
+           * covers everything in the background. */
+          if (joined) btn.innerHTML = "Finishing current refresh…";
           var res = await App.collection.refreshPrices(function (done, total) {
-            btn.innerHTML = "Updating " + done + "/" + total + "…";
-          });
+            if (!joined) btn.innerHTML = "Updating " + done + "/" + total + "…";
+          }, { onlyIds: onlyIds });
           if (res) {
             localStorage.setItem(PRICE_KEY, res.at);
             updateTimestampNote();
