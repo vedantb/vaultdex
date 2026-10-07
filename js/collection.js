@@ -1156,11 +1156,41 @@
     return (row && row.market_price == null) ? "raw" : "keep";
   }
 
+  /* Pure: does this PkmnPrices 429 mean the daily credit budget is gone
+   * (terminal — retrying is pointless until the 00:00 UTC reset), as
+   * opposed to per-minute throttling (transient — back off and retry)?
+   * The proxy passes the upstream body through, so credit exhaustion
+   * arrives as e.g. "PkmnPrices error (HTTP 429). credit_limit_exceeded",
+   * while the proxy's own per-IP limit says "Too many requests."
+   * Exported for unit tests. */
+  function isCreditExhausted(e) {
+    var m = String((e && e.message) || "").toLowerCase();
+    return m.indexOf("credit_limit_exceeded") !== -1 ||
+      (m.indexOf("credit") !== -1 && m.indexOf("exceed") !== -1);
+  }
+
+  /* One refresh pass at a time, app-wide. Without this, opening the
+   * collection (auto-refresh) and then clicking "Refresh prices" runs
+   * two paced loops concurrently — ~200 req/min against the proxy's
+   * 120/min per-IP limit — so both 429 and die. A second caller simply
+   * joins the running pass. */
+  var refreshInFlight = null;
+
   /* Re-fetch market prices via PkmnPrices, one row at a time.
    * Each row is mapped to its exact printing by set + card number, and the
    * price picked is always the Near Mint row (USD preferred) — except
    * graded rows, which re-price from exact company+grade eBay sold comps. */
   async function refreshPrices(onProgress) {
+    if (refreshInFlight) return refreshInFlight;
+    refreshInFlight = runRefreshPass(onProgress);
+    try {
+      return await refreshInFlight;
+    } finally {
+      refreshInFlight = null;
+    }
+  }
+
+  async function runRefreshPass(onProgress) {
     var u = needUser();
     if (!u) return null;
     var all = await list();
@@ -1177,7 +1207,7 @@
 
     var updated = 0;
     var now = new Date().toISOString();
-    var rateLimited = false;
+    var stopReason = null; // null | "throttled" | "budget"
 
     /* One tiny query per pass: learn whether price_currency exists before
      * writing it (Vedant applies the migration in the dashboard). */
@@ -1185,9 +1215,10 @@
     /* And whether the plausibility-quarantine columns exist. */
     await ensurePricePendingProbe();
 
-    for (var i = 0; i < items.length && !rateLimited; i++) {
+    for (var i = 0; i < items.length && !stopReason; i++) {
       var row = items[i];
       var attempts = 0;
+      var backoffs = 0;
       while (attempts < 2) {
         attempts++;
         try {
@@ -1247,11 +1278,28 @@
         } catch (e) {
           if (e && e.notConfigured) throw e; // surface: user must add the API key
           if (e && e.status === 429) {
-            // Daily credit budget exhausted (or throttled): stop the pass
-            // cleanly instead of burning one retry per row. Unpriced rows
-            // keep their missing price and are picked up on the next visit.
-            console.warn("[VaultDex] price refresh rate-limited; stopping this pass.");
-            rateLimited = true;
+            if (isCreditExhausted(e)) {
+              // Daily credit budget exhausted: retrying is pointless until
+              // the 00:00 UTC reset. Stop the pass; the caller says so.
+              console.warn("[VaultDex] PkmnPrices daily credit budget exhausted; stopping this pass.");
+              stopReason = "budget";
+              break;
+            }
+            if (backoffs < 3) {
+              // Throttled (proxy per-IP or provider per-minute): back off
+              // and retry the same row instead of abandoning the pass.
+              // A backoff is not a failed attempt — don't consume the
+              // transient-retry budget below.
+              backoffs++;
+              var waitMs = 10000 * backoffs; // 10s, 20s, 30s
+              console.warn("[VaultDex] price refresh throttled (429) for", row.card_name,
+                "- backing off " + (waitMs / 1000) + "s before retrying");
+              await new Promise(function (r) { setTimeout(r, waitMs); });
+              attempts--;
+              continue;
+            }
+            console.warn("[VaultDex] price refresh still throttled after backoff; stopping this pass.");
+            stopReason = "throttled";
             break;
           }
           // One retry for transient failures (network/timeout): HTTP errors
@@ -1264,12 +1312,13 @@
           break;
         }
       }
+      if (stopReason) break;
       if (onProgress) onProgress(i + 1, items.length);
       await new Promise(function (r) { setTimeout(r, 1200); }); // gentle pacing: the Pro plan budgets 20k credits/day, not a per-minute tier — keep requests spread out
     }
     // Fresh prices = fresh history point for the value-over-time chart.
     try { await recordValueSnapshot(); } catch { /* already warned inside */ }
-    return { updated: updated, at: now };
+    return { updated: updated, at: now, stopped: stopReason };
   }
 
   /* ---- value history -------------------------------------------------
@@ -1394,6 +1443,7 @@
     clampQuantity: clampQuantity,
     rowSetId: rowSetId,
     needsPriceRefresh: needsPriceRefresh,
+    isCreditExhausted: isCreditExhausted,
     sortRefreshQueue: sortRefreshQueue,
     moverUpdate: moverUpdate,
     fetchAllPages: fetchAllPages,
