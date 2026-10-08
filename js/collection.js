@@ -36,31 +36,31 @@
   /* Incremental refresh: only rows whose own price is missing or older
    * than 24h. A full pass over thousands of rows would take over an hour. */
   var PRICE_REFRESH_MS = 24 * 60 * 60 * 1000;
-  function needsPriceRefresh(row, nowMs) {
+  function needsPriceRefresh(row, nowMs, maxAgeMs) {
     var t = row.price_updated_at ? Date.parse(row.price_updated_at) : 0;
-    return !t || t < nowMs - PRICE_REFRESH_MS;
+    return !t || t < nowMs - (maxAgeMs || PRICE_REFRESH_MS);
   }
 
-  /* Refresh queue priority (2026-09-25): a full pass over ~450 unpriced
-   * rows takes 10+ minutes at 1.2s pacing, and a pass can be cut short at
-   * any time (tab backgrounded, phone locked, rate limit). The old code ran
-   * rows in database order, so a partial pass priced random bulk rows while
-   * the owner's most visible cards — the unpriced graded cards at the top
-   * of the collection — sat at the back of the queue indefinitely.
-   * Order: unpriced graded rows first, then other unpriced rows, then
-   * stale rows stalest-first. Pure, unit-tested. */
+  /* Lazy-refresh threshold for views that display a row's price (trade
+   * binder tiles, card modal owned section): if the price wasn't refreshed
+   * in the last few days, reprice it on view. The daily auto-refresh uses
+   * 24h; this is the safety net for whatever it hasn't reached. */
+  var LAZY_REFRESH_MS = 3 * 24 * 60 * 60 * 1000;
+
+  /* Refresh queue priority: highest position value first. The collection's
+   * default view sorts by value descending, so the pass prices what the
+   * owner actually sees at the top — and a partial pass (tab backgrounded,
+   * phone locked, throttled) still fixes the cards that move the total the
+   * most. Unpriced rows sort last; new adds are priced live at add time, so
+   * these are rare. Pure, unit-tested. */
   function sortRefreshQueue(items) {
-    function rank(row) {
-      var graded = row.grading_company && row.grade ? 0 : 1;
-      var unpriced = (row.market_price == null) ? 0 : 1;
-      return graded * 2 + unpriced;
+    function positionValue(row) {
+      var p = Number(row.market_price);
+      if (!isFinite(p)) return -1;
+      return p * (Number(row.quantity) || 1);
     }
     return items.slice().sort(function (a, b) {
-      var ra = rank(a), rb = rank(b);
-      if (ra !== rb) return ra - rb;
-      var ta = a.price_updated_at ? Date.parse(a.price_updated_at) : 0;
-      var tb = b.price_updated_at ? Date.parse(b.price_updated_at) : 0;
-      return ta - tb;
+      return positionValue(b) - positionValue(a);
     });
   }
 
@@ -1469,6 +1469,7 @@
     clampQuantity: clampQuantity,
     rowSetId: rowSetId,
     needsPriceRefresh: needsPriceRefresh,
+    LAZY_REFRESH_MS: LAZY_REFRESH_MS,
     isCreditExhausted: isCreditExhausted,
     sortRefreshQueue: sortRefreshQueue,
     scopeRefreshQueue: scopeRefreshQueue,

@@ -408,7 +408,29 @@
       var back = root.querySelector("[data-trade-back]");
       if (back) back.addEventListener("click", function () { showHub(curSection); });
       wireGrid();
+      lazyRefreshVisiblePrices(list);
       window.scrollTo(0, 0);
+    }
+
+    /* Lazy price refresh: rows on screen with prices older than a few days
+     * get repriced quietly in the background; the grid repaints with fresh
+     * prices when done. Self-limiting — fresh rows never re-trigger, so
+     * re-renders (e.g. after quantity tweaks) are safe. */
+    function lazyRefreshVisiblePrices(list) {
+      if (!isOwner || !App.collection || !list.length) return;
+      var nowMs = Date.now();
+      var lazyMs = App.collection.LAZY_REFRESH_MS;
+      var staleIds = list.filter(function (r) {
+        return App.collection.needsPriceRefresh(r, nowMs, lazyMs);
+      }).map(function (r) { return r.id; });
+      if (!staleIds.length) return;
+      App.collection.refreshPrices(null, { onlyIds: staleIds }).then(function (res) {
+        if (!res || !res.updated) return;
+        App.trade.listForTrade().then(function (fresh) {
+          rows = fresh || rows;
+          if (curView.name === "grid") showGrid(curView.title, curView.pred);
+        }, function () { /* keep stale prices on screen */ });
+      }, function () { /* quiet: the daily auto-refresh covers them */ });
     }
 
     function wireGrid() {

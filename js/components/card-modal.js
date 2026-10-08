@@ -757,6 +757,22 @@
       ownedRows = res.data || [];
       return ownedRows;
     }
+    /* Lazy price refresh: if any owned row's price is older than a few
+     * days, reprice those rows quietly in the background. The owned line
+     * repaints itself via the collection:changed subscription when done. */
+    function lazyRefreshOwnedPrices() {
+      var u = App.auth && App.auth.user;
+      if (!u || !ownedRows.length) return;
+      var nowMs = Date.now();
+      var lazyMs = App.collection.LAZY_REFRESH_MS;
+      var staleIds = ownedRows.filter(function (r) {
+        return App.collection.needsPriceRefresh(r, nowMs, lazyMs);
+      }).map(function (r) { return r.id; });
+      if (!staleIds.length) return;
+      App.collection.refreshPrices(null, { onlyIds: staleIds }).then(function (res) {
+        if (res && res.updated) App.emit("collection:changed", { cardId: card.id });
+      }, function () { /* quiet: the daily auto-refresh covers them */ });
+    }
     function stepperLabel(row) {
       var grading = currentGrading();
       var ctx = grading ? grading.company + " " + grading.grade : currentVariantLabel();
@@ -967,6 +983,7 @@
         preselectBinder();
         if (typeof m._syncPickerBinder === "function") m._syncPickerBinder();
         paintStepper();
+        lazyRefreshOwnedPrices();
       });
     }, function (e) {
       console.warn("[VaultDex] owned rows failed:", e && e.message);
