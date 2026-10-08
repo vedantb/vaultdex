@@ -43,9 +43,33 @@
 
   /* Lazy-refresh threshold for views that display a row's price (trade
    * binder tiles, card modal owned section): if the price wasn't refreshed
-   * in the last few days, reprice it on view. The daily auto-refresh uses
-   * 24h; this is the safety net for whatever it hasn't reached. */
-  var LAZY_REFRESH_MS = 3 * 24 * 60 * 60 * 1000;
+   * in the last day, reprice it on view — the price should be there when
+   * the owner looks at an individual card. */
+  var LAZY_REFRESH_MS = 24 * 60 * 60 * 1000;
+
+  /* Tiered refresh selection (pure). Repricing the whole collection (4,480
+   * rows at 50 req/min = 90+ min) can never converge in normal browsing
+   * sessions, so the daily pass prioritizes what moves the total:
+   * - Tier 1: top 100 by position value, stale >24h. These dominate the
+   *   collection total — kept fresh daily.
+   * - Tier 2: everything else, stale >30 days, capped at 150/pass. The long
+   *   tail barely moves the total; on-view refreshes (card modal, trade
+   *   binder) keep viewed cards fresh between passes. */
+  var TIER1_N = 100;
+  var TIER2_MAX_AGE_MS = 30 * 24 * 60 * 60 * 1000;
+  var TIER2_CAP = 150;
+  function tierRefreshQueue(all, nowMs) {
+    var byValue = sortRefreshQueue(all);
+    var tier1 = byValue.slice(0, TIER1_N).filter(function (row) {
+      return needsPriceRefresh(row, nowMs);
+    });
+    var topIds = {};
+    for (var i = 0; i < TIER1_N && i < byValue.length; i++) topIds[byValue[i].id] = true;
+    var tail = byValue.filter(function (row) {
+      return !topIds[row.id] && needsPriceRefresh(row, nowMs, TIER2_MAX_AGE_MS);
+    });
+    return tier1.concat(sortRefreshQueue(tail).slice(0, TIER2_CAP));
+  }
 
   /* Refresh queue priority: highest position value first. The collection's
    * default view sorts by value descending, so the pass prices what the
@@ -1218,13 +1242,21 @@
     var all = await list();
     if (!all || !all.length) return { updated: 0, at: new Date().toISOString() };
 
-    /* Incremental: only rows whose own price is missing or older than 24h.
-     * A full pass over thousands of rows would take over an hour. */
+    /* Tiered daily refresh (see tierRefreshQueue): top-100 by value at 24h
+     * plus the 30-day tail, capped so a pass completes in minutes. Explicit
+     * onlyIds (view-scoped button, lazy on-view refreshes) bypass tiering —
+     * the user asked for those rows directly. */
     var nowMs = Date.now();
-    var items = all.filter(function (row) { return needsPriceRefresh(row, nowMs); });
+    var items;
+    if (opts && opts.onlyIds) {
+      items = all.filter(function (row) { return needsPriceRefresh(row, nowMs); });
+    } else {
+      items = tierRefreshQueue(all, nowMs);
+    }
     if (!items.length) return { updated: 0, at: new Date().toISOString() };
-    /* Most visible cards first: a partial pass still fixes the top of the
-     * collection (see sortRefreshQueue). */
+    /* Value order within the pass (tierRefreshQueue already emits tier1 in
+     * value order; re-sorting is a no-op for it and orders explicit id
+     * sets the same way). */
     items = sortRefreshQueue(items);
     /* View-scoped refresh: the "Refresh prices" button passes only the
      * currently visible stale row ids — a handful of requests that can
@@ -1472,6 +1504,7 @@
     LAZY_REFRESH_MS: LAZY_REFRESH_MS,
     isCreditExhausted: isCreditExhausted,
     sortRefreshQueue: sortRefreshQueue,
+    tierRefreshQueue: tierRefreshQueue,
     scopeRefreshQueue: scopeRefreshQueue,
     refreshActive: refreshActive,
     moverUpdate: moverUpdate,

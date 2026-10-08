@@ -405,17 +405,64 @@ describe("needsPriceRefresh with custom maxAgeMs", () => {
     expect(C.needsPriceRefresh(justUnder, now)).toBe(false);
   });
 
-  test("honors a 3-day lazy threshold", () => {
+  test("honors the lazy (24h) threshold", () => {
+    const twelveH = row(new Date(now - 12 * 60 * 60 * 1000).toISOString());
     const twoDays = row(new Date(now - 2 * 24 * 60 * 60 * 1000).toISOString());
-    const fourDays = row(new Date(now - 4 * 24 * 60 * 60 * 1000).toISOString());
-    expect(C.needsPriceRefresh(twoDays, now, C.LAZY_REFRESH_MS)).toBe(false);
-    expect(C.needsPriceRefresh(fourDays, now, C.LAZY_REFRESH_MS)).toBe(true);
-    // Same rows ARE stale under the default 24h window.
-    expect(C.needsPriceRefresh(twoDays, now)).toBe(true);
+    expect(C.needsPriceRefresh(twelveH, now, C.LAZY_REFRESH_MS)).toBe(false);
+    expect(C.needsPriceRefresh(twoDays, now, C.LAZY_REFRESH_MS)).toBe(true);
   });
 
-  test("LAZY_REFRESH_MS is 3 days", () => {
-    expect(C.LAZY_REFRESH_MS).toBe(3 * 24 * 60 * 60 * 1000);
+  test("LAZY_REFRESH_MS is 24h", () => {
+    expect(C.LAZY_REFRESH_MS).toBe(24 * 60 * 60 * 1000);
+  });
+});
+
+describe("tierRefreshQueue", () => {
+  const now = Date.now();
+  const mkrow = (id, price, qty, ageH) => ({
+    id: id, card_id: "c-" + id, card_name: "C",
+    market_price: price, quantity: qty,
+    price_updated_at: new Date(now - ageH * 60 * 60 * 1000).toISOString(),
+  });
+  // 120 rows: values 120..1, all stale 25h (tier-1 eligible by value rank).
+  const many = [];
+  for (var v = 120; v >= 1; v--) many.push(mkrow("r" + v, v, 1, 25));
+
+  test("tier 1 is the top 100 by position value", () => {
+    const out = C.tierRefreshQueue(many, now);
+    expect(out.length).toBe(100);
+    expect(out[0].id).toBe("r120");
+    expect(out[99].id).toBe("r21");
+  });
+
+  test("fresh top-100 rows are skipped, tail fills from 30-day staleness", () => {
+    // Top 100 (values 120..21) fresh at 1h; tail (values 20..1) stale 31 days.
+    const t = [];
+    for (var v = 120; v >= 1; v--) {
+      t.push(v > 20 ? mkrow("r" + v, v, 1, 1) : mkrow("r" + v, v, 1, 31 * 24 + 1));
+    }
+    const out = C.tierRefreshQueue(t, now);
+    // No tier-1 (all fresh); tail = rows 1..20 (values 20..1), value-ordered.
+    expect(out.map(function (r) { return r.id; }))
+      .toEqual(["r20", "r19", "r18", "r17", "r16", "r15", "r14", "r13", "r12", "r11",
+                "r10", "r9", "r8", "r7", "r6", "r5", "r4", "r3", "r2", "r1"]);
+  });
+
+  test("tail rows fresher than 30 days are excluded", () => {
+    const t = [];
+    for (var v = 120; v >= 1; v--) {
+      // Top 100 stale 25h (tier 1); rest stale 10 days (too fresh for tail).
+      t.push(mkrow("r" + v, v, 1, v > 20 ? 25 : 10 * 24));
+    }
+    const out = C.tierRefreshQueue(t, now);
+    expect(out.length).toBe(100); // tier 1 only
+  });
+
+  test("does not mutate the input array", () => {
+    const input = many.slice();
+    C.tierRefreshQueue(input, now);
+    expect(input[0].id).toBe("r120");
+    expect(input.length).toBe(120);
   });
 });
 
