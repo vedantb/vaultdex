@@ -29,13 +29,13 @@
 
   /* Global request pacer: api() is the single funnel for ALL browser→proxy
    * traffic (refresh loop, set-page pkmn_id backfill, modal price lookups,
-   * graded eBay comps), so spacing calls here caps the whole app at ~100
-   * req/min — comfortably under the proxy's 120/min per-IP limit. Before
-   * this, individually-paced features could still burst together (a refresh
-   * pass plus a set-page backfill, or rows making 2–3 back-to-back calls)
-   * and 429 as a group. A quiet moment costs nothing: an isolated call
-   * waits 0ms. */
-  var PACER_MIN_GAP_MS = 600;
+   * graded eBay comps), so spacing calls here caps the whole app at ~50
+   * req/min — under BOTH the proxy's 120/min per-IP limit and PkmnPrices'
+   * own 60/min rolling limit (verified 2026-10-08: x-rate-limit: 60, and a
+   * 59-requests-in-29s burst 429s). Before this, individually-paced features
+   * could still burst together and 429 as a group. A quiet moment costs
+   * nothing: an isolated call waits 0ms. */
+  var PACER_MIN_GAP_MS = 1200;
   var pacerLastStart = 0;
   var pacerQueue = Promise.resolve();
 

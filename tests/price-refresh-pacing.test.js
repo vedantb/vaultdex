@@ -37,7 +37,7 @@ describe("pkmn api() global pacer", () => {
     expect(starts.length).toBe(1);
   });
 
-  test("rapid calls are spaced at least ~600ms apart", async () => {
+  test("rapid calls are spaced at least ~1200ms apart (50 req/min, under the provider's 60/min)", async () => {
     const starts = [];
     window.App.util.fetchWithTimeout = okFetch(starts);
     await Promise.all([
@@ -46,9 +46,9 @@ describe("pkmn api() global pacer", () => {
       P.api("/v1/cards", {}),
     ]);
     expect(starts.length).toBe(3);
-    // 600ms minus timer slop (timers never fire early, only late).
-    expect(starts[1] - starts[0]).toBeGreaterThanOrEqual(500);
-    expect(starts[2] - starts[1]).toBeGreaterThanOrEqual(500);
+    // 1200ms minus timer slop (timers never fire early, only late).
+    expect(starts[1] - starts[0]).toBeGreaterThanOrEqual(1000);
+    expect(starts[2] - starts[1]).toBeGreaterThanOrEqual(1000);
   });
 
   test("a failed call does not wedge the queue", async () => {
@@ -63,7 +63,7 @@ describe("pkmn api() global pacer", () => {
     await expect(P.api("/v1/cards", {})).rejects.toThrow("boom");
     await P.api("/v1/cards", {});
     expect(starts.length).toBe(2);
-    expect(starts[1] - starts[0]).toBeGreaterThanOrEqual(500);
+    expect(starts[1] - starts[0]).toBeGreaterThanOrEqual(1000);
   });
 });
 
