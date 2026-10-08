@@ -1340,7 +1340,10 @@
       }
       if (stopReason) break;
       if (onProgress) onProgress(i + 1, items.length);
-      await new Promise(function (r) { setTimeout(r, 1200); }); // gentle pacing: the Pro plan budgets 20k credits/day, not a per-minute tier — keep requests spread out
+      /* No extra sleep here: the global pacer in App.pkmn.api() already
+       * spaces every proxy call >=1200ms apart (50 req/min, under the
+       * provider's 60/min rolling limit). An extra per-row delay would just
+       * double the pass time for no benefit. */
     }
     // Fresh prices = fresh history point for the value-over-time chart.
     try { await recordValueSnapshot(); } catch { /* already warned inside */ }
