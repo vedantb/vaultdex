@@ -198,6 +198,40 @@ describe("nearMintPrice variant selection", () => {
     const p = await P.nearMintPrice("424247", null);
     expect(p.price).toBe(0.46);
   });
+
+  test('prices a "Normal" row off the sole Holofoil listing (single-finish secret rare)', async () => {
+    stubApi((path) => {
+      if (path === "/v1/cards/424248") {
+        return {
+          prices: [
+            { variant: "Holofoil", condition: "Near Mint", currency: "USD", market_price: 72.98 },
+          ],
+        };
+      }
+      return { data: [] };
+    });
+    // TCGdex lists SIRs as type "normal"; PkmnPrices lists the same physical
+    // card as "Holofoil". One finish available = the same card.
+    const p = await P.nearMintPrice("424248", "Normal");
+    expect(p.price).toBe(72.98);
+    expect(p.variant).toBe("Holofoil");
+  });
+
+  test("still returns null when several finishes exist but none match", async () => {
+    stubApi((path) => {
+      if (path === "/v1/cards/424249") {
+        return {
+          prices: [
+            { variant: "Holofoil", condition: "Near Mint", currency: "USD", market_price: 1.25 },
+            { variant: "Reverse Holofoil", condition: "Near Mint", currency: "USD", market_price: 0.9 },
+          ],
+        };
+      }
+      return { data: [] };
+    });
+    // Two finishes listed, neither is "Normal" — never guess between them.
+    expect(await P.nearMintPrice("424249", "Normal")).toBe(null);
+  });
 });
 
 describe("needsAccentRepair", () => {
