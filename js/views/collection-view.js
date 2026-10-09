@@ -537,6 +537,9 @@
         if (updatedEl) updatedEl.textContent = "Refreshing prices…";
         var res = await App.collection.refreshPrices();
         if (res) {
+          /* Another tab is leading the background pass — stay quiet and
+           * let it work; our next load will see the fresh prices. */
+          if (res.skipped === "leader") { updateTimestampNote(); return; }
           localStorage.setItem(PRICE_KEY, res.at);
           items = (await reloadItems()) || [];
           refreshViews();
