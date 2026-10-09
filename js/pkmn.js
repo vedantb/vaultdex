@@ -128,7 +128,8 @@
   var PKMN_MISSING_SETS = {
     "ja|30th celebration": true,                    /* M6a */
     "ja|starter decks 100 battle collection": true, /* MC */
-    "ja|sun and moon plus": true                    /* SM1p */
+    "ja|sun and moon plus": true,                   /* SM1p */
+    "en|30th classic collection": true              /* 30th-c: PkmnPrices has no Classic Collection equivalent (verified 2026-10-09); without this, every set-page backfill burns 50 credits/row searching for cards that can never match */
   };
 
   /* True when PkmnPrices has no cards for this set at all — the unsafe
@@ -197,7 +198,10 @@
     var params = {
       name: opts.name,
       number: opts.number,
-      per_page: 50
+      /* Credits are charged per item returned: per_page 50 burns 50
+       * credits per search. We match by set + number, so 10 candidates
+       * is plenty — 5x cheaper. */
+      per_page: 10
     };
     if (opts.lang === "ja") params.language = "Japanese";
     var entry = await ppSetEntry(opts.setId);
@@ -318,7 +322,10 @@
     var params = {
       name: opts.name,
       number: opts.number,
-      per_page: 50
+      /* Credits are charged per item returned: per_page 50 burns 50
+       * credits per search. We match by set + number, so 10 candidates
+       * is plenty — 5x cheaper. */
+      per_page: 10
     };
     if (opts.lang === "ja") params.language = "Japanese";
     var entry = await ppSetEntry(opts.setId);

@@ -58,6 +58,9 @@ describe("pkmnMissingSet", () => {
     expect(P.pkmnMissingSet("30th Celebration", "en")).toBe(false);
     expect(P.pkmnMissingSet("Clay Burst", "en")).toBe(false);
   });
+  test("flags the English 30th Classic Collection (no PkmnPrices equivalent)", () => {
+    expect(P.pkmnMissingSet("30th Classic Collection", "en")).toBe(true);
+  });
 });
 
 describe("findCardId — unsupported Japanese sets", () => {
