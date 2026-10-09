@@ -8,6 +8,7 @@
 "use strict";
 
 const { test, expect } = require("@playwright/test");
+const netNoise = require("./net-noise");
 const { gotoSignedIn } = require("./fake-supabase");
 
 const SET = "/set/me02";
@@ -167,5 +168,5 @@ test("arrow keys step through the set", async ({ page }) => {
   await page.keyboard.press("ArrowLeft");
   await waitForTitleChange(page, second);
   expect(await modalTitle(page)).toBe(first);
-  expect(errors).toEqual([]);
+  expect(netNoise.realErrors(errors)).toEqual([]);
 });

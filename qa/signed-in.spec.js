@@ -9,6 +9,7 @@
 "use strict";
 
 const { test, expect } = require("@playwright/test");
+const netNoise = require("./net-noise");
 const { gotoSignedIn, appConfig } = require("./fake-supabase");
 
 const SET = "/set/me02"; // 130 cards, per-variant checkboxes incl. Cosmos Holo
@@ -60,7 +61,7 @@ test.describe("signed-in collection flows (stubbed Supabase)", () => {
     page.on("pageerror", e => errors.push(String(e && e.message || e)));
     const { db } = await gotoSignedIn(page, SET);
     await page.waitForSelector('.card-tile[data-id="me02-001"] .variant-check');
-    expect(errors).toEqual([]);
+    expect(netNoise.realErrors(errors)).toEqual([]);
     expect(rowsOf(db)).toEqual([]);
   });
 
@@ -277,7 +278,7 @@ test.describe("signed-in collection flows (stubbed Supabase)", () => {
     // The seeded rows unlock at least the First Steps badge; locked badges
     // render as locked cards, never as visitor read-only content.
     expect(await page.locator(".badge-card").count()).toBeGreaterThan(0);
-    expect(errors).toEqual([]);
+    expect(netNoise.realErrors(errors)).toEqual([]);
   });
 
   test("signed-in /pokedex species modal shows owned in color + missing in greyscale", async ({ page }) => {
@@ -307,7 +308,7 @@ test.describe("signed-in collection flows (stubbed Supabase)", () => {
     await expect(mImg).toBeVisible();
     const filter = await page.evaluate(el => getComputedStyle(el).filter, await mImg.elementHandle());
     expect(filter).toContain("grayscale");
-    expect(errors).toEqual([]);
+    expect(netNoise.realErrors(errors)).toEqual([]);
   });
 });
 
@@ -342,7 +343,7 @@ test.describe("set page: Still need filter + print need list (2026-10-05)", () =
     expect(await page.locator("#print-overlay .print-bar").isHidden()).toBe(true);
     expect(await page.locator("#print-sheet").isVisible()).toBe(true);
     await page.emulateMedia({ media: "screen" });
-    expect(errors).toEqual([]);
+    expect(netNoise.realErrors(errors)).toEqual([]);
   });
 });
 

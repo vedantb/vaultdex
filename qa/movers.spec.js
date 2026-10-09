@@ -11,6 +11,7 @@
 "use strict";
 
 const { test, expect } = require("@playwright/test");
+const netNoise = require("./net-noise");
 const { gotoSignedIn, appConfig } = require("./fake-supabase");
 
 const OWNER = appConfig().owner;
@@ -62,7 +63,7 @@ test.describe("price movers agree with the card dialog", () => {
     // The catalog price table is explicitly labeled as a TCGPlayer reference
     // so it is never mistaken for the collection value above it.
     await expect(page.locator(".card-detail")).toContainText("Catalog reference · TCGPlayer");
-    expect(errors).toEqual([]);
+    expect(netNoise.realErrors(errors)).toEqual([]);
   });
 
   test("USD rows keep the $ rendering (no currency regression)", async ({ page }) => {

@@ -36,31 +36,55 @@
   /* Incremental refresh: only rows whose own price is missing or older
    * than 24h. A full pass over thousands of rows would take over an hour. */
   var PRICE_REFRESH_MS = 24 * 60 * 60 * 1000;
-  function needsPriceRefresh(row, nowMs) {
+  function needsPriceRefresh(row, nowMs, maxAgeMs) {
     var t = row.price_updated_at ? Date.parse(row.price_updated_at) : 0;
-    return !t || t < nowMs - PRICE_REFRESH_MS;
+    return !t || t < nowMs - (maxAgeMs || PRICE_REFRESH_MS);
   }
 
-  /* Refresh queue priority (2026-09-25): a full pass over ~450 unpriced
-   * rows takes 10+ minutes at 1.2s pacing, and a pass can be cut short at
-   * any time (tab backgrounded, phone locked, rate limit). The old code ran
-   * rows in database order, so a partial pass priced random bulk rows while
-   * the owner's most visible cards — the unpriced graded cards at the top
-   * of the collection — sat at the back of the queue indefinitely.
-   * Order: unpriced graded rows first, then other unpriced rows, then
-   * stale rows stalest-first. Pure, unit-tested. */
+  /* Lazy-refresh threshold for views that display a row's price (trade
+   * binder tiles, card modal owned section): if the price wasn't refreshed
+   * in the last day, reprice it on view — the price should be there when
+   * the owner looks at an individual card. */
+  var LAZY_REFRESH_MS = 24 * 60 * 60 * 1000;
+
+  /* Tiered refresh selection (pure). Repricing the whole collection (4,480
+   * rows at 50 req/min = 90+ min) can never converge in normal browsing
+   * sessions, so the daily pass prioritizes what moves the total:
+   * - Tier 1: top 100 by position value, stale >24h. These dominate the
+   *   collection total — kept fresh daily.
+   * - Tier 2: everything else, stale >30 days, capped at 150/pass. The long
+   *   tail barely moves the total; on-view refreshes (card modal, trade
+   *   binder) keep viewed cards fresh between passes. */
+  var TIER1_N = 100;
+  var TIER2_MAX_AGE_MS = 30 * 24 * 60 * 60 * 1000;
+  var TIER2_CAP = 150;
+  function tierRefreshQueue(all, nowMs) {
+    var byValue = sortRefreshQueue(all);
+    var tier1 = byValue.slice(0, TIER1_N).filter(function (row) {
+      return needsPriceRefresh(row, nowMs);
+    });
+    var topIds = {};
+    for (var i = 0; i < TIER1_N && i < byValue.length; i++) topIds[byValue[i].id] = true;
+    var tail = byValue.filter(function (row) {
+      return !topIds[row.id] && needsPriceRefresh(row, nowMs, TIER2_MAX_AGE_MS);
+    });
+    return tier1.concat(sortRefreshQueue(tail).slice(0, TIER2_CAP));
+  }
+
+  /* Refresh queue priority: highest position value first. The collection's
+   * default view sorts by value descending, so the pass prices what the
+   * owner actually sees at the top — and a partial pass (tab backgrounded,
+   * phone locked, throttled) still fixes the cards that move the total the
+   * most. Unpriced rows sort last; new adds are priced live at add time, so
+   * these are rare. Pure, unit-tested. */
   function sortRefreshQueue(items) {
-    function rank(row) {
-      var graded = row.grading_company && row.grade ? 0 : 1;
-      var unpriced = (row.market_price == null) ? 0 : 1;
-      return graded * 2 + unpriced;
+    function positionValue(row) {
+      var p = Number(row.market_price);
+      if (!isFinite(p)) return -1;
+      return p * (Number(row.quantity) || 1);
     }
     return items.slice().sort(function (a, b) {
-      var ra = rank(a), rb = rank(b);
-      if (ra !== rb) return ra - rb;
-      var ta = a.price_updated_at ? Date.parse(a.price_updated_at) : 0;
-      var tb = b.price_updated_at ? Date.parse(b.price_updated_at) : 0;
-      return ta - tb;
+      return positionValue(b) - positionValue(a);
     });
   }
 
@@ -1218,13 +1242,21 @@
     var all = await list();
     if (!all || !all.length) return { updated: 0, at: new Date().toISOString() };
 
-    /* Incremental: only rows whose own price is missing or older than 24h.
-     * A full pass over thousands of rows would take over an hour. */
+    /* Tiered daily refresh (see tierRefreshQueue): top-100 by value at 24h
+     * plus the 30-day tail, capped so a pass completes in minutes. Explicit
+     * onlyIds (view-scoped button, lazy on-view refreshes) bypass tiering —
+     * the user asked for those rows directly. */
     var nowMs = Date.now();
-    var items = all.filter(function (row) { return needsPriceRefresh(row, nowMs); });
+    var items;
+    if (opts && opts.onlyIds) {
+      items = all.filter(function (row) { return needsPriceRefresh(row, nowMs); });
+    } else {
+      items = tierRefreshQueue(all, nowMs);
+    }
     if (!items.length) return { updated: 0, at: new Date().toISOString() };
-    /* Most visible cards first: a partial pass still fixes the top of the
-     * collection (see sortRefreshQueue). */
+    /* Value order within the pass (tierRefreshQueue already emits tier1 in
+     * value order; re-sorting is a no-op for it and orders explicit id
+     * sets the same way). */
     items = sortRefreshQueue(items);
     /* View-scoped refresh: the "Refresh prices" button passes only the
      * currently visible stale row ids — a handful of requests that can
@@ -1472,8 +1504,10 @@
     clampQuantity: clampQuantity,
     rowSetId: rowSetId,
     needsPriceRefresh: needsPriceRefresh,
+    LAZY_REFRESH_MS: LAZY_REFRESH_MS,
     isCreditExhausted: isCreditExhausted,
     sortRefreshQueue: sortRefreshQueue,
+    tierRefreshQueue: tierRefreshQueue,
     scopeRefreshQueue: scopeRefreshQueue,
     refreshActive: refreshActive,
     moverUpdate: moverUpdate,
