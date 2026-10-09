@@ -299,6 +299,18 @@
 
     var exact = rows.filter(function (p) { return variantMatches(p.variant, variantKey); });
     var pool = exact.length ? exact : (variantAgnostic(variantKey) ? rows : []);
+    /* Single-finish secret rares: TCGdex lists SIR / hyper / illustration
+     * rares as type "normal", but PkmnPrices prices the physical holo card
+     * as "Holofoil" — there is no non-holo printing. When the row wants the
+     * base printing ("Normal") and the provider lists only one finish,
+     * that's the same card, not a wrong-finish guess. A specific finish
+     * like "Reverse Holo" with only "Holofoil" listed stays null: that's a
+     * finish the provider doesn't carry. */
+    if (!pool.length && App.tcg.normVLabel(variantKey) === "normal") {
+      var finishes = {};
+      rows.forEach(function (p) { finishes[p.variant] = true; });
+      if (Object.keys(finishes).length === 1) pool = rows;
+    }
     var row = pick(pool);
     if (!row) return null;
     return {
