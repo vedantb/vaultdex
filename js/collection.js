@@ -1227,12 +1227,25 @@
    * price picked is always the Near Mint row (USD preferred) — except
    * graded rows, which re-price from exact company+grade eBay sold comps. */
   async function refreshPrices(onProgress, opts) {
-    if (refreshInFlight) return refreshInFlight;
-    refreshInFlight = runRefreshPass(onProgress, opts);
+    var prev = refreshInFlight;
+    var cur;
+    if (prev && opts && opts.onlyIds) {
+      /* Explicit row requests (card modal, trade binder, refresh button)
+       * are never swallowed by an in-flight bulk pass: they chain to run
+       * right after it. Otherwise a modal opened during the daily pass
+       * would silently join the bulk queue — and if the row isn't in that
+       * queue (e.g. not top-100, not 30-day stale), it never refreshes. */
+      cur = prev.then(function () { return runRefreshPass(onProgress, opts); });
+    } else if (prev) {
+      return prev;
+    } else {
+      cur = runRefreshPass(onProgress, opts);
+    }
+    refreshInFlight = cur;
     try {
-      return await refreshInFlight;
+      return await cur;
     } finally {
-      refreshInFlight = null;
+      if (refreshInFlight === cur) refreshInFlight = null;
     }
   }
 
