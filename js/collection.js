@@ -1236,7 +1236,61 @@
     }
   }
 
+  /* Cross-tab leader election: the provider's rate limit is per API key,
+   * so two tabs running the background pass would double the request rate
+   * (and the credit burn) for the same work. Only the leader tab runs bulk
+   * passes; explicit onlyIds (button, on-view refreshes) always run — they
+   * ride the shared pacer and the user asked for those rows directly.
+   * Heartbeat every 15s while running; a leader silent >30s is superseded. */
+  var LEADER_KEY = "vaultdex_price_refresh_leader";
+  var LEADER_TTL_MS = 30000;
+  function tryBecomeLeader() {
+    var id = Math.random().toString(36).slice(2) + Date.now().toString(36);
+    function read() {
+      try {
+        var raw = localStorage.getItem(LEADER_KEY);
+        return raw ? JSON.parse(raw) : null;
+      } catch { return null; }
+    }
+    var cur = read();
+    if (cur && cur.id && cur.at && Date.now() - cur.at < LEADER_TTL_MS) return null;
+    try {
+      localStorage.setItem(LEADER_KEY, JSON.stringify({ id: id, at: Date.now() }));
+    } catch { return id; }
+    /* Confirm we won the race: another tab may have claimed simultaneously. */
+    var back = read();
+    return (back && back.id === id) ? id : null;
+  }
+  function heartbeatLeader(id) {
+    try {
+      localStorage.setItem(LEADER_KEY, JSON.stringify({ id: id, at: Date.now() }));
+    } catch { /* ignore */ }
+  }
+  function releaseLeader(id) {
+    try {
+      var raw = localStorage.getItem(LEADER_KEY);
+      var cur = raw ? JSON.parse(raw) : null;
+      if (cur && cur.id === id) localStorage.removeItem(LEADER_KEY);
+    } catch { /* ignore */ }
+  }
+
   async function runRefreshPass(onProgress, opts) {
+    var u = needUser();
+    if (!u) return null;
+    /* Bulk passes need a leader; explicit row sets are always allowed. */
+    var leaderId = null;
+    if (!opts || !opts.onlyIds) {
+      leaderId = tryBecomeLeader();
+      if (!leaderId) return { updated: 0, at: new Date().toISOString(), skipped: "leader" };
+    }
+    try {
+      return await runRefreshPassInner(onProgress, opts, leaderId);
+    } finally {
+      if (leaderId) releaseLeader(leaderId);
+    }
+  }
+
+  async function runRefreshPassInner(onProgress, opts, leaderId) {
     var u = needUser();
     if (!u) return null;
     var all = await list();
@@ -1275,6 +1329,9 @@
 
     for (var i = 0; i < items.length && !stopReason; i++) {
       var row = items[i];
+      /* Leader heartbeat: prove we're alive so another tab doesn't
+       * supersede us mid-pass. */
+      if (leaderId && i % 10 === 0) heartbeatLeader(leaderId);
       var attempts = 0;
       var backoffs = 0;
       while (attempts < 2) {
@@ -1508,6 +1565,8 @@
     isCreditExhausted: isCreditExhausted,
     sortRefreshQueue: sortRefreshQueue,
     tierRefreshQueue: tierRefreshQueue,
+    tryBecomeLeader: tryBecomeLeader,
+    releaseLeader: releaseLeader,
     scopeRefreshQueue: scopeRefreshQueue,
     refreshActive: refreshActive,
     moverUpdate: moverUpdate,

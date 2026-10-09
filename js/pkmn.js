@@ -29,23 +29,50 @@
 
   /* Global request pacer: api() is the single funnel for ALL browser→proxy
    * traffic (refresh loop, set-page pkmn_id backfill, modal price lookups,
-   * graded eBay comps), so spacing calls here caps the whole app at ~50
-   * req/min — under BOTH the proxy's 120/min per-IP limit and PkmnPrices'
-   * own 60/min rolling limit (verified 2026-10-08: x-rate-limit: 60, and a
-   * 59-requests-in-29s burst 429s). Before this, individually-paced features
-   * could still burst together and 429 as a group. A quiet moment costs
-   * nothing: an isolated call waits 0ms. */
+   * graded eBay comps). The provider's 60/min limit is per API key — shared
+   * by every open tab — so the pacer is shared too, via localStorage: each
+   * call reads the last start time across tabs, waits its turn, and writes
+   * its start. This caps ALL tabs combined at ~50 req/min, under both the
+   * provider's 60/min rolling limit (verified 2026-10-08: x-rate-limit: 60,
+   * and a 59-requests-in-29s burst 429s) and the proxy's 120/min per-IP
+   * limit. A per-tab pacer was the 429 regression of 2026-10-09: two tabs
+   * at 50/min each is 100/min and 429s. Races (two tabs reading the same
+   * timestamp) are narrowed by jitter and covered by the 429 backoff.
+   * A quiet moment costs nothing: an isolated call waits ~0ms. */
   var PACER_MIN_GAP_MS = 1200;
+  var PACER_KEY = "vaultdex_pkmn_pacer_last";
   var pacerLastStart = 0;
   var pacerQueue = Promise.resolve();
+
+  function readSharedPacer() {
+    try {
+      var v = localStorage.getItem(PACER_KEY);
+      var n = v ? Number(v) : 0;
+      if (isFinite(n) && n > 0) return n;
+    } catch { /* private mode / disabled: fall back to in-memory */ }
+    return pacerLastStart;
+  }
+  function writeSharedPacer(t) {
+    pacerLastStart = t;
+    try { localStorage.setItem(PACER_KEY, String(t)); } catch { /* ignore */ }
+  }
 
   function pacerTicket() {
     var ticket = pacerQueue.then(function () {
       var now = Date.now();
-      var wait = pacerLastStart + PACER_MIN_GAP_MS - now;
-      if (wait > 0) pacerLastStart += PACER_MIN_GAP_MS;
-      else pacerLastStart = now;
-      if (wait > 0) return new Promise(function (r) { setTimeout(r, wait); });
+      var last = Math.max(readSharedPacer(), pacerLastStart);
+      var wait = last + PACER_MIN_GAP_MS - now;
+      if (wait < 0) wait = 0;
+      /* Jitter desynchronizes tabs that read the same timestamp at the
+       * same moment; without it they'd fire together every time. */
+      wait += Math.floor(Math.random() * 250);
+      var start = Math.max(now + wait, last + PACER_MIN_GAP_MS);
+      if (wait > 0) {
+        return new Promise(function (r) { setTimeout(r, wait); }).then(function () {
+          writeSharedPacer(start);
+        });
+      }
+      writeSharedPacer(now);
       return null;
     });
     /* A failed call must never wedge the queue for later callers. */
