@@ -1,11 +1,12 @@
 {
- "generated_at": "2026-09-16T02:10:59.285774+00:00",
+ "generated_at": "2026-10-18T16:45:56.131920+00:00",
+ "droppedCardIds": [],
  "set": {
   "id": "PMCG3",
   "name": "Mystery of the Fossils",
   "series": "ポケットモンスターカードゲーム",
   "releaseDate": "1997-06-21",
-  "logo": null,
+  "logo": "/data/tcgdex/set-logos/ja/PMCG3.png",
   "symbol": "/data/tcgdex/set-symbols/ja/PMCG3.png",
   "printedTotal": 48,
   "total": 48,
@@ -16,7 +17,7 @@
   {
    "id": "PMCG3-001",
    "localId": "001",
-   "name": "Ekans",
+   "name": "アーボ",
    "rarity": "Common",
    "illustrator": "Kagemaru Himeno",
    "image": null,
@@ -31,24 +32,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 0.84
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "アーボ",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/d/d8/EkansFossil46.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/d/d8/EkansFossil46.jpg",
-   "ppId": 128548
+   "pricing": null
   },
   {
    "id": "PMCG3-002",
    "localId": "002",
-   "name": "Zubat",
+   "name": "ズバット",
    "rarity": "Common",
    "illustrator": "Kagemaru Himeno",
    "image": null,
@@ -63,24 +52,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 0.57
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "ズバット",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/a/a9/ZubatFossil57.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/a/a9/ZubatFossil57.jpg",
-   "ppId": 128552
+   "pricing": null
   },
   {
    "id": "PMCG3-003",
    "localId": "003",
-   "name": "Grimer",
+   "name": "ベトベター",
    "rarity": "Common",
    "illustrator": "Mitsuhiro Arita",
    "image": null,
@@ -95,24 +72,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 0.91
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "ベトベター",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/3/3e/GrimerFossil48.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/3/3e/GrimerFossil48.jpg",
-   "ppId": 128562
+   "pricing": null
   },
   {
    "id": "PMCG3-004",
    "localId": "004",
-   "name": "Arbok",
+   "name": "アーボック",
    "rarity": "Uncommon",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -127,24 +92,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 1.9
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "アーボック",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/6/63/ArbokFossil31.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/6/63/ArbokFossil31.jpg",
-   "ppId": 128558
+   "pricing": null
   },
   {
    "id": "PMCG3-005",
    "localId": "005",
-   "name": "Golbat",
+   "name": "ゴルバット",
    "rarity": "Uncommon",
    "illustrator": "Kagemaru Himeno",
    "image": null,
@@ -159,24 +112,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 0.91
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "ゴルバット",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/d/db/GolbatFossil34.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/d/db/GolbatFossil34.jpg",
-   "ppId": 128571
+   "pricing": null
   },
   {
    "id": "PMCG3-006",
    "localId": "006",
-   "name": "Weezing",
+   "name": "マタドガス",
    "rarity": "Uncommon",
    "illustrator": "Mitsuhiro Arita",
    "image": null,
@@ -191,24 +132,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 1.36
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "マタドガス",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/7/76/WeezingFossil45.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/7/76/WeezingFossil45.jpg",
-   "ppId": 128551
+   "pricing": null
   },
   {
    "id": "PMCG3-007",
    "localId": "007",
-   "name": "Muk",
+   "name": "ベトベトン",
    "rarity": "Holo Rare",
    "illustrator": "Mitsuhiro Arita",
    "image": null,
@@ -223,24 +152,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "holofoil": {
-      "marketPrice": 10.0
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "ベトベトン",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/8/85/MukFossil13.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/8/85/MukFossil13.jpg",
-   "ppId": 128545
+   "pricing": null
   },
   {
    "id": "PMCG3-008",
    "localId": "008",
-   "name": "Magmar",
+   "name": "ブーバー",
    "rarity": "Uncommon",
    "illustrator": "Mitsuhiro Arita",
    "image": null,
@@ -255,24 +172,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 1.89
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "ブーバー",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/8/81/MagmarFossil39.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/8/81/MagmarFossil39.jpg",
-   "ppId": 128576
+   "pricing": null
   },
   {
    "id": "PMCG3-009",
    "localId": "009",
-   "name": "Moltres",
+   "name": "ファイヤー",
    "rarity": "Holo Rare",
    "illustrator": "Mitsuhiro Arita",
    "image": null,
@@ -287,24 +192,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "holofoil": {
-      "marketPrice": 35.09
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "ファイヤー",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/1/1d/MoltresFossil12.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/1/1d/MoltresFossil12.jpg",
-   "ppId": 128587
+   "pricing": null
   },
   {
    "id": "PMCG3-010",
    "localId": "010",
-   "name": "Psyduck",
+   "name": "コダック",
    "rarity": "Common",
    "illustrator": "Kagemaru Himeno",
    "image": null,
@@ -319,24 +212,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 4.41
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "コダック",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/9/95/PsyduckFossil53.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/9/95/PsyduckFossil53.jpg",
-   "ppId": 128539
+   "pricing": null
   },
   {
    "id": "PMCG3-011",
    "localId": "011",
-   "name": "Tentacool",
+   "name": "メノクラゲ",
    "rarity": "Common",
    "illustrator": "Kagemaru Himeno",
    "image": null,
@@ -351,24 +232,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 0.55
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "メノクラゲ",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/f/f8/TentacoolFossil56.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/f/f8/TentacoolFossil56.jpg",
-   "ppId": 128561
+   "pricing": null
   },
   {
    "id": "PMCG3-012",
    "localId": "012",
-   "name": "Shellder",
+   "name": "シェルダー",
    "rarity": "Common",
    "illustrator": "Mitsuhiro Arita",
    "image": null,
@@ -383,24 +252,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 0.77
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "シェルダー",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/a/ac/ShellderFossil54.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/a/ac/ShellderFossil54.jpg",
-   "ppId": 128540
+   "pricing": null
   },
   {
    "id": "PMCG3-013",
    "localId": "013",
-   "name": "Krabby",
+   "name": "クラブ",
    "rarity": "Common",
    "illustrator": "Mitsuhiro Arita",
    "image": null,
@@ -415,24 +272,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 0.69
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "クラブ",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/b/b3/KrabbyFossil51.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/b/b3/KrabbyFossil51.jpg",
-   "ppId": 128542
+   "pricing": null
   },
   {
    "id": "PMCG3-014",
    "localId": "014",
-   "name": "Horsea",
+   "name": "タッツ",
    "rarity": "Common",
    "illustrator": "Mitsuhiro Arita",
    "image": null,
@@ -447,24 +292,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 0.75
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "タッツ",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/b/be/HorseaFossil49.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/b/be/HorseaFossil49.jpg",
-   "ppId": 128568
+   "pricing": null
   },
   {
    "id": "PMCG3-015",
    "localId": "015",
-   "name": "Omanyte",
+   "name": "オムナイト",
    "rarity": "Common",
    "illustrator": "Kagemaru Himeno",
    "image": null,
@@ -479,24 +312,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 1.06
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "オムナイト",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/9/9e/OmanyteFossil52.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/9/9e/OmanyteFossil52.jpg",
-   "ppId": 128533
+   "pricing": null
   },
   {
    "id": "PMCG3-016",
    "localId": "016",
-   "name": "Golduck",
+   "name": "ゴルダック",
    "rarity": "Uncommon",
    "illustrator": "Kagemaru Himeno",
    "image": null,
@@ -511,24 +332,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 2.28
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "ゴルダック",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/1/13/GolduckFossil35.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/1/13/GolduckFossil35.jpg",
-   "ppId": 128574
+   "pricing": null
   },
   {
    "id": "PMCG3-017",
    "localId": "017",
-   "name": "Tentacruel",
+   "name": "ドククラゲ",
    "rarity": "Uncommon",
    "illustrator": "Kagemaru Himeno",
    "image": null,
@@ -543,24 +352,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 1.03
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "ドククラゲ",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/f/f0/TentacruelFossil44.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/f/f0/TentacruelFossil44.jpg",
-   "ppId": 128565
+   "pricing": null
   },
   {
    "id": "PMCG3-018",
    "localId": "018",
-   "name": "Cloyster",
+   "name": "パルシェン",
    "rarity": "Uncommon",
    "illustrator": "Kagemaru Himeno",
    "image": null,
@@ -575,24 +372,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 1.83
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "パルシェン",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/1/14/CloysterFossil32.jpg/400px-CloysterFossil32.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/1/14/CloysterFossil32.jpg",
-   "ppId": 128572
+   "pricing": null
   },
   {
    "id": "PMCG3-019",
    "localId": "019",
-   "name": "Kingler",
+   "name": "キングラー",
    "rarity": "Uncommon",
    "illustrator": "Kagemaru Himeno",
    "image": null,
@@ -607,24 +392,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 1.42
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "キングラー",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/3/30/KinglerFossil38.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/3/30/KinglerFossil38.jpg",
-   "ppId": 128544
+   "pricing": null
   },
   {
    "id": "PMCG3-020",
    "localId": "020",
-   "name": "Seadra",
+   "name": "シードラ",
    "rarity": "Uncommon",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -639,24 +412,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 1.96
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "シードラ",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/1/1b/SeadraFossil42.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/1/1b/SeadraFossil42.jpg",
-   "ppId": 128567
+   "pricing": null
   },
   {
    "id": "PMCG3-021",
    "localId": "021",
-   "name": "Omastar",
+   "name": "オムスター",
    "rarity": "Uncommon",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -671,24 +432,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 1.29
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "オムスター",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/3/3e/OmastarFossil40.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/3/3e/OmastarFossil40.jpg",
-   "ppId": 128569
+   "pricing": null
   },
   {
    "id": "PMCG3-022",
    "localId": "022",
-   "name": "Lapras",
+   "name": "ラプラス",
    "rarity": "Holo Rare",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -703,24 +452,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "holofoil": {
-      "marketPrice": 28.82
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "ラプラス",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/4/47/LaprasFossil10.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/4/47/LaprasFossil10.jpg",
-   "ppId": 128550
+   "pricing": null
   },
   {
    "id": "PMCG3-023",
    "localId": "023",
-   "name": "Articuno",
+   "name": "フリーザー",
    "rarity": "Holo Rare",
    "illustrator": "Mitsuhiro Arita",
    "image": null,
@@ -735,24 +472,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "holofoil": {
-      "marketPrice": 32.86
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "フリーザー",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/a/a0/ArticunoFossil17.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/a/a0/ArticunoFossil17.jpg",
-   "ppId": 128543
+   "pricing": null
   },
   {
    "id": "PMCG3-024",
    "localId": "024",
-   "name": "Raichu",
+   "name": "ライチュウ",
    "rarity": "Holo Rare",
    "illustrator": "Mitsuhiro Arita",
    "image": null,
@@ -767,24 +492,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "holofoil": {
-      "marketPrice": 33.4
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "ライチュウ",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/6/6d/RaichuFossil14.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/6/6d/RaichuFossil14.jpg",
-   "ppId": 128560
+   "pricing": null
   },
   {
    "id": "PMCG3-025",
    "localId": "025",
-   "name": "Magneton",
+   "name": "レアコイル",
    "rarity": "Holo Rare",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -799,24 +512,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "holofoil": {
-      "marketPrice": 13.32
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "レアコイル",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/5/53/MagnetonFossil11.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/5/53/MagnetonFossil11.jpg",
-   "ppId": 128556
+   "pricing": null
   },
   {
    "id": "PMCG3-026",
    "localId": "026",
-   "name": "Zapdos",
+   "name": "サンダー",
    "rarity": "Holo Rare",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -831,24 +532,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "holofoil": {
-      "marketPrice": 29.0
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "サンダー",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/f/fb/ZapdosFossil30.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/f/fb/ZapdosFossil30.jpg",
-   "ppId": 128554
+   "pricing": null
   },
   {
    "id": "PMCG3-027",
    "localId": "027",
-   "name": "Slowpoke",
+   "name": "ヤドン",
    "rarity": "Common",
    "illustrator": "Miki Tanaka",
    "image": null,
@@ -863,24 +552,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 1.71
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "ヤドン",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/d/d9/SlowpokeFossil55.jpg/400px-SlowpokeFossil55.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/d/d9/SlowpokeFossil55.jpg",
-   "ppId": 128549
+   "pricing": null
   },
   {
    "id": "PMCG3-028",
    "localId": "028",
-   "name": "Slowbro",
+   "name": "ヤドラン",
    "rarity": "Uncommon",
    "illustrator": "Kagemaru Himeno",
    "image": null,
@@ -895,24 +572,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 2.74
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "ヤドラン",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/8/8a/SlowbroFossil43.jpg/400px-SlowbroFossil43.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/8/8a/SlowbroFossil43.jpg",
-   "ppId": 128563
+   "pricing": null
   },
   {
    "id": "PMCG3-029",
    "localId": "029",
-   "name": "Gastly",
+   "name": "ゴース",
    "rarity": "Uncommon",
    "illustrator": "Mitsuhiro Arita",
    "image": null,
@@ -927,24 +592,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 2.1
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "ゴース",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/c/c1/GastlyFossil33.jpg/400px-GastlyFossil33.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/c/c1/GastlyFossil33.jpg",
-   "ppId": 128566
+   "pricing": null
   },
   {
    "id": "PMCG3-030",
    "localId": "030",
-   "name": "Haunter",
+   "name": "ゴースト",
    "rarity": "Holo Rare",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -959,24 +612,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "holofoil": {
-      "marketPrice": 37.47
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "ゴースト",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/a/af/HaunterFossil6.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/a/af/HaunterFossil6.jpg",
-   "ppId": 128536
+   "pricing": null
   },
   {
    "id": "PMCG3-031",
    "localId": "031",
-   "name": "Gengar",
+   "name": "ゲンガー",
    "rarity": "Holo Rare",
    "illustrator": "Keiji Kinebuchi",
    "image": null,
@@ -991,24 +632,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "holofoil": {
-      "marketPrice": 240.52
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "ゲンガー",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/a/a6/GengarFossil5.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/a/a6/GengarFossil5.jpg",
-   "ppId": 128541
+   "pricing": null
   },
   {
    "id": "PMCG3-032",
    "localId": "032",
-   "name": "Hypno",
+   "name": "スリーパー",
    "rarity": "Holo Rare",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -1023,24 +652,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "holofoil": {
-      "marketPrice": 15.34
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "スリーパー",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/d/d0/HypnoFossil8.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/d/d0/HypnoFossil8.jpg",
-   "ppId": 128547
+   "pricing": null
   },
   {
    "id": "PMCG3-033",
    "localId": "033",
-   "name": "Mew",
+   "name": "ミュウ",
    "rarity": "Holo Rare",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -1055,16 +672,12 @@
      "foil": null
     }
    ],
-   "pricing": null,
-   "nameJa": "ミュウ",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/4/47/MewWizardsPromo8.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/4/47/MewWizardsPromo8.jpg",
-   "ppId": 128573
+   "pricing": null
   },
   {
    "id": "PMCG3-034",
    "localId": "034",
-   "name": "Geodude",
+   "name": "イシツブテ",
    "rarity": "Common",
    "illustrator": "Kagemaru Himeno",
    "image": null,
@@ -1079,24 +692,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 0.84
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "イシツブテ",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/5/57/GeodudeFossil47.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/5/57/GeodudeFossil47.jpg",
-   "ppId": 128564
+   "pricing": null
   },
   {
    "id": "PMCG3-035",
    "localId": "035",
-   "name": "Kabuto",
+   "name": "カブト",
    "rarity": "Common",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -1111,24 +712,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 1.14
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "カブト",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/4/4d/KabutoFossil50.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/4/4d/KabutoFossil50.jpg",
-   "ppId": 128534
+   "pricing": null
   },
   {
    "id": "PMCG3-036",
    "localId": "036",
-   "name": "Sandslash",
+   "name": "サンドパン",
    "rarity": "Uncommon",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -1143,24 +732,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 1.45
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "サンドパン",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/a/ae/SandslashFossil41.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/a/ae/SandslashFossil41.jpg",
-   "ppId": 128570
+   "pricing": null
   },
   {
    "id": "PMCG3-037",
    "localId": "037",
-   "name": "Graveler",
+   "name": "ゴローン",
    "rarity": "Uncommon",
    "illustrator": "Kagemaru Himeno",
    "image": null,
@@ -1175,24 +752,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 1.05
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "ゴローン",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/b/bb/GravelerFossil37.jpg/400px-GravelerFossil37.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/b/bb/GravelerFossil37.jpg",
-   "ppId": 128557
+   "pricing": null
   },
   {
    "id": "PMCG3-038",
    "localId": "038",
-   "name": "Golem",
+   "name": "ゴローニャ",
    "rarity": "Uncommon",
    "illustrator": "Kagemaru Himeno",
    "image": null,
@@ -1207,24 +772,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 1.49
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "ゴローニャ",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/6/62/GolemFossil36.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/6/62/GolemFossil36.jpg",
-   "ppId": 128589
+   "pricing": null
   },
   {
    "id": "PMCG3-039",
    "localId": "039",
-   "name": "Hitmonlee",
+   "name": "サワムラー",
    "rarity": "Holo Rare",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -1239,24 +792,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "holofoil": {
-      "marketPrice": 21.91
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "サワムラー",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/d/de/HitmonleeFossil7.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/d/de/HitmonleeFossil7.jpg",
-   "ppId": 128742
+   "pricing": null
   },
   {
    "id": "PMCG3-040",
    "localId": "040",
-   "name": "Kabutops",
+   "name": "カブトプス",
    "rarity": "Holo Rare",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -1271,24 +812,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "holofoil": {
-      "marketPrice": 20.44
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "カブトプス",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/b/bc/KabutopsFossil9.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/b/bc/KabutopsFossil9.jpg",
-   "ppId": 128531
+   "pricing": null
   },
   {
    "id": "PMCG3-041",
    "localId": "041",
-   "name": "Aerodactyl",
+   "name": "プテラ",
    "rarity": "Holo Rare",
    "illustrator": "Kagemaru Himeno",
    "image": null,
@@ -1303,24 +832,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "holofoil": {
-      "marketPrice": 24.2
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "プテラ",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/2/23/AerodactylFossil16.jpg/400px-AerodactylFossil16.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/2/23/AerodactylFossil16.jpg",
-   "ppId": 128559
+   "pricing": null
   },
   {
    "id": "PMCG3-042",
    "localId": "042",
-   "name": "Ditto",
+   "name": "メタモン",
    "rarity": "Holo Rare",
    "illustrator": "Keiji Kinebuchi",
    "image": null,
@@ -1335,24 +852,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "holofoil": {
-      "marketPrice": 34.42
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "メタモン",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/d/d4/DittoFossil3.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/d/d4/DittoFossil3.jpg",
-   "ppId": 128553
+   "pricing": null
   },
   {
    "id": "PMCG3-043",
    "localId": "043",
-   "name": "Dragonite",
+   "name": "カイリュー",
    "rarity": "Holo Rare",
    "illustrator": "Kagemaru Himeno",
    "image": null,
@@ -1367,24 +872,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "holofoil": {
-      "marketPrice": 120.05
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "カイリュー",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/d/d5/DragoniteFossil4.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/d/d5/DragoniteFossil4.jpg",
-   "ppId": 128546
+   "pricing": null
   },
   {
    "id": "PMCG3-044",
    "localId": "044",
-   "name": "Energy Search",
+   "name": "エネルギー転送",
    "rarity": "Common",
    "illustrator": "Toyste Beach",
    "image": null,
@@ -1397,24 +890,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 0.61
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "エネルギー転送",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/9/9e/EnergySearchFossil59.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/9/9e/EnergySearchFossil59.jpg",
-   "ppId": 64740
+   "pricing": null
   },
   {
    "id": "PMCG3-045",
    "localId": "045",
-   "name": "Gambler",
+   "name": "ギャンブラー",
    "rarity": "Common",
    "illustrator": "Keiji Kinebuchi",
    "image": null,
@@ -1427,24 +908,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 0.62
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "ギャンブラー",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/c/cf/GamblerFossil60.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/c/cf/GamblerFossil60.jpg",
-   "ppId": 128529
+   "pricing": null
   },
   {
    "id": "PMCG3-046",
    "localId": "046",
-   "name": "Mysterious Fossil",
+   "name": "なにかの化石",
    "rarity": "Common",
    "illustrator": "Keiji Kinebuchi",
    "image": null,
@@ -1457,24 +926,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 0.63
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "なにかの化石",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/0/03/MysteriousFossilFossil62.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/0/03/MysteriousFossilFossil62.jpg",
-   "ppId": 128555
+   "pricing": null
   },
   {
    "id": "PMCG3-047",
    "localId": "047",
-   "name": "Recycle",
+   "name": "リサイクル",
    "rarity": "Common",
    "illustrator": "Ryo Ueda",
    "image": null,
@@ -1487,24 +944,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 0.44
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "リサイクル",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/c/c3/RecycleFossil61.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/c/c3/RecycleFossil61.jpg",
-   "ppId": 128606
+   "pricing": null
   },
   {
    "id": "PMCG3-048",
    "localId": "048",
-   "name": "Mr. Fuji",
+   "name": "フジろうじん",
    "rarity": "Uncommon",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -1517,19 +962,7 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 2.02
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "フジろうじん",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/f/f5/MrFujiFossil58.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/f/f5/MrFujiFossil58.jpg",
-   "ppId": 128530
+   "pricing": null
   }
  ]
 }

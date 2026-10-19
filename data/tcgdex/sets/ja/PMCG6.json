@@ -1,11 +1,12 @@
 {
- "generated_at": "2026-09-16T02:11:57.687375+00:00",
+ "generated_at": "2026-10-18T16:48:36.301641+00:00",
+ "droppedCardIds": [],
  "set": {
   "id": "PMCG6",
   "name": "Challenge from the Darkness",
   "series": "ポケットモンスターカードゲーム",
   "releaseDate": "1999-06-25",
-  "logo": null,
+  "logo": "/data/tcgdex/set-logos/ja/PMCG6.png",
   "symbol": null,
   "printedTotal": 98,
   "total": 98,
@@ -16,7 +17,7 @@
   {
    "id": "PMCG6-001",
    "localId": "001",
-   "name": "Koga's Weedle",
+   "name": "キョウのビードル",
    "rarity": "Common",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -31,24 +32,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 0.78
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "キョウのビードル",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/5/5c/KogaWeedleGymChallenge82.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/5/5c/KogaWeedleGymChallenge82.jpg",
-   "ppId": 128006
+   "pricing": null
   },
   {
    "id": "PMCG6-002",
    "localId": "002",
-   "name": "Koga's Ekans",
+   "name": "キョウのアーボ",
    "rarity": "Common",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -63,24 +52,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 0.83
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "キョウのアーボ",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/0/0d/KogaEkansGymChallenge77.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/0/0d/KogaEkansGymChallenge77.jpg",
-   "ppId": 127985
+   "pricing": null
   },
   {
    "id": "PMCG6-003",
    "localId": "003",
-   "name": "Giovanni's Nidoran♀",
+   "name": "ジョバンニのニドラン♀",
    "rarity": "Common",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -95,15 +72,12 @@
      "foil": null
     }
    ],
-   "pricing": null,
-   "nameJa": "ジョバンニのニドラン♀",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/c/c1/GiovanniNidoranGymChallenge75.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/c/c1/GiovanniNidoranGymChallenge75.jpg"
+   "pricing": null
   },
   {
    "id": "PMCG6-004",
    "localId": "004",
-   "name": "Giovanni's Nidoran♂",
+   "name": "ジョバンニのニドラン♂",
    "rarity": "Common",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -118,15 +92,12 @@
      "foil": null
     }
    ],
-   "pricing": null,
-   "nameJa": "ジョバンニのニドラン♂",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/0/04/GiovanniNidoranGymChallenge76.jpg/400px-GiovanniNidoranGymChallenge76.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/0/04/GiovanniNidoranGymChallenge76.jpg"
+   "pricing": null
   },
   {
    "id": "PMCG6-005",
    "localId": "005",
-   "name": "Koga's Zubat",
+   "name": "キョウのズバット",
    "rarity": "Common",
    "illustrator": "575381",
    "image": null,
@@ -141,24 +112,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 0.67
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "キョウのズバット",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/8/87/KogaZubatGymChallenge83.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/8/87/KogaZubatGymChallenge83.jpg",
-   "ppId": 127987
+   "pricing": null
   },
   {
    "id": "PMCG6-006",
    "localId": "006",
-   "name": "Sabrina's Venonat",
+   "name": "ナツメのコンパン",
    "rarity": "Common",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -173,24 +132,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 1.0
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "ナツメのコンパン",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/0/0e/SabrinaVenonatGymHeroes96.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/0/0e/SabrinaVenonatGymHeroes96.jpg",
-   "ppId": 127982
+   "pricing": null
   },
   {
    "id": "PMCG6-007",
    "localId": "007",
-   "name": "Koga's Grimer",
+   "name": "キョウのベトベター",
    "rarity": "Common",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -205,24 +152,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 0.96
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "キョウのベトベター",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/9/97/KogaGrimerGymChallenge78.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/9/97/KogaGrimerGymChallenge78.jpg",
-   "ppId": 128002
+   "pricing": null
   },
   {
    "id": "PMCG6-008",
    "localId": "008",
-   "name": "Koga's Koffing",
+   "name": "キョウのドガース",
    "rarity": "Common",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -237,15 +172,12 @@
      "foil": null
     }
    ],
-   "pricing": null,
-   "nameJa": "キョウのドガース",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/5/5d/KogaKoffingGymChallenge79.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/5/5d/KogaKoffingGymChallenge79.jpg"
+   "pricing": null
   },
   {
    "id": "PMCG6-009",
    "localId": "009",
-   "name": "Koga's Tangela",
+   "name": "キョウのモンジャラ",
    "rarity": "Common",
    "illustrator": "Atsuko Nishida",
    "image": null,
@@ -260,24 +192,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 0.97
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "キョウのモンジャラ",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/7/72/KogaTangelaGymChallenge81.jpg/400px-KogaTangelaGymChallenge81.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/7/72/KogaTangelaGymChallenge81.jpg",
-   "ppId": 128016
+   "pricing": null
   },
   {
    "id": "PMCG6-010",
    "localId": "010",
-   "name": "Erika's Ivysaur",
+   "name": "エリカのフシギソウ",
    "rarity": "Uncommon",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -292,24 +212,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 7.51
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "エリカのフシギソウ",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/4/48/ErikaIvysaurGymChallenge41.jpg/400px-ErikaIvysaurGymChallenge41.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/4/48/ErikaIvysaurGymChallenge41.jpg",
-   "ppId": 128001
+   "pricing": null
   },
   {
    "id": "PMCG6-011",
    "localId": "011",
-   "name": "Koga's Kakuna",
+   "name": "キョウのコクーン",
    "rarity": "Uncommon",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -324,24 +232,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 1.48
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "キョウのコクーン",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/7/76/KogaKakunaGymChallenge47.jpg/400px-KogaKakunaGymChallenge47.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/7/76/KogaKakunaGymChallenge47.jpg",
-   "ppId": 128055
+   "pricing": null
   },
   {
    "id": "PMCG6-012",
    "localId": "012",
-   "name": "Giovanni's Nidorina",
+   "name": "サカキのニドリーナ",
    "rarity": "Uncommon",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -356,24 +252,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 0.91
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "サカキのニドリーナ",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/c/c5/GiovanniNidorinaGymChallenge44.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/c/c5/GiovanniNidorinaGymChallenge44.jpg",
-   "ppId": 128056
+   "pricing": null
   },
   {
    "id": "PMCG6-013",
    "localId": "013",
-   "name": "Giovanni's Nidorino",
+   "name": "サカキのニドリーノ",
    "rarity": "Uncommon",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -388,24 +272,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 1.76
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "サカキのニドリーノ",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/a/a8/GiovanniNidorinoGymChallenge45.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/a/a8/GiovanniNidorinoGymChallenge45.jpg",
-   "ppId": 128053
+   "pricing": null
   },
   {
    "id": "PMCG6-014",
    "localId": "014",
-   "name": "Koga's Golbat",
+   "name": "キョウのゴルバット",
    "rarity": "Uncommon",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -420,24 +292,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 1.36
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "キョウのゴルバット",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/8/80/KogaGolbatGymChallenge46.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/8/80/KogaGolbatGymChallenge46.jpg",
-   "ppId": 128079
+   "pricing": null
   },
   {
    "id": "PMCG6-015",
    "localId": "015",
-   "name": "Koga's Koffing",
+   "name": "キョウのドガース",
    "rarity": "Uncommon",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -452,15 +312,12 @@
      "foil": null
     }
    ],
-   "pricing": null,
-   "nameJa": "キョウのドガース",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/8/8e/KogaKoffingGymChallenge48.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/8/8e/KogaKoffingGymChallenge48.jpg"
+   "pricing": null
   },
   {
    "id": "PMCG6-016",
    "localId": "016",
-   "name": "Koga's Weezing",
+   "name": "キョウのマタドガス",
    "rarity": "Uncommon",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -475,24 +332,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 2.15
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "キョウのマタドガス",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/b/b8/KogaWeezingGymChallenge50.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/b/b8/KogaWeezingGymChallenge50.jpg",
-   "ppId": 128044
+   "pricing": null
   },
   {
    "id": "PMCG6-017",
    "localId": "017",
-   "name": "Erika's Venusaur",
+   "name": "エリカのフシギバナ",
    "rarity": "Holo Rare",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -507,24 +352,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "holofoil": {
-      "marketPrice": 69.02
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "エリカのフシギバナ",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/f/fc/ErikaVenusaurGymChallenge4.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/f/fc/ErikaVenusaurGymChallenge4.jpg",
-   "ppId": 128004
+   "pricing": null
   },
   {
    "id": "PMCG6-018",
    "localId": "018",
-   "name": "Koga's Beedrill",
+   "name": "キョウのスピアー",
    "rarity": "Holo Rare",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -539,24 +372,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "holofoil": {
-      "marketPrice": 17.32
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "キョウのスピアー",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/4/49/KogaBeedrillGymChallenge9.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/4/49/KogaBeedrillGymChallenge9.jpg",
-   "ppId": 128012
+   "pricing": null
   },
   {
    "id": "PMCG6-019",
    "localId": "019",
-   "name": "Koga's Arbok",
+   "name": "キョウのアーボック",
    "rarity": "Rare",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -571,24 +392,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 3.18
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "キョウのアーボック",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/1/18/KogaArbokGymChallenge25.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/1/18/KogaArbokGymChallenge25.jpg",
-   "ppId": 128059
+   "pricing": null
   },
   {
    "id": "PMCG6-020",
    "localId": "020",
-   "name": "Giovanni's Nidoqueen",
+   "name": "サカキのニドクイン",
    "rarity": "Rare",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -603,24 +412,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 7.1
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "サカキのニドクイン",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/0/0d/GiovanniNidoqueenGymChallenge23.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/0/0d/GiovanniNidoqueenGymChallenge23.jpg",
-   "ppId": 128009
+   "pricing": null
   },
   {
    "id": "PMCG6-021",
    "localId": "021",
-   "name": "Giovanni's Nidoking",
+   "name": "サカキのニドキング",
    "rarity": "Holo Rare",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -635,24 +432,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "holofoil": {
-      "marketPrice": 27.0
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "サカキのニドキング",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/6/67/GiovanniNidokingGymChallenge7.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/6/67/GiovanniNidokingGymChallenge7.jpg",
-   "ppId": 128018
+   "pricing": null
   },
   {
    "id": "PMCG6-022",
    "localId": "022",
-   "name": "Sabrina's Venomoth",
+   "name": "ナツメのモルフォン",
    "rarity": "Rare",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -667,24 +452,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 4.35
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "ナツメのモルフォン",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/7/77/SabrinaVenomothGymHeroes34.jpg/400px-SabrinaVenomothGymHeroes34.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/7/77/SabrinaVenomothGymHeroes34.jpg",
-   "ppId": 128041
+   "pricing": null
   },
   {
    "id": "PMCG6-023",
    "localId": "023",
-   "name": "Koga's Muk",
+   "name": "キョウのベトベトン",
    "rarity": "Rare",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -699,24 +472,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 2.39
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "キョウのベトベトン",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/b/b6/KogaMukGymChallenge26.jpg/400px-KogaMukGymChallenge26.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/b/b6/KogaMukGymChallenge26.jpg",
-   "ppId": 128076
+   "pricing": null
   },
   {
    "id": "PMCG6-024",
    "localId": "024",
-   "name": "Giovanni's Pinsir",
+   "name": "サカキのカイロス",
    "rarity": "Rare",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -731,24 +492,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 3.2
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "サカキのカイロス",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/7/7c/GiovanniPinsirGymChallenge24.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/7/7c/GiovanniPinsirGymChallenge24.jpg",
-   "ppId": 128051
+   "pricing": null
   },
   {
    "id": "PMCG6-025",
    "localId": "025",
-   "name": "Blaine's Charmander",
+   "name": "カツラのヒトカゲ",
    "rarity": "Common",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -763,24 +512,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 2.96
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "カツラのヒトカゲ",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/a/af/BlaineCharmanderGymHeroes61.jpg/400px-BlaineCharmanderGymHeroes61.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/a/af/BlaineCharmanderGymHeroes61.jpg",
-   "ppId": 127980
+   "pricing": null
   },
   {
    "id": "PMCG6-026",
    "localId": "026",
-   "name": "Blaine's Vulpix",
+   "name": "カツラのロコン",
    "rarity": "Common",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -795,24 +532,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 1.35
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "カツラのロコン",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/6/61/BlaineVulpixGymHeroes65.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/6/61/BlaineVulpixGymHeroes65.jpg",
-   "ppId": 128031
+   "pricing": null
   },
   {
    "id": "PMCG6-027",
    "localId": "027",
-   "name": "Blaine's Growlithe",
+   "name": "カツラのガーディ",
    "rarity": "Common",
    "illustrator": "Atsuko Nishida",
    "image": null,
@@ -827,24 +552,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 1.3
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "カツラのガーディ",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/9/96/BlaineGrowlitheGymHeroes62.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/9/96/BlaineGrowlitheGymHeroes62.jpg",
-   "ppId": 127984
+   "pricing": null
   },
   {
    "id": "PMCG6-028",
    "localId": "028",
-   "name": "Blaine's Ponyta",
+   "name": "カツラのポニータ",
    "rarity": "Common",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -859,24 +572,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 0.97
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "カツラのポニータ",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/6/64/BlainePonytaGymChallenge64.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/6/64/BlainePonytaGymChallenge64.jpg",
-   "ppId": 127989
+   "pricing": null
   },
   {
    "id": "PMCG6-029",
    "localId": "029",
-   "name": "Blaine's Charmeleon",
+   "name": "カツラのリザード",
    "rarity": "Uncommon",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -891,24 +592,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 5.43
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "カツラのリザード",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/d/d9/BlaineCharmeleonGymChallenge31.jpg/400px-BlaineCharmeleonGymChallenge31.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/d/d9/BlaineCharmeleonGymChallenge31.jpg",
-   "ppId": 128007
+   "pricing": null
   },
   {
    "id": "PMCG6-030",
    "localId": "030",
-   "name": "Blaine's Rapidash",
+   "name": "カツラのギャロップ",
    "rarity": "Uncommon",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -923,24 +612,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 3.49
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "カツラのギャロップ",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/3/31/BlaineRapidashGymChallenge33.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/3/31/BlaineRapidashGymChallenge33.jpg",
-   "ppId": 128070
+   "pricing": null
   },
   {
    "id": "PMCG6-031",
    "localId": "031",
-   "name": "Blaine's Magmar",
+   "name": "カツラのブーバー",
    "rarity": "Uncommon",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -955,24 +632,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 1.66
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "カツラのブーバー",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/2/2c/BlaineMagmarGymHeroes37.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/2/2c/BlaineMagmarGymHeroes37.jpg",
-   "ppId": 128063
+   "pricing": null
   },
   {
    "id": "PMCG6-032",
    "localId": "032",
-   "name": "Blaine's Charizard",
+   "name": "カツラのリザードン",
    "rarity": "Holo Rare",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -987,24 +652,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "holofoil": {
-      "marketPrice": 196.63
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "カツラのリザードン",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/1/14/BlaineCharizardGymChallenge2.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/1/14/BlaineCharizardGymChallenge2.jpg",
-   "ppId": 128011
+   "pricing": null
   },
   {
    "id": "PMCG6-033",
    "localId": "033",
-   "name": "Blaine's Ninetales",
+   "name": "カツラのキュウコン",
    "rarity": "Rare",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -1019,24 +672,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 6.43
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "カツラのキュウコン",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/d/d0/BlaineNinetalesGymChallenge21.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/d/d0/BlaineNinetalesGymChallenge21.jpg",
-   "ppId": 128060
+   "pricing": null
   },
   {
    "id": "PMCG6-034",
    "localId": "034",
-   "name": "Blaine's Arcanine",
+   "name": "カツラのウインディ",
    "rarity": "Holo Rare",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -1051,24 +692,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "holofoil": {
-      "marketPrice": 51.14
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "カツラのウインディ",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/5/5a/BlaineArcanineGymChallenge1.jpg/400px-BlaineArcanineGymChallenge1.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/5/5a/BlaineArcanineGymChallenge1.jpg",
-   "ppId": 127994
+   "pricing": null
   },
   {
    "id": "PMCG6-035",
    "localId": "035",
-   "name": "Blaine's Moltres",
+   "name": "カツラのファイヤー",
    "rarity": "Holo Rare",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -1083,24 +712,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "holofoil": {
-      "marketPrice": 51.78
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "カツラのファイヤー",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/3/3b/BlaineMoltresGymHeroes1.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/3/3b/BlaineMoltresGymHeroes1.jpg",
-   "ppId": 128025
+   "pricing": null
   },
   {
    "id": "PMCG6-036",
    "localId": "036",
-   "name": "Sabrina's Psyduck",
+   "name": "ナツメのコダック",
    "rarity": "Common",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -1115,24 +732,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 7.07
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "ナツメのコダック",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/0/08/SabrinaPsyduckGymChallenge99.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/0/08/SabrinaPsyduckGymChallenge99.jpg",
-   "ppId": 128021
+   "pricing": null
   },
   {
    "id": "PMCG6-037",
    "localId": "037",
-   "name": "Giovanni's Magikarp",
+   "name": "サカキのコイキング",
    "rarity": "Common",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -1147,24 +752,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 2.62
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "サカキのコイキング",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/c/c5/GiovanniMagikarpGymChallenge73.jpg/400px-GiovanniMagikarpGymChallenge73.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/c/c5/GiovanniMagikarpGymChallenge73.jpg",
-   "ppId": 127995
+   "pricing": null
   },
   {
    "id": "PMCG6-038",
    "localId": "038",
-   "name": "Sabrina's Golduck",
+   "name": "ナツメのゴルダック",
    "rarity": "Rare",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -1179,24 +772,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 3.96
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "ナツメのゴルダック",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/9/94/SabrinaGolduckGymChallenge30.jpg/400px-SabrinaGolduckGymChallenge30.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/9/94/SabrinaGolduckGymChallenge30.jpg",
-   "ppId": 128032
+   "pricing": null
   },
   {
    "id": "PMCG6-039",
    "localId": "039",
-   "name": "Misty's Poliwrath",
+   "name": "カスミのニョロボン",
    "rarity": "Rare",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -1211,24 +792,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 4.66
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "カスミのニョロボン",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/9/92/MistyPoliwrathGymHeroes31.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/9/92/MistyPoliwrathGymHeroes31.jpg",
-   "ppId": 128057
+   "pricing": null
   },
   {
    "id": "PMCG6-040",
    "localId": "040",
-   "name": "Giovanni's Gyarados",
+   "name": "サカキのギャラドス",
    "rarity": "Holo Rare",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -1243,16 +812,12 @@
      "foil": null
     }
    ],
-   "pricing": null,
-   "nameJa": "サカキのギャラドス",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/4/4d/GiovanniGyaradosGymChallenge5.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/4/4d/GiovanniGyaradosGymChallenge5.jpg",
-   "ppId": 128029
+   "pricing": null
   },
   {
    "id": "PMCG6-041",
    "localId": "041",
-   "name": "Lt. Surge's Raichu",
+   "name": "マチスのライチュウ",
    "rarity": "Holo Rare",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -1267,24 +832,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "holofoil": {
-      "marketPrice": 27.49
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "マチスのライチュウ",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/c/c1/LtSurgeRaichuGymChallenge11.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/c/c1/LtSurgeRaichuGymChallenge11.jpg",
-   "ppId": 127988
+   "pricing": null
   },
   {
    "id": "PMCG6-042",
    "localId": "042",
-   "name": "Rocket's Zapdos",
+   "name": "R団のサンダー",
    "rarity": "Holo Rare",
    "illustrator": "Shin-ichi Yoshida",
    "image": null,
@@ -1299,24 +852,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "holofoil": {
-      "marketPrice": 39.42
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "R団のサンダー",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/3/33/RocketZapdosGymChallenge15.jpg/400px-RocketZapdosGymChallenge15.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/3/33/RocketZapdosGymChallenge15.jpg",
-   "ppId": 128005
+   "pricing": null
   },
   {
    "id": "PMCG6-043",
    "localId": "043",
-   "name": "Sabrina's Abra",
+   "name": "ナツメのケーシィ",
    "rarity": "Common",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -1331,24 +872,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 1.22
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "ナツメのケーシィ",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/c/c2/SabrinaAbraGymHeroes91.jpg/400px-SabrinaAbraGymHeroes91.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/c/c2/SabrinaAbraGymHeroes91.jpg",
-   "ppId": 128045
+   "pricing": null
   },
   {
    "id": "PMCG6-044",
    "localId": "044",
-   "name": "Sabrina's Slowpoke",
+   "name": "ナツメのヤドン",
    "rarity": "Common",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -1363,24 +892,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 1.61
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "ナツメのヤドン",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/5/51/SabrinaSlowpokeGymHeroes95.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/5/51/SabrinaSlowpokeGymHeroes95.jpg",
-   "ppId": 128037
+   "pricing": null
   },
   {
    "id": "PMCG6-045",
    "localId": "045",
-   "name": "Sabrina's Drowzee",
+   "name": "ナツメのスリープ",
    "rarity": "Common",
    "illustrator": "Atsuko Nishida",
    "image": null,
@@ -1395,24 +912,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 0.96
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "ナツメのスリープ",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/a/a7/SabrinaDrowzeeGymHeroes92.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/a/a7/SabrinaDrowzeeGymHeroes92.jpg",
-   "ppId": 128010
+   "pricing": null
   },
   {
    "id": "PMCG6-046",
    "localId": "046",
-   "name": "Sabrina's Mr. Mime",
+   "name": "ナツメのバリヤード",
    "rarity": "Common",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -1427,24 +932,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 1.02
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "ナツメのバリヤード",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/2/2e/SabrinaMrMimeGymHeroes94.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/2/2e/SabrinaMrMimeGymHeroes94.jpg",
-   "ppId": 128030
+   "pricing": null
   },
   {
    "id": "PMCG6-047",
    "localId": "047",
-   "name": "Sabrina's Kadabra",
+   "name": "ナツメのユンゲラー",
    "rarity": "Uncommon",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -1459,24 +952,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 3.07
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "ナツメのユンゲラー",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/0/01/SabrinaKadabraGymChallenge58.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/0/01/SabrinaKadabraGymChallenge58.jpg",
-   "ppId": 128047
+   "pricing": null
   },
   {
    "id": "PMCG6-048",
    "localId": "048",
-   "name": "Sabrina's Slowbro",
+   "name": "ナツメのヤドラン",
    "rarity": "Uncommon",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -1491,24 +972,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 2.87
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "ナツメのヤドラン",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/c/cb/SabrinaSlowbroGymHeroes60.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/c/cb/SabrinaSlowbroGymHeroes60.jpg",
-   "ppId": 128039
+   "pricing": null
   },
   {
    "id": "PMCG6-049",
    "localId": "049",
-   "name": "Sabrina's Gastly",
+   "name": "ナツメのゴース",
    "rarity": "Uncommon",
    "illustrator": "Atsuko Nishida",
    "image": null,
@@ -1523,24 +992,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 6.17
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "ナツメのゴース",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/6/60/SabrinaGastlyGymChallenge97.jpg/400px-SabrinaGastlyGymChallenge97.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/6/60/SabrinaGastlyGymChallenge97.jpg",
-   "ppId": 128033
+   "pricing": null
   },
   {
    "id": "PMCG6-050",
    "localId": "050",
-   "name": "Sabrina's Haunter",
+   "name": "ナツメのゴースト",
    "rarity": "Uncommon",
    "illustrator": "Atsuko Nishida",
    "image": null,
@@ -1555,24 +1012,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 10.49
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "ナツメのゴースト",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/4/44/SabrinaHaunterGymHeroes58.jpg/400px-SabrinaHaunterGymHeroes58.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/4/44/SabrinaHaunterGymHeroes58.jpg",
-   "ppId": 128026
+   "pricing": null
   },
   {
    "id": "PMCG6-051",
    "localId": "051",
-   "name": "Sabrina's Hypno",
+   "name": "ナツメのスリーパー",
    "rarity": "Uncommon",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -1587,24 +1032,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 1.73
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "ナツメのスリーパー",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/1/1b/SabrinaHypnoGymChallenge56.jpg/400px-SabrinaHypnoGymChallenge56.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/1/1b/SabrinaHypnoGymChallenge56.jpg",
-   "ppId": 128038
+   "pricing": null
   },
   {
    "id": "PMCG6-052",
    "localId": "052",
-   "name": "Sabrina's Jynx",
+   "name": "ナツメのルージュラ",
    "rarity": "Uncommon",
    "illustrator": "Atsuko Nishida",
    "image": null,
@@ -1619,24 +1052,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 16.06
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "ナツメのルージュラ",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/b/bb/SabrinaJynxGymChallenge57.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/b/bb/SabrinaJynxGymChallenge57.jpg",
-   "ppId": 128040
+   "pricing": null
   },
   {
    "id": "PMCG6-053",
    "localId": "053",
-   "name": "Sabrina's Alakazam",
+   "name": "ナツメのフーディン",
    "rarity": "Holo Rare",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -1651,24 +1072,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "holofoil": {
-      "marketPrice": 32.06
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "ナツメのフーディン",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/d/d5/SabrinaAlakazamGymChallenge16.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/d/d5/SabrinaAlakazamGymChallenge16.jpg",
-   "ppId": 128028
+   "pricing": null
   },
   {
    "id": "PMCG6-054",
    "localId": "054",
-   "name": "Sabrina's Gengar",
+   "name": "ナツメのゲンガー",
    "rarity": "Holo Rare",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -1683,24 +1092,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "holofoil": {
-      "marketPrice": 800.0
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "ナツメのゲンガー",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/1/1c/SabrinaGengarGymHeroes14.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/1/1c/SabrinaGengarGymHeroes14.jpg",
-   "ppId": 128022
+   "pricing": null
   },
   {
    "id": "PMCG6-055",
    "localId": "055",
-   "name": "Rocket's Mewtwo",
+   "name": "R団のミュウツー",
    "rarity": "Holo Rare",
    "illustrator": "Shin-ichi Yoshida",
    "image": null,
@@ -1715,24 +1112,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "holofoil": {
-      "marketPrice": 111.8
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "R団のミュウツー",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/c/ce/RocketMewtwoGymChallenge14.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/c/ce/RocketMewtwoGymChallenge14.jpg",
-   "ppId": 128035
+   "pricing": null
   },
   {
    "id": "PMCG6-056",
    "localId": "056",
-   "name": "Blaine's Mankey",
+   "name": "カツラのマンキー",
    "rarity": "Common",
    "illustrator": "Atsuko Nishida",
    "image": null,
@@ -1747,24 +1132,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 0.5
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "カツラのマンキー",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/7/70/BlaineMankeyGymChallenge63.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/7/70/BlaineMankeyGymChallenge63.jpg",
-   "ppId": 127981
+   "pricing": null
   },
   {
    "id": "PMCG6-057",
    "localId": "057",
-   "name": "Giovanni's Machop",
+   "name": "サカキのワンリキー",
    "rarity": "Common",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -1779,24 +1152,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 0.79
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "サカキのワンリキー",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/2/2b/GiovanniMachopGymChallenge72.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/2/2b/GiovanniMachopGymChallenge72.jpg",
-   "ppId": 127999
+   "pricing": null
   },
   {
    "id": "PMCG6-058",
    "localId": "058",
-   "name": "Blaine's Rhyhorn",
+   "name": "カツラのサイホーン",
    "rarity": "Common",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -1811,24 +1172,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 0.72
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "カツラのサイホーン",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/8/8e/BlaineRhyhornGymChallenge65.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/8/8e/BlaineRhyhornGymChallenge65.jpg",
-   "ppId": 128024
+   "pricing": null
   },
   {
    "id": "PMCG6-059",
    "localId": "059",
-   "name": "Giovanni's Machoke",
+   "name": "サカキのゴーリキー",
    "rarity": "Uncommon",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -1843,24 +1192,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 2.73
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "サカキのゴーリキー",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/1/1b/GiovanniMachokeGymChallenge42.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/1/1b/GiovanniMachokeGymChallenge42.jpg",
-   "ppId": 128074
+   "pricing": null
   },
   {
    "id": "PMCG6-060",
    "localId": "060",
-   "name": "Brock's Dugtrio",
+   "name": "タケシのダグトリオ",
    "rarity": "Rare",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -1875,24 +1212,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 2.86
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "タケシのダグトリオ",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/a/a4/BrockDugtrioGymChallenge22.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/a/a4/BrockDugtrioGymChallenge22.jpg",
-   "ppId": 128043
+   "pricing": null
   },
   {
    "id": "PMCG6-061",
    "localId": "061",
-   "name": "Giovanni's Machamp",
+   "name": "サカキのカイリキー",
    "rarity": "Holo Rare",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -1907,16 +1232,12 @@
      "foil": null
     }
    ],
-   "pricing": null,
-   "nameJa": "サカキのカイリキー",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/8/80/GiovanniMachampGymChallenge6.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/8/80/GiovanniMachampGymChallenge6.jpg",
-   "ppId": 128015
+   "pricing": null
   },
   {
    "id": "PMCG6-062",
    "localId": "062",
-   "name": "Koga's Pidgey",
+   "name": "キョウのポッポ",
    "rarity": "Common",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -1931,15 +1252,12 @@
      "foil": null
     }
    ],
-   "pricing": null,
-   "nameJa": "キョウのポッポ",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/6/68/KogaPidgeyGymChallenge80.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/6/68/KogaPidgeyGymChallenge80.jpg"
+   "pricing": null
   },
   {
    "id": "PMCG6-063",
    "localId": "063",
-   "name": "Giovanni's Meowth",
+   "name": "サカキのニャース",
    "rarity": "Common",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -1954,15 +1272,12 @@
      "foil": null
     }
    ],
-   "pricing": null,
-   "nameJa": "サカキのニャース",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/1/16/GiovanniMeowthGymChallenge74.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/1/16/GiovanniMeowthGymChallenge74.jpg"
+   "pricing": null
   },
   {
    "id": "PMCG6-064",
    "localId": "064",
-   "name": "Blaine's Doduo",
+   "name": "カツラのドードー",
    "rarity": "Common",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -1977,24 +1292,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 0.71
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "カツラのドードー",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/9/92/BlaineDoduoGymChallenge61.jpg/400px-BlaineDoduoGymChallenge61.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/9/92/BlaineDoduoGymChallenge61.jpg",
-   "ppId": 128013
+   "pricing": null
   },
   {
    "id": "PMCG6-065",
    "localId": "065",
-   "name": "Blaine's Tauros",
+   "name": "カツラのケンタロス",
    "rarity": "Common",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -2009,24 +1312,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 1.15
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "カツラのケンタロス",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/f/f7/BlaineTaurosGymHeroes64.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/f/f7/BlaineTaurosGymHeroes64.jpg",
-   "ppId": 127998
+   "pricing": null
   },
   {
    "id": "PMCG6-066",
    "localId": "066",
-   "name": "Sabrina's Porygon",
+   "name": "ナツメのポリゴン",
    "rarity": "Common",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -2041,24 +1332,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 1.17
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "ナツメのポリゴン",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/8/81/SabrinaPorygonGymChallenge98.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/8/81/SabrinaPorygonGymChallenge98.jpg",
-   "ppId": 127997
+   "pricing": null
   },
   {
    "id": "PMCG6-067",
    "localId": "067",
-   "name": "Koga's Pidgey",
+   "name": "キョウのポッポ",
    "rarity": "Uncommon",
    "illustrator": "Atsuko Nishida",
    "image": null,
@@ -2073,15 +1352,12 @@
      "foil": null
     }
    ],
-   "pricing": null,
-   "nameJa": "キョウのポッポ",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/c/cb/KogaPidgeyGymChallenge49.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/c/cb/KogaPidgeyGymChallenge49.jpg"
+   "pricing": null
   },
   {
    "id": "PMCG6-068",
    "localId": "068",
-   "name": "Giovanni's Meowth",
+   "name": "サカキのニャース",
    "rarity": "Uncommon",
    "illustrator": "Atsuko Nishida",
    "image": null,
@@ -2096,15 +1372,12 @@
      "foil": null
     }
    ],
-   "pricing": null,
-   "nameJa": "サカキのニャース",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/1/1b/GiovanniMeowthGymChallenge43.jpg/400px-GiovanniMeowthGymChallenge43.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/1/1b/GiovanniMeowthGymChallenge43.jpg"
+   "pricing": null
   },
   {
    "id": "PMCG6-069",
    "localId": "069",
-   "name": "Blaine's Kangaskhan",
+   "name": "カツラのガルーラ",
    "rarity": "Uncommon",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -2119,24 +1392,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 1.94
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "カツラのガルーラ",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/8/8c/BlaineKangaskhanGymHeroes36.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/8/8c/BlaineKangaskhanGymHeroes36.jpg",
-   "ppId": 128069
+   "pricing": null
   },
   {
    "id": "PMCG6-070",
    "localId": "070",
-   "name": "Koga's Pidgeotto",
+   "name": "キョウのピジョン",
    "rarity": "Rare",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -2151,24 +1412,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 2.32
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "キョウのピジョン",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/3/35/KogaPidgeottoGymChallenge27.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/3/35/KogaPidgeottoGymChallenge27.jpg",
-   "ppId": 128036
+   "pricing": null
   },
   {
    "id": "PMCG6-071",
    "localId": "071",
-   "name": "Giovanni's Persian",
+   "name": "サカキのペルシアン",
    "rarity": "Holo Rare",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -2183,24 +1432,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "holofoil": {
-      "marketPrice": 27.78
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "サカキのペルシアン",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/f/f6/GiovanniPersianGymChallenge8.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/f/f6/GiovanniPersianGymChallenge8.jpg",
-   "ppId": 128042
+   "pricing": null
   },
   {
    "id": "PMCG6-072",
    "localId": "072",
-   "name": "Koga's Ditto",
+   "name": "キョウのメタモン",
    "rarity": "Holo Rare",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -2219,24 +1456,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 27.47
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "キョウのメタモン",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/8/80/KogaDittoGymChallenge10.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/8/80/KogaDittoGymChallenge10.jpg",
-   "ppId": 128008
+   "pricing": null
   },
   {
    "id": "PMCG6-073",
    "localId": "073",
-   "name": "Rocket's Snorlax",
+   "name": "R団のカビゴン",
    "rarity": "Rare",
    "illustrator": "Shin-ichi Yoshida",
    "image": null,
@@ -2251,16 +1476,12 @@
      "foil": null
     }
    ],
-   "pricing": null,
-   "nameJa": "R団のカビゴン",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/6/6b/RocketSnorlaxGymHeroes33.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/6/6b/RocketSnorlaxGymHeroes33.jpg",
-   "ppId": 128014
+   "pricing": null
   },
   {
    "id": "PMCG6-074",
    "localId": "074",
-   "name": "Imakuni?'s Doduo",
+   "name": "イマクニ？のドードー",
    "rarity": "Hyper rare",
    "illustrator": "Tomoaki Imakuni",
    "image": null,
@@ -2275,24 +1496,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 76.37
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "イマクニ？のドードー",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/8/8e/ImakuniDoduoChallengeDarkness.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/8/8e/ImakuniDoduoChallengeDarkness.jpg",
-   "ppId": 128091
+   "pricing": null
   },
   {
    "id": "PMCG6-075",
    "localId": "075",
-   "name": "_____'s Chansey",
+   "name": "_____のチャンシー",
    "rarity": "Ultra Rare",
    "illustrator": "Kagemaru Himeno",
    "image": null,
@@ -2307,22 +1516,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 49.83
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "_____のチャンシー",
-   "ppId": 128049
+   "pricing": null
   },
   {
    "id": "PMCG6-076",
    "localId": "076",
-   "name": "Blaine's Gamble",
+   "name": "カツラのギャンブル",
    "rarity": "Common",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -2335,24 +1534,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 0.48
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "カツラのギャンブル",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/0/09/BlaineGambleGymHeroes121.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/0/09/BlaineGambleGymHeroes121.jpg",
-   "ppId": 128017
+   "pricing": null
   },
   {
    "id": "PMCG6-077",
    "localId": "077",
-   "name": "Trash Exchange",
+   "name": "トラッシュ交換",
    "rarity": "Common",
    "illustrator": "Keiji Kinebuchi",
    "image": null,
@@ -2365,24 +1552,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 0.81
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "トラッシュ交換",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/0/01/TrashExchangeGymHeroes126.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/0/01/TrashExchangeGymHeroes126.jpg",
-   "ppId": 128067
+   "pricing": null
   },
   {
    "id": "PMCG6-078",
    "localId": "078",
-   "name": "Sabrina's Gaze",
+   "name": "ナツメの眼",
    "rarity": "Common",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -2395,24 +1570,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 40.58
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "ナツメの眼",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/4/45/SabrinaGazeGymHeroes125.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/4/45/SabrinaGazeGymHeroes125.jpg",
-   "ppId": 128020
+   "pricing": null
   },
   {
    "id": "PMCG6-079",
    "localId": "079",
-   "name": "Transparent Walls",
+   "name": "見えない壁",
    "rarity": "Common",
    "illustrator": "Keiji Kinebuchi",
    "image": null,
@@ -2425,24 +1588,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 0.58
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "見えない壁",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/d/d9/TransparentWallsGymChallenge125.jpg/400px-TransparentWallsGymChallenge125.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/d/d9/TransparentWallsGymChallenge125.jpg",
-   "ppId": 128023
+   "pricing": null
   },
   {
    "id": "PMCG6-080",
    "localId": "080",
-   "name": "Warp Point",
+   "name": "ワープポイント",
    "rarity": "Common",
    "illustrator": "Ryo Ueda",
    "image": null,
@@ -2455,24 +1606,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 0.78
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "ワープポイント",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/d/d0/WarpPointEXUnseenForces93.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/d/d0/WarpPointEXUnseenForces93.jpg",
-   "ppId": 128058
+   "pricing": null
   },
   {
    "id": "PMCG6-081",
    "localId": "081",
-   "name": "Blaine's Last Resort",
+   "name": "カツラの奥の手",
    "rarity": "Uncommon",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -2485,16 +1624,12 @@
      "foil": null
     }
    ],
-   "pricing": null,
-   "nameJa": "カツラの奥の手",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/e/e9/BlaineLastResortGymHeroes105.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/e/e9/BlaineLastResortGymHeroes105.jpg",
-   "ppId": 128048
+   "pricing": null
   },
   {
    "id": "PMCG6-082",
    "localId": "082",
-   "name": "Blaine's Quiz 3",
+   "name": "カツラのクイズ その3",
    "rarity": "Uncommon",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -2507,24 +1642,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 1.14
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "カツラのクイズ その3",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/f/f2/BlaineQuiz3GymChallenge112.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/f/f2/BlaineQuiz3GymChallenge112.jpg",
-   "ppId": 128078
+   "pricing": null
   },
   {
    "id": "PMCG6-083",
    "localId": "083",
-   "name": "Koga's Ninja Trick",
+   "name": "キョウ秘伝, 変わり身の術",
    "rarity": "Uncommon",
    "illustrator": "Sumiyoshi Kizuki",
    "image": null,
@@ -2537,24 +1660,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 112.03
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "キョウ秘伝, 変わり身の術",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/1/14/KogaNinjaTrickGymChallenge115.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/1/14/KogaNinjaTrickGymChallenge115.jpg",
-   "ppId": 128062
+   "pricing": null
   },
   {
    "id": "PMCG6-084",
    "localId": "084",
-   "name": "Tickling Machine",
+   "name": "くすぐりマシーン",
    "rarity": "Uncommon",
    "illustrator": "Sumiyoshi Kizuki",
    "image": null,
@@ -2567,24 +1678,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 2.03
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "くすぐりマシーン",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/3/3a/TicklingMachineGymHeroes119.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/3/3a/TicklingMachineGymHeroes119.jpg",
-   "ppId": 128064
+   "pricing": null
   },
   {
    "id": "PMCG6-085",
    "localId": "085",
-   "name": "Cinnabar City Gym",
+   "name": "グレンタウンジム",
    "rarity": "Uncommon",
    "illustrator": "Keiji Kinebuchi",
    "image": null,
@@ -2597,24 +1696,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 1.47
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "グレンタウンジム",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/c/c0/CinnabarCityGymGymChallenge113.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/c/c0/CinnabarCityGymGymChallenge113.jpg",
-   "ppId": 128081
+   "pricing": null
   },
   {
    "id": "PMCG6-086",
    "localId": "086",
-   "name": "Fuchsia City Gym",
+   "name": "セキチクシティジム",
    "rarity": "Uncommon",
    "illustrator": "Keiji Kinebuchi",
    "image": null,
@@ -2627,24 +1714,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 1.12
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "セキチクシティジム",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/e/e8/FuchsiaCityGymGymChallenge114.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/e/e8/FuchsiaCityGymGymChallenge114.jpg",
-   "ppId": 128073
+   "pricing": null
   },
   {
    "id": "PMCG6-087",
    "localId": "087",
-   "name": "Sabrina's ESP",
+   "name": "ナツメのESP",
    "rarity": "Uncommon",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -2657,24 +1732,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 2.56
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "ナツメのESP",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/1/14/SabrinaESPGymHeroes117.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/1/14/SabrinaESPGymHeroes117.jpg",
-   "ppId": 128065
+   "pricing": null
   },
   {
    "id": "PMCG6-088",
    "localId": "088",
-   "name": "Sabrina's Psychic Control",
+   "name": "ナツメのサイキックコントロール",
    "rarity": "Uncommon",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -2687,24 +1750,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 6.15
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "ナツメのサイキックコントロール",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/d/d2/SabrinaPsychicControlGymChallenge121.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/d/d2/SabrinaPsychicControlGymChallenge121.jpg",
-   "ppId": 127993
+   "pricing": null
   },
   {
    "id": "PMCG6-089",
    "localId": "089",
-   "name": "Minion of Team Rocket",
+   "name": "ロケット団員",
    "rarity": "Uncommon",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -2717,24 +1768,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 2.19
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "ロケット団員",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/1/1e/MinionTeamRocketGymHeroes113.jpg/400px-MinionTeamRocketGymHeroes113.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/1/1e/MinionTeamRocketGymHeroes113.jpg",
-   "ppId": 128054
+   "pricing": null
   },
   {
    "id": "PMCG6-090",
    "localId": "090",
-   "name": "Saffron City Gym",
+   "name": "ヤマブキシティジム",
    "rarity": "Uncommon",
    "illustrator": "Keiji Kinebuchi",
    "image": null,
@@ -2747,24 +1786,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 2.48
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "ヤマブキシティジム",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/7/73/SaffronCityGymGymChallenge122.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/7/73/SaffronCityGymGymChallenge122.jpg",
-   "ppId": 128077
+   "pricing": null
   },
   {
    "id": "PMCG6-091",
    "localId": "091",
-   "name": "Rocket's Secret Experiment",
+   "name": "ロケット団の実験",
    "rarity": "Uncommon",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -2777,24 +1804,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 4.19
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "ロケット団の実験",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/0/09/RocketSecretExperimentGymChallenge120.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/0/09/RocketSecretExperimentGymChallenge120.jpg",
-   "ppId": 128034
+   "pricing": null
   },
   {
    "id": "PMCG6-092",
    "localId": "092",
-   "name": "Rocket's Minefield Gym",
+   "name": "ロケット団の爆発ジム",
    "rarity": "Uncommon",
    "illustrator": "Keiji Kinebuchi",
    "image": null,
@@ -2807,24 +1822,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 1.65
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "ロケット団の爆発ジム",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/e/ec/RocketMinefieldGymGymChallenge119.jpg/400px-RocketMinefieldGymGymChallenge119.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/e/ec/RocketMinefieldGymGymChallenge119.jpg",
-   "ppId": 128066
+   "pricing": null
   },
   {
    "id": "PMCG6-093",
    "localId": "093",
-   "name": "Blaine",
+   "name": "カツラ",
    "rarity": "Rare",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -2837,24 +1840,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 3.26
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "カツラ",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/2/28/BlaineGymChallenge17.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/2/28/BlaineGymChallenge17.jpg",
-   "ppId": 128075
+   "pricing": null
   },
   {
    "id": "PMCG6-094",
    "localId": "094",
-   "name": "Koga",
+   "name": "キョウ",
    "rarity": "Rare",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -2867,24 +1858,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 2.79
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "キョウ",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/6/67/KogaGymChallenge19.jpg/400px-KogaGymChallenge19.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/6/67/KogaGymChallenge19.jpg",
-   "ppId": 128061
+   "pricing": null
   },
   {
    "id": "PMCG6-095",
    "localId": "095",
-   "name": "Giovanni",
+   "name": "サカキ",
    "rarity": "Holo Rare",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -2897,24 +1876,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "holofoil": {
-      "marketPrice": 9.79
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "サカキ",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/c/c8/GiovanniGymChallenge18.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/c/c8/GiovanniGymChallenge18.jpg",
-   "ppId": 128019
+   "pricing": null
   },
   {
    "id": "PMCG6-096",
    "localId": "096",
-   "name": "Giovanni's Last Resort",
+   "name": "サカキの切り札",
    "rarity": "Rare",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -2927,24 +1894,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 4.42
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "サカキの切り札",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/6/60/GiovanniLastResortGymChallenge105.jpg/400px-GiovanniLastResortGymChallenge105.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/6/60/GiovanniLastResortGymChallenge105.jpg",
-   "ppId": 128027
+   "pricing": null
   },
   {
    "id": "PMCG6-097",
    "localId": "097",
-   "name": "Viridian City Gym",
+   "name": "トキワシティジム",
    "rarity": "Rare",
    "illustrator": "Keiji Kinebuchi",
    "image": null,
@@ -2957,24 +1912,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 3.57
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "トキワシティジム",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/f/fc/ViridianCityGymGymChallenge123.jpg/400px-ViridianCityGymGymChallenge123.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/f/fc/ViridianCityGymGymChallenge123.jpg",
-   "ppId": 128072
+   "pricing": null
   },
   {
    "id": "PMCG6-098",
    "localId": "098",
-   "name": "Sabrina",
+   "name": "ナツメ",
    "rarity": "Rare",
    "illustrator": "Ken Sugimori",
    "image": null,
@@ -2987,19 +1930,7 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 4.52
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T09:38:51Z"
-   },
-   "nameJa": "ナツメ",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/f/f9/SabrinaGymChallenge20.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/f/f9/SabrinaGymChallenge20.jpg",
-   "ppId": 128052
+   "pricing": null
   }
  ]
 }
