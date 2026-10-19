@@ -1,11 +1,12 @@
 {
- "generated_at": "2026-09-16T02:09:36.508120+00:00",
+ "generated_at": "2026-10-18T16:42:27.444124+00:00",
+ "droppedCardIds": [],
  "set": {
   "id": "neo2",
   "name": "Crossing the Ruins...",
   "series": "ポケモンカード★neo",
   "releaseDate": "2000-07-07",
-  "logo": null,
+  "logo": "/data/tcgdex/set-logos/ja/neo2.png",
   "symbol": "/data/tcgdex/set-symbols/ja/neo2.png",
   "printedTotal": 56,
   "total": 57,
@@ -16,7 +17,7 @@
   {
    "id": "neo2-001",
    "localId": "001",
-   "name": "Caterpie",
+   "name": "キャタピー",
    "rarity": "Common",
    "illustrator": null,
    "image": null,
@@ -31,24 +32,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 1.7
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T08:56:01Z"
-   },
-   "nameJa": "キャタピー",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/0/0a/CaterpieNeoDiscovery53.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/0/0a/CaterpieNeoDiscovery53.jpg",
-   "ppId": 146474
+   "pricing": null
   },
   {
    "id": "neo2-002",
    "localId": "002",
-   "name": "Weedle",
+   "name": "雑草",
    "rarity": "Common",
    "illustrator": null,
    "image": null,
@@ -63,24 +52,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 1.05
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T08:56:01Z"
-   },
-   "nameJa": "雑草",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/1/1a/WeedleNeoDiscovery70.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/1/1a/WeedleNeoDiscovery70.jpg",
-   "ppId": 146469
+   "pricing": null
   },
   {
    "id": "neo2-003",
    "localId": "003",
-   "name": "Spinarak",
+   "name": "スパラク",
    "rarity": "Common",
    "illustrator": null,
    "image": null,
@@ -95,24 +72,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 0.95
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T08:56:01Z"
-   },
-   "nameJa": "スパラク",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/7/7a/SpinarakNeoDiscovery64.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/7/7a/SpinarakNeoDiscovery64.jpg",
-   "ppId": 146477
+   "pricing": null
   },
   {
    "id": "neo2-004",
    "localId": "004",
-   "name": "Hoppip",
+   "name": "ホッピップ",
    "rarity": "Common",
    "illustrator": null,
    "image": null,
@@ -127,19 +92,7 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 0.91
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T08:56:01Z"
-   },
-   "nameJa": "ホッピップ",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/d/db/HoppipNeoDiscovery55.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/d/db/HoppipNeoDiscovery55.jpg",
-   "ppId": 146464
+   "pricing": null
   },
   {
    "id": "neo2-005",
@@ -159,24 +112,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 0.82
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T08:56:01Z"
-   },
-   "nameJa": "Pineco",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/5/5c/PinecoNeoDiscovery61.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/5/5c/PinecoNeoDiscovery61.jpg",
-   "ppId": 146462
+   "pricing": null
   },
   {
    "id": "neo2-006",
    "localId": "006",
-   "name": "Metapod",
+   "name": "メタポッド",
    "rarity": "Uncommon",
    "illustrator": null,
    "image": null,
@@ -191,24 +132,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 1.56
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T08:56:01Z"
-   },
-   "nameJa": "メタポッド",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/4/47/MetapodNeoDiscovery42.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/4/47/MetapodNeoDiscovery42.jpg",
-   "ppId": 146484
+   "pricing": null
   },
   {
    "id": "neo2-007",
    "localId": "007",
-   "name": "Kakuna",
+   "name": "カクナ",
    "rarity": "Uncommon",
    "illustrator": null,
    "image": null,
@@ -223,24 +152,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 1.89
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T08:56:01Z"
-   },
-   "nameJa": "カクナ",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/6/6d/KakunaNeoDiscovery41.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/6/6d/KakunaNeoDiscovery41.jpg",
-   "ppId": 146486
+   "pricing": null
   },
   {
    "id": "neo2-008",
    "localId": "008",
-   "name": "Scyther",
+   "name": "スキスター",
    "rarity": "Uncommon",
    "illustrator": null,
    "image": null,
@@ -255,24 +172,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 2.74
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T08:56:01Z"
-   },
-   "nameJa": "スキスター",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/b/bf/ScytherNeoDiscovery46.jpg/400px-ScytherNeoDiscovery46.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/b/bf/ScytherNeoDiscovery46.jpg",
-   "ppId": 146488
+   "pricing": null
   },
   {
    "id": "neo2-009",
    "localId": "009",
-   "name": "Butterfree",
+   "name": "蝶",
    "rarity": "Holo Rare",
    "illustrator": null,
    "image": null,
@@ -287,24 +192,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "holofoil": {
-      "marketPrice": 49.14
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T08:56:01Z"
-   },
-   "nameJa": "蝶",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/0/0c/ButterfreeNeoDiscovery19.jpg/400px-ButterfreeNeoDiscovery19.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/0/0c/ButterfreeNeoDiscovery19.jpg",
-   "ppId": 146501
+   "pricing": null
   },
   {
    "id": "neo2-010",
    "localId": "010",
-   "name": "Beedrill",
+   "name": "beedrill",
    "rarity": "Holo Rare",
    "illustrator": null,
    "image": null,
@@ -319,24 +212,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "holofoil": {
-      "marketPrice": 63.21
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T08:56:01Z"
-   },
-   "nameJa": "beedrill",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/4/44/BeedrillNeoDiscovery18.jpg/400px-BeedrillNeoDiscovery18.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/4/44/BeedrillNeoDiscovery18.jpg",
-   "ppId": 146492
+   "pricing": null
   },
   {
    "id": "neo2-011",
    "localId": "011",
-   "name": "Yanma",
+   "name": "ヤンマ",
    "rarity": "Holo Rare",
    "illustrator": null,
    "image": null,
@@ -351,24 +232,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "holofoil": {
-      "marketPrice": 11.75
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T08:56:01Z"
-   },
-   "nameJa": "ヤンマ",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/0/0f/YanmaNeoDiscovery17.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/0/0f/YanmaNeoDiscovery17.jpg",
-   "ppId": 146466
+   "pricing": null
   },
   {
    "id": "neo2-012",
    "localId": "012",
-   "name": "Houndour",
+   "name": "ハウンドア（HR）",
    "rarity": "Holo Rare",
    "illustrator": null,
    "image": null,
@@ -383,15 +252,12 @@
      "foil": null
     }
    ],
-   "pricing": null,
-   "nameJa": "ハウンドア（HR）",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/3/3c/HoundourNeoDiscovery5.jpg/400px-HoundourNeoDiscovery5.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/3/3c/HoundourNeoDiscovery5.jpg"
+   "pricing": null
   },
   {
    "id": "neo2-013",
    "localId": "013",
-   "name": "Poliwag",
+   "name": "poliwag",
    "rarity": "Common",
    "illustrator": null,
    "image": null,
@@ -406,24 +272,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 1.47
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T08:56:01Z"
-   },
-   "nameJa": "poliwag",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/0/0a/PoliwagNeoDiscovery62.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/0/0a/PoliwagNeoDiscovery62.jpg",
-   "ppId": 146458
+   "pricing": null
   },
   {
    "id": "neo2-014",
    "localId": "014",
-   "name": "Kabuto",
+   "name": "カブト",
    "rarity": "Common",
    "illustrator": null,
    "image": null,
@@ -438,24 +292,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 1.46
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T08:56:01Z"
-   },
-   "nameJa": "カブト",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/b/bd/KabutoNeoDiscovery56.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/b/bd/KabutoNeoDiscovery56.jpg",
-   "ppId": 146460
+   "pricing": null
   },
   {
    "id": "neo2-015",
    "localId": "015",
-   "name": "Wooper",
+   "name": "ウーパー",
    "rarity": "Common",
    "illustrator": null,
    "image": null,
@@ -470,24 +312,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 1.91
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T08:56:01Z"
-   },
-   "nameJa": "ウーパー",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/e/e2/WooperNeoDiscovery71.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/e/e2/WooperNeoDiscovery71.jpg",
-   "ppId": 146459
+   "pricing": null
   },
   {
    "id": "neo2-016",
    "localId": "016",
-   "name": "Poliwhirl",
+   "name": "PoliWhirl",
    "rarity": "Uncommon",
    "illustrator": null,
    "image": null,
@@ -502,24 +332,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 1.95
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T08:56:01Z"
-   },
-   "nameJa": "PoliWhirl",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/0/09/PoliwhirlNeoDiscovery44.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/0/09/PoliwhirlNeoDiscovery44.jpg",
-   "ppId": 146480
+   "pricing": null
   },
   {
    "id": "neo2-017",
    "localId": "017",
-   "name": "Corsola",
+   "name": "コルサラ",
    "rarity": "Uncommon",
    "illustrator": null,
    "image": null,
@@ -534,24 +352,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 3.02
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T08:56:01Z"
-   },
-   "nameJa": "コルサラ",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/e/e9/CorsolaNeoDiscovery37.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/e/e9/CorsolaNeoDiscovery37.jpg",
-   "ppId": 146456
+   "pricing": null
   },
   {
    "id": "neo2-018",
    "localId": "018",
-   "name": "Kabutops",
+   "name": "カブトップス",
    "rarity": "Holo Rare",
    "illustrator": null,
    "image": null,
@@ -566,24 +372,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "holofoil": {
-      "marketPrice": 38.21
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T08:56:01Z"
-   },
-   "nameJa": "カブトップス",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/c/ce/KabutopsNeoDiscovery6.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/c/ce/KabutopsNeoDiscovery6.jpg",
-   "ppId": 146485
+   "pricing": null
   },
   {
    "id": "neo2-019",
    "localId": "019",
-   "name": "Politoed",
+   "name": "政治",
    "rarity": "Holo Rare",
    "illustrator": null,
    "image": null,
@@ -598,19 +392,7 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "holofoil": {
-      "marketPrice": 50.64
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T08:56:01Z"
-   },
-   "nameJa": "政治",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/d/d9/PolitoedNeoDiscovery8.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/d/d9/PolitoedNeoDiscovery8.jpg",
-   "ppId": 146490
+   "pricing": null
   },
   {
    "id": "neo2-020",
@@ -630,24 +412,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 1.07
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T08:56:01Z"
-   },
-   "nameJa": "Mareep",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/0/04/MareepNeoDiscovery58.png",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/0/04/MareepNeoDiscovery58.png",
-   "ppId": 146470
+   "pricing": null
   },
   {
    "id": "neo2-021",
    "localId": "021",
-   "name": "Dark Raichu",
+   "name": "ダークライチュ",
    "rarity": "Secret Rare",
    "illustrator": null,
    "image": null,
@@ -662,24 +432,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "holofoil": {
-      "marketPrice": 193.31
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T08:56:01Z"
-   },
-   "nameJa": "ダークライチュ",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/1/1f/DarkRaichuTeamRocket83.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/1/1f/DarkRaichuTeamRocket83.jpg",
-   "ppId": 146506
+   "pricing": null
   },
   {
    "id": "neo2-022",
    "localId": "022",
-   "name": "Natu",
+   "name": "natu",
    "rarity": "Common",
    "illustrator": null,
    "image": null,
@@ -694,24 +452,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 1.09
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T08:56:01Z"
-   },
-   "nameJa": "natu",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/f/f0/NatuNeoDiscovery59.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/f/f0/NatuNeoDiscovery59.jpg",
-   "ppId": 146491
+   "pricing": null
   },
   {
    "id": "neo2-023",
    "localId": "023",
-   "name": "Unown I",
+   "name": "未作外",
    "rarity": "Common",
    "illustrator": null,
    "image": null,
@@ -726,24 +472,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 3.28
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T08:56:01Z"
-   },
-   "nameJa": "未作外",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/7/72/UnownINeoDiscovery68.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/7/72/UnownINeoDiscovery68.jpg",
-   "ppId": 146496
+   "pricing": null
   },
   {
    "id": "neo2-024",
    "localId": "024",
-   "name": "Xatu",
+   "name": "xatu",
    "rarity": "Uncommon",
    "illustrator": null,
    "image": null,
@@ -758,24 +492,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 1.71
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T08:56:01Z"
-   },
-   "nameJa": "xatu",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/e/e0/XatuNeoDiscovery52.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/e/e0/XatuNeoDiscovery52.jpg",
-   "ppId": 146493
+   "pricing": null
   },
   {
    "id": "neo2-025",
    "localId": "025",
-   "name": "Unown D",
+   "name": "d",
    "rarity": "Uncommon",
    "illustrator": null,
    "image": null,
@@ -790,24 +512,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 4.52
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T08:56:01Z"
-   },
-   "nameJa": "d",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/7/72/UnownDNeoDiscovery47.jpg/400px-UnownDNeoDiscovery47.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/7/72/UnownDNeoDiscovery47.jpg",
-   "ppId": 146503
+   "pricing": null
   },
   {
    "id": "neo2-026",
    "localId": "026",
-   "name": "Unown F",
+   "name": "f",
    "rarity": "Uncommon",
    "illustrator": null,
    "image": null,
@@ -822,24 +532,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 3.51
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T08:56:01Z"
-   },
-   "nameJa": "f",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/8/87/UnownFNeoDiscovery48.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/8/87/UnownFNeoDiscovery48.jpg",
-   "ppId": 146504
+   "pricing": null
   },
   {
    "id": "neo2-027",
    "localId": "027",
-   "name": "Unown M",
+   "name": "未定のm",
    "rarity": "Uncommon",
    "illustrator": null,
    "image": null,
@@ -854,24 +552,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 4.71
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T08:56:01Z"
-   },
-   "nameJa": "未定のm",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/b/bc/UnownMNeoDiscovery49.jpg/400px-UnownMNeoDiscovery49.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/b/bc/UnownMNeoDiscovery49.jpg",
-   "ppId": 146513
+   "pricing": null
   },
   {
    "id": "neo2-028",
    "localId": "028",
-   "name": "Unown U",
+   "name": "Unown u",
    "rarity": "Uncommon",
    "illustrator": null,
    "image": null,
@@ -886,24 +572,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 4.66
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T08:56:01Z"
-   },
-   "nameJa": "Unown u",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/f/fe/UnownUNeoDiscovery51.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/f/fe/UnownUNeoDiscovery51.jpg",
-   "ppId": 146494
+   "pricing": null
   },
   {
    "id": "neo2-029",
    "localId": "029",
-   "name": "Espeon",
+   "name": "エスペオン",
    "rarity": "Holo Rare",
    "illustrator": null,
    "image": null,
@@ -918,24 +592,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "holofoil": {
-      "marketPrice": 142.08
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T08:56:01Z"
-   },
-   "nameJa": "エスペオン",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/9/9a/EspeonNeoDiscovery1.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/9/9a/EspeonNeoDiscovery1.jpg",
-   "ppId": 146507
+   "pricing": null
   },
   {
    "id": "neo2-030",
    "localId": "030",
-   "name": "Unown A",
+   "name": "a",
    "rarity": "Holo Rare",
    "illustrator": null,
    "image": null,
@@ -950,24 +612,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "holofoil": {
-      "marketPrice": 18.34
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T08:56:01Z"
-   },
-   "nameJa": "a",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/2/21/UnownANeoDiscovery14.jpg/400px-UnownANeoDiscovery14.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/2/21/UnownANeoDiscovery14.jpg",
-   "ppId": 146519
+   "pricing": null
   },
   {
    "id": "neo2-031",
    "localId": "031",
-   "name": "Wobbuffet",
+   "name": "ウォブバフェット",
    "rarity": "Holo Rare",
    "illustrator": null,
    "image": null,
@@ -982,24 +632,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "holofoil": {
-      "marketPrice": 23.75
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T08:56:01Z"
-   },
-   "nameJa": "ウォブバフェット",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/8/88/WobbuffetNeoDiscovery16.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/8/88/WobbuffetNeoDiscovery16.jpg",
-   "ppId": 146468
+   "pricing": null
   },
   {
    "id": "neo2-032",
    "localId": "032",
-   "name": "Omanyte",
+   "name": "オマニテ",
    "rarity": "Common",
    "illustrator": null,
    "image": null,
@@ -1014,24 +652,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 1.69
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T08:56:01Z"
-   },
-   "nameJa": "オマニテ",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/5/5a/OmanyteNeoDiscovery60.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/5/5a/OmanyteNeoDiscovery60.jpg",
-   "ppId": 146454
+   "pricing": null
   },
   {
    "id": "neo2-033",
    "localId": "033",
-   "name": "Tyrogue",
+   "name": "タイログ",
    "rarity": "Common",
    "illustrator": null,
    "image": null,
@@ -1046,24 +672,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 2.29
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T08:56:01Z"
-   },
-   "nameJa": "タイログ",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/d/d2/TyrogueNeoDiscovery66.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/d/d2/TyrogueNeoDiscovery66.jpg",
-   "ppId": 146497
+   "pricing": null
   },
   {
    "id": "neo2-034",
    "localId": "034",
-   "name": "Larvitar",
+   "name": "幼虫",
    "rarity": "Common",
    "illustrator": null,
    "image": null,
@@ -1078,19 +692,7 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 1.02
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T08:56:01Z"
-   },
-   "nameJa": "幼虫",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/b/b3/LarvitarNeoDiscovery57.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/b/b3/LarvitarNeoDiscovery57.jpg",
-   "ppId": 146489
+   "pricing": null
   },
   {
    "id": "neo2-035",
@@ -1110,19 +712,7 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 1.65
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T08:56:01Z"
-   },
-   "nameJa": "Omastar",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/2/29/OmastarNeoDiscovery43.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/2/29/OmastarNeoDiscovery43.jpg",
-   "ppId": 146481
+   "pricing": null
   },
   {
    "id": "neo2-036",
@@ -1142,19 +732,7 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 1.52
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T08:56:01Z"
-   },
-   "nameJa": "Pupitar",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/c/cd/PupitarNeoDiscovery45.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/c/cd/PupitarNeoDiscovery45.jpg",
-   "ppId": 146495
+   "pricing": null
   },
   {
    "id": "neo2-037",
@@ -1174,24 +752,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "holofoil": {
-      "marketPrice": 23.44
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T08:56:01Z"
-   },
-   "nameJa": "Poliwrath",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/3/3c/PoliwrathNeoDiscovery9.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/3/3c/PoliwrathNeoDiscovery9.jpg",
-   "ppId": 146502
+   "pricing": null
   },
   {
    "id": "neo2-038",
    "localId": "038",
-   "name": "Hitmontop",
+   "name": "ヒットモントップ",
    "rarity": "Holo Rare",
    "illustrator": null,
    "image": null,
@@ -1206,24 +772,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "holofoil": {
-      "marketPrice": 15.1
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T08:56:01Z"
-   },
-   "nameJa": "ヒットモントップ",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/2/2b/HitmontopNeoDiscovery3.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/2/2b/HitmontopNeoDiscovery3.jpg",
-   "ppId": 146511
+   "pricing": null
   },
   {
    "id": "neo2-039",
    "localId": "039",
-   "name": "Houndour",
+   "name": "houndour（u）",
    "rarity": "Uncommon",
    "illustrator": null,
    "image": null,
@@ -1238,10 +792,7 @@
      "foil": null
     }
    ],
-   "pricing": null,
-   "nameJa": "houndour（u）",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/3/37/HoundourNeoDiscovery39.jpg/400px-HoundourNeoDiscovery39.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/3/37/HoundourNeoDiscovery39.jpg"
+   "pricing": null
   },
   {
    "id": "neo2-040",
@@ -1261,24 +812,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "holofoil": {
-      "marketPrice": 245.25
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T08:56:01Z"
-   },
-   "nameJa": "Umbreon",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/7/78/UmbreonNeoDiscovery13.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/7/78/UmbreonNeoDiscovery13.jpg",
-   "ppId": 146498
+   "pricing": null
   },
   {
    "id": "neo2-041",
    "localId": "041",
-   "name": "Houndoom",
+   "name": "猟犬",
    "rarity": "Holo Rare",
    "illustrator": null,
    "image": null,
@@ -1293,24 +832,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "holofoil": {
-      "marketPrice": 40.18
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T08:56:01Z"
-   },
-   "nameJa": "猟犬",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/0/04/HoundoomNeoDiscovery4.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/0/04/HoundoomNeoDiscovery4.jpg",
-   "ppId": 146467
+   "pricing": null
   },
   {
    "id": "neo2-042",
    "localId": "042",
-   "name": "Tyranitar",
+   "name": "タイラニター",
    "rarity": "Holo Rare",
    "illustrator": null,
    "image": null,
@@ -1325,24 +852,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "holofoil": {
-      "marketPrice": 65.31
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T08:56:01Z"
-   },
-   "nameJa": "タイラニター",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/7/7d/TyranitarNeoDiscovery12.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/7/7d/TyranitarNeoDiscovery12.jpg",
-   "ppId": 146465
+   "pricing": null
   },
   {
    "id": "neo2-043",
    "localId": "043",
-   "name": "Magnemite",
+   "name": "マグナイト",
    "rarity": "Holo Rare",
    "illustrator": null,
    "image": null,
@@ -1357,24 +872,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "holofoil": {
-      "marketPrice": 31.14
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T08:56:01Z"
-   },
-   "nameJa": "マグナイト",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/4/4c/MagnemiteNeoDiscovery7.jpg/400px-MagnemiteNeoDiscovery7.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/4/4c/MagnemiteNeoDiscovery7.jpg",
-   "ppId": 146673
+   "pricing": null
   },
   {
    "id": "neo2-044",
    "localId": "044",
-   "name": "Forretress",
+   "name": "forretress",
    "rarity": "Holo Rare",
    "illustrator": null,
    "image": null,
@@ -1389,19 +892,7 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "holofoil": {
-      "marketPrice": 11.0
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T08:56:01Z"
-   },
-   "nameJa": "forretress",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/8/86/ForretressNeoDiscovery2.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/8/86/ForretressNeoDiscovery2.jpg",
-   "ppId": 146473
+   "pricing": null
   },
   {
    "id": "neo2-045",
@@ -1421,24 +912,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "holofoil": {
-      "marketPrice": 25.71
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T08:56:01Z"
-   },
-   "nameJa": "Scizor",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/f/f3/ScizorNeoDiscovery10.jpg/400px-ScizorNeoDiscovery10.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/f/f3/ScizorNeoDiscovery10.jpg",
-   "ppId": 146476
+   "pricing": null
   },
   {
    "id": "neo2-046",
    "localId": "046",
-   "name": "Sentret",
+   "name": "セントレット",
    "rarity": "Common",
    "illustrator": null,
    "image": null,
@@ -1453,24 +932,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 1.08
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T08:56:01Z"
-   },
-   "nameJa": "セントレット",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/b/be/SentretNeoDiscovery63.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/b/be/SentretNeoDiscovery63.jpg",
-   "ppId": 146483
+   "pricing": null
   },
   {
    "id": "neo2-047",
    "localId": "047",
-   "name": "Dunsparce",
+   "name": "ダンズパース",
    "rarity": "Common",
    "illustrator": null,
    "image": null,
@@ -1485,19 +952,7 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 0.91
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T08:56:01Z"
-   },
-   "nameJa": "ダンズパース",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/8/8c/DunsparceNeoDiscovery54.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/8/8c/DunsparceNeoDiscovery54.jpg",
-   "ppId": 146472
+   "pricing": null
   },
   {
    "id": "neo2-048",
@@ -1517,19 +972,7 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 1.58
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T08:56:01Z"
-   },
-   "nameJa": "Teddiursa",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/1/18/TeddiursaNeoDiscovery65.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/1/18/TeddiursaNeoDiscovery65.jpg",
-   "ppId": 146463
+   "pricing": null
   },
   {
    "id": "neo2-049",
@@ -1549,19 +992,7 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 5.46
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T08:56:01Z"
-   },
-   "nameJa": "Eevee",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/1/18/EeveeNeoDiscovery38.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/1/18/EeveeNeoDiscovery38.jpg",
-   "ppId": 146479
+   "pricing": null
   },
   {
    "id": "neo2-050",
@@ -1581,24 +1012,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 3.16
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T08:56:01Z"
-   },
-   "nameJa": "Igglybuff",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/6/6d/IgglybuffNeoDiscovery40.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/6/6d/IgglybuffNeoDiscovery40.jpg",
-   "ppId": 146475
+   "pricing": null
   },
   {
    "id": "neo2-051",
    "localId": "051",
-   "name": "Ursaring",
+   "name": "ウルサリング",
    "rarity": "Holo Rare",
    "illustrator": null,
    "image": null,
@@ -1613,19 +1032,7 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "holofoil": {
-      "marketPrice": 16.17
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T08:56:01Z"
-   },
-   "nameJa": "ウルサリング",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/thumb/d/d7/UrsaringNeoDiscovery15.jpg/400px-UrsaringNeoDiscovery15.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/d/d7/UrsaringNeoDiscovery15.jpg",
-   "ppId": 146482
+   "pricing": null
   },
   {
    "id": "neo2-052",
@@ -1645,24 +1052,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "holofoil": {
-      "marketPrice": 18.44
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T08:56:01Z"
-   },
-   "nameJa": "Smeargle",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/2/24/SmeargleNeoDiscovery11.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/2/24/SmeargleNeoDiscovery11.jpg",
-   "ppId": 146478
+   "pricing": null
   },
   {
    "id": "neo2-053",
    "localId": "053",
-   "name": "Energy Ark",
+   "name": "エネルギーアーク",
    "rarity": "Common",
    "illustrator": null,
    "image": null,
@@ -1675,24 +1070,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 2.25
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T08:56:01Z"
-   },
-   "nameJa": "エネルギーアーク",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/c/cb/EnergyArkNeoDiscovery75.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/c/cb/EnergyArkNeoDiscovery75.jpg",
-   "ppId": 64868
+   "pricing": null
   },
   {
    "id": "neo2-054",
    "localId": "054",
-   "name": "Ruin Wall",
+   "name": "壁を台無しにする[カブト]",
    "rarity": "Uncommon",
    "illustrator": null,
    "image": null,
@@ -1705,15 +1088,12 @@
      "foil": null
     }
    ],
-   "pricing": null,
-   "nameJa": "壁を台無しにする[カブト]",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/3/39/RuinWallNeoDiscovery74.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/3/39/RuinWallNeoDiscovery74.jpg"
+   "pricing": null
   },
   {
    "id": "neo2-055",
    "localId": "055",
-   "name": "Fossil Egg",
+   "name": "化石卵",
    "rarity": "Uncommon",
    "illustrator": null,
    "image": null,
@@ -1726,24 +1106,12 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 1.63
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T08:56:01Z"
-   },
-   "nameJa": "化石卵",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/d/d7/FossilEggNeoDiscovery72.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/d/d7/FossilEggNeoDiscovery72.jpg",
-   "ppId": 146570
+   "pricing": null
   },
   {
    "id": "neo2-056",
    "localId": "056",
-   "name": "Hyper Devolution Spray",
+   "name": "ハイパーデボルブスプレー",
    "rarity": "Uncommon",
    "illustrator": null,
    "image": null,
@@ -1756,19 +1124,7 @@
      "foil": null
     }
    ],
-   "pricing": {
-    "tcgplayer": {
-     "normal": {
-      "marketPrice": 1.27
-     }
-    },
-    "currency": "USD",
-    "pricedAt": "2026-09-22T08:56:01Z"
-   },
-   "nameJa": "ハイパーデボルブスプレー",
-   "imageSmall": "https://archives.bulbagarden.net/media/upload/7/78/HyperDevolutionSprayNeoDiscovery73.jpg",
-   "imageLarge": "https://archives.bulbagarden.net/media/upload/7/78/HyperDevolutionSprayNeoDiscovery73.jpg",
-   "ppId": 146525
+   "pricing": null
   },
   {
    "id": "neo2-057",
